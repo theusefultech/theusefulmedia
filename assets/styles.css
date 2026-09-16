@@ -496,7 +496,7 @@ a { color: inherit; }
 .hand { stroke-linecap: round; transform-origin: 50px 50px; }
 .hand-h { stroke: var(--paper); stroke-width: 4; }
 .hand-m { stroke: var(--paper); stroke-width: 3; }
-.hand-s { stroke: var(--purple); stroke-width: 1.6; transition: transform 300ms cubic-bezier(.4,2.2,.5,1); }
+.hand-s { stroke: var(--purple); stroke-width: 1.6; }
 .dial-pin { fill: var(--purple); }
 .cell--apps:hover .dial { transform: rotate(-12deg) scale(1.06); }
 .cell--apps .stat { display: flex; align-items: center; gap: 0.5rem; }

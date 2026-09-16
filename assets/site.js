@@ -161,19 +161,22 @@
     cell.addEventListener("pointerleave", function () { cell.style.transform = ""; });
   });
 
-  // ---------- Live watch dial ----------
+  // ---------- Live watch dial: automatic sweep at 8 beats per second ----------
   var dial = $(".dial");
   if (dial) {
-    var hh = $(".hand-h", dial), mm = $(".hand-m", dial), ss = $(".hand-s", dial), lastS = -1, turns = 0;
-    var tick = function () {
-      var n = new Date(), s = n.getSeconds(), m = n.getMinutes(), h = n.getHours() % 12;
-      if (s === 0 && lastS === 59) turns++;
-      lastS = s;
-      hh.style.transform = "rotate(" + (h * 30 + m * 0.5) + "deg)";
-      mm.style.transform = "rotate(" + (m * 6 + s * 0.1) + "deg)";
-      ss.style.transform = "rotate(" + (turns * 360 + s * 6) + "deg)";
+    var hh = $(".hand-h", dial), mm = $(".hand-m", dial), ss = $(".hand-s", dial);
+    var sweep = function () {
+      var n = new Date();
+      var sec = n.getSeconds() + n.getMilliseconds() / 1000;
+      var beat = reduce ? Math.floor(sec) : Math.floor(sec * 8) / 8;
+      var min = n.getMinutes() + sec / 60;
+      var hr = (n.getHours() % 12) + min / 60;
+      hh.style.transform = "rotate(" + (hr * 30).toFixed(3) + "deg)";
+      mm.style.transform = "rotate(" + (min * 6).toFixed(3) + "deg)";
+      ss.style.transform = "rotate(" + (beat * 6).toFixed(3) + "deg)";
+      requestAnimationFrame(sweep);
     };
-    tick(); setInterval(tick, 1000);
+    requestAnimationFrame(sweep);
   }
 
   // ---------- The six-cell toy ----------

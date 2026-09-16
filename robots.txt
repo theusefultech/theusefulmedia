@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://theusefulmedia.com/sitemap.xml

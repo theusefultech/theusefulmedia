@@ -280,6 +280,7 @@
       if (el.hasAttribute("data-cursor")) return el.getAttribute("data-cursor");
       if (el.classList.contains("toy-cell")) return el.getAttribute("aria-pressed") === "true" ? "Turn off" : "Light it";
       if (el.classList.contains("copy")) return "Copy";
+      if (el.classList.contains("vbtn")) return el.getAttribute("data-dir") === "1" ? "Next" : "Back";
       if (el.classList.contains("footer-mark")) return "Shuffle";
       if (el.classList.contains("to-top")) return "Top";
       var href = el.getAttribute("href") || "";
@@ -375,39 +376,111 @@
     creator.addEventListener("click", function (e) { if (!e.target.closest("a")) play(5200); });
   }
 
-  // ---------- Sticker tape: two bands, speed reacts to scroll ----------
-  var bands = $$(".tape > .band");
-  if (bands.length) {
-    var vel = 0, prevY = window.scrollY;
-    window.addEventListener("scroll", function () {
-      var d = window.scrollY - prevY; prevY = window.scrollY;
-      vel = Math.max(-40, Math.min(40, vel + d * 0.35));
-    }, { passive: true });
-    var state = bands.map(function (b) {
-      var track = $(".band-track", b);
-      var st = { el: b, track: track, x: 0, dir: Number(b.getAttribute("data-dir")), speed: Number(b.getAttribute("data-speed")), slow: 1, half: 0, drag: null };
-      var measure = function () { st.half = track.scrollWidth / 3; };
-      measure(); window.addEventListener("resize", measure);
-      b.addEventListener("mouseenter", function () { st.slow = 0.25; });
-      b.addEventListener("mouseleave", function () { st.slow = 1; st.drag = null; });
-      b.addEventListener("pointerdown", function (e) { st.drag = e.clientX; b.setPointerCapture(e.pointerId); });
-      b.addEventListener("pointermove", function (e) { if (st.drag !== null) { st.x += e.clientX - st.drag; st.drag = e.clientX; } });
-      b.addEventListener("pointerup", function () { st.drag = null; });
-      return st;
+  // ---------- Reader quotes: a swipeable card deck ----------
+  var deck = $(".deck");
+  if (deck) {
+    var voices = deck.closest(".voices");
+    var qcards = $$(".qcard", deck), order = qcards.map(function (_, i) { return i; });
+    var bars = $$(".vbars span", voices), countB = $(".vcount b", voices);
+    var DUR = 7000, autoT = null, paused = false;
+    var fit = function () {
+      var h = 0;
+      qcards.forEach(function (c) { c.style.minHeight = "0"; h = Math.max(h, c.offsetHeight); c.style.minHeight = ""; });
+      deck.style.setProperty("--deck-h", (h + 48) + "px");
+    };
+    var layout = function () {
+      order.forEach(function (idx, k) {
+        var c = qcards[idx];
+        c.classList.toggle("is-top", k === 0);
+        c.setAttribute("aria-hidden", String(k !== 0));
+        c.style.zIndex = String(20 - k);
+        if (!c.classList.contains("is-drag")) {
+          var rot = k === 0 ? 0 : (k % 2 ? 3 : -3) * Math.min(k, 2);
+          c.style.transform = "translate3d(0," + (k * 16) + "px,0) scale(" + (1 - k * 0.05) + ") rotate(" + rot + "deg)";
+          c.style.opacity = k > 2 ? "0" : "1";
+        }
+      });
+      var cur = order[0];
+      bars.forEach(function (bar, i) {
+        bar.classList.remove("now", "done");
+        if (i < cur) bar.classList.add("done");
+      });
+      if (bars[cur]) { void bars[cur].offsetWidth; bars[cur].classList.add("now"); }
+      if (countB) { countB.textContent = cur + 1; countB.classList.remove("bump"); void countB.offsetWidth; countB.classList.add("bump"); }
+    };
+    var schedule = function () {
+      clearTimeout(autoT);
+      if (reduce || paused) return;
+      autoT = setTimeout(function () { go(1, 1); }, DUR);
+    };
+    var go = function (dir, flingX) {
+      var top = qcards[order[0]];
+      if (dir > 0) {
+        var fx = (flingX >= 0 ? 1 : -1);
+        top.style.transform = "translate3d(" + (fx * 120) + "%, -30px, 0) rotate(" + (fx * 18) + "deg)";
+        top.style.opacity = "0";
+        setTimeout(function () {
+          order.push(order.shift());
+          top.style.transition = "none"; layout(); void top.offsetWidth; top.style.transition = "";
+        }, reduce ? 0 : 320);
+        setTimeout(layout, reduce ? 0 : 340);
+      } else {
+        order.unshift(order.pop());
+        var incoming = qcards[order[0]];
+        incoming.style.transition = "none";
+        incoming.style.transform = "translate3d(-120%, -30px, 0) rotate(-18deg)"; incoming.style.opacity = "0";
+        incoming.style.zIndex = "30";
+        void incoming.offsetWidth; incoming.style.transition = "";
+        layout();
+      }
+      schedule();
+    };
+    var jump = function (i) {
+      while (order[0] !== i) order.push(order.shift());
+      layout(); schedule();
+    };
+    // Dragging the top card
+    var sx = 0, sy = 0, dx = 0, dragging = null;
+    deck.addEventListener("pointerdown", function (e) {
+      var top = qcards[order[0]];
+      if (!top.contains(e.target) || e.target.closest("a")) return;
+      dragging = top; sx = e.clientX; sy = e.clientY; dx = 0;
+      top.classList.add("is-drag"); top.setPointerCapture(e.pointerId);
+      clearTimeout(autoT);
     });
-    if (!reduce) {
-      (function run() {
-        vel *= 0.92;
-        state.forEach(function (st) {
-          if (!st.half) st.half = st.track.scrollWidth / 3;
-          if (st.drag === null) st.x += st.dir * (st.speed * st.slow + Math.abs(vel) * 0.25) * (vel < -1 ? -1 : 1);
-          if (st.x <= -st.half) st.x += st.half;
-          if (st.x > 0) st.x -= st.half;
-          st.track.style.transform = "translate3d(" + st.x.toFixed(2) + "px,0,0)";
-        });
-        requestAnimationFrame(run);
-      })();
+    deck.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      dx = e.clientX - sx; var dy = (e.clientY - sy) * 0.25;
+      dragging.style.transform = "translate3d(" + dx + "px," + dy + "px,0) rotate(" + (dx * 0.05) + "deg)";
+    });
+    var release = function () {
+      if (!dragging) return;
+      var c = dragging; dragging = null; c.classList.remove("is-drag");
+      if (Math.abs(dx) > 90) go(1, dx); else { layout(); schedule(); }
+    };
+    deck.addEventListener("pointerup", release);
+    deck.addEventListener("pointercancel", release);
+    // Controls
+    $$(".vbtn", voices).forEach(function (btn) {
+      btn.addEventListener("click", function () { go(Number(btn.getAttribute("data-dir")), 1); });
+    });
+    bars.forEach(function (bar, i) { bar.addEventListener("click", function () { jump(i); }); });
+    deck.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(1, 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(-1, -1); }
+    });
+    voices.addEventListener("mouseenter", function () { paused = true; voices.classList.add("is-paused"); clearTimeout(autoT); });
+    voices.addEventListener("mouseleave", function () { paused = false; voices.classList.remove("is-paused"); schedule(); });
+    // Only auto-advance while the section is on screen
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) { voices.classList.remove("is-paused"); if (!paused) schedule(); }
+        else { clearTimeout(autoT); voices.classList.add("is-paused"); }
+      }, { threshold: 0.4 }).observe(voices);
     }
+    fit(); layout();
+    window.addEventListener("resize", function () { fit(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
   }
 
   // ---------- Gaming card: tiny runner ----------

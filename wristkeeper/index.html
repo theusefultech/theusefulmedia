@@ -2,148 +2,271 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wristkeeper: the watch collection and wear log for iPhone</title>
-<meta name="description" content="Wristkeeper suggests which watch to wear every morning based on the weather, the occasion, and what you wore last. Support and privacy information.">
+<script>(function(d){try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")d.setAttribute("data-theme",t)}catch(e){}d.classList.add("wk-js");setTimeout(function(){if(!window.__wk)d.classList.remove("wk-js")},2500)})(document.documentElement)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wristkeeper: know which watch to wear, every morning</title>
+<meta name="description" content="Wristkeeper is an iPhone app for watch collectors. It picks today's watch from the weather, your plans and your rotation. No account, no ads, no data collected. Coming soon to the App Store.">
 <link rel="canonical" href="https://theusefulmedia.com/wristkeeper/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="The Useful Media Co">
-<meta property="og:title" content="Wristkeeper: the watch collection and wear log for iPhone">
-<meta property="og:description" content="Wristkeeper suggests which watch to wear every morning based on the weather, the occasion, and what you wore last. Support and privacy information.">
+<meta property="og:site_name" content="Wristkeeper">
+<meta property="og:title" content="Wristkeeper: know which watch to wear, every morning">
+<meta property="og:description" content="Wristkeeper is an iPhone app for watch collectors. It picks today's watch from the weather, your plans and your rotation. No account, no ads, no data collected. Coming soon to the App Store.">
 <meta property="og:url" content="https://theusefulmedia.com/wristkeeper/">
-<meta property="og:image" content="https://theusefulmedia.com/assets/og.png">
+<meta property="og:image" content="https://theusefulmedia.com/wristkeeper/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
-
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css">
-<script src="/assets/site.js" defer></script>
+<link rel="icon" href="/wristkeeper/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/wristkeeper/assets/og-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400..600&amp;display=swap">
+<link rel="stylesheet" href="/wristkeeper/assets/wk.css">
+<script src="/wristkeeper/assets/wk.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
+<header class="wk-header">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="The Useful Media Co home"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Media Co</span></a>
-    <div class="header-end">
-      <nav class="nav" aria-label="Main"><a href="/products/">Products</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
-      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+    <a class="wk-logo" href="/wristkeeper/"><img src="/wristkeeper/assets/icon.svg" alt="" width="28" height="28">Wristkeeper</a>
+    <div class="wk-header-end">
+      <button class="theme-btn" type="button" data-mode="system" aria-label="Colour theme: match your device">
         <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
-        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
         <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
       </button>
+      <a class="btn btn--sm" href="https://theusefultech.com" target="_blank" rel="noopener">Get notified</a>
     </div>
   </div>
 </header>
 <main id="main">
 
-<section class="intro is-compact wrap wk-hero">
-  <div class="wk-grid">
-    <div>
-      <p class="wk-status rise"><span class="pulse-dot"></span>Coming to the App Store</p>
-      <h1 class="rise" data-split="words">Wristkeeper tells you which watch to wear every morning.</h1>
-      <p class="lede rise rise-2">It is a collection and wear log for people who own more watches than wrists. Each morning it picks one for you based on the weather, the occasion, and what you wore last.</p>
-      <div class="cta rise rise-3">
-        <a class="btn" href="mailto:raja@theusefultech.com?subject=Wristkeeper%20support">Email support</a>
-        <a class="btn btn--ghost" href="/wristkeeper/privacy/">Read the privacy policy</a>
-      </div>
+<section class="hero wrap" aria-labelledby="hero-title">
+  <p class="eyebrow" data-reveal>An iPhone app for watch collectors</p>
+  <div class="dial">
+    <svg class="dial-ring" viewBox="0 0 200 200" aria-hidden="true"><circle class="track" cx="100" cy="100" r="86"/><circle class="arc" cx="100" cy="100" r="86" pathLength="100" transform="rotate(-90 100 100)"/><circle class="glow" cx="100" cy="100" r="96"/><line class="tick" x1="100.0" y1="1.0" x2="100.0" y2="9.0" style="--i:0"/><line class="tick" x1="119.9" y1="3.0" x2="118.3" y2="10.9" style="--i:1"/><line class="tick" x1="139.0" y1="9.0" x2="135.9" y2="16.4" style="--i:2"/><line class="tick" x1="156.6" y1="18.7" x2="152.0" y2="25.3" style="--i:3"/><line class="tick" x1="171.8" y1="31.8" x2="166.0" y2="37.3" style="--i:4"/><line class="tick" x1="184.0" y1="47.6" x2="177.2" y2="51.9" style="--i:5"/><line class="tick" x1="192.8" y1="65.6" x2="185.3" y2="68.4" style="--i:6"/><line class="tick" x1="197.9" y1="85.0" x2="190.0" y2="86.2" style="--i:7"/><line class="tick" x1="198.9" y1="105.0" x2="190.9" y2="104.6" style="--i:8"/><line class="tick" x1="195.8" y1="124.8" x2="188.1" y2="122.8" style="--i:9"/><line class="tick" x1="188.9" y1="143.6" x2="181.7" y2="140.1" style="--i:10"/><line class="tick" x1="178.3" y1="160.6" x2="172.0" y2="155.7" style="--i:11"/><line class="tick" x1="164.5" y1="175.1" x2="159.3" y2="169.0" style="--i:12"/><line class="tick" x1="148.0" y1="186.6" x2="144.2" y2="179.6" style="--i:13"/><line class="tick" x1="129.6" y1="194.5" x2="127.2" y2="186.8" style="--i:14"/><line class="tick" x1="110.0" y1="198.5" x2="109.2" y2="190.5" style="--i:15"/><line class="tick" x1="90.0" y1="198.5" x2="90.8" y2="190.5" style="--i:16"/><line class="tick" x1="70.4" y1="194.5" x2="72.8" y2="186.8" style="--i:17"/><line class="tick" x1="52.0" y1="186.6" x2="55.8" y2="179.6" style="--i:18"/><line class="tick" x1="35.5" y1="175.1" x2="40.7" y2="169.0" style="--i:19"/><line class="tick" x1="21.7" y1="160.6" x2="28.0" y2="155.7" style="--i:20"/><line class="tick" x1="11.1" y1="143.6" x2="18.3" y2="140.1" style="--i:21"/><line class="tick" x1="4.2" y1="124.8" x2="11.9" y2="122.8" style="--i:22"/><line class="tick" x1="1.1" y1="105.0" x2="9.1" y2="104.6" style="--i:23"/><line class="tick" x1="2.1" y1="85.0" x2="10.0" y2="86.2" style="--i:24"/><line class="tick" x1="7.2" y1="65.6" x2="14.7" y2="68.4" style="--i:25"/><line class="tick" x1="16.0" y1="47.6" x2="22.8" y2="51.9" style="--i:26"/><line class="tick" x1="28.2" y1="31.8" x2="34.0" y2="37.3" style="--i:27"/><line class="tick" x1="43.4" y1="18.7" x2="48.0" y2="25.3" style="--i:28"/><line class="tick" x1="61.0" y1="9.0" x2="64.1" y2="16.4" style="--i:29"/><line class="tick" x1="80.1" y1="3.0" x2="81.7" y2="10.9" style="--i:30"/><g class="lead"><circle cx="100" cy="14" r="2.6"/></g></svg>
+    <div class="dial-icon"><img src="/wristkeeper/assets/icon.svg" alt="Wristkeeper app icon" width="120" height="120"><img class="real" src="/wristkeeper/assets/app-icon.png" alt="" width="1024" height="1024" onload="this.classList.add('is-loaded')"></div>
+  </div>
+  <h1 id="hero-title" data-reveal>Wristkeeper</h1>
+  <p class="tagline" data-reveal style="--delay:80ms">Know which watch to wear, every morning.</p>
+  <div class="hero-actions" data-reveal style="--delay:160ms">
+    <div class="store-badge" role="img" aria-label="Coming soon to the App Store">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#6547E0"/><path d="M9 18.5l5.5-10M17 18.5l-2-3.6M7.5 15.5h8.5M18 15.5h1" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span><small>Coming soon to the</small><b>App Store</b></span>
     </div>
-    <div class="wk-demo" aria-hidden="true">
-      <svg class="month-dial" viewBox="0 0 320 320">
-        <g class="md-ticks"><line class="md-tick" x1="160" y1="18" x2="160" y2="40" transform="rotate(0.00 160 160)" style="--d:0"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(11.61 160 160)" style="--d:1"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(23.23 160 160)" style="--d:2"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(34.84 160 160)" style="--d:3"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(46.45 160 160)" style="--d:4"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(58.06 160 160)" style="--d:5"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(69.68 160 160)" style="--d:6"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="40" transform="rotate(81.29 160 160)" style="--d:7"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(92.90 160 160)" style="--d:8"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(104.52 160 160)" style="--d:9"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(116.13 160 160)" style="--d:10"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(127.74 160 160)" style="--d:11"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(139.35 160 160)" style="--d:12"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(150.97 160 160)" style="--d:13"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="40" transform="rotate(162.58 160 160)" style="--d:14"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(174.19 160 160)" style="--d:15"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(185.81 160 160)" style="--d:16"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(197.42 160 160)" style="--d:17"/><line class="md-tick worn" x1="160" y1="18" x2="160" y2="34" transform="rotate(209.03 160 160)" style="--d:18"/><line class="md-tick today" x1="160" y1="18" x2="160" y2="34" transform="rotate(220.65 160 160)" style="--d:19"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(232.26 160 160)" style="--d:20"/><line class="md-tick" x1="160" y1="18" x2="160" y2="40" transform="rotate(243.87 160 160)" style="--d:21"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(255.48 160 160)" style="--d:22"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(267.10 160 160)" style="--d:23"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(278.71 160 160)" style="--d:24"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(290.32 160 160)" style="--d:25"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(301.94 160 160)" style="--d:26"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(313.55 160 160)" style="--d:27"/><line class="md-tick" x1="160" y1="18" x2="160" y2="40" transform="rotate(325.16 160 160)" style="--d:28"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(336.77 160 160)" style="--d:29"/><line class="md-tick" x1="160" y1="18" x2="160" y2="34" transform="rotate(348.39 160 160)" style="--d:30"/></g>
-        <circle class="md-ring" cx="160" cy="160" r="112"/>
-      </svg>
-      <div class="pick">
-        <span class="pick-label">Today's pick</span>
-        <div class="pick-stage">
-          <div class="pick-item is-on"><b>Diver</b><span class="pick-wx wx-sun">Sunny, 31°</span><em>Weekend at the beach</em></div><div class="pick-item"><b>Dress watch</b><span class="pick-wx wx-moon">Clear, 26°</span><em>Dinner out</em></div><div class="pick-item"><b>Field watch</b><span class="pick-wx wx-rain">Rain, 24°</span><em>Office day</em></div><div class="pick-item"><b>Chronograph</b><span class="pick-wx wx-cloud">Cloudy, 28°</span><em>Worn least this month</em></div>
+    <a class="btn btn--lg" href="https://theusefultech.com" target="_blank" rel="noopener">Get notified at launch <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+  </div>
+  <ul class="facts" data-reveal style="--delay:240ms" aria-label="Privacy at a glance">
+    <li>No account</li><li>No ads</li><li>No data collected</li>
+  </ul>
+</section>
+
+<section class="feature" aria-labelledby="f1">
+  <div class="wrap feature-grid">
+    <div class="feature-copy" data-reveal>
+      <p class="eyebrow"><b>01</b> The daily pick</p>
+      <h2 id="f1">One watch, picked before your coffee.</h2>
+      <p>Wristkeeper checks the weather, your plans and how long each watch has waited. Then it makes one clear suggestion.</p>
+      <ul class="points"><li>Reads the weather</li><li>Fits the occasion</li><li>Gives quiet watches a turn</li></ul>
+    </div>
+    <div class="stage" data-reveal style="--delay:120ms">
+      <div class="ui-card" data-pick>
+        <div class="pick-top"><span class="ui-label">Today's pick</span><span class="wx"><svg data-wx="rain" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 12.5a3.5 3.5 0 1 1 .7-6.9A4.5 4.5 0 0 1 15.2 8 2.3 2.3 0 0 1 15 12.5z" fill="#8FA3C8"/><path d="M7 15l-1 2.5M10.5 15l-1 2.5M14 15l-1 2.5" stroke="#5B7FD6" stroke-width="1.6" stroke-linecap="round"/></svg><svg data-wx="moon" viewBox="0 0 20 20" aria-hidden="true" style="display:none"><path d="M15.5 12.5A6.5 6.5 0 0 1 7.5 4.5a6.5 6.5 0 1 0 8 8z" fill="#9C88F2"/></svg><svg data-wx="sun" viewBox="0 0 20 20" aria-hidden="true" style="display:none"><circle cx="10" cy="10" r="4" fill="#F5B83D"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M4.3 15.7l1.4-1.4M14.3 5.7l1.4-1.4" stroke="#F5B83D" stroke-width="1.6" stroke-linecap="round"/></svg><svg data-wx="cloud" viewBox="0 0 20 20" aria-hidden="true" style="display:none"><path d="M6 15a3.5 3.5 0 1 1 .7-6.9A4.5 4.5 0 0 1 15.2 10.5 2.3 2.3 0 0 1 15 15z" fill="#A7A9BC"/></svg><span class="swap" data-pick-wx>Rain 22°</span></span></div>
+        <svg class="pick-watch" viewBox="0 0 132 160" aria-hidden="true">
+              <rect class="strap" x="42" y="0" width="48" height="44" rx="8"/>
+              <rect class="strap" x="42" y="116" width="48" height="44" rx="8"/>
+              <rect class="case" x="112" y="70" width="10" height="20" rx="3"/>
+              <circle class="case" cx="66" cy="80" r="50"/>
+              <circle class="dialface" cx="66" cy="80" r="42"/>
+              <g class="idx"><path d="M66 44v8M66 108v8M30 80h8M94 80h8"/><path d="M84 48.8l-2 3.5M97.2 62l-3.5 2M97.2 98l-3.5-2M84 111.2l-2-3.5M48 111.2l2-3.5M34.8 98l3.5-2M34.8 62l3.5 2M48 48.8l2 3.5" stroke-width="1.6"/></g>
+              <line class="hh" x1="66" y1="80" x2="66" y2="56"/>
+              <line class="mh" x1="66" y1="80" x2="66" y2="46"/>
+              <line class="sec" x1="66" y1="88" x2="66" y2="42"/>
+              <circle cx="66" cy="80" r="3" fill="#6547E0"/>
+            </svg>
+        <div class="pick-body">
+          <h3 class="pick-name swap" data-pick-name aria-live="polite">Field watch</h3>
+          <p class="pick-why swap" data-pick-why>Rain after four. Last worn 12 days ago.</p>
         </div>
-        <button class="pick-next" type="button" tabindex="-1">Try another day</button>
+        <div class="chips" role="group" aria-label="Choose an occasion">
+          <button class="chip" type="button" data-occ="office" aria-pressed="true">Office</button>
+          <button class="chip" type="button" data-occ="dinner" aria-pressed="false">Dinner</button>
+          <button class="chip" type="button" data-occ="weekend" aria-pressed="false">Weekend</button>
+          <button class="chip" type="button" data-occ="travel" aria-pressed="false">Travel</button>
+        </div>
+        <p class="hint">Tap an occasion</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section wrap" aria-labelledby="wk-feat">
-  <div class="section-head">
-    <h2 id="wk-feat" data-split="words">Four things Wristkeeper does for your collection.</h2>
-  </div>
-  <div class="wk-features">
-    <article class="wkf"><span class="wkf-ico"><svg class="ico ico-watch" viewBox="0 0 48 48"><path class="band" d="M18 10l2-7h8l2 7M18 38l2 7h8l2-7"/><rect class="body" x="11" y="10" width="26" height="28" rx="8"/><path class="hand" d="M24 24v-7"/><path class="hand2" d="M24 24h5"/><path class="crown" d="M37 20v6"/></svg></span><h3>Picks today's watch</h3><p>A morning suggestion that weighs the weather, where you're going, and what you wore this week.</p></article>
-    <article class="wkf"><span class="wkf-ico"><svg class="ico" viewBox="0 0 48 48"><circle class="body" cx="24" cy="24" r="17"/><path class="hand" d="M24 13v11l7 4"/></svg></span><h3>Logs every wear</h3><p>One tap records what's on your wrist, and a month dial shows your wear history at a glance.</p></article>
-    <article class="wkf"><span class="wkf-ico"><svg class="ico" viewBox="0 0 48 48"><rect class="body" x="7" y="7" width="14" height="14" rx="3"/><rect class="body" x="27" y="7" width="14" height="14" rx="3"/><rect class="body" x="7" y="27" width="14" height="14" rx="3"/><rect class="body" x="27" y="27" width="14" height="14" rx="3"/></svg></span><h3>Holds your collection</h3><p>Photos, brands, dial colours, and straps, with filters to see your collection any way you like.</p></article>
-    <article class="wkf"><span class="wkf-ico"><svg class="ico" viewBox="0 0 48 48"><path class="body" d="M8 38V22M18 38V12M28 38V26M38 38V16"/></svg></span><h3>Shows the patterns</h3><p>Most and least worn, cost per wear, and the watches that haven't left the box this month.</p></article>
+<section class="feature is-flip" aria-labelledby="f2">
+  <div class="wrap feature-grid">
+    <div class="feature-copy" data-reveal>
+      <p class="eyebrow"><b>02</b> Logging a wear</p>
+      <h2 id="f2">One tap. Every wear counts.</h2>
+      <p>Log what is on your wrist in a second. Cost per wear and your rotation update on their own.</p>
+      <ul class="points"><li>Cost per wear</li><li>Days since last worn</li><li>Your month at a glance</li></ul>
+    </div>
+    <div class="stage" data-reveal style="--delay:120ms">
+      <div class="ui-card" data-log>
+        <div class="log-head">
+          <span class="log-thumb"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="9" fill="none" stroke="#fff" stroke-width="2"/><path d="M14 9v5l3 2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <div><b>Diver</b><span>Paid $1,200</span></div>
+        </div>
+        <div class="cpw">
+          <div>
+            <p class="ui-label">Cost per wear</p>
+            <p class="cpw-num" aria-live="polite"><span class="cur">$</span><span data-cpw>31.58</span></p>
+            <span class="cpw-delta" data-delta>Down $0.81 per wear</span>
+          </div>
+          <p class="cpw-meta"><b data-wears>38 wears</b>since March</p>
+        </div>
+        <div class="month" aria-hidden="true"><i></i><i class="w"></i><i></i><i></i><i class="w"></i><i class="w"></i><i></i><i></i><i></i><i class="w"></i><i></i><i></i><i class="w"></i><i class="w"></i><i></i><i></i><i></i><i class="w"></i><i></i><i></i><i class="w"></i><i></i><i class="w"></i><i class="w"></i><i></i><i></i><i class="w"></i><i></i><i></i><i class="today"></i></div>
+        <div class="month-cap"><span>30 days ago</span><span>Today</span></div>
+        <button class="btn log-btn" type="button" aria-pressed="false"><span class="todo">Wore it today</span><span class="done"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg> Logged for today</span></button>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="wrap" aria-labelledby="wk-private">
-  <div class="promise">
-    <h2 id="wk-private">Your collection never leaves your iPhone.</h2>
-    <ul>
-      <li><b>No accounts</b><span>Open the app and start adding watches.</span></li>
-      <li><b>No analytics</b><span>Nothing tracks how you use it.</span></li>
-      <li><b>No servers</b><span>Your photos and wear history stay on your device.</span></li>
-    </ul>
-    <a class="chip" href="/wristkeeper/privacy/">Read the full privacy policy</a>
+<section class="feature" aria-labelledby="f3">
+  <div class="wrap feature-grid">
+    <div class="feature-copy" data-reveal>
+      <p class="eyebrow"><b>03</b> Insights and the Wrist Report</p>
+      <h2 id="f3">Your habits, ready to share.</h2>
+      <p>See which watches carry the load and which ones wait. Each month, your Wrist Report sums it up in one card.</p>
+      <ul class="points"><li>Most and least worn</li><li>Rotation over time</li><li>Cards made for sharing</li></ul>
+    </div>
+    <div class="stage" data-reveal style="--delay:120ms">
+      <div class="cards">
+        <article class="ui-card report">
+          <span class="share-pill"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 10V2M5 5l3-3 3 3M3 9v4h10V9"/></svg>Share</span>
+          <p class="ui-label">Wrist Report</p>
+          <h3>September</h3>
+          <div class="report-stats">
+            <div><b>27</b><span>days logged</span></div>
+            <div><b>7</b><span>watches worn</span></div>
+            <div><b>$18</b><span>average per wear</span></div>
+          </div>
+        </article>
+        <article class="ui-card insight" data-bars>
+          <p class="ui-label">Insight</p>
+          <h3>Three watches did most of the wearing.</h3>
+          <div class="bars">
+            <div class="bar"><span>Field watch</span><i style="--v:100%"></i><em>9</em></div>
+            <div class="bar"><span>Diver</span><i style="--v:78%"></i><em>7</em></div>
+            <div class="bar"><span>GMT</span><i style="--v:67%"></i><em>6</em></div>
+            <div class="bar"><span>Dress watch</span><i style="--v:22%"></i><em>2</em></div>
+          </div>
+        </article>
+      </div>
+    </div>
   </div>
+</section>
+
+<section class="feature is-flip" aria-labelledby="f4">
+  <div class="wrap feature-grid">
+    <div class="feature-copy" data-reveal>
+      <p class="eyebrow"><b>04</b> Ask your collection</p>
+      <h2 id="f4">Ask your collection anything.</h2>
+      <p>An AI that runs on your iPhone knows your watches and your wear log. Ask in plain words. Your questions stay on your phone.</p>
+      <ul class="points"><li>Runs on your iPhone</li><li>Answers from your own log</li></ul>
+    </div>
+    <div class="stage" data-reveal style="--delay:120ms">
+      <div class="ui-card chat" data-chat>
+        <div class="chat-head"><b>Ask</b><span class="ondevice"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1.2"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>On device</span></div>
+        <p class="msg me">What have I ignored this summer?</p>
+        <p class="msg ai">Your <b>dress watch</b>. It has waited 63 days. Tonight is clear and 24°, a good night for it.</p>
+        <p class="msg me">Which watch earns its keep?</p>
+        <p class="msg ai">Your <b>field watch</b>. 41 wears this year, about $9.76 per wear.</p>
+        <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
+        <div class="ask-bar" aria-hidden="true"><span>Ask about your collection</span><i><svg viewBox="0 0 16 16"><path d="M8 13V3M4 7l4-4 4 4"/></svg></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shots" aria-labelledby="shots-title">
+  <div class="wrap shots-head" data-reveal>
+    <p class="eyebrow">A look inside</p>
+    <h2 id="shots-title">Calm screens for busy mornings.</h2>
+    <p>Five screens from the app. Quick to read, quick to tap.</p>
+    <p class="reel-hint">Swipe <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></p>
+  </div>
+  <div class="wrap" style="padding-inline:0">
+    <ul class="reel" aria-label="App screenshots">
+      <li data-reveal style="--delay:0ms">
+        <figure>
+          <div class="phone"><div class="screen ph-1"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><svg class="ph-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="c" cx="50" cy="50" r="30"/><line class="t on" x1="50.0" y1="2.0" x2="50.0" y2="9.0" style="--i:0"/><line class="t on" x1="59.7" y1="3.0" x2="58.3" y2="9.8" style="--i:1"/><line class="t on" x1="68.9" y1="5.9" x2="66.2" y2="12.3" style="--i:2"/><line class="t on" x1="77.4" y1="10.6" x2="73.4" y2="16.3" style="--i:3"/><line class="t on" x1="84.8" y1="16.9" x2="79.7" y2="21.8" style="--i:4"/><line class="t on" x1="90.7" y1="24.6" x2="84.8" y2="28.3" style="--i:5"/><line class="t on" x1="95.0" y1="33.3" x2="88.4" y2="35.8" style="--i:6"/><line class="t on" x1="97.4" y1="42.7" x2="90.5" y2="43.8" style="--i:7"/><line class="t on" x1="97.9" y1="52.4" x2="90.9" y2="52.1" style="--i:8"/><line class="t on" x1="96.5" y1="62.0" x2="89.7" y2="60.3" style="--i:9"/><line class="t on" x1="93.1" y1="71.1" x2="86.8" y2="68.1" style="--i:10"/><line class="t on" x1="88.0" y1="79.4" x2="82.4" y2="75.1" style="--i:11"/><line class="t on" x1="81.3" y1="86.4" x2="76.7" y2="81.1" style="--i:12"/><line class="t on" x1="73.3" y1="92.0" x2="69.9" y2="85.8" style="--i:13"/><line class="t on" x1="64.4" y1="95.8" x2="62.3" y2="89.1" style="--i:14"/><line class="t on" x1="54.9" y1="97.8" x2="54.1" y2="90.8" style="--i:15"/><line class="t on" x1="45.1" y1="97.8" x2="45.9" y2="90.8" style="--i:16"/><line class="t on" x1="35.6" y1="95.8" x2="37.7" y2="89.1" style="--i:17"/><line class="t on" x1="26.7" y1="92.0" x2="30.1" y2="85.8" style="--i:18"/><line class="t" x1="18.7" y1="86.4" x2="23.3" y2="81.1" style="--i:19"/><line class="t" x1="12.0" y1="79.4" x2="17.6" y2="75.1" style="--i:20"/><line class="t" x1="6.9" y1="71.1" x2="13.2" y2="68.1" style="--i:21"/><line class="t" x1="3.5" y1="62.0" x2="10.3" y2="60.3" style="--i:22"/><line class="t" x1="2.1" y1="52.4" x2="9.1" y2="52.1" style="--i:23"/><line class="t" x1="2.6" y1="42.7" x2="9.5" y2="43.8" style="--i:24"/><line class="t" x1="5.0" y1="33.3" x2="11.6" y2="35.8" style="--i:25"/><line class="t" x1="9.3" y1="24.6" x2="15.2" y2="28.3" style="--i:26"/><line class="t" x1="15.2" y1="16.9" x2="20.3" y2="21.8" style="--i:27"/><line class="t" x1="22.6" y1="10.6" x2="26.6" y2="16.3" style="--i:28"/><line class="t" x1="31.1" y1="5.9" x2="33.8" y2="12.3" style="--i:29"/><line class="t" x1="40.3" y1="3.0" x2="41.7" y2="9.8" style="--i:30"/></svg></div><div class="ph-rows"><i></i><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-1.png" alt="Wristkeeper showing today's watch pick with the weather" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
+          <figcaption><span>01</span>Today's pick</figcaption>
+        </figure>
+      </li>
+      <li data-reveal style="--delay:80ms">
+        <figure>
+          <div class="phone"><div class="screen ph-2"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><div class="ph-rows" style="width:100%"><i></i><i></i><i></i><i></i><i></i></div></div><div class="ph-rows"><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-2.png" alt="Logging a wear in Wristkeeper" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
+          <figcaption><span>02</span>Log a wear</figcaption>
+        </figure>
+      </li>
+      <li data-reveal style="--delay:160ms">
+        <figure>
+          <div class="phone"><div class="screen ph-3"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><div class="ph-cols"><i style="--h:92%"></i><i style="--h:70%"></i><i style="--h:58%"></i><i style="--h:30%"></i><i style="--h:16%"></i></div></div><div class="ph-rows"><i></i><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-3.png" alt="Wristkeeper Insights showing the most worn watches" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
+          <figcaption><span>03</span>Insights</figcaption>
+        </figure>
+      </li>
+      <li data-reveal style="--delay:240ms">
+        <figure>
+          <div class="phone"><div class="screen ph-4"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><svg class="ph-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="c" cx="50" cy="50" r="30"/><line class="t on" x1="50.0" y1="2.0" x2="50.0" y2="9.0" style="--i:0"/><line class="t on" x1="59.7" y1="3.0" x2="58.3" y2="9.8" style="--i:1"/><line class="t on" x1="68.9" y1="5.9" x2="66.2" y2="12.3" style="--i:2"/><line class="t on" x1="77.4" y1="10.6" x2="73.4" y2="16.3" style="--i:3"/><line class="t on" x1="84.8" y1="16.9" x2="79.7" y2="21.8" style="--i:4"/><line class="t on" x1="90.7" y1="24.6" x2="84.8" y2="28.3" style="--i:5"/><line class="t on" x1="95.0" y1="33.3" x2="88.4" y2="35.8" style="--i:6"/><line class="t on" x1="97.4" y1="42.7" x2="90.5" y2="43.8" style="--i:7"/><line class="t on" x1="97.9" y1="52.4" x2="90.9" y2="52.1" style="--i:8"/><line class="t on" x1="96.5" y1="62.0" x2="89.7" y2="60.3" style="--i:9"/><line class="t on" x1="93.1" y1="71.1" x2="86.8" y2="68.1" style="--i:10"/><line class="t on" x1="88.0" y1="79.4" x2="82.4" y2="75.1" style="--i:11"/><line class="t on" x1="81.3" y1="86.4" x2="76.7" y2="81.1" style="--i:12"/><line class="t on" x1="73.3" y1="92.0" x2="69.9" y2="85.8" style="--i:13"/><line class="t on" x1="64.4" y1="95.8" x2="62.3" y2="89.1" style="--i:14"/><line class="t on" x1="54.9" y1="97.8" x2="54.1" y2="90.8" style="--i:15"/><line class="t on" x1="45.1" y1="97.8" x2="45.9" y2="90.8" style="--i:16"/><line class="t on" x1="35.6" y1="95.8" x2="37.7" y2="89.1" style="--i:17"/><line class="t on" x1="26.7" y1="92.0" x2="30.1" y2="85.8" style="--i:18"/><line class="t on" x1="18.7" y1="86.4" x2="23.3" y2="81.1" style="--i:19"/><line class="t on" x1="12.0" y1="79.4" x2="17.6" y2="75.1" style="--i:20"/><line class="t on" x1="6.9" y1="71.1" x2="13.2" y2="68.1" style="--i:21"/><line class="t on" x1="3.5" y1="62.0" x2="10.3" y2="60.3" style="--i:22"/><line class="t on" x1="2.1" y1="52.4" x2="9.1" y2="52.1" style="--i:23"/><line class="t on" x1="2.6" y1="42.7" x2="9.5" y2="43.8" style="--i:24"/><line class="t on" x1="5.0" y1="33.3" x2="11.6" y2="35.8" style="--i:25"/><line class="t on" x1="9.3" y1="24.6" x2="15.2" y2="28.3" style="--i:26"/><line class="t on" x1="15.2" y1="16.9" x2="20.3" y2="21.8" style="--i:27"/><line class="t on" x1="22.6" y1="10.6" x2="26.6" y2="16.3" style="--i:28"/><line class="t on" x1="31.1" y1="5.9" x2="33.8" y2="12.3" style="--i:29"/><line class="t on" x1="40.3" y1="3.0" x2="41.7" y2="9.8" style="--i:30"/></svg></div><div class="ph-rows"><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-4.png" alt="The monthly Wrist Report card" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
+          <figcaption><span>04</span>Wrist Report</figcaption>
+        </figure>
+      </li>
+      <li data-reveal style="--delay:320ms">
+        <figure>
+          <div class="phone"><div class="screen ph-5"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><div class="ph-bubbles"><i class="me"></i><i class="long"></i><i class="me"></i><i></i></div></div><div class="ph-rows"><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-5.png" alt="Asking the on device AI about a watch collection" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
+          <figcaption><span>05</span>Ask your collection</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="privacy wrap" aria-labelledby="f5">
+  <div class="band" data-reveal>
+    <div class="band-copy">
+      <p class="eyebrow"><b>05</b> Privacy</p>
+      <h2 id="f5">Your collection stays on your phone.</h2>
+      <p>Your watches, photos and wear log live on your iPhone. We never see them.</p>
+      <a class="band-link" href="/wristkeeper/privacy/">Read the privacy policy <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <ul class="zeros">
+      <li><b>0</b><span><strong>Accounts</strong><small>Open the app and start.</small></span></li>
+      <li><b>0</b><span><strong>Ads</strong><small>No banners. No sponsors.</small></span></li>
+      <li><b>0</b><span><strong>Data collected</strong><small>Nothing about you, ever.</small></span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="launch wrap" aria-labelledby="launch-title" data-reveal>
+  <svg class="launch-ring" viewBox="0 0 100 100" aria-hidden="true"><line class="t on" x1="50.0" y1="2.0" x2="50.0" y2="11.0" style="--i:0"/><line class="t on" x1="59.7" y1="3.0" x2="57.9" y2="11.8" style="--i:1"/><line class="t on" x1="68.9" y1="5.9" x2="65.4" y2="14.2" style="--i:2"/><line class="t on" x1="77.4" y1="10.6" x2="72.3" y2="18.0" style="--i:3"/><line class="t on" x1="84.8" y1="16.9" x2="78.3" y2="23.1" style="--i:4"/><line class="t on" x1="90.7" y1="24.6" x2="83.1" y2="29.4" style="--i:5"/><line class="t on" x1="95.0" y1="33.3" x2="86.6" y2="36.5" style="--i:6"/><line class="t on" x1="97.4" y1="42.7" x2="88.6" y2="44.1" style="--i:7"/><line class="t on" x1="97.9" y1="52.4" x2="88.9" y2="52.0" style="--i:8"/><line class="t on" x1="96.5" y1="62.0" x2="87.8" y2="59.8" style="--i:9"/><line class="t on" x1="93.1" y1="71.1" x2="85.0" y2="67.2" style="--i:10"/><line class="t on" x1="88.0" y1="79.4" x2="80.8" y2="73.9" style="--i:11"/><line class="t on" x1="81.3" y1="86.4" x2="75.4" y2="79.6" style="--i:12"/><line class="t on" x1="73.3" y1="92.0" x2="68.9" y2="84.1" style="--i:13"/><line class="t on" x1="64.4" y1="95.8" x2="61.7" y2="87.2" style="--i:14"/><line class="t on" x1="54.9" y1="97.8" x2="53.9" y2="88.8" style="--i:15"/><line class="t on" x1="45.1" y1="97.8" x2="46.1" y2="88.8" style="--i:16"/><line class="t on" x1="35.6" y1="95.8" x2="38.3" y2="87.2" style="--i:17"/><line class="t on" x1="26.7" y1="92.0" x2="31.1" y2="84.1" style="--i:18"/><line class="t on" x1="18.7" y1="86.4" x2="24.6" y2="79.6" style="--i:19"/><line class="t on" x1="12.0" y1="79.4" x2="19.2" y2="73.9" style="--i:20"/><line class="t on" x1="6.9" y1="71.1" x2="15.0" y2="67.2" style="--i:21"/><line class="t on" x1="3.5" y1="62.0" x2="12.2" y2="59.8" style="--i:22"/><line class="t on" x1="2.1" y1="52.4" x2="11.1" y2="52.0" style="--i:23"/><line class="t on" x1="2.6" y1="42.7" x2="11.4" y2="44.1" style="--i:24"/><line class="t on" x1="5.0" y1="33.3" x2="13.4" y2="36.5" style="--i:25"/><line class="t on" x1="9.3" y1="24.6" x2="16.9" y2="29.4" style="--i:26"/><line class="t on" x1="15.2" y1="16.9" x2="21.7" y2="23.1" style="--i:27"/><line class="t on" x1="22.6" y1="10.6" x2="27.7" y2="18.0" style="--i:28"/><line class="t on" x1="31.1" y1="5.9" x2="34.6" y2="14.2" style="--i:29"/><line class="t on" x1="40.3" y1="3.0" x2="42.1" y2="11.8" style="--i:30"/></svg>
+  <h2 id="launch-title">Be first to know when it lands.</h2>
+  <p>Wristkeeper is coming soon to the App Store. Get a note on launch day.</p>
+  <a class="btn btn--lg" href="https://theusefultech.com" target="_blank" rel="noopener">Get notified at launch <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
 </section>
 
 </main>
-<footer class="site-footer">
+<footer class="wk-footer">
   <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <h2>Send sponsorship ideas and reader questions to one inbox.</h2>
-        <p class="mail-line"><a class="mail" href="mailto:raja@theusefultech.com">raja@theusefultech.com</a><button class="copy" type="button" data-copy="raja@theusefultech.com"><span class="copy-label">Copy email</span></button></p>
-      </div>
-      <div class="footer-cols">
-        <div>
-          <h3>Brands</h3>
-          <ul>
-            <li><a href="https://theusefultech.com" target="_blank" rel="noopener">The Useful Tech</a></li>
-            <li><a href="https://medium.com/the-useful-life" target="_blank" rel="noopener">The Useful Life</a></li>
-            <li><a href="https://medium.com/the-useful-creator" target="_blank" rel="noopener">The Useful Creator</a></li>
-            <li><a href="https://www.instagram.com/theusefulgaming/" target="_blank" rel="noopener">The Useful Gaming</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Company</h3>
-          <ul>
-            <li><a href="/products/">Products</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/contact/">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Follow</h3>
-          <ul>
-            <li><a href="https://www.instagram.com/theusefultech/" target="_blank" rel="noopener">Tech on Instagram</a></li>
-            <li><a href="https://www.youtube.com/@theusefultech9850" target="_blank" rel="noopener">Tech on YouTube</a></li>
-            <li><a href="https://www.instagram.com/theuseful_life_/" target="_blank" rel="noopener">Life on Instagram</a></li>
-            <li><a href="https://www.youtube.com/@TheUsefulLife123" target="_blank" rel="noopener">Life on YouTube</a></li>
-            <li><a href="https://www.instagram.com/theusefulgaming/" target="_blank" rel="noopener">Gaming on Instagram</a></li>
-            <li><a href="https://www.youtube.com/@theusefulgaming" target="_blank" rel="noopener">Gaming on YouTube</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Apps</h3>
-          <ul>
-            <li><a href="/wristkeeper/">Wristkeeper</a></li>
-            <li><a href="/wristkeeper/privacy/">Privacy policy</a></li>
-          </ul>
-        </div>
-      </div>
+    <div class="foot-row">
+      <a class="wk-logo" href="/wristkeeper/"><img src="/wristkeeper/assets/icon.svg" alt="" width="28" height="28">Wristkeeper</a>
+      <nav aria-label="Wristkeeper"><a href="/wristkeeper/support/">Support</a><a href="/wristkeeper/terms/">Terms</a><a href="/wristkeeper/privacy/">Privacy</a></nav>
     </div>
-    <div class="footer-base">
-      <span>&copy; <span data-year>2026</span> The Useful Media Co. Chennai, India.</span>
-      <button class="footer-mark" type="button" aria-label="Shuffle the logo"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg></button>
+    <div class="foot-row">
+      <span class="by">&copy; <span data-year>2026</span> <a href="/">The Useful Media Co</a></span>
+      <span class="by">Made for people with more watches than wrists.</span>
     </div>
   </div>
 </footer>
-<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 44 44" aria-hidden="true"><circle class="ring-bg" cx="22" cy="22" r="20"/><circle class="ring" cx="22" cy="22" r="20" pathLength="100"/><path class="arrow" d="M22 29V15M16 21l6-6 6 6"/></svg></button>
-<div class="progress" aria-hidden="true"></div>
-<div class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

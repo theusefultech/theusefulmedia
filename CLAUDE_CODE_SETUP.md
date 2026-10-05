@@ -53,7 +53,7 @@ The page wristkeeper/privacy/index.html already contains the policy as it stood 
 - wristkeeper/index.html: Wristkeeper landing page
 - wristkeeper/support/index.html: Wristkeeper FAQ and contact (the App Store Support URL)
 - wristkeeper/terms/index.html: Wristkeeper terms of use
-- wristkeeper/assets/: the Wristkeeper pages' own look (wk.css, wk.js, Geist from Google Fonts), icon, social image, and screenshot slots shot-1.png to shot-5.png
+- wristkeeper/assets/: the Wristkeeper pages' own look (wk.css, wk.js, self hosted Geist in fonts/), app icon (app-icon.png, icon-180.png), social image, and screenshot slots shot-1.png to shot-5.png
 - wristkeeper/privacy/index.html: privacy policy (the App Store Privacy Policy URL)
 - 404.html, CNAME, .nojekyll, robots.txt, sitemap.xml, favicon.svg
 - assets/styles.css, assets/site.js, assets/og.png, assets/fonts/, assets/products/ (product covers)

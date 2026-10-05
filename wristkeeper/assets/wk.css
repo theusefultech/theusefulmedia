@@ -595,3 +595,4 @@ img.real.is-loaded { opacity: 1; }
 @media (max-width: 400px) { .chip { font-size: 0.8rem; } .ui-card { padding: 18px 16px; } }
 :root[data-theme="dark"] .wk-logo img { box-shadow: 0 0 0 1px rgba(255, 255, 255, .16); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .wk-logo img { box-shadow: 0 0 0 1px rgba(255, 255, 255, .16); } }
+.launch .launch-note { margin: 18px auto 0; max-width: 40ch; font-size: 0.88rem; line-height: 1.5; color: var(--ink-3); }

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Every message you have ever sent | The Useful Tech</title>
+<meta name="description" content="ChatGPT can now read and send your iMessages. What that permission actually covers.">
+<link rel="canonical" href="https://theusefulmedia.com/tech/library/the-deep-dive-007-every-message-you-have-ever-sent/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="Every message you have ever sent | The Useful Tech">
+<meta property="og:description" content="ChatGPT can now read and send your iMessages. What that permission actually covers.">
+<meta property="og:url" content="https://theusefulmedia.com/tech/library/the-deep-dive-007-every-message-you-have-ever-sent/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/library/library.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Every message you have ever sent", "description": "ChatGPT can now read and send your iMessages. What that permission actually covers.", "datePublished": "2026-08-26T17:00:00+00:00", "image": "https://theusefulmedia.com/tech/og.png", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/library/the-deep-dive-007-every-message-you-have-ever-sent/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/library/">Library</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #007</span><span class="ic-date">Aug 26, 2026</span></p>
+    <h1>Every message you have ever sent</h1>
+    <p class="is-sub">ChatGPT can now read and send your iMessages. What that permission actually covers.</p>
+  </header>
+  
+  <div class="is-body">
+<p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>Last Thursday, OpenAI shipped a plugin for the ChatGPT desktop app on Mac that lets ChatGPT read, search, draft and send your messages. Not just iMessage. SMS and RCS too. It can summarise threads, tell you what you missed, and reply on your behalf.</p><p>Most of the coverage framed this as a convenience feature with a privacy question attached. I think that has it backwards. The convenience is real and quite small. The permission it asks for is enormous, and it is worth understanding exactly what you would be handing over before you decide.</p><p>This is not an argument that you should not use it. It is an argument that you should know what you are agreeing to, which is a different thing.</p><h2>📘 Every message you have ever sent</h2><p><em>How the ChatGPT Messages plugin actually works, the permission underneath it, and the question nobody is asking.</em></p><h3>What it actually does</h3><p>It lives in the ChatGPT desktop app for macOS. Once enabled, you can ask it to catch you up on conversations you missed, find a date buried in a thread from March, draft a reply, or send one.</p><p>The genuinely reassuring part: it runs locally. OpenAI built it on native macOS tools, AppleScript and Accessibility services, so it operates on your machine rather than shipping your message database somewhere. And by default it only sends after you approve both the message and the recipients. OpenAI explicitly discourages setting up persistent approval.</p><blockquote><p>⚠️ That default can be switched off. If you turn off per-message approval for convenience, you have given a language model the ability to send messages as you, to anyone in your contacts, without a human looking at them first. I would not do this, and I would think carefully about anyone who does.</p></blockquote><h3>The permission underneath it</h3><p>To work, the plugin needs Full Disk Access and system-level permissions on your Mac.</p><p>Full Disk Access is not a scoped permission. It is not &quot;access to Messages.&quot; It is the master key. Your Messages database is one thing behind that door, and everything else on your Mac is behind it too. macOS deliberately makes this permission difficult to grant precisely because it cannot be granted narrowly.</p><p>And the Messages database itself is bigger than people picture. It is not the last week. It is every conversation you have not manually deleted, going back years, across every device signed into your account. Photos and attachments sent to you. Your two-factor codes. The thread from when a relationship ended. The thread with your accountant.</p><h3>The question nobody is asking</h3><p>Here is the part that changed how I think about this, and it has nothing to do with OpenAI&#x27;s data handling.</p><p>You can consent to an AI reading your messages. You cannot consent on behalf of the person who sent them to you.</p><p>Every thread in that database has at least two people in it. The friend who told you something in confidence, the colleague who forwarded something they should not have, the family member working through something difficult over text. None of them agreed to this. None of them will be told. They made a judgement about what to write to <em>you</em>, on the reasonable assumption that it was going to you.</p><p>This is not a hypothetical harm and it is not solved by local processing. It is a structural feature of granting any assistant access to a two-way medium, and it applies just as much to Apple&#x27;s own upcoming Siri features as it does to OpenAI&#x27;s plugin. But it is the first question I would want answered, and it is not in anybody&#x27;s FAQ.</p><h3>Why encryption is not the point</h3><p>You will see people respond to this story with &quot;iMessage is end-to-end encrypted.&quot; That is true and it is not relevant.</p><p>Encryption protects a message in transit, between two endpoints. This plugin operates <em>at</em> an endpoint, with your permission, after decryption. Nothing has been broken. The concern is not that someone intercepted your messages. It is that an authorised assistant can move information beyond the place you expected it to stay.</p><p>Encryption and endpoint access address completely different threats. Confusing the two is how people end up feeling protected by a guarantee that was never about this.</p><h3>What Apple does next</h3><p>Apple is in an awkward position and there is no clean way out of it.</p><p>It could restrict the access, which invites the accusation that it is blocking a competitor while building the same capability into Siri. It has form here: it shut down Beeper Mini for reaching into iMessage. It could allow it, which sits uncomfortably against a decade of privacy marketing. And whatever it chooses, smaller developers will immediately ask why a large partner gets access they cannot have.</p><p>The timing sharpens all of this. Apple and OpenAI are already in a legal dispute over trade secret allegations, and Apple&#x27;s own AI messaging features are weeks from shipping.</p><h3>So should you turn it on?</h3><p>My honest position, and you may land somewhere else:</p><ol><li><strong>If you use it, keep per-message approval on.</strong> Non-negotiable. The convenience you gain by removing it is trivial next to what you give up.</li><li><strong>Ask what your Messages history actually contains</strong> before granting Full Disk Access, not after. If the honest answer is &quot;years of things other people told me privately,&quot; that is your answer.</li><li><strong>Treat the read features and the send features as separate decisions.</strong> Summarising what you missed is a much smaller ask than composing on your behalf.</li><li><strong>Revisit it in a month.</strong> Reporting differs on exactly which ChatGPT plans this reaches, and several data-handling questions have not been answered publicly yet: what content leaves your Mac, how long anything persists, whether deleting a ChatGPT conversation removes the underlying records. Those answers should exist before this becomes a default part of anyone&#x27;s workflow.</li></ol><aside class="callout"><p><strong>Doing this deliberately instead of by accident</strong></p><p>Giving an AI real control of your Mac is a legitimately useful thing to do. It is also a thing worth doing with a clear head about scope, permissions, and where you draw the line. <strong>The Claude Computer Use Playbook for Mac</strong> is the guide I wrote for exactly that: what to grant, what to withhold, and how to set up an assistant that can genuinely act on your machine without you handing over the whole thing. It is $39.</p><p class="btn-row"><a class="is-btn" href="https://theusefultech.gumroad.com/l/computer-use-playbook-mac" target="_blank" rel="noopener">Get the Computer Use Playbook for Mac</a></p></aside><hr><p>See you Friday, where we go through the five Mac permissions worth auditing this weekend. Full Disk Access is only the first one.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More from the library">
+  <a class="is-nav-card" href="/tech/library/5-the-useful-five-006-five-macos-permissions-worth-auditing-this-weekend/"><span class="is-nav-k">Newer</span><span class="is-nav-t">Five macOS permissions worth auditing this weekend</span></a><a class="is-nav-card is-older" href="/tech/library/the-useful-find-006-the-battery-setting-apple-left-switched-off/"><span class="is-nav-k">Older</span><span class="is-nav-t">The battery setting Apple left switched off</span></a>
+  <a class="is-all" href="/tech/library/">Browse the library</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/library/">Library</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

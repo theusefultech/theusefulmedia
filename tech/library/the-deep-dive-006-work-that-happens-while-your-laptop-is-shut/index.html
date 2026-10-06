@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work that happens while your laptop is shut | The Useful Tech</title>
+<meta name="description" content="Cowork sessions moved to the cloud, and it changes what the tool is actually for">
+<link rel="canonical" href="https://theusefulmedia.com/tech/library/the-deep-dive-006-work-that-happens-while-your-laptop-is-shut/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="Work that happens while your laptop is shut | The Useful Tech">
+<meta property="og:description" content="Cowork sessions moved to the cloud, and it changes what the tool is actually for">
+<meta property="og:url" content="https://theusefulmedia.com/tech/library/the-deep-dive-006-work-that-happens-while-your-laptop-is-shut/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/library/library.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Work that happens while your laptop is shut", "description": "Cowork sessions moved to the cloud, and it changes what the tool is actually for", "datePublished": "2026-08-19T17:00:00+00:00", "image": "https://theusefulmedia.com/tech/og.png", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/library/the-deep-dive-006-work-that-happens-while-your-laptop-is-shut/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/library/">Library</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #006</span><span class="ic-date">Aug 19, 2026</span></p>
+    <h1>Work that happens while your laptop is shut</h1>
+    <p class="is-sub">Cowork sessions moved to the cloud, and it changes what the tool is actually for</p>
+  </header>
+  
+  <div class="is-body">
+<p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>A break from Apple beta season today because something changed in Claude Cowork that I think is underrated, and the coverage has mostly been feature-list stuff.</p><p>Cowork launched in January as a desktop app. Your session lived on one machine and died with it. Close the laptop, and the work stopped. That was always the structural limit, and it&#x27;s why most people tried Cowork once and went back to chat.</p><p>Sessions now run in Anthropic&#x27;s cloud, which is currently in beta. Close your laptop, and the work continues. Scheduled tasks fire even when no device is online. Your sessions and files are tied to your Claude account and follow you across desktop, web, and phone.</p><p>That sounds like a convenience upgrade. It is actually a change in what the tool is for, and there is a catch underneath it that nobody explains properly. Here is the whole thing.</p><h2>📘 Work that happens while your laptop is shut</h2><p><em>What moved to the cloud, what still requires your Mac to stay awake, and how to set up your first scheduled task without it failing quietly.</em></p><h3>Why this matters more than it sounds</h3><p>There is a stat from Anthropic worth sitting with. In an analysis of 1.2 million Cowork sessions, business operations was the largest use case, followed by content creation. Software development was under 9 percent.</p><p>Which means the overwhelming majority of people using Cowork are not developers. They are people with recurring work: reports to compile, inboxes to triage, research to gather, documents to produce. That is precisely the kind of work that benefits from running on a schedule rather than being started by hand every time. Until last month, it could not.</p><h3>The split that actually matters</h3><p>This is the part to understand before you set anything up, because getting it wrong is how your first scheduled task quietly does nothing.</p><p>The rule of thumb I use: <strong>anything a remote assistant could do from their own computer now runs in the cloud. Anything that requires them to be at your desk still needs your Mac to be awake.</strong></p><p><strong>Runs in the cloud, no device needed:</strong> web research and browsing, writing and drafting, work through your connected services, producing documents, spreadsheets, and slides.</p><p><strong>Still needs the desktop app open and your Mac awake:</strong> reading and writing files in folders on your computer; anything that uses local connectors; Claude driving your browser as part of a task; and computer use where Claude clicks and types on your screen.</p><p>That split is not a shortcoming of Claude. A server in someone else&#x27;s data center has no route to your laptop&#x27;s file system. Every cloud automation tool hits the same wall. But it does mean the design question for every task you build is: does this touch my machine, or not?</p><blockquote><p>⚠️ The one that catches people: scheduled tasks work with your connectors and the files saved to your Claude account. They are not tied to a folder on your computer. If your task depends on a local folder, it is not a scheduled task; it is a task you run when your Mac is on.</p></blockquote><h3>Setting up your first scheduled task</h3><p>Scheduled tasks are available on all paid plans, including Pro, Max, Team, and Enterprise.</p><ol><li>Click <strong>Scheduled</strong> in the left sidebar.</li><li>Click <strong>New task</strong> in the upper right.</li><li>Give it a name and write the prompt. This is the part people rush. Write it as if you are briefing someone who will not be able to ask you a follow-up question, because that is exactly the situation.</li><li>Pick the cadence from the built-in schedule options.</li><li>Set the approval behavior. Manual approval pauses and asks before acting, which is the right setting for the first few runs of anything.</li></ol><p>There is also a <strong>Create with Claude</strong> option that opens a new task pre-filled with a prompt asking Claude to build the scheduled task for you. Faster and honestly better than most people&#x27;s first attempt at writing one from scratch.</p><p>Each scheduled task runs as its own session, and you review the results the same way you would any other task. Upcoming and past runs are both under Scheduled in the sidebar.</p><h3>Three jobs worth handing over</h3><p><strong>1. The Monday research scan.</strong> A weekly task that reads through the Apple and AI coverage from the past seven days and comes back with a short list of what actually changed, separated from what was just rumor. Runs Sunday night, waiting for me Monday morning. This one replaced about ninety minutes of tab-hoarding.</p><p><strong>2. The Friday numbers compile.</strong> Pulls the week&#x27;s figures into a single document in the same format every time, so I can compare like with like instead of rebuilding a view each week. The value here is not the time saved; it is that it happens even in the weeks I would have skipped it.</p><p><strong>3. The follow-up list.</strong> Reads through the threads that have gone quiet and comes back with a list of who is waiting on me. It drafts nothing and sends nothing. It just tells me where I have gone silent on someone, which is the part I am worst at noticing.</p><p>The pattern in all three: they compile and report; they do not act. That is where I would start too. Let it prove itself on read-only work before you hand it anything that sends, publishes, or deletes.</p><h3>Where it still falls short</h3><p>Cloud sessions are in beta, and beta means beta. Some features are not yet available on every surface, and the mobile experience is strongest for starting a task, checking status, steering mid-task, and picking up results, rather than for doing real work on a phone screen.</p><p>The genuine friction is the local split. If your working life lives in folders on your Mac, a good chunk of what you would most like to automate is exactly the part that still requires the machine to be awake. Worth knowing before you build a week&#x27;s worth of tasks around a promise that does not apply to your setup.</p><aside class="callout"><p><strong>The full system</strong></p><p><strong>Cowork Mastery</strong> is the complete guide I wrote for Mac users: how to set tasks up so they hold, what to delegate and what to keep, and the prompt patterns that survive unattended runs. It is $59 and the most popular thing I have made.</p><p class="btn-row"><a class="is-btn" href="https://theusefultech.gumroad.com/l/cowork-mastery-guide" target="_blank" rel="noopener">Get Cowork Mastery</a></p><p><em>If you would rather I looked at your own setup and told you what to hand over, </em><em><strong>the Claude Cowork Audit is $197,</strong></em><em> and there are 5 slots left. </em><em><a href="https://theusefultech.gumroad.com/l/cowork-audit" target="_blank" rel="noopener">Details here.</a></em></p></aside><hr><p>Start with one task. Make it read-only. Give it a fortnight before you add a second.</p><p>See you Friday with five useful things, and this week they are about a panel on your Mac that has been in the security news for a fortnight.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More from the library">
+  <a class="is-nav-card" href="/tech/library/5-the-useful-five-005-five-switches-in-the-panel-you-have-never-opened/"><span class="is-nav-k">Newer</span><span class="is-nav-t">Five switches in the panel you have never opened</span></a><a class="is-nav-card is-older" href="/tech/library/your-ai-has-nothing-to-read/"><span class="is-nav-k">Older</span><span class="is-nav-t">your AI has nothing to read</span></a>
+  <a class="is-all" href="/tech/library/">Browse the library</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/library/">Library</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

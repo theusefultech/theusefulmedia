@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your launcher app | The Useful Tech</title>
+<meta name="description" content="macOS Tahoe quietly turned Spotlight into a Raycast rival — set it up in 10 minutes">
+<link rel="canonical" href="https://theusefulmedia.com/tech/library/the-deep-dive-001-delete-your-launcher-app/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="Delete your launcher app | The Useful Tech">
+<meta property="og:description" content="macOS Tahoe quietly turned Spotlight into a Raycast rival — set it up in 10 minutes">
+<meta property="og:url" content="https://theusefulmedia.com/tech/library/the-deep-dive-001-delete-your-launcher-app/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/library/library.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Delete your launcher app", "description": "macOS Tahoe quietly turned Spotlight into a Raycast rival \u2014 set it up in 10 minutes", "datePublished": "2026-07-08T17:00:00+00:00", "image": "https://theusefulmedia.com/tech/og.png", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/library/the-deep-dive-001-delete-your-launcher-app/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/library/">Library</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #001</span><span class="ic-date">Jul 8, 2026</span></p>
+    <h1>Delete your launcher app</h1>
+    <p class="is-sub">macOS Tahoe quietly turned Spotlight into a Raycast rival — set it up in 10 minutes</p>
+  </header>
+  
+  <div class="is-body">
+<p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>Welcome to the first Wednesday deep dive — and to a new rhythm for this newsletter. From now on you&#x27;ll hear from me three times a week: a hands-on deep dive like this every Wednesday, a lesser-known app discovery every Monday, and five quick useful things every Friday. Let&#x27;s start with something every Mac user can do today. For years, the first app I told people to install was a launcher — Raycast or Alfred — because Spotlight was just an app opener. macOS Tahoe quietly changed that.</p><h2>📘 Delete your launcher app: turn Spotlight into Raycast</h2><p><em>macOS Tahoe gave Spotlight its biggest upgrade ever — clipboard history, in-app actions, custom shortcuts. Most people haven&#x27;t touched any of it. Ten minutes, and yours will be set up.</em></p><figure><img src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/asset/file/425915fa-4e99-4e5f-9ad4-d59b001411e8/image.png?t=1783500651" alt="" loading="lazy"></figure><h3>What you&#x27;ll need</h3><ul><li>A Mac running macOS Tahoe (macOS 26)</li><li>About 10 minutes</li></ul><h3>Step 1 — Turn on clipboard history</h3><p>This is the big one: your Mac finally has a built-in clipboard manager, but it ships turned off. Go to System Settings → Spotlight and enable <strong>Clipboard Search</strong> at the bottom. From now on, press ⌘ + Space and then <strong>⌘ + 4</strong> to see everything you&#x27;ve copied in the last 8 hours — text, files, images — ready to paste anywhere. One caveat: it remembers everything, including passwords, so think twice on a shared Mac.</p><h3>Step 2 — Learn the four modes</h3><p>Spotlight now has four faces, and switching is instant: with Spotlight open, press <strong>⌘ + 1</strong> for a Launchpad-style app grid, <strong>⌘ + 2</strong> for files, <strong>⌘ + 3</strong> for Actions, and <strong>⌘ + 4</strong> for your clipboard. Muscle-memory these four and you&#x27;ll stop reaching for the mouse entirely.</p><h3>Step 3 — Set up Actions and Quick Keys</h3><p>Actions are where Spotlight becomes a genuine Raycast rival. Press ⌘ + 3 and you&#x27;ll find tasks you can run without opening any app — send a message, start a timer, create a calendar event, and actions from third-party apps too. Now the power move: select any action and click <strong>Add Quick Key</strong> to assign it a short trigger of 1–12 letters. Type &quot;gpt&quot; to open ChatGPT, &quot;stimer&quot; to start a timer. Set up five Quick Keys for your most-repeated tasks and feel the difference by Friday.</p><h3>Step 4 — Search the web (and your tabs) without a browser</h3><p>Three tricks almost nobody knows: type a site name like <strong>Amazon</strong>, press <strong>Tab</strong>, then type your query — Spotlight searches inside that site directly. Your open Safari tabs also show up in Spotlight results, which beats clicking through thirty tabs to find the one. And as you type, filter chips appear under the search field (Folders, Mail, PDFs and so on) — click one, or type &quot;/&quot; to trigger filters from the keyboard.</p><blockquote><p>💡 Pro tip: Spotlight can also run menu commands. Inside any app, open Spotlight and start typing the name of a menu item — no more hunting through nested menus for that one export option.</p></blockquote><h3>The result</h3><p>You now have roughly 90% of a paid launcher, built into your Mac, for free. To be fair to Raycast and Alfred: they still win on text expansion, file operations, and deep customization. But for most people, Tahoe&#x27;s Spotlight is finally — genuinely — enough.</p><hr><h3>💜 More useful things</h3><ul><li>📰 <strong>New on Medium:</strong> <a href="https://medium.com/the-useful-tech/6-free-mac-apps-that-punch-way-above-their-price-e19d0cfe2a0b" target="_blank" rel="noopener">https://medium.com/the-useful-tech/6-free-mac-apps-that-punch-way-above-their-price-e19d0cfe2a0b</a></li><li>🛠️ <strong>From the shop:</strong> <a href="https://theusefultech.gumroad.com/l/mac-setup-guide" target="_blank" rel="noopener">https://theusefultech.gumroad.com/l/mac-setup-guide</a></li></ul><hr><p>That&#x27;s it for today. See you Friday with five useful things — including whether you should install the iOS 27 public beta.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More from the library">
+  <a class="is-nav-card" href="/tech/library/5-the-useful-five-001-ios-27-is-almost-here/"><span class="is-nav-k">Newer</span><span class="is-nav-t">iOS 27 is almost here</span></a><a class="is-nav-card is-older" href="/tech/library/claude-can-now-read-every-note-you-ve-ever-taken/"><span class="is-nav-k">Older</span><span class="is-nav-t">Claude can now read every note you&#x27;ve ever taken</span></a>
+  <a class="is-all" href="/tech/library/">Browse the library</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/library/">Library</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

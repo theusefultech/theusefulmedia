@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Mac that runs itself | The Useful Tech</title>
+<meta name="description" content="Tahoe brought iPhone-style automations to the Mac — build three that save you time daily">
+<link rel="canonical" href="https://theusefulmedia.com/tech/issues/the-deep-dive-002-a-mac-that-runs-itself/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="A Mac that runs itself | The Useful Tech">
+<meta property="og:description" content="Tahoe brought iPhone-style automations to the Mac — build three that save you time daily">
+<meta property="og:url" content="https://theusefulmedia.com/tech/issues/the-deep-dive-002-a-mac-that-runs-itself/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/issues/issues.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A Mac that runs itself", "description": "Tahoe brought iPhone-style automations to the Mac \u2014 build three that save you time daily", "datePublished": "2026-07-15T17:00:00+00:00", "image": "https://theusefulmedia.com/tech/og.png", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/issues/the-deep-dive-002-a-mac-that-runs-itself/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/issues/">All issues</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #002</span><span class="ic-date">Jul 15, 2026</span></p>
+    <h1>A Mac that runs itself</h1>
+    <p class="is-sub">Tahoe brought iPhone-style automations to the Mac — build three that save you time daily</p>
+  </header>
+  
+  <div class="is-body">
+<aside class="callout"><p><strong>THE USEFUL TECH</strong></p><p>📘<strong> THE DEEP DIVE · WEDNESDAY TUTORIAL · ISSUE #002</strong></p></aside><p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>Last week we turned Spotlight into a launcher. This week, we go one level deeper: getting your Mac to do things without you having to ask. macOS Tahoe quietly brought iPhone-style automations to the Mac — the kind that run themselves when a condition is met. Most people never open the app. Let&#x27;s fix that.</p><hr><h2>📘 Set up a Mac that files, sorts, and switches modes for you</h2><p><em>Tahoe added trigger-based automations to Shortcuts on Mac. Here&#x27;s how to build three that quietly save you time every day.</em></p><figure><img src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/asset/file/c31fb0bd-7b31-4624-bdac-4d634b42b7fc/CleanShot_2026-07-14_at_17.47.56_2x.png?t=1784031486" alt="" loading="lazy"></figure><h3>What you&#x27;ll need</h3><ul><li>A Mac running macOS Tahoe (macOS 26)</li><li>The Shortcuts app (already installed) and about 15 minutes</li></ul><h3>The big idea</h3><p>Open Shortcuts, click <strong>Automation</strong> in the sidebar, and you&#x27;ll see triggers that used to be iPhone-only: a specific time of day, when an app opens or closes, when a display or accessory connects, when a Focus mode turns on, at a certain battery level, or when a file is added to a folder. Each one can fire a shortcut automatically. Here are three worth building today.</p><h3>Automation 1 — Work mode, the moment you plug in</h3><p>Trigger: <strong>when my external display connects</strong>.</p><p>Action: turn on the Work Focus, open the three apps you always start with, and set Do Not Disturb.</p><p>Now your desk setup configures itself the second you dock. Build the reverse too — display disconnects, focus off — and your Mac relaxes when you undock.</p><h3>Automation 2 — A downloads folder that files itself</h3><p>Trigger: <strong>when a file is added to Downloads</strong>.</p><p>Action: sort by type — PDFs to Documents, images to a Screenshots folder, installers to Trash after a week. Even a simple version (just move PDFs) keeps your Downloads folder from becoming the digital junk drawer it always becomes.</p><h3>Automation 3 — A wind-down that actually happens</h3><p>Trigger: <strong>10:30 PM</strong>.</p><p>Action: enable a Reading Focus, dim the display, quit Slack and Mail, and open your notes or journal app. The trick with wind-down routines is removing the decision — let the Mac start it, and you&#x27;ll actually follow.</p><blockquote><p>💡 Pro tip: Start with one automation, not all three. Live with it for a few days, tweak it, then add the next. Automations you don&#x27;t trust get deleted; automations you barely notice are the ones that stick.</p></blockquote><h3>The result</h3><p>Your Mac stops waiting for instructions and starts anticipating them. None of this needs a third-party app — it&#x27;s all sitting in Shortcuts, free, right now.</p><hr><p>That&#x27;s it for today. See you Friday with five useful things.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More issues">
+  <a class="is-nav-card" href="/tech/issues/the-deep-dive-003-the-iphone-builds-the-automation-for-you/"><span class="is-nav-k">Newer issue</span><span class="is-nav-t">The iPhone builds the automation for you</span></a><a class="is-nav-card is-older" href="/tech/issues/the-useful-find-001-your-mac-on-every-screen-you-own/"><span class="is-nav-k">Older issue</span><span class="is-nav-t">Your Mac, on every screen you own</span></a>
+  <a class="is-all" href="/tech/issues/">See every issue</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/issues/">All issues</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

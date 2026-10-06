@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What actually changes when you install macOS 27 | The Useful Tech</title>
+<meta name="description" content="A working guide to Golden Gate, including the three reasons you might want to wait until September">
+<link rel="canonical" href="https://theusefulmedia.com/tech/issues/the-deep-dive-004-what-actually-changes-when-you-install-macos-27/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="What actually changes when you install macOS 27 | The Useful Tech">
+<meta property="og:description" content="A working guide to Golden Gate, including the three reasons you might want to wait until September">
+<meta property="og:url" content="https://theusefulmedia.com/tech/issues/the-deep-dive-004-what-actually-changes-when-you-install-macos-27/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/issues/issues.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What actually changes when you install macOS 27", "description": "A working guide to Golden Gate, including the three reasons you might want to wait until September", "datePublished": "2026-08-05T17:00:00+00:00", "image": "https://theusefulmedia.com/tech/og.png", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/issues/the-deep-dive-004-what-actually-changes-when-you-install-macos-27/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/issues/">All issues</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #004</span><span class="ic-date">Aug 5, 2026</span></p>
+    <h1>What actually changes when you install macOS 27</h1>
+    <p class="is-sub">A working guide to Golden Gate, including the three reasons you might want to wait until September</p>
+  </header>
+  
+  <div class="is-body">
+<p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>On Monday I showed you one setting in macOS 27. Today, the whole thing. The public beta opened on July 13, a second one followed on July 22, and the finished release lands this fall alongside the new iPhones.</p><p>Most Golden Gate coverage is a feature list. This is the version I would give a friend who does real work on their Mac and wants to know two things: what improves, and what breaks.</p><blockquote><p>⚠️ Golden Gate is a stable beta by past standards, but it is still a beta. Nothing below is a reason to put it on the machine you earn a living with.</p></blockquote><h2>📘 What actually changes when you install macOS 27</h2><p><em>Four things you notice in the first week, three that should make you wait, and the safe way to test it.</em></p><h3>1. Siri moved into Spotlight</h3><p>This is the headline and it deserves to be. You reach the new Siri the same way you have opened Spotlight for fifteen years, with Command and Space. It can search the web, dig through your own photos, emails, and messages to find something you half remember, and complete actions inside and across apps rather than just answering.</p><p>There is also a dedicated Siri app now, so you can hold an ongoing conversation instead of firing one command at a time. Visual Intelligence came to the Mac too, which means Siri can look at what is on your screen and answer questions about it.</p><h3>2. Liquid Glass became adjustable</h3><p>Monday&#x27;s issue covered the slider in System Settings, then Appearance. Alongside it, sidebars stopped floating and now run edge to edge, sidebar icons have colour again after Tahoe removed it, window corners are consistent, and Apple is using HDR for depth across the interface. Taken together this is a readability release, not a redesign.</p><h3>3. AI showed up inside apps you already use</h3><p>Write with Siri can generate text from scratch, correct your grammar, or give you feedback on what you wrote. Photos gained new AI editing tools. Shortcuts lets you build automations by describing them in plain language, which I walked through in Deep Dive #003. Search in Mail and Messages got noticeably better at finding the thing you actually meant.</p><h3>4. It feels faster, including on older Macs</h3><p>Apple made performance improvements across the system, and unlike most years those improvements reach machines that are several generations old. If your M1 has felt sluggish since Tahoe, this is the update that gives some of it back.</p><hr><h3>Now the three reasons to wait</h3><h3>1. Intel is finished</h3><p>macOS 27 runs on Apple silicon only. If you are on an Intel Mac, this is where the road ends, and Rosetta 2 support goes with it. Before you get attached to any of the above, check what you are running: Apple menu, About This Mac, More Info, System Report, Software, Applications. Sort by Kind and look for anything marked Intel.</p><h3>2. Siri AI is not available everywhere</h3><p>Siri AI is not available in the European Union or China right now, and it will not be when the update ships this fall either. If you are reading this from the EU, you are getting the design refinements and the speed, not the assistant.</p><h3>3. Some of it needs an M3 or later</h3><p>Every Mac that runs Golden Gate supports Apple Intelligence and Siri AI. But a few on-device Siri features, including choosing a natural voice and the upgraded dictation, need an M3 chip or newer. Worth knowing before you upgrade expecting the full demo.</p><hr><h3>Where Siri AI ends and Claude begins</h3><p>Here is the part most reviews skip. Siri AI runs on a Gemini-based model through Apple&#x27;s Private Cloud Compute, and Apple is not pretending otherwise. At the same time, the new Extensions framework in macOS 27 and iOS 27 lets you set a different provider, including Claude, as your preferred AI across Apple Intelligence features. For the first time the assistant on your Mac is a choice rather than a default.</p><p>After a few weeks of using both, my split has settled into something simple. Siri gets retrieval and actions, the things that need access to my own data and my own apps: find that email, add this to my calendar, what is on my screen. Claude gets thinking, drafting, and anything that takes more than one step. The two are not competing for the same job, and treating them as if they are is how you end up disappointed in both.</p><aside class="callout"><p><strong>If you want the Claude half of that split</strong></p><p>The Ultimate Claude Playbook for Apple Users is the system I built around exactly this division of labour: what stays on the Mac, what goes to Claude, and the workflows that connect them. It is $49.</p><p class="btn-row"><a class="is-btn" href="https://theusefultech.gumroad.com/l/claude-apple-playbook" target="_blank" rel="noopener">Get the Claude Playbook for Apple Users</a></p></aside><h3>How to test it without wrecking your Mac</h3><ol><li>Make a Time Machine backup first. Without one you cannot go back to Tahoe.</li><li>Enrol at Apple&#x27;s Beta Software Program site. It is free and does not need a developer account.</li><li>Open System Settings, then General, then Software Update. Click the info icon under Beta Updates and choose macOS 27 Golden Gate Public Beta.</li><li>Install it on a secondary Mac or a separate APFS volume if you possibly can. Not because the beta is fragile this year, but because your working setup should never be the test.</li></ol><h3>What I would do</h3><p>If you have a spare Mac, install it this week. The Siri and Spotlight merge is the biggest change to how you start a task on the Mac in years, and a month of muscle memory before September is worth having.</p><p>If you have one Mac and it pays your bills, update to Tahoe 26.6 and stop there. That release quietly optimises the Spotlight index in preparation for macOS 27, so you are already doing the prep work either way. Then let the rest arrive in September, finished.</p><hr><p>That&#x27;s it for today. See you Friday with five useful things.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More issues">
+  <a class="is-nav-card" href="/tech/issues/5-the-useful-five-003-five-things-to-do-to-your-mac-before-september/"><span class="is-nav-k">Newer issue</span><span class="is-nav-t">Five things to do to your Mac before September</span></a><a class="is-nav-card is-older" href="/tech/issues/the-useful-find-003-the-slider-that-fixes-liquid-glass/"><span class="is-nav-k">Older issue</span><span class="is-nav-t">The slider that fixes Liquid Glass</span></a>
+  <a class="is-all" href="/tech/issues/">See every issue</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/issues/">All issues</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

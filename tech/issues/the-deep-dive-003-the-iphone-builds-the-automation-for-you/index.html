@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The iPhone builds the automation for you | The Useful Tech</title>
+<meta name="description" content="iOS 27 lets you describe a Shortcut in plain English, and Apple Intelligence assembles it. Here is how to build your first one tonight.">
+<link rel="canonical" href="https://theusefulmedia.com/tech/issues/the-deep-dive-003-the-iphone-builds-the-automation-for-you/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="The iPhone builds the automation for you | The Useful Tech">
+<meta property="og:description" content="iOS 27 lets you describe a Shortcut in plain English, and Apple Intelligence assembles it. Here is how to build your first one tonight.">
+<meta property="og:url" content="https://theusefulmedia.com/tech/issues/the-deep-dive-003-the-iphone-builds-the-automation-for-you/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/issues/issues.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The iPhone builds the automation for you", "description": "iOS 27 lets you describe a Shortcut in plain English, and Apple Intelligence assembles it. Here is how to build your first one tonight.", "datePublished": "2026-07-22T17:00:00+00:00", "image": "https://theusefulmedia.com/tech/og.png", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/issues/the-deep-dive-003-the-iphone-builds-the-automation-for-you/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/issues/">All issues</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #003</span><span class="ic-date">Jul 22, 2026</span></p>
+    <h1>The iPhone builds the automation for you</h1>
+    <p class="is-sub">iOS 27 lets you describe a Shortcut in plain English, and Apple Intelligence assembles it. Here is how to build your first one tonight.</p>
+  </header>
+  
+  <div class="is-body">
+<p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>Last Deep Dive, we taught the Mac to run its own automations, and every one of them meant wiring up actions by hand. This week iOS 27 flips that around. You type what you want in one plain sentence, and Apple Intelligence assembles the Shortcut for you. I ignored the Shortcuts app for years. This is the update that changed my mind.</p><blockquote><p>⚠️ Heads up before we start: this lives in the iOS 27 public beta, which landed on July 13. Betas break things, so if this is your only iPhone, it is worth waiting or installing it on a spare device.</p></blockquote><hr><h2>📘 Build an iPhone automation by describing it in one sentence</h2><p><em>iOS 27 lets you type what you want in plain English, and Apple Intelligence assembles the working Shortcut for you. Here is how to build your first one tonight.</em></p><h3>What you&#x27;ll need</h3><ul><li>An iPhone running the iOS 27 update</li><li>An Apple Intelligence-capable iPhone (iPhone 15 Pro or newer)</li><li>To be signed into iCloud, with Apple Intelligence turned on in Settings</li></ul><h3>Step 1: Start a new shortcut</h3><p>Open the Shortcuts app, tap the plus icon in the top corner, and look for the new <strong>Describe a Shortcut</strong> field at the top of the editor. That box is where all the work happens now.</p><h3>Step 2: Describe what you want in plain English</h3><p>Write your request the way you would explain it to a friend. For your first one, try something you will actually use, like: <em>When I leave work, text my partner my estimated arrival time home.</em> Tap to generate, wait a few seconds, and Apple Intelligence assembles the pieces for you, pulling your location, calculating travel time, and drafting the message to the right person.</p><h3>Step 3: Review, refine, and save</h3><p>Read through what it built before you trust it. If something is off, you do not start over, you just add a follow up sentence like <em>Only do this on weekdays</em> or <em>Send it as an iMessage.</em> When it looks right, tap the recipient and time fields to confirm the details, then save. If your request was location based, drop it into the <strong>Automation</strong> tab so it runs on its own.</p><blockquote><p>💡 Pro tip: The real depth hides in the <strong>Use Model</strong> action. When you build or edit a shortcut by hand, add Use Model and you can route any step through an AI model, choose between on device, Private Cloud Compute, or ChatGPT, and turn on Follow Up so you can read and tweak the model&#x27;s answer while the shortcut is still running. That turns a static automation into one that can actually reason about your input.</p></blockquote><h3>The result</h3><p>In under a minute you have a working automation you never had to build by hand, plus a repeatable way to make more of them. The next time you catch yourself doing the same three taps every morning, describe it instead of dreading the editor.</p><p>One honest caveat: the AI is good, not perfect. In testing it sometimes grabbed a related but wrong action, or left a field half configured. Always read what it built before you rely on it, especially for anything that sends a message on your behalf.</p><hr><p>That&#x27;s it for today. See you Friday with five useful things.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More issues">
+  <a class="is-nav-card" href="/tech/issues/5-the-useful-five-002-the-reminders-trick-i-wish-i-knew-sooner/"><span class="is-nav-k">Newer issue</span><span class="is-nav-t">The Reminders trick I wish I knew sooner</span></a><a class="is-nav-card is-older" href="/tech/issues/the-deep-dive-002-a-mac-that-runs-itself/"><span class="is-nav-k">Older issue</span><span class="is-nav-t">A Mac that runs itself</span></a>
+  <a class="is-all" href="/tech/issues/">See every issue</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/issues/">All issues</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

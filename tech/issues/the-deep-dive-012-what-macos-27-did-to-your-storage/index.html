@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What macOS 27 did to your storage | The Useful Tech</title>
+<meta name="description" content="Apple Intelligence is taking 20 to 30GB on some Macs, and there is no off switch">
+<link rel="canonical" href="https://theusefulmedia.com/tech/issues/the-deep-dive-012-what-macos-27-did-to-your-storage/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="What macOS 27 did to your storage | The Useful Tech">
+<meta property="og:description" content="Apple Intelligence is taking 20 to 30GB on some Macs, and there is no off switch">
+<meta property="og:url" content="https://theusefulmedia.com/tech/issues/the-deep-dive-012-what-macos-27-did-to-your-storage/">
+<meta property="og:image" content="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,width=1200,onerror=redirect/uploads/asset/file/5a027196-f52e-4a7b-bbdf-f9e9c9de4730/6qy3de.jpg?t=1791287250">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/issues/issues.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What macOS 27 did to your storage", "description": "Apple Intelligence is taking 20 to 30GB on some Macs, and there is no off switch", "datePublished": "2026-09-30T17:00:00+00:00", "image": "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,width=1200,onerror=redirect/uploads/asset/file/5a027196-f52e-4a7b-bbdf-f9e9c9de4730/6qy3de.jpg?t=1791287250", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/issues/the-deep-dive-012-what-macos-27-did-to-your-storage/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/issues/">All issues</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #012</span><span class="ic-date">Sep 30, 2026</span></p>
+    <h1>What macOS 27 did to your storage</h1>
+    <p class="is-sub">Apple Intelligence is taking 20 to 30GB on some Macs, and there is no off switch</p>
+  </header>
+  <figure class="is-hero-img"><img src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,width=1200,onerror=redirect/uploads/asset/file/5a027196-f52e-4a7b-bbdf-f9e9c9de4730/6qy3de.jpg?t=1791287250" alt="" loading="lazy" width="1200" height="630"></figure>
+  <div class="is-body">
+<p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>Install macOS 27 Golden Gate, connect to the internet, and your Mac downloads Apple Intelligence whether you asked for it or not. Apple removed the toggle that used to disable it and delete the files, so there is no supported way to say no.</p><p>Apple&#x27;s documentation says the models need up to 14GB on a Mac with an M3 chip or later and at least 12GB of unified memory, and up to 8GB on other compatible Macs. Real machines are reporting numbers well above that.</p><p>So this is a housekeeping issue: what the figure actually means, how to check yours, and what you can genuinely clear instead.</p><h2>📘 What macOS 27 did to your storage</h2><p><em>Why the Apple Intelligence line reads so high, and what you can reclaim in its place.</em></p><h3>The numbers people are seeing</h3><ul><li>MacRumors measured <strong>20.67GB</strong> on an M4 Pro Mac mini.</li><li>Ars Technica recorded <strong>22.42GB</strong> on an M3 MacBook Air.</li><li>One user posted <strong>30.16GB</strong> from the macOS 27 release candidate.</li><li>Another reported <strong>24.35GB</strong> on a MacBook Pro with an M3 Pro.</li></ul><p>On a 256GB Mac, 30GB is roughly 12% of the drive gone before you have saved a single file. Apple still sells several Macs with 256GB as the entry configuration, and on the new Mac mini the storage is soldered in, so buying your way out later is not an option.</p><h3>How to check your own number</h3><ol><li>Open <strong>System Settings</strong>.</li><li>Go to <strong>General</strong>, then <strong>Storage</strong>.</li><li>Let the bar finish calculating, then look for <strong>Apple Intelligence</strong> in the list of categories below it.</li><li>Click the information button next to <strong>macOS</strong> for the system breakdown.</li></ol><p>Whatever number you see, write it down before you do anything else. Half the advice floating around about this assumes a figure nobody has checked on their own machine.</p><h3>The part most coverage skipped</h3><p>That number may not be the amount of space you would get back.</p><p>MacDailyNews ran a removal test on a Mac where Storage was reporting 27.59GB for Apple Intelligence. Available space went up by about 14GB afterwards, which is roughly Apple&#x27;s documented figure and roughly half of what the pane claimed.</p><p>Apple has not said whether the Apple Intelligence line in Storage is meant to measure only the models, or whether it is also counting caches, indexes and other system data that gets grouped under the same heading. Until it does, treat the Storage reading as an upper bound rather than a measurement.</p><blockquote><p>⚠️ Worth being clear about scale. These are individual reports from users and reviewers, not a confirmed fault affecting every Mac. If your own figure sits near Apple&#x27;s documented 8GB to 14GB, nothing is wrong with your machine.</p></blockquote><h3>What you cannot do</h3><p>There is no supported way to remove the models. The disable toggle is gone from both macOS 27 and iOS 27, and the download happens automatically after installation.</p><p>You will find people online suggesting you delete the underlying system files by hand. Do not. You are operating inside the part of the system that macOS protects for good reason, the space usually comes back on its own at the next update, and you are one command away from a Mac that needs reinstalling. This is not worth 14GB.</p><h3>What you can do instead</h3><p>Since the AI models are fixed, the space has to come from everywhere else. In rough order of how much you get back for the effort:</p><p><strong>Work the Recommendations first.</strong> At the top of the Storage pane, turn on <strong>Empty Trash Automatically</strong>, then open <strong>Review Files</strong> and sort by size. Most people find several gigabytes in downloads and installers they finished with months ago.</p><p><strong>Check Developer, if it appears.</strong> If you have ever installed Xcode, this category is often the largest thing on the machine after macOS itself, thanks to simulators and derived data.</p><p><strong>Look at Mail and Messages.</strong> Years of attachments live here quietly. Mail can be set to download recent attachments only, and old Messages threads carrying video are usually the single biggest surprise in the list.</p><p><strong>Old iPhone backups.</strong> Under the iOS Files category, Macs frequently hold backups of phones their owner no longer has.</p><p><strong>Photos, last.</strong> Turning on Optimize Mac Storage keeps full resolution originals in iCloud and smaller versions locally. It reclaims the most and it is the one to think hardest about, because it means your originals only exist in one place.</p><h3>If you are buying a Mac this year</h3><p>Plan for more storage than you think you need. Apple raised Mac prices twice this year over component costs, the M6 Mac mini now starts at 256GB, and that 256GB is doing noticeably more work than it was twelve months ago. The upgrade is annoying to pay for once and impossible to add later.</p><aside class="callout"><p><strong>The rest of the housekeeping</strong></p><p>Storage is one stop on a much longer walk. <strong>The Useful Tech Mac Setup Guide</strong> is the checklist I run on every Mac I touch, from first boot to a machine that behaves the way you want, with the maintenance settings handled properly rather than bolted on the first time something fills up.</p><p class="btn-row"><a class="is-btn" href="https://theusefultech.gumroad.com/l/mac-setup-guide" target="_blank" rel="noopener">Get the Mac Setup Guide</a></p></aside><aside class="callout"><p><strong>SEPT30 ends at 11:59 PM Pacific on September 30</strong></p><p>The Mac Setup Guide is also one of seven products inside The Useful Tech Power System, next to Cowork Mastery and every Craft system I&#x27;ve built. Code SEPT30 takes $30 off the Power System and my other three big bundles until the end of today in the US. After that the code stops working.</p><p class="btn-row"><a class="is-btn" href="https://theusefultech.gumroad.com/l/power-system" target="_blank" rel="noopener">Get the Power System with SEPT30</a></p></aside><hr><p>Check your figure, then decide whether it is a problem worth acting on. For a lot of you it will not be.</p><p>On Friday, five apps that handle the things Siri AI still does not touch.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More issues">
+  <a class="is-nav-card" href="/tech/issues/5-the-useful-five-011-five-apps-that-do-what-siri-ai-cannot/"><span class="is-nav-k">Newer issue</span><span class="is-nav-t">Five apps that do what Siri AI cannot</span></a><a class="is-nav-card is-older" href="/tech/issues/the-useful-find-011-the-mac-app-that-remembers-everything-you-copy/"><span class="is-nav-k">Older issue</span><span class="is-nav-t">The Mac app that remembers everything you copy</span></a>
+  <a class="is-all" href="/tech/issues/">See every issue</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/issues/">All issues</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

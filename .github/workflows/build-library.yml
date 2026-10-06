@@ -1,4 +1,4 @@
-name: Build newsletter archive
+name: Build newsletter library
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "scripts/build_issues.py"
+      - "scripts/build_library.py"
       - ".github/workflows/build-issues.yml"
 
 permissions:
@@ -25,15 +25,15 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install beautifulsoup4==4.12.3 lxml
-      - run: python3 scripts/build_issues.py
+      - run: python3 scripts/build_library.py
       - name: Commit changes
         run: |
           git config user.name "useful-archive-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add tech/issues
+          git add tech/library tech/issues
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "Update newsletter archive"
+            git commit -m "Update newsletter library"
             git push
           fi

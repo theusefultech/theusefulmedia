@@ -232,3 +232,47 @@
 .nl-footer nav { display: flex; gap: 1.5rem; }
 .nl-footer a { text-decoration: none; }
 .nl-footer a:hover { color: var(--purple); }
+
+/* Custom signup form states */
+.signup .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.signup-form { position: relative; transition: border-color 200ms ease, box-shadow 200ms ease; }
+.signup-form.has-error { border-color: #D64545; box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.16); }
+.signup-form button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-width: 12.5rem; }
+.signup-form button:disabled { cursor: progress; }
+.signup-form.is-busy button::before {
+  content: ""; width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid rgba(250, 250, 248, 0.4); border-top-color: #FAFAF8;
+  animation: tut-spin 700ms linear infinite;
+}
+.signup-form.is-done button { background: #17172B; }
+.signup-form.is-done button::before {
+  content: ""; width: 14px; height: 8px; border: 2px solid #FAFAF8; border-top: 0; border-right: 0;
+  transform: rotate(-45deg) translateY(-2px);
+}
+@keyframes tut-spin { to { transform: rotate(360deg); } }
+@media (max-width: 420px) { .signup-form button { min-width: 0; } }
+
+.signup-msg { font-size: 0.92rem; line-height: 1.45; }
+.signup-msg:empty { display: none; }
+.signup-msg.is-error, .signup-msg.is-info {
+  margin-top: 0.6rem; padding: 0.7rem 0.85rem; border-radius: 10px;
+}
+.signup-msg.is-error { background: rgba(214, 69, 69, 0.09); color: #A12E2E; }
+.signup-msg.is-info { background: var(--lilac); color: var(--ink); }
+.signup-msg a { color: inherit; text-decoration: underline; }
+.fix-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.55rem; }
+.fix-row button {
+  border: 0; border-radius: 8px; padding: 0.45rem 0.8rem; cursor: pointer;
+  font: inherit; font-size: 0.88rem; font-weight: 500;
+}
+.fix-yes { background: #7C5CFC; color: #FAFAF8; }
+.fix-no { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--rule); }
+.ts-slot:empty { display: none; }
+.ts-slot { margin-top: 0.6rem; }
+
+:root[data-theme="dark"] .signup-msg.is-error { background: rgba(255, 120, 120, 0.12); color: #FFB4B4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .signup-msg.is-error { background: rgba(255, 120, 120, 0.12); color: #FFB4B4; } }
+.nl-cta .signup-msg { text-align: left; }
+.nl-cta .signup-msg.is-error { background: rgba(255, 120, 120, 0.12); color: #FFB4B4; }
+.nl-cta .signup-msg.is-info { background: rgba(124, 92, 252, 0.22); color: #F2F1F8; }
+.nl-cta .fix-no { color: #F2F1F8; box-shadow: inset 0 0 0 1px rgba(242, 241, 248, 0.3); }

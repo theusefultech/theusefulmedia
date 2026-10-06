@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="/tech/tech.css">
 <script src="/assets/site.js" defer></script>
 <script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
 </head>
 <body class="nl">
 <a class="skip" href="#main">Skip to content</a>
@@ -45,8 +46,15 @@
     <p class="nl-kicker rise">The Useful Tech newsletter</p>
     <h1 id="nl-title" class="rise">3 emails a week that make your iPhone and Mac more useful</h1>
     <p class="nl-lede rise rise-2">Hidden settings, apps nobody else covers, and the AI features actually worth turning on. Free, from the #1 Apple writer on Medium.</p>
-    <div class="signup rise rise-3" id="join" data-fallback="https://newsletter.theusefultech.com/subscribe">
-      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="f0d82858-b522-4d7f-ade8-c070b7be4ec3"></script>
+    <div class="signup rise rise-3" id="join">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-top">Email address</label>
+        <input id="email-top" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
     </div>
     <p class="nl-proof rise rise-3"><span class="nl-dots" aria-hidden="true"><i></i><i></i><i></i></span>Join 1,200+ Apple users. The average issue gets opened by 56% of them.</p>
   </div>
@@ -247,8 +255,15 @@
 <section class="wrap" aria-labelledby="cta-title">
   <div class="nl-cta">
     <h2 id="cta-title">Get the next issue free</h2>
-    <div class="signup" data-fallback="#join">
-      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="f0d82858-b522-4d7f-ade8-c070b7be4ec3"></script>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-bottom">Email address</label>
+        <input id="email-bottom" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
     </div>
     <p class="nl-cta-note">Monday, Wednesday and Friday. Free. Unsubscribe in one click.</p>
   </div>

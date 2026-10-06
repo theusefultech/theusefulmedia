@@ -1,0 +1,234 @@
+/* theusefulmedia.com/tech: The Useful Tech newsletter landing page.
+   Builds on /assets/styles.css tokens (ink, purple, paper, lilac, Space Grotesk). */
+
+.nl .site-header .wrap { min-height: 64px; }
+
+/* Hero */
+.nl-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding-block: clamp(2.5rem, 7vw, 6rem) clamp(2.5rem, 6vw, 5rem);
+}
+.nl-kicker {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  margin: 0 0 1.1rem; font-size: 0.95rem; font-weight: 500; color: var(--graphite);
+}
+.nl-kicker::before {
+  content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--purple);
+}
+.nl-hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 1.5rem + 3.9vw, 5.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  max-width: 13ch;
+  text-wrap: balance;
+}
+.nl-lede {
+  margin: clamp(1.1rem, 2.4vw, 1.6rem) 0 0;
+  font-size: var(--step-1);
+  line-height: 1.42;
+  color: var(--graphite);
+  max-width: 40ch;
+  text-wrap: pretty;
+}
+
+/* Signup: the Beehiiv embed replaces .signup-form; this styles the fallback and sizes the slot */
+.signup { margin-top: clamp(1.4rem, 3vw, 2rem); max-width: 480px; min-height: 56px; }
+.signup-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0 1.4rem; border-radius: 12px;
+  background: #7C5CFC; color: #FAFAF8; text-decoration: none; font-weight: 500;
+}
+.signup-btn:hover { background: #6A47F5; }
+.signup iframe { display: block; width: 100%; max-width: 480px; border: 0; background: transparent; }
+.signup-form {
+  display: flex; gap: 6px; padding: 6px;
+  background: #fff; border: 1px solid rgba(23, 23, 43, 0.22); border-radius: 14px;
+  box-shadow: 0 10px 30px -18px rgba(23, 23, 43, 0.45);
+}
+.signup-form input {
+  flex: 1; min-width: 0; border: 0; background: transparent;
+  font: inherit; font-size: 16px; color: #17172B; padding: 0.7rem 0.75rem;
+}
+.signup-form input::placeholder { color: #8A8A9C; }
+.signup-form input:focus { outline: none; }
+.signup-form:focus-within { border-color: #7C5CFC; box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.22); }
+.signup-form button {
+  flex: none; border: 0; border-radius: 10px; cursor: pointer;
+  background: #7C5CFC; color: #FAFAF8; font: inherit; font-size: 15px; font-weight: 500;
+  padding: 0.7rem 1.05rem; transition: background-color 200ms ease, transform 160ms ease;
+}
+.signup-form button:hover { background: #6A47F5; }
+.signup-form button:active { transform: scale(0.97); }
+@media (max-width: 420px) {
+  .signup-form { flex-direction: column; }
+  .signup-form button { padding: 0.85rem 1rem; }
+}
+
+.nl-proof {
+  display: flex; align-items: center; gap: 0.7rem;
+  margin: 1rem 0 0; font-size: 0.92rem; color: var(--graphite);
+}
+.nl-dots { display: inline-flex; flex: none; }
+.nl-dots i {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid var(--paper); margin-left: -7px; background: var(--purple);
+}
+.nl-dots i:first-child { margin-left: 0; background: var(--ink); }
+.nl-dots i:last-child { background: #B9A6FF; }
+
+/* Phone with the three weekly emails */
+.phone-wrap { display: flex; justify-content: center; }
+.phone {
+  position: relative; width: min(100%, 318px); aspect-ratio: 9 / 18.5;
+  padding: 11px; border-radius: 46px; background: #17172B;
+  box-shadow: 0 40px 70px -40px rgba(23, 23, 43, 0.6), inset 0 0 0 1.5px rgba(255, 255, 255, 0.08);
+  transform: rotate(2.5deg);
+}
+.phone-notch {
+  position: absolute; top: 20px; left: 50%; translate: -50% 0; z-index: 2;
+  width: 92px; height: 26px; border-radius: 14px; background: #17172B;
+}
+.phone-screen {
+  height: 100%; border-radius: 36px; overflow: hidden;
+  background: var(--paper); padding: 58px 14px 14px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.inbox-top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 0 6px 10px; border-bottom: 1px solid var(--rule); background: none;
+}
+.inbox-top span { margin: 0; font: 600 1.55rem/1.1 var(--sans); letter-spacing: -0.03em; }
+.inbox-top b { font-size: 0.75rem; font-weight: 500; color: var(--purple); }
+.mail-row {
+  position: relative; display: grid; gap: 2px; text-align: left; width: 100%;
+  padding: 10px 8px 11px 20px; border: 0; border-bottom: 1px solid var(--rule);
+  background: transparent; color: var(--ink); font: inherit; cursor: pointer;
+  border-radius: 10px; transition: background-color 200ms ease;
+}
+.mail-row:hover { background: color-mix(in srgb, var(--purple) 8%, transparent); }
+.mail-row .unread {
+  position: absolute; left: 6px; top: 15px; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--purple); transition: transform 220ms ease, opacity 220ms ease;
+}
+.mail-row.is-read .unread { transform: scale(0); opacity: 0; }
+.mail-from { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 600; }
+.mail-from em { font-style: normal; font-weight: 400; color: var(--graphite); }
+.mail-subj { font-size: 0.8rem; line-height: 1.3; }
+.mail-prev {
+  font-size: 0.74rem; line-height: 1.3; color: var(--graphite);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.mail-ghost { height: 52px; margin: 8px 8px 0 20px; border-radius: 8px; background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.mail-ghost.short { width: 70%; height: 40px; opacity: 0.6; }
+
+/* One load moment: the three emails arrive in order */
+@media (prefers-reduced-motion: no-preference) {
+  .phone { animation: phone-in 900ms cubic-bezier(.2,.7,.2,1) both 150ms; }
+  .mail-row { animation: mail-in 620ms cubic-bezier(.2,.8,.2,1) both; }
+  .mail-row:nth-of-type(1) { animation-delay: 700ms; }
+  .mail-row:nth-of-type(2) { animation-delay: 950ms; }
+  .mail-row:nth-of-type(3) { animation-delay: 1200ms; }
+  @keyframes phone-in { from { opacity: 0; transform: translateY(26px) rotate(6deg); } to { opacity: 1; transform: rotate(2.5deg); } }
+  @keyframes mail-in { from { opacity: 0; transform: translateY(-14px) scale(0.97); } to { opacity: 1; transform: none; } }
+}
+
+@media (max-width: 860px) {
+  .nl-hero { grid-template-columns: 1fr; }
+  .phone-wrap { margin-top: 0.5rem; }
+  .phone { width: min(78vw, 300px); }
+}
+
+/* Section headings */
+.nl-h2 {
+  margin: 0; font-size: var(--step-3); line-height: 1.02;
+  letter-spacing: -0.035em; font-weight: 500; max-width: 18ch;
+}
+
+/* Issue formats */
+.issues { border-top: 1px solid var(--rule); }
+.issue-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.25rem); margin-top: clamp(1.75rem, 4vw, 2.75rem);
+}
+.thumb { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 8 / 5; }
+.thumb svg { width: 100%; height: 100%; }
+.thumb .tag {
+  position: absolute; top: 12px; left: 12px;
+  font-family: var(--mono); font-size: 0.75rem; padding: 0.25rem 0.55rem;
+  border-radius: 999px; background: rgba(250, 250, 248, 0.92); color: #17172B;
+}
+.issue-day { margin: 1.1rem 0 0; font-size: 0.9rem; font-weight: 500; color: var(--purple); }
+.issue { display: flex; flex-direction: column; }
+.issue h3 { margin: 0.2rem 0 0; font-size: var(--step-1); font-weight: 500; letter-spacing: -0.02em; }
+.issue > p:not(.issue-day):not(.recent) { margin: 0.45rem 0 1rem; color: var(--graphite); }
+.recent {
+  margin: auto 0 0; padding-top: 0.85rem; border-top: 1px solid var(--rule);
+  font-size: 0.95rem; line-height: 1.4; min-height: 5.2em;
+}
+.recent span { display: block; font-size: 0.8rem; color: var(--graphite); margin-bottom: 0.2rem; }
+@media (max-width: 860px) {
+  .issue-grid { grid-template-columns: 1fr; max-width: 520px; }
+}
+
+/* About + objection */
+.about-grid {
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: clamp(2rem, 6vw, 5rem); align-items: start;
+}
+.about-copy > p { margin: 1.1rem 0 0; font-size: var(--step-1); line-height: 1.45; color: var(--graphite); max-width: 46ch; }
+.about .facts { margin-top: 2rem; }
+.about .facts li { flex: 1 1 0; }
+.objection {
+  border-radius: var(--radius-lg); background: var(--lilac);
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+.obj-q { margin: 0; font-size: var(--step-1); font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; }
+.objection p + p { margin: 0.75rem 0 0; color: var(--graphite); }
+.obj-clock { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.4rem; font-size: 0.9rem; font-weight: 500; }
+.obj-clock svg { width: 46px; height: 46px; }
+.obj-clock circle { fill: none; stroke: var(--ink); stroke-width: 4; }
+.obj-clock .hand { stroke: var(--ink); stroke-width: 4; stroke-linecap: round; }
+.obj-clock .sweep { fill: var(--purple); opacity: 0.85; }
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+/* Bottom CTA */
+.nl-cta {
+  margin-top: clamp(1rem, 3vw, 2rem);
+  border-radius: var(--radius-lg); background: #17172B; color: #F2F1F8;
+  padding: clamp(2.5rem, 7vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+  display: grid; justify-items: center; text-align: center;
+  position: relative; overflow: hidden;
+}
+.nl-cta::before {
+  content: ""; position: absolute; width: 420px; height: 420px; right: -140px; top: -200px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(124, 92, 252, 0.55), transparent 70%);
+  pointer-events: none;
+}
+.nl-cta h2 {
+  position: relative; margin: 0; font-size: var(--step-3); line-height: 1.02;
+  letter-spacing: -0.035em; font-weight: 500;
+}
+.nl-cta .signup { position: relative; width: 100%; margin-inline: auto; }
+.nl-cta .signup-form { border-color: transparent; }
+.nl-cta-note { position: relative; margin: 1rem 0 0; font-size: 0.9rem; color: rgba(242, 241, 248, 0.66); }
+:root[data-theme="dark"] .nl-cta { background: #1B1B33; box-shadow: inset 0 0 0 1px rgba(242, 241, 248, 0.08); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nl-cta { background: #1B1B33; box-shadow: inset 0 0 0 1px rgba(242, 241, 248, 0.08); }
+}
+
+/* Footer */
+.nl-footer { margin-top: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--rule); }
+.nl-footer .wrap {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  padding-block: 1.5rem 2rem; font-family: var(--mono); font-size: 0.78rem; color: var(--graphite);
+}
+.nl-footer nav { display: flex; gap: 1.5rem; }
+.nl-footer a { text-decoration: none; }
+.nl-footer a:hover { color: var(--purple); }

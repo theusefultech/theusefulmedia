@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Claude Cowork, ChatGPT Dots and Meta Muse can see on your Mac | The Useful Tech</title>
+<meta name="description" content="3 agents, 3 very different ways into your files">
+<link rel="canonical" href="https://theusefulmedia.com/tech/library/the-deep-dive-013-what-claude-cowork-chatgpt-dots-and-meta-muse-can-see-on-your-mac/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="What Claude Cowork, ChatGPT Dots and Meta Muse can see on your Mac | The Useful Tech">
+<meta property="og:description" content="3 agents, 3 very different ways into your files">
+<meta property="og:url" content="https://theusefulmedia.com/tech/library/the-deep-dive-013-what-claude-cowork-chatgpt-dots-and-meta-muse-can-see-on-your-mac/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/library/library.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What Claude Cowork, ChatGPT Dots and Meta Muse can see on your Mac", "description": "3 agents, 3 very different ways into your files", "datePublished": "2026-10-07T17:00:00+00:00", "image": "https://theusefulmedia.com/tech/og.png", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/library/the-deep-dive-013-what-claude-cowork-chatgpt-dots-and-meta-muse-can-see-on-your-mac/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/library/">Library</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #013</span><span class="ic-date">Oct 7, 2026</span></p>
+    <h1>What Claude Cowork, ChatGPT Dots and Meta Muse can see on your Mac</h1>
+    <p class="is-sub">3 agents, 3 very different ways into your files</p>
+  </header>
+  
+  <div class="is-body">
+<p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>On Monday you checked Full Disk Access. Today, the 3 AI agents most likely to ask for it, and what each one can actually see once you say yes.</p><p>They work in very different ways, and the permission prompt does not tell you which kind you are dealing with. Ten minutes with this issue and you will know.</p><h2>📘 What 3 AI agents can actually see on your Mac</h2><p><em>Meta Muse, ChatGPT Dots and Claude Cowork, and the settings that decide how far each one reaches.</em></p><h3>The 3 levels of access</h3><p>Every Mac agent sits somewhere on this ladder. The higher it sits, the more it can see without asking you again.</p><p><strong>Level 1, folders you pick.</strong> The agent sees the folders you hand it and nothing else.</p><p><strong>Level 2, your screen and controls.</strong> Screen Recording and Accessibility let an app see whatever is on screen and click and type for you. It is limited to what is open, but anything open counts.</p><p><strong>Level 3, Full Disk Access.</strong> Mail, Messages, Safari history and every file in your user folder, all readable at once.</p><h3>Meta Muse</h3><p>Muse launched for Mac in September and quickly became the reason Apple spoke up. Meta&#x27;s position is that Muse reads your Messages only if you turn on two things: Full Disk Access in System Settings and the Messages connector inside Muse. Granting Full Disk Access sends you into System Settings to confirm with your password or Touch ID, and the app restarts.</p><p>Inc. columnist Jason Aten says Muse synced his Messages database up to row 187,462 while Full Disk Access showed as off. Meta says that cannot happen. Nobody has published logs that settle it.</p><p><strong>Where it sits:</strong> Level 3 if you grant it. Unless you specifically want Muse working with your texts, do not give it Full Disk Access, and if you already did without a reason, switch it off.</p><h3>ChatGPT Dots</h3><p>Dots are OpenAI&#x27;s always-on agents, and each one runs on its own computer in the cloud. Out of the box, a Dot cannot touch your Mac&#x27;s files or apps at all. You can connect your Mac so the Dot works on it alongside its own virtual machine, and that connection needs the ChatGPT app open on that Mac.</p><p>Once connected, a Dot can reach your local files and fall back to your browser. To see and control apps it relies on Screen Recording and Accessibility, and it asks before it uses each app, with an Always allow option.</p><p><strong>Where it sits:</strong> Level 1 to 2, depending on what you connect. The setting to watch is Always allow. It is convenient, and it is also how a one-time yes quietly becomes permanent.</p><h3>Claude Cowork</h3><p>Since July 7, Cowork sessions run in the cloud by default, which is also why they keep going after you close the laptop. When you run one locally instead, Cowork works inside a Linux virtual machine on your Mac and only sees the folders you connect.</p><p>That boundary was tested in July. Security firm Accomplish AI showed that a local session could break out of the virtual machine and reach files across the Mac. Cloud sessions being the default sidesteps that route. Local sessions still depend on the virtual machine holding.</p><p><strong>Where it sits:</strong> Level 1. One piece of forum advice to ignore: giving Claude Full Disk Access to fix errors with OneDrive or Dropbox folders. Move the working folder somewhere local instead.</p><h3>The 5-minute permission audit</h3><ol><li>Open <strong>System Settings</strong>, then <strong>Privacy &amp; Security</strong>.</li><li><strong>Full Disk Access:</strong> remove any AI app that is not doing a specific job that needs it.</li><li><strong>Screen &amp; System Audio Recording:</strong> same rule. Anything here can see whatever is on your screen.</li><li><strong>Accessibility:</strong> anything here can click and type for you, so keep this list short.</li><li><strong>Files &amp; Folders:</strong> check which folders each app can open, and narrow them.</li></ol><blockquote><p>⚠️ The Muse dispute is still one journalist&#x27;s account against one company&#x27;s denial. The audit is worth doing either way. The point is not whether Muse misbehaved. The point is that you should know what you said yes to.</p></blockquote><h3>The rule worth keeping</h3><p>Give an agent the lowest level that gets the job done, for the job in front of you. A folder for a folder task. Screen access for a screen task. Full Disk Access for almost nothing.</p><aside class="callout"><p><strong>Set Cowork up properly from day one</strong></p><p><strong>Cowork Mastery</strong> is my full guide to Claude Cowork on the Mac. Which folders to connect, the context files Claude reads before every task, ready-to-use workflows, and the scheduled tasks that run without you, all set up the right way the first time.</p><p class="btn-row"><a class="is-btn" href="https://theusefultech.gumroad.com/l/cowork-mastery-guide" target="_blank" rel="noopener">Get Cowork Mastery</a></p></aside><hr><p>Run the audit once. It takes less time than this issue did.</p><p>On Friday, 5 new Mac apps from the first week of October, all from small developers.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More from the library">
+  <a class="is-nav-card is-older" href="/tech/library/the-useful-find-012-the-mac-setting-that-shows-which-apps-can-read-everything/"><span class="is-nav-k">Older</span><span class="is-nav-t">The Mac setting that shows which apps can read everything</span></a>
+  <a class="is-all" href="/tech/library/">Browse the library</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/library/">Library</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Useful Studio: launch videos in your brand, for Claude Code</title>
+<meta name="description" content="Useful Studio turns Claude Code on your Mac into a motion design studio. Type 1 line, get a launch film, reel, explainer or b-roll in your brand, as MP4 in 16:9 and 9:16.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://theusefulmedia.com/studio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Useful Media Co">
+<meta property="og:title" content="Useful Studio: type 1 line, get a launch video in your brand">
+<meta property="og:description" content="A motion design studio for Claude Code, on your Mac. Launch films, reels, explainers and b-roll, rendered as finished MP4s.">
+<meta property="og:url" content="https://theusefulmedia.com/studio/">
+<meta property="og:image" content="https://theusefulmedia.com/studio/media/useful-studio-launch.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121224" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: the page is a timeline. A sticky ruler maps scroll to a 72 s film; each section is a keyframe. */
+:root{
+  --paper:#FAFAF8; --paper-2:#F1EFF9; --ink:#17172B; --ink-2:#4A4863; --line:#DEDAEE;
+  --purple:#7C5CFC; --purple-deep:#5E42D6; --lilac:#B9A8FF; --on-purple:#FFFFFF;
+  --stage:#17172B; --stage-fg:#F4F2FF; --stage-line:#34325A;
+  --good:#1E8E5A;
+  --display:"Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r:14px; --gut:clamp(16px,4vw,40px); --max:1160px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121224; --paper-2:#1B1A33; --ink:#F1EFFC; --ink-2:#ABA7C9; --line:#2E2C4D;
+  --purple:#9A82FF; --purple-deep:#6A4EE8; --lilac:#C9BCFF; --on-purple:#FFFFFF;
+  --stage:#0B0B18; --stage-fg:#F4F2FF; --stage-line:#2A2850; --good:#4CC38A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121224; --paper-2:#1B1A33; --ink:#F1EFFC; --ink-2:#ABA7C9; --line:#2E2C4D;
+  --purple:#9A82FF; --purple-deep:#6A4EE8; --lilac:#C9BCFF; --on-purple:#FFFFFF;
+  --stage:#0B0B18; --stage-fg:#F4F2FF; --stage-line:#2A2850; --good:#4CC38A; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--display);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+h1,h2,h3{font-weight:600;line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+:focus-visible{outline:3px solid var(--purple);outline-offset:3px;border-radius:6px}
+
+/* Header + timeline ruler */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.brand svg{width:30px;height:30px}
+.brand small{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--ink-2);letter-spacing:0}
+.bar nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+.bar nav a.l{text-decoration:none;font-size:15px;color:var(--ink-2)}
+.bar nav a.l:hover{color:var(--ink)}
+@media (max-width:760px){.bar nav a.l{display:none}.brand small{display:none}}
+.ruler{position:relative;height:30px;border-top:1px solid var(--line)}
+.ruler canvas{position:absolute;inset:0;width:100%;height:100%}
+.tc{position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:11.5px;color:var(--ink-2);background:var(--paper);padding:1px 6px;border-radius:4px;font-variant-numeric:tabular-nums}
+.kf{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;transform:rotate(45deg);background:var(--paper);border:2px solid var(--ink-2);border-radius:2px;cursor:pointer;padding:0}
+@media (max-width:640px){.tc{display:none}}
+.kf.on{background:var(--purple);border-color:var(--purple)}
+.kf span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.head{position:absolute;top:0;bottom:0;width:2px;background:var(--purple);pointer-events:none}
+.head::before{content:"";position:absolute;top:-1px;left:-5px;border:6px solid transparent;border-top-color:var(--purple)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--display);text-decoration:none;border-radius:999px;padding:15px 22px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.buy{background:var(--purple-deep);color:var(--on-purple)}
+.btn.buy:hover{background:color-mix(in srgb,var(--purple-deep) 88%,#000)}
+.btn.ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn.ghost:hover{border-color:var(--ink-2)}
+.btn.sm{padding:10px 16px;font-size:14.5px}
+.price s{opacity:.7;font-weight:500}
+
+/* Hero */
+.hero{padding-block:clamp(36px,7vw,84px) 36px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:36px}
+.hero h1{font-size:clamp(42px,5.6vw,74px)}
+.hero h1 em{font-style:normal;color:var(--purple)}
+.hero .lede{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:40ch;margin-top:22px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;align-items:center}
+.fine{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.fine b{color:var(--ink);font-weight:500}
+@media (min-width:980px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}}
+
+.monitor{position:relative;background:var(--stage);border-radius:18px;padding:10px;box-shadow:0 30px 60px -30px rgba(40,20,120,.45)}
+.monitor video{display:block;width:100%;aspect-ratio:16/9;border-radius:10px;background:#000;max-width:100%}
+.mbar{display:flex;align-items:center;gap:12px;padding:10px 6px 2px;color:var(--stage-fg);font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums}
+.mbar button{font:500 12px var(--mono);color:var(--stage-fg);background:transparent;border:1px solid var(--stage-line);border-radius:999px;padding:6px 12px;cursor:pointer}
+.mbar button:hover{border-color:var(--lilac)}
+.scrub{flex:1;height:4px;background:var(--stage-line);border-radius:4px;position:relative;overflow:hidden}
+.scrub i{position:absolute;inset:0 auto 0 0;width:0;background:var(--lilac)}
+
+/* Problem */
+.problem{padding-block:clamp(48px,8vw,96px)}
+.problem p{font-size:clamp(30px,4.6vw,58px);font-weight:600;letter-spacing:-.02em;line-height:1.08;max-width:22ch;text-wrap:balance}
+.problem p+p{color:var(--ink-2);margin-top:10px}
+.problem p strong{color:var(--purple)}
+
+/* Section headers */
+section{scroll-margin-top:110px}
+.sh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:34px}
+.sh h2{font-size:clamp(32px,4.4vw,52px);max-width:18ch}
+.sh p{color:var(--ink-2);max-width:44ch}
+
+/* How it works */
+.how{padding-block:clamp(48px,7vw,90px);background:var(--paper-2);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{position:relative;padding:22px 20px 22px;border-top:2px solid var(--ink);counter-increment:s;min-width:0}
+.steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:12.5px;color:var(--purple);display:block;margin-bottom:14px}
+.steps h3{font-size:22px;margin-bottom:8px}
+.steps p{color:var(--ink-2);font-size:16px}
+.steps code{font-family:var(--mono);font-size:14px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+
+.critic{margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:center}
+@media (min-width:900px){.critic{grid-template-columns:minmax(0,4fr) minmax(0,7fr)}}
+.critic h3{font-size:clamp(24px,2.6vw,32px)}
+.critic .t p{color:var(--ink-2);margin-top:12px;max-width:42ch}
+.score{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.score .cap{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-bottom:14px;flex-wrap:wrap}
+.row{display:grid;grid-template-columns:118px minmax(0,1fr) 34px;gap:12px;align-items:center;font-size:15px;padding-block:5px}
+.row .tr{height:10px;background:var(--paper-2);border-radius:6px;position:relative;overflow:hidden}
+.row .tr::after{content:"";position:absolute;left:80%;top:0;bottom:0;width:1px;background:var(--ink-2);opacity:.5}
+.row .tr i{position:absolute;inset:0 auto 0 0;background:var(--purple);border-radius:6px;transform-origin:left;animation:grow .9s cubic-bezier(.2,.9,.25,1.12) both}
+.row b{font-family:var(--mono);font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+.score .legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);margin-top:10px}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Gallery */
+.gallery{padding-block:clamp(56px,8vw,100px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{font:500 13.5px var(--mono);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:16px}
+.grid.tall{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));margin-top:16px}
+.card{position:relative;border-radius:var(--r);overflow:hidden;background:var(--stage);cursor:pointer;border:0;padding:0;text-align:left;color:var(--stage-fg);display:flex;flex-direction:column}
+.card.w{aspect-ratio:auto}
+.card .vid{position:relative;background:#000}
+.card video,.card img{display:block;width:100%;height:100%;object-fit:cover;max-width:100%}
+.card.w .vid{aspect-ratio:16/9}
+.card.t .vid{aspect-ratio:9/16}
+.card .meta{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .cmd{font-family:var(--mono);font-size:12.5px;color:var(--lilac);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.card .cmd em{font-style:normal;color:var(--stage-fg);opacity:.65}
+.card .pro{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;background:var(--lilac);color:#17172B;border-radius:4px;padding:2px 6px}
+.card .cap2{font-size:14.5px;line-height:1.4;color:var(--stage-fg);opacity:.9}
+.card .play{position:absolute;right:10px;bottom:10px;font-family:var(--mono);font-size:11.5px;background:rgba(10,10,25,.7);color:#fff;border-radius:999px;padding:5px 10px}
+.card:hover .play{background:var(--purple-deep)}
+.gnote{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-top:18px;max-width:80ch}
+
+dialog{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);width:100%}
+dialog::backdrop{background:rgba(8,8,20,.86)}
+dialog video{display:block;width:100%;max-height:82vh;border-radius:12px;background:#000;max-width:100%}
+dialog .dbar{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#F4F2FF;font-family:var(--mono);font-size:13px;padding:10px 2px}
+dialog button{font:500 13px var(--mono);background:transparent;color:#F4F2FF;border:1px solid #4a4870;border-radius:999px;padding:7px 14px;cursor:pointer}
+
+/* Inside */
+.inside{padding-block:clamp(56px,8vw,100px);background:var(--stage);color:var(--stage-fg)}
+.inside .sh p{color:color-mix(in srgb,var(--stage-fg) 72%,transparent)}
+.cmds{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 28px}
+.cmd-row{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;padding-block:16px;border-top:1px solid var(--stage-line);min-width:0}
+.cmd-row code{font-family:var(--mono);font-size:15px;color:var(--lilac)}
+.cmd-row code .pro{font-size:10.5px;margin-left:8px;background:var(--lilac);color:#17172B;border-radius:4px;padding:2px 6px;vertical-align:2px}
+.cmd-row span{font-size:15.5px;color:color-mix(in srgb,var(--stage-fg) 80%,transparent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px;margin-top:52px}
+.fact .n{font-size:clamp(46px,5.4vw,68px);font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.fact .n small{font-size:.4em;color:var(--lilac);font-family:var(--mono);font-weight:500;letter-spacing:0;margin-left:6px}
+.fact p{margin-top:10px;font-size:15.5px;color:color-mix(in srgb,var(--stage-fg) 78%,transparent);max-width:34ch}
+.styles{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.styles span{font-family:var(--mono);font-size:12.5px;border:1px solid var(--stage-line);border-radius:999px;padding:5px 11px;color:color-mix(in srgb,var(--stage-fg) 85%,transparent)}
+
+/* Who */
+.who{padding-block:clamp(56px,8vw,100px)}
+.who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:28px}
+.who-grid div{min-width:0}
+.who-grid h3{font-size:24px;margin-bottom:10px}
+.who-grid p{color:var(--ink-2)}
+.who-grid .ex{font-family:var(--mono);font-size:13px;color:var(--purple);margin-top:12px}
+
+/* Pricing */
+.pricing{padding-block:clamp(56px,8vw,100px);background:var(--paper-2);border-block:1px solid var(--line)}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;align-items:stretch}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.tier.feat{border:2px solid var(--purple);position:relative}
+.tier .tag{position:absolute;top:-12px;left:22px;font-family:var(--mono);font-size:11.5px;background:var(--purple-deep);color:var(--on-purple);border-radius:999px;padding:4px 10px}
+.tier h3{font-size:24px}
+.tier .amt{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tier .amt b{font-size:52px;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tier .amt s{font-size:22px;color:var(--ink-2)}
+.tier .amt span{font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.tier ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;flex:1}
+.tier li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:10px;font-size:15.5px;line-height:1.45}
+.tier li::before{content:"";width:9px;height:9px;margin-top:7px;transform:rotate(45deg);background:var(--purple);border-radius:2px}
+.tier li.plus::before{background:var(--lilac)}
+.tier .btn{justify-content:center}
+.final{font-family:var(--mono);font-size:12px;color:var(--ink-2);text-align:center}
+.free{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;border:1px dashed var(--line);border-radius:var(--r);padding:18px 22px;background:var(--paper)}
+.free p{max-width:60ch}
+.free p b{font-weight:600}
+
+/* Requirements + FAQ */
+.faq{padding-block:clamp(56px,8vw,100px)}
+.req{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin-bottom:46px}
+.req div{border-top:2px solid var(--ink);padding-top:12px;min-width:0}
+.req dt{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+.req dd{margin:6px 0 0;font-size:16px}
+details{border-top:1px solid var(--line);padding-block:4px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;padding-block:16px;font-size:19px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:11px;height:11px;transform:rotate(45deg);border:2px solid var(--ink-2);border-radius:2px;transition:background .2s}
+details[open] summary::after{background:var(--purple);border-color:var(--purple)}
+details p{color:var(--ink-2);padding-bottom:18px;max-width:70ch}
+.qa{max-width:880px}
+
+/* Closing */
+.close{padding-block:clamp(56px,9vw,110px);text-align:left}
+.close h2{font-size:clamp(38px,6vw,76px);max-width:16ch}
+.close .ctas{margin-top:28px}
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:14px;color:var(--ink-2)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px}
+footer p{max-width:70ch}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Useful Studio home">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><path id="u" d="M24 34 C24 110 96 110 96 34" fill="none" stroke="var(--purple)" stroke-width="13" stroke-linecap="round"/><rect x="14" y="24" width="20" height="20" rx="3" transform="rotate(45 24 34)" fill="var(--ink)"/><rect x="86" y="24" width="20" height="20" rx="3" transform="rotate(45 96 34)" fill="var(--ink)"/></svg>
+      Useful Studio <small>for Claude Code</small>
+    </a>
+    <nav aria-label="Sections">
+      <a class="l" href="#how">How it works</a>
+      <a class="l" href="#gallery">Gallery</a>
+      <a class="l" href="#pricing">Pricing</a>
+      <a class="btn buy sm" href="#pricing">Get it <span class="price">$199</span></a>
+    </nav>
+  </div>
+  <div class="ruler" id="ruler" aria-hidden="false">
+    <canvas id="ticks" aria-hidden="true"></canvas>
+    <div class="head" id="head"></div>
+    <div class="tc" id="tc">00:00:00</div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="film" data-kf="Film">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">A motion design studio for Claude Code, on your Mac</p>
+        <h1 style="margin-top:18px">Type 1 line. Get a launch video <em>in your brand.</em></h1>
+        <p class="lede">Useful Studio writes the story, animates every frame and checks its own work. You get finished MP4s in 16:9 and 9:16. No timeline. No editing skills.</p>
+        <div class="ctas">
+          <a class="btn buy" href="https://theusefultech.gumroad.com/l/useful-studio">Get Useful Studio <span class="price"><s>$299</s> $199</span></a>
+          <a class="btn ghost" href="#gallery">See 11 videos it made</a>
+        </div>
+        <div class="fine"><span><b>Launch price</b> until 31 October</span><span>Mac, macOS 14+</span><span>All sales are final</span></div>
+      </div>
+      <figure class="monitor" style="margin:0">
+        <video id="hero" src="media/useful-studio-launch.mp4" poster="media/useful-studio-launch.jpg" muted playsinline loop preload="metadata" aria-label="The Useful Studio launch film, made with Useful Studio"></video>
+        <div class="mbar">
+          <button id="playBtn" type="button">Play</button>
+          <button id="soundBtn" type="button">Sound off</button>
+          <div class="scrub" aria-hidden="true"><i id="prog"></i></div>
+          <span id="htc">00:00 / 01:12</span>
+        </div>
+        <figcaption class="mono" style="color:var(--stage-fg);opacity:.7;font-size:12px;padding:6px 6px 2px">Every frame of this film was made with Useful Studio.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="problem" data-kf="Why">
+    <div class="wrap">
+      <p>Agencies quote <strong>$3,000</strong> for 30 seconds of motion design.</p>
+      <p>So most launches ship with a screenshot.</p>
+    </div>
+  </section>
+
+  <section class="how" id="how" data-kf="How">
+    <div class="wrap">
+      <div class="sh">
+        <h2>You type 1 line. It does the studio work.</h2>
+        <p>Every command asks a few plain questions, then runs on its own. Most videos take 10 to 40 minutes from prompt to finished file while you do something else.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Learns your brand</h3><p><code>/studio-brand</code> saves your name, logo, colours, fonts and tone once. Every video after that is on-brand.</p></li>
+        <li><h3>Writes the story</h3><p>It turns your product into a storyboard with a hook, a reveal and a clear ending. One idea on screen at a time.</p></li>
+        <li><h3>Animates every frame</h3><p>Damped springs, 12 signature moves, drawn illustrations and your real screenshots. Music cut to the beat.</p></li>
+        <li><h3>Checks its own work</h3><p>It watches the film, scores it on 7 things and fixes the weakest until every score is 8 or more.</p></li>
+      </ol>
+
+      <div class="critic">
+        <div class="t">
+          <h3>A strict critic is built in.</h3>
+          <p>A 9 or 10 means a professional motion designer would ship it. Automatic checks catch text that moves while you read it, icons 2 px off and lines that leave the screen too soon.</p>
+        </div>
+        <div class="score" role="img" aria-label="Critique scores for the Useful Studio launch film: hook 10, readability 9, motion 9, pace 9, composition 10, brand 10, sound 10 out of 10.">
+          <div class="cap"><span>/studio-critique · useful-studio-launch 16:9</span><span>Final round</span></div>
+          <div id="bars"></div>
+          <p class="legend">Out of 10. The thin line marks 8, the bar every film must clear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery" data-kf="Gallery">
+    <div class="wrap">
+      <div class="sh">
+        <h2>11 videos. Every one made by a real command run.</h2>
+        <p>Start to finish, no hand edits. Tap any video to watch it with sound.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter videos by command">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-f="/studio-launch" aria-pressed="false">/studio-launch</button>
+        <button class="chip" type="button" data-f="/studio-reel" aria-pressed="false">/studio-reel</button>
+        <button class="chip" type="button" data-f="/studio-explainer" aria-pressed="false">/studio-explainer</button>
+        <button class="chip" type="button" data-f="/studio-broll" aria-pressed="false">/studio-broll</button>
+        <button class="chip" type="button" data-f="pro" aria-pressed="false">Studio Pro</button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="grid tall" id="gridT"></div>
+      <p class="gnote">Plotwren, Leafkin and Kettlewise are demo brands made up for this gallery. Run times are from a 4-core cloud machine. A recent Mac is faster.</p>
+    </div>
+  </section>
+
+  <section class="inside" id="inside" data-kf="Inside">
+    <div class="wrap">
+      <div class="sh">
+        <h2>Everything in the box.</h2>
+        <p>Commands you type in Claude Code. Each one ends with finished files in your Movies folder.</p>
+      </div>
+      <div class="cmds">
+        <div class="cmd-row"><code>/studio-launch</code><span>A 25 to 35 second launch film for your app or product.</span></div>
+        <div class="cmd-row"><code>/studio-reel</code><span>15 to 30 second vertical reels and Shorts that loop cleanly.</span></div>
+        <div class="cmd-row"><code>/studio-explainer</code><span>60 to 90 second explainers with voiceover and captions.</span></div>
+        <div class="cmd-row"><code>/studio-broll</code><span>Graphics over your talking-head video, timed to your words. Transparent clips included.</span></div>
+        <div class="cmd-row"><code>/studio-brand</code><span>Saves your logo, colours, fonts and tone. Cuts the white box out of a logo.</span></div>
+        <div class="cmd-row"><code>/studio-templates</code><span>A gallery of 20 templates and 12 styles, with the exact words to type.</span></div>
+        <div class="cmd-row"><code>/studio-critique</code><span>Scores any film on 7 things and fixes the weakest.</span></div>
+        <div class="cmd-row"><code>/studio-setup</code><span>Installs everything in a few minutes. No admin password.</span></div>
+        <div class="cmd-row"><code>/studio-appstore<span class="pro">PRO</span></code><span>App Store and Google Play previews from your own screen recordings, at every required size.</span></div>
+        <div class="cmd-row"><code>/studio-blog<span class="pro">PRO</span></code><span>Turns a blog post into a 45 to 60 second narrated vertical video.</span></div>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><div class="n">20<small>templates</small></div><p>Launch, feature spotlight, before and after, stat reveal, myth vs fact, countdown, sale and 13 more.</p></div>
+        <div class="fact"><div class="n">12<small>styles</small></div><p>Ask for any look by 1 word. Always in your colours.</p>
+          <div class="styles"><span>editorial</span><span>swiss</span><span>pop</span><span>mono</span><span>cinematic</span><span>playful</span><span>paper</span><span>tech</span><span>retro</span><span>luxury</span><span>neon</span><span>calm</span></div></div>
+        <div class="fact"><div class="n">5<small>moods</small></div><p>Music built from 76 real recorded samples, cleared for commercial use. Or drop in your own track and it cuts every shot to the beat.</p></div>
+        <div class="fact"><div class="n">$0<small>per video</small></div><p>No API key, no monthly fee, no watermark. It runs on your Mac with your Claude plan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who" data-kf="Who">
+    <div class="wrap">
+      <div class="sh"><h2>Built for people who ship.</h2></div>
+      <div class="who-grid">
+        <div><h3>Indie app makers</h3><p>A launch film for Product Hunt, an App Store preview and a reel for every update. Made the day you ship, not the week after.</p><p class="ex">/studio-launch · /studio-appstore</p></div>
+        <div><h3>Creators</h3><p>Reels, Shorts and b-roll in your own brand, with music that hits on the beat and captions you can read on a phone.</p><p class="ex">/studio-reel · /studio-broll</p></div>
+        <div><h3>Small studios</h3><p>Client videos in each client's brand, at the speed of a prompt. Studio Pro includes the client license.</p><p class="ex">Studio Pro · client work</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing" data-kf="Pricing">
+    <div class="wrap">
+      <div class="sh">
+        <h2>Pay once. Keep every video forever.</h2>
+        <p>1 license key works on up to 3 of your Macs. 12 months of updates included. After that your version keeps working.</p>
+      </div>
+      <div class="tiers">
+        <div class="tier feat">
+          <span class="tag">Launch price</span>
+          <h3>Useful Studio</h3>
+          <div class="amt"><b>$199</b><s>$299</s><span>one time</span></div>
+          <ul>
+            <li>8 commands: launch films, reels, explainers, b-roll and more</li>
+            <li>20 templates and 12 styles</li>
+            <li>5 music moods, or your own track cut to the beat</li>
+            <li>Voiceover that runs on your Mac</li>
+            <li>Unlimited videos for you and your own business</li>
+            <li>3 Macs, 12 months of updates</li>
+          </ul>
+          <a class="btn buy" href="https://theusefultech.gumroad.com/l/useful-studio">Get Useful Studio</a>
+          <p class="final">All sales are final. No refunds.</p>
+        </div>
+        <div class="tier">
+          <h3>Useful Studio Pro</h3>
+          <div class="amt"><b>$349</b><span>one time</span></div>
+          <ul>
+            <li>Everything in Useful Studio</li>
+            <li class="plus">/studio-appstore: App Store and Google Play previews</li>
+            <li class="plus">/studio-blog: blog posts into narrated videos</li>
+            <li class="plus">Client license: make videos for paying clients</li>
+            <li class="plus">Private Discord with other Pro owners</li>
+            <li class="plus">New Pro commands during your 12 months of updates</li>
+          </ul>
+          <a class="btn buy" href="https://theusefultech.gumroad.com/l/useful-studio-pro">Get Studio Pro</a>
+          <p class="final">All sales are final. No refunds.</p>
+        </div>
+        <div class="tier">
+          <h3>Template Pack</h3>
+          <div class="amt"><b>$49</b><span>one time</span></div>
+          <ul>
+            <li>10 animated templates that play in any browser</li>
+            <li>No Claude Code needed</li>
+            <li>A settings panel for your name, colours, fonts and words</li>
+            <li>3 looks and 3 sizes each</li>
+            <li>Export an MP4 in Chrome, or record it with QuickTime</li>
+            <li>For your own and client videos</li>
+          </ul>
+          <a class="btn ghost" href="https://theusefultech.gumroad.com/l/useful-studio-templates">Get the Template Pack</a>
+          <p class="final">All sales are final. No refunds.</p>
+        </div>
+      </div>
+      <div class="free">
+        <p><b>Not ready yet?</b> Get 3 of the templates free: a countdown teaser, a quote card and a stat reveal. Use them for anything, including client work.</p>
+        <a class="btn ghost sm" href="https://theusefultech.gumroad.com/l/useful-studio-free">Get 3 free templates</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" data-kf="FAQ">
+    <div class="wrap">
+      <div class="sh"><h2>What you need, and what people ask.</h2></div>
+      <dl class="req">
+        <div><dt>Computer</dt><dd>A Mac with macOS 14 or later. Apple silicon or Intel.</dd></div>
+        <div><dt>Claude</dt><dd>Claude Code with a paid Claude plan: Pro, Max, Team or Enterprise.</dd></div>
+        <div><dt>Space</dt><dd>About 1 GB for the tools, plus room for your videos.</dd></div>
+        <div><dt>Skills</dt><dd>None. The install guide tells you exactly what to type.</dd></div>
+      </dl>
+      <div class="qa">
+        <details><summary>Do I need to know how to code or edit video?</summary><p>No. You type a command like /studio-launch and answer a few questions in plain words. Setup takes about 5 minutes and the guide shows every step.</p></details>
+        <details><summary>Does it cost anything per video?</summary><p>No. There is no API key, no subscription and no watermark. Making a video uses some of your Claude plan's usage, like any other Claude Code task.</p></details>
+        <details><summary>How long does a video take?</summary><p>Most commands finish in 10 to 40 minutes, start to end, on their own. The final render takes about 3 minutes per size on an Apple silicon Mac. An older Intel Mac is slower, and it still finishes.</p></details>
+        <details><summary>Can I use my own music?</summary><p>Yes, and it gives the best result. Drop in an MP3, M4A or WAV you have the rights to. Useful Studio finds the beat and lands your big reveal on the drop. No track? It builds one from 76 recorded samples cleared for commercial use.</p></details>
+        <details><summary>Can I make videos for clients?</summary><p>With Useful Studio Pro, yes. Your clients get the videos and can use them for anything. Useful Studio is licensed for your own videos and your own business.</p></details>
+        <details><summary>Is it made by Anthropic?</summary><p>No. Useful Studio is an independent product by The Useful Media Co. It is a plugin for Claude Code and is not made or endorsed by Anthropic.</p></details>
+        <details><summary>What gets sent from my Mac?</summary><p>Only your license key, once, to Gumroad to check it. Nothing about you, your Mac or your videos is sent anywhere.</p></details>
+        <details><summary>What happens after 12 months?</summary><p>Your version keeps working forever. You can renew to get newer versions.</p></details>
+        <details><summary>Do you offer refunds?</summary><p>No. All sales are final. Watch the gallery and try the 3 free templates first to be sure it fits.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" data-kf="Get it">
+    <div class="wrap">
+      <h2>Your next launch deserves more than a screenshot.</h2>
+      <div class="ctas">
+        <a class="btn buy" href="https://theusefultech.gumroad.com/l/useful-studio">Get Useful Studio <span class="price"><s>$299</s> $199</span></a>
+        <a class="btn ghost" href="https://theusefultech.gumroad.com/l/useful-studio-pro">Studio Pro, $349</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Useful Studio is an independent product by The Useful Media Co, made for Claude Code. It is not made or endorsed by Anthropic. Claude Code is a product of Anthropic.</p>
+    <p>Support: <span class="mono">raja@theusefultech.com</span> · <a href="https://theusefulmedia.com">theusefulmedia.com</a></p>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-label="Video player">
+  <div class="dbar"><span id="dcap"></span><button type="button" id="dclose">Close</button></div>
+  <video id="dvid" controls playsinline></video>
+</dialog>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var V = [
+    {id:'useful-studio-launch', cmd:'/studio-launch', brand:'Useful Studio', shape:'w', cap:'The Useful Studio launch film. Made with /studio-launch and /studio-critique, cut to a licensed track.'},
+    {id:'launch-plotwren', cmd:'/studio-launch', brand:'Plotwren', shape:'w', min:23, cap:'A Plotwren launch film from 1 prompt.'},
+    {id:'useful-studio-launch-vertical', cmd:'/studio-launch', brand:'Useful Studio', shape:'t', cap:'The vertical cut of the launch film.'},
+    {id:'reel-leafkin', cmd:'/studio-reel', brand:'Leafkin', shape:'t', min:14, cap:'A Leafkin reel, voiceover and all.'},
+    {id:'retro-myth-vs-fact', cmd:'/studio-reel', brand:'Kettlewise', shape:'t', min:14, style:'Retro', cap:'Myth vs fact template in the Retro style.'},
+    {id:'blog-leafkin', cmd:'/studio-blog', brand:'Leafkin', shape:'t', min:41, pro:1, cap:'A Leafkin blog post turned into a narrated vertical video.'},
+    {id:'explainer-kettlewise', cmd:'/studio-explainer', brand:'Kettlewise', shape:'w', min:32, cap:'An 82 second explainer from lesson notes.'},
+    {id:'broll-kettlewise', cmd:'/studio-broll', brand:'Kettlewise', shape:'w', min:19, cap:'Graphics over a talking-head video, timed to the words.'},
+    {id:'paper-feature-spotlight', cmd:'/studio-launch', brand:'Leafkin', shape:'w', min:25, style:'Paper', cap:'Feature spotlight template in the Paper style.'},
+    {id:'neon-stat-reveal', cmd:'/studio-launch', brand:'Plotwren', shape:'w', min:22, style:'Neon', cap:'Stat reveal template in the Neon style.'},
+    {id:'appstore-plotwren', cmd:'/studio-appstore', brand:'Plotwren', shape:'t', min:8, pro:1, cap:'An App Store preview from a real screen recording.'}
+  ];
+  var grid = document.getElementById('grid'), gridT = document.getElementById('gridT');
+  V.forEach(function(v){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'card ' + v.shape; b.dataset.cmd = v.cmd; if (v.pro) b.dataset.pro = '1';
+    b.setAttribute('aria-label', 'Play ' + v.cap);
+    b.innerHTML = '<div class="vid"><img alt="" src="media/' + v.id + '.jpg"><span class="play">Play' + (v.min ? ' · ' + v.min + ' min run' : '') + '</span></div>' +
+      '<div class="meta"><div class="cmd">' + v.cmd + (v.pro ? ' <span class="pro">PRO</span>' : '') + ' <em>' + v.brand + (v.style ? ' · ' + v.style : '') + '</em></div><p class="cap2">' + v.cap + '</p></div>';
+    var vidBox = b.querySelector('.vid'), clip = null;
+    if (!reduce && window.matchMedia('(hover: hover)').matches){
+      b.addEventListener('mouseenter', function(){
+        if (!clip){ clip = document.createElement('video'); clip.muted = true; clip.loop = true; clip.playsInline = true; clip.src = 'media/' + v.id + '.mp4'; clip.style.position = 'absolute'; clip.style.inset = '0'; vidBox.appendChild(clip); }
+        var p = clip.play(); if (p && p.catch) p.catch(function(){});
+      });
+      b.addEventListener('mouseleave', function(){ if (clip) clip.pause(); });
+    }
+    b.addEventListener('click', function(){ openDlg(v); });
+    (v.shape === 't' ? gridT : grid).appendChild(b);
+  });
+
+  // Filters
+  var chips = document.querySelectorAll('.chip');
+  chips.forEach(function(c){ c.addEventListener('click', function(){
+    chips.forEach(function(x){ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+    var f = c.dataset.f;
+    document.querySelectorAll('.card').forEach(function(card){
+      card.hidden = !(f === 'all' || (f === 'pro' ? card.dataset.pro : card.dataset.cmd === f));
+    });
+  }); });
+
+  // Dialog
+  var dlg = document.getElementById('dlg'), dvid = document.getElementById('dvid');
+  function openDlg(v){
+    dvid.src = 'media/' + v.id + '.mp4'; dvid.poster = 'media/' + v.id + '.jpg';
+    document.getElementById('dcap').textContent = v.cmd + ' · ' + v.brand;
+    if (dlg.showModal) dlg.showModal();
+    hero.pause(); syncPlay();
+    var p = dvid.play(); if (p && p.catch) p.catch(function(){});
+  }
+  function closeDlg(){ dvid.pause(); dvid.removeAttribute('src'); dvid.load(); if (dlg.open) dlg.close(); }
+  document.getElementById('dclose').addEventListener('click', closeDlg);
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) closeDlg(); });
+  dlg.addEventListener('cancel', function(){ dvid.pause(); });
+
+  // Hero player
+  var hero = document.getElementById('hero'), playBtn = document.getElementById('playBtn'), soundBtn = document.getElementById('soundBtn');
+  var prog = document.getElementById('prog'), htc = document.getElementById('htc');
+  function mmss(s){ s = Math.max(0, Math.floor(s)); return ('0' + Math.floor(s/60)).slice(-2) + ':' + ('0' + s%60).slice(-2); }
+  function syncPlay(){ playBtn.textContent = hero.paused ? 'Play' : 'Pause'; }
+  playBtn.addEventListener('click', function(){ if (hero.paused){ var p = hero.play(); if (p && p.catch) p.catch(function(){}); } else hero.pause(); });
+  soundBtn.addEventListener('click', function(){
+    hero.muted = !hero.muted; soundBtn.textContent = hero.muted ? 'Sound off' : 'Sound on';
+    if (!hero.muted && hero.paused){ hero.currentTime = 0; var p = hero.play(); if (p && p.catch) p.catch(function(){}); }
+  });
+  hero.addEventListener('play', syncPlay); hero.addEventListener('pause', syncPlay);
+  hero.addEventListener('timeupdate', function(){
+    var d = hero.duration || 72; prog.style.width = (hero.currentTime / d * 100) + '%';
+    htc.textContent = mmss(hero.currentTime) + ' / ' + mmss(d);
+  });
+  if (!reduce){ var p0 = hero.play(); if (p0 && p0.catch) p0.catch(function(){}); }
+
+  // Critique bars (real scores of the launch film, 16:9, session 10)
+  var S = [['Hook',10],['Readability',9],['Motion',9],['Pace',9],['Composition',10],['Brand',10],['Sound',10]];
+  var bars = document.getElementById('bars');
+  S.forEach(function(s, i){
+    var r = document.createElement('div'); r.className = 'row';
+    r.innerHTML = '<span>' + s[0] + '</span><div class="tr"><i style="width:' + (s[1]*10) + '%;animation-delay:' + (i*70) + 'ms"></i></div><b>' + s[1] + '</b>';
+    bars.appendChild(r);
+  });
+
+  // Timeline ruler: scroll maps to a 72 s film, sections are keyframes
+  var ruler = document.getElementById('ruler'), canvas = document.getElementById('ticks'), head = document.getElementById('head'), tc = document.getElementById('tc');
+  var secs = Array.prototype.slice.call(document.querySelectorAll('[data-kf]')), kfs = [];
+  secs.forEach(function(s){
+    var k = document.createElement('button'); k.type = 'button'; k.className = 'kf';
+    k.innerHTML = '<span>Jump to ' + s.dataset.kf + '</span>'; k.title = s.dataset.kf;
+    k.addEventListener('click', function(){ s.scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); });
+    ruler.appendChild(k); kfs.push(k);
+  });
+  var FILM = 72, FPS = 30;
+  function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function drawTicks(){
+    var w = ruler.clientWidth, h = ruler.clientHeight, dpr = window.devicePixelRatio || 1;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    var c = canvas.getContext('2d'); c.scale(dpr, dpr); c.clearRect(0,0,w,h);
+    c.strokeStyle = cssVar('--line') || '#ccc'; c.lineWidth = 1;
+    for (var s = 0; s <= FILM; s++){
+      var x = Math.round(s / FILM * (w - 1)) + .5, big = s % 10 === 0, mid = s % 5 === 0;
+      c.beginPath(); c.moveTo(x, h); c.lineTo(x, h - (big ? 14 : mid ? 9 : 5)); c.stroke();
+    }
+  }
+  function maxScroll(){ return Math.max(1, document.documentElement.scrollHeight - window.innerHeight); }
+  function place(){
+    var w = ruler.clientWidth, ms = maxScroll();
+    secs.forEach(function(s, i){
+      var y = Math.min(ms, s.getBoundingClientRect().top + window.scrollY - 110);
+      kfs[i].style.left = (Math.max(0, y) / ms * (w - 12) + 6) + 'px';
+    });
+  }
+  function onScroll(){
+    var w = ruler.clientWidth, f = Math.min(1, window.scrollY / maxScroll()), t = f * FILM;
+    head.style.left = (f * (w - 2)) + 'px';
+    var fr = Math.floor((t % 1) * FPS);
+    tc.textContent = mmss(t) + ':' + ('0' + fr).slice(-2);
+    var cur = 0; secs.forEach(function(s, i){ if (s.getBoundingClientRect().top < 140) cur = i; });
+    kfs.forEach(function(k, i){ k.classList.toggle('on', i <= cur); });
+  }
+  function all(){ drawTicks(); place(); onScroll(); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', all);
+  window.addEventListener('load', all);
+  if (window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener && matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawTicks);
+  all();
+})();
+</script>
+
+</body>
+</html>

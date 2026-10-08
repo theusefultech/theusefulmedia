@@ -65,7 +65,7 @@ p{margin:0}
 .bar nav a.l{text-decoration:none;font-size:15px;color:var(--ink-2)}
 .bar nav a.l:hover{color:var(--ink)}
 @media (max-width:760px){.bar nav a.l{display:none}.brand small{display:none}}
-.ruler{position:relative;height:30px;border-top:1px solid var(--line)}
+.ruler{position:relative;height:30px;overflow:hidden;border-top:1px solid var(--line)}
 .ruler canvas{position:absolute;inset:0;width:100%;height:100%}
 .tc{position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:11.5px;color:var(--ink-2);background:var(--paper);padding:1px 6px;border-radius:4px;font-variant-numeric:tabular-nums}
 .kf{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;transform:rotate(45deg);background:var(--paper);border:2px solid var(--ink-2);border-radius:2px;cursor:pointer;padding:0}
@@ -593,7 +593,7 @@ footer p{max-width:70ch}
     var w = ruler.clientWidth, ms = maxScroll();
     secs.forEach(function(s, i){
       var y = Math.min(ms, s.getBoundingClientRect().top + window.scrollY - 110);
-      kfs[i].style.left = (Math.max(0, y) / ms * (w - 12) + 6) + 'px';
+      kfs[i].style.left = (Math.max(0, y) / ms * (w - 24) + 12) + 'px';
     });
   }
   function onScroll(){

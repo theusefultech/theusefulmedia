@@ -1,0 +1,4906 @@
+{
+ "version": 2,
+ "updated": "2026-10-09",
+ "about": "Wristkeeper's watch catalog. One entry per model family, each with the page its specs were read from. A spec appears only where that page states it for every model code listed; a missing spec means unknown, never zero. Sizes in mm, water resistance in metres. The app bundles this exact file and refreshes it from theusefulmedia.com/wristkeeper/catalog.json at most once a day.",
+ "brands": [
+  {
+   "name": "Titan",
+   "aliases": [
+    "TITAN"
+   ],
+   "india": true
+  },
+  {
+   "name": "Fastrack",
+   "aliases": [
+    "FASTRACK"
+   ],
+   "india": true
+  },
+  {
+   "name": "Sonata",
+   "aliases": [
+    "SONATA"
+   ],
+   "india": true
+  },
+  {
+   "name": "HMT",
+   "aliases": [
+    "HMT"
+   ],
+   "india": true
+  },
+  {
+   "name": "Maxima",
+   "aliases": [
+    "MAXIMA"
+   ],
+   "india": true
+  },
+  {
+   "name": "Casio",
+   "aliases": [
+    "CASIO",
+    "G-SHOCK",
+    "G SHOCK",
+    "BABY-G",
+    "EDIFICE",
+    "PRO TREK"
+   ],
+   "india": true
+  },
+  {
+   "name": "Timex",
+   "aliases": [
+    "TIMEX",
+    "TIMEX INDIA"
+   ],
+   "india": true
+  },
+  {
+   "name": "Seiko",
+   "aliases": [
+    "SEIKO",
+    "PROSPEX",
+    "PRESAGE"
+   ],
+   "india": true
+  },
+  {
+   "name": "Citizen",
+   "aliases": [
+    "CITIZEN",
+    "ECO-DRIVE",
+    "PROMASTER"
+   ],
+   "india": true
+  },
+  {
+   "name": "Orient",
+   "aliases": [
+    "ORIENT"
+   ],
+   "india": true
+  },
+  {
+   "name": "Fossil",
+   "aliases": [
+    "FOSSIL"
+   ],
+   "india": true
+  },
+  {
+   "name": "Tissot",
+   "aliases": [
+    "TISSOT"
+   ],
+   "india": true
+  },
+  {
+   "name": "Hamilton",
+   "aliases": [
+    "HAMILTON"
+   ],
+   "india": true
+  },
+  {
+   "name": "Swatch",
+   "aliases": [
+    "SWATCH"
+   ],
+   "india": true
+  },
+  {
+   "name": "Daniel Wellington",
+   "aliases": [
+    "DANIEL WELLINGTON"
+   ],
+   "india": true
+  },
+  {
+   "name": "Tommy Hilfiger",
+   "aliases": [
+    "TOMMY HILFIGER"
+   ],
+   "india": true
+  },
+  {
+   "name": "Armani Exchange",
+   "aliases": [
+    "ARMANI EXCHANGE",
+    "A|X"
+   ],
+   "india": true
+  },
+  {
+   "name": "Police",
+   "aliases": [
+    "POLICE"
+   ],
+   "india": true
+  },
+  {
+   "name": "Diesel",
+   "aliases": [
+    "DIESEL"
+   ],
+   "india": true
+  },
+  {
+   "name": "Bangalore Watch Company",
+   "aliases": [
+    "BANGALORE WATCH COMPANY",
+    "BANGALORE WATCH CO"
+   ],
+   "india": true
+  },
+  {
+   "name": "Delhi Watch Company",
+   "aliases": [
+    "DELHI WATCH COMPANY",
+    "DELHI WATCH CO"
+   ],
+   "india": true
+  },
+  {
+   "name": "Jaipur Watch Company",
+   "aliases": [
+    "JAIPUR WATCH COMPANY",
+    "JAIPUR WATCH CO"
+   ],
+   "india": true
+  },
+  {
+   "name": "Rolex",
+   "aliases": [
+    "ROLEX"
+   ],
+   "india": false
+  },
+  {
+   "name": "Omega",
+   "aliases": [
+    "OMEGA"
+   ],
+   "india": false
+  },
+  {
+   "name": "Tudor",
+   "aliases": [
+    "TUDOR"
+   ],
+   "india": false
+  },
+  {
+   "name": "Longines",
+   "aliases": [
+    "LONGINES"
+   ],
+   "india": false
+  },
+  {
+   "name": "TAG Heuer",
+   "aliases": [
+    "TAG HEUER",
+    "HEUER"
+   ],
+   "india": false
+  },
+  {
+   "name": "Grand Seiko",
+   "aliases": [
+    "GRAND SEIKO"
+   ],
+   "india": false
+  },
+  {
+   "name": "Cartier",
+   "aliases": [
+    "CARTIER"
+   ],
+   "india": false
+  },
+  {
+   "name": "Patek Philippe",
+   "aliases": [
+    "PATEK PHILIPPE",
+    "PATEK"
+   ],
+   "india": false
+  },
+  {
+   "name": "Audemars Piguet",
+   "aliases": [
+    "AUDEMARS PIGUET"
+   ],
+   "india": false
+  },
+  {
+   "name": "IWC",
+   "aliases": [
+    "IWC",
+    "IWC SCHAFFHAUSEN"
+   ],
+   "india": false
+  },
+  {
+   "name": "Breitling",
+   "aliases": [
+    "BREITLING"
+   ],
+   "india": false
+  },
+  {
+   "name": "Panerai",
+   "aliases": [
+    "PANERAI"
+   ],
+   "india": false
+  },
+  {
+   "name": "Oris",
+   "aliases": [
+    "ORIS"
+   ],
+   "india": false
+  },
+  {
+   "name": "Nomos",
+   "aliases": [
+    "NOMOS",
+    "NOMOS GLASHÜTTE",
+    "NOMOS GLASHUTTE"
+   ],
+   "india": false
+  },
+  {
+   "name": "Sinn",
+   "aliases": [
+    "SINN"
+   ],
+   "india": false
+  },
+  {
+   "name": "Bulova",
+   "aliases": [
+    "BULOVA"
+   ],
+   "india": false
+  }
+ ],
+ "families": [
+  {
+   "brand": "Titan",
+   "family": "Edge",
+   "modelCodes": [
+    "1696NC01",
+    "1696KC01",
+    "1696QC02"
+   ],
+   "caseSize": 40.5,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "ceramic",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "ceramicBracelet"
+   ],
+   "dialColours": [
+    "black",
+    "silver"
+   ],
+   "source": "https://www.myntra.com/21769626",
+   "moreSources": [
+    "https://www.myntra.com/15303362",
+    "https://www.myntra.com/4450653"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Raga",
+   "modelCodes": [
+    "2578WM01",
+    "2647WM01",
+    "2606YM06",
+    "2608YM01",
+    "2608SM01",
+    "2579SM01",
+    "2620SM01"
+   ],
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "rose gold",
+    "champagne",
+    "white",
+    "silver"
+   ],
+   "source": "https://www.myntra.com/1998514",
+   "moreSources": [
+    "https://www.myntra.com/15188352",
+    "https://www.myntra.com/22768454",
+    "https://www.myntra.com/11795682",
+    "https://www.myntra.com/10052137",
+    "https://www.myntra.com/1998518",
+    "https://www.myntra.com/11795690"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Neo",
+   "modelCodes": [
+    "1805QM05",
+    "1805QM02",
+    "1805KM07"
+   ],
+   "caseSize": 42,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "black",
+    "blue",
+    "grey"
+   ],
+   "source": "https://www.myntra.com/16972334",
+   "moreSources": [
+    "https://www.myntra.com/16972328",
+    "https://www.myntra.com/28178390"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Octane",
+   "modelCodes": [
+    "90086KM01",
+    "90086KM03",
+    "90086KM02",
+    "90086SM01",
+    "90086KL02"
+   ],
+   "caseSize": 46,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "blue",
+    "grey",
+    "white",
+    "black",
+    "silver"
+   ],
+   "source": "https://www.myntra.com/6542707",
+   "moreSources": [
+    "https://www.myntra.com/4450634",
+    "https://www.myntra.com/4450640",
+    "https://www.myntra.com/4450691",
+    "https://www.myntra.com/17027654"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Karishma",
+   "modelCodes": [
+    "2598YM01",
+    "2594YM01",
+    "2593YM01",
+    "1712YM02",
+    "1712YM01",
+    "2679SM01"
+   ],
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "champagne",
+    "silver",
+    "white",
+    "blue"
+   ],
+   "source": "https://www.myntra.com/10830750",
+   "moreSources": [
+    "https://www.myntra.com/10832040",
+    "https://www.myntra.com/10832028",
+    "https://www.myntra.com/1363806",
+    "https://www.myntra.com/1363805",
+    "https://www.myntra.com/22768480"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Stellar",
+   "modelCodes": [
+    "10009KM01",
+    "10009KM02",
+    "10012QM01",
+    "10012SL01"
+   ],
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "blue",
+    "grey",
+    "green",
+    "black"
+   ],
+   "source": "https://www.myntra.com/25515336",
+   "moreSources": [
+    "https://www.myntra.com/25515332",
+    "https://www.myntra.com/25515334",
+    "https://www.myntra.com/25512872"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Regalia",
+   "modelCodes": [
+    "1875QL01",
+    "1875QM01",
+    "1875YM02",
+    "1875YM01"
+   ],
+   "caseSize": 42,
+   "thickness": 9.4,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather",
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "white",
+    "blue",
+    "grey"
+   ],
+   "source": "https://www.myntra.com/21953350",
+   "moreSources": [
+    "https://www.myntra.com/21953360",
+    "https://www.myntra.com/21953348",
+    "https://www.myntra.com/21953352"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Maritime",
+   "modelCodes": [
+    "1873KM02",
+    "1873KM01",
+    "1830KL01",
+    "1830KL02"
+   ],
+   "thickness": 12.4,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "blue",
+    "grey",
+    "white",
+    "green"
+   ],
+   "source": "https://www.myntra.com/16221208",
+   "moreSources": [
+    "https://www.myntra.com/22768412",
+    "https://www.myntra.com/10797792",
+    "https://www.myntra.com/10797782"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Workwear",
+   "modelCodes": [
+    "1805SL01",
+    "1805SL02",
+    "1769SM01",
+    "2670WL07"
+   ],
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather",
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "white",
+    "blue",
+    "black"
+   ],
+   "source": "https://www.myntra.com/10855672",
+   "moreSources": [
+    "https://www.myntra.com/10052449",
+    "https://www.myntra.com/1202490",
+    "https://www.myntra.com/19000524"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Ceramic Fusion",
+   "modelCodes": [
+    "90174KD01",
+    "90174KD02"
+   ],
+   "caseSize": 42.2,
+   "thickness": 13.4,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "grey",
+    "blue"
+   ],
+   "source": "https://www.myntra.com/27012076",
+   "moreSources": [
+    "https://www.myntra.com/27012074"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Metal Mechanicals",
+   "modelCodes": [
+    "90140KM01",
+    "90140SM01",
+    "90140TM01"
+   ],
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "silver",
+    "blue",
+    "grey"
+   ],
+   "source": "https://www.myntra.com/17556308",
+   "moreSources": [
+    "https://www.myntra.com/17556310",
+    "https://www.myntra.com/20897012"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Lagan",
+   "modelCodes": [
+    "2656YL01",
+    "2656WM01",
+    "2656BM01",
+    "2656WL01"
+   ],
+   "caseSize": 25,
+   "thickness": 7,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "white",
+    "brown"
+   ],
+   "source": "https://www.myntra.com/15212740",
+   "moreSources": [
+    "https://www.myntra.com/15324508",
+    "https://www.myntra.com/15212748",
+    "https://www.myntra.com/15212744"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Aura",
+   "modelCodes": [
+    "95245WM01",
+    "95245WM02",
+    "95245KM01",
+    "95240KM01",
+    "95240WM01"
+   ],
+   "caseSize": 34,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "rose gold",
+    "silver",
+    "purple",
+    "grey"
+   ],
+   "source": "https://www.myntra.com/28178416",
+   "moreSources": [
+    "https://www.myntra.com/28178486",
+    "https://www.myntra.com/28178458",
+    "https://www.myntra.com/28178372",
+    "https://www.myntra.com/28178466"
+   ]
+  },
+  {
+   "brand": "Titan",
+   "family": "Titanium",
+   "modelCodes": [
+    "90177TM03"
+   ],
+   "caseSize": 41,
+   "thickness": 6.7,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "titanium",
+   "crystal": "sapphire",
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.myntra.com/26467324"
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Oceanyx",
+   "modelCodes": [
+    "3349NM01",
+    "3349SM01",
+    "3349NP01",
+    "3349QL01",
+    "3350NM01",
+    "3304KD03",
+    "3304KD04"
+   ],
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "silicone",
+    "leather"
+   ],
+   "dialColours": [
+    "black",
+    "blue",
+    "green",
+    "grey"
+   ],
+   "source": "https://www.myntra.com/46348676",
+   "moreSources": [
+    "https://www.myntra.com/46348671",
+    "https://www.myntra.com/46348672",
+    "https://www.myntra.com/46348669",
+    "https://www.myntra.com/46348675",
+    "https://www.myntra.com/34606082",
+    "https://www.myntra.com/34606100"
+   ]
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Tick Tock",
+   "modelCodes": [
+    "3287KM08",
+    "3287KM06",
+    "3287KM07",
+    "3287KL01",
+    "3287KL02",
+    "3287KL03",
+    "3287KL04",
+    "3287KL05",
+    "3287NL01"
+   ],
+   "caseSize": 43,
+   "thickness": 10,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "blue",
+    "black",
+    "white",
+    "green",
+    "grey"
+   ],
+   "source": "https://www.myntra.com/30051382",
+   "moreSources": [
+    "https://www.myntra.com/30051388",
+    "https://www.myntra.com/30051385",
+    "https://www.myntra.com/25511784",
+    "https://www.myntra.com/25511790",
+    "https://www.myntra.com/25511788",
+    "https://www.myntra.com/25511792",
+    "https://www.myntra.com/30051387",
+    "https://www.myntra.com/22375228"
+   ]
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Stunners",
+   "modelCodes": [
+    "6152SM08",
+    "6152SL08",
+    "6152SM07",
+    "6152SM05"
+   ],
+   "caseSize": 32.3,
+   "thickness": 7.25,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "silver",
+    "white",
+    "blue"
+   ],
+   "source": "https://www.myntra.com/22640266",
+   "moreSources": [
+    "https://www.myntra.com/22640258",
+    "https://www.myntra.com/22640256",
+    "https://www.myntra.com/22640264"
+   ]
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Bare Basics",
+   "modelCodes": [
+    "3246SM01",
+    "3246NM01",
+    "3246NL01",
+    "3246SM02"
+   ],
+   "caseSize": 45,
+   "thickness": 8.7,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "white",
+    "blue",
+    "grey",
+    "black"
+   ],
+   "source": "https://www.myntra.com/14049242",
+   "moreSources": [
+    "https://www.myntra.com/13061570",
+    "https://www.myntra.com/13061562",
+    "https://www.myntra.com/13061560"
+   ]
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Hitlist",
+   "modelCodes": [
+    "3089NM02",
+    "3039NM02",
+    "3084NL04",
+    "1474NP01"
+   ],
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "black",
+    "white"
+   ],
+   "source": "https://www.myntra.com/10914780",
+   "moreSources": [
+    "https://www.myntra.com/11795626",
+    "https://www.myntra.com/11795620",
+    "https://www.myntra.com/22734236"
+   ]
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Ruffles",
+   "modelCodes": [
+    "6207NM01",
+    "6207SM01",
+    "6207WM01",
+    "6207SL01"
+   ],
+   "caseSize": 38,
+   "thickness": 9.5,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "mesh",
+    "leather"
+   ],
+   "dialColours": [
+    "black",
+    "pink",
+    "grey"
+   ],
+   "source": "https://www.myntra.com/12103982",
+   "moreSources": [
+    "https://www.myntra.com/12103980",
+    "https://www.myntra.com/12103986",
+    "https://www.myntra.com/14049260"
+   ]
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Uptown Retreat",
+   "modelCodes": [
+    "6277NM01",
+    "6277WM01",
+    "6277SM01"
+   ],
+   "thickness": 8.25,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "black",
+    "pink",
+    "white"
+   ],
+   "source": "https://www.myntra.com/18697742",
+   "moreSources": [
+    "https://www.myntra.com/18697728",
+    "https://www.myntra.com/18697734"
+   ]
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Tripster",
+   "modelCodes": [
+    "3245SM01",
+    "3245NM01"
+   ],
+   "caseSize": 42,
+   "thickness": 9.55,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "white",
+    "black"
+   ],
+   "source": "https://www.myntra.com/12775778",
+   "moreSources": [
+    "https://www.myntra.com/12775784"
+   ]
+  },
+  {
+   "brand": "Fastrack",
+   "family": "Streetstyle",
+   "modelCodes": [
+    "38120PP01",
+    "38120PP03"
+   ],
+   "caseSize": 48.9,
+   "thickness": 15.5,
+   "waterResistance": 30,
+   "display": "digital",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "silicone"
+   ],
+   "dialColours": [
+    "black",
+    "blue"
+   ],
+   "source": "https://www.myntra.com/30920656",
+   "moreSources": [
+    "https://www.myntra.com/30920661"
+   ]
+  },
+  {
+   "brand": "Sonata",
+   "family": "Super Fibre",
+   "modelCodes": [
+    "77072PP01",
+    "77072PP02",
+    "77072PP03",
+    "77072PP04",
+    "77072PP05"
+   ],
+   "caseSize": 43.8,
+   "thickness": 15.5,
+   "waterResistance": 30,
+   "display": "digital",
+   "crystal": "acrylic",
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.myntra.com/4451791",
+   "moreSources": [
+    "https://www.myntra.com/4451750",
+    "https://www.myntra.com/4451837",
+    "https://www.myntra.com/4451934",
+    "https://www.myntra.com/4451813"
+   ]
+  },
+  {
+   "brand": "Sonata",
+   "family": "Poze",
+   "modelCodes": [
+    "SP80142KM01W",
+    "SP80153QM01W",
+    "SP80154SM01W"
+   ],
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "brown",
+    "pink"
+   ],
+   "source": "https://www.myntra.com/37909050",
+   "moreSources": [
+    "https://www.myntra.com/37909116",
+    "https://www.myntra.com/37909125"
+   ]
+  },
+  {
+   "brand": "Sonata",
+   "family": "Wedding",
+   "modelCodes": [
+    "77146NM01",
+    "77146SM01",
+    "77146QM01"
+   ],
+   "caseSize": 42.5,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black",
+    "white",
+    "brown"
+   ],
+   "source": "https://www.myntra.com/30690029",
+   "moreSources": [
+    "https://www.myntra.com/32779138",
+    "https://www.myntra.com/32779110"
+   ]
+  },
+  {
+   "brand": "Sonata",
+   "family": "Unveil",
+   "modelCodes": [
+    "8190KM01",
+    "8190SM01",
+    "8190KM02",
+    "8190NL01",
+    "8190QL02"
+   ],
+   "caseSize": 35,
+   "thickness": 7.7,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "mesh",
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "grey",
+    "pink",
+    "black"
+   ],
+   "source": "https://www.myntra.com/26467370",
+   "moreSources": [
+    "https://www.myntra.com/26467372",
+    "https://www.myntra.com/26467374",
+    "https://www.myntra.com/26467402",
+    "https://www.myntra.com/26467386"
+   ]
+  },
+  {
+   "brand": "Sonata",
+   "family": "Volt",
+   "modelCodes": [
+    "77085PP01W",
+    "77085PP02W",
+    "77085PP03W",
+    "77085PP04W",
+    "77085PP09W",
+    "77085PP10W",
+    "77085PP14W"
+   ],
+   "caseSize": 45.5,
+   "thickness": 10.8,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "acrylic",
+   "dialColours": [
+    "black",
+    "grey",
+    "blue"
+   ],
+   "source": "https://www.myntra.com/10914230",
+   "moreSources": [
+    "https://www.myntra.com/10914184",
+    "https://www.myntra.com/10914150",
+    "https://www.myntra.com/10914202",
+    "https://www.myntra.com/13144218",
+    "https://www.myntra.com/13144222",
+    "https://www.myntra.com/13144230"
+   ]
+  },
+  {
+   "brand": "Sonata",
+   "family": "Sleek",
+   "modelCodes": [
+    "8200QM02",
+    "8200WL01",
+    "8200QM03",
+    "8200YM01"
+   ],
+   "caseSize": 35.5,
+   "thickness": 5.85,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "dialColours": [
+    "grey",
+    "rose gold",
+    "brown",
+    "champagne"
+   ],
+   "source": "https://www.myntra.com/45376089",
+   "moreSources": [
+    "https://www.myntra.com/45376085",
+    "https://www.myntra.com/45376090",
+    "https://www.myntra.com/45376086"
+   ]
+  },
+  {
+   "brand": "HMT",
+   "family": "Janata",
+   "modelCodes": [
+    "JANATA S 4A W LS",
+    "JANATA S 4A W SS",
+    "JANATA HINDI WD SS"
+   ],
+   "caseSize": 35.12,
+   "lugWidth": 18,
+   "waterResistance": 20,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "leather",
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://old.hmtwatches.in/3729/product-details/janata-s-4a-w-ls.htm",
+   "moreSources": [
+    "https://old.hmtwatches.in/3732/product-details/janata-s-4a-w-ss.htm",
+    "https://old.hmtwatches.in/4056/product-details/janata-hindi-wd-ss.htm"
+   ]
+  },
+  {
+   "brand": "HMT",
+   "family": "Pilot",
+   "modelCodes": [
+    "PILOT SS 4 ARABIC MAROON LS",
+    "PILOT SS 4ARA BLUE DIAL SS",
+    "PILOT WHITE NP LS"
+   ],
+   "caseSize": 35,
+   "lugWidth": 18,
+   "waterResistance": 20,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "leather",
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue",
+    "white"
+   ],
+   "source": "https://old.hmtwatches.in/4035/product-details/pilot-ss-4ara-blue-dial-ss.htm",
+   "moreSources": [
+    "https://old.hmtwatches.in/4033/product-details/pilot-ss-4-arabic-maroon-ls.htm",
+    "https://old.hmtwatches.in/3668/product-details/pilot-white-np-ls.htm"
+   ]
+  },
+  {
+   "brand": "HMT",
+   "family": "Kohinoor",
+   "modelCodes": [
+    "KOHINOOR SS BLU SS",
+    "KOHINOOR BD SS",
+    "KOHINOOR SS SAFFRON LS"
+   ],
+   "caseSize": 35.9,
+   "lugWidth": 18,
+   "waterResistance": 20,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "blue",
+    "black"
+   ],
+   "source": "https://old.hmtwatches.in/3720/product-details/kohinoor-ss-blu-ss.htm",
+   "moreSources": [
+    "https://old.hmtwatches.in/3955/product-details/kohinoor-bd-ss.htm",
+    "https://old.hmtwatches.in/4039/product-details/kohinoor-ss-saffron-ls.htm"
+   ]
+  },
+  {
+   "brand": "HMT",
+   "family": "Vijay",
+   "modelCodes": [
+    "VIJAY LUM YD SS",
+    "VIJAY NL S BLACK DIAL SS",
+    "VIJAY LUM GREY DIAL SS"
+   ],
+   "caseSize": 35.9,
+   "lugWidth": 18,
+   "waterResistance": 20,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "yellow",
+    "black",
+    "grey"
+   ],
+   "source": "https://old.hmtwatches.in/3831/product-details/vijay-lum-yd-ss.htm",
+   "moreSources": [
+    "https://old.hmtwatches.in/3990/product-details/vijay-nl-s-black-dial-ss.htm",
+    "https://old.hmtwatches.in/4052/product-details/vijay-lum-grey-dial-ss.htm"
+   ]
+  },
+  {
+   "brand": "HMT",
+   "family": "Jawan",
+   "modelCodes": [
+    "JAWAN IPB TBC 4A LS",
+    "JAWAN IPB TBC ARA LS"
+   ],
+   "waterResistance": 30,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "plated",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://old.hmtwatches.in/3503/product-details/jawan-ipb-tbc-4a-ls.htm",
+   "moreSources": [
+    "https://old.hmtwatches.in/3501/product-details/jawan-ipb-tbc-ara-ls.htm"
+   ]
+  },
+  {
+   "brand": "Maxima",
+   "family": "Apex",
+   "modelCodes": [
+    "75280CMGL",
+    "75281CMGL",
+    "75282CMGL",
+    "75283CMGL",
+    "75290CMGT",
+    "75291CMGT",
+    "75292CMGT",
+    "75293CMGT",
+    "75300CMGR",
+    "75301CMGR",
+    "75302CMGR"
+   ],
+   "caseSize": 35.5,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "silver",
+    "black",
+    "brown",
+    "blue",
+    "gold",
+    "green",
+    "rose gold"
+   ],
+   "source": "https://core.maximawatches.com/api/public/products/apex-collection-75290cmgt",
+   "moreSources": [
+    "https://core.maximawatches.com/api/public/products/apex-collection-75301cmgr",
+    "https://core.maximawatches.com/api/public/products/apex-collection-75283cmgl"
+   ]
+  },
+  {
+   "brand": "Maxima",
+   "family": "Serica",
+   "modelCodes": [
+    "73090CMGJ",
+    "73091CMGJ",
+    "73092CMGJ",
+    "73093CMGJ",
+    "73094CMGJ"
+   ],
+   "caseSize": 39,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "caseMaterial": "ceramic",
+   "strapOptions": [
+    "ceramicBracelet"
+   ],
+   "dialColours": [
+    "black",
+    "blue",
+    "silver",
+    "champagne",
+    "green"
+   ],
+   "source": "https://core.maximawatches.com/api/public/products/serica-collection-73090cmgj",
+   "moreSources": [
+    "https://core.maximawatches.com/api/public/products/serica-collection-73093cmgj"
+   ]
+  },
+  {
+   "brand": "Maxima",
+   "family": "Attivo",
+   "modelCodes": [
+    "74920CMLI",
+    "74921CMLI",
+    "74922CMLI",
+    "74923CMLI"
+   ],
+   "caseSize": 31.5,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "silver",
+    "pink",
+    "blue",
+    "green"
+   ],
+   "source": "https://core.maximawatches.com/api/public/products/attivo-collection-74920cmli",
+   "moreSources": [
+    "https://core.maximawatches.com/api/public/products/attivo-collection-74921cmli"
+   ]
+  },
+  {
+   "brand": "Maxima",
+   "family": "Athena",
+   "modelCodes": [
+    "73170BMLT",
+    "73172BMLT",
+    "73141BMLY",
+    "73142BMLY"
+   ],
+   "caseSize": 32,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "silver",
+    "black",
+    "gold",
+    "green"
+   ],
+   "source": "https://core.maximawatches.com/api/public/products/two-tone-athena-ladies-73170bmlt",
+   "moreSources": [
+    "https://core.maximawatches.com/api/public/products/gold-athena-ladies-73141bmly"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock GA-2100",
+   "modelCodes": [
+    "GA-2100-1A1",
+    "GA-2100-1A",
+    "GA-2100-2A2",
+    "GA-2100-4A",
+    "GA-2100-7A7",
+    "GA-2100-9A9"
+   ],
+   "caseSize": 45.4,
+   "thickness": 11.8,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "analogDigital",
+   "caseMaterial": "carbon",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black",
+    "red",
+    "white",
+    "yellow"
+   ],
+   "source": "https://www.casio.com/in/watches/gshock/product.GA-2100-1A1/",
+   "moreSources": [
+    "https://www.casio.com/in/watches/gshock/product.GA-2100-1A/",
+    "https://www.casio.com/in/watches/gshock/product.GA-2100-2A2/",
+    "https://www.casio.com/in/watches/gshock/product.GA-2100-4A/",
+    "https://www.casio.com/in/watches/gshock/product.GA-2100-7A7/",
+    "https://www.casio.com/in/watches/gshock/product.GA-2100-9A9/",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-2100-1a1dr-black-analog-digital-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-2100-4adr-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-2100-7a7dr-white-analog-digital-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-2100-9a9dr-mens-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock DW-5600E",
+   "modelCodes": [
+    "DW-5600E-1V"
+   ],
+   "caseSize": 42.8,
+   "thickness": 13.4,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "source": "https://www.g-central.com/specs/g-shock-dw-5600/"
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock GW-M5610",
+   "modelCodes": [
+    "GW-M5610U-1",
+    "GW-M5610U-1B",
+    "GW-M5610U-1C",
+    "GW-M5610U-2"
+   ],
+   "caseSize": 43.2,
+   "thickness": 12.7,
+   "waterResistance": 200,
+   "movement": "solar",
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "source": "https://www.g-central.com/specs/g-shock-gw-m5610/"
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock GA-B2100",
+   "modelCodes": [
+    "GA-B2100-1A",
+    "GA-B2100-1A1",
+    "GA-B2100-2A",
+    "GA-B2100-3A"
+   ],
+   "caseSize": 45.4,
+   "thickness": 11.9,
+   "waterResistance": 200,
+   "movement": "solar",
+   "display": "analogDigital",
+   "caseMaterial": "carbon",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.g-central.com/specs/g-shock-ga-b2100/",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-b2100-1adr-black-analog-digital-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-b2100-2adr-black-analog-digital-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-b2100-3a-black-and-green-analog-digital-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-b2100-1a1dr-black-analog-digital-mens-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock DW-6900",
+   "modelCodes": [
+    "DW-6900U-1",
+    "DW-6900CF-1",
+    "DW-6900CMG-3"
+   ],
+   "caseSize": 50,
+   "thickness": 18.7,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.g-central.com/specs/g-shock-dw-6900/",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/dw-6900cf-1dr",
+    "https://casiostore.bhawar.com/products/dw-6900cmg-3dr"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock GA-700",
+   "modelCodes": [
+    "GA-700-1A",
+    "GA-700-1B",
+    "GA-700-2A",
+    "GA-700-4A",
+    "GA-700-7A"
+   ],
+   "caseSize": 53.4,
+   "thickness": 18.4,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "analogDigital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "source": "https://www.g-central.com/specs/g-shock-ga-700/",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-700-1bdr-black-analog-digital-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-700-7adr-mens-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock GA-100",
+   "modelCodes": [
+    "GA-100-1A1",
+    "GA-100-1A4"
+   ],
+   "caseSize": 51.2,
+   "thickness": 16.9,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "analogDigital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.g-central.com/specs/g-shock-ga-100/",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-100-1a1hdr-black-analog-digital-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-g-shock-ga-100-1a4ndr-mens-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock GBD-200",
+   "modelCodes": [
+    "GBD-200-1",
+    "GBD-200-1A1",
+    "GBD-200-2",
+    "GBD-200-7",
+    "GBD-200-9"
+   ],
+   "caseSize": 45.9,
+   "thickness": 15,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "source": "https://www.g-central.com/specs/g-shock-gbd-200/",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-g-shock-gbd-200-1dr-digital-mens-watch",
+    "https://casiostore.bhawar.com/products/gbd-200-7"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock GM-2100",
+   "modelCodes": [
+    "GM-2100-1A"
+   ],
+   "caseSize": 44.4,
+   "thickness": 11.8,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "analogDigital",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "source": "https://www.g-central.com/specs/g-shock-gm-2100/",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-g-shock-gm-2100-1adr-silver-analog-digital-mens-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "G-Shock GW-B5600",
+   "modelCodes": [
+    "GW-B5600-2",
+    "GW-B5600SL-5"
+   ],
+   "caseSize": 42.8,
+   "thickness": 13.4,
+   "waterResistance": 200,
+   "movement": "solar",
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "source": "https://www.g-central.com/specs/g-shock-gw-b5600/"
+  },
+  {
+   "brand": "Casio",
+   "family": "F-91W",
+   "modelCodes": [
+    "F-91W-1",
+    "F-91W-3"
+   ],
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "other",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-f-91w-1q-black-digital-unisex-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-f-91w-3hdg-digital-dial-black-resin-strap-7-year-battery-d246"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "Vintage A168WA",
+   "modelCodes": [
+    "A168WA-1W",
+    "A168WA-3AY",
+    "A168WA-5AY",
+    "A168WA-8AY"
+   ],
+   "display": "digital",
+   "caseMaterial": "plated",
+   "crystal": "other",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black",
+    "grey",
+    "brown"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-vintage-a168wa-1wdf-black-digital-dial-unisex-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-vintage-a168wa-3aydf-gray-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-vintage-a168wa-5aydf-brown-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-vintage-a168wa-8aydf-brown-digital-unisex-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "Vintage A158WA",
+   "modelCodes": [
+    "A158WA-1"
+   ],
+   "display": "digital",
+   "crystal": "other",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-vintage-a158wa-1df-black-digital-dial-unisex-watch"
+  },
+  {
+   "brand": "Casio",
+   "family": "AE-1200WH",
+   "modelCodes": [
+    "AE-1200WH-1AV",
+    "AE-1200WH-1BV"
+   ],
+   "waterResistance": 100,
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "other",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-ae-1200wh-1avdf-black-digital-unisex-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-vintage-ae-1200wh-1bvdf-black-digital-unisex-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "W-800H",
+   "modelCodes": [
+    "W-800H-2AV",
+    "W-800H-5AV"
+   ],
+   "waterResistance": 100,
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "other",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-w-800h-2avdf-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-w-800h-5avdf-digital-dial-brown-resin-strap-100m-water-resistant-d334"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "W-218H",
+   "modelCodes": [
+    "W-218H-3BV",
+    "W-218H-4BV",
+    "W-218H-4B2V",
+    "W-218H-8BV"
+   ],
+   "waterResistance": 50,
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "other",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-w-218h-3bv-green-digital-unisex-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-w-218h-4bvdf-red-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-w-218h-4b2vdf-orange-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-w-218h-8bv-digital-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "Vintage LA680WA",
+   "modelCodes": [
+    "LA680WA-1",
+    "LA680WA-1B",
+    "LA680WA-7"
+   ],
+   "display": "digital",
+   "caseMaterial": "plated",
+   "crystal": "other",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-la680wa-1-silver-digital-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/la680wa-1b",
+    "https://casiostore.bhawar.com/products/la680wa-7"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "MQ-24",
+   "modelCodes": [
+    "MQ-24-7BL",
+    "MQ-24-7B2L"
+   ],
+   "caseSize": 34.9,
+   "thickness": 7.8,
+   "display": "analog",
+   "caseMaterial": "resin",
+   "crystal": "other",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://casiostore.bhawar.com/products/mq-24-7bl",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/mq-24-7b2l"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "Vintage AQ-230",
+   "modelCodes": [
+    "AQ-230A-1D",
+    "AQ-230A-7B",
+    "AQ-230A-7AMQY",
+    "AQ-230A-2A1MQY",
+    "AQ-230A-3AMQY",
+    "AQ-230A-4AMQY"
+   ],
+   "display": "analogDigital",
+   "crystal": "other",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black",
+    "white",
+    "blue",
+    "green",
+    "orange"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-aq-230a-1dhdf-black-analog-digital-unisex-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-vintage-aq-230a-7bhdf-white-analog-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/aq-230a-7amqydf",
+    "https://casiostore.bhawar.com/products/casio-vintage-aq-230a-2a1mqydf-blue-analog-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-aq-230a-3amqy-green-analog-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-aq-230a-4amqy-orange-analog-digital-unisex-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "Vintage A1000",
+   "modelCodes": [
+    "A1000D-7",
+    "A1000A-7",
+    "A1000G-9",
+    "A1000RG-5",
+    "A1000M-1B",
+    "A1000MCG-9",
+    "A1000MPG-9"
+   ],
+   "display": "digital",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "mesh"
+   ],
+   "dialColours": [
+    "silver",
+    "gold",
+    "rose gold",
+    "black"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-vintage-a1000d-7ef-white-digital-unisex-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-a1000a-7-full-metal-digital-watch-silver",
+    "https://casiostore.bhawar.com/products/casio-a1000g-9-full-metal-digital-watch-gold",
+    "https://casiostore.bhawar.com/products/casio-vintage-a1000rg-5ef-rose-gold-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-vintage-a1000m-1bef-black-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-vintage-a1000mcg-9ef-rose-gold-digital-unisex-watch",
+    "https://casiostore.bhawar.com/products/casio-vintage-a1000mpg-9ef-rose-gold-digital-unisex-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "Edifice EFR-526",
+   "modelCodes": [
+    "EFR-526D-1AV",
+    "EFR-526D-2AV",
+    "EFR-526D-3AV",
+    "EFR-526D-5CV",
+    "EFR-526L-1AV",
+    "EFR-526L-2AV",
+    "EFR-526L-2CV",
+    "EFR-526L-7AV",
+    "EFR-526L-7BV"
+   ],
+   "waterResistance": 100,
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "black",
+    "blue",
+    "green",
+    "red",
+    "silver"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-edifice-efr-526d-1avudf-black-analog-mens-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-edifice-efr-526d-2avudf-grayish-blue-analog-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-edifice-efr-526d-3avudf-green-analog-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-edifice-efr-526d-5cvudf-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-edifice-efr-526l-1avudf-black-analog-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-edifice-efr-526l-2avudf-blue-analog-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-edifice-efr-526l-2cvudf-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-edifice-efr-526l-7avudf-silver-analog-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-edifice-efr-526l-7bvudf-beige-analog-mens-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "MTP-1374",
+   "modelCodes": [
+    "MTP-1374D-1AV",
+    "MTP-1374D-2AV",
+    "MTP-1374D-7AV",
+    "MTP-1374L-1AV",
+    "MTP-1374L-7AV"
+   ],
+   "waterResistance": 50,
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "black",
+    "blue",
+    "silver"
+   ],
+   "source": "https://casiostore.bhawar.com/products/casio-mtp-1374d-1avdf-black-analog-mens-watch",
+   "moreSources": [
+    "https://casiostore.bhawar.com/products/casio-mtp-1374d-2avdf-blue-analog-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-mtp-1374d-7avdf-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-mtp-1374l-1avdf-black-analog-mens-watch",
+    "https://casiostore.bhawar.com/products/casio-mtp-1374l-7avdf-silver-and-gold-analog-mens-watch"
+   ]
+  },
+  {
+   "brand": "Casio",
+   "family": "Pro Trek PRG-340",
+   "modelCodes": [
+    "PRG-340ANS-3"
+   ],
+   "caseSize": 51.7,
+   "thickness": 15.1,
+   "waterResistance": 100,
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "source": "https://casiostore.bhawar.com/products/prg-340ans-3"
+  },
+  {
+   "brand": "Casio",
+   "family": "Duro MDV-106",
+   "modelCodes": [
+    "MDV-106-1AV"
+   ],
+   "caseSize": 44,
+   "thickness": 12.1,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "resin"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.nywatchstore.com/mdv1061av.html"
+  },
+  {
+   "brand": "Timex",
+   "family": "Weekender",
+   "modelCodes": [
+    "T2N647",
+    "T2N651",
+    "T2N649"
+   ],
+   "caseSize": 38,
+   "lugWidth": 20,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "other",
+   "crystal": "mineral",
+   "strapOptions": [
+    "fabric",
+    "nylon"
+   ],
+   "dialColours": [
+    "black",
+    "cream",
+    "grey"
+   ],
+   "source": "https://timex.com/products/weekender-38mm-fabric-strap-watch-t2n647",
+   "moreSources": [
+    "https://timex.com/products/weekender-38mm-fabric-strap-watch-t2n651",
+    "https://timex.com/products/weekender-38mm-nylon-strap-watch-t2n649"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Expedition Scout",
+   "modelCodes": [
+    "TW4B04700",
+    "TW4B32900",
+    "T49963"
+   ],
+   "caseSize": 40,
+   "thickness": 11,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "other",
+   "crystal": "mineral",
+   "strapOptions": [
+    "fabric",
+    "leather"
+   ],
+   "dialColours": [
+    "black",
+    "blue"
+   ],
+   "source": "https://timex.com/products/expedition-scout-40mm-fabric-strap-watch-tw4b04700",
+   "moreSources": [
+    "https://timex.com/products/expedition-scout-40mm-fabric-strap-watch-tw4b32900",
+    "https://timex.com/products/expedition-scout-40mm-leather-strap-watch-t49963"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Q Timex",
+   "modelCodes": [
+    "TW2T80700",
+    "TW2U61300"
+   ],
+   "caseSize": 38,
+   "thickness": 11.5,
+   "lugWidth": 18,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue",
+    "black"
+   ],
+   "source": "https://longislandwatch.com/timex-q-timex-reissue-tw2t80700zv-watch-tw2t80700zv/",
+   "moreSources": [
+    "https://longislandwatch.com/timex-q-timex-reissue-tw2u61300zv-watch-tw2u61300zv/"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Marlin",
+   "modelCodes": [
+    "TW2R47900",
+    "TW2W44500"
+   ],
+   "caseSize": 34,
+   "thickness": 10,
+   "lugWidth": 18,
+   "waterResistance": 30,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "leather",
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "silver",
+    "pink"
+   ],
+   "source": "https://timex.com/products/marlin-1965-reissue-hand-wound-34mm-leather-strap-watch-tw2r47900",
+   "moreSources": [
+    "https://timex.com/products/marlin-hand-wound-34mm-stainless-steel-expansion-band-watch-tw2w44500"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Waterbury",
+   "modelCodes": [
+    "TW2W50600",
+    "TW2Y28500"
+   ],
+   "caseSize": 40,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather",
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "cream",
+    "blue"
+   ],
+   "source": "https://timex.com/products/waterbury-classic-40mm-leather-strap-watch-tw2w50600",
+   "moreSources": [
+    "https://timex.com/products/waterbury-classic-40mm-stainless-steel-bracelet-watch-tw2y28500"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Ironman",
+   "modelCodes": [
+    "T5E901",
+    "T5H591"
+   ],
+   "caseSize": 38,
+   "lugWidth": 16,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "resin"
+   ],
+   "source": "https://timex.com/products/ironman-classic-30-full-size-resin-strap-watch-t5e901",
+   "moreSources": [
+    "https://timex.com/products/ironman-classic-30-full-size-resin-strap-watch-t5h591"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Easy Reader",
+   "modelCodes": [
+    "T2H281",
+    "T2H291"
+   ],
+   "caseSize": 35,
+   "lugWidth": 18,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "other",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://timex.com/products/easy-reader-35mm-leather-strap-watch-t2h281",
+   "moreSources": [
+    "https://timex.com/products/easy-reader-35mm-leather-strap-watch-t2h291"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Timex Standard",
+   "modelCodes": [
+    "TW2V44000"
+   ],
+   "caseSize": 40,
+   "thickness": 9.5,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "other",
+   "crystal": "mineral",
+   "strapOptions": [
+    "fabric",
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://bunkerkc.com/timex-standard-40mm-fabric-strap-watch-black-silver-tone.html"
+  },
+  {
+   "brand": "Timex",
+   "family": "MK1 Automatic",
+   "modelCodes": [
+    "TW2Y07800",
+    "TW2Y71700",
+    "TW2Y11900"
+   ],
+   "caseSize": 40,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "fabric"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://timex.com/products/mk1-automatic-40mm-fabric-strap-watch-tw2y07800",
+   "moreSources": [
+    "https://timex.com/products/mk1-automatic-40mm-fabric-strap-watch-tw2y71700",
+    "https://timex.com/products/mk1-automatic-40mm-fabric-strap-watch-tw2y11900"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Navi XL",
+   "modelCodes": [
+    "TW2V45300UJ",
+    "TW2U10800",
+    "TW2U11000"
+   ],
+   "caseSize": 41,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather",
+    "steelBracelet",
+    "fabric"
+   ],
+   "dialColours": [
+    "black",
+    "white"
+   ],
+   "source": "https://shop.timexindia.com/products/navi-xl-41mm-leather-strap-watch-tw2v45300uj",
+   "moreSources": [
+    "https://shop.timexindia.com/products/navi-xl41mm-stainless-steel-bracelet-watch-tw2u10800",
+    "https://shop.timexindia.com/products/navi-xl-41mm-sst-case-white-dial-blue-stripe-fabric-strap-tw2u11000"
+   ]
+  },
+  {
+   "brand": "Timex",
+   "family": "Expedition Camper",
+   "modelCodes": [
+    "T49713",
+    "T40011"
+   ],
+   "caseSize": 38,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "resin",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "fabric"
+   ],
+   "dialColours": [
+    "white",
+    "black"
+   ],
+   "source": "https://timex.com/products/expedition-camper-38mm-fabric-strap-watch-t49713",
+   "moreSources": [
+    "https://timex.com/products/expedition-camper-38mm-fabric-fast-wrap-watch-t40011"
+   ]
+  },
+  {
+   "brand": "Seiko",
+   "family": "Seiko 5 Sports",
+   "modelCodes": [
+    "SRPD55K1"
+   ],
+   "caseSize": 42.5,
+   "thickness": 13.4,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://seikowatches.co.in/products/5-sports-automatic-watch-srpd55k1"
+  },
+  {
+   "brand": "Seiko",
+   "family": "Seiko 5 Sports GMT SSK001",
+   "modelCodes": [
+    "SSK001K1"
+   ],
+   "caseSize": 42.5,
+   "thickness": 13.6,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://seikowatches.co.in/products/5-skx-sports-style-gmt-series-ssk001k1",
+   "moreSources": [
+    "https://steiner-juwelier.com/en-us/products/seiko-5-automatic-sports-gmt-ssk001k1"
+   ]
+  },
+  {
+   "brand": "Seiko",
+   "family": "SKX007",
+   "modelCodes": [
+    "SKX007K2"
+   ],
+   "caseSize": 43,
+   "lugWidth": 22,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://longislandwatch.com/seiko-skx007k2-watch-skx007k2/",
+   "moreSources": [
+    "https://www.creationwatches.com/products/seiko-divers-automatic-90/seiko-automatic-divers-skx007k2-mens-watch-1167.html"
+   ]
+  },
+  {
+   "brand": "Seiko",
+   "family": "Prospex Turtle SRP777",
+   "modelCodes": [
+    "SRP777K1"
+   ],
+   "caseSize": 45,
+   "thickness": 13.3,
+   "lugWidth": 22,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "silicone"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://longislandwatch.com/seiko-srp777-srp777k1-srp777k-dive-watch-srp777/"
+  },
+  {
+   "brand": "Seiko",
+   "family": "Prospex Alpinist SPB121",
+   "modelCodes": [
+    "SPB121J1"
+   ],
+   "caseSize": 39.5,
+   "thickness": 13.2,
+   "lugWidth": 20,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "green"
+   ],
+   "source": "https://www.seriouswatches.com/products/seiko-prospex-alpinist-spb121j1",
+   "moreSources": [
+    "https://seikoboutique.com.my/product/spb121j1/"
+   ]
+  },
+  {
+   "brand": "Seiko",
+   "family": "Prospex Samurai SRPB49",
+   "modelCodes": [
+    "SRPB49K1"
+   ],
+   "caseSize": 43.8,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://prestigetimepiececenter.com/products/seiko-blue-samurai-200m-divers-mens-watch-srpb49k1"
+  },
+  {
+   "brand": "Seiko",
+   "family": "Prospex SPB143",
+   "modelCodes": [
+    "SPB143J1"
+   ],
+   "caseSize": 40.5,
+   "thickness": 14,
+   "lugWidth": 20,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "grey"
+   ],
+   "source": "https://www.seriouswatches.com/products/seiko-prospex-spb143j1"
+  },
+  {
+   "brand": "Seiko",
+   "family": "Presage Cocktail Time SRPB43",
+   "modelCodes": [
+    "SRPB43J1"
+   ],
+   "caseSize": 40.5,
+   "thickness": 11.8,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.seriouswatches.com/products/seiko-presage-srpb43j1"
+  },
+  {
+   "brand": "Seiko",
+   "family": "Presage Style60's",
+   "modelCodes": [
+    "SRPG03J1",
+    "SRPG05J1"
+   ],
+   "caseSize": 40.8,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "cream",
+    "blue"
+   ],
+   "source": "https://www.seriouswatches.com/products/seiko-presage-srpg03j1",
+   "moreSources": [
+    "https://www.seriouswatches.com/products/seiko-presage-srpg05j1"
+   ]
+  },
+  {
+   "brand": "Seiko",
+   "family": "Quartz Chronograph SSB425",
+   "modelCodes": [
+    "SSB425P1",
+    "SSB427P1",
+    "SSB429P1"
+   ],
+   "caseSize": 41.5,
+   "thickness": 12.1,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "white",
+    "blue",
+    "black"
+   ],
+   "source": "https://seikowatches.co.in/products/seiko-chronograph-mens-dress-watch-ssb425p1",
+   "moreSources": [
+    "https://seikowatches.co.in/products/seiko-chronograph-mens-dress-watch-ssb427p1",
+    "https://seikowatches.co.in/products/seiko-chronograph-mens-dress-watch-ssb429p1"
+   ]
+  },
+  {
+   "brand": "Seiko",
+   "family": "SNK809",
+   "modelCodes": [
+    "SNK809K2"
+   ],
+   "caseSize": 37,
+   "lugWidth": 18,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "fabric"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://longislandwatch.com/seiko-snk809-snk809k2-watch-snk809k2/"
+  },
+  {
+   "brand": "Seiko",
+   "family": "SNKL23",
+   "modelCodes": [
+    "SNKL23"
+   ],
+   "caseSize": 38,
+   "thickness": 10,
+   "lugWidth": 18,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://longislandwatch.com/products/seiko-snkl23-watch-snkl23"
+  },
+  {
+   "brand": "Seiko",
+   "family": "SARB033",
+   "modelCodes": [
+    "SARB033"
+   ],
+   "caseSize": 38,
+   "thickness": 11.2,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://longislandwatch.com/products/seiko-sarb033-watch-sarb033"
+  },
+  {
+   "brand": "Citizen",
+   "family": "Tsuyosa",
+   "modelCodes": [
+    "NJ0150-81X",
+    "NJ0150-81Z",
+    "NJ0150-81E",
+    "NJ0150-81L",
+    "NJ0150-56X"
+   ],
+   "caseSize": 40,
+   "thickness": 11.7,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "green",
+    "yellow",
+    "black",
+    "blue"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/NJ0150-56X",
+   "moreSources": [
+    "https://www.gnomonwatches.com/products/tsuyosa-green-automatic-ref-nj0150-81x",
+    "https://citizenwatch.eu/en/info/more/mechanical-watches-nj0150-series/"
+   ]
+  },
+  {
+   "brand": "Citizen",
+   "family": "Promaster Diver",
+   "modelCodes": [
+    "BN0150-28E",
+    "BN0151-09L"
+   ],
+   "caseSize": 44,
+   "lugWidth": 20,
+   "waterResistance": 200,
+   "movement": "solar",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "rubber"
+   ],
+   "dialColours": [
+    "black",
+    "blue"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/BN0150-28E",
+   "moreSources": [
+    "https://www.citizenwatch.com/us/en/product/BN0151-09L",
+    "https://longislandwatch.com/citizen-eco-drive-promaster-dive-watch-with-black-dial-and-rubber-strap-bn0150-28e/"
+   ]
+  },
+  {
+   "brand": "Citizen",
+   "family": "Promaster Fugu NY0040",
+   "modelCodes": [
+    "NY0040-09E"
+   ],
+   "caseSize": 42,
+   "thickness": 12,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "rubber"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.nywatchstore.com/citizen-watch-ny0040-09e.html"
+  },
+  {
+   "brand": "Citizen",
+   "family": "Promaster Dive Automatic NY0136",
+   "modelCodes": [
+    "NY0136-52L"
+   ],
+   "caseSize": 44,
+   "lugWidth": 20,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/NY0136-52L"
+  },
+  {
+   "brand": "Citizen",
+   "family": "Promaster Navihawk CA4664",
+   "modelCodes": [
+    "CA4664-60E"
+   ],
+   "caseSize": 40,
+   "lugWidth": 22,
+   "waterResistance": 200,
+   "movement": "solar",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/CA4664-60E"
+  },
+  {
+   "brand": "Citizen",
+   "family": "Promaster Skyhawk A-T JY8078",
+   "modelCodes": [
+    "JY8078-01L"
+   ],
+   "caseSize": 45,
+   "lugWidth": 22,
+   "waterResistance": 200,
+   "movement": "solar",
+   "caseMaterial": "twoTone",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/JY8078-01L"
+  },
+  {
+   "brand": "Citizen",
+   "family": "Nighthawk Chrono CA0890",
+   "modelCodes": [
+    "CA0890-54H"
+   ],
+   "caseSize": 42,
+   "lugWidth": 22,
+   "waterResistance": 100,
+   "movement": "solar",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "grey"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/CA0890-54H"
+  },
+  {
+   "brand": "Citizen",
+   "family": "Garrison BM8180",
+   "modelCodes": [
+    "BM8180-03E"
+   ],
+   "caseSize": 37,
+   "lugWidth": 18,
+   "waterResistance": 100,
+   "movement": "solar",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "nylon"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/BM8180-03E"
+  },
+  {
+   "brand": "Citizen",
+   "family": "Series 8 NB6080",
+   "modelCodes": [
+    "NB6080-51W"
+   ],
+   "caseSize": 39,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "green"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/NB6080-51W"
+  },
+  {
+   "brand": "Citizen",
+   "family": "Zenshin Chrono CA4610",
+   "modelCodes": [
+    "CA4610-85A"
+   ],
+   "caseSize": 42.5,
+   "waterResistance": 100,
+   "movement": "solar",
+   "display": "analog",
+   "caseMaterial": "titanium",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "titaniumBracelet"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.citizenwatch.com/us/en/product/CA4610-85A"
+  },
+  {
+   "brand": "Orient",
+   "family": "Bambino",
+   "modelCodes": [
+    "RA-AC0M02B"
+   ],
+   "caseSize": 38.4,
+   "thickness": 12.5,
+   "lugWidth": 20,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.seriouswatches.com/products/orient-ra-ac0m02b-bambino-38mm"
+  },
+  {
+   "brand": "Orient",
+   "family": "Kamasu",
+   "modelCodes": [
+    "RA-AA0003R19A"
+   ],
+   "caseSize": 42,
+   "lugWidth": 22,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "red"
+   ],
+   "source": "https://longislandwatch.com/orient-ra-aa0003r19a-kamasu-dive-watch-ra-aa0003r19a/"
+  },
+  {
+   "brand": "Orient",
+   "family": "Mako",
+   "modelCodes": [
+    "FAA02002D9"
+   ],
+   "caseSize": 41.5,
+   "thickness": 13,
+   "lugWidth": 22,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.seriouswatches.com/products/orient-faa02002d-mako-ii"
+  },
+  {
+   "brand": "Orient",
+   "family": "Ray II",
+   "modelCodes": [
+    "FAA02005D9"
+   ],
+   "caseSize": 41.5,
+   "thickness": 13,
+   "lugWidth": 22,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.seriouswatches.com/products/orient-faa02005d-ray-ii"
+  },
+  {
+   "brand": "Orient",
+   "family": "Sun and Moon",
+   "modelCodes": [
+    "RA-AK0301S10B"
+   ],
+   "caseSize": 42,
+   "thickness": 13,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://www.timepiece.com/orient-sun-and-moon-watch-ra-ak0301s10b.html"
+  },
+  {
+   "brand": "Orient",
+   "family": "Defender II",
+   "modelCodes": [
+    "RA-AK0403N"
+   ],
+   "caseSize": 42.4,
+   "thickness": 12.1,
+   "lugWidth": 22,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "plated",
+   "crystal": "mineral",
+   "strapOptions": [
+    "fabric"
+   ],
+   "dialColours": [
+    "grey"
+   ],
+   "source": "https://www.seriouswatches.com/products/orient-ra-ak0403n"
+  },
+  {
+   "brand": "Fossil",
+   "family": "Grant",
+   "modelCodes": [
+    "FS4736",
+    "FS4835"
+   ],
+   "caseSize": 44,
+   "thickness": 12,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "black",
+    "blue"
+   ],
+   "source": "https://www.timepiece.com/fossil-watch-fs4736.html",
+   "moreSources": [
+    "https://www.timepiece.com/fossil-watch-fs4835.html"
+   ]
+  },
+  {
+   "brand": "Fossil",
+   "family": "Machine",
+   "modelCodes": [
+    "FS4552"
+   ],
+   "caseSize": 45,
+   "thickness": 11,
+   "lugWidth": 24,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "plated",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.timepiece.com/fossil-mens-watch-fs4552.html"
+  },
+  {
+   "brand": "Fossil",
+   "family": "Townsman",
+   "modelCodes": [
+    "ME3098"
+   ],
+   "caseSize": 44,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "brown",
+    "skeleton"
+   ],
+   "source": "https://www.nywatchstore.com/me3098.html"
+  },
+  {
+   "brand": "Fossil",
+   "family": "Neutra",
+   "modelCodes": [
+    "FS5380"
+   ],
+   "caseSize": 44,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "source": "https://www.krishnawatch.com/products/fossil-neutra-chronograph-analog-watch-for-men-fs5380",
+   "moreSources": [
+    "https://www.nywatchstore.com/fossil-watch-fs5380.html"
+   ]
+  },
+  {
+   "brand": "Fossil",
+   "family": "Minimalist",
+   "modelCodes": [
+    "FS5447"
+   ],
+   "caseSize": 44,
+   "thickness": 8,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.timepiece.com/fossil-the-minimalist-watch-fs5447.html",
+   "moreSources": [
+    "https://justintime.in/products/fossil-the-minimalist-mono-men-quartz-black-dial-analog-leather-watch-fs5447"
+   ]
+  },
+  {
+   "brand": "Fossil",
+   "family": "Everett",
+   "modelCodes": [
+    "FS5797"
+   ],
+   "caseSize": 42,
+   "lugWidth": 18,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "plated",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.timepiece.com/fossil-everett-chronograph-quartz-black-dial-mens-watch-fs5797.html"
+  },
+  {
+   "brand": "Fossil",
+   "family": "Carlie",
+   "modelCodes": [
+    "ES4430"
+   ],
+   "caseSize": 29,
+   "thickness": 7,
+   "lugWidth": 12,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "mother of pearl"
+   ],
+   "source": "https://www.timepiece.com/fossil-carlie-watch-es4430.html"
+  },
+  {
+   "brand": "Fossil",
+   "family": "Jacqueline",
+   "modelCodes": [
+    "ES3545"
+   ],
+   "caseSize": 36,
+   "thickness": 8,
+   "lugWidth": 14,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.timepiece.com/fossil-watch-es3545.html"
+  },
+  {
+   "brand": "Tissot",
+   "family": "PRX",
+   "modelCodes": [
+    "T137.410.11.041.00"
+   ],
+   "caseSize": 40,
+   "thickness": 10.4,
+   "lugWidth": 12,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.tissotwatches.com/en-us/t1374101104100.html"
+  },
+  {
+   "brand": "Tissot",
+   "family": "PRX Powermatic 80",
+   "modelCodes": [
+    "T137.407.11.041.00"
+   ],
+   "caseSize": 40,
+   "thickness": 10.93,
+   "lugWidth": 12,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.tissotwatches.com/en-us/t1374071104100.html"
+  },
+  {
+   "brand": "Tissot",
+   "family": "Gentleman Powermatic 80",
+   "modelCodes": [
+    "T127.407.11.041.00"
+   ],
+   "caseSize": 40,
+   "thickness": 11.5,
+   "lugWidth": 21,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.tissotwatches.com/en-us/t1274071104100.html"
+  },
+  {
+   "brand": "Tissot",
+   "family": "Seastar 1000",
+   "modelCodes": [
+    "T120.407.11.041.03"
+   ],
+   "caseSize": 43,
+   "thickness": 12.7,
+   "lugWidth": 21,
+   "waterResistance": 300,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.tissotwatches.com/en-us/t1204071104103.html"
+  },
+  {
+   "brand": "Tissot",
+   "family": "Le Locle",
+   "modelCodes": [
+    "T006.407.11.033.00"
+   ],
+   "caseSize": 39.3,
+   "thickness": 9.75,
+   "lugWidth": 19,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.tissotwatches.com/en-us/t0064071103300.html"
+  },
+  {
+   "brand": "Tissot",
+   "family": "Everytime",
+   "modelCodes": [
+    "T143.410.11.041.00"
+   ],
+   "caseSize": 40,
+   "thickness": 7.07,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.tissotwatches.com/pl-pl/T1434101104100.html"
+  },
+  {
+   "brand": "Tissot",
+   "family": "Classic Dream",
+   "modelCodes": [
+    "T129.410.16.013.00"
+   ],
+   "caseSize": 42,
+   "thickness": 8.05,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://www.tissotwatches.com/en-us/T1294101601300.html"
+  },
+  {
+   "brand": "Tissot",
+   "family": "Supersport Chrono",
+   "modelCodes": [
+    "T125.617.11.051.00"
+   ],
+   "caseSize": 45.5,
+   "thickness": 11.92,
+   "lugWidth": 22,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.tissotwatches.com/en-us/T1256171105100.html"
+  },
+  {
+   "brand": "Hamilton",
+   "family": "Khaki Field Mechanical",
+   "modelCodes": [
+    "H69439931"
+   ],
+   "caseSize": 38,
+   "thickness": 9.5,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "nylon"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.hamiltonwatch.com/en-us/h69439931-khaki-field-mechanical.html"
+  },
+  {
+   "brand": "Hamilton",
+   "family": "Jazzmaster",
+   "modelCodes": [
+    "H32675140"
+   ],
+   "caseSize": 40,
+   "thickness": 11.05,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.hamiltonwatch.com/en-us/h32675140-jazzmaster-open-heart-auto.html"
+  },
+  {
+   "brand": "Hamilton",
+   "family": "Khaki Aviation",
+   "modelCodes": [
+    "H64635560"
+   ],
+   "caseSize": 42,
+   "thickness": 12.1,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "green"
+   ],
+   "source": "https://www.hamiltonwatch.com/en-us/h64635560-khaki-aviation-auto.html"
+  },
+  {
+   "brand": "Hamilton",
+   "family": "Ventura",
+   "modelCodes": [
+    "H24411732"
+   ],
+   "thickness": 9.27,
+   "lugWidth": 17,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.hamiltonwatch.com/en-us/h24411732-ventura-quartz.html"
+  },
+  {
+   "brand": "Hamilton",
+   "family": "Khaki Navy Scuba",
+   "modelCodes": [
+    "H82335331"
+   ],
+   "caseSize": 40,
+   "thickness": 12.95,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "rubber"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.hamiltonwatch.com/en-us/h82335331-khaki-scuba.html"
+  },
+  {
+   "brand": "Swatch",
+   "family": "MoonSwatch",
+   "modelCodes": [
+    "SO33M100"
+   ],
+   "caseSize": 42,
+   "lugWidth": 20,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "other",
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.mywristworth.com/vault/SO33M100"
+  },
+  {
+   "brand": "Swatch",
+   "family": "Sistem51",
+   "modelCodes": [
+    "SUTB400"
+   ],
+   "caseSize": 41.5,
+   "thickness": 13.48,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "resin",
+   "strapOptions": [
+    "other"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://professionalwatches.com/review-swatch-sistem-51-black/"
+  },
+  {
+   "brand": "Swatch",
+   "family": "Big Bold",
+   "modelCodes": [
+    "SO27B100"
+   ],
+   "caseSize": 47,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "resin",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "silicone"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.watchnation.com/product/swatch-big-bold-bbblack-quartz-black-silicone-mens-watch-so27b100-47mm/"
+  },
+  {
+   "brand": "Daniel Wellington",
+   "family": "Classic",
+   "modelCodes": [
+    "DW00100139K"
+   ],
+   "caseSize": 40,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "plated",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://in.danielwellington.com/products/classic-sheffield-black-rose-gold"
+  },
+  {
+   "brand": "Daniel Wellington",
+   "family": "Petite",
+   "modelCodes": [
+    "DW00100163"
+   ],
+   "caseSize": 32,
+   "lugWidth": 14,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "strapOptions": [
+    "mesh"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://www.jacobtime.com/daniel-wellington-petite-melrose-eggshell-white-rose-gold-ladies-watch-dw00100163/"
+  },
+  {
+   "brand": "Daniel Wellington",
+   "family": "Iconic Link",
+   "modelCodes": [
+    "DW00100342"
+   ],
+   "caseSize": 40,
+   "thickness": 9.5,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.grahams.com.au/products/daniel-wellington-iconic-link-dw00100342-30261692"
+  },
+  {
+   "brand": "Daniel Wellington",
+   "family": "Quadro",
+   "modelCodes": [
+    "DW00100432"
+   ],
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "mesh"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://zimsonwatches.com/products/daniel-wellington-quadro-pressed-melrose-black-rose-gold-dw00100432"
+  },
+  {
+   "brand": "Tommy Hilfiger",
+   "family": "Decker",
+   "modelCodes": [
+    "1791349"
+   ],
+   "caseSize": 46,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "silicone"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://watch-connection.com/products/tommy-hilfiger-decker-quartz-white-dial-blue-rubber-strap-watch-for-men-1791349"
+  },
+  {
+   "brand": "Tommy Hilfiger",
+   "family": "Baker",
+   "modelCodes": [
+    "1710448"
+   ],
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://watchesprime.com/product/tommy-hilfiger-watch-baker-1710448/"
+  },
+  {
+   "brand": "Tommy Hilfiger",
+   "family": "George",
+   "modelCodes": [
+    "1710330"
+   ],
+   "caseSize": 44,
+   "thickness": 9.6,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.timepiece.com/tommy-hilfiger-geore-mens-watch-1710330.html"
+  },
+  {
+   "brand": "Armani Exchange",
+   "family": "Hampton",
+   "modelCodes": [
+    "AX2103"
+   ],
+   "caseSize": 46,
+   "thickness": 11,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.watchdepot.com.au/products/armani-exchange-hampton-ax2103-30261525"
+  },
+  {
+   "brand": "Armani Exchange",
+   "family": "Cayde",
+   "modelCodes": [
+    "AX2700"
+   ],
+   "caseSize": 42,
+   "thickness": 8,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.timepiece.com/armani-exchange-watch-ax2700.html"
+  },
+  {
+   "brand": "Armani Exchange",
+   "family": "Lola",
+   "modelCodes": [
+    "AX5552"
+   ],
+   "caseSize": 36,
+   "thickness": 8,
+   "lugWidth": 18,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "plated",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "rose gold"
+   ],
+   "source": "https://chronoera.com/products/armani-exchange-lola-multi-function-rose-dial-watch-36-mm"
+  },
+  {
+   "brand": "Police",
+   "family": "Underlined",
+   "modelCodes": [
+    "PEWJB0005601"
+   ],
+   "caseSize": 46,
+   "thickness": 12,
+   "lugWidth": 24,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.timeshop24.com/police-pewjb0005601-underlined.html"
+  },
+  {
+   "brand": "Police",
+   "family": "Ranger II",
+   "modelCodes": [
+    "PEWJH2110301"
+   ],
+   "caseSize": 48,
+   "thickness": 14,
+   "lugWidth": 24,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.timeshop24.com/police-pewjh2110301-ranger-ii.html"
+  },
+  {
+   "brand": "Diesel",
+   "family": "Mega Chief",
+   "modelCodes": [
+    "DZ4318"
+   ],
+   "thickness": 12,
+   "lugWidth": 26,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "plated",
+   "crystal": "mineral",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "brown"
+   ],
+   "source": "https://www.timepiece.com/diesel-watch-dz4318.html"
+  },
+  {
+   "brand": "Diesel",
+   "family": "Griffed",
+   "modelCodes": [
+    "DZ4571"
+   ],
+   "caseSize": 48,
+   "thickness": 13,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "mineral",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.timepiece.com/diesel-griffed-chronograph-quartz-silver-dial-mens-watch-dz4571.html"
+  },
+  {
+   "brand": "Diesel",
+   "family": "Baby Chief",
+   "modelCodes": [
+    "DZ4564"
+   ],
+   "caseSize": 43,
+   "thickness": 11.5,
+   "lugWidth": 22,
+   "waterResistance": 100,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "mineral",
+   "strapOptions": [
+    "fabric",
+    "silicone"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.timepiece.com/diesel-baby-chief-chronograph-quartz-black-dial-mens-watch-dz4564.html"
+  },
+  {
+   "brand": "Diesel",
+   "family": "Crusher",
+   "modelCodes": [
+    "DZ1893"
+   ],
+   "caseSize": 46,
+   "thickness": 15,
+   "lugWidth": 24,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "digital",
+   "caseMaterial": "resin",
+   "crystal": "mineral",
+   "strapOptions": [
+    "silicone"
+   ],
+   "source": "https://www.timepiece.com/diesel-crusher-digital-mens-watch-dz1893.html"
+  },
+  {
+   "brand": "Bangalore Watch Company",
+   "family": "MACH 1",
+   "caseSize": 40,
+   "thickness": 10.8,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "source": "https://www.bangalorewatchco.in/products/mach1c-ss-gen2-0",
+   "moreSources": [
+    "https://www.bangalorewatchco.in/products/mach1a-pvd-gen-2-0",
+    "https://www.bangalorewatchco.in/products/synchro"
+   ]
+  },
+  {
+   "brand": "Bangalore Watch Company",
+   "family": "Apogee",
+   "caseSize": 40,
+   "thickness": 12,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "source": "https://www.bangalorewatchco.in/products/earthshine",
+   "moreSources": [
+    "https://www.bangalorewatchco.in/products/supernova-cs",
+    "https://www.bangalorewatchco.in/products/horizon-cs"
+   ]
+  },
+  {
+   "brand": "Bangalore Watch Company",
+   "family": "Cover Drive",
+   "caseSize": 40,
+   "thickness": 12.5,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "source": "https://www.bangalorewatchco.in/products/outfield",
+   "moreSources": [
+    "https://www.bangalorewatchco.in/products/pitch",
+    "https://www.bangalorewatchco.in/products/pavilion"
+   ]
+  },
+  {
+   "brand": "Bangalore Watch Company",
+   "family": "Peninsula",
+   "thickness": 13.75,
+   "lugWidth": 20,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "rubber"
+   ],
+   "source": "https://www.bangalorewatchco.in/products/agumbe",
+   "moreSources": [
+    "https://www.bangalorewatchco.in/products/laccadive",
+    "https://www.bangalorewatchco.in/products/zanskar"
+   ]
+  },
+  {
+   "brand": "Delhi Watch Company",
+   "family": "Terra",
+   "caseSize": 32,
+   "movement": "quartz",
+   "display": "analog",
+   "crystal": "other",
+   "strapOptions": [
+    "nylon"
+   ],
+   "source": "https://delhiwatchcompany.com/products/dwc-terra",
+   "moreSources": [
+    "https://www.gearpatrol.com/watches/delhi-watch-company-dwc-terra/"
+   ]
+  },
+  {
+   "brand": "Delhi Watch Company",
+   "family": "Havelock",
+   "caseSize": 38,
+   "lugWidth": 20,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "rubber",
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue",
+    "green",
+    "black",
+    "grey"
+   ],
+   "source": "https://delhiwatchcompany.com/products/dwc-havelock",
+   "moreSources": [
+    "https://www.lug2lug.org/watches/delhi-watch-company--dwc-havelock"
+   ]
+  },
+  {
+   "brand": "Delhi Watch Company",
+   "family": "Everest III",
+   "caseSize": 37,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black",
+    "blue"
+   ],
+   "source": "https://delhiwatchcompany.com/products/dwc-everest-summit-series",
+   "moreSources": [
+    "https://delhiwatchcompany.com/products/dwc-everest-iii-9015"
+   ]
+  },
+  {
+   "brand": "Jaipur Watch Company",
+   "family": "Imperial V",
+   "caseSize": 42,
+   "thickness": 14,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "source": "https://jaipur.watch/products/imperial-v-automatic-wristwear"
+  },
+  {
+   "brand": "Jaipur Watch Company",
+   "family": "Baagh III",
+   "modelCodes": [
+    "BW12",
+    "BW14"
+   ],
+   "caseSize": 43,
+   "thickness": 14,
+   "lugWidth": 22,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "source": "https://jaipur.watch/products/roman-baagh-bw12",
+   "moreSources": [
+    "https://jaipur.watch/products/devnagari-baagh-bw14"
+   ]
+  },
+  {
+   "brand": "Jaipur Watch Company",
+   "family": "The One",
+   "caseSize": 39,
+   "thickness": 15,
+   "lugWidth": 18,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather",
+    "mesh"
+   ],
+   "dialColours": [
+    "green",
+    "black"
+   ],
+   "source": "https://jaipur.watch/products/the-one-1",
+   "moreSources": [
+    "https://jaipur.watch/products/the-one"
+   ]
+  },
+  {
+   "brand": "Rolex",
+   "family": "Submariner",
+   "modelCodes": [
+    "124060",
+    "126610LN"
+   ],
+   "caseSize": 41,
+   "waterResistance": 300,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://rolexboutique-stthomas.com/watches/submariner/m126610ln-0001",
+   "moreSources": [
+    "https://rolexboutique-stthomas.com/watches/submariner/m124060-0001"
+   ]
+  },
+  {
+   "brand": "Rolex",
+   "family": "Datejust 41",
+   "modelCodes": [
+    "126334"
+   ],
+   "caseSize": 41,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "grey"
+   ],
+   "source": "https://rolexboutique-stthomas.com/watches/datejust/m126334-0014"
+  },
+  {
+   "brand": "Rolex",
+   "family": "Oyster Perpetual 41",
+   "modelCodes": [
+    "124300"
+   ],
+   "caseSize": 41,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "source": "https://davidsonandlicht.com/rolex/oyster-perpetual-41-m124300-0002"
+  },
+  {
+   "brand": "Rolex",
+   "family": "Explorer",
+   "modelCodes": [
+    "124270"
+   ],
+   "caseSize": 36,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://rolexboutique-stthomas.com/watches/explorer/m124270-0001"
+  },
+  {
+   "brand": "Rolex",
+   "family": "GMT-Master II",
+   "modelCodes": [
+    "126710BLRO"
+   ],
+   "caseSize": 40,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.betteridge.com/Rolex/GMT+Master-II-M126710BLRO+0001/p/17303780"
+  },
+  {
+   "brand": "Rolex",
+   "family": "Cosmograph Daytona",
+   "modelCodes": [
+    "126500LN"
+   ],
+   "caseSize": 40,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://rolexboutique-stthomas.com/watches/cosmograph-daytona/m126500ln-0001"
+  },
+  {
+   "brand": "Omega",
+   "family": "Speedmaster Moonwatch Professional",
+   "modelCodes": [
+    "310.30.42.50.01.001"
+   ],
+   "caseSize": 42,
+   "thickness": 13.54,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "acrylic",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001001"
+  },
+  {
+   "brand": "Omega",
+   "family": "Seamaster Diver 300M",
+   "modelCodes": [
+    "210.30.42.20.01.001"
+   ],
+   "caseSize": 42,
+   "thickness": 13.56,
+   "lugWidth": 20,
+   "waterResistance": 300,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.omegawatches.com/en-us/watch-omega-seamaster-diver-300m-co-axial-master-chronometer-42-mm-21030422001001"
+  },
+  {
+   "brand": "Omega",
+   "family": "Seamaster Aqua Terra 150M",
+   "modelCodes": [
+    "220.10.41.21.03.004"
+   ],
+   "caseSize": 41,
+   "thickness": 13.2,
+   "lugWidth": 20,
+   "waterResistance": 150,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.omegawatches.com/en-us/watch-omega-seamaster-aqua-terra-150m-co-axial-master-chronometer-41-mm-22010412103004"
+  },
+  {
+   "brand": "Omega",
+   "family": "Constellation",
+   "modelCodes": [
+    "131.10.39.20.01.001"
+   ],
+   "caseSize": 39,
+   "thickness": 12.43,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.omegawatches.com/en-us/watch-omega-constellation-co-axial-master-chronometer-39-mm-13110392001001"
+  },
+  {
+   "brand": "Tudor",
+   "family": "Black Bay 58",
+   "modelCodes": [
+    "M79030N-0001"
+   ],
+   "caseSize": 39,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.goldsmiths.co.uk/Tudor-Black-Bay-Fifty+Eight-39mm-Stainless-Steel-M79030N+0001/p/17770569"
+  },
+  {
+   "brand": "Tudor",
+   "family": "Black Bay",
+   "modelCodes": [
+    "M7941A1A0RU-0001"
+   ],
+   "caseSize": 41,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://chpremier.com/products/tudor-black-bay-41mm-steel-m7941a1a0ru-0001",
+   "moreSources": [
+    "https://www.watches-of-switzerland.co.uk/Tudor-Black-Bay-Manufacture-Calibre-MT5602+U-41mm-Steel-Case-Steel-Bracelet-M7941A1A0RU+0001/p/17771034"
+   ]
+  },
+  {
+   "brand": "Tudor",
+   "family": "Pelagos",
+   "modelCodes": [
+    "M25600TN-0001"
+   ],
+   "caseSize": 42,
+   "waterResistance": 500,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "titanium",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "titaniumBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://chpremier.com/products/tudor-pelagos-42mm-titanium-and-steel-m25600tn-0001"
+  },
+  {
+   "brand": "Longines",
+   "family": "HydroConquest",
+   "modelCodes": [
+    "L3.781.4.56.6"
+   ],
+   "caseSize": 41,
+   "waterResistance": 300,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.longines.com/en-us/watch-hydroconquest-l3-781-4-56-6"
+  },
+  {
+   "brand": "Longines",
+   "family": "Spirit",
+   "modelCodes": [
+    "L3.810.4.53.6"
+   ],
+   "caseSize": 40,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.longines.com/en-us/p/watch-longines-spirit-l3-810-4-53-6"
+  },
+  {
+   "brand": "Longines",
+   "family": "Master Collection",
+   "modelCodes": [
+    "L2.793.4.78.3"
+   ],
+   "caseSize": 40,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.longines.com/en-us/p/watch-longines-master-collection-l2-793-4-78-3"
+  },
+  {
+   "brand": "TAG Heuer",
+   "family": "Carrera",
+   "modelCodes": [
+    "WBN2110.BA0639"
+   ],
+   "caseSize": 39,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.watchmaxx.com/tag-heuer-watch-wbn2110-ba0639"
+  },
+  {
+   "brand": "TAG Heuer",
+   "family": "Aquaracer",
+   "modelCodes": [
+    "WBP201A.BA0632"
+   ],
+   "caseSize": 43,
+   "waterResistance": 300,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.watchmaxx.com/tag-heuer-watch-wbp201a-ba0632"
+  },
+  {
+   "brand": "TAG Heuer",
+   "family": "Monaco",
+   "modelCodes": [
+    "CBL2111.FC6453"
+   ],
+   "caseSize": 39,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.watchesofswitzerland.com/products/tag-heuer-monaco-cbl2111-fc6453-17381800"
+  },
+  {
+   "brand": "TAG Heuer",
+   "family": "Formula 1",
+   "modelCodes": [
+    "WAZ1010.BA0842"
+   ],
+   "caseSize": 43,
+   "thickness": 11.65,
+   "waterResistance": 200,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.watchmaxx.com/tag-heuer-watch-waz1010-ba0842"
+  },
+  {
+   "brand": "Grand Seiko",
+   "family": "Snowflake",
+   "modelCodes": [
+    "SBGA211"
+   ],
+   "caseSize": 41,
+   "thickness": 12.5,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "springDrive",
+   "display": "analog",
+   "caseMaterial": "titanium",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "titaniumBracelet"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://grandseikoboutique.us/products/watch-spring-drive-snowflake-sbga211"
+  },
+  {
+   "brand": "Cartier",
+   "family": "Tank Must",
+   "modelCodes": [
+    "CRWSTA0041"
+   ],
+   "caseSize": 25.5,
+   "thickness": 6.6,
+   "waterResistance": 30,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.cartier.com/en-bl/watches/collections/tank/tank-must-de-cartier-watch-CRWSTA0041"
+  },
+  {
+   "brand": "Cartier",
+   "family": "Santos de Cartier",
+   "modelCodes": [
+    "CRWSSA0018"
+   ],
+   "caseSize": 39.8,
+   "thickness": 9.38,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet",
+    "leather"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.cartier.com/en-us/watches/collections/santos-de-cartier/santos-de-cartier-watch-CRWSSA0018.html"
+  },
+  {
+   "brand": "Cartier",
+   "family": "Ballon Bleu",
+   "modelCodes": [
+    "CRWSBB0040"
+   ],
+   "caseSize": 40,
+   "thickness": 12.44,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://www.cartier.com/en-sa/watches/collections/ballon-de-cartier/ballon-bleu-de-cartier-watch-CRWSBB0040.html"
+  },
+  {
+   "brand": "Patek Philippe",
+   "family": "Nautilus",
+   "modelCodes": [
+    "5811/1G-001"
+   ],
+   "caseSize": 41,
+   "thickness": 8.2,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "other",
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.patek.com/en/collection/nautilus/5811-1G-001"
+  },
+  {
+   "brand": "Patek Philippe",
+   "family": "Calatrava",
+   "modelCodes": [
+    "6119G-001",
+    "6119R-001"
+   ],
+   "caseSize": 39,
+   "thickness": 8.08,
+   "waterResistance": 30,
+   "movement": "manual",
+   "display": "analog",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "grey",
+    "silver"
+   ],
+   "source": "https://www.patek.com/en/collection/calatrava/6119G-001",
+   "moreSources": [
+    "https://www.patek.com/en/collection/calatrava/6119R-001"
+   ]
+  },
+  {
+   "brand": "Patek Philippe",
+   "family": "Aquanaut",
+   "modelCodes": [
+    "5167A-001"
+   ],
+   "caseSize": 40.8,
+   "thickness": 8.1,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "other"
+   ],
+   "dialColours": [
+    "grey"
+   ],
+   "source": "https://www.patek.com/en/collection/aquanaut/5167A-001"
+  },
+  {
+   "brand": "Audemars Piguet",
+   "family": "Royal Oak",
+   "modelCodes": [
+    "15500ST.OO.1220ST.01"
+   ],
+   "caseSize": 41,
+   "thickness": 10.5,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/15500ST.OO.1220ST.01.html"
+  },
+  {
+   "brand": "Audemars Piguet",
+   "family": "Royal Oak Offshore",
+   "modelCodes": [
+    "26420SO.OO.A002CA.01",
+    "26420SO.OO.A600CA.01"
+   ],
+   "caseSize": 43,
+   "thickness": 14.4,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "rubber"
+   ],
+   "dialColours": [
+    "black",
+    "brown"
+   ],
+   "source": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/26420SO.OO.A002CA.01.html",
+   "moreSources": [
+    "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/26420SO.OO.A600CA.01.html"
+   ]
+  },
+  {
+   "brand": "IWC",
+   "family": "Portugieser",
+   "modelCodes": [
+    "IW371605"
+   ],
+   "caseSize": 41,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "silver"
+   ],
+   "source": "https://chpremier.com/products/iwc-schaffhausen-portugieser-chronograph-41-iw371605"
+  },
+  {
+   "brand": "IWC",
+   "family": "Pilot's Watch Mark XX",
+   "modelCodes": [
+    "IW328201"
+   ],
+   "caseSize": 40,
+   "thickness": 10.8,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.prestigetime.com/IWC-Pilot-s-Watch-Mark-XX-40mm-iw328201.html"
+  },
+  {
+   "brand": "Breitling",
+   "family": "Navitimer",
+   "modelCodes": [
+    "AB0138211B1P1"
+   ],
+   "caseSize": 43,
+   "lugWidth": 22,
+   "waterResistance": 30,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.prestigetime.com/Breitling-Navitimer-B01-Chronograph-43-ab0138211b1p1.html"
+  },
+  {
+   "brand": "Breitling",
+   "family": "Superocean",
+   "modelCodes": [
+    "A17375211B1S1"
+   ],
+   "caseSize": 42,
+   "waterResistance": 300,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "rubber"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.watchesofswitzerland.com/products/breitling-superocean-a17375211b1s1-17532125"
+  },
+  {
+   "brand": "Breitling",
+   "family": "Chronomat",
+   "modelCodes": [
+    "AB0134101B1A1"
+   ],
+   "caseSize": 42,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.mayors.com/Breitling-Chronomat-B01-42-Stainless-Steel-Watch-AB0134101B1A1/p/17531832"
+  },
+  {
+   "brand": "Panerai",
+   "family": "Luminor",
+   "modelCodes": [
+    "PAM01312"
+   ],
+   "caseSize": 44,
+   "lugWidth": 24,
+   "waterResistance": 300,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather",
+    "rubber"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.prestigetime.com/Panerai-Luminor-Marina-44mm-pam01312.html"
+  },
+  {
+   "brand": "Panerai",
+   "family": "Radiomir",
+   "modelCodes": [
+    "PAM01384"
+   ],
+   "caseSize": 45,
+   "waterResistance": 100,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://www.prestigetime.com/Panerai-Radiomir-45mm-PAM01384.html"
+  },
+  {
+   "brand": "Oris",
+   "family": "Aquis Date",
+   "modelCodes": [
+    "01 733 7766 4135-07 8 22 05PEB"
+   ],
+   "caseSize": 41.5,
+   "lugWidth": 22,
+   "waterResistance": 300,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.oris.ch/en-US/product/watch/aquis/aquis-date/01-733-7766-4135-07-8-22-05PEB"
+  },
+  {
+   "brand": "Oris",
+   "family": "Big Crown Pointer Date",
+   "modelCodes": [
+    "01 754 7741 4065-07 8 20 22"
+   ],
+   "caseSize": 40,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "blue"
+   ],
+   "source": "https://www.oris.ch/en-US/product/watch/big-crown/big-crown-pointer-date/01-754-7741-4065-07-8-20-22"
+  },
+  {
+   "brand": "Nomos",
+   "family": "Tangente 35",
+   "modelCodes": [
+    "139"
+   ],
+   "caseSize": 35,
+   "thickness": 6.6,
+   "lugWidth": 18,
+   "waterResistance": 50,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://nomos-glashuette.com/en-it/tangente/tangente-139"
+  },
+  {
+   "brand": "Nomos",
+   "family": "Club",
+   "modelCodes": [
+    "735"
+   ],
+   "caseSize": 38.5,
+   "thickness": 8.5,
+   "lugWidth": 20,
+   "waterResistance": 100,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "fabric"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://nomos-glashuette.com/en/club/club-campus-38-735"
+  },
+  {
+   "brand": "Nomos",
+   "family": "Orion",
+   "modelCodes": [
+    "387"
+   ],
+   "caseSize": 38,
+   "thickness": 7.9,
+   "lugWidth": 19,
+   "waterResistance": 50,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://nomos-glashuette.com/en-us/orion/orion-38-387"
+  },
+  {
+   "brand": "Nomos",
+   "family": "Metro",
+   "modelCodes": [
+    "1102"
+   ],
+   "caseSize": 38.5,
+   "thickness": 7.8,
+   "lugWidth": 19,
+   "waterResistance": 50,
+   "movement": "manual",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "white"
+   ],
+   "source": "https://nomos-glashuette.com/en/metro/metro-38-date-1102"
+  },
+  {
+   "brand": "Sinn",
+   "family": "556",
+   "modelCodes": [
+    "556.010"
+   ],
+   "caseSize": 38.5,
+   "thickness": 11,
+   "lugWidth": 20,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.seriouswatches.com/products/sinn-556-i-bracelet-556-010"
+  },
+  {
+   "brand": "Sinn",
+   "family": "104",
+   "modelCodes": [
+    "104.010"
+   ],
+   "caseSize": 41,
+   "thickness": 11.9,
+   "lugWidth": 20,
+   "waterResistance": 200,
+   "movement": "automatic",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "leather"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://www.seriouswatches.com/products/sinn-104-st-sa-i-leather-104-010"
+  },
+  {
+   "brand": "Bulova",
+   "family": "Lunar Pilot",
+   "modelCodes": [
+    "96B258"
+   ],
+   "caseSize": 45,
+   "lugWidth": 20,
+   "waterResistance": 50,
+   "movement": "quartz",
+   "display": "analog",
+   "caseMaterial": "steel",
+   "crystal": "sapphire",
+   "strapOptions": [
+    "steelBracelet"
+   ],
+   "dialColours": [
+    "black"
+   ],
+   "source": "https://longislandwatch.com/bulova-lunar-pilot-chronograph-45mm-with-black-dial-and-stainless-steel-bracelet-96b258/"
+  }
+ ]
+}

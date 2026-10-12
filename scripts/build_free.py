@@ -43,6 +43,8 @@ def size(n):
 
 
 def has_file(p):
+    if p.get("link"):
+        return True
     return os.path.exists(os.path.join("free", "files", p["slug"], p["file"]))
 
 
@@ -108,7 +110,7 @@ def page(p, items):
     url = f'{SITE}/free/{p["slug"]}/'
     img = f'{SITE}/free/img/{p["slug"]}.webp'
     file_url = f'/free/files/{p["slug"]}/{urllib.parse.quote(p["file"])}'
-    meta = f'Free · {esc(p["kind"])} · {size(p["size"])}'
+    meta = f'Free · {esc(p["kind"])}' if p.get("link") else f'Free · {esc(p["kind"])} · {size(p["size"])}'
     proof = (f'<p class="proof"><span class="proof-cells" aria-hidden="true"><i></i><i></i><i></i></span>'
              f'{p["downloads"]} readers have already downloaded it</p>') if p["downloads"] >= 20 else ""
     inside = "".join(f'<li style="--n:{i}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>{esc(x)}</span></li>'
@@ -123,6 +125,11 @@ def page(p, items):
     same = [q for q in items if q["slug"] != p["slug"] and set(q["tags"]) & set(p["tags"])]
     rest = [q for q in items if q["slug"] != p["slug"] and q not in same]
     related = (same + rest)[:3]
+    if p.get("link"):
+        dl_link = f'<a class="dl-btn" href="{esc(p["link"])}" target="_blank" rel="noopener" data-file>Open {esc(p["name"])}'
+    else:
+        label = "Download the PDF" if p["kind"] == "PDF" else "Download the files"
+        dl_link = f'<a class="dl-btn" href="{file_url}" download data-file>{label}'
     title = f'{p["name"]}: free download from The Useful Tech'
     return head(title, p["sub"], url, img) + f'''<script src="/tech/tech.js" defer></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
@@ -153,7 +160,7 @@ def page(p, items):
     <div class="fr-done" data-done hidden tabindex="-1">
       <p class="kicker">It's yours</p>
       <p class="done-name">{esc(p["name"])}</p>
-      <a class="dl-btn" href="{file_url}" download data-file>{"Download the PDF" if p["kind"] == "PDF" else "Download the files"}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a>
+      {dl_link}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a>
       <p class="fine">Your welcome email from The Useful Tech is on its way too.</p>
     </div>
   </div>

@@ -114,6 +114,8 @@ section{scroll-margin-top:110px}
 .sh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:34px}
 .sh h2{font-size:clamp(32px,4.4vw,52px);max-width:18ch}
 .sh p{color:var(--ink-2);max-width:44ch}
+.maker{margin:-14px 0 28px;color:var(--ink-2);font-size:15px}
+.maker a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 
 /* How it works */
 .how{padding-block:clamp(48px,7vw,90px);background:var(--paper-2);border-block:1px solid var(--line)}
@@ -262,7 +264,7 @@ footer p{max-width:70ch}
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">A motion design studio for Claude Code, on your Mac</p>
-        <h1 style="margin-top:18px">Type 1 line. Get a launch video <em>in your brand.</em></h1>
+        <h1 style="margin-top:18px">Type 1 line and get a launch video <em>in your brand.</em></h1>
         <p class="lede">Useful Studio writes the story, animates every frame and checks its own work. You get finished MP4s in 16:9 and 9:16. No timeline. No editing skills.</p>
         <div class="ctas">
           <a class="btn buy" href="https://theusefultech.gumroad.com/l/useful-studio?wanted=true">Get Useful Studio <span class="price"><s>$299</s> $199</span></a>
@@ -271,7 +273,7 @@ footer p{max-width:70ch}
         <div class="fine"><span><b>Launch price</b> until 31 October</span><span>Mac, macOS 14+</span><span>All sales are final</span></div>
       </div>
       <figure class="monitor" style="margin:0">
-        <video id="hero" src="media/useful-studio-launch.mp4" poster="media/useful-studio-launch.jpg" muted playsinline loop preload="metadata" aria-label="The Useful Studio launch film, made with Useful Studio"></video>
+        <video id="hero" src="media/useful-studio-launch.mp4" poster="media/useful-studio-poster.jpg" muted playsinline loop preload="metadata" aria-label="The Useful Studio launch film, made with Useful Studio"></video>
         <div class="mbar">
           <button id="playBtn" type="button">Play</button>
           <button id="soundBtn" type="button">Sound off</button>
@@ -293,7 +295,7 @@ footer p{max-width:70ch}
   <section class="how" id="how" data-kf="How">
     <div class="wrap">
       <div class="sh">
-        <h2>You type 1 line. It does the studio work.</h2>
+        <h2>You type 1 line and it does the studio work.</h2>
         <p>Every command asks a few plain questions, then runs on its own. Most videos take 10 to 40 minutes from prompt to finished file while you do something else.</p>
       </div>
       <ol class="steps">
@@ -320,7 +322,7 @@ footer p{max-width:70ch}
   <section class="gallery" id="gallery" data-kf="Gallery">
     <div class="wrap">
       <div class="sh">
-        <h2>11 videos. Every one made by a real command run.</h2>
+        <h2>11 videos, every one made by a real command run.</h2>
         <p>Start to finish, no hand edits. Tap any video to watch it with sound.</p>
       </div>
       <div class="chips" role="group" aria-label="Filter videos by command">
@@ -380,9 +382,10 @@ footer p{max-width:70ch}
   <section class="pricing" id="pricing" data-kf="Pricing">
     <div class="wrap">
       <div class="sh">
-        <h2>Pay once. Keep every video forever.</h2>
+        <h2>Pay once and keep every video forever.</h2>
         <p>1 license key works on up to 3 of your Macs. 12 months of updates included. After that your version keeps working.</p>
       </div>
+      <p class="maker">Made by Raja, who runs <a href="https://theusefultech.com">The Useful Tech</a>, the #1 Apple blog on Medium with 78,000 followers.</p>
       <div class="tiers">
         <div class="tier feat">
           <span class="tag">Launch price</span>

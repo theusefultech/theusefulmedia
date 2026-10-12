@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Refreshes the "Latest" block on theusefulmedia.com/links (The Useful Tech link in bio).
+"""Refreshes theusefulmedia.com/links (The Useful Tech link in bio).
 
-Pulls the newest story from The Useful Tech publication on Medium and the newest
-newsletter issue from tech/library/library.json (built by build_library.py),
-then rewrites the block between <!--LATEST:START--> and <!--LATEST:END--> in
-links/index.html. If Medium can't be reached, the existing block is kept.
+1. Posts grid: pulls the 9 newest @theusefultech Instagram posts, saves their
+   thumbnails to links/ig/, and sends each tile to the link its caption promises
+   (Useful Studio, the free App Library, Siri AI Daily Ten and so on). Captions
+   with no promise go to the newsletter. links/ig-overrides.json can force a
+   destination for any shortcode: {"SHORTCODE": {"url": "...", "label": "..."}}.
+2. Latest: the newest Medium story and newsletter issue.
+Each block is only rewritten when its source answers, so a failed fetch keeps
+the page as it was.
 Run from the repo root:  python3 scripts/build_links.py
 """
-import html, json, os, re, sys, urllib.request
+import glob, html, json, os, re, sys, urllib.request
 from email.utils import parsedate_to_datetime
 
 FEED = "https://medium.com/feed/the-useful-tech"
@@ -86,29 +90,112 @@ def card(kind, item):
     )
 
 
+IG_API = "https://i.instagram.com/api/v1/users/web_profile_info/?username=theusefultech"
+IG_DIR = os.path.join("links", "ig")
+FREE = "https://newsletter.theusefultech.com/products/"
+NEWSLETTER = ("https://theusefulmedia.com/tech/", "Newsletter")
+RULES = [  # first match wins; matched against the lower-cased caption
+    (("useful studio",), ("https://theusefulmedia.com/studio/", "Useful Studio")),
+    (("app library",), (FREE + "the-useful-tech-app-library", "Free App Library")),
+    (("daily ten", "siri ai prompts", "siri prompts", "10 siri"), (FREE + "siri-ai-daily-ten-prompts", "Free Siri prompts")),
+    (("settings checklist",), (FREE + "the-ios-27-settings-checklist", "Free checklist")),
+    (("macos 27 feature list", "macos 27 features list"), (FREE + "everything-new-in-macos-27-the-complete-feature-list", "Free macOS 27 list")),
+    (("ios 27 feature list",), (FREE + "everything-new-in-ios-27-the-complete-feature-list", "Free iOS 27 list")),
+    (("ipad cheat sheet",), (FREE + "ipad-cheat-sheet", "Free iPad sheet")),
+    (("watch face",), (FREE + "apple-watch-face-sheet", "Free watch sheet")),
+    (("notes features",), (FREE + "25-hidden-apple-notes-features", "Free Notes guide")),
+    (("subscription swap",), (FREE + "the-subscription-swap-sheet", "Free swap sheet")),
+]
+
+
+def fetch_bytes(url, headers=None):
+    req = urllib.request.Request(url, headers=headers or {"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return r.read()
+
+
+def destination(code, caption, overrides):
+    if code in overrides:
+        o = overrides[code]
+        return o["url"], o.get("label", "Open")
+    text = caption.lower()
+    for keys, dest in RULES:
+        if any(k in text for k in keys):
+            return dest
+    return NEWSLETTER
+
+
+def ig_block():
+    cached = os.environ.get("IG_JSON")  # optional: a saved copy of the API response
+    raw = open(cached, "rb").read() if cached else fetch_bytes(IG_API, {"User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+                               "x-ig-app-id": "936619743392459"})
+    edges = json.loads(raw)["data"]["user"]["edge_owner_to_timeline_media"]["edges"]
+    try:
+        overrides = json.load(open(os.path.join("links", "ig-overrides.json")))
+    except Exception:
+        overrides = {}
+    os.makedirs(IG_DIR, exist_ok=True)
+    tiles, keep = [], set()
+    for e in edges[:9]:
+        n = e["node"]
+        code = n["shortcode"]
+        caps = n.get("edge_media_to_caption", {}).get("edges") or []
+        caption = caps[0]["node"]["text"] if caps else ""
+        url, label = destination(code, caption, overrides)
+        custom = overrides.get(code, {}).get("image")
+        img = os.path.join(IG_DIR, code + ".jpg")
+        if not custom and not os.path.exists(img):
+            src = n.get("thumbnail_tall_src") or n.get("thumbnail_src") or n["display_url"]
+            open(img, "wb").write(fetch_bytes(src))
+        if not custom:
+            keep.add(code + ".jpg")
+        src_attr = custom or f"/links/ig/{code}.jpg"
+        first = re.split(r"(?<=[.!?])\s", caption.strip().split("\n")[0], maxsplit=1)[0][:140]
+        sep = "&" if "?" in url else "?"
+        reel = n.get("is_video")
+        tiles.append(
+            f'<a class="tile" href="{esc(url + sep + UTM)}" data-go aria-label="{esc(first)}. Opens {esc(label)}">'
+            f'<img src="{esc(src_attr)}" alt="" loading="lazy" decoding="async">'
+            + ('<svg class="tile-reel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>' if reel else "")
+            + f'<span class="tile-label">{esc(label)}</span></a>'
+        )
+    for f in glob.glob(os.path.join(IG_DIR, "*.jpg")):
+        if os.path.basename(f) not in keep:
+            os.remove(f)
+    return "\n".join(tiles)
+
+
+def replace_block(page, name, inner):
+    start, end = f"<!--{name}:START-->", f"<!--{name}:END-->"
+    if start not in page or end not in page:
+        sys.exit(f"{name} markers missing in links/index.html")
+    block = start + "\n" + inner + "\n" + end
+    return re.sub(re.escape(start) + r".*?" + re.escape(end), lambda _: block, page, flags=re.S)
+
+
 def main():
     page = open(PAGE).read()
-    start, end = "<!--LATEST:START-->", "<!--LATEST:END-->"
-    if start not in page or end not in page:
-        sys.exit("Markers missing in links/index.html")
+    new = page
+    try:
+        new = replace_block(new, "IG", ig_block())
+    except Exception as e:  # Instagram often refuses datacenter IPs; keep the old grid
+        print("Instagram fetch failed:", e, file=sys.stderr)
     try:
         story = latest_story()
-    except Exception as e:  # keep the old block if Medium is unreachable
+    except Exception as e:
         print("Medium feed failed:", e, file=sys.stderr)
-        return
+        story = None
     issue = latest_issue()
     parts = []
     if story:
         parts.append(card("Latest on Medium", story))
     if issue:
         parts.append(card(issue["label"], issue))
-    if not parts:
-        return
-    block = start + "\n" + "\n".join(parts) + "\n" + end
-    new = re.sub(re.escape(start) + r".*?" + re.escape(end), lambda _: block, page, flags=re.S)
+    if story and parts:
+        new = replace_block(new, "LATEST", "\n".join(parts))
     if new != page:
         open(PAGE, "w").write(new)
-        print("Updated latest block")
+        print("Updated links page")
     else:
         print("No change")
 

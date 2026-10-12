@@ -28,29 +28,47 @@
     padding: max(18px, env(safe-area-inset-top)) 16px max(36px, env(safe-area-inset-bottom)); }
 
   /* Top bar */
-  .lb-top { display: flex; justify-content: flex-end; }
+  .lb-top { position: absolute; top: max(18px, env(safe-area-inset-top)); right: 16px; z-index: 2; }
   .lb-top .theme-toggle { width: 36px; height: 36px; }
   .lb-top .theme-toggle svg { inset: 7px; }
 
-  /* Profile */
-  .who { text-align: center; margin-top: 4px; }
-  .mark-btn { border: 0; background: none; padding: 10px; cursor: pointer; color: var(--ink); border-radius: 18px; }
-  .mark-btn svg { width: 66px; height: auto; margin-inline: auto; overflow: visible; }
+  /* Profile: compact so the posts sit on the first screen */
+  .who { padding-right: 44px; display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 14px; }
+  .mark-btn { grid-row: span 2; width: 64px; height: 64px; border: 0; padding: 0; cursor: pointer; border-radius: 18px;
+    background: var(--ink); color: var(--paper); display: grid; place-items: center; transition: transform 160ms ease; }
+  .mark-btn:active { transform: scale(0.93); }
+  .mark-btn svg { width: 38px; height: auto; overflow: visible; }
   .mark-btn rect { fill: currentColor; transform-box: fill-box; transform-origin: center;
     transition: transform 520ms cubic-bezier(.3,1.6,.4,1), fill 300ms ease; }
   .mark-btn rect.is-hot { fill: var(--purple); }
-  .who h1 { margin: 6px 0 0; font-size: clamp(1.7rem, 7vw, 2.1rem); line-height: 1.05; letter-spacing: -0.035em; font-weight: 600; }
-  .who .handle { margin: 8px 0 0; color: var(--graphite); }
-  .who .bio { margin: 12px auto 0; max-width: 32ch; text-wrap: balance; font-size: 1.02rem; line-height: 1.45; }
-  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
-  .chips a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; text-decoration: none;
-    font-size: 0.88rem; font-weight: 500; border: 1px solid var(--rule-strong); transition: background-color 200ms ease, transform 160ms ease; }
+  .who h1 { margin: 0; font-size: 1.45rem; line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; align-self: end; }
+  .who .handle { margin: 2px 0 0; color: var(--graphite); font-size: 0.8rem; align-self: start; }
+  .bio { margin: 12px 0 0; font-size: 0.98rem; line-height: 1.4; }
+  .chips { display: flex; gap: 8px; margin: 12px -16px 0; padding: 0 16px 2px; list-style: none; overflow-x: auto; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips li { flex: none; }
+  .chips a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 11px; border-radius: 999px; text-decoration: none; white-space: nowrap;
+    font-size: 0.84rem; font-weight: 500; border: 1px solid var(--rule-strong); transition: background-color 200ms ease, transform 160ms ease; }
   .chips a:hover { background: var(--lilac); }
   .chips a:active { transform: scale(0.95); }
   .chips svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 
+  /* Posts grid, styled like the Instagram grid */
+  .grid-head { margin: 22px 2px 10px; }
+  .grid-head h2 { margin: 0; font-size: 1.05rem; letter-spacing: -0.015em; font-weight: 600; }
+  .grid-head p { margin: 2px 0 0; font-size: 0.86rem; color: var(--graphite); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; border-radius: 16px; overflow: hidden; }
+  .tile { position: relative; display: block; aspect-ratio: 3 / 4; background: var(--lilac); overflow: hidden; }
+  .tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 400ms cubic-bezier(.2,.7,.2,1), filter 200ms ease; }
+  .tile:hover img { transform: scale(1.04); }
+  .tile:active img { filter: brightness(0.85); }
+  .tile-reel { position: absolute; top: 7px; right: 7px; width: 15px; height: 15px; fill: #fff; filter: drop-shadow(0 1px 2px rgba(0,0,0,.5)); }
+  .tile-label { position: absolute; left: 6px; right: 6px; bottom: 6px; padding: 5px 6px; border-radius: 8px; text-align: center;
+    font-size: 0.68rem; font-weight: 600; line-height: 1.15; color: #fff; background: rgba(23, 23, 43, 0.72);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
   /* Shared card bits */
-  .stack { display: grid; gap: 14px; margin-top: 26px; }
+  .stack { display: grid; gap: 12px; margin-top: 14px; }
   .card { position: relative; border-radius: 24px; border: 1px solid var(--rule); background: color-mix(in srgb, var(--paper) 88%, var(--lilac)); padding: 18px; }
   .kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--graphite); }
   .dot { width: 7px; height: 7px; border-radius: 50%; background: #2BD47D; box-shadow: 0 0 0 0 rgba(43, 212, 125, 0.6); animation: ping 1.8s ease-out infinite; }
@@ -66,20 +84,18 @@
   .go-btn svg, .arrow { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; transition: transform 220ms cubic-bezier(.3,1.6,.4,1); }
   .go-btn:hover svg, a:hover > .arrow { transform: translate(2px, -2px); }
 
-  /* Studio card: always the dark slab */
-  .studio { background: #17172B; color: #F2F1F8; border-color: transparent; overflow: hidden; padding: 0; }
+  /* Studio card: compact, always the dark slab */
+  .studio { display: grid; grid-template-columns: 112px 1fr; gap: 14px; align-items: center; background: #17172B; color: #F2F1F8;
+    border-color: transparent; padding: 12px; text-decoration: none; transition: transform 160ms ease; }
+  .studio:active { transform: scale(0.985); }
   .studio .kicker { color: rgba(242, 241, 248, 0.7); }
-  .studio p { color: rgba(242, 241, 248, 0.72); }
-  .studio-media { position: relative; aspect-ratio: 16 / 9; background: #0E0E1C; overflow: hidden; }
-  .studio-media video, .studio-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .studio-media::after { content: ""; position: absolute; inset: auto 0 0; height: 40%; background: linear-gradient(transparent, #17172B); }
-  .studio-body { padding: 4px 18px 18px; position: relative; }
-  .clock { display: flex; gap: 6px; margin-top: 14px; font-family: var(--mono); }
-  .clock span { flex: 1; text-align: center; padding: 8px 0 6px; border-radius: 10px; background: rgba(242, 241, 248, 0.07); border: 1px solid rgba(242, 241, 248, 0.1); }
-  .clock b { display: block; font-size: 1.15rem; font-weight: 600; color: #F2F1F8; font-variant-numeric: tabular-nums; }
-  .clock i { font-style: normal; font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(242, 241, 248, 0.55); }
-  .clock-label { margin: 12px 0 0; font-family: var(--mono); font-size: 0.74rem; color: rgba(242, 241, 248, 0.6); }
-  .studio .go-btn { background: #7C5CFC; }
+  .studio-media { position: relative; aspect-ratio: 1; border-radius: 14px; background: #0E0E1C; overflow: hidden; }
+  .studio-media video, .studio-media img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; display: block; }
+  .studio h2 { margin: 6px 0 0; font-size: 1.02rem; line-height: 1.2; }
+  .clock { margin: 8px 0 0; font-family: var(--mono); font-size: 0.74rem; color: rgba(242, 241, 248, 0.7); font-variant-numeric: tabular-nums; }
+  .clock b { color: #B9A8FF; font-weight: 600; }
+  .studio-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-weight: 600; font-size: 0.9rem; color: #B9A8FF; }
+  .studio-cta svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
 
   /* Newsletter signup (same Cloudflare worker as /tech) */
   .signup { margin-top: 14px; position: relative; }
@@ -179,40 +195,56 @@
     </button>
   </div>
 
-  <header class="who">
-    <button class="mark-btn in" type="button" aria-label="Shuffle the logo" style="--i:0">
-      <svg viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg>
-    </button>
-    <h1 class="in" style="--i:1">The Useful Tech</h1>
-    <p class="handle mono in" style="--i:2">@theusefultech · #1 Apple blog on Medium</p>
-    <p class="bio in" style="--i:3">The Mac and iPhone apps worth your time, found and tested so you don't have to.</p>
+  <header>
+    <div class="who">
+      <button class="mark-btn in" type="button" aria-label="Shuffle the logo" style="--i:0">
+        <svg viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg>
+      </button>
+      <h1 class="in" style="--i:1">The Useful Tech</h1>
+      <p class="handle mono in" style="--i:2">#1 Apple blog on Medium</p>
+    </div>
+    <p class="bio in" style="--i:3">I test every Apple app so you don't have to.</p>
     <ul class="chips in" style="--i:4">
+      <li><a href="#guides">Guides</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
       <li><a href="https://medium.com/the-useful-tech?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>Medium<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
       <li><a href="https://www.youtube.com/@theusefultech9850" data-go>YouTube<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
       <li><a href="https://discord.gg/WjfenUSZp4" data-go>Discord<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
-      <li><a href="/products/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>All products<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
     </ul>
   </header>
 
+  <section aria-labelledby="posts-h">
+    <div class="grid-head in" style="--i:5"><h2 id="posts-h">Saw a post? Tap it here</h2><p>Every post links to what it promised.</p></div>
+    <div class="grid in" style="--i:6">
+<!--IG:START-->
+<a class="tile" href="https://theusefulmedia.com/studio/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="I built a plugin that turns Claude Code into a motion design studio.. Opens Useful Studio"><img src="/studio/media/useful-studio-launch-vertical.jpg" alt="" loading="lazy" decoding="async"><svg class="tile-reel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg><span class="tile-label">Useful Studio</span></a>
+<a class="tile" href="https://newsletter.theusefultech.com/products/the-useful-tech-app-library?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="The iPad vs Mac debate never ends.. Opens Free App Library"><img src="/links/ig/DePH68Ij3N5.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Free App Library</span></a>
+<a class="tile" href="https://newsletter.theusefultech.com/products/the-useful-tech-app-library?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="Apple&#x27;s built-in apps are good enough for most people.. Opens Free App Library"><img src="/links/ig/DeOw6WND-Qy.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Free App Library</span></a>
+<a class="tile" href="https://theusefulmedia.com/tech/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="Your iPhone&#x27;s Photos app already does what most paid editing apps charge for.. Opens Newsletter"><img src="/links/ig/DeNzqKbJ4i1.jpg" alt="" loading="lazy" decoding="async"><svg class="tile-reel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg><span class="tile-label">Newsletter</span></a>
+<a class="tile" href="https://newsletter.theusefultech.com/products/everything-new-in-macos-27-the-complete-feature-list?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="Your Apple Watch does a lot more than count steps.. Opens Free macOS 27 list"><img src="/links/ig/DeM49PtD6r8.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Free macOS 27 list</span></a>
+<a class="tile" href="https://newsletter.theusefultech.com/products/the-ios-27-settings-checklist?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="Battery drain usually isn&#x27;t one big thing.. Opens Free checklist"><img src="/links/ig/DeL5t6xD9BK.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Free checklist</span></a>
+<a class="tile" href="https://newsletter.theusefultech.com/products/siri-ai-daily-ten-prompts?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="7 things the new Siri in iOS 27 actually did on my iPhone.. Opens Free Siri prompts"><img src="/links/ig/DeKTBdHibVJ.jpg" alt="" loading="lazy" decoding="async"><svg class="tile-reel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg><span class="tile-label">Free Siri prompts</span></a>
+<a class="tile" href="https://newsletter.theusefultech.com/products/siri-ai-daily-ten-prompts?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="Siri AI in the EU just got pushed back again, 5 months or more according to Gurman.. Opens Free Siri prompts"><img src="/links/ig/DeJ3krViddL.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Free Siri prompts</span></a>
+<a class="tile" href="https://theusefulmedia.com/tech/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="Apple Intelligence might be sitting on your Mac doing nothing but taking up space.. Opens Newsletter"><img src="/links/ig/DeJWkFViepT.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Newsletter</span></a>
+<!--IG:END-->
+    </div>
+  </section>
+
   <div class="stack">
 
-    <a class="card studio in" href="/studio/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" style="--i:5; text-decoration:none" data-go>
+    <a class="card studio in" href="/studio/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" style="--i:7" data-go>
       <div class="studio-media">
         <video src="/links/studio-loop.mp4" poster="/links/studio-loop.jpg" muted playsinline loop autoplay preload="metadata" aria-hidden="true"></video>
       </div>
-      <div class="studio-body">
+      <div>
         <span class="kicker"><span class="dot" aria-hidden="true"></span>New · Useful Studio</span>
-        <h2>Type 1 line in Claude Code and get a launch video in your own brand.</h2>
-        <p>Launch films, reels, explainers and b-roll, made on your Mac as finished MP4s.</p>
-        <div class="clock" data-deadline="2026-10-31T23:59:59+05:30" aria-hidden="true">
-          <span><b data-u="d">00</b><i>days</i></span><span><b data-u="h">00</b><i>hrs</i></span><span><b data-u="m">00</b><i>min</i></span><span><b data-u="s">00</b><i>sec</i></span>
-        </div>
-        <p class="clock-label" data-clock-label>Launch price ends 31 October</p>
-        <div class="btn-row"><span class="go-btn">See what it makes<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span></div>
+        <h2>Type 1 line in Claude Code and get a launch video in your brand.</h2>
+        <p class="clock" data-deadline="2026-10-31T23:59:59+05:30" data-clock-label>Launch price ends 31 October</p>
+        <span class="studio-cta">See what it makes<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
       </div>
     </a>
 
-    <section class="card in" style="--i:6" aria-labelledby="nl-h">
+    <section class="card in" id="newsletter" style="--i:8" aria-labelledby="nl-h">
       <span class="kicker">Free newsletter</span>
       <h2 id="nl-h">Get the best new Mac and iPhone apps in your inbox 3 times a week.</h2>
       <div class="signup">
@@ -230,56 +262,56 @@
 
   </div>
 
-  <div class="lb-sec in" style="--i:7"><h2>Latest</h2><a href="https://medium.com/the-useful-tech?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>All stories</a></div>
-  <div class="lb-rows in" style="--i:8">
+  <div class="lb-sec in" style="--i:9"><h2>Latest</h2><a href="https://medium.com/the-useful-tech?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>All stories</a></div>
+  <div class="lb-rows in" style="--i:10">
 <!--LATEST:START-->
 <a class="post" href="https://medium.com/the-useful-tech/1-line-in-claude-code-now-makes-my-launch-videos-6e44dd9181ea?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go><span class="post-thumb"><img src="https://cdn-images-1.medium.com/max/1024/1*OoROo4rytpKFR3H8GqOWhg.jpeg" alt="" loading="lazy" decoding="async"></span><span class="post-copy"><span class="post-kicker mono">Latest on Medium · Oct 12</span><span class="post-title">1 Line in Claude Code Now Makes My Launch Videos</span></span><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
 <a class="post" href="https://theusefulmedia.com/tech/library/the-useful-find-013-claude-code-can-now-make-your-launch-video/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go><span class="post-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,width=1200,onerror=redirect/uploads/asset/file/04ac041e-9fe7-4335-94cc-a70b15ddff04/useful-studio-launch.jpg?t=1791481870" alt="" loading="lazy" decoding="async"></span><span class="post-copy"><span class="post-kicker mono">The Useful Find #013 · Oct 12</span><span class="post-title">Useful Studio: launch videos from Claude Code on your Mac</span></span><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
 <!--LATEST:END-->
   </div>
 
-  <div class="lb-sec in" style="--i:9"><h2>Guides readers buy most</h2><a href="/products/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>See all 35</a></div>
+  <div class="lb-sec in" id="guides" style="--i:11"><h2>Guides readers buy most</h2><a href="/products/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>See all 35</a></div>
   <div class="lb-rows">
-    <a class="prod in" style="--i:10" href="https://theusefultech.gumroad.com/l/cowork-mastery-guide?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
-      <span class="prod-thumb"><img src="/assets/products/cowork-mastery-guide.webp" alt="" loading="lazy"></span>
-      <span class="prod-copy"><span class="tag tag--hot">Bestseller</span><span class="prod-name">Cowork Mastery</span><span class="prod-line">Make Claude Cowork do the busywork on your Mac.</span></span>
+    <a class="prod in" style="--i:12" href="https://theusefultech.gumroad.com/l/iPhone-setup-guide?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/iphone-setup-guide.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="prod-name">The Ultimate iPhone Setup Guide</span><span class="prod-line">The settings, apps and hidden features most iPhone owners never find.</span></span>
       <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
     </a>
-    <a class="prod in" style="--i:11" href="https://theusefultech.gumroad.com/l/claude-app-playbook?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
-      <span class="prod-thumb"><img src="/assets/products/claude-app-playbook.webp" alt="" loading="lazy"></span>
-      <span class="prod-copy"><span class="tag">New</span><span class="prod-name">The Claude App Playbook</span><span class="prod-line">Build an iPhone app with Claude in a weekend, no code.</span></span>
+    <a class="prod in" style="--i:13" href="https://theusefultech.gumroad.com/l/iphone-power-user-fix?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/iphone-power-user-fix.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="prod-name">The iPhone Power User Fix Book</span><span class="prod-line">45 fixes for the annoying things stock iOS apps do.</span></span>
       <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
     </a>
-    <a class="prod in" style="--i:12" href="https://theusefultech.gumroad.com/l/mac-setup-guide?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
-      <span class="prod-thumb"><img src="/assets/products/mac-setup-guide.webp" alt="" loading="lazy"></span>
-      <span class="prod-copy"><span class="tag tag--hot">Bestseller</span><span class="prod-name">The Mac Setup Guide</span><span class="prod-line">From unboxing to a Mac set up your way in a weekend.</span></span>
-      <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
-    </a>
-    <a class="prod in" style="--i:13" href="https://theusefultech.gumroad.com/l/siri-prompts?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+    <a class="prod in" style="--i:14" href="https://theusefultech.gumroad.com/l/siri-prompts?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
       <span class="prod-thumb"><img src="/assets/products/siri-prompts.webp" alt="" loading="lazy"></span>
       <span class="prod-copy"><span class="tag">New</span><span class="prod-name">100 Siri AI Prompts</span><span class="prod-line">The Siri prompts you will use again and again.</span></span>
       <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
     </a>
-    <a class="prod in" style="--i:14" href="https://theusefultech.gumroad.com/l/oqxmd?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
-      <span class="prod-thumb"><img src="/assets/products/oqxmd.webp" class="wide" alt="" loading="lazy"></span>
-      <span class="prod-copy"><span class="tag tag--hot">Bestseller</span><span class="prod-name">The Useful Tech App Library</span><span class="prod-line">120 hand-picked apps, each with a direct link.</span></span>
+    <a class="prod in" style="--i:15" href="https://theusefultech.gumroad.com/l/mac-setup-guide?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/mac-setup-guide.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag tag--hot">Bestseller</span><span class="prod-name">The Mac Setup Guide</span><span class="prod-line">From unboxing to a Mac set up your way in a weekend.</span></span>
       <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
     </a>
-    <a class="prod in" style="--i:15" href="https://theusefultech.gumroad.com/l/power-system?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
-      <span class="prod-thumb"><img src="/assets/products/power-system.webp" class="wide" alt="" loading="lazy"></span>
-      <span class="prod-copy"><span class="tag">Best value</span><span class="prod-name">The Useful Tech Power System</span><span class="prod-line">7 products, including Cowork Mastery, in one bundle.</span></span>
+    <a class="prod in" style="--i:16" href="https://theusefultech.gumroad.com/l/claude-app-playbook?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/claude-app-playbook.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag">New</span><span class="prod-name">The Claude App Playbook</span><span class="prod-line">Build an iPhone app with Claude in a weekend, no code.</span></span>
+      <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+    </a>
+    <a class="prod in" style="--i:17" href="https://theusefultech.gumroad.com/l/cowork-mastery-guide?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/cowork-mastery-guide.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag tag--hot">Bestseller</span><span class="prod-name">Cowork Mastery</span><span class="prod-line">Make Claude Cowork do the busywork on your Mac.</span></span>
       <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
     </a>
   </div>
-  <a class="all in" style="--i:16" href="/products/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>Browse all 35 guides and templates<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+  <a class="all in" style="--i:18" href="/products/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>Browse all 35 guides and templates<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
 
-  <a class="card club in" style="--i:17; margin-top: 26px" href="https://discord.gg/WjfenUSZp4" data-go>
+  <a class="card club in" style="--i:19; margin-top: 26px" href="https://discord.gg/WjfenUSZp4" data-go>
     <span class="club-cells" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
     <span><h2>Join The Useful Tech Club</h2><p>The free Discord where readers swap the apps they found this week.</p></span>
     <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
   </a>
 
-  <footer class="foot in" style="--i:18">
+  <footer class="foot in" style="--i:20">
     <span>Want your app in front of 78,000 Apple readers? <a href="/contact/">Sponsor The Useful Tech</a></span>
     <a href="/">theusefulmedia.com</a>
   </footer>
@@ -290,22 +322,16 @@
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Launch-price countdown
+  // Launch-price countdown, written into one line
   var clock = document.querySelector(".clock");
   if (clock) {
     var end = new Date(clock.getAttribute("data-deadline")).getTime();
-    var units = {};
-    ["d", "h", "m", "s"].forEach(function (k) { units[k] = clock.querySelector('[data-u="' + k + '"]'); });
-    var label = document.querySelector("[data-clock-label]");
-    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
     var tick = function () {
       var left = Math.max(0, end - Date.now());
-      if (!left) { clock.hidden = true; if (label) label.textContent = "Now at the regular price"; return; }
-      var s = Math.floor(left / 1000);
-      units.d.textContent = pad(Math.floor(s / 86400));
-      units.h.textContent = pad(Math.floor(s / 3600) % 24);
-      units.m.textContent = pad(Math.floor(s / 60) % 60);
-      units.s.textContent = pad(s % 60);
+      if (!left) { clock.textContent = "Now at the regular price"; return; }
+      var s = Math.floor(left / 1000), d = Math.floor(s / 86400), h = Math.floor(s / 3600) % 24, m = Math.floor(s / 60) % 60, sec = s % 60;
+      var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+      clock.innerHTML = "Launch price ends in <b>" + d + "d " + pad(h) + "h " + pad(m) + "m " + pad(sec) + "s</b>";
       setTimeout(tick, 1000 - (Date.now() % 1000));
     };
     tick();

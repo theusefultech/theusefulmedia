@@ -119,49 +119,66 @@ def destination(code, caption, overrides):
         o = overrides[code]
         return o["url"], o.get("label", "Open")
     text = caption.lower()
-    for keys, dest in RULES:
+    for keys, (url, label) in RULES:
         if any(k in text for k in keys):
-            return dest
+            # once a freebie has its own page on the site, send people there instead of Beehiiv
+            if url.startswith(FREE):
+                slug = url[len(FREE):]
+                if os.path.exists(os.path.join("free", slug, "index.html")):
+                    url = f"https://theusefulmedia.com/free/{slug}/"
+            return url, label
     return NEWSLETTER
 
 
 def ig_block():
+    """Merges the newest posts into links/ig-archive.json (so older posts stay on
+    the page after they drop out of Instagram's first page) and renders tiles."""
     cached = os.environ.get("IG_JSON")  # optional: a saved copy of the API response
-    raw = open(cached, "rb").read() if cached else fetch_bytes(IG_API, {"User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
-                               "x-ig-app-id": "936619743392459"})
+    raw = open(cached, "rb").read() if cached else fetch_bytes(IG_API, {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+        "x-ig-app-id": "936619743392459"})
     edges = json.loads(raw)["data"]["user"]["edge_owner_to_timeline_media"]["edges"]
     try:
         overrides = json.load(open(os.path.join("links", "ig-overrides.json")))
     except Exception:
         overrides = {}
+    archive_path = os.path.join("links", "ig-archive.json")
+    try:
+        archive = {p["code"]: p for p in json.load(open(archive_path))}
+    except Exception:
+        archive = {}
     os.makedirs(IG_DIR, exist_ok=True)
-    tiles, keep = [], set()
-    for e in edges[:9]:
+    for e in edges:
         n = e["node"]
         code = n["shortcode"]
         caps = n.get("edge_media_to_caption", {}).get("edges") or []
         caption = caps[0]["node"]["text"] if caps else ""
+        img = os.path.join(IG_DIR, code + ".jpg")
+        if not os.path.exists(img):
+            src = n.get("thumbnail_tall_src") or n.get("thumbnail_src") or n["display_url"]
+            try:
+                open(img, "wb").write(fetch_bytes(src))
+            except Exception as err:
+                print("thumbnail failed", code, err, file=sys.stderr)
+        archive[code] = {"code": code, "caption": caption, "reel": bool(n.get("is_video")),
+                         "taken": n.get("taken_at_timestamp", 0)}
+    posts = sorted(archive.values(), key=lambda p: p["taken"], reverse=True)
+    json.dump(posts, open(archive_path, "w"), indent=1)
+    tiles = []
+    for i, p in enumerate(posts):
+        code, caption = p["code"], p["caption"]
         url, label = destination(code, caption, overrides)
         custom = overrides.get(code, {}).get("image")
-        img = os.path.join(IG_DIR, code + ".jpg")
-        if not custom and not os.path.exists(img):
-            src = n.get("thumbnail_tall_src") or n.get("thumbnail_src") or n["display_url"]
-            open(img, "wb").write(fetch_bytes(src))
-        if not custom:
-            keep.add(code + ".jpg")
         src_attr = custom or f"/links/ig/{code}.jpg"
         first = re.split(r"(?<=[.!?])\s", caption.strip().split("\n")[0], maxsplit=1)[0][:140]
         sep = "&" if "?" in url else "?"
-        reel = n.get("is_video")
+        cls = "tile" if i < 9 else "tile is-old"
         tiles.append(
-            f'<a class="tile" href="{esc(url + sep + UTM)}" data-go aria-label="{esc(first)}. Opens {esc(label)}">'
+            f'<a class="{cls}" href="{esc(url + sep + UTM)}" data-go aria-label="{esc(first)}. Opens {esc(label)}">'
             f'<img src="{esc(src_attr)}" alt="" loading="lazy" decoding="async">'
-            + ('<svg class="tile-reel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>' if reel else "")
+            + ('<svg class="tile-reel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>' if p["reel"] else "")
             + f'<span class="tile-label">{esc(label)}</span></a>'
         )
-    for f in glob.glob(os.path.join(IG_DIR, "*.jpg")):
-        if os.path.basename(f) not in keep:
-            os.remove(f)
     return "\n".join(tiles)
 
 

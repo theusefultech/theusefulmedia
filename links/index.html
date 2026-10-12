@@ -63,6 +63,13 @@
   .tile:hover img { transform: scale(1.04); }
   .tile:active img { filter: brightness(0.85); }
   .tile-reel { position: absolute; top: 7px; right: 7px; width: 15px; height: 15px; fill: #fff; filter: drop-shadow(0 1px 2px rgba(0,0,0,.5)); }
+  .tile.is-old { display: none; }
+  .grid.show-all .tile.is-old { display: block; }
+  .more-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-top: 8px; min-height: 44px; border-radius: 12px;
+    border: 1px dashed var(--rule-strong); background: transparent; color: var(--ink); font: inherit; font-weight: 500; font-size: 0.92rem; cursor: pointer; transition: background-color 200ms ease; }
+  .more-btn:hover { background: var(--lilac); }
+  .more-btn svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform 300ms ease; }
+  .more-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
   .tile-label { position: absolute; left: 6px; right: 6px; bottom: 6px; padding: 5px 6px; border-radius: 8px; text-align: center;
     font-size: 0.68rem; font-weight: 600; line-height: 1.15; color: #fff; background: rgba(23, 23, 43, 0.72);
     -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -226,8 +233,12 @@
 <a class="tile" href="https://newsletter.theusefultech.com/products/siri-ai-daily-ten-prompts?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="7 things the new Siri in iOS 27 actually did on my iPhone.. Opens Free Siri prompts"><img src="/links/ig/DeKTBdHibVJ.jpg" alt="" loading="lazy" decoding="async"><svg class="tile-reel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg><span class="tile-label">Free Siri prompts</span></a>
 <a class="tile" href="https://newsletter.theusefultech.com/products/siri-ai-daily-ten-prompts?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="Siri AI in the EU just got pushed back again, 5 months or more according to Gurman.. Opens Free Siri prompts"><img src="/links/ig/DeJ3krViddL.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Free Siri prompts</span></a>
 <a class="tile" href="https://theusefulmedia.com/tech/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="Apple Intelligence might be sitting on your Mac doing nothing but taking up space.. Opens Newsletter"><img src="/links/ig/DeJWkFViepT.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Newsletter</span></a>
+<a class="tile is-old" href="https://theusefulmedia.com/tech/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="iOS 27 lets you turn Liquid Glass off.. Opens Newsletter"><img src="/links/ig/DdTU9eFDxiY.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Newsletter</span></a>
+<a class="tile is-old" href="https://theusefulmedia.com/tech/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="If you’re looking for a wallpaper app for your iPhone, then this is it!. Opens Newsletter"><img src="/links/ig/Dbm9XMMvGf0.jpg" alt="" loading="lazy" decoding="async"><svg class="tile-reel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg><span class="tile-label">Newsletter</span></a>
+<a class="tile is-old" href="https://theusefulmedia.com/tech/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go aria-label="These are the only apps you need on your Mac!. Opens Newsletter"><img src="/links/ig/DaSFUi9j6Lk.jpg" alt="" loading="lazy" decoding="async"><span class="tile-label">Newsletter</span></a>
 <!--IG:END-->
     </div>
+    <button class="more-btn" type="button" aria-expanded="false" data-more hidden>Show older posts<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
   </section>
 
   <div class="stack">
@@ -364,6 +375,22 @@
         r.classList.toggle("is-hot", i === hot);
       });
     });
+  }
+
+  // Older posts
+  var more = document.querySelector("[data-more]");
+  var grid = document.querySelector(".grid");
+  if (more && grid) {
+    var old = grid.querySelectorAll(".tile.is-old").length;
+    if (old) {
+      more.hidden = false;
+      more.firstChild.textContent = "Show " + old + " older post" + (old > 1 ? "s" : "");
+      more.addEventListener("click", function () {
+        var open = grid.classList.toggle("show-all");
+        more.setAttribute("aria-expanded", open ? "true" : "false");
+        more.firstChild.textContent = open ? "Show fewer posts" : "Show " + old + " older post" + (old > 1 ? "s" : "");
+      });
+    }
   }
 
   // Tiny haptic on taps that leave the page

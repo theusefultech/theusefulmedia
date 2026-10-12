@@ -108,6 +108,7 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
     var hp = form.querySelector(".hp");
     var btn = form.querySelector("button");
     var label = btn.querySelector(".btn-label");
+    var idleLabel = label.textContent;
     var msg = form.parentNode.querySelector(".signup-msg");
     var confirmed = "";
 
@@ -120,7 +121,7 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
     function busy(on) {
       btn.disabled = on;
       form.classList.toggle("is-busy", on);
-      label.textContent = on ? "Checking your email" : "Send me the next issue";
+      label.textContent = on ? "Checking your email" : idleLabel;
     }
     function resubmit() {
       if (form.requestSubmit) form.requestSubmit();
@@ -155,7 +156,9 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
 
       busy(true);
       waitForToken(form, 6000).then(function (token) {
-        var payload = Object.assign({ email: email, token: token, website: hp ? hp.value : "" }, utm());
+        var extra = utm();
+        if (form.getAttribute("data-campaign") && !extra.utm_campaign) extra.utm_campaign = form.getAttribute("data-campaign");
+        var payload = Object.assign({ email: email, token: token, website: hp ? hp.value : "" }, extra);
         return fetch(SIGNUP_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -171,7 +174,13 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
           } catch (err) {}
           label.textContent = "You're in";
           form.classList.add("is-done");
-          setTimeout(function () { location.href = "/tech/welcome/"; }, 450);
+          // data-next="stay" keeps the reader on the page (freebie pages reveal the download)
+          var next = form.getAttribute("data-next");
+          if (next === "stay") {
+            form.dispatchEvent(new CustomEvent("signup:done", { bubbles: true, detail: { email: email, existing: !!res.existing } }));
+            return;
+          }
+          setTimeout(function () { location.href = next || "/tech/welcome/"; }, 450);
           return;
         }
         busy(false);

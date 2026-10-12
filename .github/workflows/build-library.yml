@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - "scripts/build_library.py"
+      - "scripts/build_links.py"
       - ".github/workflows/build-issues.yml"
 
 permissions:
@@ -26,11 +27,12 @@ jobs:
           python-version: "3.12"
       - run: pip install beautifulsoup4==4.12.3 lxml
       - run: python3 scripts/build_library.py
+      - run: python3 scripts/build_links.py
       - name: Commit changes
         run: |
           git config user.name "useful-archive-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add tech/library tech/issues
+          git add tech/library tech/issues links/index.html
           if git diff --staged --quiet; then
             echo "No changes"
           else

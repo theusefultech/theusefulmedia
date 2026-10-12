@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Useful Tech Links</title>
+<meta name="description" content="Useful Studio, the free newsletter, the latest story and the most-bought guides from The Useful Tech, the #1 Apple blog on Medium.">
+<link rel="canonical" href="https://theusefulmedia.com/links/">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="The Useful Tech">
+<meta property="og:description" content="The Mac and iPhone apps worth your time, from the #1 Apple blog on Medium.">
+<meta property="og:url" content="https://theusefulmedia.com/links/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<style>
+  body { background: var(--paper); min-height: 100vh; min-height: 100dvh; overflow-x: hidden; }
+  .glow { position: fixed; inset: -30vh -20vw auto; height: 70vh; pointer-events: none; z-index: 0;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--purple) 22%, transparent), transparent 75%); filter: blur(10px); }
+  .lb { position: relative; z-index: 1; width: 100%; max-width: 500px; margin-inline: auto;
+    padding: max(18px, env(safe-area-inset-top)) 16px max(36px, env(safe-area-inset-bottom)); }
+
+  /* Top bar */
+  .lb-top { display: flex; justify-content: flex-end; }
+  .lb-top .theme-toggle { width: 36px; height: 36px; }
+  .lb-top .theme-toggle svg { inset: 7px; }
+
+  /* Profile */
+  .who { text-align: center; margin-top: 4px; }
+  .mark-btn { border: 0; background: none; padding: 10px; cursor: pointer; color: var(--ink); border-radius: 18px; }
+  .mark-btn svg { width: 66px; height: auto; margin-inline: auto; overflow: visible; }
+  .mark-btn rect { fill: currentColor; transform-box: fill-box; transform-origin: center;
+    transition: transform 520ms cubic-bezier(.3,1.6,.4,1), fill 300ms ease; }
+  .mark-btn rect.is-hot { fill: var(--purple); }
+  .who h1 { margin: 6px 0 0; font-size: clamp(1.7rem, 7vw, 2.1rem); line-height: 1.05; letter-spacing: -0.035em; font-weight: 600; }
+  .who .handle { margin: 8px 0 0; color: var(--graphite); }
+  .who .bio { margin: 12px auto 0; max-width: 32ch; text-wrap: balance; font-size: 1.02rem; line-height: 1.45; }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+  .chips a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; text-decoration: none;
+    font-size: 0.88rem; font-weight: 500; border: 1px solid var(--rule-strong); transition: background-color 200ms ease, transform 160ms ease; }
+  .chips a:hover { background: var(--lilac); }
+  .chips a:active { transform: scale(0.95); }
+  .chips svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+  /* Shared card bits */
+  .stack { display: grid; gap: 14px; margin-top: 26px; }
+  .card { position: relative; border-radius: 24px; border: 1px solid var(--rule); background: color-mix(in srgb, var(--paper) 88%, var(--lilac)); padding: 18px; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--graphite); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #2BD47D; box-shadow: 0 0 0 0 rgba(43, 212, 125, 0.6); animation: ping 1.8s ease-out infinite; }
+  @keyframes ping { 70% { box-shadow: 0 0 0 8px rgba(43, 212, 125, 0); } 100% { box-shadow: 0 0 0 0 rgba(43, 212, 125, 0); } }
+  .card h2 { margin: 10px 0 0; font-size: 1.3rem; line-height: 1.15; letter-spacing: -0.025em; font-weight: 600; }
+  .card p { margin: 8px 0 0; color: var(--graphite); font-size: 0.95rem; line-height: 1.45; }
+  .btn-row { display: flex; margin-top: 14px; }
+  .go-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 50px; padding: 0 18px;
+    border-radius: 14px; background: var(--purple); color: #FAFAF8; text-decoration: none; font-weight: 600; font-size: 1rem;
+    transition: transform 160ms ease, background-color 200ms ease; }
+  .go-btn:hover { background: #6A47F5; }
+  .go-btn:active { transform: scale(0.97); }
+  .go-btn svg, .arrow { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; transition: transform 220ms cubic-bezier(.3,1.6,.4,1); }
+  .go-btn:hover svg, a:hover > .arrow { transform: translate(2px, -2px); }
+
+  /* Studio card: always the dark slab */
+  .studio { background: #17172B; color: #F2F1F8; border-color: transparent; overflow: hidden; padding: 0; }
+  .studio .kicker { color: rgba(242, 241, 248, 0.7); }
+  .studio p { color: rgba(242, 241, 248, 0.72); }
+  .studio-media { position: relative; aspect-ratio: 16 / 9; background: #0E0E1C; overflow: hidden; }
+  .studio-media video, .studio-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .studio-media::after { content: ""; position: absolute; inset: auto 0 0; height: 40%; background: linear-gradient(transparent, #17172B); }
+  .studio-body { padding: 4px 18px 18px; position: relative; }
+  .clock { display: flex; gap: 6px; margin-top: 14px; font-family: var(--mono); }
+  .clock span { flex: 1; text-align: center; padding: 8px 0 6px; border-radius: 10px; background: rgba(242, 241, 248, 0.07); border: 1px solid rgba(242, 241, 248, 0.1); }
+  .clock b { display: block; font-size: 1.15rem; font-weight: 600; color: #F2F1F8; font-variant-numeric: tabular-nums; }
+  .clock i { font-style: normal; font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(242, 241, 248, 0.55); }
+  .clock-label { margin: 12px 0 0; font-family: var(--mono); font-size: 0.74rem; color: rgba(242, 241, 248, 0.6); }
+  .studio .go-btn { background: #7C5CFC; }
+
+  /* Newsletter signup (same Cloudflare worker as /tech) */
+  .signup { margin-top: 14px; position: relative; }
+  .signup-form { display: flex; flex-direction: column; gap: 6px; padding: 6px; background: #fff; border: 1px solid rgba(23, 23, 43, 0.22);
+    border-radius: 16px; position: relative; transition: border-color 200ms ease, box-shadow 200ms ease; }
+  .signup-form input[type="email"] { min-width: 0; border: 0; background: transparent; font: inherit; font-size: 16px; color: #17172B; padding: 0.75rem 0.75rem; }
+  .signup-form input::placeholder { color: #8A8A9C; }
+  .signup-form input:focus { outline: none; }
+  .signup-form:focus-within { border-color: #7C5CFC; box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.22); }
+  .signup-form button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border: 0; border-radius: 11px; cursor: pointer;
+    background: #7C5CFC; color: #FAFAF8; font: inherit; font-size: 1rem; font-weight: 600; min-height: 48px; transition: background-color 200ms ease, transform 160ms ease; }
+  .signup-form button:hover { background: #6A47F5; }
+  .signup-form button:active { transform: scale(0.97); }
+  .signup-form button:disabled { cursor: progress; }
+  .signup .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .signup-form.has-error { border-color: #D64545; box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.16); }
+  .signup-form.is-busy button::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(250, 250, 248, 0.4); border-top-color: #FAFAF8; animation: spin 700ms linear infinite; }
+  .signup-form.is-done button { background: #17172B; }
+  .signup-form.is-done button::before { content: ""; width: 14px; height: 8px; border: 2px solid #FAFAF8; border-top: 0; border-right: 0; transform: rotate(-45deg) translateY(-2px); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .signup-msg { font-size: 0.9rem; line-height: 1.45; }
+  .signup-msg:empty { display: none; }
+  .signup-msg.is-error, .signup-msg.is-info { margin-top: 0.6rem; padding: 0.7rem 0.85rem; border-radius: 10px; }
+  .signup-msg.is-error { background: rgba(214, 69, 69, 0.09); color: #A12E2E; }
+  .signup-msg.is-info { background: var(--lilac); color: var(--ink); }
+  .signup-msg a { color: inherit; text-decoration: underline; }
+  .fix-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.55rem; }
+  .fix-row button { border: 0; border-radius: 8px; padding: 0.45rem 0.8rem; cursor: pointer; font: inherit; font-size: 0.88rem; font-weight: 500; }
+  .fix-yes { background: #7C5CFC; color: #FAFAF8; }
+  .fix-no { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--rule); }
+  .ts-slot:empty { display: none; }
+  .ts-slot { margin-top: 0.6rem; }
+  .fine { margin-top: 10px !important; font-family: var(--mono); font-size: 0.74rem !important; }
+
+  /* Section headings */
+  .lb-sec { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 30px 2px 10px; }
+  .lb-sec h2 { margin: 0; font-size: 1.05rem; letter-spacing: -0.015em; font-weight: 600; }
+  .lb-sec a { font-family: var(--mono); font-size: 0.78rem; color: var(--graphite); text-underline-offset: 4px; }
+
+  /* Rows: latest posts and products */
+  .lb-rows { display: grid; gap: 10px; }
+  .post, .prod { display: flex; align-items: center; gap: 14px; padding: 10px; border-radius: 18px; text-decoration: none;
+    border: 1px solid var(--rule); background: color-mix(in srgb, var(--paper) 92%, var(--lilac));
+    transition: transform 180ms ease, border-color 200ms ease, background-color 200ms ease; }
+  .post:hover, .prod:hover { border-color: color-mix(in srgb, var(--purple) 55%, transparent); }
+  .post:active, .prod:active { transform: scale(0.98); }
+  .post-thumb, .prod-thumb { flex: none; width: 74px; height: 74px; border-radius: 12px; overflow: hidden; background: var(--lilac); }
+  .post-thumb img, .prod-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .prod-thumb img.wide { object-position: left center; }
+  .post-copy, .prod-copy { flex: 1; min-width: 0; display: grid; gap: 3px; }
+  .post-kicker { font-size: 0.7rem; color: var(--graphite); text-transform: uppercase; letter-spacing: 0.03em; }
+  .post-title, .prod-name { font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; font-size: 0.98rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .prod-line { color: var(--graphite); font-size: 0.86rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .tag { justify-self: start; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 7px; border-radius: 6px;
+    background: var(--lilac); color: var(--ink); }
+  .tag--hot { background: #7C5CFC; color: #FAFAF8; }
+  .post .arrow, .prod .arrow { flex: none; color: var(--graphite); margin-right: 4px; }
+  .all { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; min-height: 48px; border-radius: 14px;
+    border: 1px dashed var(--rule-strong); text-decoration: none; font-weight: 500; transition: background-color 200ms ease; }
+  .all:hover { background: var(--lilac); }
+
+  /* Club */
+  .club { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .club-cells { flex: none; display: grid; grid-template-columns: repeat(3, 12px); gap: 4px; }
+  .club-cells i { width: 12px; height: 12px; border-radius: 3px; background: var(--purple); opacity: 0.25; animation: blink 2.4s ease-in-out infinite; }
+  .club-cells i:nth-child(2) { animation-delay: .2s } .club-cells i:nth-child(3) { animation-delay: .4s } .club-cells i:nth-child(4) { animation-delay: .6s }
+  .club-cells i:nth-child(5) { animation-delay: .8s } .club-cells i:nth-child(6) { animation-delay: 1s }
+  @keyframes blink { 40% { opacity: 1; } }
+  .club .arrow { flex: none; color: var(--graphite); margin-left: auto; }
+  .club h2 { margin: 0; font-size: 1.05rem; }
+  .club p { margin: 3px 0 0; }
+
+  .foot { margin-top: 30px; text-align: center; font-size: 0.86rem; color: var(--graphite); display: grid; gap: 8px; }
+  .foot a { color: var(--ink); text-underline-offset: 4px; }
+
+  /* Entrance */
+  @media (prefers-reduced-motion: no-preference) {
+    .in { opacity: 0; transform: translateY(14px); animation: in 700ms cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--i, 0) * 70ms); }
+    @keyframes in { to { opacity: 1; transform: none; } }
+  }
+  @media (prefers-reduced-motion: reduce) { .dot, .club-cells i { animation: none; } }
+</style>
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<main class="lb">
+
+  <div class="lb-top">
+    <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device">
+      <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+      <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+      <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+    </button>
+  </div>
+
+  <header class="who">
+    <button class="mark-btn in" type="button" aria-label="Shuffle the logo" style="--i:0">
+      <svg viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg>
+    </button>
+    <h1 class="in" style="--i:1">The Useful Tech</h1>
+    <p class="handle mono in" style="--i:2">@theusefultech · #1 Apple blog on Medium</p>
+    <p class="bio in" style="--i:3">The Mac and iPhone apps worth your time, found and tested so you don't have to.</p>
+    <ul class="chips in" style="--i:4">
+      <li><a href="https://medium.com/the-useful-tech?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>Medium<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
+      <li><a href="https://www.youtube.com/@theusefultech9850" data-go>YouTube<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
+      <li><a href="https://discord.gg/WjfenUSZp4" data-go>Discord<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
+      <li><a href="/products/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>All products<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
+    </ul>
+  </header>
+
+  <div class="stack">
+
+    <a class="card studio in" href="/studio/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" style="--i:5; text-decoration:none" data-go>
+      <div class="studio-media">
+        <video src="/links/studio-loop.mp4" poster="/links/studio-loop.jpg" muted playsinline loop autoplay preload="metadata" aria-hidden="true"></video>
+      </div>
+      <div class="studio-body">
+        <span class="kicker"><span class="dot" aria-hidden="true"></span>New · Useful Studio</span>
+        <h2>Type 1 line in Claude Code and get a launch video in your own brand.</h2>
+        <p>Launch films, reels, explainers and b-roll, made on your Mac as finished MP4s.</p>
+        <div class="clock" data-deadline="2026-10-31T23:59:59+05:30" aria-hidden="true">
+          <span><b data-u="d">00</b><i>days</i></span><span><b data-u="h">00</b><i>hrs</i></span><span><b data-u="m">00</b><i>min</i></span><span><b data-u="s">00</b><i>sec</i></span>
+        </div>
+        <p class="clock-label" data-clock-label>Launch price ends 31 October</p>
+        <div class="btn-row"><span class="go-btn">See what it makes<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></span></div>
+      </div>
+    </a>
+
+    <section class="card in" style="--i:6" aria-labelledby="nl-h">
+      <span class="kicker">Free newsletter</span>
+      <h2 id="nl-h">Get the best new Mac and iPhone apps in your inbox 3 times a week.</h2>
+      <div class="signup">
+        <form class="signup-form" data-signup novalidate>
+          <label class="visually-hidden" for="email-lb">Email address</label>
+          <input id="email-lb" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+        </form>
+        <div class="signup-msg" aria-live="polite"></div>
+        <div class="ts-slot"></div>
+      </div>
+      <p class="fine">Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+    </section>
+
+  </div>
+
+  <div class="lb-sec in" style="--i:7"><h2>Latest</h2><a href="https://medium.com/the-useful-tech?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>All stories</a></div>
+  <div class="lb-rows in" style="--i:8">
+<!--LATEST:START-->
+<a class="post" href="https://medium.com/the-useful-tech/1-line-in-claude-code-now-makes-my-launch-videos-6e44dd9181ea?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go><span class="post-thumb"><img src="https://cdn-images-1.medium.com/max/1024/1*OoROo4rytpKFR3H8GqOWhg.jpeg" alt="" loading="lazy" decoding="async"></span><span class="post-copy"><span class="post-kicker mono">Latest on Medium · Oct 12</span><span class="post-title">1 Line in Claude Code Now Makes My Launch Videos</span></span><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+<a class="post" href="https://theusefulmedia.com/tech/library/the-useful-find-013-claude-code-can-now-make-your-launch-video/?utm_source=instagram&amp;utm_medium=linkinbio&amp;utm_campaign=tut" data-go><span class="post-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,width=1200,onerror=redirect/uploads/asset/file/04ac041e-9fe7-4335-94cc-a70b15ddff04/useful-studio-launch.jpg?t=1791481870" alt="" loading="lazy" decoding="async"></span><span class="post-copy"><span class="post-kicker mono">The Useful Find #013 · Oct 12</span><span class="post-title">Useful Studio: launch videos from Claude Code on your Mac</span></span><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+<!--LATEST:END-->
+  </div>
+
+  <div class="lb-sec in" style="--i:9"><h2>Guides readers buy most</h2><a href="/products/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>See all 35</a></div>
+  <div class="lb-rows">
+    <a class="prod in" style="--i:10" href="https://theusefultech.gumroad.com/l/cowork-mastery-guide?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/cowork-mastery-guide.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag tag--hot">Bestseller</span><span class="prod-name">Cowork Mastery</span><span class="prod-line">Make Claude Cowork do the busywork on your Mac.</span></span>
+      <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+    </a>
+    <a class="prod in" style="--i:11" href="https://theusefultech.gumroad.com/l/claude-app-playbook?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/claude-app-playbook.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag">New</span><span class="prod-name">The Claude App Playbook</span><span class="prod-line">Build an iPhone app with Claude in a weekend, no code.</span></span>
+      <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+    </a>
+    <a class="prod in" style="--i:12" href="https://theusefultech.gumroad.com/l/mac-setup-guide?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/mac-setup-guide.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag tag--hot">Bestseller</span><span class="prod-name">The Mac Setup Guide</span><span class="prod-line">From unboxing to a Mac set up your way in a weekend.</span></span>
+      <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+    </a>
+    <a class="prod in" style="--i:13" href="https://theusefultech.gumroad.com/l/siri-prompts?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/siri-prompts.webp" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag">New</span><span class="prod-name">100 Siri AI Prompts</span><span class="prod-line">The Siri prompts you will use again and again.</span></span>
+      <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+    </a>
+    <a class="prod in" style="--i:14" href="https://theusefultech.gumroad.com/l/oqxmd?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/oqxmd.webp" class="wide" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag tag--hot">Bestseller</span><span class="prod-name">The Useful Tech App Library</span><span class="prod-line">120 hand-picked apps, each with a direct link.</span></span>
+      <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+    </a>
+    <a class="prod in" style="--i:15" href="https://theusefultech.gumroad.com/l/power-system?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>
+      <span class="prod-thumb"><img src="/assets/products/power-system.webp" class="wide" alt="" loading="lazy"></span>
+      <span class="prod-copy"><span class="tag">Best value</span><span class="prod-name">The Useful Tech Power System</span><span class="prod-line">7 products, including Cowork Mastery, in one bundle.</span></span>
+      <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+    </a>
+  </div>
+  <a class="all in" style="--i:16" href="/products/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" data-go>Browse all 35 guides and templates<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg></a>
+
+  <a class="card club in" style="--i:17; margin-top: 26px" href="https://discord.gg/WjfenUSZp4" data-go>
+    <span class="club-cells" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <span><h2>Join The Useful Tech Club</h2><p>The free Discord where readers swap the apps they found this week.</p></span>
+    <svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+  </a>
+
+  <footer class="foot in" style="--i:18">
+    <span>Want your app in front of 78,000 Apple readers? <a href="/contact/">Sponsor The Useful Tech</a></span>
+    <a href="/">theusefulmedia.com</a>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Launch-price countdown
+  var clock = document.querySelector(".clock");
+  if (clock) {
+    var end = new Date(clock.getAttribute("data-deadline")).getTime();
+    var units = {};
+    ["d", "h", "m", "s"].forEach(function (k) { units[k] = clock.querySelector('[data-u="' + k + '"]'); });
+    var label = document.querySelector("[data-clock-label]");
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    var tick = function () {
+      var left = Math.max(0, end - Date.now());
+      if (!left) { clock.hidden = true; if (label) label.textContent = "Now at the regular price"; return; }
+      var s = Math.floor(left / 1000);
+      units.d.textContent = pad(Math.floor(s / 86400));
+      units.h.textContent = pad(Math.floor(s / 3600) % 24);
+      units.m.textContent = pad(Math.floor(s / 60) % 60);
+      units.s.textContent = pad(s % 60);
+      setTimeout(tick, 1000 - (Date.now() % 1000));
+    };
+    tick();
+  }
+
+  // Video: pause for reduced motion, and when off screen
+  var vid = document.querySelector(".studio-media video");
+  if (vid) {
+    if (reduce) { vid.removeAttribute("autoplay"); vid.pause(); }
+    else if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); } else vid.pause(); });
+      }, { threshold: 0.2 }).observe(vid);
+    }
+  }
+
+  // Logo: tap to shuffle the six cells
+  var mark = document.querySelector(".mark-btn");
+  if (mark) {
+    var cells = Array.prototype.slice.call(mark.querySelectorAll("rect"));
+    var spots = cells.map(function (r) { return [+r.getAttribute("x"), +r.getAttribute("y")]; });
+    var order = cells.map(function (_, i) { return i; });
+    mark.addEventListener("click", function () {
+      if (navigator.vibrate) { try { navigator.vibrate(8); } catch (e) {} }
+      for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = order[i]; order[i] = order[j]; order[j] = t; }
+      var hot = Math.floor(Math.random() * cells.length);
+      cells.forEach(function (r, i) {
+        var to = spots[order[i]], from = spots[i];
+        r.style.transform = reduce ? "" : "translate(" + (to[0] - from[0]) + "px," + (to[1] - from[1]) + "px)";
+        r.classList.toggle("is-hot", i === hot);
+      });
+    });
+  }
+
+  // Tiny haptic on taps that leave the page
+  document.querySelectorAll("[data-go]").forEach(function (a) {
+    a.addEventListener("click", function () { if (navigator.vibrate) { try { navigator.vibrate(6); } catch (e) {} } });
+  });
+})();
+</script>
+</body>
+</html>

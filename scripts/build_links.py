@@ -96,6 +96,11 @@ FREE = "https://newsletter.theusefultech.com/products/"
 NEWSLETTER = ("https://theusefulmedia.com/tech/", "Newsletter")
 RULES = [  # first match wins; matched against the lower-cased caption
     (("useful studio",), ("https://theusefulmedia.com/studio/", "Useful Studio")),
+    (("100 siri ai prompts",), ("https://theusefultech.gumroad.com/l/siri-prompts", "100 Siri AI Prompts")),
+    (("iphone setup guide",), ("https://theusefultech.gumroad.com/l/iPhone-setup-guide", "iPhone Setup Guide")),
+    (("mac setup guide",), ("https://theusefultech.gumroad.com/l/mac-setup-guide", "Mac Setup Guide")),
+    (("claude app playbook",), ("https://theusefultech.gumroad.com/l/claude-app-playbook", "Claude App Playbook")),
+    (("cowork mastery",), ("https://theusefultech.gumroad.com/l/cowork-mastery-guide", "Cowork Mastery")),
     (("app library",), (FREE + "the-useful-tech-app-library", "Free App Library")),
     (("daily ten", "siri ai prompts", "siri prompts", "10 siri"), (FREE + "siri-ai-daily-ten-prompts", "Free Siri prompts")),
     (("settings checklist",), (FREE + "the-ios-27-settings-checklist", "Free checklist")),

@@ -139,7 +139,10 @@ def ig_block():
     """Merges the newest posts into links/ig-archive.json (so older posts stay on
     the page after they drop out of Instagram's first page) and renders tiles."""
     cached = os.environ.get("IG_JSON")  # optional: a saved copy of the API response
-    raw = open(cached, "rb").read() if cached else fetch_bytes(IG_API, {
+    if cached == "none":  # rebuild the grid from the archive only (Instagram blocked)
+        raw = b'{"data":{"user":{"edge_owner_to_timeline_media":{"edges":[]}}}}'
+    else:
+        raw = open(cached, "rb").read() if cached else fetch_bytes(IG_API, {
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
         "x-ig-app-id": "936619743392459"})
     edges = json.loads(raw)["data"]["user"]["edge_owner_to_timeline_media"]["edges"]
@@ -167,6 +170,14 @@ def ig_block():
                 print("thumbnail failed", code, err, file=sys.stderr)
         archive[code] = {"code": code, "caption": caption, "reel": bool(n.get("is_video")),
                          "taken": n.get("taken_at_timestamp", 0)}
+    # A post added by hand (while Instagram blocked us) is dropped once the real one arrives:
+    # any fetched post from the same time or later that goes to the same place replaces it.
+    fetched = [archive[e["node"]["shortcode"]] for e in edges]
+    for code, p in list(archive.items()):
+        if p.get("manual") and any(
+                f["taken"] >= p["taken"] - 86400 and destination(f["code"], f["caption"], overrides)[0]
+                == destination(code, p["caption"], overrides)[0] for f in fetched):
+            del archive[code]
     posts = sorted(archive.values(), key=lambda p: p["taken"], reverse=True)
     json.dump(posts, open(archive_path, "w"), indent=1)
     tiles = []

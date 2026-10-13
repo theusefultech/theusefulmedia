@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://theusefulmedia.com/sitemap.xml
+Sitemap: https://theusefulmedia.com/apps/sitemap.xml

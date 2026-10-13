@@ -95,6 +95,7 @@ IG_DIR = os.path.join("links", "ig")
 FREE = "https://newsletter.theusefultech.com/products/"
 NEWSLETTER = ("https://theusefulmedia.com/tech/", "Newsletter")
 RULES = [  # first match wins; matched against the lower-cased caption
+    (("textlore",), ("https://textlore.app/", "Textlore")),
     (("useful studio",), ("https://theusefulmedia.com/studio/", "Useful Studio")),
     (("100 siri ai prompts",), ("https://theusefultech.gumroad.com/l/siri-prompts", "100 Siri AI Prompts")),
     (("iphone setup guide",), ("https://theusefultech.gumroad.com/l/iPhone-setup-guide", "iPhone Setup Guide")),

@@ -104,6 +104,10 @@
   .studio-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-weight: 600; font-size: 0.9rem; color: #B9A8FF; }
   .studio-cta svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
 
+  .studio.textlore { background: #2A2185; }
+  .textlore .studio-media { background: #1B1442; }
+  .textlore .studio-cta, .textlore .clock b { color: #FFD27A; }
+
   /* Newsletter signup (same Cloudflare worker as /tech) */
   .signup { margin-top: 14px; position: relative; }
   .signup-form { display: flex; flex-direction: column; gap: 6px; padding: 6px; background: #fff; border: 1px solid rgba(23, 23, 43, 0.22);
@@ -245,6 +249,16 @@
 
   <div class="stack">
 
+    <a class="card studio textlore in" href="https://textlore.app/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=textlore_launch" style="--i:7" data-go>
+      <div class="studio-media"><img src="/links/textlore-thumb.webp" alt="" width="112" height="112" decoding="async"></div>
+      <div>
+        <span class="kicker"><span class="dot" aria-hidden="true"></span>New · Textlore for Mac</span>
+        <h2>Find any text you've ever sent on your Mac in under a second.</h2>
+        <p class="clock" data-deadline="2026-10-29T06:59:00Z" data-clock-label>Launch price ends 28 October</p>
+        <span class="studio-cta">Try it free for 14 days<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+      </div>
+    </a>
+
     <a class="card studio in" href="/studio/?utm_source=instagram&utm_medium=linkinbio&utm_campaign=tut" style="--i:7" data-go>
       <div class="studio-media">
         <video src="/links/studio-loop.mp4" poster="/links/studio-loop.jpg" muted playsinline loop autoplay preload="metadata" aria-hidden="true"></video>
@@ -336,8 +350,7 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Launch-price countdown, written into one line
-  var clock = document.querySelector(".clock");
-  if (clock) {
+  Array.prototype.forEach.call(document.querySelectorAll(".clock"), function (clock) {
     var end = new Date(clock.getAttribute("data-deadline")).getTime();
     var tick = function () {
       var left = Math.max(0, end - Date.now());
@@ -348,7 +361,7 @@
       setTimeout(tick, 1000 - (Date.now() % 1000));
     };
     tick();
-  }
+  });
 
   // Video: pause for reduced motion, and when off screen
   var vid = document.querySelector(".studio-media video");

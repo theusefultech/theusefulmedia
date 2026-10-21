@@ -9,7 +9,7 @@ The owner, Raja, is not a developer. Do the work, and only stop to ask him when 
 - Never touch anything related to theusefultech.com (DNS, email, Medium, Beehiiv). Only theusefulmedia.com is in scope.
 - Never use em dashes or en dashes in any copy.
 - Keep the design as it is: colours #17172B, #7C5CFC, #FAFAF8; fonts Space Grotesk and JetBrains Mono (self-hosted in assets/fonts).
-- Do not add analytics, trackers, cookies, or third-party scripts. The privacy policy depends on the site staying clean.
+- Do not add analytics, trackers, cookies, or third-party scripts yourself. The only analytics is Cloudflare Web Analytics, which Cloudflare adds automatically on the proxy (cookieless, no personal data). Raja chose to keep it on the whole domain on 21 Oct 2026.
 - All links to pages use root paths like /about/. Every page is a folder with index.html.
 
 ## Task 1: check the site has no placeholders

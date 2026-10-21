@@ -259,7 +259,7 @@ p { margin: 0; }
 @media (max-width: 820px) { .aud { grid-template-columns: minmax(0, 1fr); } }
 
 /* Placements */
-.offers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.offers { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
 .offer { text-align: left; font: inherit; color: inherit; background: var(--surface); border: 2px solid var(--line); border-radius: var(--r); padding: 14px; display: grid; gap: 12px; align-content: start; cursor: pointer; transition: border-color .2s ease, transform .25s ease, box-shadow .25s ease; position: relative; }
 .offer:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .offer[aria-pressed="true"] { border-color: var(--purple); box-shadow: 0 0 0 4px var(--purple-soft); }
@@ -300,6 +300,7 @@ p { margin: 0; }
 .offer h3 { font-size: 19px; }
 .offer p { font-size: 14px; color: var(--ink-soft); }
 .offer .txt { display: grid; gap: 6px; padding: 0 4px 6px; }
+@media (max-width: 1100px) { .offers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 960px) { .offers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .offers { grid-template-columns: minmax(0, 1fr); } }
 
@@ -604,12 +605,17 @@ p { margin: 0; }
       <button type="button" class="offer" data-name="top spot in a roundup" aria-pressed="true">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="r top"><i></i><s></s></div><div class="r"><i></i><s></s></div><div class="r"><i></i><s></s></div></div>
-        <div class="txt"><span class="tag">Most booked</span><h3>Top spot in a roundup</h3><p>Your app at #1 with its own section, plus a newsletter mention.</p></div>
+        <div class="txt"><span class="tag">Most booked</span><h3>Top spot in a roundup</h3><p>Your app at #1 with its own section, a newsletter feature and a post in my Discord community.</p></div>
+      </button>
+      <button type="button" class="offer" data-name="spot in a roundup" aria-pressed="false">
+        <span class="check"><svg><use href="#i-check"/></svg></span>
+        <div class="mini" aria-hidden="true"><div class="r"><i></i><s></s></div><div class="r top"><i></i><s></s></div><div class="r top"><i></i><s></s></div></div>
+        <div class="txt"><span class="tag">Easiest start</span><h3>Spot in a roundup</h3><p>Your app at #2 or #3 with its own section in a roundup readers keep coming back to.</p></div>
       </button>
       <button type="button" class="offer" data-name="dedicated review" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="art"><div class="hero-i"></div><s></s><s></s><s></s></div></div>
-        <div class="txt"><span class="tag">Most depth</span><h3>Dedicated review</h3><p>A full post about your app only, plus a newsletter feature.</p></div>
+        <div class="txt"><span class="tag">Most depth</span><h3>Dedicated review</h3><p>A full post about your app only, a newsletter feature, a Discord post and posts on X and LinkedIn.</p></div>
       </button>
       <button type="button" class="offer" data-name="newsletter feature" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
@@ -619,7 +625,7 @@ p { margin: 0; }
       <button type="button" class="offer" data-name="full campaign" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="layers"><i></i><i></i><i></i></div></div>
-        <div class="txt"><span class="tag">Most reach</span><h3>Full campaign</h3><p>A review, a follow-up post, a newsletter issue and Discord posts.</p></div>
+        <div class="txt"><span class="tag">Most reach</span><h3>Full campaign</h3><p>2 dedicated posts, a dedicated newsletter issue, plus Discord and social posts.</p></div>
       </button>
     </div>
 

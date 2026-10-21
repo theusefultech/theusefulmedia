@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siri AI now runs in 3 places, and 1 hidden report shows which one answered you | The Useful Tech</title>
+<meta name="description" content="On your device, on Apple&#x27;s servers, and now on Google Cloud">
+<link rel="canonical" href="https://theusefulmedia.com/tech/library/the-deep-dive-015-siri-ai-now-runs-in-3-places-and-1-hidden-report-shows-which-one-answered-you/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Useful Tech">
+<meta property="og:title" content="Siri AI now runs in 3 places, and 1 hidden report shows which one answered you | The Useful Tech">
+<meta property="og:description" content="On your device, on Apple&#x27;s servers, and now on Google Cloud">
+<meta property="og:url" content="https://theusefulmedia.com/tech/library/the-deep-dive-015-siri-ai-now-runs-in-3-places-and-1-hidden-report-shows-which-one-answered-you/">
+<meta property="og:image" content="https://theusefulmedia.com/tech/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/library/library.css">
+<script src="/assets/site.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Siri AI now runs in 3 places, and 1 hidden report shows which one answered you", "description": "On your device, on Apple's servers, and now on Google Cloud", "datePublished": "2026-10-21T17:00:00+00:00", "image": "https://theusefulmedia.com/tech/og.png", "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"}, "mainEntityOfPage": "https://theusefulmedia.com/tech/library/the-deep-dive-015-siri-ai-now-runs-in-3-places-and-1-hidden-report-shows-which-one-answered-you/"}</script>
+</head>
+<body class="nl is-issue">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <div class="header-end">
+      <a class="is-head-link" href="/tech/library/">Library</a>
+      <a class="is-head-cta" href="/tech/#join">Subscribe free</a>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<article class="is-article wrap">
+  <header class="is-head">
+    <p class="is-meta"><span class="fmt f-dive">Deep Dive #015</span><span class="ic-date">Oct 21, 2026</span></p>
+    <h1>Siri AI now runs in 3 places, and 1 hidden report shows which one answered you</h1>
+    <p class="is-sub">On your device, on Apple&#x27;s servers, and now on Google Cloud</p>
+  </header>
+  
+  <div class="is-body">
+<aside class="callout"><p><strong>THE USEFUL TECH</strong></p><p>📘<strong> THE DEEP DIVE · WEDNESDAY TUTORIAL · ISSUE #015</strong></p></aside><p>👋<strong> HEY, IT&#x27;S RAJA</strong></p><p>Ask Siri AI something and the answer can come from 3 different places: your own device, Apple&#x27;s servers, or, since June, servers Apple uses inside Google Cloud.</p><p>Apple keeps a log of which one handled each request, 3 taps deep in Settings. Today, what each place means for your data, how to read that log, and the apps that never send anything anywhere.</p><hr><h2>📘 Where Siri AI actually answers you</h2><p><em>On-device, Private Cloud Compute, and now Google Cloud.</em></p><h3>#1 On your device</h3><p>Simple requests run on the Apple Intelligence model built into your iPhone or Mac. Nothing leaves the device, and it works without a connection.</p><p>How much stays local depends on your hardware. On the Mac, the newer, more capable on-device model needs an M3 chip or later with 12GB of memory. Older Macs hand more of the work to the cloud.</p><h3>#2 Private Cloud Compute</h3><p>Bigger requests go to Apple&#x27;s own servers, which run on Apple silicon. Apple&#x27;s rules for them are strict: your data is used only for that one request, it isn&#x27;t stored, and independent researchers can inspect the software the servers run.</p><h3>#3 Google Cloud</h3><p>On 8 June, Apple said some Private Cloud Compute work now runs on Google Cloud servers with NVIDIA GPUs, using NVIDIA&#x27;s Confidential Computing. Apple also said the full set of protections would be added gradually during the beta.</p><p>It still runs under the Private Cloud Compute name and rules. The difference is that the hardware sits in Google&#x27;s data centres instead of Apple&#x27;s.</p><h3>How to see where your requests went</h3><p><strong>On a Mac:</strong></p><ol><li>Open System Settings and click Privacy &amp; Security.</li><li>Scroll down and click Apple Intelligence Report.</li><li>Choose Last 15 minutes or Last 7 days.</li><li>Click Export Activity. It saves a file called Apple_Intelligence_Report.json.</li></ol><p><strong>On an iPhone:</strong> Settings &gt; Privacy &amp; Security &gt; Apple Intelligence Report, with the same 2 time ranges.</p><h3>What&#x27;s inside the file</h3><p>Each request is listed with whether it ran on your device or on Private Cloud Compute. TidBITS found the file also holds the hidden instructions Apple sends along with your request, and the longer answers Siri drafted but didn&#x27;t read out to you.</p><p>It also contains your own requests and personal details, so remove those before you share it with anyone.</p><p>💡 <strong>Tip:</strong> Export the 7-day report on an ordinary weekday. You&#x27;ll see how much of what you ask actually leaves your device.</p><aside class="callout"><p><strong>NEW FROM ME</strong></p><p><strong>Ask your texts a question, and the answer never leaves your Mac.</strong></p><p>Textlore is the Mac app I built for your whole Messages history. Its Ask AI feature answers questions about your texts in plain words using Apple&#x27;s on-device model, and shows you the exact messages it used to answer.</p><p>Around it, you get instant search across every year of texts, every photo saved before macOS clears it, and exports of any chat. No account, no servers, nothing uploaded. Ask AI needs a Mac with Apple Intelligence.</p><p>Try it free for 14 days.</p><p class="btn-row"><a class="is-btn" href="https://textlore.app/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=deep015" target="_blank" rel="noopener">Try Textlore free</a></p></aside><h3>Apps that never leave your device</h3><p>If you’d rather nothing leaves at all, a growing number of apps run their AI fully on your iPhone or Mac. The one I’d start with is Locally AI.</p><p>Locally AI is a free chat app that runs open AI models like Gemma, Qwen and Llama directly on your iPhone, iPad or Mac. Apple’s own on-device model comes built in, it works in airplane mode, and it needs no account. Some of its models can even read a photo and answer questions about it offline.</p><p><a href="https://apps.apple.com/app/id6741426692" target="_blank" rel="noopener">Check out Locally AI</a></p><p>More apps like this are in my private AI roundup, out Friday.</p><hr><p>See you Friday.</p><p>Keep it useful,</p><p><strong>Raja</strong> · The Useful Tech</p><p><em>P.S. Enjoyed this? Forward it to a friend who loves their Apple gear a little too much.</em></p>
+  </div>
+</article>
+
+<section class="wrap is-cta" aria-labelledby="is-cta-title">
+  <div class="nl-cta">
+    <h2 id="is-cta-title">Get the next issue in your inbox</h2>
+    <div class="signup">
+      <form class="signup-form" data-signup novalidate>
+        <label class="visually-hidden" for="email-is">Email address</label>
+        <input id="email-is" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the next issue</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+      <div class="ts-slot"></div>
+    </div>
+    <p class="nl-cta-note">Free. Monday, Wednesday and Friday. Unsubscribe in one click.</p>
+  </div>
+</section>
+
+<nav class="wrap is-nav" aria-label="More from the library">
+  <a class="is-nav-card is-older" href="/tech/library/the-useful-find-014-3-iphone-settings-that-stop-your-imessages-from-quietly-turning-into-plain-texts/"><span class="is-nav-k">Older</span><span class="is-nav-t">3 iPhone settings that stop your iMessages from quietly turning into plain texts</span></a>
+  <a class="is-all" href="/tech/library/">Browse the library</a>
+</nav>
+</main>
+<footer class="nl-footer">
+  <div class="wrap">
+    <span>&copy; 2026 The Useful Media Co. Chennai, India.</span>
+    <nav aria-label="Footer"><a href="/tech/">Subscribe</a><a href="/tech/library/">Library</a><a href="/">theusefulmedia.com</a></nav>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

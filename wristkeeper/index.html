@@ -50,10 +50,11 @@
   <h1 id="hero-title" data-reveal>Wristkeeper</h1>
   <p class="tagline" data-reveal style="--delay:80ms">Know which watch to wear, every morning.</p>
   <div class="hero-actions" data-reveal style="--delay:160ms">
-    <div class="store-badge" role="img" aria-label="Coming soon to the App Store">
+    <!-- App Store badge: shows "Coming soon" until APP_STORE_URL in /wristkeeper/assets/wk.js is set, then links to the App Store. -->
+    <a class="store-badge" data-store-badge role="img" aria-label="Coming soon to the App Store">
       <svg viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#6547E0"/><path d="M9 18.5l5.5-10M17 18.5l-2-3.6M7.5 15.5h8.5M18 15.5h1" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-      <span><small>Coming soon to the</small><b>App Store</b></span>
-    </div>
+      <span><small data-store-line>Coming soon to the</small><b>App Store</b></span>
+    </a>
     <a class="btn btn--lg" href="https://newsletter.theusefultech.com/subscribe?utm_source=wristkeeper&amp;utm_medium=landing&amp;utm_campaign=launch_waitlist" target="_blank" rel="noopener">Get notified at launch <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
   </div>
   <ul class="facts" data-reveal style="--delay:240ms" aria-label="Privacy at a glance">
@@ -191,40 +192,28 @@
   <div class="wrap shots-head" data-reveal>
     <p class="eyebrow">A look inside</p>
     <h2 id="shots-title">Calm screens for busy mornings.</h2>
-    <p>Five screens from the app. Quick to read, quick to tap.</p>
+    <p>Six screens from the app. Quick to read, quick to tap.</p>
     <p class="reel-hint">Swipe <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></p>
   </div>
   <div class="wrap" style="padding-inline:0">
     <ul class="reel" aria-label="App screenshots">
       <li data-reveal style="--delay:0ms">
-        <figure>
-          <div class="phone"><div class="screen ph-1"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><svg class="ph-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="c" cx="50" cy="50" r="30"/><line class="t on" x1="50.0" y1="2.0" x2="50.0" y2="9.0" style="--i:0"/><line class="t on" x1="59.7" y1="3.0" x2="58.3" y2="9.8" style="--i:1"/><line class="t on" x1="68.9" y1="5.9" x2="66.2" y2="12.3" style="--i:2"/><line class="t on" x1="77.4" y1="10.6" x2="73.4" y2="16.3" style="--i:3"/><line class="t on" x1="84.8" y1="16.9" x2="79.7" y2="21.8" style="--i:4"/><line class="t on" x1="90.7" y1="24.6" x2="84.8" y2="28.3" style="--i:5"/><line class="t on" x1="95.0" y1="33.3" x2="88.4" y2="35.8" style="--i:6"/><line class="t on" x1="97.4" y1="42.7" x2="90.5" y2="43.8" style="--i:7"/><line class="t on" x1="97.9" y1="52.4" x2="90.9" y2="52.1" style="--i:8"/><line class="t on" x1="96.5" y1="62.0" x2="89.7" y2="60.3" style="--i:9"/><line class="t on" x1="93.1" y1="71.1" x2="86.8" y2="68.1" style="--i:10"/><line class="t on" x1="88.0" y1="79.4" x2="82.4" y2="75.1" style="--i:11"/><line class="t on" x1="81.3" y1="86.4" x2="76.7" y2="81.1" style="--i:12"/><line class="t on" x1="73.3" y1="92.0" x2="69.9" y2="85.8" style="--i:13"/><line class="t on" x1="64.4" y1="95.8" x2="62.3" y2="89.1" style="--i:14"/><line class="t on" x1="54.9" y1="97.8" x2="54.1" y2="90.8" style="--i:15"/><line class="t on" x1="45.1" y1="97.8" x2="45.9" y2="90.8" style="--i:16"/><line class="t on" x1="35.6" y1="95.8" x2="37.7" y2="89.1" style="--i:17"/><line class="t on" x1="26.7" y1="92.0" x2="30.1" y2="85.8" style="--i:18"/><line class="t" x1="18.7" y1="86.4" x2="23.3" y2="81.1" style="--i:19"/><line class="t" x1="12.0" y1="79.4" x2="17.6" y2="75.1" style="--i:20"/><line class="t" x1="6.9" y1="71.1" x2="13.2" y2="68.1" style="--i:21"/><line class="t" x1="3.5" y1="62.0" x2="10.3" y2="60.3" style="--i:22"/><line class="t" x1="2.1" y1="52.4" x2="9.1" y2="52.1" style="--i:23"/><line class="t" x1="2.6" y1="42.7" x2="9.5" y2="43.8" style="--i:24"/><line class="t" x1="5.0" y1="33.3" x2="11.6" y2="35.8" style="--i:25"/><line class="t" x1="9.3" y1="24.6" x2="15.2" y2="28.3" style="--i:26"/><line class="t" x1="15.2" y1="16.9" x2="20.3" y2="21.8" style="--i:27"/><line class="t" x1="22.6" y1="10.6" x2="26.6" y2="16.3" style="--i:28"/><line class="t" x1="31.1" y1="5.9" x2="33.8" y2="12.3" style="--i:29"/><line class="t" x1="40.3" y1="3.0" x2="41.7" y2="9.8" style="--i:30"/></svg></div><div class="ph-rows"><i></i><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-1.png" alt="Wristkeeper showing today's watch pick with the weather" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
-          <figcaption><span>01</span>Today's pick</figcaption>
-        </figure>
+        <figure class="shot"><img src="/wristkeeper/assets/shots/01-today-480.jpg" srcset="/wristkeeper/assets/shots/01-today-480.jpg 480w, /wristkeeper/assets/shots/01-today-960.jpg 960w" sizes="(min-width: 1000px) 180px, 236px" alt="Know what to wear today. Today suggests one watch from your collection, with the weather and three reasons, and a Wear this today button." width="480" height="1043" loading="lazy" decoding="async"></figure>
       </li>
       <li data-reveal style="--delay:80ms">
-        <figure>
-          <div class="phone"><div class="screen ph-2"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><div class="ph-rows" style="width:100%"><i></i><i></i><i></i><i></i><i></i></div></div><div class="ph-rows"><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-2.png" alt="Logging a wear in Wristkeeper" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
-          <figcaption><span>02</span>Log a wear</figcaption>
-        </figure>
+        <figure class="shot"><img src="/wristkeeper/assets/shots/02-collection-480.jpg" srcset="/wristkeeper/assets/shots/02-collection-480.jpg 480w, /wristkeeper/assets/shots/02-collection-960.jpg 960w" sizes="(min-width: 1000px) 180px, 236px" alt="Every watch you own. The Collection screen with the total value and each watch's wear count." width="480" height="1043" loading="lazy" decoding="async"></figure>
       </li>
       <li data-reveal style="--delay:160ms">
-        <figure>
-          <div class="phone"><div class="screen ph-3"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><div class="ph-cols"><i style="--h:92%"></i><i style="--h:70%"></i><i style="--h:58%"></i><i style="--h:30%"></i><i style="--h:16%"></i></div></div><div class="ph-rows"><i></i><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-3.png" alt="Wristkeeper Insights showing the most worn watches" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
-          <figcaption><span>03</span>Insights</figcaption>
-        </figure>
+        <figure class="shot"><img src="/wristkeeper/assets/shots/03-add-catalog-480.jpg" srcset="/wristkeeper/assets/shots/03-add-catalog-480.jpg 480w, /wristkeeper/assets/shots/03-add-catalog-960.jpg 960w" sizes="(min-width: 1000px) 180px, 236px" alt="Find your exact model. Adding a watch from the built in catalog, with model families and their sizes." width="480" height="1043" loading="lazy" decoding="async"></figure>
       </li>
       <li data-reveal style="--delay:240ms">
-        <figure>
-          <div class="phone"><div class="screen ph-4"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><svg class="ph-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="c" cx="50" cy="50" r="30"/><line class="t on" x1="50.0" y1="2.0" x2="50.0" y2="9.0" style="--i:0"/><line class="t on" x1="59.7" y1="3.0" x2="58.3" y2="9.8" style="--i:1"/><line class="t on" x1="68.9" y1="5.9" x2="66.2" y2="12.3" style="--i:2"/><line class="t on" x1="77.4" y1="10.6" x2="73.4" y2="16.3" style="--i:3"/><line class="t on" x1="84.8" y1="16.9" x2="79.7" y2="21.8" style="--i:4"/><line class="t on" x1="90.7" y1="24.6" x2="84.8" y2="28.3" style="--i:5"/><line class="t on" x1="95.0" y1="33.3" x2="88.4" y2="35.8" style="--i:6"/><line class="t on" x1="97.4" y1="42.7" x2="90.5" y2="43.8" style="--i:7"/><line class="t on" x1="97.9" y1="52.4" x2="90.9" y2="52.1" style="--i:8"/><line class="t on" x1="96.5" y1="62.0" x2="89.7" y2="60.3" style="--i:9"/><line class="t on" x1="93.1" y1="71.1" x2="86.8" y2="68.1" style="--i:10"/><line class="t on" x1="88.0" y1="79.4" x2="82.4" y2="75.1" style="--i:11"/><line class="t on" x1="81.3" y1="86.4" x2="76.7" y2="81.1" style="--i:12"/><line class="t on" x1="73.3" y1="92.0" x2="69.9" y2="85.8" style="--i:13"/><line class="t on" x1="64.4" y1="95.8" x2="62.3" y2="89.1" style="--i:14"/><line class="t on" x1="54.9" y1="97.8" x2="54.1" y2="90.8" style="--i:15"/><line class="t on" x1="45.1" y1="97.8" x2="45.9" y2="90.8" style="--i:16"/><line class="t on" x1="35.6" y1="95.8" x2="37.7" y2="89.1" style="--i:17"/><line class="t on" x1="26.7" y1="92.0" x2="30.1" y2="85.8" style="--i:18"/><line class="t on" x1="18.7" y1="86.4" x2="23.3" y2="81.1" style="--i:19"/><line class="t on" x1="12.0" y1="79.4" x2="17.6" y2="75.1" style="--i:20"/><line class="t on" x1="6.9" y1="71.1" x2="13.2" y2="68.1" style="--i:21"/><line class="t on" x1="3.5" y1="62.0" x2="10.3" y2="60.3" style="--i:22"/><line class="t on" x1="2.1" y1="52.4" x2="9.1" y2="52.1" style="--i:23"/><line class="t on" x1="2.6" y1="42.7" x2="9.5" y2="43.8" style="--i:24"/><line class="t on" x1="5.0" y1="33.3" x2="11.6" y2="35.8" style="--i:25"/><line class="t on" x1="9.3" y1="24.6" x2="15.2" y2="28.3" style="--i:26"/><line class="t on" x1="15.2" y1="16.9" x2="20.3" y2="21.8" style="--i:27"/><line class="t on" x1="22.6" y1="10.6" x2="26.6" y2="16.3" style="--i:28"/><line class="t on" x1="31.1" y1="5.9" x2="33.8" y2="12.3" style="--i:29"/><line class="t on" x1="40.3" y1="3.0" x2="41.7" y2="9.8" style="--i:30"/></svg></div><div class="ph-rows"><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-4.png" alt="The monthly Wrist Report card" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
-          <figcaption><span>04</span>Wrist Report</figcaption>
-        </figure>
+        <figure class="shot"><img src="/wristkeeper/assets/shots/04-ask-480.jpg" srcset="/wristkeeper/assets/shots/04-ask-480.jpg 480w, /wristkeeper/assets/shots/04-ask-960.jpg 960w" sizes="(min-width: 1000px) 180px, 236px" alt="Ask about your collection. Ask ranks the watches by cost per wear." width="480" height="1043" loading="lazy" decoding="async"></figure>
       </li>
       <li data-reveal style="--delay:320ms">
-        <figure>
-          <div class="phone"><div class="screen ph-5"><div class="ph" aria-hidden="true"><div class="ph-title"><i></i><i></i></div><div class="ph-mid"><div class="ph-bubbles"><i class="me"></i><i class="long"></i><i class="me"></i><i></i></div></div><div class="ph-rows"><i></i></div></div><img class="real" src="/wristkeeper/assets/shot-5.png" alt="Asking the on device AI about a watch collection" width="1320" height="2868" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')"></div></div>
-          <figcaption><span>05</span>Ask your collection</figcaption>
-        </figure>
+        <figure class="shot"><img src="/wristkeeper/assets/shots/05-wrist-report-480.jpg" srcset="/wristkeeper/assets/shots/05-wrist-report-480.jpg 480w, /wristkeeper/assets/shots/05-wrist-report-960.jpg 960w" sizes="(min-width: 1000px) 180px, 236px" alt="Your month on the wrist. The Wrist Report shows the most worn watch of September." width="480" height="1043" loading="lazy" decoding="async"></figure>
+      </li>
+      <li data-reveal style="--delay:400ms">
+        <figure class="shot"><img src="/wristkeeper/assets/shots/06-share-card-480.jpg" srcset="/wristkeeper/assets/shots/06-share-card-480.jpg 480w, /wristkeeper/assets/shots/06-share-card-960.jpg 960w" sizes="(min-width: 1000px) 180px, 236px" alt="Share today's wrist check. A wrist check card of today's watch, ready to share as a Story." width="480" height="1043" loading="lazy" decoding="async"></figure>
       </li>
     </ul>
   </div>
@@ -235,7 +224,7 @@
     <div class="band-copy">
       <p class="eyebrow"><b>05</b> Privacy</p>
       <h2 id="f5">Your collection stays on your phone.</h2>
-      <p>Your watches, photos and wear log live on your iPhone. We never see them.</p>
+      <p>Your watches, photos and wear log live on your iPhone and in your own iCloud. We never see them.</p>
       <a class="band-link" href="/wristkeeper/privacy/">Read the privacy policy <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
     <ul class="zeros">
@@ -259,7 +248,7 @@
   <div class="wrap">
     <div class="foot-row">
       <a class="wk-logo" href="/wristkeeper/"><img src="/wristkeeper/assets/icon-180.png" alt="" width="28" height="28">Wristkeeper</a>
-      <nav aria-label="Wristkeeper"><a href="/wristkeeper/support/">Support</a><a href="/wristkeeper/terms/">Terms</a><a href="/wristkeeper/privacy/">Privacy</a></nav>
+      <nav aria-label="Wristkeeper"><a href="/wristkeeper/support/">Support</a><a href="/wristkeeper/terms/">Terms</a><a href="/wristkeeper/privacy/">Privacy</a><a href="/wristkeeper/press/">Press</a></nav>
     </div>
     <div class="foot-row">
       <span class="by">&copy; <span data-year>2026</span> <a href="/">The Useful Media Co</a></span>

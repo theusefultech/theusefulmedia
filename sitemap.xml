@@ -2,7 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://theusefulmedia.com/</loc></url>
   <url><loc>https://theusefulmedia.com/products/</loc></url>
-  <url><loc>https://theusefulmedia.com/studio/</loc></url>
+  <url><loc>https://theusefulmedia.com/studio/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://theusefulmedia.com/studio/vs-lemo-opuscar/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://theusefulmedia.com/studio/vs-remotion/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://theusefulmedia.com/studio/vs-hyperframes/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://theusefulmedia.com/studio/vs-claude-motion/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://theusefulmedia.com/studio/explainer-videos-with-claude-code/</loc><lastmod>2026-10-22</lastmod></url>
+  <url><loc>https://theusefulmedia.com/studio/launch-video-for-your-app/</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://theusefulmedia.com/about/</loc></url>
   <url><loc>https://theusefulmedia.com/sponsor/</loc></url>
   <url><loc>https://theusefulmedia.com/contact/</loc></url>

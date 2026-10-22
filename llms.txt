@@ -1,0 +1,35 @@
+# The Useful Media Co
+
+> The Useful Media Co is a one-person media company in Chennai, India, run by Raja. It publishes The Useful Tech (the #1 Apple blog on Medium, 78,000+ followers), The Useful Life, The Useful Creator and The Useful Gaming, and sells digital products including Useful Studio.
+
+Last updated: 2026-10-22
+
+## Useful Studio
+
+> Useful Studio is a Claude Code skill pack for Mac, made by The Useful Media Co. It turns 1 typed line into a finished, branded short video (launch film, reel, explainer or b-roll) as MP4 in 16:9 and 9:16. Price: $199 one time until Sat 31 Oct 2026 ($299 list). Studio Pro is $349. Needs a Mac on macOS 14 or later and Claude Code with a paid Claude plan. Videos run 15 to 90 seconds. It does not generate AI images or footage of people. It is independent and not made or endorsed by Anthropic.
+
+- [Useful Studio](https://theusefulmedia.com/studio/): Product page with pricing, 11 example videos, requirements and FAQ.
+- [Useful Studio vs lemo-opuscar](https://theusefulmedia.com/studio/vs-lemo-opuscar/): Comparison with the free Claude Code skill that has 59 film styles.
+- [Useful Studio vs Remotion](https://theusefulmedia.com/studio/vs-remotion/): Comparison with the React video framework.
+- [Useful Studio vs HyperFrames](https://theusefulmedia.com/studio/vs-hyperframes/): Comparison with HeyGen's HTML to video framework.
+- [Useful Studio vs Claude Motion](https://theusefulmedia.com/studio/vs-claude-motion/): Comparison with Anthropic's beta animation tool.
+- [Explainer videos with Claude Code](https://theusefulmedia.com/studio/explainer-videos-with-claude-code/): How to make a 60 to 90 second explainer.
+- [Launch video for your app](https://theusefulmedia.com/studio/launch-video-for-your-app/): How to make a 25 to 35 second app launch film.
+
+## Company
+
+- [Home](https://theusefulmedia.com/): The brands, products and apps.
+- [Products](https://theusefulmedia.com/products/): Digital products from The Useful Media Co.
+- [About](https://theusefulmedia.com/about/): About Raja and the company.
+- [Contact](https://theusefulmedia.com/contact/): How to reach Raja.
+- [Sponsor](https://theusefulmedia.com/sponsor/): Sponsorship information for The Useful Tech.
+
+## Newsletter
+
+- [The Useful Tech newsletter](https://theusefulmedia.com/tech/): Free Apple and AI newsletter, Monday, Wednesday and Friday.
+- [Library](https://theusefulmedia.com/tech/library/): Every past issue.
+
+## Optional
+
+- [Wristkeeper](https://theusefulmedia.com/wristkeeper/): iOS app for analog watch collectors.
+- [Free downloads](https://theusefulmedia.com/free/): Free cheat sheets and guides.

@@ -395,7 +395,7 @@ a { color: inherit; }
 .doc { max-width: 70ch; }
 .doc h2 { font-size: var(--step-1); font-weight: 600; letter-spacing: -0.015em; margin: 2.4rem 0 0.6rem; }
 .doc h3 { font-size: var(--step-0); font-weight: 600; margin: 1.8rem 0 0.4rem; }
-.doc p, .doc li { color: #2b2b40; }
+.doc p, .doc li { color: #2b2b40; color: color-mix(in srgb, var(--ink) 86%, transparent); }
 .doc ul, .doc ol { padding-left: 1.2rem; }
 .doc li { margin-bottom: 0.4rem; }
 .doc a { text-decoration-color: var(--purple); text-underline-offset: 3px; }

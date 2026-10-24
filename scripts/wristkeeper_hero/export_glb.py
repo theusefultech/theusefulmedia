@@ -25,6 +25,7 @@ for o in list(scene.objects):
 
 root = bpy.data.objects["turntable"]
 root.rotation_euler = (0, 0, 0)   # the yaw is applied live in three.js
+root.location.x = 0.0             # job 33b: the centring shift is applied live too (centring.json xfit)
 watch = bpy.data.objects["watch"]
 bpy.context.view_layer.update()
 

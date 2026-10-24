@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rosewood Music Box: your iPhone Duo opens like a real music box</title>
+<meta name="description" content="Rosewood Music Box is a 3D wind-up music box for iPhone Duo. Wind the brass key, open the phone and a porcelain ballerina dances to Satie. No ads, no account, no data collected.">
+<link rel="canonical" href="https://theusefulmedia.com/rosewood/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rosewood Music Box">
+<meta property="og:title" content="Rosewood Music Box: your iPhone Duo opens like a real music box">
+<meta property="og:description" content="Wind the brass key, open the phone and a porcelain ballerina dances to Satie. A 3D music box made for iPhone Duo.">
+<meta property="og:url" content="https://theusefulmedia.com/rosewood/">
+<meta property="og:image" content="https://theusefulmedia.com/rosewood/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1a070c">
+<meta name="apple-itunes-app" content="app-id=6826576057">
+<link rel="icon" href="/rosewood/assets/icon-180.png" type="image/png">
+<link rel="apple-touch-icon" href="/rosewood/assets/icon-180.png">
+<link rel="preload" href="/rosewood/assets/fonts/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Corm';font-weight:500;font-style:normal;font-display:swap;src:url(/rosewood/assets/fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Corm';font-weight:600;font-style:normal;font-display:swap;src:url(/rosewood/assets/fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Corm';font-weight:600;font-style:italic;font-display:swap;src:url(/rosewood/assets/fonts/cormorant-garamond-latin-600-italic.woff2) format('woff2')}
+@font-face{font-family:'Corm';font-weight:700;font-style:normal;font-display:swap;src:url(/rosewood/assets/fonts/cormorant-garamond-latin-700-normal.woff2) format('woff2')}
+:root{--bg:#14060a;--bg2:#2a0a12;--wine:#5c1828;--ink:#f6ecdc;--soft:rgba(246,236,220,.74);--gold:#e3b866;--gold2:#b8873e;--line:rgba(227,184,102,.28)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Corm',Georgia,serif;font-weight:500;color:var(--ink);background:var(--bg);line-height:1.45;font-size:21px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:overlay;z-index:50;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--gold);color:#2a0a12;padding:8px 12px;z-index:99}
+em{font-style:italic;color:var(--gold)}
+/* header */
+.hdr{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(20,6,10,.72);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:22px;letter-spacing:.02em}
+.logo img{width:30px;height:30px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font:700 17px 'Corm',serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;
+ background:linear-gradient(180deg,#f3d48e,#c9933f);color:#2a0a12;box-shadow:0 10px 30px rgba(201,147,63,.25),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn--sm{padding:9px 16px;font-size:15px}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 40px;background:radial-gradient(900px 700px at 70% 30%,rgba(120,30,48,.75),transparent 70%),linear-gradient(180deg,var(--bg2),var(--bg) 90%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.laurel{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.04em;color:var(--soft);margin-bottom:22px}
+.laurel svg{width:26px;height:42px;color:var(--gold)}
+h1{font-weight:600;font-size:clamp(48px,7vw,92px);line-height:.96;letter-spacing:-.01em}
+h1 em{white-space:nowrap}
+.lede{margin-top:22px;font-size:clamp(21px,2.2vw,26px);color:var(--soft);max-width:30ch}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:10px 18px 10px 14px;border-radius:14px;background:#000;color:#fff;text-decoration:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.badge svg{width:26px;height:26px;fill:#fff}
+.badge span{display:flex;flex-direction:column;line-height:1.05;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif}
+.badge small{font-size:11px;letter-spacing:.02em}.badge b{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.badge[aria-disabled="true"]{cursor:default;opacity:.92}
+.meta{margin-top:18px;font-size:17px;color:var(--soft);letter-spacing:.04em}
+.stage{position:relative;justify-self:center;width:min(400px,86vw)}
+.stage::before{content:"";position:absolute;inset:-18% -30%;background:radial-gradient(circle,rgba(255,180,110,.25),transparent 62%);z-index:-1}
+.device{border-radius:46px;padding:12px;background:linear-gradient(145deg,#3a3a3e,#0b0b0c 40%,#232326);box-shadow:0 60px 120px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.1)}
+.device video{width:100%;aspect-ratio:886/1920;object-fit:cover;border-radius:36px;background:#1a070c}
+.sound{position:absolute;right:22px;bottom:22px;display:flex;align-items:center;gap:6px;border:0;cursor:pointer;border-radius:999px;padding:8px 13px;background:rgba(20,6,10,.7);color:var(--ink);font:700 14px 'Corm',serif;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.sound svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+/* sections */
+section{padding:96px 0}
+.eyebrow{font-weight:700;font-size:15px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+h2{font-weight:600;font-size:clamp(38px,5vw,64px);line-height:1;margin-top:14px;max-width:18ch}
+.sub{margin-top:18px;color:var(--soft);font-size:clamp(20px,2vw,24px);max-width:46ch}
+.states{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.state{border-radius:28px;overflow:hidden;background:linear-gradient(180deg,rgba(92,24,40,.55),rgba(42,10,18,.55));box-shadow:inset 0 0 0 1px var(--line)}
+.state figure{aspect-ratio:4/5;overflow:hidden;background:#1a070c}
+.state img{width:100%;height:100%;object-fit:cover}
+.state .txt{padding:22px 24px 26px}
+.state .n{font-weight:700;font-size:14px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.state h3{font-weight:600;font-size:30px;margin-top:6px;line-height:1.05}
+.state p{color:var(--soft);margin-top:8px;font-size:19px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split + .split{margin-top:96px}
+.split.rev figure{order:2}
+.frame{width:100%;max-width:440px;justify-self:center;margin-inline:auto;border-radius:32px;overflow:hidden;box-shadow:0 50px 100px rgba(0,0,0,.6),0 0 0 2px rgba(227,184,102,.45)}
+.frame img{width:100%}
+.list{list-style:none;margin-top:26px;display:grid;gap:12px}
+.list li{display:flex;gap:14px;align-items:baseline;font-size:21px}
+.list li::before{content:"";flex:0 0 8px;height:8px;border-radius:50%;background:var(--gold);transform:translateY(-3px)}
+.tunes{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tune{padding:22px 24px;border-radius:18px;background:linear-gradient(180deg,#f0d08a,#c48d3d);color:#3a1f08;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 0 0 3px rgba(120,76,24,.35),0 18px 40px rgba(0,0,0,.4)}
+.tune b{display:block;font-style:italic;font-weight:600;font-size:27px;line-height:1.05}
+.tune small{display:block;margin-top:6px;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.75}
+.private{text-align:center;background:radial-gradient(700px 500px at 50% 60%,rgba(120,30,48,.6),transparent 70%)}
+.private h2,.private .sub{margin-inline:auto}
+.plaque{width:min(320px,70vw);aspect-ratio:1;margin:46px auto 0;border-radius:50%;display:grid;place-items:center;text-align:center;color:#3e2208;font-weight:700;letter-spacing:.14em;font-size:15px;line-height:1.7;
+ background:radial-gradient(circle at 35% 30%,#f7d58e,#c9933f 45%,#7a4e1c 100%);box-shadow:0 40px 90px rgba(0,0,0,.65),inset 0 0 0 9px rgba(90,55,18,.7),inset 0 0 0 13px rgba(255,226,160,.45)}
+.plaque b{display:block;font-size:26px;letter-spacing:.3em;margin-bottom:8px}
+.final{text-align:center;padding:110px 0 120px;border-top:1px solid var(--line)}
+.final img{width:120px;height:120px;border-radius:27px;margin:0 auto 26px;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.final .cta{justify-content:center}
+footer{border-top:1px solid var(--line);padding:30px 0 46px;color:var(--soft);font-size:17px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+footer nav{display:flex;gap:22px;flex-wrap:wrap}
+footer a{text-decoration:none}footer a:hover{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (max-width:860px){
+ body{font-size:19px}
+ .hero{padding:40px 0 20px}
+ .hero .wrap,.split{grid-template-columns:1fr;gap:40px}
+ .split.rev figure{order:0}
+ .frame{max-width:340px}
+ .states,.tunes{grid-template-columns:1fr}
+ .tunes{grid-template-columns:1fr 1fr}
+ section{padding:72px 0}
+ .split + .split{margin-top:64px}
+}
+@media (max-width:420px){.tunes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="/rosewood/"><img src="/rosewood/assets/icon-180.png" alt="" width="30" height="30">Rosewood</a>
+    <a class="btn btn--sm" data-notify href="https://newsletter.theusefultech.com/subscribe?utm_source=rosewood&amp;utm_medium=landing&amp;utm_campaign=launch" target="_blank" rel="noopener">Get notified</a>
+  </div>
+</header>
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="laurel"><svg viewBox="0 0 26 42" aria-hidden="true"><path d="M20 40C6 30 4 16 10 3" stroke="currentColor" stroke-width="1.6" fill="none"/><g fill="currentColor"><ellipse cx="13" cy="8" rx="2.4" ry="5" transform="rotate(-30 13 8)"/><ellipse cx="7" cy="14" rx="2.4" ry="5" transform="rotate(40 7 14)"/><ellipse cx="12" cy="19" rx="2.4" ry="5" transform="rotate(-40 12 19)"/><ellipse cx="7" cy="25" rx="2.4" ry="5" transform="rotate(50 7 25)"/><ellipse cx="14" cy="29" rx="2.4" ry="5" transform="rotate(-50 14 29)"/><ellipse cx="11" cy="35" rx="2.4" ry="5" transform="rotate(60 11 35)"/></g></svg>From The Useful Tech on Medium<svg viewBox="0 0 26 42" aria-hidden="true" style="transform:scaleX(-1)"><path d="M20 40C6 30 4 16 10 3" stroke="currentColor" stroke-width="1.6" fill="none"/><g fill="currentColor"><ellipse cx="13" cy="8" rx="2.4" ry="5" transform="rotate(-30 13 8)"/><ellipse cx="7" cy="14" rx="2.4" ry="5" transform="rotate(40 7 14)"/><ellipse cx="12" cy="19" rx="2.4" ry="5" transform="rotate(-40 12 19)"/><ellipse cx="7" cy="25" rx="2.4" ry="5" transform="rotate(50 7 25)"/><ellipse cx="14" cy="29" rx="2.4" ry="5" transform="rotate(-50 14 29)"/><ellipse cx="11" cy="35" rx="2.4" ry="5" transform="rotate(60 11 35)"/></g></svg></div>
+      <h1>Your iPhone Duo opens like a <em>music box.</em></h1>
+      <p class="lede">Wind the brass key, open the phone and a porcelain ballerina rises to dance to Satie.</p>
+      <div class="cta">
+        <a class="badge" data-store-badge aria-disabled="true" aria-label="Coming soon to the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.2 2.5 1.3 0 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.8 0-.1-2.9-1.1-3-4.1zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.3-.6 3-1.4z"/></svg><span><small data-store-line>Coming soon to the</small><b>App Store</b></span></a>
+        <a class="btn btn--ghost" data-notify href="https://newsletter.theusefultech.com/subscribe?utm_source=rosewood&amp;utm_medium=landing&amp;utm_campaign=launch" target="_blank" rel="noopener">Get notified</a>
+      </div>
+      <p class="meta">$2.99 once &nbsp;·&nbsp; No ads &nbsp;·&nbsp; No account</p>
+    </div>
+    <div class="stage">
+      <div class="device"><video src="/rosewood/assets/preview.mp4" poster="/rosewood/assets/preview-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Rosewood Music Box preview"></video></div>
+      <button class="sound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M17 9a4 4 0 0 1 0 6"/></svg><span>Sound on</span></button>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow reveal">The phone is the box</p>
+    <h2 class="reveal">Close it, open it or lay it <em>flat.</em></h2>
+    <p class="sub reveal">Every way you hold your iPhone Duo does something a real music box would do.</p>
+    <div class="states">
+      <article class="state reveal"><figure><img src="/rosewood/assets/closed.webp" alt="The closed lid with its marquetry rosette, brass key and engraved nameplate" loading="lazy" width="1100" height="774"></figure><div class="txt"><p class="n">Closed</p><h3>Wind the brass key</h3><p>The outer screen is the lid. Drag on it and every turn clicks like a real spring.</p></div></article>
+      <article class="state reveal"><figure><img src="/rosewood/assets/open.webp" alt="The open box with the mirrored lid above and the dancer below" loading="lazy" width="900" height="1279"></figure><div class="txt"><p class="n">Open</p><h3>Lift the lid</h3><p>The top half becomes the lid and its mirror. The bottom half is the box, where she rises and dances.</p></div></article>
+      <article class="state reveal"><figure><img src="/rosewood/assets/cabinet.webp" alt="The Cylinder Cabinet with 6 brass cylinders" loading="lazy" width="900" height="1279"></figure><div class="txt"><p class="n">Flat</p><h3>Pick a cylinder</h3><p>Lay the phone flat and the Cylinder Cabinet opens. Tap one to change the tune.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="split">
+      <figure class="frame reveal"><img src="/rosewood/assets/mirror.webp" alt="The ballerina reflected in the mirror inside the lid" loading="lazy" width="900" height="1220"></figure>
+      <div>
+        <p class="eyebrow reveal">The lid</p>
+        <h2 class="reveal">She dances in the <em>lid's mirror.</em></h2>
+        <p class="sub reveal">The mirror is a true reflection, so it shifts as you fold the phone, just like tilting a real lid.</p>
+      </div>
+    </div>
+    <div class="split rev">
+      <figure class="frame reveal"><img src="/rosewood/assets/movement.webp" alt="The brass cylinder and steel comb under glass" loading="lazy" width="900" height="1221"></figure>
+      <div>
+        <p class="eyebrow reveal">Inside</p>
+        <h2 class="reveal">Watch every pin pluck <em>the comb.</em></h2>
+        <ul class="list reveal">
+          <li>Built in 3D, down to the last steel tooth.</li>
+          <li>The music slows as the spring runs down.</li>
+          <li>Opening the lid lets the sound out. Closing it muffles it.</li>
+          <li>The light moves as you tilt your phone.</li>
+          <li>Tap the dancer for an extra twirl.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow reveal">6 cylinders</p>
+    <h2 class="reveal">Timeless tunes, <em>one turn away.</em></h2>
+    <div class="tunes">
+      <div class="tune reveal"><b>Gymnopédie No. 1</b><small>Erik Satie</small></div>
+      <div class="tune reveal"><b>Für Elise</b><small>Beethoven</small></div>
+      <div class="tune reveal"><b>Swan Lake</b><small>Tchaikovsky</small></div>
+      <div class="tune reveal"><b>Lullaby</b><small>Brahms</small></div>
+      <div class="tune reveal"><b>Greensleeves</b><small>Traditional</small></div>
+      <div class="tune reveal"><b>Twinkle Twinkle</b><small>Traditional</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="private">
+  <div class="wrap">
+    <p class="eyebrow reveal">Private by design</p>
+    <h2 class="reveal">Pay once, and it's <em>yours.</em></h2>
+    <p class="sub reveal">No ads. No account. No tracking. No subscription. The app never goes online. <a href="/rosewood/privacy/">Privacy policy</a></p>
+    <div class="plaque reveal"><div><b>ROSEWOOD</b>NO. 001<br>18-TOOTH COMB<br>6 CYLINDERS<br>HAND WOUND</div></div>
+  </div>
+</section>
+
+<div class="final">
+  <div class="wrap">
+    <img src="/rosewood/assets/icon-512.webp" alt="" width="120" height="120">
+    <h2 style="margin-inline:auto">Rosewood <em>Music Box</em></h2>
+    <p class="sub" style="margin-inline:auto">Made for iPhone Duo. Works on every iPhone.</p>
+    <div class="cta" style="margin-top:30px">
+      <a class="badge" data-store-badge aria-disabled="true" aria-label="Coming soon to the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.2 2.5 1.3 0 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.8 0-.1-2.9-1.1-3-4.1zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.3-.6 3-1.4z"/></svg><span><small data-store-line>Coming soon to the</small><b>App Store</b></span></a>
+    </div>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>Made by Raja at <a href="/">The Useful Media Co</a>, Chennai.</span>
+    <nav aria-label="Rosewood"><a href="/rosewood/support/">Support</a><a href="/rosewood/privacy/">Privacy</a><a href="mailto:raja@theusefultech.com?subject=Rosewood">Contact</a></nav>
+  </div>
+</footer>
+<script>
+/* Set APP_STORE_URL on release day and every badge becomes a live App Store link. */
+var APP_STORE_URL = "";
+(function(){
+  if (APP_STORE_URL) {
+    document.querySelectorAll('[data-store-badge]').forEach(function(a){
+      a.href = APP_STORE_URL; a.removeAttribute('aria-disabled'); a.setAttribute('aria-label','Download on the App Store');
+      var s = a.querySelector('[data-store-line]'); if (s) s.textContent = 'Download on the';
+    });
+    document.querySelectorAll('[data-notify]').forEach(function(a){ a.href = APP_STORE_URL; a.removeAttribute('target'); a.textContent = 'Get it'; });
+  }
+  var v = document.querySelector('.device video'), b = document.querySelector('.sound');
+  if (v && b) b.addEventListener('click', function(){
+    v.muted = !v.muted; if (!v.muted) { v.currentTime = 0; v.play(); }
+    b.setAttribute('aria-pressed', String(!v.muted)); b.querySelector('span').textContent = v.muted ? 'Sound on' : 'Sound off';
+  });
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin: '0px 0px -8% 0px'}) : null;
+  document.querySelectorAll('.reveal').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); });
+})();
+</script>
+</body>
+</html>

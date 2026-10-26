@@ -58,41 +58,41 @@
   }
 
   // ---------- The strap ----------
-  // One leather strap runs from the hero watch down through every phone to
-  // the buckle above the signup. Drawn from the anchors' real positions, so
-  // it follows the layout at every width. It runs out as you scroll.
+  // One leather strap runs from the hero watch to the buckle above the
+  // signup. It keeps to the page's right gutter, outside the content column,
+  // so it never crosses text, a card, a button or a phone at any width. It
+  // runs out as you scroll.
   var svg = $("[data-strap]");
   var main = $("#main");
   var strap = null;
   function buildStrap() {
     if (!svg || !main) return;
-    var anchors = $$("[data-strap-anchor]");
-    if (anchors.length < 2) return;
+    var startEl = $("[data-strap-anchor=start]"), endEl = $("[data-strap-anchor=end]"), wrapEl = $(".wrap", main);
+    if (!startEl || !endEl || !wrapEl) return;
     var mr = main.getBoundingClientRect();
     var W = main.clientWidth, H = main.scrollHeight;
-    // Below 960 px the hero stacks, so the strap keeps to the right edge.
+    // The gutter: from the content column's right edge to the page edge.
+    var wr = wrapEl.getBoundingClientRect(), pad = parseFloat(getComputedStyle(wrapEl).paddingRight) || 0;
+    var right = wr.right - pad - mr.left, gut = W - right;
+    var sw = Math.max(8, Math.min(34, gut - 8));
+    var gx = right + gut / 2;
     var narrow = W < 960;
-    var sw = W < 760 ? 16 : narrow ? 24 : 34;
-    var pts = anchors.map(function (a, i) {
-      var r = a.getBoundingClientRect();
-      var x = r.left - mr.left + r.width / 2, y = r.top - mr.top + r.height / 2;
-      if (a.getAttribute("data-strap-anchor") === "start") y = r.top - mr.top + r.height * 0.78;
-      if (a.getAttribute("data-strap-anchor") === "end") y = r.top - mr.top + r.height / 2;
-      // On phones the strap hugs the right edge, clear of the text, and only
-      // comes in to the centre at the hero watch and at the buckle.
-      if (narrow && a.getAttribute("data-strap-anchor") !== "end") x = W - 13 + (i % 2 ? -4 : 4);
-      if (narrow && i === 0) y = r.top - mr.top + r.height * 0.5;
-      return [x, y];
-    });
-    // Catmull-Rom through the anchors, as cubic Beziers.
-    var d = "M" + pts[0][0].toFixed(1) + " " + pts[0][1].toFixed(1);
-    for (var i = 0; i < pts.length - 1; i++) {
-      var p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
-      var t = 0.5;
-      var c1 = [p1[0] + (p2[0] - p0[0]) * t / 3 * 1.6, p1[1] + (p2[1] - p0[1]) * t / 3];
-      var c2 = [p2[0] - (p3[0] - p1[0]) * t / 3 * 1.6, p2[1] - (p3[1] - p1[1]) * t / 3];
-      d += " C" + c1[0].toFixed(1) + " " + c1[1].toFixed(1) + " " + c2[0].toFixed(1) + " " + c2[1].toFixed(1) + " " + p2[0].toFixed(1) + " " + p2[1].toFixed(1);
+    var s = startEl.getBoundingClientRect(), e = endEl.getBoundingClientRect();
+    // Wide: out of the hero watch's own strap. Narrow: the watch sits in the
+    // content column, so the strap starts in the gutter beside it.
+    var sx = narrow ? gx : s.left - mr.left + s.width / 2, sy = s.top - mr.top + s.height * (narrow ? 0.5 : 0.78);
+    var bx = e.left - mr.left + e.width / 2, by = e.top - mr.top + e.height / 2;
+    var r = Math.min(narrow ? 48 : 120, (gx - bx) / 2);
+    var d = "M" + sx.toFixed(1) + " " + sy.toFixed(1);
+    if (!narrow) {
+      // A soft S from the watch into the gutter.
+      var drop = Math.max(180, (gx - sx) * 0.9);
+      d += " C" + (sx + (gx - sx) * 0.55).toFixed(1) + " " + sy.toFixed(1) + " " + gx.toFixed(1) + " " + (sy + drop * 0.35).toFixed(1) + " " + gx.toFixed(1) + " " + (sy + drop).toFixed(1);
     }
+    // Down the gutter, then in to the buckle through the empty space above it.
+    d += " L" + gx.toFixed(1) + " " + (by - r).toFixed(1);
+    d += " Q" + gx.toFixed(1) + " " + by.toFixed(1) + " " + (gx - r).toFixed(1) + " " + by.toFixed(1);
+    d += " L" + bx.toFixed(1) + " " + by.toFixed(1);
     svg.setAttribute("width", W);
     svg.setAttribute("height", H);
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
@@ -101,7 +101,7 @@
     set("strap-edge", sw + 2);
     set("strap-body", sw);
     set("strap-stitch", sw - 7);
-    set("strap-top", sw - 10);
+    set("strap-top", Math.max(1, sw - 10));
     var sheen = set("strap-sheen", 2);
     sheen.setAttribute("transform", "translate(-" + (sw * 0.18).toFixed(1) + " 0)");
     var mask = set("strap-mask", sw + 8);

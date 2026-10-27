@@ -6,7 +6,7 @@ Last updated: 2026-10-22
 
 ## Useful Studio
 
-> Useful Studio is a Claude Code skill pack for Mac, made by The Useful Media Co. It turns 1 typed line into a finished, branded short video (launch film, reel, explainer or b-roll) as MP4 in 16:9 and 9:16. Price: $199 one time until Sat 31 Oct 2026 ($299 list). Studio Pro is $349. Needs a Mac on macOS 14 or later and Claude Code with a paid Claude plan. Videos run 15 to 90 seconds. It does not generate AI images or footage of people. It is independent and not made or endorsed by Anthropic.
+> Useful Studio is a Claude Code skill pack for Mac, made by The Useful Media Co. It turns 1 typed line into a finished, branded short video (launch film, reel, explainer or b-roll) as MP4 in 16:9 and 9:16. Price: $79 one time, rising $20 to $30 after every 20 sales up to $79 (ladder: $79, $99, $129, $149, $79). Runs on the buyer's own Claude plan. Studio Pro is $349. Needs a Mac on macOS 14 or later and Claude Code with a paid Claude plan. Videos run 15 to 90 seconds. It does not generate AI images or footage of people. It is independent and not made or endorsed by Anthropic.
 
 - [Useful Studio](https://theusefulmedia.com/studio/): Product page with pricing, 11 example videos, requirements and FAQ.
 - [Useful Studio vs lemo-opuscar](https://theusefulmedia.com/studio/vs-lemo-opuscar/): Comparison with the free Claude Code skill that has 59 film styles.

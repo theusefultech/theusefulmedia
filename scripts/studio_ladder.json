@@ -1,0 +1,2 @@
+{"price": 79, "next": 99, "left": 20, "steps": [79, 99, 129, 149, 199], "per_step": 20,
+ "note": "Useful Studio price ladder approved by Raja 27 Oct 2026. Run python3 scripts/studio_ladder.py <price> <left> to move it; also change the Gumroad price."}

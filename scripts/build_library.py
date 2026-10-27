@@ -464,7 +464,13 @@ def write_forwards(issues):
 
 
 def main():
-    sm = fetch(f"{BASE}/sitemap.xml")
+    try:
+        sm = fetch(f"{BASE}/sitemap.xml")
+    except Exception as e:
+        # Beehiiv occasionally 404s or times out on the sitemap. Keep the
+        # current library as-is and let the next scheduled run rebuild it.
+        print(f"::warning::Sitemap unavailable ({e}); keeping existing library", file=sys.stderr)
+        sys.exit(0)
     urls = re.findall(r"<loc>(https?://[^<]+/p/[^<]+)</loc>", sm)
     urls = list(dict.fromkeys(urls))
     print(f"{len(urls)} issues in sitemap")

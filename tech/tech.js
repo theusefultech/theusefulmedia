@@ -158,6 +158,9 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
       waitForToken(form, 6000).then(function (token) {
         var extra = utm();
         if (form.getAttribute("data-campaign") && !extra.utm_campaign) extra.utm_campaign = form.getAttribute("data-campaign");
+        // data-source names the form itself (e.g. the Wristkeeper page), so it wins over a link's utm_source.
+        if (form.getAttribute("data-source")) extra.utm_source = form.getAttribute("data-source");
+        if (form.getAttribute("data-medium") && !extra.utm_medium) extra.utm_medium = form.getAttribute("data-medium");
         var payload = Object.assign({ email: email, token: token, website: hp ? hp.value : "" }, extra);
         return fetch(SIGNUP_ENDPOINT, {
           method: "POST",

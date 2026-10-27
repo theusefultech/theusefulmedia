@@ -32,8 +32,8 @@
 <link rel="preload" href="/wristkeeper/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/wristkeeper/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" type="image/avif" href="/wristkeeper/assets/v2/hero-watch-1080.avif" imagesrcset="/wristkeeper/assets/v2/hero-watch-720.avif 720w, /wristkeeper/assets/v2/hero-watch-1080.avif 1080w, /wristkeeper/assets/v2/hero-watch-1440.avif 1440w" imagesizes="(min-width: 960px) 46vw, 86vw" fetchpriority="high">
-<link rel="stylesheet" href="/wristkeeper/assets/wk2.css">
-<script src="/wristkeeper/assets/wk2.js" defer></script>
+<link rel="stylesheet" href="/wristkeeper/assets/wk3.css">
+<script src="/wristkeeper/assets/wk3.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,7 +63,8 @@
   <div class="wrap top-row">
     <a class="logo" href="/wristkeeper/" aria-label="Wristkeeper home"><img src="/wristkeeper/assets/icon-180.png" alt="" width="30" height="30"><span>Wristkeeper</span></a>
     <nav class="top-nav" aria-label="Page">
-      <a href="#pick">The app</a>
+      <a href="#how">How it works</a>
+      <a href="#more">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="/wristkeeper/support/">Support</a>
     </nav>
@@ -72,41 +73,25 @@
 </header>
 
 <main id="main">
-<svg class="strap" data-strap aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="strapShade" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0" stop-color="#141318"/><stop offset="0.5" stop-color="#25232B"/><stop offset="1" stop-color="#141318"/>
-    </linearGradient>
-    <mask id="strapReveal" maskUnits="userSpaceOnUse"><path class="strap-mask" fill="none" stroke="#fff" stroke-linecap="round"/></mask>
-  </defs>
-  <g mask="url(#strapReveal)">
-    <path class="strap-edge" fill="none"/>
-    <path class="strap-body" fill="none"/>
-    <path class="strap-stitch" fill="none"/>
-    <path class="strap-top" fill="none"/>
-    <path class="strap-sheen" fill="none"/>
-  </g>
-</svg>
-
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="cred" data-rise>From The Useful Tech, 78K followers on Medium</p>
-      <h1 id="hero-title" data-rise style="--d:60ms">The right watch, every <em>morning.</em></h1>
-      <p class="lede" data-rise style="--d:140ms">Wristkeeper is an iPhone app for watch collectors. It picks today's watch from the ones you own, logs each wear with 1 hold and shows what every watch really costs you to wear.</p>
-      <div class="hero-actions" data-rise style="--d:220ms">
-        <!-- The badge reads "Coming soon" until APP_STORE_URL in /wristkeeper/assets/wk2.js is set. -->
+      <p class="kicker" data-in>An iPhone app for watch collectors</p>
+      <h1 id="hero-title" data-in style="--d:60ms">The right watch, every <em>morning.</em></h1>
+      <p class="lede" data-in style="--d:120ms">Wristkeeper picks today's watch from the ones you own, logs every wear with 1 press and shows what each watch really costs you to wear.</p>
+      <div class="hero-actions" data-in style="--d:180ms">
+        <!-- The badge reads "Coming soon" until APP_STORE_URL in /wristkeeper/assets/wk3.js is set. -->
         <a class="store" data-store role="img" aria-label="Coming soon to the App Store">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 6.5v5.5l3.4 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           <span><small data-store-line>Coming soon to the</small><b>App Store</b></span>
         </a>
         <a class="btn" href="#signup">Get the launch note</a>
       </div>
-      <ul class="facts" data-rise style="--d:300ms" aria-label="Privacy at a glance">
+      <ul class="facts" data-in style="--d:240ms" aria-label="Privacy at a glance">
         <li>No account</li><li>No ads</li><li>No tracking</li>
       </ul>
     </div>
-    <div class="hero-stage" data-hero data-strap-anchor="start">
+    <div class="hero-stage" data-hero>
       <div class="hero-glow" aria-hidden="true"></div>
       <picture>
         <source type="image/avif" srcset="/wristkeeper/assets/v2/hero-watch-720.avif 720w, /wristkeeper/assets/v2/hero-watch-1080.avif 1080w, /wristkeeper/assets/v2/hero-watch-1440.avif 1440w" sizes="(min-width: 960px) 46vw, 86vw">
@@ -116,156 +101,134 @@
   </div>
 </section>
 
-<section class="feat" id="pick" aria-labelledby="pick-title">
-  <img class="ground" src="/wristkeeper/assets/v2/ground-leather-1452.webp" srcset="/wristkeeper/assets/v2/ground-leather-600.webp 600w, /wristkeeper/assets/v2/ground-leather-1452.webp 1452w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1452" height="900">
-  <div class="wrap feat-grid">
-    <div class="feat-copy">
-      <h2 id="pick-title">Free your <em>safe queens.</em></h2>
-      <p>Each morning Wristkeeper suggests 1 watch from your own box. It weighs the weather, the occasion and how long each watch has waited, then tells you why in plain words.</p>
+<section class="sec" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="sec-head" data-in>
+      <p class="kicker">How it works</p>
+      <h2 id="how-title">Wear every watch you <em>own.</em></h2>
+      <p>Most collectors wear the same 2 watches. Wristkeeper gets the rest back on your wrist in 3 steps.</p>
     </div>
-    <figure class="device" data-in>
-      <div class="phone"><img src="/wristkeeper/assets/v2/phone/today-330.webp" srcset="/wristkeeper/assets/v2/phone/today-330.webp 330w, /wristkeeper/assets/v2/phone/today-660.webp 660w" sizes="(min-width: 960px) 300px, 66vw" width="330" height="717" alt="Today in Wristkeeper: the Fortis Flieger GMT is suggested for a clear 91 degree Saturday." loading="lazy" decoding="async"></div>
-    </figure>
+    <div class="steps" data-steps>
+      <article class="step" data-step data-in>
+        <div class="step-copy"><p class="step-n">01</p><h3>Get a pick</h3><p>Each morning, 1 watch from your box, chosen for the weather, the day and how long it has waited.</p></div>
+        <div class="phone"><img src="/wristkeeper/assets/v2/phone/today-330.webp" srcset="/wristkeeper/assets/v2/phone/today-330.webp 330w, /wristkeeper/assets/v2/phone/today-660.webp 660w" sizes="(min-width: 960px) 280px, 70vw" width="330" height="717" alt="Today in Wristkeeper: the Invicta Pro Diver 8926 is suggested for a 72 degree rainy day, with Wear this today and the occasion chips." loading="lazy" decoding="async"></div>
+      </article>
+      <article class="step" data-step data-in style="--d:80ms">
+        <div class="step-copy"><p class="step-n">02</p><h3>Log the wear</h3><p>1 press and it's in the log. No forms, no typing. Missed a day? Add it later.</p></div>
+        <div class="phone"><img src="/wristkeeper/assets/v2/phone/logged-330.webp" srcset="/wristkeeper/assets/v2/phone/logged-330.webp 330w, /wristkeeper/assets/v2/phone/logged-660.webp 660w" sizes="(min-width: 960px) 280px, 70vw" width="330" height="717" alt="The Invicta Pro Diver 8926 logged as worn today, with 4 wears and $24 a wear." loading="lazy" decoding="async"></div>
+      </article>
+      <article class="step" data-step data-in style="--d:160ms">
+        <div class="step-copy"><p class="step-n">03</p><h3>See the value</h3><p>Every watch shows its wears and its real cost per wear, which drops each time you put it on.</p></div>
+        <div class="phone"><img src="/wristkeeper/assets/v2/phone/cost-330.webp" srcset="/wristkeeper/assets/v2/phone/cost-330.webp 330w, /wristkeeper/assets/v2/phone/cost-660.webp 660w" sizes="(min-width: 960px) 280px, 70vw" width="330" height="717" alt="The Casio AE-1200WHD's page: 5 wears, $5 a wear of $25 paid." loading="lazy" decoding="async"></div>
+      </article>
+    </div>
+    <div class="dots" role="group" aria-label="Steps">
+      <button type="button" class="is-on" data-step-dot aria-label="Step 1" aria-current="true"></button>
+      <button type="button" data-step-dot aria-label="Step 2"></button>
+      <button type="button" data-step-dot aria-label="Step 3"></button>
+    </div>
   </div>
 </section>
 
-<section class="feat is-flip" id="log" aria-labelledby="log-title">
-  <img class="ground" src="/wristkeeper/assets/v2/ground-guilloche-1452.webp" srcset="/wristkeeper/assets/v2/ground-guilloche-600.webp 600w, /wristkeeper/assets/v2/ground-guilloche-1452.webp 1452w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1452" height="900">
-  <div class="wrap feat-grid">
-    <div class="feat-copy">
-      <h2 id="log-title">Hold to log the <em>wear.</em></h2>
-      <p>Press and hold, and the wear is logged. No forms, no typing. The month ring fills as you go, so your rotation shows at a glance.</p>
-    </div>
-    <figure class="device" data-in>
-      <div class="phone"><img src="/wristkeeper/assets/v2/phone/logged-330.webp" srcset="/wristkeeper/assets/v2/phone/logged-330.webp 330w, /wristkeeper/assets/v2/phone/logged-660.webp 660w" sizes="(min-width: 960px) 300px, 66vw" width="330" height="717" alt="The Invicta Pro Diver 8926 worn today on a clear 91 degree Saturday: 4 wears, $24 a wear, the month ring around it." loading="lazy" decoding="async"></div>
-    </figure>
-  </div>
-</section>
-
-<section class="feat" id="cost" aria-labelledby="cost-title">
-  <img class="ground" src="/wristkeeper/assets/v2/ground-steel-1452.webp" srcset="/wristkeeper/assets/v2/ground-steel-600.webp 600w, /wristkeeper/assets/v2/ground-steel-1452.webp 1452w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1452" height="900">
-  <div class="wrap feat-grid">
-    <div class="feat-copy">
-      <h2 id="cost-title">Your real cost per <em>wear.</em></h2>
-      <p>Every wear makes a watch better value. Wristkeeper divides what you paid by how often you wear it, for each watch and for the whole collection.</p>
+<section class="sec" id="cost" aria-labelledby="cost-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="cpw-band" data-in>
+      <div class="sec-head" style="margin:0">
+        <p class="kicker">Cost per wear</p>
+        <h2 id="cost-title">Every wear makes it a better <em>buy.</em></h2>
+      </div>
       <div class="cpw" data-cpw>
-        <label for="cpw-wears">Try it: a $25 Casio, worn <output data-cpw-n for="cpw-wears">5</output> times</label>
+        <label for="cpw-wears">A $25 Casio, worn <output data-cpw-n for="cpw-wears">5</output> times</label>
         <input id="cpw-wears" type="range" min="1" max="100" value="5" step="1">
-        <p class="cpw-out"><span data-cpw-v>$5.00</span> a wear</p>
+        <p class="cpw-out"><span data-cpw-v>$5.00</span><small>a wear</small></p>
       </div>
     </div>
-    <figure class="device" data-in>
-      <div class="phone"><img src="/wristkeeper/assets/v2/phone/cost-330.webp" srcset="/wristkeeper/assets/v2/phone/cost-330.webp 330w, /wristkeeper/assets/v2/phone/cost-660.webp 660w" sizes="(min-width: 960px) 300px, 66vw" width="330" height="717" alt="The Casio AE-1200WHD's page: 5 wears since 4 September, 2 this month, $5 a wear of $25 paid." loading="lazy" decoding="async"></div>
-    </figure>
   </div>
 </section>
 
-<section class="rotation" id="rotation" aria-labelledby="rot-title">
-  <img class="ground" src="/wristkeeper/assets/v2/ground-velvet-1452.webp" srcset="/wristkeeper/assets/v2/ground-velvet-600.webp 600w, /wristkeeper/assets/v2/ground-velvet-1452.webp 1452w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1452" height="900">
+<section class="sec" id="more" aria-labelledby="more-title" style="padding-top:0">
   <div class="wrap">
-    <div class="rot-head">
-      <h2 id="rot-title">Your rotation, <em>sorted.</em></h2>
-      <p>Your whole collection in 1 grid, each watch with its wear count. These are the 12 sample watches you can try in the app. Free keeps 3 of your own watches; Pro has no limit.</p>
+    <div class="sec-head" data-in>
+      <p class="kicker">And there's more</p>
+      <h2 id="more-title">Small things collectors <em>love.</em></h2>
     </div>
-    <ul class="watch-grid" aria-label="The 12 sample watches in Wristkeeper">
-      <li data-in style="--d:0ms"><img src="/wristkeeper/assets/v2/watches/seiko-speedtimer-260.webp" srcset="/wristkeeper/assets/v2/watches/seiko-speedtimer-260.webp 260w, /wristkeeper/assets/v2/watches/seiko-speedtimer-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Seiko Speedtimer</span></li>
-      <li data-in style="--d:40ms"><img src="/wristkeeper/assets/v2/watches/seiko-alpinist-260.webp" srcset="/wristkeeper/assets/v2/watches/seiko-alpinist-260.webp 260w, /wristkeeper/assets/v2/watches/seiko-alpinist-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Seiko Alpinist</span></li>
-      <li data-in style="--d:80ms"><img src="/wristkeeper/assets/v2/watches/citizen-promaster-260.webp" srcset="/wristkeeper/assets/v2/watches/citizen-promaster-260.webp 260w, /wristkeeper/assets/v2/watches/citizen-promaster-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Citizen Promaster Diver</span></li>
-      <li data-in style="--d:120ms"><img src="/wristkeeper/assets/v2/watches/invicta-pro-diver-260.webp" srcset="/wristkeeper/assets/v2/watches/invicta-pro-diver-260.webp 260w, /wristkeeper/assets/v2/watches/invicta-pro-diver-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Invicta Pro Diver</span></li>
-      <li data-in style="--d:160ms"><img src="/wristkeeper/assets/v2/watches/addiesdive-diver-260.webp" srcset="/wristkeeper/assets/v2/watches/addiesdive-diver-260.webp 260w, /wristkeeper/assets/v2/watches/addiesdive-diver-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Blue bezel diver</span></li>
-      <li data-in style="--d:200ms"><img src="/wristkeeper/assets/v2/watches/fortis-flieger-260.webp" srcset="/wristkeeper/assets/v2/watches/fortis-flieger-260.webp 260w, /wristkeeper/assets/v2/watches/fortis-flieger-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Fortis Flieger GMT</span></li>
-      <li data-in style="--d:240ms"><img src="/wristkeeper/assets/v2/watches/cadisen-c8173-260.webp" srcset="/wristkeeper/assets/v2/watches/cadisen-c8173-260.webp 260w, /wristkeeper/assets/v2/watches/cadisen-c8173-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Cadisen C8173</span></li>
-      <li data-in style="--d:280ms"><img src="/wristkeeper/assets/v2/watches/blue-sunburst-260.webp" srcset="/wristkeeper/assets/v2/watches/blue-sunburst-260.webp 260w, /wristkeeper/assets/v2/watches/blue-sunburst-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Blue sunburst dress watch</span></li>
-      <li data-in style="--d:320ms"><img src="/wristkeeper/assets/v2/watches/fossil-chronograph-260.webp" srcset="/wristkeeper/assets/v2/watches/fossil-chronograph-260.webp 260w, /wristkeeper/assets/v2/watches/fossil-chronograph-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Fossil chronograph</span></li>
-      <li data-in style="--d:360ms"><img src="/wristkeeper/assets/v2/watches/timex-classic-260.webp" srcset="/wristkeeper/assets/v2/watches/timex-classic-260.webp 260w, /wristkeeper/assets/v2/watches/timex-classic-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Timex classic</span></li>
-      <li data-in style="--d:400ms"><img src="/wristkeeper/assets/v2/watches/casio-world-time-260.webp" srcset="/wristkeeper/assets/v2/watches/casio-world-time-260.webp 260w, /wristkeeper/assets/v2/watches/casio-world-time-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Casio World Time</span></li>
-      <li data-in style="--d:440ms"><img src="/wristkeeper/assets/v2/watches/casio-gshock-260.webp" srcset="/wristkeeper/assets/v2/watches/casio-gshock-260.webp 260w, /wristkeeper/assets/v2/watches/casio-gshock-520.webp 520w" sizes="(min-width: 960px) 200px, 30vw" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Casio G Shock</span></li>
+    <div class="bento">
+      <article class="tile" data-in>
+        <div class="tile-copy"><h3>Reads the weather</h3><p>Rain on the way? It picks a diver on a bracelet, not your leather dress watch, and says why.</p></div>
+        <div class="shot"><img src="/wristkeeper/assets/v2/phone/rain-330.webp" srcset="/wristkeeper/assets/v2/phone/rain-330.webp 330w, /wristkeeper/assets/v2/phone/rain-660.webp 660w" sizes="(min-width: 960px) 280px, 70vw" width="330" height="717" alt="Today on a rainy day: the Seiko Alpinist Green is suggested." loading="lazy" decoding="async"></div>
+      </article>
+      <article class="tile" data-in style="--d:80ms">
+        <div class="tile-copy"><h3>Your month, wrapped</h3><p>The Wrist Report tells your month's story in slides you can share, or as a video with Pro.</p></div>
+        <div class="shot"><img src="/wristkeeper/assets/v2/phone/report-330.webp" srcset="/wristkeeper/assets/v2/phone/report-330.webp 330w, /wristkeeper/assets/v2/phone/report-660.webp 660w" sizes="(min-width: 960px) 280px, 70vw" width="330" height="717" alt="The September Wrist Report: most worn, the Seiko Speedtimer SSC813." loading="lazy" decoding="async"></div>
+      </article>
+      <article class="tile" data-in>
+        <div class="tile-copy"><h3>Your whole box</h3><p>Every watch with its wears, value and history. Ask it questions like "what haven't I worn lately?"</p></div>
+        <div class="shot"><img src="/wristkeeper/assets/v2/phone/collection-330.webp" srcset="/wristkeeper/assets/v2/phone/collection-330.webp 330w, /wristkeeper/assets/v2/phone/collection-660.webp 660w" sizes="(min-width: 960px) 280px, 70vw" width="330" height="717" alt="The collection grid with each watch's wear count." loading="lazy" decoding="async"></div>
+      </article>
+      <article class="tile" data-in style="--d:80ms">
+        <div class="tile-copy"><h3>8 dial icons</h3><p>Pro adds app icons drawn as watch dials, from Panda to Cola, plus 3 accent colours.</p></div>
+        <div class="shot"><img src="/wristkeeper/assets/v2/phone/icons-330.webp" srcset="/wristkeeper/assets/v2/phone/icons-330.webp 330w, /wristkeeper/assets/v2/phone/icons-660.webp 660w" sizes="(min-width: 960px) 280px, 70vw" width="330" height="717" alt="The app icon gallery: Default, Black, White, Green, Blue, Salmon, Panda, Cola and Night." loading="lazy" decoding="async"></div>
+      </article>
+      <article class="tile tile-wide tile-zeros" data-in id="privacy">
+        <div class="tile-copy"><h3>Your collection stays yours</h3><p>Your watches, photos and wear log live on your iPhone and sync through your own iCloud. We never see them.</p><a class="text-link" href="/wristkeeper/privacy/">Read the privacy policy</a></div>
+        <ul class="zeros">
+          <li><b>No account</b><span>Open it and start</span></li>
+          <li><b>No ads</b><span>No banners, no sponsors</span></li>
+          <li><b>No tracking</b><span>No analytics in the app</span></li>
+          <li><b>Your iCloud</b><span>Synced by Apple</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rotation" aria-labelledby="rot-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head" data-in>
+      <p class="kicker">Try it first</p>
+      <h2 id="rot-title">12 sample watches to <em>play with.</em></h2>
+      <p>Start with the samples, then add your own. Free keeps 3 of your watches; Pro has no limit.</p>
+    </div>
+    <ul class="rot" aria-label="The 12 sample watches in Wristkeeper">
+      <li><img src="/wristkeeper/assets/v2/watches/seiko-speedtimer-260.webp" srcset="/wristkeeper/assets/v2/watches/seiko-speedtimer-260.webp 260w, /wristkeeper/assets/v2/watches/seiko-speedtimer-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Seiko Speedtimer</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/seiko-alpinist-260.webp" srcset="/wristkeeper/assets/v2/watches/seiko-alpinist-260.webp 260w, /wristkeeper/assets/v2/watches/seiko-alpinist-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Seiko Alpinist</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/citizen-promaster-260.webp" srcset="/wristkeeper/assets/v2/watches/citizen-promaster-260.webp 260w, /wristkeeper/assets/v2/watches/citizen-promaster-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Citizen Promaster Diver</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/invicta-pro-diver-260.webp" srcset="/wristkeeper/assets/v2/watches/invicta-pro-diver-260.webp 260w, /wristkeeper/assets/v2/watches/invicta-pro-diver-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Invicta Pro Diver</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/addiesdive-diver-260.webp" srcset="/wristkeeper/assets/v2/watches/addiesdive-diver-260.webp 260w, /wristkeeper/assets/v2/watches/addiesdive-diver-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Blue bezel diver</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/fortis-flieger-260.webp" srcset="/wristkeeper/assets/v2/watches/fortis-flieger-260.webp 260w, /wristkeeper/assets/v2/watches/fortis-flieger-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Fortis Flieger GMT</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/cadisen-c8173-260.webp" srcset="/wristkeeper/assets/v2/watches/cadisen-c8173-260.webp 260w, /wristkeeper/assets/v2/watches/cadisen-c8173-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Cadisen C8173</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/blue-sunburst-260.webp" srcset="/wristkeeper/assets/v2/watches/blue-sunburst-260.webp 260w, /wristkeeper/assets/v2/watches/blue-sunburst-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Blue sunburst dress watch</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/fossil-chronograph-260.webp" srcset="/wristkeeper/assets/v2/watches/fossil-chronograph-260.webp 260w, /wristkeeper/assets/v2/watches/fossil-chronograph-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Fossil chronograph</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/timex-classic-260.webp" srcset="/wristkeeper/assets/v2/watches/timex-classic-260.webp 260w, /wristkeeper/assets/v2/watches/timex-classic-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Timex classic</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/casio-world-time-260.webp" srcset="/wristkeeper/assets/v2/watches/casio-world-time-260.webp 260w, /wristkeeper/assets/v2/watches/casio-world-time-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Casio World Time</span></li>
+      <li><img src="/wristkeeper/assets/v2/watches/casio-gshock-260.webp" srcset="/wristkeeper/assets/v2/watches/casio-gshock-260.webp 260w, /wristkeeper/assets/v2/watches/casio-gshock-520.webp 520w" sizes="(min-width: 960px) 180px, 132px" width="260" height="260" alt="" loading="lazy" decoding="async"><span>Casio G Shock</span></li>
     </ul>
-    <p class="rot-credit">Photos from Unsplash and Wikimedia Commons, each credited on the <a href="/wristkeeper/credits/">credits page</a>.</p>
+    <p class="rot-credit">Photos from Unsplash and Wikimedia Commons, credited on the <a href="/wristkeeper/credits/">credits page</a>.</p>
   </div>
 </section>
 
-<section class="feat is-flip" id="weather" aria-labelledby="wx-title">
-  <img class="ground" src="/wristkeeper/assets/v2/ground-guilloche-1452.webp" srcset="/wristkeeper/assets/v2/ground-guilloche-600.webp 600w, /wristkeeper/assets/v2/ground-guilloche-1452.webp 1452w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1452" height="900">
-  <div class="wrap feat-grid">
-    <div class="feat-copy">
-      <h2 id="wx-title">Picks that read the <em>weather.</em></h2>
-      <p>Rain or heat, the daily pick knows what to wear today. On a wet Thursday it picks a 200m diver on a bracelet, and says why.</p>
-    </div>
-    <figure class="device" data-in>
-      <div class="phone"><img src="/wristkeeper/assets/v2/phone/rain-330.webp" srcset="/wristkeeper/assets/v2/phone/rain-330.webp 330w, /wristkeeper/assets/v2/phone/rain-660.webp 660w" sizes="(min-width: 960px) 300px, 66vw" width="330" height="717" alt="Today on a rainy 72 degree Thursday: the Seiko Alpinist Green is suggested." loading="lazy" decoding="async"></div>
-    </figure>
-  </div>
-</section>
-
-<section class="feat" id="report" aria-labelledby="report-title">
-  <img class="ground" src="/wristkeeper/assets/v2/ground-leather-1452.webp" srcset="/wristkeeper/assets/v2/ground-leather-600.webp 600w, /wristkeeper/assets/v2/ground-leather-1452.webp 1452w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1452" height="900">
-  <div class="wrap feat-grid">
-    <div class="feat-copy">
-      <h2 id="report-title">Your month, on the <em>wrist.</em></h2>
-      <p>At the end of each month the Wrist Report tells the story: your most worn watch, your rotation, your cost per wear and how the month compares with the last. Share it as slides, or as a video with Pro.</p>
-    </div>
-    <figure class="device" data-in>
-      <div class="phone"><img src="/wristkeeper/assets/v2/phone/report-330.webp" srcset="/wristkeeper/assets/v2/phone/report-330.webp 330w, /wristkeeper/assets/v2/phone/report-660.webp 660w" sizes="(min-width: 960px) 300px, 66vw" width="330" height="717" alt="The September Wrist Report: most worn in September, the Seiko Speedtimer SSC813, 7 wears." loading="lazy" decoding="async"></div>
-    </figure>
-  </div>
-</section>
-
-<section class="feat is-flip" id="icons" aria-labelledby="icons-title">
-  <img class="ground" src="/wristkeeper/assets/v2/ground-steel-1452.webp" srcset="/wristkeeper/assets/v2/ground-steel-600.webp 600w, /wristkeeper/assets/v2/ground-steel-1452.webp 1452w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1452" height="900">
-  <div class="wrap feat-grid">
-    <div class="feat-copy">
-      <h2 id="icons-title">8 dial icons, your <em>colours.</em></h2>
-      <p>Pro adds 8 app icons drawn as watch dials, from Black to Night, with Cola and Panda in between, plus 3 accent themes for the app.</p>
-    </div>
-    <figure class="device" data-in>
-      <div class="phone"><img src="/wristkeeper/assets/v2/phone/icons-330.webp" srcset="/wristkeeper/assets/v2/phone/icons-330.webp 330w, /wristkeeper/assets/v2/phone/icons-660.webp 660w" sizes="(min-width: 960px) 300px, 66vw" width="330" height="717" alt="The app icon gallery: Default, Black, White, Green, Blue, Salmon, Panda, Cola and Night." loading="lazy" decoding="async"></div>
-    </figure>
-  </div>
-</section>
-
-<section class="motion" id="preview" aria-labelledby="motion-title">
+<section class="sec motion" id="preview" aria-labelledby="motion-title" style="padding-top:0">
   <div class="wrap motion-grid">
-    <div class="motion-copy">
+    <div class="sec-head" data-in>
+      <p class="kicker">20 seconds</p>
       <h2 id="motion-title">See it in <em>motion.</em></h2>
-      <p>The pick, the hold, the month. The App Store preview, recorded in the app.</p>
       <button class="sound" type="button" data-sound aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8h3l4-3v10l-4-3H3z"/><path class="wave" d="M13.5 7.5a3.5 3.5 0 0 1 0 5M15.5 5.5a6 6 0 0 1 0 9"/><path class="mute" d="M13 8l4 4M17 8l-4 4"/></svg><span>Sound on</span></button>
     </div>
-    <div class="device device-video" data-in>
-      <div class="phone"><video data-video muted playsinline loop preload="none" poster="/wristkeeper/assets/v2/preview-poster-600.webp" width="600" height="1300" aria-label="The Wristkeeper App Store preview: picking, logging and the Wrist Report."><source src="/wristkeeper/assets/v2/preview-600.mp4" type="video/mp4"></video></div>
-    </div>
+    <div class="phone" data-in><video data-video muted playsinline loop preload="none" poster="/wristkeeper/assets/v2/preview-poster-600.webp" width="600" height="1300" aria-label="The Wristkeeper App Store preview: picking, logging and the Wrist Report."><source src="/wristkeeper/assets/v2/preview-600.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 
-<section class="feat" id="privacy" aria-labelledby="priv-title">
-  <img class="ground" src="/wristkeeper/assets/v2/ground-velvet-1452.webp" srcset="/wristkeeper/assets/v2/ground-velvet-600.webp 600w, /wristkeeper/assets/v2/ground-velvet-1452.webp 1452w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1452" height="900">
-  <div class="wrap feat-grid">
-    <div class="feat-copy">
-      <h2 id="priv-title">Your collection stays <em>yours.</em></h2>
-      <p>Your watches, photos and wear log live on your iPhone and sync through your own iCloud. We never see them.</p>
-      <ul class="zeros">
-        <li><b>No account</b><span>Open the app and start.</span></li>
-        <li><b>No ads</b><span>No banners, no sponsors.</span></li>
-        <li><b>No tracking</b><span>No analytics in the app.</span></li>
-        <li><b>Your own iCloud</b><span>Sync runs through your Apple account.</span></li>
-      </ul>
-      <a class="text-link" href="/wristkeeper/privacy/">Read the privacy policy</a>
-    </div>
-    <figure class="device" data-in>
-      <div class="phone"><img src="/wristkeeper/assets/v2/phone/about-330.webp" srcset="/wristkeeper/assets/v2/phone/about-330.webp 330w, /wristkeeper/assets/v2/phone/about-660.webp 660w" sizes="(min-width: 960px) 300px, 66vw" width="330" height="717" alt="The end of Settings in Wristkeeper: support, the privacy policy, terms and acknowledgements, above the About caseback." loading="lazy" decoding="async"></div>
-    </figure>
-  </div>
-</section>
-
-<section class="pricing" id="pricing" aria-labelledby="price-title">
+<section class="sec" id="pricing" aria-labelledby="price-title" style="padding-top:0">
   <div class="wrap">
-    <div class="price-head">
+    <div class="sec-head" data-in>
+      <p class="kicker">Pricing</p>
       <h2 id="price-title">Free, with optional <em>Pro.</em></h2>
     </div>
     <div class="plans">
       <article class="plan" data-in>
         <h3>Free</h3>
         <p class="plan-price">$0</p>
+        <p class="plan-alt">Everything you need to start a rotation.</p>
         <ul>
           <li>Up to 3 watches</li>
           <li>The daily pick and the wear log</li>
@@ -276,9 +239,9 @@
       </article>
       <article class="plan plan-pro" data-in style="--d:80ms">
         <h3>Pro</h3>
-        <p class="plan-price">$3.99 <small>a month</small></p>
         <!-- Yearly saving, as the app's paywall (PlanSavings, rounded down): 12 x $3.99 = $47.88; ($47.88 - $24.99) / $47.88 = 47.8%, so 47%. -->
-        <p class="plan-alt">or $24.99 a year with the first 14 days free, which saves 47% on 12 monthly payments, or $59.99 once for life</p>
+        <p class="plan-price">$24.99 <small>a year</small></p>
+        <p class="plan-alt"><span class="save">Save 47%</span> First 14 days free. Or $3.99 a month, or $59.99 once for life.</p>
         <ul>
           <li>Unlimited watches</li>
           <li>Your own typed questions in Ask</li>
@@ -293,11 +256,12 @@
   </div>
 </section>
 
-<section class="signup" id="signup" aria-labelledby="signup-title">
-  <div class="wrap signup-inner" data-in>
-    <div class="buckle" aria-hidden="true" data-strap-anchor="end"></div>
-    <h2 id="signup-title">Get the launch <em>note.</em></h2>
-    <p>Wristkeeper is coming soon to the App Store. Leave your email and you'll hear on launch day.</p>
+<section class="sec" id="signup" aria-labelledby="signup-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="signup-inner" data-in>
+      <img src="/wristkeeper/assets/icon-180.png" alt="" width="72" height="72" loading="lazy" style="border-radius:18px">
+      <h2 id="signup-title">Get the launch <em>note.</em></h2>
+      <p>Wristkeeper is coming soon to the App Store. Leave your email and you'll hear on launch day.</p>
     <div class="signup-box">
       <form class="signup-form" data-signup data-next="stay" data-source="wristkeeper" data-medium="landing" data-campaign="wristkeeper-launch" novalidate>
         <label class="sr" for="wk-email">Email address</label>
@@ -308,7 +272,8 @@
       <div class="ts-slot"></div>
       <div class="signup-msg" aria-live="polite"></div>
     </div>
-    <p class="signup-note">You'll join The Useful Tech newsletter: a note on launch day, then 3 short emails a week on Apple apps and settings. Free. Unsubscribe in 1 click.</p>
+      <p class="signup-note">You'll join The Useful Tech newsletter: a note on launch day, then 3 short emails a week on Apple apps and settings. Free. Unsubscribe in 1 click.</p>
+    </div>
   </div>
 </section>
 </main>

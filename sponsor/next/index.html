@@ -312,7 +312,7 @@ p { margin: 0; }
 .fields input { font: 16px var(--display); padding: 13px 15px; border-radius: 12px; border: 1px solid rgb(255 255 255 / .18); background: rgb(255 255 255 / .06); color: var(--on-dark); transition: border-color .2s ease, background .2s ease; }
 .fields input:focus { outline: none; border-color: var(--purple); background: rgb(255 255 255 / .1); }
 .fields input::placeholder { color: rgb(255 255 255 / .4); }
-.mail { background: var(--surface); color: var(--ink); border-radius: 16px; overflow: hidden; display: grid; min-width: 0; box-shadow: 0 20px 40px -20px rgb(0 0 0 / .5); }
+.mail { background: var(--surface); color: var(--ink); border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; box-shadow: 0 20px 40px -20px rgb(0 0 0 / .5); }
 .mail-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: var(--sunk); }
 .mail-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
 .mail-bar i:nth-child(1) { background: #FF5F57; } .mail-bar i:nth-child(2) { background: #FEBC2E; } .mail-bar i:nth-child(3) { background: #28C840; }
@@ -320,7 +320,7 @@ p { margin: 0; }
 .mail-to { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--line); font-size: 14px; min-width: 0; }
 .mail-to .lb { color: var(--ink-soft); }
 .mail-to .addr { font-family: var(--mono); font-size: 13px; flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.mail pre { margin: 0; padding: 16px; white-space: pre-wrap; font: 15px/1.6 var(--display); min-height: 170px; }
+.mail pre { margin: 0; padding: 16px; white-space: pre-wrap; overflow-wrap: anywhere; font: 15px/1.6 var(--display); min-height: 170px; }
 .mail pre mark { background: var(--purple-soft); color: var(--purple-ink); border-radius: 4px; padding: 0 3px; transition: background .3s ease; }
 .mail-acts { display: flex; align-items: center; gap: 10px; padding: 0 16px 16px; flex-wrap: wrap; }
 .status { font-size: 13px; color: var(--mint); font-weight: 500; }
@@ -430,7 +430,7 @@ p { margin: 0; }
 .f1, .f2 { transform: translateZ(60px); }
 .row.you { overflow: hidden; }
 .row.you .you-t { min-width: 0; flex: 1; }
-.row.you b, .row.you small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row.you b, .row.you small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .row.you .you-ic img { width: 34px; height: 34px; border-radius: 9px; display: block; }
 .row.you .get { text-decoration: none; flex: none; }
 .row.you.drop { animation: dropin .75s cubic-bezier(.25,1.4,.45,1) both, bob 4s ease-in-out .75s infinite; }
@@ -1197,7 +1197,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
       a.classList.toggle('dim', !hit); a.classList.remove('hit');
       if (hit && list && !reduce) { void a.offsetWidth; a.style.setProperty('--d', (k++ * 60) + 'ms'); a.classList.add('hit'); }
     });
-    note.textContent = list ? list.length + ' ' + c.toLowerCase() + ' apps have sponsored a post.' : '';
+    note.textContent = list ? list.length + ' of them are ' + ({'AI tools':'AI tools','Mac utilities':'Mac utilities','Notes and writing':'notes and writing apps','Dictation and audio':'dictation and audio apps','Photo and camera':'photo and camera apps','Health and life':'health and life apps'}[c]||c) + '.' : '';
   }
   cats.addEventListener('click', function (e) { var b = e.target.closest('.cat'); if (b) pick(b.getAttribute('data-c')); });
   function autoCat(app) {

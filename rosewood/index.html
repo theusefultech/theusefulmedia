@@ -263,16 +263,25 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
   </div>
 </footer>
 <script>
-/* Set APP_STORE_URL on release day and every badge becomes a live App Store link. */
+/* The badges go live by themselves once Apple lists the app (id 6826576057). APP_STORE_URL forces it. */
 var APP_STORE_URL = "";
+var APP_ID = "6826576057";
 (function(){
-  if (APP_STORE_URL) {
+  function goLive(url){
     document.querySelectorAll('[data-store-badge]').forEach(function(a){
-      a.href = APP_STORE_URL; a.removeAttribute('aria-disabled'); a.setAttribute('aria-label','Download on the App Store');
+      a.href = url; a.removeAttribute('aria-disabled'); a.setAttribute('aria-label','Download on the App Store');
       var s = a.querySelector('[data-store-line]'); if (s) s.textContent = 'Download on the';
     });
-    document.querySelectorAll('[data-notify]').forEach(function(a){ a.href = APP_STORE_URL; a.textContent = 'Get it'; });
+    document.querySelectorAll('[data-notify]').forEach(function(a){ a.href = url; a.textContent = 'Get it'; });
     var nb = document.querySelector('[data-notify-box]'); if (nb) nb.hidden = true;
+  }
+  if (APP_STORE_URL) goLive(APP_STORE_URL);
+  else {
+    var cb = 'rw' + Date.now();
+    window[cb] = function(d){ if (d && d.resultCount) goLive('https://apps.apple.com/app/rosewood-music-box/id' + APP_ID); try { delete window[cb]; } catch(e){} };
+    var sc = document.createElement('script'); sc.async = true;
+    sc.src = 'https://itunes.apple.com/lookup?id=' + APP_ID + '&country=us&callback=' + cb;
+    document.head.appendChild(sc);
   }
   document.addEventListener('signup:done', function(e){
     var m = e.target.parentNode.querySelector('.signup-msg');

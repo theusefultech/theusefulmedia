@@ -20,6 +20,8 @@
   --purple: #7C5CFC;
   --paper: #FAFAF8;
   --lilac: #ECE7FF;
+  --purple-ink: #6545E0;
+  --purple-btn: #6A47F5;
   --graphite: #56566C;
   --rule: rgba(23, 23, 43, 0.14);
   --rule-strong: rgba(23, 23, 43, 0.9);
@@ -339,8 +341,8 @@ a { color: inherit; }
 .product .price small { display: block; font-size: 0.72rem; color: var(--graphite); letter-spacing: 0; margin-top: 0.2rem; }
 .product.is-featured h2::after {
   content: "Newest"; display: inline-block; vertical-align: 0.5em; margin-left: 0.6rem;
-  font: 500 0.72rem/1 var(--mono); letter-spacing: 0; color: var(--purple);
-  border: 1px solid var(--purple); border-radius: 999px; padding: 0.3rem 0.5rem;
+  font: 500 0.72rem/1 var(--mono); letter-spacing: 0; color: var(--purple-ink);
+  border: 1px solid var(--purple-ink); border-radius: 999px; padding: 0.3rem 0.5rem;
 }
 @media (max-width: 1000px) {
   .product { grid-template-columns: minmax(0, 1fr) auto; }
@@ -866,7 +868,7 @@ a { color: inherit; }
 .feature p { margin: 0; color: var(--on-ink-muted); max-width: 46ch; }
 .feature-price { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; }
 .feature-price b { font: 500 var(--step-3)/1 var(--mono); letter-spacing: -0.05em; }
-.feature .btn { background: var(--purple); border-color: var(--purple); }
+.feature .btn { background: var(--purple-btn); border-color: var(--purple-btn); color: #fff; }
 .feature:hover .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
 .feature-stack { position: relative; height: clamp(220px, 26vw, 300px); }
 .feature-stack img {
@@ -880,7 +882,7 @@ a { color: inherit; }
   .feature-stack img:nth-child(4) { animation: float 5s ease-in-out infinite; }
 }
 .badge { display: inline-block; font: 600 0.7rem/1 var(--mono); padding: 0.4rem 0.6rem; border-radius: 999px; background: var(--paper); color: var(--ink); white-space: nowrap; }
-.badge--best { background: var(--purple); color: var(--paper); }
+.badge--best { background: var(--purple-btn); color: #fff; }
 .badge--bestseller { background: var(--ink); color: var(--paper); }
 .badge--new { background: var(--purple); color: var(--paper); }
 .badge--limited { background: var(--lilac); color: var(--ink); border: 1px solid var(--ink); }
@@ -995,7 +997,7 @@ a { color: inherit; }
 .stop.is-lit::before { background: var(--ink); transform: rotate(45deg) scale(.85); border-radius: 4px; }
 .stop.is-now.is-lit::before { background: var(--purple); border-color: var(--purple); animation: nowpulse 1.8s ease-out infinite; }
 @keyframes nowpulse { 0% { box-shadow: 0 0 0 0 rgba(124,92,252,.5); } 100% { box-shadow: 0 0 0 14px rgba(124,92,252,0); } }
-.stop time { font: 500 0.8rem/1 var(--mono); color: var(--purple); }
+.stop time { font: 500 0.8rem/1 var(--mono); color: var(--purple-ink); }
 .stop h3 { margin: 0.35rem 0 0.3rem; font-size: var(--step-2); letter-spacing: -0.03em; font-weight: 500; line-height: 1.05; }
 .stop p { margin: 0; color: var(--graphite); max-width: 52ch; }
 @media (prefers-reduced-motion: reduce) { .stop { opacity: 1; transform: none; } }
@@ -1154,7 +1156,7 @@ a { color: inherit; }
    ========================================================= */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #EDECF5; --paper: #0E0E1C; --lilac: #221E3B; --graphite: #A3A2BA; --purple: #8F74FF;
+    --ink: #EDECF5; --paper: #0E0E1C; --lilac: #221E3B; --graphite: #A3A2BA; --purple: #8F74FF; --purple-ink: #A08BFF;
     --rule: rgba(237, 236, 245, 0.13); --rule-strong: rgba(237, 236, 245, 0.78);
     --on-ink-muted: rgba(14, 14, 28, 0.7); --slab: #1B1B33; --cover-shadow: rgba(0, 0, 0, 0.45); color-scheme: dark;
   }
@@ -1165,7 +1167,7 @@ a { color: inherit; }
   :root:not([data-theme="light"]) .cell--products { --ink: #7C5CFC; }
 }
 :root[data-theme="dark"] {
-  --ink: #EDECF5; --paper: #0E0E1C; --lilac: #221E3B; --graphite: #A3A2BA; --purple: #8F74FF;
+  --ink: #EDECF5; --paper: #0E0E1C; --lilac: #221E3B; --graphite: #A3A2BA; --purple: #8F74FF; --purple-ink: #A08BFF;
   --rule: rgba(237, 236, 245, 0.13); --rule-strong: rgba(237, 236, 245, 0.78);
   --on-ink-muted: rgba(14, 14, 28, 0.7); --slab: #1B1B33; --cover-shadow: rgba(0, 0, 0, 0.45); color-scheme: dark;
 }
@@ -1253,7 +1255,7 @@ body { transition: background-color 400ms ease, color 400ms ease; }
 .qtop { display: flex; align-items: center; gap: 0.7rem; }
 .qsrc { font: 500 0.72rem/1 var(--mono); padding: 0.45rem 0.65rem; border-radius: 999px; border: 1px solid currentColor; opacity: .85; }
 .qstars { color: #FFD66B; letter-spacing: 2px; font-size: 0.95rem; }
-.tone-paper .qstars, .tone-lilac .qstars { color: #E0A100; }
+.tone-paper .qstars, .tone-lilac .qstars { color: #9A6700; }
 .qcard blockquote { margin: 0; flex: 1; }
 .qcard blockquote p { margin: 0; font-size: clamp(1.15rem, 0.95rem + 0.9vw, 1.55rem); line-height: 1.4; letter-spacing: -0.02em; font-weight: 500; }
 .qcard mark { color: inherit; background: linear-gradient(transparent 58%, color-mix(in srgb, var(--purple) 45%, transparent) 58%); padding: 0 0.1em; }
@@ -1278,3 +1280,37 @@ a.qitem:hover { opacity: 1; }
 /* 28 Oct 2026: 6-item main nav. On small phones keep the 4 that earn money and the newsletter; Apps and About stay in the footer. */
 @media (max-width: 640px) { .nav a[href="/apps/"], .nav a[href="/about/"] { display: none; } }
 @media (max-width: 400px) { .nav { gap: 0.75rem; } .nav a { font-size: 0.85rem; } }
+
+/* Tap targets on touch screens (audit, 28 Oct 2026) */
+@media (pointer: coarse), (max-width: 640px) {
+  .nav a, .brand { min-height: 44px; display: inline-flex; align-items: center; }
+  .footer-cols ul { gap: 0; }
+  .footer-cols a { min-height: 44px; display: inline-flex; align-items: center; }
+  .footer-base a, .doc p a, .lede a { padding-block: 0.6rem; }
+}
+
+/* Newsletter band, reused on home, products, about, studio and 404 */
+.nl-band { margin-block: clamp(2.5rem, 6vw, 5rem); }
+.nl-band .nl-box { display: grid; gap: 1.25rem 2.5rem; align-items: center; padding: clamp(1.5rem, 4vw, 2.75rem); border-radius: var(--radius-lg); background: var(--lilac); }
+@media (min-width: 860px) { .nl-band .nl-box { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.nl-band h2 { margin: 0; font-size: var(--step-2); line-height: 1.08; letter-spacing: -0.03em; font-weight: 600; max-width: 22ch; }
+.nl-band p { margin: 0.6rem 0 0; color: var(--graphite); max-width: 46ch; }
+.nl-band .signup { position: relative; }
+.nl-band .signup-form { display: flex; gap: 6px; padding: 6px; background: #fff; border: 1px solid rgba(23, 23, 43, 0.22); border-radius: 16px; }
+.nl-band .signup-form:focus-within { border-color: #6A47F5; box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.22); }
+.nl-band .signup-form input[type="email"] { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 16px; color: #17172B; padding: 0.75rem; }
+.nl-band .signup-form input:focus { outline: none; }
+.nl-band .signup-form button { flex: none; border: 0; border-radius: 11px; cursor: pointer; background: #6A47F5; color: #fff; font: inherit; font-weight: 600; min-height: 48px; padding: 0 1.15rem; }
+.nl-band .signup-form button:hover { background: #5B3BD6; }
+.nl-band .signup-form.is-done button { background: #17172B; }
+.nl-band .signup-form.has-error { border-color: #D64545; }
+@media (max-width: 520px) { .nl-band .signup-form { flex-direction: column; } }
+.nl-band .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.nl-band .signup-msg { font-size: 0.92rem; line-height: 1.45; }
+.nl-band .signup-msg:empty { display: none; }
+.nl-band .signup-msg.is-error, .nl-band .signup-msg.is-info { margin-top: 0.6rem; padding: 0.7rem 0.85rem; border-radius: 10px; background: var(--paper); }
+.nl-band .signup-msg.is-error { color: #A12E2E; }
+.nl-band .signup-msg a { color: inherit; text-decoration: underline; }
+.nl-band .nl-fine { margin-top: 0.7rem; font-family: var(--mono); font-size: 0.74rem; color: var(--graphite); }
+.nl-band .nl-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 1rem; }
+.nl-band .nl-links a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 500; }

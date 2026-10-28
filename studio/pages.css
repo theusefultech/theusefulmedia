@@ -1,7 +1,7 @@
 /* Shared styles for the Useful Studio comparison and use-case pages. Tokens and base rules match studio/index.html. */
 :root{
   --paper:#FAFAF8; --paper-2:#F1EFF9; --ink:#17172B; --ink-2:#4A4863; --line:#DEDAEE;
-  --purple:#7C5CFC; --purple-deep:#5E42D6; --lilac:#B9A8FF; --on-purple:#FFFFFF;
+  --purple:#7C5CFC; --purple-text:#5E42D6; --purple-deep:#5E42D6; --lilac:#B9A8FF; --on-purple:#FFFFFF;
   --stage:#17172B; --stage-fg:#F4F2FF; --stage-line:#34325A;
   --good:#1E8E5A;
   --display:"Space Grotesk", "Helvetica Neue", Arial, sans-serif;
@@ -11,11 +11,11 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#121224; --paper-2:#1B1A33; --ink:#F1EFFC; --ink-2:#ABA7C9; --line:#2E2C4D;
-  --purple:#9A82FF; --purple-deep:#6A4EE8; --lilac:#C9BCFF; --on-purple:#FFFFFF;
+  --purple:#9A82FF; --purple-text:#9A82FF; --purple-deep:#6A4EE8; --lilac:#C9BCFF; --on-purple:#FFFFFF;
   --stage:#0B0B18; --stage-fg:#F4F2FF; --stage-line:#2A2850; --good:#4CC38A; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#121224; --paper-2:#1B1A33; --ink:#F1EFFC; --ink-2:#ABA7C9; --line:#2E2C4D;
-  --purple:#9A82FF; --purple-deep:#6A4EE8; --lilac:#C9BCFF; --on-purple:#FFFFFF;
+  --purple:#9A82FF; --purple-text:#9A82FF; --purple-deep:#6A4EE8; --lilac:#C9BCFF; --on-purple:#FFFFFF;
   --stage:#0B0B18; --stage-fg:#F4F2FF; --stage-line:#2A2850; --good:#4CC38A; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -104,7 +104,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:600px;font-size:15.5px;l
 .related small{display:block;font-family:var(--mono);font-weight:400;font-size:12px;color:var(--ink-2);margin-top:4px}
 .steps2{counter-reset:s;list-style:none;padding:0;margin:18px 0 0;display:grid;gap:0;max-width:72ch}
 .steps2 li{counter-increment:s;padding:16px 0 16px 46px;border-top:1px solid var(--line);position:relative;color:var(--ink-2)}
-.steps2 li::before{content:"0" counter(s);position:absolute;left:0;top:17px;font-family:var(--mono);font-size:13px;color:var(--purple)}
+.steps2 li::before{content:"0" counter(s);position:absolute;left:0;top:17px;font-family:var(--mono);font-size:13px;color:var(--purple-text)}
 .steps2 li strong{color:var(--ink);font-weight:600}
 .steps2 code,.art code{font-family:var(--mono);font-size:14px;background:var(--paper-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
 .srcs{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-top:22px;max-width:80ch}

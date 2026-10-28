@@ -8,6 +8,7 @@ on:
     paths:
       - "scripts/build_library.py"
       - "scripts/build_links.py"
+      - "scripts/build_sitemap.py"
       - ".github/workflows/build-issues.yml"
 
 permissions:
@@ -22,17 +23,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install beautifulsoup4==4.12.3 lxml
       - run: python3 scripts/build_library.py
       - run: python3 scripts/build_links.py
+      - run: python3 scripts/build_sitemap.py
       - name: Commit changes
         run: |
           git config user.name "useful-archive-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add tech/library tech/issues links
+          git add tech/library tech/issues links sitemap.xml
           if git diff --staged --quiet; then
             echo "No changes"
           else

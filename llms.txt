@@ -1,12 +1,12 @@
 # The Useful Media Co
 
-> The Useful Media Co is a one-person media company in Chennai, India, run by Raja. It publishes The Useful Tech (the #1 Apple blog on Medium, 78,000+ followers), The Useful Life, The Useful Creator and The Useful Gaming, and sells digital products including Useful Studio.
+> The Useful Media Co is a one-person media company in Chennai, India, run by Raja. It publishes The Useful Tech (the #1 Apple blog on Medium, 78,000+ followers, 3.38M views), The Useful Life, The Useful Creator and The Useful Gaming, makes apps (Rosewood Music Box for iPhone, Textlore for Mac, Wristkeeper for iPhone) and sells digital products including Useful Studio.
 
-Last updated: 2026-10-22
+Last updated: 2026-10-28
 
 ## Useful Studio
 
-> Useful Studio is a Claude Code skill pack for Mac, made by The Useful Media Co. It turns 1 typed line into a finished, branded short video (launch film, reel, explainer or b-roll) as MP4 in 16:9 and 9:16. Price: $79 one time, rising $20 to $30 after every 20 sales up to $79 (ladder: $79, $99, $129, $149, $79). Runs on the buyer's own Claude plan. Studio Pro is $349. Needs a Mac on macOS 14 or later and Claude Code with a paid Claude plan. Videos run 15 to 90 seconds. It does not generate AI images or footage of people. It is independent and not made or endorsed by Anthropic.
+> Useful Studio is a Claude Code skill pack for Mac, made by The Useful Media Co. It turns 1 typed line into a finished, branded short video (launch film, reel, explainer or b-roll) as MP4 in 16:9 and 9:16. Price: $79 one time, rising after every 20 sales (ladder: $79, $99, $129, $149, $199). Runs on the buyer's own Claude plan. Studio Pro is $349. Needs a Mac on macOS 14 or later and Claude Code with a paid Claude plan. Videos run 15 to 90 seconds. It does not generate AI images or footage of people. It is independent and not made or endorsed by Anthropic.
 
 - [Useful Studio](https://theusefulmedia.com/studio/): Product page with pricing, 11 example videos, requirements and FAQ.
 - [Useful Studio vs lemo-opuscar](https://theusefulmedia.com/studio/vs-lemo-opuscar/): Comparison with the free Claude Code skill that has 59 film styles.
@@ -16,13 +16,20 @@ Last updated: 2026-10-22
 - [Explainer videos with Claude Code](https://theusefulmedia.com/studio/explainer-videos-with-claude-code/): How to make a 60 to 90 second explainer.
 - [Launch video for your app](https://theusefulmedia.com/studio/launch-video-for-your-app/): How to make a 25 to 35 second app launch film.
 
+## Apps
+
+- [Rosewood Music Box](https://theusefulmedia.com/rosewood/): A music box for the iPhone Duo. Close the phone and the lid closes; open it and the dancer turns. $2.99 one time on the App Store.
+- [Textlore](https://textlore.app/): Mac app to search, browse and export your whole iMessage and WhatsApp history, with recommendations friends sent you and promises you made pulled out automatically. 14-day free trial.
+- [Wristkeeper](https://theusefulmedia.com/wristkeeper/): iPhone app for analog watch collectors: collection, wear log and a daily watch pick. Out 17 Nov 2026.
+- [The Useful Apps](https://theusefulmedia.com/apps/): Directory of Mac and iPhone apps worth paying for, and where they cost least.
+
 ## Company
 
 - [Home](https://theusefulmedia.com/): The brands, products and apps.
 - [Products](https://theusefulmedia.com/products/): Digital products from The Useful Media Co.
 - [About](https://theusefulmedia.com/about/): About Raja and the company.
 - [Contact](https://theusefulmedia.com/contact/): How to reach Raja.
-- [Sponsor](https://theusefulmedia.com/sponsor/): Sponsorship information for The Useful Tech.
+- [Sponsor](https://theusefulmedia.com/sponsor/): Sponsoring The Useful Tech: 31 past sponsors including MacPaw and Craft, reach, results and placements. Contact raja@theusefultech.com.
 
 ## Newsletter
 
@@ -31,5 +38,4 @@ Last updated: 2026-10-22
 
 ## Optional
 
-- [Wristkeeper](https://theusefulmedia.com/wristkeeper/): iOS app for analog watch collectors.
-- [Free downloads](https://theusefulmedia.com/free/): Free cheat sheets and guides.
+- [Free downloads](https://theusefulmedia.com/free/): 19 free cheat sheets, checklists and guides for iPhone, Mac and Apple Intelligence.

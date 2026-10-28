@@ -44,8 +44,19 @@ def esc(s):
     return html.escape(s or "", quote=True)
 
 
+def undash(s, heading=False):
+    """Raja never uses em or en dashes. Headings get a colon, body text a comma, ranges become 'to'."""
+    if not s:
+        return s
+    s = re.sub(r"(\d)\s*[\u2013\u2014]\s*(\d)", r"\1 to \2", s)
+    s = re.sub(r"\s+[\u2014\u2013]\s+", ": " if heading else ", ", s, count=1) if heading else re.sub(r"\s*[\u2014\u2013]\s*", ", ", s)
+    s = re.sub(r"\s*[\u2014\u2013]\s*", ", ", s)
+    s = re.sub(r",\s*,", ",", s)
+    return s.strip() if s.strip() in (",",) else s
+
+
 def clean_text(s):
-    return re.sub(r"\s+", " ", EMOJI_RE.sub("", s or "")).strip()
+    return undash(re.sub(r"\s+", " ", EMOJI_RE.sub("", s or "")).strip(), heading=True)
 
 
 def parse_meta(soup, url):
@@ -103,7 +114,8 @@ def inline(node):
     out = []
     for c in node.children:
         if isinstance(c, NavigableString):
-            out.append(esc(str(c)))
+            t = str(c)
+            out.append(esc("-" if t.strip() in ("\u2014", "\u2013") else undash(t, heading=bool(c.find_parent(["h1", "h2", "h3", "h4"])))))
         elif isinstance(c, Tag):
             name = c.name
             inner = inline(c)

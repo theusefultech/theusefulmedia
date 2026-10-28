@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Useful Studio: branded videos for app makers and creators, from 1 line in Claude Code</title>
-<meta name="description" content="Useful Studio is a $79 Claude Code skill pack for Mac. Indie app makers and creators type 1 line and get a launch film, reel, explainer or b-roll in their brand, as MP4 in 16:9 and 9:16. Runs on your own Claude plan, no subscription.">
+<title>Useful Studio: launch videos from 1 line in Claude Code</title>
+<meta name="description" content="Useful Studio is a Claude Code skill pack for Mac. Type 1 line and get a launch film, reel, explainer or b-roll in your brand, rendered as an MP4.">
 <link rel="canonical" href="https://theusefulmedia.com/studio/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Useful Media Co">
@@ -310,7 +310,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         <div class="fine"><span><b>20 left at $79</b></span><span>Mac, macOS 14+</span><span>Needs a paid Claude plan</span><span>Short videos only</span><span>All sales are final</span></div>
       </div>
       <figure class="monitor" style="margin:0">
-        <video id="hero" src="media/useful-studio-launch.mp4" poster="media/useful-studio-poster.jpg" muted playsinline loop preload="metadata" aria-label="The Useful Studio launch film, made with Useful Studio"></video>
+        <video id="hero" data-src="media/useful-studio-launch.mp4" data-src-small="media/useful-studio-launch-640.mp4" poster="media/useful-studio-poster.jpg" muted playsinline loop preload="none" aria-label="The Useful Studio launch film, made with Useful Studio"></video>
         <div class="mbar">
           <button id="playBtn" type="button">Play</button>
           <button id="soundBtn" type="button">Sound off</button>
@@ -641,7 +641,10 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
   dlg.addEventListener('cancel', function(){ dvid.pause(); });
 
   // Hero player
-  var hero = document.getElementById('hero'), playBtn = document.getElementById('playBtn'), soundBtn = document.getElementById('soundBtn');
+  var hero = document.getElementById('hero');
+  hero.src = (window.matchMedia('(max-width: 760px)').matches || (navigator.connection && navigator.connection.saveData)) ? hero.getAttribute('data-src-small') : hero.getAttribute('data-src');
+  hero.preload = 'metadata';
+  var playBtn = document.getElementById('playBtn'), soundBtn = document.getElementById('soundBtn');
   var prog = document.getElementById('prog'), htc = document.getElementById('htc');
   function mmss(s){ s = Math.max(0, Math.floor(s)); return ('0' + Math.floor(s/60)).slice(-2) + ':' + ('0' + s%60).slice(-2); }
   function syncPlay(){ playBtn.textContent = hero.paused ? 'Play' : 'Pause'; }

@@ -48,7 +48,7 @@ def has_file(p):
     return os.path.exists(os.path.join("free", "files", p["slug"], p["file"]))
 
 
-def head(title, desc, url, image):
+def head(title, desc, url, image, extra=""):
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -64,7 +64,9 @@ def head(title, desc, url, image):
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{image}">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">{extra}
 <meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -80,7 +82,7 @@ HEADER = f'''<a class="skip" href="#main">Skip to content</a>
   <div class="wrap">
     <a class="brand" href="/" aria-label="The Useful Media Co home">{MARK}<span class="brand-name">The Useful Media Co</span></a>
     <div class="header-end">
-      <nav class="nav" aria-label="Main"><a href="/free/">Free</a><a href="/products/">Products</a><a href="/tech/">Newsletter</a></nav>
+      <nav class="nav" aria-label="Main"><a href="/tech/">Newsletter</a><a href="/free/" aria-current="page">Free</a><a href="/products/">Products</a><a href="/apps/">Apps</a><a href="/sponsor/">Sponsor</a><a href="/about/">About</a></nav>
       <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device">
         <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
         <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
@@ -106,9 +108,19 @@ def card(p):
             f'<span class="fc-body"><span class="fc-name">{esc(p["name"])}</span>{proof}</span></a></li>')
 
 
+def og_img(slug):
+    """1200x630 JPG for link previews (webp is not shown everywhere); falls back to the webp."""
+    jpg = os.path.join("free", "img", f"{slug}-og.jpg")
+    return f"{SITE}/free/img/{slug}-og.jpg" if os.path.exists(jpg) else f"{SITE}/free/img/{slug}.webp"
+
+
 def page(p, items):
     url = f'{SITE}/free/{p["slug"]}/'
-    img = f'{SITE}/free/img/{p["slug"]}.webp'
+    img = og_img(p["slug"])
+    ld = {"@context": "https://schema.org", "@type": "Product", "name": p["name"], "description": p["sub"],
+          "image": img, "url": url, "brand": {"@type": "Organization", "name": "The Useful Media Co"},
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": url}}
+    ld_tag = '\n<script type="application/ld+json">' + json.dumps(ld) + '</script>'
     file_url = f'/free/files/{p["slug"]}/{urllib.parse.quote(p["file"])}'
     meta = f'Free · {esc(p["kind"])}' if p.get("link") else f'Free · {esc(p["kind"])} · {size(p["size"])}'
     proof = (f'<p class="proof"><span class="proof-cells" aria-hidden="true"><i></i><i></i><i></i></span>'
@@ -131,7 +143,7 @@ def page(p, items):
         label = "Download the PDF" if p["kind"] == "PDF" else "Download the files"
         dl_link = f'<a class="dl-btn" href="{file_url}" download data-file>{label}'
     title = f'{p["name"]}: free download from The Useful Tech'
-    return head(title, p["sub"], url, img) + f'''<script src="/tech/tech.js" defer></script>
+    return head(title, p["sub"], url, img, ld_tag) + f'''<script src="/tech/tech.js" defer></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
 <script src="/free/free.js" defer></script>
 </head>
@@ -195,7 +207,7 @@ def index(items):
         f'<button class="chip-f" type="button" data-f="{t}" aria-pressed="false">{TAGS[t]}</button>' for t in order)
     total = sum(p["downloads"] for p in items)
     return head("Free downloads from The Useful Tech", "Free guides, checklists and cheat sheets for your iPhone, iPad and Mac.",
-                f"{SITE}/free/", f"{SITE}/free/img/{items[0]['slug']}.webp") + f'''<script src="/free/free.js" defer></script>
+                f"{SITE}/free/", og_img(items[0]['slug'])) + f'''<script src="/free/free.js" defer></script>
 </head>
 <body class="fr">
 {HEADER}<main id="main">

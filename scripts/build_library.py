@@ -9,6 +9,7 @@ design:
   tech/issues/...                  forwarding pages for the old URLs
 Run from the repo root:  python3 scripts/build_library.py
 """
+import html as html_lib
 import hashlib, html, json, os, re, sys, time, urllib.request
 from datetime import datetime, timezone
 from bs4 import BeautifulSoup, NavigableString, Tag
@@ -407,17 +408,90 @@ def build_archive(issues):
     return head + body + FOOT.format(year=datetime.now().year)
 
 
+# ---------- SEO length caps (audit, 28 Oct 2026) ----------
+def cap(s, n):
+    s = (s or "").strip()
+    if len(s) <= n:
+        return s
+    cut = s[:n - 3].rsplit(" ", 1)[0].rstrip(",;:.")
+    return cut + "..."
+
+
+def first_text(content, n=200):
+    """First real paragraph of an issue, skipping the header callouts and greeting."""
+    soup = BeautifulSoup(content, "lxml")
+    for p in soup.find_all("p"):
+        if p.find_parent("aside"):
+            continue
+        t = EMOJI_RE.sub("", p.get_text(" ", strip=True)).strip()
+        if len(t) < 40 or t.isupper() or t.upper().startswith("HEY"):
+            continue
+        return t[:n]
+    return ""
+
+
+def page_title(title):
+    full = f"{title} | The Useful Tech"
+    return full if len(full) <= 60 else cap(title, 60)
+
+
+def page_desc(issue, content):
+    d = issue["subtitle"] or issue["title"]
+    if len(d) < 70:
+        extra = first_text(content, 220)
+        if extra and extra not in d:
+            d = (d.rstrip(".") + ". " + extra) if d else extra
+    return cap(d, 155)
+
+
+def og_image(issue, content):
+    """Beehiiv thumbnail, else a cover made by scripts/make_issue_covers.py, else the generic card."""
+    if issue["image"]:
+        return issue["image"]
+    if os.path.exists(os.path.join(OUT, issue["slug"], "og.jpg")):
+        return f"{SITE}/tech/library/{issue['slug']}/og.jpg"
+    return f"{SITE}/tech/og.png"
+
+
+# Small wording fixes for archived issues (anti-slop list)
+REWRITES = {
+    "Here&#x27;s how to build three that quietly save you time every day.": "Build these 3 and they save you time every day.",
+}
+
+
+def build_tech_page(issues):
+    """Keep the /tech/ inbox and the 3 format cards on the latest issue of each series."""
+    path = os.path.join("tech", "index.html")
+    if not os.path.exists(path):
+        return
+    page = open(path, encoding="utf-8").read()
+    latest = {}
+    for it in issues:
+        k = it["format"].get("key")
+        if k in ("find", "dive", "five") and k not in latest:
+            latest[k] = it
+    for k, it in latest.items():
+        num = f"#{it['num']:03d}" if it.get("num") else ""
+        page = re.sub(rf'(<span class="tag" data-latest="{k}">)[^<]*(</span>)', lambda m: m.group(1) + num + m.group(2), page)
+        page = re.sub(rf'(<p class="recent" data-latest="{k}"><span>Recent one</span>)<a[^>]*>.*?</a>',
+                      lambda m: m.group(1) + f'<a href="/tech/library/{esc(it["slug"])}/">{esc(it["title"])}</a>', page, flags=re.S)
+        page = re.sub(rf'(<span class="mail-subj" data-latest="{k}">)[^<]*(</span>)', lambda m: m.group(1) + esc(it["title"]) + m.group(2), page)
+        page = re.sub(rf'(<span class="mail-prev" data-latest="{k}">)[^<]*(</span>)', lambda m: m.group(1) + esc(cap(it["subtitle"], 90)) + m.group(2), page)
+    open(path, "w", encoding="utf-8").write(page)
+
+
 def build_issue(issue, content, prev_i, next_i):
-    desc = issue["subtitle"] or issue["title"]
+    desc = page_desc(issue, content)
+    img = og_image(issue, content)
     ld = {
         "@context": "https://schema.org", "@type": "Article", "headline": issue["title"], "description": desc,
-        "datePublished": issue["date"], "image": issue["image"] or f"{SITE}/tech/og.png",
+        "datePublished": issue["date"], "image": img,
         "author": {"@type": "Person", "name": "Raja"}, "publisher": {"@type": "Organization", "name": "The Useful Media Co"},
         "mainEntityOfPage": f"{SITE}/tech/library/{issue['slug']}/",
     }
     extra = f'<script type="application/ld+json">{json.dumps(ld)}</script>'
-    head = HEAD.format(title=f"{issue['title']} | The Useful Tech", desc=esc(desc), canonical=f"{SITE}/tech/library/{issue['slug']}/",
-                       ogtype="article", image=esc(issue["image"] or f"{SITE}/tech/og.png"), extra_head=extra, bodyclass="issue")
+    head = HEAD.format(title=esc(page_title(issue['title'])), desc=esc(desc), canonical=f"{SITE}/tech/library/{issue['slug']}/",
+                       ogtype="article", image=esc(img), extra_head=extra, bodyclass="issue")
     hero_img = f'<figure class="is-hero-img">{thumb(issue)}</figure>' if issue["image"] else ""
     nav = []
     if next_i:
@@ -498,6 +572,8 @@ def main():
         if not content:
             print("no content", u, file=sys.stderr)
             continue
+        for a, b in REWRITES.items():
+            content = content.replace(a, b)
         issues.append(meta)
         contents[meta["slug"]] = content
         time.sleep(0.4)
@@ -526,6 +602,7 @@ def main():
                 os.remove(os.path.join(p, fn))
             os.rmdir(p)
     write_forwards(issues)
+    build_tech_page(issues)
     print(f"Built {len(issues)} library pages")
 
 

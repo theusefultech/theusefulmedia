@@ -9,6 +9,7 @@ on:
       - "scripts/build_library.py"
       - "scripts/build_links.py"
       - "scripts/build_sitemap.py"
+      - "scripts/make_issue_covers.py"
       - ".github/workflows/build-issues.yml"
 
 permissions:
@@ -30,13 +31,20 @@ jobs:
           python-version: "3.12"
       - run: pip install beautifulsoup4==4.12.3 lxml
       - run: python3 scripts/build_library.py
+      - name: Make covers for new issues without a Beehiiv thumbnail
+        run: |
+          NEED=$(python3 -c "import json,os;print(sum(1 for i in json.load(open('tech/library/library.json')) if not i.get('image') and not os.path.exists('tech/library/'+i['slug']+'/og.jpg')))")
+          if [ "$NEED" != "0" ]; then
+            pip install playwright==1.48.0 && python3 -m playwright install --with-deps chromium
+            python3 scripts/make_issue_covers.py && python3 scripts/build_library.py
+          fi
       - run: python3 scripts/build_links.py
       - run: python3 scripts/build_sitemap.py
       - name: Commit changes
         run: |
           git config user.name "useful-archive-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add tech/library tech/issues links sitemap.xml
+          git add tech/library tech/issues tech/index.html links sitemap.xml
           if git diff --staged --quiet; then
             echo "No changes"
           else

@@ -18,6 +18,7 @@
 <meta name="theme-color" content="#0E0E1C" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://theusefulmedia.com/#org", "name": "The Useful Media Co", "url": "https://theusefulmedia.com/"}, {"@type": "WebPage", "@id": "https://theusefulmedia.com/tech/", "url": "https://theusefulmedia.com/tech/", "name": "The Useful Tech newsletter", "description": "3 emails a week that make your iPhone and Mac more useful.", "publisher": {"@id": "https://theusefulmedia.com/#org"}}]}</script>
 <link rel="stylesheet" href="/assets/styles.css">
 <link rel="stylesheet" href="/tech/tech.css">
 <script src="/assets/site.js" defer></script>
@@ -67,20 +68,20 @@
         <button class="mail-row" type="button" tabindex="-1">
           <i class="unread"></i>
           <span class="mail-from">The Useful Tech <em>Mon</em></span>
-          <span class="mail-subj">The Mac setting that shows which apps can read everything</span>
-          <span class="mail-prev">The 2-minute check before Apple changes the rules.</span>
+          <span class="mail-subj" data-latest="find">1 Mac app that swaps your whole Dock when your Focus changes</span>
+          <span class="mail-prev" data-latest="find">One Dock for work, one for home, switched in one move.</span>
         </button>
         <button class="mail-row" type="button" tabindex="-1">
           <i class="unread"></i>
           <span class="mail-from">The Useful Tech <em>Wed</em></span>
-          <span class="mail-subj">5 Mac apps inside Setapp almost nobody has heard of</span>
-          <span class="mail-prev">HazeOver, Workspaces, Batteries, Rocket Typist and Taskheat.</span>
+          <span class="mail-subj" data-latest="dive">5 steps to wipe your old Mac before you sell it or trade it in</span>
+          <span class="mail-prev" data-latest="dive">The built-in erase, plus what to do before and after it.</span>
         </button>
         <button class="mail-row" type="button" tabindex="-1">
           <i class="unread"></i>
           <span class="mail-from">The Useful Tech <em>Fri</em></span>
-          <span class="mail-subj">5 iOS 27 settings worth changing after a week</span>
-          <span class="mail-prev">Liquid Glass, Siri&#x27;s voice, two Safari tricks, and a quieter way to hide your location.</span>
+          <span class="mail-subj" data-latest="five">5 ways to stop your Mac and iPhone from deciding things for you</span>
+          <span class="mail-prev" data-latest="five">Links, suggestions, videos, backups and your location, back under your control</span>
         </button>
         <div class="mail-ghost"></div>
         <div class="mail-ghost short"></div>
@@ -125,12 +126,12 @@
           <circle cx="292" cy="133" r="40" fill="#ECE7FF" fill-opacity=".35" stroke="#17172B" stroke-width="9"/>
           <path d="M321 162l34 34" stroke="#17172B" stroke-width="15" stroke-linecap="round"/>
         </svg>
-        <span class="tag">#012</span>
+        <span class="tag" data-latest="find">#015</span>
       </div>
       <p class="issue-day">Monday</p>
       <h3>The Useful Find</h3>
       <p>One hidden iPhone, Mac or AI feature, explained in 2 minutes.</p>
-      <p class="recent"><span>Recent one</span>The Mac setting that shows which apps can read everything</p>
+      <p class="recent" data-latest="find"><span>Recent one</span><a href="/tech/library/the-useful-find-015-1-mac-app-that-swaps-your-whole-dock-when-your-focus-changes/">1 Mac app that swaps your whole Dock when your Focus changes</a></p>
     </article>
 
     <article class="issue">
@@ -157,12 +158,12 @@
           <path d="M322 130h24M334 118v24" stroke="#7C5CFC" stroke-width="6" stroke-linecap="round"/>
           <ellipse cx="202" cy="160" rx="34" ry="5" fill="#000" opacity=".35"/>
         </svg>
-        <span class="tag">#011</span>
+        <span class="tag" data-latest="dive">#016</span>
       </div>
       <p class="issue-day">Wednesday</p>
       <h3>The Deep Dive</h3>
       <p>One topic, covered properly.</p>
-      <p class="recent"><span>Recent one</span>5 Mac apps inside Setapp almost nobody has heard of</p>
+      <p class="recent" data-latest="dive"><span>Recent one</span><a href="/tech/library/the-deep-dive-016-5-steps-to-wipe-your-old-mac-before-you-sell-it-or-trade-it-in/">5 steps to wipe your old Mac before you sell it or trade it in</a></p>
     </article>
 
     <article class="issue">
@@ -191,12 +192,12 @@
             </g>
           </g>
         </svg>
-        <span class="tag">#010</span>
+        <span class="tag" data-latest="five">#014</span>
       </div>
       <p class="issue-day">Friday</p>
       <h3>The Useful Five</h3>
       <p>5 quick picks across settings, apps and deals.</p>
-      <p class="recent"><span>Recent one</span>5 iOS 27 settings worth changing after a week</p>
+      <p class="recent" data-latest="five"><span>Recent one</span><a href="/tech/library/5-the-useful-five-014-5-ways-to-stop-your-mac-and-iphone-from-deciding-things-for-you/">5 ways to stop your Mac and iPhone from deciding things for you</a></p>
     </article>
 
   </div>
@@ -237,10 +238,10 @@
   <div class="about-grid">
     <div class="about-copy">
       <h2 id="about-title" class="nl-h2">Who writes it</h2>
-      <p>I'm Raja. I've spent almost 10 years writing about Apple, across 500+ articles. 78,000 people follow The Useful Tech on Medium, the #1 Apple blog there. The newsletter is the short version: what's worth your time this week, without the 10-minute read.</p>
+      <p>I'm Raja. I've spent almost 10 years writing about Apple, across 460+ posts. 78,000 people follow The Useful Tech on Medium, the #1 Apple blog there. The newsletter is the short version: what's worth your time this week, without the 10-minute read.</p>
       <ul class="facts">
         <li><span class="num" data-count="78" data-suffix="K+">78K+</span><span class="label">Readers following on Medium</span></li>
-        <li><span class="num" data-count="500" data-suffix="+">500+</span><span class="label">Articles written</span></li>
+        <li><span class="num" data-count="460" data-suffix="+">460+</span><span class="label">Articles written</span></li>
         <li><span class="num" data-count="55" data-suffix="%">55%</span><span class="label">Average open rate</span></li>
       </ul>
     </div>

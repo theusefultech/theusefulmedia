@@ -768,7 +768,7 @@ p { margin: 0; }
         <p>Build your campaign. Everything you pick goes into your email.</p>
         <div class="pick-row" id="pickRow"></div>
       </div>
-      <p class="est-src">From my real numbers: roundups get 13,000 to 50,000+ views, about half of readers finish, and my affiliate links got 3,470 clicks from January to September, with about 1 in 10 turning into a sale. Your own UTM link shows you every click.</p>
+      <p class="est-src">From my real numbers: about half of readers finish my posts, and my affiliate links got 3,470 clicks from January to September, with about 1 in 10 turning into a sale. Every post is different, so I don't promise views. Your own tracked link shows you every click and sale.</p>
     </div>
 
     <div class="builder">
@@ -803,7 +803,7 @@ p { margin: 0; }
     </div>
     <div class="track">
       <svg class="path" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="5" x2="100" y2="5" vector-effect="non-scaling-stroke"/></svg>
-      <div class="step"><div class="node"><svg><use href="#i-key"/></svg></div><span class="when">Day 1</span><h3>Send a license</h3><p>I install your app and use it before I write a word.</p></div>
+      <div class="step"><div class="node"><svg><use href="#i-key"/></svg></div><span class="when">Day 1</span><h3>Book and pay</h3><p>Pay the invoice and send your link and a license. That starts the clock.</p></div>
       <div class="step"><div class="node"><svg><use href="#i-pen"/></svg></div><span class="when">Within 5 days</span><h3>Get the draft</h3><p>My voice, my screenshots, built around why your app is worth installing.</p></div>
       <div class="step"><div class="node"><svg><use href="#i-ok"/></svg></div><span class="when">Your call</span><h3>Approve it</h3><p>Nothing goes live until you're happy with every line.</p></div>
       <div class="step last"><div class="node"><svg><use href="#i-rocket"/></svg></div><span class="when">Launch day</span><h3>Go live for good</h3><p>Published, sent to the newsletter and shared in Discord. It never comes down.</p></div>
@@ -816,14 +816,17 @@ p { margin: 0; }
       <p class="sub">Answered here, so you can decide without waiting on my reply.</p>
     </div>
     <div class="faq">
-      <details><summary>How many views does a sponsored roundup get?</summary><p>My app roundups get 13,000 to 50,000+ views, most of them in the first few weeks, and Google keeps sending readers long after. My biggest has <span data-fact="topPostViews">156K</span> views. All of it is public on <a href="https://mymedium.info/@theusefultech/">my stats page</a>.</p></details>
+      <details><summary>How many views does a sponsored roundup get?</summary><p>Every post is different, so I don't promise a number. The Useful Tech has <span data-fact="followers">78,737</span> followers, <span data-fact="views">3.38M</span> views and a <span data-fact="readRatio">50.3%</span> read ratio, and my biggest app roundup has <span data-fact="topPostViews">156K</span> views. Posts stay up for good, so Google keeps sending readers long after launch. All of it is public on <a href="https://mymedium.info/@theusefultech/">my stats page</a>.</p></details>
+      <details><summary>Can I see stats for individual posts?</summary><p>No. Per-post numbers include other sponsors' clicks and sales, so I keep them private for everyone, the same way I'll keep yours. You get my public stats page, live sample posts, and your own tracked link, which shows every click and sale the post sends you.</p></details>
       <details><summary>How do I see clicks and sales?</summary><p>Medium doesn't show writers clicks on outbound links, so every sponsor gets their own tracked link. Send me a UTM or App Store campaign link and every click, install and sale shows up in your own analytics.</p></details>
       <details><summary>Where are your readers, and what do they read on?</summary><p><span data-fact="usShare">53%</span> are in the United States, followed by the UK, Australia, India and Canada. <span data-fact="appleShare">89%</span> read on a Mac or iPhone.</p></details>
+      <details><summary>Is the post free to read?</summary><p>Yes. Sponsored posts are free for everyone, Medium members or not, and for anyone who finds them on Google.</p></details>
+      <details><summary>What's included, and can I add extras?</summary><p>Every spot includes your own section, your link and a newsletter mention, and you approve the draft. Spots under $300 are fixed as listed. Guarantees, content plans and multi-post deals come as a campaign package, so ask for one if you want more.</p></details>
       <details><summary>Is the post marked as sponsored?</summary><p>Yes. Every sponsored post says so at the top, as Medium requires, and the newsletter feature is marked too. Readers trust the picks because the label is honest.</p></details>
       <details><summary>Does the post stay up?</summary><p>For good. Sponsored posts never come down, and your link keeps working in every one.</p></details>
       <details><summary>What do you need from me?</summary><p>A license or a TestFlight invite, your link, and anything I must get right. I install your app and use it before I write a word.</p></details>
-      <details><summary>How fast can it go live?</summary><p>You get the draft within 5 days of the license. Once you approve it and the payment lands, it goes live on the next open day or a day you pick.</p></details>
-      <details><summary>How does payment work?</summary><p>I send a PayPal invoice after you approve the draft, so you only pay for a post you've already seen.</p></details>
+      <details><summary>How fast can it go live?</summary><p>You get the draft within 5 days of payment and your license. Once you approve it, it goes live on the next open day or a day you pick.</p></details>
+      <details><summary>How does payment work?</summary><p>You pay when you book, and the draft starts as soon as it lands. Outside India, I send a PayPal invoice in US dollars. Inside India, PayPal can't be used between Indian accounts, so you pay by UPI or bank transfer in rupees at that day's exchange rate. You still approve every line before the post goes live.</p></details>
     </div>
   </section>
 
@@ -1130,11 +1133,11 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
 
   /* ---------- Estimator + campaign builder ---------- */
   var EST = {
-    'top spot in a roundup': [['13K to 50K+', 'views on the roundup'], ['75 to 250', 'clicks to your app'], ['About 720', 'newsletter opens']],
-    'spot in a roundup': [['13K to 50K+', 'views on the roundup'], ['Your own section', 'screenshots and your link'], ['For good', 'the post never comes down']],
-    'dedicated review': [['13K to 50K+', 'views on the post'], ['300 to 500', 'clicks to your app'], ['About 720', 'newsletter opens']],
+    'top spot in a roundup': [['156K', 'views on my biggest roundup'], ['Your own section', 'screenshots and your link'], ['About 720', 'newsletter opens']],
+    'spot in a roundup': [['Your own section', 'screenshots and your link'], ['For good', 'the post never comes down'], ['Free to read', 'for every reader']],
+    'dedicated review': [['A full post', 'about your app alone'], ['About 720', 'newsletter opens'], ['For good', 'the post never comes down']],
     'newsletter feature': [['1,316', 'subscribers'], ['About 720', 'opens per issue'], ['15 to 25', 'clicks on app issues']],
-    'full campaign': [['26K to 100K+', 'views across 2 posts'], ['600 to 1,000', 'clicks to your app'], ['6 channels', 'Medium, newsletter, Discord and social']]
+    'full campaign': [['2 posts', 'plus a newsletter issue'], ['6 channels', 'Medium, newsletter, Discord and social'], ['Free to read', 'every post']]
   };
   var NAMES = { 'top spot in a roundup': 'Top spot in a roundup', 'spot in a roundup': 'Spot in a roundup', 'dedicated review': 'Dedicated review', 'newsletter feature': 'Newsletter feature', 'full campaign': 'Full campaign' };
   var PICKS = ['2 dedicated posts', 'a dedicated newsletter issue', 'an Instagram carousel', 'an X post', 'a LinkedIn post', 'a Discord post'];

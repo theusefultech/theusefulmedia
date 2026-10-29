@@ -95,6 +95,7 @@ IG_DIR = os.path.join("links", "ig")
 FREE = "https://newsletter.theusefultech.com/products/"
 NEWSLETTER = ("https://theusefulmedia.com/tech/", "Newsletter")
 RULES = [  # first match wins; matched against the lower-cased caption
+    (("wristkeeper",), ("https://theusefulmedia.com/wristkeeper/from/instagram/", "Wristkeeper beta")),
     (("the useful apps",), ("https://theusefulmedia.com/apps/", "The Useful Apps")),
     (("textlore",), ("https://textlore.app/", "Textlore")),
     (("useful studio",), ("https://theusefulmedia.com/studio/", "Useful Studio")),

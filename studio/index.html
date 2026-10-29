@@ -271,6 +271,8 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
 .ladder h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:6px}
 .ladder>p{color:var(--ink-2);max-width:60ch;margin-bottom:18px}
 </style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://theusefulmedia.com/"}, {"@type": "ListItem", "position": 2, "name": "Useful Studio: launch videos from 1 line in Claude Code", "item": "https://theusefulmedia.com/studio/"}]}</script>
 </head>
 <body>
 <div class="deal"><b>20 licences left at $79, then $99.</b> <a href="#pricing">Get Useful Studio</a> · <a href="#free-vs-paid">Why not use a free repo?</a></div>
@@ -602,7 +604,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
     var b = document.createElement('button');
     b.type = 'button'; b.className = 'card ' + v.shape; b.dataset.cmd = v.cmd; if (v.pro) b.dataset.pro = '1';
     b.setAttribute('aria-label', 'Play ' + v.cap);
-    b.innerHTML = '<div class="vid"><img alt="" src="media/' + v.id + '.jpg"><span class="play">Play' + (v.min ? ' · ' + v.min + ' min run' : '') + '</span></div>' +
+    b.innerHTML = '<div class="vid"><img alt="' + v.id + ', made with Useful Studio" src="media/' + v.id + '.jpg"><span class="play">Play' + (v.min ? ' · ' + v.min + ' min run' : '') + '</span></div>' +
       '<div class="meta"><div class="cmd">' + v.cmd + (v.pro ? ' <span class="pro">PRO</span>' : '') + ' <em>' + v.brand + (v.style ? ' · ' + v.style : '') + '</em></div><p class="cap2">' + v.cap + '</p></div>';
     var vidBox = b.querySelector('.vid'), clip = null;
     if (!reduce && window.matchMedia('(hover: hover)').matches){

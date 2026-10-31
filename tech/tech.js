@@ -90,12 +90,30 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
   }
   if (window.turnstile) initTurnstile(); else window.tutTurnstileReady = initTurnstile;
 
+  // Load Turnstile only when a form is near the screen or touched, so the bot
+  // check never delays the first paint of the page.
+  function loadTurnstile() {
+    if (window.turnstile || document.querySelector('script[src*="challenges.cloudflare.com/turnstile/v0/api.js"]')) return;
+    var s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady";
+    s.async = true;
+    document.head.appendChild(s);
+  }
+  if ("IntersectionObserver" in window) {
+    var tsIO = new IntersectionObserver(function (es) {
+      if (es.some(function (e) { return e.isIntersecting; })) { tsIO.disconnect(); loadTurnstile(); }
+    }, { rootMargin: "600px 0px" });
+    forms.forEach(function (f) { tsIO.observe(f); });
+  } else loadTurnstile();
+  forms.forEach(function (f) { f.addEventListener("focusin", loadTurnstile); });
+
   function waitForToken(form, ms) {
     return new Promise(function (resolve) {
       var start = Date.now();
       (function poll() {
         var s = widgets.get(form);
-        if (!s) return resolve("");
+        if (!s && Date.now() - start > ms) return resolve("");
+        if (!s) return setTimeout(poll, 150);
         if (s.token) return resolve(s.token);
         if (Date.now() - start > ms) return resolve("");
         setTimeout(poll, 150);
@@ -155,6 +173,7 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
       if (fix && confirmed !== email) { offerFix(fix, false); return; }
 
       busy(true);
+      loadTurnstile();
       waitForToken(form, 6000).then(function (token) {
         var extra = utm();
         if (form.getAttribute("data-campaign") && !extra.utm_campaign) extra.utm_campaign = form.getAttribute("data-campaign");

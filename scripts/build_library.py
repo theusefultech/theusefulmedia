@@ -280,7 +280,6 @@ HEAD = """<!doctype html>
 <link rel="stylesheet" href="/tech/library/library.css">
 <script src="/assets/site.js" defer></script>
 <script src="/tech/tech.js" defer></script>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
 {extra_head}
 </head>
 <body class="nl is-{bodyclass}">

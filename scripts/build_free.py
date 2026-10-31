@@ -144,7 +144,6 @@ def page(p, items):
         dl_link = f'<a class="dl-btn" href="{file_url}" download data-file>{label}'
     title = f'{p["name"]}: free download from The Useful Tech'
     return head(title, p["sub"], url, img, ld_tag) + f'''<script src="/tech/tech.js" defer></script>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tutTurnstileReady" async defer></script>
 <script src="/free/free.js" defer></script>
 </head>
 <body class="fr">

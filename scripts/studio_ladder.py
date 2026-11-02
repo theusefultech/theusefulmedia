@@ -28,6 +28,8 @@ for f in files:
     s = re.sub(r"rises to \$\d+ after the next \d+ licences?", f"rises to ${nxt} after the next {left} {lic}", s)
     if new_price != old and ("studio" in str(f) or f.name == "llms.txt" or "products" in str(f)):
         s = re.sub(r"(?<![\d,])\$%d(?![\d,])" % old, f"${new_price}", s)
+    # Structured data: the Useful Studio offer (not Studio Pro) carries the live price.
+    s = re.sub(r'("name": "Useful Studio", (?:(?!"name": "Useful)[^\n]){0,700}?"price": ")\d+(")', r'\g<1>%d\2' % new_price, s)
     if s != o:
         f.write_text(s)
 st.update(price=new_price, next=nxt, left=left)

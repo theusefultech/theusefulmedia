@@ -121,6 +121,13 @@ def page(p, items):
           "image": img, "url": url, "brand": {"@type": "Organization", "name": "The Useful Media Co"},
           "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": url}}
     ld_tag = '\n<script type="application/ld+json">' + json.dumps(ld) + '</script>'
+    faq = ""
+    if p.get("faq"):
+        fld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in p["faq"]]}
+        ld_tag += '\n<script type="application/ld+json">' + json.dumps(fld) + '</script>'
+        faq = ('<section class="fr-faq wrap" aria-labelledby="faq-h"><h2 id="faq-h">Questions</h2>'
+               + "".join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in p["faq"]) + '</section>\n')
     file_url = f'/free/files/{p["slug"]}/{urllib.parse.quote(p["file"])}'
     meta = f'Free · {esc(p["kind"])}' if p.get("link") else f'Free · {esc(p["kind"])} · {size(p["size"])}'
     proof = (f'<p class="proof"><span class="proof-cells" aria-hidden="true"><i></i><i></i><i></i></span>'
@@ -181,7 +188,7 @@ def page(p, items):
   <h2 id="inside-h">What's inside</h2>
   <ul class="ticks">{inside}</ul>
 </section>
-
+{faq}
 {f'<section class="wrap fr-up">{upsell}</section>' if upsell else ""}
 
 <section class="fr-more wrap" aria-labelledby="more-h">

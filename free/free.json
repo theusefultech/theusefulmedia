@@ -268,9 +268,12 @@
   "title": "The filter I run before any app earns a spot on my Mac.",
   "sub": "The quickest way to stop paying for apps you never end up using.",
   "inside": [
-   "The exact questions I ask before installing anything",
-   "Red flags that rule an app out in under a minute",
-   "Printable, made to keep by your desk"
+   "8 checks in 3 parts: dealbreakers, the cost test, and the keep or trash test",
+   "3 dealbreakers that rule an app out on the spot: where it comes from, what permissions it asks for, and where your data goes",
+   "The cost test: a one-time price or another subscription, and whether a free or built in Mac feature already does the job",
+   "The keep or trash test: CPU, memory and battery for a day, a developer who is still around, and whether you miss it after 7 days",
+   "A verdict for every app: trash it, let it go, or keep it",
+   "1 printable PDF, made to keep beside the App Store"
   ],
   "file": "The Useful Tech - App Vetting Checklist.pdf",
   "kind": "PDF",
@@ -282,6 +285,20 @@
   "tags": [
    "mac",
    "apps"
+  ],
+  "faq": [
+   [
+    "What is the first thing to check before installing a Mac app?",
+    "Where it comes from. Download from the developer's own website or the Mac App Store, skip free download mirrors, and don't wave away a notarization warning."
+   ],
+   [
+    "When is a subscription fair for a Mac app?",
+    "When the app has ongoing costs, like servers or constant development. A simple local utility that charges every year for the same features is usually a pass."
+   ],
+   [
+    "How do I know if an app is worth keeping?",
+    "Use it for 7 days, then switch it off. If you don't notice it's gone, let it go. The apps you miss are the ones worth paying for."
+   ]
   ]
  },
  {
@@ -452,9 +469,12 @@
   "title": "24 Mac AI apps that do the work instead of talking about it.",
   "sub": "Apps that move files, rename things and send the reply, each labelled honestly as Local, Hybrid or Cloud.",
   "inside": [
-   "24 apps with cost and the hardware each one needs",
-   "An honest Local, Hybrid or Cloud label for every app",
-   "4 ways to test whether an app does what its page says"
+   "24 Mac AI apps in 6 groups: files, capture, writing, search, agents and automation",
+   "For every app: the cost, the macOS version and hardware it needs, and the 1 job it takes off your desk",
+   "A Local, Hybrid or Cloud label on every app, so you know where your files and audio go",
+   "4 tests that work on any Mac app: pull the plug, watch the traffic, read the privacy page for the verb, and check what happens if the company disappears",
+   "Where to start, with 3 picks such as Floxtop at $19.99 once",
+   "Prices checked in August 2026"
   ],
   "file": "The-Non-Chatbot-Mac-AI-Stack.pdf",
   "kind": "PDF",
@@ -466,6 +486,20 @@
   "tags": [
    "mac",
    "ai"
+  ],
+  "faq": [
+   [
+    "What is the difference between Local, Hybrid and Cloud apps?",
+    "Local apps run the model on your Mac and keep working with Wi-Fi off. Hybrid apps run the core on your Mac and send heavier work to a server. Cloud apps send everything to a server every time."
+   ],
+   [
+    "How can I tell if a Mac AI app works offline?",
+    "Turn off Wi-Fi and use the feature you care about for 5 minutes. If it stops working, that feature was never local."
+   ],
+   [
+    "Which apps in the stack are free?",
+    "Ollama, LM Studio, Shortcuts, Hammerspoon and Osaurus are free. Raycast, Alfred, Superwhisper and MacWhisper have free tiers, and Floxtop is free for 100 files a month."
+   ]
   ]
  }
 ]

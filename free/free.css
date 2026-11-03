@@ -134,3 +134,9 @@
 /* Success burst: the six-cell mark flying apart */
 .burst { position: fixed; inset: 0; pointer-events: none; z-index: 20; }
 .burst i { position: absolute; width: 12px; height: 12px; border-radius: 3px; background: var(--purple); }
+
+.fr-faq { padding-block: clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--rule); display: grid; gap: 0.75rem; }
+.fr-faq h2 { margin: 0 0 0.5rem; font-size: var(--step-1); letter-spacing: -0.02em; font-weight: 600; }
+.fr-faq details { max-width: 68ch; padding-block: 0.75rem; border-bottom: 1px solid var(--rule); }
+.fr-faq summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+.fr-faq p { margin: 0.5rem 0 0; color: var(--ink-2, inherit); }

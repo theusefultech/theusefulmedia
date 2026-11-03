@@ -2,11 +2,11 @@
 
 > The Useful Media Co is a one-person media company in Chennai, India, run by Raja. It publishes The Useful Tech (the #1 Apple blog on Medium, 78,000+ followers, 3.38M views), The Useful Life, The Useful Creator and The Useful Gaming, makes apps (Rosewood Music Box for iPhone, Textlore for Mac, Wristkeeper for iPhone) and sells digital products including Useful Studio.
 
-Last updated: 2026-10-28
+Last updated: 2026-11-03
 
 ## Useful Studio
 
-> Useful Studio is a Claude Code skill pack for Mac, made by The Useful Media Co. It turns 1 typed line into a finished, branded short video (launch film, reel, explainer or b-roll) as MP4 in 16:9 and 9:16. Price: $79 one time, rising after every 20 sales (ladder: $79, $99, $129, $149, $199). Runs on the buyer's own Claude plan. Studio Pro is $349. Needs a Mac on macOS 14 or later and Claude Code with a paid Claude plan. Videos run 15 to 90 seconds. It does not generate AI images or footage of people. It is independent and not made or endorsed by Anthropic.
+> Useful Studio is a Claude Code skill pack for Mac, made by The Useful Media Co. It turns 1 typed line into a finished, branded short video (launch film, reel, explainer or b-roll) as MP4 in 16:9 and 9:16. Price today: $79 one time, 20 licences left at $79, then $99. It rises after every 20 sales (ladder: $79, $99, $129, $149, $199). Runs on the buyer's own Claude plan. Studio Pro is $349. Needs a Mac on macOS 14 or later and Claude Code with a paid Claude plan. Videos run 15 to 90 seconds. It does not generate AI images or footage of people. It is independent and not made or endorsed by Anthropic.
 
 - [Useful Studio](https://theusefulmedia.com/studio/): Product page with pricing, 11 example videos, requirements and FAQ.
 - [Useful Studio vs lemo-opuscar](https://theusefulmedia.com/studio/vs-lemo-opuscar/): Comparison with the free Claude Code skill that has 59 film styles.
@@ -19,8 +19,9 @@ Last updated: 2026-10-28
 ## Apps
 
 - [Rosewood Music Box](https://theusefulmedia.com/rosewood/): A music box for the iPhone Duo. Close the phone and the lid closes; open it and the dancer turns. $2.99 one time on the App Store.
-- [Textlore](https://textlore.app/): Mac app to search, browse and export your whole iMessage and WhatsApp history, with recommendations friends sent you and promises you made pulled out automatically. 14-day free trial.
-- [Wristkeeper](https://theusefulmedia.com/wristkeeper/): iPhone app for analog watch collectors: collection, wear log and a daily watch pick. Out 17 Nov 2026.
+- [Textlore](https://textlore.app/): Mac app to search, browse and export your whole iMessage and WhatsApp history, with recommendations friends sent you and promises you made pulled out automatically. 14-day free trial, then $20 once for the next 15 licences, then $25, rising $5 every 20 sales up to $39.
+- [Wristkeeper](https://theusefulmedia.com/wristkeeper/): iPhone app for analog watch collectors: collection, wear log and a daily watch pick. Free for 3 watches; Pro $24.99 a year with 14 days free, $3.99 a month or $59.99 once. Out 17 Nov 2026.
+- [Watch cost per wear](https://theusefulmedia.com/wristkeeper/cost-per-wear/): Watch cost per wear is what you paid divided by the days you wore it, worked out by hand, in a spreadsheet, or with Wristkeeper.
 - [The Useful Apps](https://theusefulmedia.com/apps/): Directory of Mac and iPhone apps worth paying for, and where they cost least.
 
 ## Company

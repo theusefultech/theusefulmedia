@@ -328,6 +328,16 @@ p { margin: 0; }
 .mail pre mark { background: var(--purple-soft); color: var(--purple-ink); border-radius: 4px; padding: 0 3px; transition: background .3s ease; }
 .mail-acts { display: flex; align-items: center; gap: 10px; padding: 0 16px 16px; flex-wrap: wrap; }
 .status { font-size: 13px; color: var(--mint); font-weight: 500; }
+.booked { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 60; width: min(560px, calc(100% - 32px)); background: var(--surface); color: var(--ink); border-radius: var(--r); box-shadow: 0 24px 48px -16px rgb(23 23 43 / .35); padding: 18px 18px 18px 20px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: start; animation: rise .45s cubic-bezier(.3,1.4,.5,1); }
+.booked .ok { width: 36px; height: 36px; border-radius: 50%; background: var(--mint); color: #fff; display: grid; place-items: center; }
+.booked .ok svg { width: 18px; height: 18px; }
+.booked b { display: block; font-size: 17px; }
+.booked p { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
+.booked p a { font-weight: 600; }
+.booked .x { background: none; border: 0; color: var(--ink-soft); cursor: pointer; font: 600 22px/1 var(--display); width: 44px; height: 44px; margin: -10px -10px 0 0; border-radius: 50%; }
+.booked .x:hover { background: var(--sunk); }
+@keyframes rise { from { transform: translate(-50%, 24px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .booked { animation: none; } }
 .offer .price { font: 600 15px var(--mono); color: var(--ink); letter-spacing: -.01em; }
 .bill { margin: 0; padding: 6px 18px 0; display: grid; }
 .bill > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); min-width: 0; }
@@ -953,7 +963,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
   var T = window.TUT = window.TUT || { extras: [], day: '', ref: '' };
   /* Prices and PayPal checkout links. A placement with no link falls back to an email asking for the PayPal invoice. */
   var PRICE = { 'top spot in a roundup': 400, 'spot in a roundup': 300, 'dedicated review': 750, 'newsletter feature': 300, 'full campaign': 0 };
-  var PAY = { 'top spot in a roundup': '', 'spot in a roundup': '', 'dedicated review': '', 'newsletter feature': '', 'full campaign': '' };
+  var PAY = { 'top spot in a roundup': 'https://www.paypal.com/ncp/payment/6EWRNFJK9SVRN', 'spot in a roundup': 'https://www.paypal.com/ncp/payment/EENE8AJ8YPMMW', 'dedicated review': 'https://www.paypal.com/ncp/payment/EKJLT5ANH8CXA', 'newsletter feature': 'https://www.paypal.com/ncp/payment/RM8XZRTRK4V8J', 'full campaign': '' };
   var NICE = { 'top spot in a roundup': 'Top spot in a roundup', 'spot in a roundup': 'Spot in a roundup', 'dedicated review': 'Dedicated review', 'newsletter feature': 'Newsletter feature', 'full campaign': 'Full campaign' };
   function parts(mark) {
     var m = mark ? function (x) { return '<mark>' + esc(x) + '</mark>'; } : function (x) { return x; };
@@ -996,6 +1006,16 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
     else { payBtn.href = href; payBtn.removeAttribute('target'); payBtn.removeAttribute('rel'); }
   }
   T.refresh = function () { build(); syncMail(); };
+  /* Back from PayPal checkout */
+  try {
+    if (new URLSearchParams(location.search).get('booked') === '1') {
+      var bk = document.createElement('div'); bk.className = 'booked'; bk.setAttribute('role', 'status');
+      bk.innerHTML = '<span class="ok"><svg><use href="#i-check"/></svg></span><div><b>Payment received. Thank you.</b><p>Email <a href="mailto:' + EMAIL + '?subject=' + encodeURIComponent('Booked: my app details') + '">' + EMAIL + '</a> your app link, a license and your go-live day. Your draft starts the day it lands.</p></div><button class="x" type="button" aria-label="Close">&times;</button>';
+      document.body.appendChild(bk);
+      bk.querySelector('.x').addEventListener('click', function () { bk.remove(); });
+    }
+  } catch (e) {}
+
   appName.addEventListener('input', function () { build(); syncMail(); }); appLink.addEventListener('input', function () { build(); syncMail(); });
   offers.forEach(function (o) { o.addEventListener('click', syncMail); });
   build(); syncMail();

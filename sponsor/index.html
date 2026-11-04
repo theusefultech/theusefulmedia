@@ -328,6 +328,20 @@ p { margin: 0; }
 .mail pre mark { background: var(--purple-soft); color: var(--purple-ink); border-radius: 4px; padding: 0 3px; transition: background .3s ease; }
 .mail-acts { display: flex; align-items: center; gap: 10px; padding: 0 16px 16px; flex-wrap: wrap; }
 .status { font-size: 13px; color: var(--mint); font-weight: 500; }
+.offer .price { font: 600 15px var(--mono); color: var(--ink); letter-spacing: -.01em; }
+.bill { margin: 0; padding: 6px 18px 0; display: grid; }
+.bill > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.bill dt { font-size: 13px; color: var(--ink-soft); font-family: var(--mono); letter-spacing: .02em; flex: none; }
+.bill dd { margin: 0; font-weight: 600; text-align: right; overflow-wrap: anywhere; min-width: 0; transition: color .2s ease; }
+.bill dd.ph { color: var(--ink-soft); font-weight: 500; }
+.bill .total { border-bottom: 0; padding-top: 16px; }
+.bill .total dt { color: var(--ink); }
+.bill .total dd { font: 600 34px/1 var(--display); letter-spacing: -.03em; color: var(--purple-ink); }
+.bill .total dd.pop { animation: tick .35s ease; display: inline-block; }
+@keyframes tick { 40% { transform: scale(1.08); } }
+@media (prefers-reduced-motion: reduce) { .bill .total dd.pop { animation: none; } }
+.bill-note { padding: 4px 18px 16px; font-size: 14px; color: var(--ink-soft); }
+.bill-in { padding: 0 18px 16px; font-size: 13px; color: var(--ink-soft); }
 @media (max-width: 860px) { .builder { grid-template-columns: minmax(0, 1fr); } }
 
 /* Process track */
@@ -730,34 +744,34 @@ p { margin: 0; }
 
   <section id="build">
     <div class="head">
-      <h2>Pick how readers meet your app</h2>
-      <p class="sub">Choose a placement, add your app, and your email is ready to send. Pricing depends on the placement and your app, and comes in my reply.</p>
+      <h2>Pick a placement, pick a day, book it</h2>
+      <p class="sub">Every price is on the page. Pay when you book and the draft starts the same week. Bigger brands and multi-post plans get a quote by email.</p>
     </div>
     <div class="offers" role="group" aria-label="Placements">
       <button type="button" class="offer" data-name="top spot in a roundup" aria-pressed="true">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="r top"><i></i><s></s></div><div class="r"><i></i><s></s></div><div class="r"><i></i><s></s></div></div>
-        <div class="txt"><span class="tag">Most booked</span><h3>Top spot in a roundup</h3><p>Your app at #1 with its own section, a newsletter feature and a post in my Discord community.</p></div>
+        <div class="txt"><span class="tag">Most booked</span><h3>Top spot in a roundup</h3><b class="price">From $400</b><p>Your app at #1 with its own section, a newsletter feature and a post in my Discord community.</p></div>
       </button>
       <button type="button" class="offer" data-name="spot in a roundup" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="r"><i></i><s></s></div><div class="r top"><i></i><s></s></div><div class="r top"><i></i><s></s></div></div>
-        <div class="txt"><span class="tag">Easiest start</span><h3>Spot in a roundup</h3><p>Your app at #2 or #3 with its own section in a roundup readers keep coming back to.</p></div>
+        <div class="txt"><span class="tag">Easiest start</span><h3>Spot in a roundup</h3><b class="price">From $300</b><p>Your app at #2 or #3 with its own section in a roundup readers keep coming back to.</p></div>
       </button>
       <button type="button" class="offer" data-name="dedicated review" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="art"><div class="hero-i"></div><s></s><s></s><s></s></div></div>
-        <div class="txt"><span class="tag">Most depth</span><h3>Dedicated review</h3><p>A full post about your app only, a newsletter feature, a Discord post and posts on X and LinkedIn.</p></div>
+        <div class="txt"><span class="tag">Most depth</span><h3>Dedicated review</h3><b class="price">From $750</b><p>A full post about your app only, a newsletter feature, a Discord post and posts on X and LinkedIn.</p></div>
       </button>
       <button type="button" class="offer" data-name="newsletter feature" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="env"><div class="back"></div><div class="paper"><s></s><s></s><s></s></div><div class="front"></div></div></div>
-        <div class="txt"><span class="tag">Fastest</span><h3>Newsletter feature</h3><p>A spot in the next issue. Great for launches and sales.</p></div>
+        <div class="txt"><span class="tag">Fastest</span><h3>Newsletter feature</h3><b class="price">From $300</b><p>A spot in the next issue, sent to 1,316 readers. Great for launches and sales.</p></div>
       </button>
       <button type="button" class="offer" data-name="full campaign" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="layers"><i></i><i></i><i></i></div></div>
-        <div class="txt"><span class="tag">Most reach</span><h3>Full campaign</h3><p>2 dedicated posts, a dedicated newsletter issue, plus Discord and social posts.</p></div>
+        <div class="txt"><span class="tag">Most reach</span><h3>Full campaign</h3><b class="price">Custom quote</b><p>2 dedicated posts, a dedicated newsletter issue, plus Discord and social posts.</p></div>
       </button>
     </div>
 
@@ -773,8 +787,8 @@ p { margin: 0; }
 
     <div class="builder">
       <div>
-        <h3>Your email, already written</h3>
-        <p class="lede">Add your app, pick a day, then open it in your mail app or copy it.</p>
+        <h3>Book your spot</h3>
+        <p class="lede">Add your app and pick a go-live day. Your booking fills in as you go.</p>
         <div class="fields">
           <label for="appName">App name<input id="appName" type="text" placeholder="e.g. Renamer" autocomplete="off"></label>
           <label for="appLink">App website<input id="appLink" type="text" placeholder="e.g. yourapp.com" autocomplete="off"></label>
@@ -784,15 +798,22 @@ p { margin: 0; }
           <div class="cal" id="cal" role="group" aria-label="Open days in the next 3 weeks"></div>
         </div>
       </div>
-      <div class="mail">
-        <div class="mail-bar" aria-hidden="true"><i></i><i></i><i></i><span>New Message</span></div>
-        <div class="mail-to"><span class="lb">To:</span><span class="addr">raja@theusefultech.com</span><button class="icon-btn copy-email" type="button" data-tip="Copy email" aria-label="Copy email address"><svg class="cp"><use href="#i-copy"/></svg><svg class="ok"><use href="#i-check"/></svg></button></div>
-        <pre id="msgText"></pre>
+      <div class="mail checkout">
+        <div class="mail-bar" aria-hidden="true"><i></i><i></i><i></i><span>Your booking</span></div>
+        <dl class="bill" id="bill">
+          <div><dt>Placement</dt><dd id="bPlace">Top spot in a roundup</dd></div>
+          <div><dt>App</dt><dd id="bApp" class="ph">Add your app</dd></div>
+          <div><dt>Go-live day</dt><dd id="bDay" class="ph">Pick a day</dd></div>
+          <div class="total"><dt>Total</dt><dd id="bPrice">$400</dd></div>
+        </dl>
+        <p class="bill-note" id="bNote">Standard price. You get the draft within 5 days of paying and approve every line before it goes live.</p>
         <div class="mail-acts">
-          <a class="btn primary" id="mailMsg" href="mailto:raja@theusefultech.com"><svg><use href="#i-mail"/></svg>Open in Mail</a>
-          <button type="button" class="btn ghost" id="copyMsg"><svg><use href="#i-copy"/></svg>Copy message</button>
+          <a class="btn primary" id="payBtn" href="mailto:raja@theusefultech.com"><svg><use href="#i-key"/></svg><span id="payTxt">Pay $400 and book</span></a>
+          <a class="btn ghost" id="mailMsg" href="mailto:raja@theusefultech.com"><svg><use href="#i-mail"/></svg>Email me instead</a>
           <span class="status" id="status" aria-live="polite"></span>
         </div>
+        <p class="bill-in">Paying from India? Use Email me instead and I'll send UPI details in rupees.</p>
+        <pre id="msgText" hidden></pre>
       </div>
     </div>
   </section>
@@ -803,7 +824,7 @@ p { margin: 0; }
     </div>
     <div class="track">
       <svg class="path" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="5" x2="100" y2="5" vector-effect="non-scaling-stroke"/></svg>
-      <div class="step"><div class="node"><svg><use href="#i-key"/></svg></div><span class="when">Day 1</span><h3>Book and pay</h3><p>Pay the invoice and send your link and a license. That starts the clock.</p></div>
+      <div class="step"><div class="node"><svg><use href="#i-key"/></svg></div><span class="when">Day 1</span><h3>Book and pay</h3><p>Pay on this page, then send your link and a license. That starts the clock.</p></div>
       <div class="step"><div class="node"><svg><use href="#i-pen"/></svg></div><span class="when">Within 5 days</span><h3>Get the draft</h3><p>My voice, my screenshots, built around why your app is worth installing.</p></div>
       <div class="step"><div class="node"><svg><use href="#i-ok"/></svg></div><span class="when">Your call</span><h3>Approve it</h3><p>Nothing goes live until you're happy with every line.</p></div>
       <div class="step last"><div class="node"><svg><use href="#i-rocket"/></svg></div><span class="when">Launch day</span><h3>Go live for good</h3><p>Published, sent to the newsletter and shared in Discord. It never comes down.</p></div>
@@ -816,17 +837,19 @@ p { margin: 0; }
       <p class="sub">Answered here, so you can decide without waiting on my reply.</p>
     </div>
     <div class="faq">
+      <details><summary>What does it cost?</summary><p>A spot in a roundup is from $300, the top spot from $400, a newsletter feature from $300 and a dedicated review from $750. Full campaigns get a quote. The price you see when you book is the price you pay.</p></details>
       <details><summary>How many views does a sponsored roundup get?</summary><p>Every post is different, so I don't promise a number. The Useful Tech has <span data-fact="followers">78,737</span> followers, <span data-fact="views">3.38M</span> views and a <span data-fact="readRatio">50.3%</span> read ratio, and my biggest app roundup has <span data-fact="topPostViews">156K</span> views. Posts stay up for good, so Google keeps sending readers long after launch. All of it is public on <a href="https://mymedium.info/@theusefultech/">my stats page</a>.</p></details>
       <details><summary>Can I see stats for individual posts?</summary><p>No. Per-post numbers include other sponsors' clicks and sales, so I keep them private for everyone, the same way I'll keep yours. You get my public stats page, live sample posts, and your own tracked link, which shows every click and sale the post sends you.</p></details>
       <details><summary>How do I see clicks and sales?</summary><p>Medium doesn't show writers clicks on outbound links, so every sponsor gets their own tracked link. Send me a UTM or App Store campaign link and every click, install and sale shows up in your own analytics.</p></details>
       <details><summary>Where are your readers, and what do they read on?</summary><p><span data-fact="usShare">53%</span> are in the United States, followed by the UK, Australia, India and Canada. <span data-fact="appleShare">89%</span> read on a Mac or iPhone.</p></details>
-      <details><summary>Is the post free to read?</summary><p>Yes. Sponsored posts are free for everyone, Medium members or not, and for anyone who finds them on Google.</p></details>
-      <details><summary>What's included, and can I add extras?</summary><p>Every spot includes your own section, your link and a newsletter mention, and you approve the draft. Spots under $300 are fixed as listed. Guarantees, content plans and multi-post deals come as a campaign package, so ask for one if you want more.</p></details>
+      <details><summary>Is the post free to read?</summary><p>Sponsored posts are member-only, like the rest of the blog, so Medium keeps recommending them to its paying readers. If you want yours free for everyone, say so when you book and it will be.</p></details>
+      <details><summary>What's included, and can I add extras?</summary><p>Every spot includes your own section, your link and a newsletter mention, and you approve the draft. Every placement is fixed as listed. Guarantees, content plans and multi-post deals come as a campaign package, so ask for one if you want more.</p></details>
       <details><summary>Is the post marked as sponsored?</summary><p>Yes. Every sponsored post says so at the top, as Medium requires, and the newsletter feature is marked too. Readers trust the picks because the label is honest.</p></details>
       <details><summary>Does the post stay up?</summary><p>For good. Sponsored posts never come down, and your link keeps working in every one.</p></details>
       <details><summary>What do you need from me?</summary><p>A license or a TestFlight invite, your link, and anything I must get right. I install your app and use it before I write a word.</p></details>
       <details><summary>How fast can it go live?</summary><p>You get the draft within 5 days of payment and your license. Once you approve it, it goes live on the next open day or a day you pick.</p></details>
-      <details><summary>How does payment work?</summary><p>You pay when you book, and the draft starts as soon as it lands. Outside India, I send a PayPal invoice in US dollars. Inside India, PayPal can't be used between Indian accounts, so you pay by UPI or bank transfer in rupees at that day's exchange rate. You still approve every line before the post goes live.</p></details>
+      <details><summary>How does payment work?</summary><p>You pay when you book, right on this page with PayPal in US dollars, and the draft starts as soon as it lands. Inside India, PayPal can't be used between Indian accounts, so you pay by UPI or bank transfer in rupees at that day's exchange rate. You still approve every line before the post goes live.</p></details>
+      <details><summary>Can we get on a call?</summary><p>No. Everything happens by email, so every detail stays in writing for both of us. I reply within 1 working day.</p></details>
     </div>
   </section>
 
@@ -855,7 +878,7 @@ p { margin: 0; }
   <section class="close">
     <div>
       <h2>The #1 spot in my next roundup is open</h2>
-      <p>Tell me what your app does and who it's for. I'll reply with the placement that fits and the price.</p>
+      <p>Spots start at $300. Pick one, pay, and your draft arrives within 5 days. Planning something bigger? Email me for a quote.</p>
       <div class="cta-row">
         <a class="btn primary" href="#build">Book a spot <svg class="arrow"><use href="#i-arrow"/></svg></a>
         <div class="chip-copy"><span>raja@theusefultech.com</span><button class="icon-btn copy-email" type="button" data-tip="Copy email" aria-label="Copy email address"><svg class="cp"><use href="#i-copy"/></svg><svg class="ok"><use href="#i-check"/></svg></button></div>
@@ -928,15 +951,34 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
   var chosen = 'top spot in a roundup';
   function esc(s) { return s.replace(/[&<>]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[ch]; }); }
   var T = window.TUT = window.TUT || { extras: [], day: '', ref: '' };
+  /* Prices and PayPal checkout links. A placement with no link falls back to an email asking for the PayPal invoice. */
+  var PRICE = { 'top spot in a roundup': 400, 'spot in a roundup': 300, 'dedicated review': 750, 'newsletter feature': 300, 'full campaign': 0 };
+  var PAY = { 'top spot in a roundup': '', 'spot in a roundup': '', 'dedicated review': '', 'newsletter feature': '', 'full campaign': '' };
+  var NICE = { 'top spot in a roundup': 'Top spot in a roundup', 'spot in a roundup': 'Spot in a roundup', 'dedicated review': 'Dedicated review', 'newsletter feature': 'Newsletter feature', 'full campaign': 'Full campaign' };
   function parts(mark) {
     var m = mark ? function (x) { return '<mark>' + esc(x) + '</mark>'; } : function (x) { return x; };
     var a = appName.value.trim() || '[your app]', l = appLink.value.trim() || '[your website]';
-    var what = chosen === 'full campaign' && T.extras.length ? 'a full campaign (' + T.extras.join(', ') + ')' : 'the ' + chosen;
+    var price = PRICE[chosen];
+    var what = chosen === 'full campaign' && T.extras.length ? 'a full campaign (' + T.extras.join(', ') + ')' : 'the ' + chosen + (price ? ' ($' + price + ')' : '');
     var when = T.day ? ' I\'d like it to go live on ' + m(T.day) + '.' : '';
-    return 'Hi Raja,\n\nI\'d like ' + m(what) + ' for ' + m(a) + ' (' + m(l) + ').' + when + '\n\nCould you send me the price and the next steps?\n\nThanks,';
+    var ask = price ? 'Please send the invoice so I can pay and book it.' : 'Please send me a quote.';
+    return 'Hi Raja,\n\nI\'d like to book ' + m(what) + ' for ' + m(a) + ' (' + m(l) + ').' + when + '\n\n' + ask + '\n\nThanks,';
   }
   function plain() { return parts(false); }
-  function build() { msg.innerHTML = parts(true); }
+  var bPlace = document.getElementById('bPlace'), bApp = document.getElementById('bApp'), bDay = document.getElementById('bDay'), bPrice = document.getElementById('bPrice'), bNote = document.getElementById('bNote'), payBtn = document.getElementById('payBtn'), payTxt = document.getElementById('payTxt');
+  function setDd(el, val, ph) { el.textContent = val || ph; el.classList.toggle('ph', !val); }
+  var lastPrice = null;
+  function build() {
+    msg.textContent = plain();
+    var price = PRICE[chosen], a = appName.value.trim();
+    bPlace.textContent = NICE[chosen] || chosen;
+    setDd(bApp, a, 'Add your app');
+    setDd(bDay, T.day, 'Pick a day');
+    var shown = price ? '$' + price : 'Quote';
+    if (shown !== lastPrice) { bPrice.textContent = shown; bPrice.classList.remove('pop'); void bPrice.offsetWidth; if (lastPrice !== null) bPrice.classList.add('pop'); lastPrice = shown; }
+    bNote.textContent = price ? 'Standard price. You get the draft within 5 days of paying and approve every line before it goes live.' : 'Campaigns are built around your launch. Tell me what you want and I\'ll send a quote within 1 working day.';
+    payTxt.textContent = price ? 'Pay $' + price + ' and book' : 'Ask for a quote';
+  }
   T.chosen = function () { return chosen; };
   offers.forEach(function (o) {
     o.addEventListener('click', function () {
@@ -946,7 +988,13 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
     });
   });
   var mailA = document.getElementById('mailMsg');
-  function syncMail() { var a = appName.value.trim() || 'my app'; mailA.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Sponsoring The Useful Tech: ' + a + (T.ref ? ' [' + T.ref + ']' : '')) + '&body=' + encodeURIComponent(plain()); }
+  function mailto() { var a = appName.value.trim() || 'my app'; return 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Booking The Useful Tech: ' + a + (T.ref ? ' [' + T.ref + ']' : '')) + '&body=' + encodeURIComponent(plain()); }
+  function syncMail() {
+    var href = mailto(); mailA.href = href;
+    var link = PAY[chosen];
+    if (link && PRICE[chosen]) { payBtn.href = link; payBtn.target = '_blank'; payBtn.rel = 'noopener'; }
+    else { payBtn.href = href; payBtn.removeAttribute('target'); payBtn.removeAttribute('rel'); }
+  }
   T.refresh = function () { build(); syncMail(); };
   appName.addEventListener('input', function () { build(); syncMail(); }); appLink.addEventListener('input', function () { build(); syncMail(); });
   offers.forEach(function (o) { o.addEventListener('click', syncMail); });
@@ -959,9 +1007,6 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
     } catch (e) { onFail(); }
   }
   function selectNode(el) { try { var r = document.createRange(); r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {} }
-  document.getElementById('copyMsg').addEventListener('click', function () {
-    copyText(plain(), function () { status.textContent = 'Copied. Paste it into a new email.'; }, function () { selectNode(msg); status.textContent = 'Selected. Press Cmd+C to copy.'; });
-  });
   Array.prototype.forEach.call(document.querySelectorAll('.copy-email'), function (b) {
     b.addEventListener('click', function () {
       var done = function () { b.classList.add('done'); b.setAttribute('data-tip', 'Copied'); setTimeout(function () { b.classList.remove('done'); b.setAttribute('data-tip', 'Copy email'); }, 1600); };
@@ -1134,10 +1179,10 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
   /* ---------- Estimator + campaign builder ---------- */
   var EST = {
     'top spot in a roundup': [['156K', 'views on my biggest roundup'], ['Your own section', 'screenshots and your link'], ['About 720', 'newsletter opens']],
-    'spot in a roundup': [['Your own section', 'screenshots and your link'], ['For good', 'the post never comes down'], ['Free to read', 'for every reader']],
+    'spot in a roundup': [['Your own section', 'screenshots and your link'], ['For good', 'the post never comes down'], ['Newsletter', 'a mention to 1,316 readers']],
     'dedicated review': [['A full post', 'about your app alone'], ['About 720', 'newsletter opens'], ['For good', 'the post never comes down']],
     'newsletter feature': [['1,316', 'subscribers'], ['About 720', 'opens per issue'], ['15 to 25', 'clicks on app issues']],
-    'full campaign': [['2 posts', 'plus a newsletter issue'], ['6 channels', 'Medium, newsletter, Discord and social'], ['Free to read', 'every post']]
+    'full campaign': [['2 posts', 'plus a newsletter issue'], ['6 channels', 'Medium, newsletter, Discord and social'], ['For good', 'no post ever comes down']]
   };
   var NAMES = { 'top spot in a roundup': 'Top spot in a roundup', 'spot in a roundup': 'Spot in a roundup', 'dedicated review': 'Dedicated review', 'newsletter feature': 'Newsletter feature', 'full campaign': 'Full campaign' };
   var PICKS = ['2 dedicated posts', 'a dedicated newsletter issue', 'an Instagram carousel', 'an X post', 'a LinkedIn post', 'a Discord post'];
@@ -1165,7 +1210,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
   var cal = $('cal');
   function buildCal(booked) {
     var today = new Date(); today.setHours(0, 0, 0, 0);
-    var start = new Date(today); start.setDate(start.getDate() + 1);
+    var start = new Date(today); start.setDate(start.getDate() + 7);
     var lead = (start.getDay() + 6) % 7, html = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(function (d) { return '<span class="dow">' + d + '</span>'; }).join('');
     for (var g = 0; g < lead; g++) html += '<span class="gap"></span>';
     for (var i = 0; i < 21; i++) {

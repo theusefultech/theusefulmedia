@@ -23,6 +23,8 @@ Last updated: 2026-11-03
 - [Wristkeeper](https://theusefulmedia.com/wristkeeper/): iPhone app for analog watch collectors: collection, wear log and a daily watch pick. Free for 3 watches; Pro $24.99 a year with 14 days free, $3.99 a month or $59.99 once. Out 17 Nov 2026.
 - [Watch cost per wear](https://theusefulmedia.com/wristkeeper/cost-per-wear/): Watch cost per wear is what you paid divided by the days you wore it, worked out by hand, in a spreadsheet, or with Wristkeeper.
 - [The Useful Apps](https://theusefulmedia.com/apps/): Directory of Mac and iPhone apps worth paying for, and where they cost least.
+- [The Useful Apps, every app](https://theusefulmedia.com/apps/llms-full.txt): Every app in the directory with a one-line description, price and devices, plus every best-of guide and its winner.
+- [Best-of guides](https://theusefulmedia.com/apps/best/): 39 guides naming the best Mac and iPhone app for each job, the best free pick and who should choose something else.
 
 ## Company
 

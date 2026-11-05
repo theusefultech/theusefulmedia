@@ -33,6 +33,8 @@ jobs:
           python-version: "3.12"
       - name: Install Pillow
         run: pip install pillow
+      - name: Visitor counter, newsletter line and directory links on every page
+        run: python3 scripts/site_wiring.py
       - name: Structured data, alt text, WebP and image sizes
         run: python3 scripts/seo_pass.py
       - name: Commit SEO fixes

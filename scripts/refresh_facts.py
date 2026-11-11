@@ -10,7 +10,13 @@
 3. Drops booked sponsor dates that are already in the past from sponsor/slots.json.
 
 Run by .github/workflows/refresh-facts.yml once a day. Safe to run any time.
+
+Numbers the daily job can't read (Beehiiv and HQ need sign-in) come in as arguments,
+from Repo pickup when the Daily site stats email task hands them over:
+  python3 scripts/refresh_facts.py --newsletter 1,340 --book 2026-11-17,2026-11-23
+--newsletter replaces the subscriber count everywhere; --book adds booked sponsor dates.
 """
+import argparse
 import datetime as dt
 import json
 import re
@@ -56,8 +62,16 @@ def read_medium():
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--newsletter", help="Beehiiv The Useful Tech active subscribers, e.g. 1,340")
+    ap.add_argument("--book", help="comma-separated YYYY-MM-DD dates with a committed sponsored post")
+    args = ap.parse_args()
     facts = json.loads(FACTS.read_text())
     old = dict(facts)
+    if args.newsletter:
+        n = num(args.newsletter)
+        if 500 <= n <= 100000:
+            facts["newsletterSubs"] = f"{n:,}"
     try:
         m = read_medium()
         facts["followers"] = f"{m['followers']:,}"
@@ -110,7 +124,8 @@ def main():
     # booked dates: keep today and later only
     slots = json.loads(SLOTS.read_text())
     today = dt.date.today().isoformat()
-    keep = sorted(d for d in slots.get("booked", []) if d >= today)
+    extra = [d.strip() for d in (args.book or "").split(",") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d.strip())]
+    keep = sorted(set(d for d in slots.get("booked", []) + extra if d >= today))
     if keep != slots.get("booked"):
         slots["booked"] = keep
         changed = True

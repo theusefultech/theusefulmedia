@@ -34,9 +34,12 @@ async def main():
     os.makedirs(OUT, exist_ok=True)
     tmp = os.path.join(os.path.dirname(OUT), "_og_tmp.html")
     async with async_playwright() as p:
-        b = await p.chromium.launch(executable_path="/usr/bin/google-chrome")
+        exe = "/usr/bin/google-chrome"
+        b = await (p.chromium.launch(executable_path=exe) if os.path.exists(exe) else p.chromium.launch())
         pg = await b.new_page(viewport={"width": 1200, "height": 630})
+        only = set(sys.argv[1:])  # optional: render only these keys, e.g. books-tiny-habits
         for key, k, t, c, a in PAGES:
+            if only and key not in only: continue
             open(tmp, "w").write(tpl(k, t, c, a))
             await pg.goto("http://localhost:8765/library/_og_tmp.html"); await pg.wait_for_timeout(500)
             await pg.screenshot(path=os.path.join(OUT, key + ".png"))

@@ -85,4 +85,7 @@ return {{}};
 </body>
 </html>
 '''
-open('/home/claude/lib/project/Illus.dc.html','w').write(html)
+if __name__ == "__main__":
+    import os
+    _out = '/home/claude/lib/project/Illus.dc.html'
+    if os.path.isdir(os.path.dirname(_out)): open(_out, 'w').write(html)

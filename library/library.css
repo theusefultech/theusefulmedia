@@ -519,3 +519,46 @@ html.dk .freeze-chip{background:#22324A;color:#BFD3F2}
 @keyframes thump{0%,100%{transform:none}15%{transform:translateY(3px) scale(.995)}30%{transform:translate(-3px,-1px)}45%{transform:translate(2px,1px)}60%{transform:translate(-1px,0)}}
 main.thump{animation:thump .45s var(--ease)}
 .aff-note{font-size:12px;color:var(--muted);flex-basis:100%}
+
+/* ===================== Phase 2 ===================== */
+/* Focus never hidden behind the tab bar (WCAG 2.2, 2.4.11) */
+html{scroll-padding-top:16px}
+@media (max-width:760px){html{scroll-padding-bottom:110px}}
+/* Byline */
+.byline{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:14px;color:var(--muted)}
+.byline a{display:inline-flex;align-items:center;gap:8px;color:var(--ink);text-decoration:none;min-height:44px}
+.byline a:hover b{text-decoration:underline}
+.by-av{width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-family:var(--serif);font-size:17px;display:inline-flex;align-items:center;justify-content:center}
+.byline>span:not(:first-child)::before{content:"·";margin-right:14px;color:var(--line)}
+/* Picker */
+.picker{display:flex;flex-direction:column;gap:12px;border-radius:28px}
+.pick-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.pick-btn{display:flex;gap:12px;align-items:center;text-align:left;border:none;background:var(--paper);color:var(--ink);border-radius:16px;padding:14px 16px;min-height:60px;font-weight:700;font-size:16px;cursor:pointer;transition:background .2s,transform .2s var(--ease)}
+.pick-btn:hover{background:var(--mint)}
+.pick-btn[aria-pressed="true"]{background:var(--green);color:#fff}
+.pick-n{flex:0 0 30px;height:30px;border-radius:50%;background:var(--card);color:var(--green);display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px}
+html.dk .pick-btn{background:#222D27}html.dk .pick-btn[aria-pressed="true"]{background:var(--green)}
+/* Fix cards */
+.fixes{display:flex;flex-direction:column;gap:18px}
+.fix{display:flex;gap:26px;align-items:flex-start;border-radius:28px;padding:28px;scroll-margin-top:20px;transition:box-shadow .4s,transform .4s var(--ease)}
+.fix-cover img{width:120px;height:182px;object-fit:cover;border-radius:4px 10px 10px 4px;box-shadow:0 16px 30px -14px rgba(28,43,36,.5)}
+.fix-body{flex:1 1 auto;display:flex;flex-direction:column;gap:10px;min-width:0}
+.fix-t{font-size:clamp(28px,3.4vw,36px);line-height:1.1}
+.fix-what{font-size:17px;color:var(--ink2)}
+.fix-try{background:var(--mint);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.fix-try p:last-child{font-weight:700}
+.fix-fits{font-size:15px;color:var(--soft)}
+.fix .btn{align-self:flex-start}
+.fix.picked{box-shadow:0 0 0 3px var(--green),0 24px 50px -24px rgba(28,43,36,.5);transform:translateY(-3px)}
+@media (max-width:760px){.fix{flex-direction:column;gap:16px;padding:22px}.fix-cover img{width:96px;height:146px}}
+/* Hub cards */
+.pcard{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--ink);padding:24px}
+.pcard-covers{display:flex;margin-bottom:6px}.pcard-covers img{width:54px;height:82px;object-fit:cover;border-radius:2px 6px 6px 2px;box-shadow:0 10px 18px -10px rgba(0,0,0,.5)}
+.pcard-covers img+img{margin-left:-14px}
+.pcard .go{font-weight:800;color:var(--green);font-size:15px}
+/* About */
+.about-art{flex:0 1 240px;display:flex;justify-content:center}
+.about-stats{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.stat-card{display:flex;flex-direction:column;gap:4px;padding:24px}.stat-card b{font-size:48px;line-height:1;color:var(--green);font-weight:400}.stat-card span{color:var(--soft)}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}.how>div{display:flex;flex-direction:column;gap:6px}
+.fix-cover{flex:0 0 120px}@media (max-width:760px){.fix-cover{flex-basis:auto}}

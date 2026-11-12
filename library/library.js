@@ -643,6 +643,18 @@
   };
   $$("[data-buy]").forEach(function (a) { if (a.getAttribute("data-buy")) window.LibBuy(a); });
 
+  // ----- Problem pages: tap the version of the problem you have, jump to its fix -----
+  $$("[data-picker]").forEach(function (pk) {
+    var key = "pick:" + pk.getAttribute("data-picker"), btns = $$("[data-pick]", pk), fixes = $$("[data-fix]");
+    function choose(i, jump) {
+      btns.forEach(function (b) { b.setAttribute("aria-pressed", String(+b.getAttribute("data-pick") === i)); });
+      fixes.forEach(function (f) { f.classList.toggle("picked", +f.getAttribute("data-fix") === i); });
+      if (jump && fixes[i]) fixes[i].scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    }
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); b.addEventListener("click", function () { var i = +b.getAttribute("data-pick"); store.set(key, i); window.LibSound.play("pop"); choose(i, true); }); });
+    var prev = store.get(key, null); if (prev !== null) choose(prev, false);
+  });
+
   // ===================== Phase 1: life and motion =====================
   var fine = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
 

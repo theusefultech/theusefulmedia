@@ -276,6 +276,7 @@
   // Newsletter signup: adds the reader to The Useful Life through the signup Worker.
   // Falls back to The Useful Life's Beehiiv page if the Worker can't be reached.
   var ENDPOINT = "https://useful-signup.raja-822.workers.dev/";
+  var WORKER_READY = false; // true once the Worker accepts list: "life"
   var SITEKEY = "0x4AAAAAAFPMggcqkSSP8L92";
   var LIFE = "https://the-useful-life.beehiiv.com/subscribe";
   var RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -326,6 +327,7 @@
       if (btn.disabled) return;
       var email = input.value.trim().toLowerCase();
       if (!RE.test(email)) { say(MSG.format); input.focus(); return; }
+      if (!WORKER_READY) { msg.innerHTML = '<span class="stamp-box stamp">CARD ISSUED</span> Taking you to confirm on The Useful Life.'; setTimeout(function () { fallback(email); }, 900); return; }
       btn.disabled = true; btn.textContent = "Checking your email"; msg.textContent = "";
       loadTS();
       token(f, 6000).then(function (tk) {

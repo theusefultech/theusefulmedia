@@ -59,6 +59,7 @@
         a.firstChild.textContent = p.text;
         a.lastChild.textContent = p.url ? p.area : "Coming soon";
         if (!p.url) a.lastChild.className = "tag soon";
+        a.addEventListener("click", function () { document.body.classList.remove("searching"); });
         box.appendChild(a);
       });
       box.hidden = !m.length;
@@ -183,17 +184,165 @@
     paint();
   });
 
-  // Newsletter signup: hands the email to The Useful Life on Beehiiv
+  // Menu sheet
+  var sheet = $("[data-sheet]"), lastFocus = null;
+  function openSheet() { if (!sheet) return; lastFocus = document.activeElement; sheet.hidden = false; document.body.classList.add("lock"); var f = $(".sheet-panel a", sheet); if (f) f.focus(); }
+  function closeSheet() { if (!sheet || sheet.hidden) return; sheet.hidden = true; document.body.classList.remove("lock"); if (lastFocus) lastFocus.focus(); }
+  $$("[data-menu-open]").forEach(function (b) { b.addEventListener("click", openSheet); });
+  $$("[data-menu-close]").forEach(function (b) { b.addEventListener("click", closeSheet); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") { closeSheet(); document.body.classList.remove("searching"); } });
+
+  // Phone search: full screen while typing
+  var phone = window.matchMedia("(max-width: 760px)");
+  if (search) {
+    var sInput = $("input", search);
+    sInput.addEventListener("focus", function () { if (phone.matches) document.body.classList.add("searching"); });
+    var sc = $("[data-search-close]", search);
+    if (sc) sc.addEventListener("click", function () { document.body.classList.remove("searching"); sInput.value = ""; sInput.dispatchEvent(new Event("input")); sInput.blur(); });
+  }
+  $$("[data-search-open]").forEach(function (a) {
+    a.addEventListener("click", function (e) { var i = $("[data-search] input"); if (i) { e.preventDefault(); i.focus(); } });
+  });
+  if (location.hash === "#q") { var qi = $("[data-search] input"); if (qi) setTimeout(function () { qi.focus(); }, 300); }
+
+  // Day number shared by rotations (local midnight)
+  function dayIndex() { var d = new Date(); d.setHours(0, 0, 0, 0); return Math.round((d - new Date(2026, 10, 12)) / 86400000); }
+  function seeded(n) { var x = Math.sin(n * 9301 + 49297) * 233280; return x - Math.floor(x); }
+
+  // Rotating covers: new set each day, unseen books first, and they follow the problem you type
+  var fan = $("[data-covers]"), catEl = $("#catalog");
+  if (fan && catEl) {
+    var cat = JSON.parse(catEl.textContent), imgs = $$("img", fan);
+    var seen = store.get("seen", []);
+    function pickDaily() {
+      var day = dayIndex();
+      var order = cat.map(function (b, i) { return { b: b, r: seeded(day * 31 + i) + (seen.indexOf(b.slug) !== -1 ? 1 : 0) }; })
+        .sort(function (a, b) { return a.r - b.r; }).map(function (x) { return x.b; });
+      return order.slice(0, 3);
+    }
+    var current = [];
+    function show(list) {
+      var key = list.map(function (b) { return b.slug; }).join();
+      if (key === current.map(function (b) { return b.slug; }).join()) return;
+      current = list;
+      imgs.forEach(function (im, i) {
+        var b = list[i]; if (!b) return;
+        if (reduce) { im.src = "/library/img/covers/" + b.slug + ".webp"; im.alt = b.t + " cover"; return; }
+        im.classList.add("out");
+        setTimeout(function () {
+          im.src = "/library/img/covers/" + b.slug + ".webp"; im.alt = b.t + " cover";
+          im.onload = function () { im.classList.remove("out"); };
+          setTimeout(function () { im.classList.remove("out"); }, 400);
+        }, 180 + i * 70);
+      });
+      list.forEach(function (b) { if (seen.indexOf(b.slug) === -1) seen.push(b.slug); });
+      if (seen.length > cat.length - 3) seen = seen.slice(-3);
+      store.set("seen", seen);
+    }
+    var daily = pickDaily();
+    show(daily);
+    if (search) {
+      var t = null;
+      $("input", search).addEventListener("input", function () {
+        clearTimeout(t);
+        var q = this.value.trim().toLowerCase();
+        t = setTimeout(function () {
+          var probs = JSON.parse($("#problems").textContent);
+          var hit = probs.filter(function (p) { return q && ((p.text + " " + p.keys).toLowerCase().indexOf(q) !== -1 || q.split(/\s+/).some(function (w) { return w.length > 2 && p.keys.indexOf(w.slice(0, 5)) !== -1; })); })[0];
+          if (!hit) { show(daily); return; }
+          var area = hit.area.toLowerCase();
+          var pool = cat.filter(function (b) { return b.a === area; });
+          cat.forEach(function (b) { if (pool.length < 3 && pool.indexOf(b) === -1) pool.push(b); });
+          show(pool.slice(0, 3));
+        }, 220);
+      });
+    }
+  }
+
+  // Today's idea: a new one each day
+  var today = $("[data-today]"), ideasEl = $("#ideas");
+  if (today && ideasEl) {
+    var ideas = JSON.parse(ideasEl.textContent), it = ideas[((dayIndex() % ideas.length) + ideas.length) % ideas.length];
+    $("[data-i-area]", today).textContent = it.area;
+    $("[data-i-src]", today).textContent = it.src;
+    $("[data-i-t]", today).textContent = it.t;
+    $("[data-i-d]", today).textContent = it.d;
+    var lk = $("[data-i-url]", today); lk.href = it.url;
+    lk.textContent = it.url.indexOf("/ideas/") !== -1 ? "Open the idea" : (it.url.indexOf("/books/") !== -1 ? "Open the book" : "Play today's game");
+    var st = $("[data-i-steps]", today); st.innerHTML = "";
+    it.s.forEach(function (x, i) { var p = document.createElement("p"); p.innerHTML = "<b>" + (i + 1) + ".</b> "; p.appendChild(document.createTextNode(x)); st.appendChild(p); });
+  }
+
+  // Newsletter signup: adds the reader to The Useful Life through the signup Worker.
+  // Falls back to The Useful Life's Beehiiv page if the Worker can't be reached.
+  var ENDPOINT = "https://useful-signup.raja-822.workers.dev/";
+  var SITEKEY = "0x4AAAAAAFPMggcqkSSP8L92";
   var LIFE = "https://the-useful-life.beehiiv.com/subscribe";
   var RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  $$("form[data-life-signup]").forEach(function (f) {
-    var input = $("input[type=email]", f), msg = f.parentNode.querySelector(".signup-msg");
+  var MSG = {
+    format: "That email looks off. Check it and try again.",
+    disposable: "Throwaway inboxes can't get the lessons. Use your real email.",
+    no_mail: "That email's domain can't receive mail. Check the spelling.",
+    bot: "We couldn't confirm you're a person. Refresh and try once more.",
+    server: "Something went wrong on our side. Try again in a minute."
+  };
+  var forms = $$("form[data-life-signup]");
+  var widgets = new Map();
+  function initTS() {
+    if (!window.turnstile) return;
+    forms.forEach(function (f) {
+      if (widgets.has(f)) return;
+      var slot = document.createElement("div"); f.parentNode.appendChild(slot);
+      var st = { token: "", id: null };
+      st.id = window.turnstile.render(slot, { sitekey: SITEKEY, appearance: "interaction-only",
+        callback: function (t) { st.token = t; }, "expired-callback": function () { st.token = ""; }, "error-callback": function () { st.token = ""; } });
+      widgets.set(f, st);
+    });
+  }
+  window.libTurnstileReady = initTS;
+  function loadTS() {
+    if (window.turnstile || document.querySelector('script[src*="turnstile/v0/api.js"]')) return;
+    var sc = document.createElement("script");
+    sc.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=libTurnstileReady";
+    sc.async = true; document.head.appendChild(sc);
+  }
+  if (forms.length && "IntersectionObserver" in window) {
+    var tio = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { tio.disconnect(); loadTS(); } }, { rootMargin: "600px 0px" });
+    forms.forEach(function (f) { tio.observe(f); });
+  } else if (forms.length) loadTS();
+  function token(f, ms) {
+    return new Promise(function (res) {
+      var t0 = Date.now();
+      (function poll() { var w = widgets.get(f); if (w && w.token) return res(w.token); if (Date.now() - t0 > ms) return res(""); setTimeout(poll, 150); })();
+    });
+  }
+  forms.forEach(function (f) {
+    var input = $("input[type=email]", f), btn = $("button", f), msg = f.parentNode.querySelector(".signup-msg"), label = btn.textContent;
+    f.addEventListener("focusin", loadTS);
+    function say(t) { msg.textContent = t; f.classList.remove("shake"); void f.offsetWidth; f.classList.add("shake"); }
+    function fallback(email) { location.href = LIFE + "?email=" + encodeURIComponent(email) + "&utm_source=theusefulmedia.com&utm_medium=library"; }
     f.addEventListener("submit", function (e) {
       e.preventDefault();
-      var email = input.value.trim();
-      if (!RE.test(email)) { msg.textContent = "That email looks off. Check it and try again."; f.classList.remove("shake"); void f.offsetWidth; f.classList.add("shake"); input.focus(); return; }
-      msg.innerHTML = '<span class="stamp-box stamp">CARD ISSUED</span> Taking you to confirm on The Useful Life.';
-      setTimeout(function () { location.href = LIFE + "?email=" + encodeURIComponent(email) + "&utm_source=theusefulmedia.com&utm_medium=library&utm_campaign=" + encodeURIComponent(f.getAttribute("data-campaign") || "library"); }, 900);
+      if (btn.disabled) return;
+      var email = input.value.trim().toLowerCase();
+      if (!RE.test(email)) { say(MSG.format); input.focus(); return; }
+      btn.disabled = true; btn.textContent = "Checking your email"; msg.textContent = "";
+      loadTS();
+      token(f, 6000).then(function (tk) {
+        return fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email, token: tk, list: "life", utm_source: "theusefulmedia.com", utm_medium: "library", utm_campaign: f.getAttribute("data-campaign") || "library" }) })
+          .then(function (r) { return r.json(); });
+      }).then(function (res) {
+        var w = widgets.get(f); if (w && window.turnstile) { w.token = ""; window.turnstile.reset(w.id); }
+        btn.disabled = false; btn.textContent = label;
+        if (res && res.ok) {
+          f.hidden = true;
+          msg.innerHTML = '<span class="stamp-box stamp">CARD ISSUED</span> ' + (res.existing ? "You were already on the list. Next lesson soon." : "You&#39;re in. Your first lesson lands with the next issue.");
+          return;
+        }
+        if (res && res.code === "typo" && res.suggestion) { input.value = res.suggestion; say("Did you mean " + res.suggestion + "? We fixed it. Press the button again."); return; }
+        say(MSG[res && res.code] || MSG.server);
+      }).catch(function () { fallback(email); });
     });
   });
 })();

@@ -41,11 +41,27 @@ def nav(cur):
     def a(href,label,key):
         c=' aria-current="page"' if key==cur else ''
         return f'<a href="{href}"{c}>{label}</a>'
+    ic={
+     "home":'<path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/>',
+     "game":'<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+     "search":'<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',
+     "menu":'<path d="M4 7h16M4 12h16M4 17h10"/>'}
+    def svg(k): return f'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ic[k]}</svg>'
+    def tab(href,label,key):
+        c=' aria-current="page"' if key==cur else ''
+        return f'<a href="{href}"{c}>{svg(key)}<span>{label}</span></a>'
     return f'''<a class="skip" href="#main">Skip to content</a>
 <header class="wrap"><nav class="lib-nav" aria-label="The Useful Library">
 <a class="lib-brand" href="/library/" aria-label="The Useful Library home"><svg width="34" height="34" viewBox="0 0 160 160" aria-hidden="true">{plate("habits")}</svg><span>The Useful Library</span></a>
 <div class="lib-links">{a("/library/game/","Today&#39;s game","game")}{a("/library/books/atomic-habits/","Books","book")}{a("/library/ideas/the-2-minute-rule/","Ideas","idea")}<a class="btn btn-ink pill" href="/library/#signup" style="min-height:44px;padding:10px 18px;font-size:15px">Get the free lessons</a></div>
-</nav></header>'''
+<button class="menu-btn" type="button" data-menu-open aria-haspopup="dialog" aria-label="Open menu">{svg("menu")}</button>
+</nav></header>
+<nav class="tabbar" aria-label="Quick links">{tab("/library/","Home","home")}{tab("/library/game/","Game","game")}<a href="/library/#q" data-search-open>{svg("search")}<span>Search</span></a><button type="button" data-menu-open aria-haspopup="dialog">{svg("menu")}<span>Menu</span></button></nav>
+<div class="sheet" data-sheet hidden><div class="sheet-backdrop" data-menu-close></div>
+<div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="sheet-grip" aria-hidden="true"></div>
+<a href="/library/">Home</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/books/atomic-habits/">Books: Atomic Habits</a><a href="/library/ideas/the-2-minute-rule/">Ideas: The 2 minute rule</a>
+<a class="btn btn-green" href="/library/#signup" data-menu-close>Get the free lessons</a>
+<button type="button" class="btn btn-line" data-menu-close>Close</button></div></div>'''
 
 FOOT='''<footer class="wrap"><div class="lib-foot"><div>The Useful Library is part of The Useful Life, from <a href="/">The Useful Media Co</a>.</div><div><a href="/library/game/">Daily game</a> · <a href="/tech/">The Useful Tech</a> · <a href="/contact/">Contact</a></div></div></footer>
 </body>
@@ -69,16 +85,29 @@ problems=[
  {"text":"I start strong, then quit","area":"HABITS","keys":"quit quitting motivation consistent give up","url":"/library/books/atomic-habits/"},
  {"text":"Small tasks pile up on me","area":"FOCUS","keys":"tasks pile emails chores todo to-do overwhelmed","url":"/library/ideas/the-2-minute-rule/"},
  {"text":"I overspend every month","area":"MONEY","keys":"money spend spending overspend save saving budget"},
- {"text":"I don't know how to start investing","area":"MONEY","keys":"invest investing stock stocks wealth retire"},
- {"text":"I overthink everything","area":"MINDSET","keys":"overthink overthinking worry anxious stress"},
+ {"text":"I don't know how to start investing","area":"MONEY","keys":"invest investing stock stocks wealth retire money"},
+ {"text":"I overthink everything","area":"MINDSET","keys":"overthink overthinking worry anxious stress mind calm"},
  {"text":"I can't focus for long","area":"FOCUS","keys":"focus distract distracted phone attention concentrate"},
  {"text":"Small setbacks ruin my week","area":"MINDSET","keys":"setback setbacks resilience calm upset"},
 ]
+catalog=[{"slug":"atomic-habits","t":"Atomic Habits","a":"habits"},{"slug":"the-power-of-habit","t":"The Power of Habit","a":"habits"},{"slug":"mindset","t":"Mindset","a":"mindset"},
+ {"slug":"deep-work","t":"Deep Work","a":"focus"},{"slug":"essentialism","t":"Essentialism","a":"focus"},{"slug":"indistractable","t":"Indistractable","a":"focus"},{"slug":"the-7-habits-of-highly-effective-people","t":"The 7 Habits of Highly Effective People","a":"habits"},
+ {"slug":"the-psychology-of-money","t":"The Psychology of Money","a":"money"},{"slug":"i-will-teach-you-to-be-rich","t":"I Will Teach You to Be Rich","a":"money"},
+ {"slug":"mans-search-for-meaning","t":"Man's Search for Meaning","a":"mindset"},{"slug":"meditations","t":"Meditations","a":"mindset"},{"slug":"thinking-fast-and-slow","t":"Thinking, Fast and Slow","a":"money"},{"slug":"how-to-win-friends-and-influence-people","t":"How to Win Friends and Influence People","a":"mindset"}]
+ideas_daily=[
+ {"area":"Habits","src":"Atomic Habits, ch. 13","t":"The 2 minute rule","d":"Shrink any new habit to a version that takes 2 minutes. \"Read 30 pages\" becomes \"read 1 page\". Starting is the hard part, so make starting tiny.","s":["Pick 1 habit you keep putting off.","Cut it to its first 2 minutes. Running becomes putting on your shoes.","Do only that today. Stop there, even if you want more."],"url":"/library/ideas/the-2-minute-rule/"},
+ {"area":"Habits","src":"Atomic Habits, ch. 5","t":"Habit stacking","d":"Tie a new habit to one you already do every day: after I pour my morning coffee, I will write 1 line in my journal.","s":["List 5 things you already do every day without thinking.","Pick the one that happens at the right time and place for your new habit.","Write \"After I ___, I will ___\" and put it where you will see it."],"url":"/library/books/atomic-habits/"},
+ {"area":"Habits","src":"Atomic Habits, ch. 16","t":"Never miss twice","d":"Missing a day happens. Missing 2 in a row is how a habit quietly dies. Treat the day after a miss as the one that counts.","s":["Pick the habit you most often drop.","Decide now what the smallest version is on a bad day.","If you miss today, put that tiny version first on tomorrow's list."],"url":"/library/books/atomic-habits/"},
+ {"area":"Focus","src":"Essentialism","t":"The 90 percent rule","d":"Score each option out of 100 on what matters most to you. Anything below 90 counts as a no. If it isn't a clear yes, it's a clear no.","s":["Pick 1 decision you have been putting off.","Write the 1 thing that matters most in it.","Score each option out of 100. Drop everything under 90."],"url":"/library/game/"},
+ {"area":"Focus","src":"Deep Work","t":"The shutdown ritual","d":"End every workday the same way: check what's left, plan tomorrow, then say a set phrase that tells your brain work is done.","s":["5 minutes before you stop, list what is still open.","Put each open item on tomorrow or a later date.","Close with the same short phrase every day, then stop checking work."],"url":"/library/game/"},
+ {"area":"Money","src":"The Psychology of Money","t":"Wealth is what you don't see","d":"The money you didn't spend is the wealth. The nice car shows what someone spent, not what they have.","s":["Pick 1 thing you were about to buy to look good.","Skip it, and move that amount into savings today.","Name that savings pot after what it will buy you: time."],"url":"/library/game/"},
+ {"area":"Habits","src":"The Power of Habit","t":"Keep the cue, swap the routine","d":"You can't delete a bad habit easily, but you can change what you do when the urge hits, as long as you still get a reward.","s":["Pick 1 habit you want to break.","Write down what sets it off: a time, place, feeling or person.","Choose a new routine for that moment that gives a similar reward."],"url":"/library/game/"},
+ {"area":"Mindset","src":"Meditations","t":"Spend energy only on what you control","d":"Marcus Aurelius kept reminding himself that other people's actions are outside his control. His own choices and responses are not.","s":["Write down what is worrying you today.","Split it into 2 lists: what you control and what you don't.","Do 1 thing from the first list. Let the second list go for today."],"url":"/library/game/"}]
 areas=[("habits","Habits and discipline","Build what sticks. Break what doesn't.","/library/books/atomic-habits/","Open Atomic Habits"),
        ("focus","Focus and productivity","Do the 1 thing that matters.","/library/ideas/the-2-minute-rule/","Open the 2 minute rule"),
        ("money","Money and wealth mindset","Spend, save and think better about money.","#signup","First books this month"),
        ("mindset","Mindset and emotions","Calmer, steadier, less overthinking.","#signup","First books this month")]
-tiles="".join(f'''<a href="{u}" class="tile lift reveal">
+tiles="".join(f'''<a href="{u}" class="tile lift reveal" data-area="{k}">
 <div class="art-box"><svg class="art" width="128" height="128" viewBox="0 0 160 160" aria-hidden="true">{paper(k)}</svg></div>
 <h3>{n}</h3><p style="font-size:15px;color:var(--soft)">{d}</p><span class="go">{g}</span></a>''' for k,n,d,u,g in areas)
 home=head("The Useful Library: fix real problems with ideas from nonfiction books","Search by the problem you want to fix. Get the 1 idea from the best nonfiction books, which chapters to read, and a daily book guessing game.","/library/")+'</head>\n<body>\n'+nav("home")+f'''
@@ -89,15 +118,17 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 <h1 class="rise d1">What do you want to <em>fix</em> this week?</h1>
 <form class="search rise d2" data-search role="search">
 <label for="q" style="font-size:15px;color:var(--muted)">Describe it in your own words</label>
-<div class="search-bar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C2B24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<div class="search-bar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="color:var(--ink)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
 <input id="q" type="text" autocomplete="off" placeholder="I keep procrastinating" data-examples="I keep procrastinating|I overspend every month|I can&#39;t stop overthinking|I lose focus after 10 minutes">
-<button class="btn btn-green pill" type="submit">Find the idea</button></div>
+<button class="btn btn-green pill search-go" type="submit" aria-label="Find the idea"><span class="lbl">Find the idea</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+<button type="button" class="search-close" data-search-close>Cancel</button>
 <div class="suggest" hidden aria-live="polite"></div>
 <p data-nomatch hidden style="font-size:15px;color:var(--soft)">Nothing for that yet. Try "habits", "focus" or "money".</p>
 </form>
 <script type="application/json" id="problems">{json.dumps(problems)}</script>
+<script type="application/json" id="catalog">{json.dumps(catalog)}</script>
 </div>
-<div class="fan rise d3"><div class="float">
+<div class="fan rise d3" data-covers aria-live="polite"><div class="float">
 <img class="c1" src="{cov('atomic-habits')}" alt="Atomic Habits cover" width="150" height="228">
 <img class="c2" src="{cov('the-psychology-of-money')}" alt="The Psychology of Money cover" width="150" height="228">
 <img class="c3" src="{cov('mans-search-for-meaning')}" alt="Man&#39;s Search for Meaning cover" width="150" height="228">
@@ -105,18 +136,19 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 </section>
 
 <section class="row">
-<div class="flipcard" data-flip>
+<div class="flipcard" data-flip data-today>
 <div class="face card">
-<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap" class="mono"><span>Today&#39;s idea · Habits</span><span>Atomic Habits, ch. 13</span></div>
-<h2 style="font-size:clamp(34px,4.5vw,46px)">The 2 minute rule</h2>
-<p style="font-size:18px;color:var(--ink2);max-width:560px">Shrink any new habit to a version that takes 2 minutes. "Read 30 pages" becomes "read 1 page". Starting is the hard part, so make starting tiny.</p>
-<div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-green" type="button" data-flip-btn>Show me how</button><a class="btn btn-line" href="/library/ideas/the-2-minute-rule/">Open the idea</a></div>
+<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap" class="mono"><span>Today&#39;s idea · <span data-i-area>Habits</span></span><span data-i-src>Atomic Habits, ch. 13</span></div>
+<h2 style="font-size:clamp(34px,4.5vw,46px)" data-i-t>The 2 minute rule</h2>
+<p style="font-size:18px;color:var(--ink2);max-width:560px" data-i-d>Shrink any new habit to a version that takes 2 minutes. "Read 30 pages" becomes "read 1 page". Starting is the hard part, so make starting tiny.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-green" type="button" data-flip-btn>Show me how</button><a class="btn btn-line" href="/library/ideas/the-2-minute-rule/" data-i-url>Open the idea</a></div>
 </div>
 <div class="face dark" hidden>
 <p class="mono" style="color:var(--brass)">Try it today · 3 steps</p>
-<div class="steps3"><p><b>1.</b> Pick 1 habit you keep putting off.</p><p><b>2.</b> Cut it to its first 2 minutes. Running becomes putting on your shoes.</p><p><b>3.</b> Do only that today. Stop there, even if you want more.</p></div>
+<div class="steps3" data-i-steps><p><b>1.</b> Pick 1 habit you keep putting off.</p><p><b>2.</b> Cut it to its first 2 minutes. Running becomes putting on your shoes.</p><p><b>3.</b> Do only that today. Stop there, even if you want more.</p></div>
 <div><button class="btn btn-line-light" type="button" data-flip-btn>Flip back</button></div>
 </div>
+<script type="application/json" id="ideas">{json.dumps(ideas_daily)}</script>
 </div>
 <a class="gametile lift" href="/library/game/">
 <div style="display:flex;flex-direction:column;gap:8px"><p class="mono" style="color:#CFE3D7">Daily game</p><h2 style="font-size:36px">Mystery Book</h2><p style="color:#E3EEE7;font-size:16px">Guess today&#39;s book. Every wrong guess opens a new clue.</p></div>
@@ -212,7 +244,7 @@ ideas=[("Ch. 13","The 2 minute rule","Shrink a new habit until it takes 2 minute
 icards="".join((f'<a href="{u}" class="card lift reveal" style="text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;padding:24px">' if u else '<div class="card reveal" style="display:flex;flex-direction:column;gap:10px;padding:24px">')+f'<p class="mono">{c}</p><h3>{t}</h3><p style="font-size:15px;color:var(--soft)">{d}</p>'+(f'<span class="go" style="font-weight:700;font-size:14px;color:var(--green)">Open idea</span></a>' if u else '<span style="font-size:14px;color:var(--muted)">Full idea page soon</span></div>') for c,t,d,u in ideas)
 bookld=[{"@type":"Book","name":"Atomic Habits","author":{"@type":"Person","name":"James Clear"},"datePublished":"2018","image":BASE+cov('atomic-habits')},
         {"@type":"Review","itemReviewed":{"@type":"Book","name":"Atomic Habits","author":{"@type":"Person","name":"James Clear"}},"author":{"@type":"Organization","name":"The Useful Library"},"reviewBody":f"Worth it, but not cover to cover. Read chapters {reads}; skim or skip the rest."}]
-book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic Habits by James Clear, chapter by chapter: read {len([c for c in ch if c[0]==R_])} of 20 chapters ({reads}), skim or skip the rest, and why. Plus the 4 ideas worth using.","/library/books/atomic-habits/",bookld)+'</head>\n<body>\n'+nav("book")+f'''
+book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic Habits by James Clear, chapter by chapter: read {len([c for c in ch if c[0]==R_])} of 20 chapters ({reads}), skim or skip the rest, and why. Plus the 4 ideas worth using.","/library/books/atomic-habits/",bookld)+'</head>\n<body data-area="habits">\n'+nav("book")+f'''
 <main id="main" class="wrap">
 <section class="row" style="align-items:center;gap:40px;padding-top:12px">
 <div style="flex:0 1 240px;display:flex;justify-content:center"><img class="float rise" src="{cov('atomic-habits')}" alt="Atomic Habits cover" width="230" height="348" style="width:230px;height:348px;object-fit:cover;border-radius:4px 12px 12px 4px;box-shadow:0 30px 50px -24px rgba(28,43,36,.6)"></div>
@@ -240,7 +272,7 @@ book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic H
 <section style="display:flex;flex-direction:column;gap:18px"><h2>4 ideas from this book</h2><div class="grid">{icards}</div></section>
 
 <section class="row">
-<div class="card lift grow-main reveal" style="display:flex;flex-direction:column;gap:10px"><p class="mono">Where books disagree</p><p class="serif" style="font-size:26px;line-height:1.2">Atomic Habits says shrink a new habit to 2 minutes. Getting Things Done says do any task under 2 minutes right now. Same name, different rule.</p><a href="/library/ideas/the-2-minute-rule/" style="font-weight:700">Compare them</a></div>
+<div class="card lift grow-main reveal" style="display:flex;flex-direction:column;gap:10px"><p class="mono">Where books disagree</p><p class="serif" style="font-size:26px;line-height:1.2">Atomic Habits says shrink a new habit to 2 minutes. Getting Things Done says do any task under 2 minutes right now. Same name, different rule.</p><a class="more" href="/library/ideas/the-2-minute-rule/">Compare them</a></div>
 <a class="gametile lift grow-side" href="/library/game/"><div style="display:flex;flex-direction:column;gap:8px"><p class="mono" style="color:#CFE3D7">Daily game</p><h2 style="font-size:32px">Guess today&#39;s book</h2></div><span style="font-weight:800">Play</span></a>
 </section>
 {SIGNUP.replace("CAMP","book")}
@@ -254,7 +286,7 @@ check='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFF
 steps=["Pick 1 habit you keep putting off.","Cut it to its first 2 minutes. Running becomes putting on your shoes.","Do only that today, then stop."]
 stepsH="".join(f'<button type="button" class="check" aria-pressed="false"><span class="box">{check}</span><span class="t">{s}</span></button>' for s in steps)
 ideald=[{"@type":"HowTo","name":"How to use the 2 minute rule","step":[{"@type":"HowToStep","text":s} for s in steps]}]
-idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2 different 2 minute rules. James Clear's shrinks a new habit to 2 minutes. David Allen's says do any task under 2 minutes now. What each fixes, and how to try it today.","/library/ideas/the-2-minute-rule/",ideald)+'</head>\n<body>\n'+nav("idea")+f'''
+idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2 different 2 minute rules. James Clear's shrinks a new habit to 2 minutes. David Allen's says do any task under 2 minutes now. What each fixes, and how to try it today.","/library/ideas/the-2-minute-rule/",ideald)+'</head>\n<body data-area="habits">\n'+nav("idea")+f'''
 <main id="main" class="wrap">
 <section class="row" style="align-items:flex-start;gap:32px;padding-top:12px">
 <div class="grow-main" style="display:flex;flex-direction:column;gap:16px">
@@ -262,7 +294,7 @@ idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2
 <h1 class="rise d1">The 2 minute rule</h1>
 <p class="lede rise d2">Same name, 2 different rules. Both work. They fix different problems.</p>
 </div>
-<svg class="stamp d4" width="170" height="170" viewBox="0 0 160 160" role="img" aria-label="Bookplate for the 2 minute rule">{plate("habits")}</svg>
+<svg class="stamp d4 idea-plate" width="170" height="170" viewBox="0 0 160 160" role="img" aria-label="Bookplate for the 2 minute rule">{plate("habits")}</svg>
 </section>
 
 <section class="card reveal" style="display:flex;flex-direction:column;gap:22px;border-radius:28px">

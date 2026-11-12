@@ -3,6 +3,7 @@
 import json, os, sys, html
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from library_illus import paper, plate
+import library_art as A
 R=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'library')
 BASE='https://theusefulmedia.com'
 def cov(slug): return f'/library/img/covers/{slug}.webp'
@@ -64,7 +65,7 @@ def nav(cur):
         return f'<a href="{href}"{c}>{svg(key)}<span>{label}</span></a>'
     return f'''<a class="skip" href="#main">Skip to content</a>
 <header class="wrap"><nav class="lib-nav" aria-label="The Useful Library">
-<a class="lib-brand" href="/library/" aria-label="The Useful Library home"><svg width="34" height="34" viewBox="0 0 160 160" aria-hidden="true">{plate("habits")}</svg><span>The Useful Library</span></a>
+<a class="lib-brand" href="/library/" aria-label="The Useful Library home"><svg width="38" height="38" viewBox="0 0 160 160" aria-hidden="true">{A.logo()}</svg><span>The Useful Library</span></a>
 <div class="lib-links">{a("/library/game/","Today&#39;s game","game")}{a("/library/books/atomic-habits/","Books","book")}{a("/library/ideas/the-2-minute-rule/","Ideas","idea")}{a("/library/shelf/","My shelf","shelf")}<a class="btn btn-ink pill" href="/library/#signup" style="min-height:44px;padding:10px 18px;font-size:15px">Get the free lessons</a></div>
 <button class="menu-btn" type="button" data-menu-open aria-haspopup="dialog" aria-label="Open menu">{svg("menu")}</button>
 </nav></header>
@@ -82,7 +83,7 @@ STAY_BLOCK='''<div class="stay" data-stay>
 <a class="stay-btn" href="/library/mystery-book.ics" data-cal><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M12 13.5v4M10 15.5h4"/></svg><span><b>Add a daily reminder</b><small>2 minutes in your calendar</small></span></a>
 <a class="stay-btn" href="/library/#signup" data-menu-close><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg><span><b>Get the lessons by email</b><small>3 a week, free</small></span></a>
 </div></div>'''
-FOOT=f'''<script type="application/json" id="plates">{json.dumps({k:plate(k) for k in ['habits','focus','money','mindset']})}</script><footer class="wrap"><div class="stay-foot">'''+STAY_BLOCK+'''</div><div class="lib-foot"><div>The Useful Library is part of The Useful Life, from <a href="/">The Useful Media Co</a>.</div><div><a href="/library/game/">Daily game</a> · <a href="/tech/">The Useful Tech</a> · <a href="/contact/">Contact</a></div></div></footer>
+FOOT=f'''<script type="application/json" id="plates">{json.dumps({k:A.stamp(k) for k in A.STAMP_POSES})}</script><footer class="wrap"><div class="stay-foot">'''+STAY_BLOCK+'''</div><div class="lib-foot"><div>The Useful Library is part of The Useful Life, from <a href="/">The Useful Media Co</a>.</div><div><a href="/library/game/">Daily game</a> · <a href="/tech/">The Useful Tech</a> · <a href="/contact/">Contact</a></div></div></footer>
 <div class="sheet" data-ios-guide hidden><div class="sheet-backdrop" data-guide-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Add to home screen"><div class="sheet-grip" aria-hidden="true"></div>
 <p class="serif" style="font-size:28px;line-height:1.1">Add the Library to your home screen</p>
@@ -143,7 +144,7 @@ areas=[("habits","Habits and discipline","Build what sticks. Break what doesn't.
        ("money","Money and wealth mindset","Spend, save and think better about money.","#signup","First books this month"),
        ("mindset","Mindset and emotions","Calmer, steadier, less overthinking.","#signup","First books this month")]
 tiles="".join(f'''<a href="{u}" class="tile lift reveal" data-area="{k}">
-<div class="art-box"><svg class="art" width="128" height="128" viewBox="0 0 160 160" aria-hidden="true">{paper(k)}</svg></div>
+<div class="art-box">{A.scene(k).replace('<svg class="art"','<svg class="art" width="150" height="150"')}</div>
 <h3>{n}</h3><p style="font-size:15px;color:var(--soft)">{d}</p><span class="go">{g}</span></a>''' for k,n,d,u,g in areas)
 home=head("The Useful Library: fix real problems with ideas from nonfiction books","Search by the problem you want to fix. Get the 1 idea from the best nonfiction books, which chapters to read, and a daily book guessing game.","/library/")+'</head>\n<body>\n'+nav("home")+f'''
 <main id="main" class="wrap">
@@ -165,7 +166,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 <script type="application/json" id="problems">{json.dumps(problems)}</script>
 <script type="application/json" id="catalog">{json.dumps(catalog)}</script>
 </div>
-<div class="fan rise d3" data-covers aria-live="polite"><div class="float">
+<div class="fan rise d3" data-covers aria-live="polite"><span class="hero-dog">{A.svg(A.dog(60,70,1,"smile",A.G,"wave"),"0 0 130 130","art")}</span><div class="float">
 <img class="c1" src="{cov('atomic-habits')}" alt="Atomic Habits cover" width="150" height="228">
 <img class="c2" src="{cov('the-psychology-of-money')}" alt="The Psychology of Money cover" width="150" height="228">
 <img class="c3" src="{cov('mans-search-for-meaning')}" alt="Man&#39;s Search for Meaning cover" width="150" height="228">
@@ -191,6 +192,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 <div style="display:flex;flex-direction:column;gap:8px"><p class="mono" style="color:#CFE3D7">Daily game</p><h2 style="font-size:36px">Mystery Book</h2><p style="color:#E3EEE7;font-size:16px">Guess today&#39;s book. Every wrong guess opens a new clue.</p></div>
 <div style="display:flex;gap:6px" aria-hidden="true"><div class="sq pop d1" style="background:#B8913A"></div><div class="sq pop d2" style="background:#B8913A"></div><div class="sq pop d3" style="background:#4E8A6C"></div><div class="sq pop d4" style="background:#33463C"></div><div class="sq pop d5" style="background:#33463C"></div><div class="sq pop d5" style="background:#33463C"></div></div>
 <span style="font-weight:800;font-size:17px">Play today&#39;s puzzle</span>
+<span class="gt-art">{A.svg(A.dog(70,78,1,"o",A.BL,"right",'<circle cx="54" cy="-14" r="15" fill="#FBFBF8" fill-opacity=".7" stroke="#1C2B24" stroke-width="4"/><path d="M64 -3 L74 8" stroke="#1C2B24" stroke-width="6" stroke-linecap="round"/>'),"0 0 150 140","art")}</span>
 </a>
 </section>
 
@@ -200,7 +202,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 </section>
 
 <section class="dark row reveal" style="align-items:center;gap:32px;border-radius:28px;padding:40px">
-<svg class="float" width="140" height="140" viewBox="0 0 160 160" aria-hidden="true">{plate("mindset")}</svg>
+{A.scene("read").replace('<svg class="art"','<svg class="art float" width="150" height="150"')}
 <div class="grow-main" style="display:flex;flex-direction:column;gap:10px;flex-basis:420px">
 <p class="mono" style="color:var(--brass)">Early-bird opens 1 Dec · $29 until 31 Dec, then $39</p>
 <h2 style="font-size:clamp(30px,4vw,40px)">The Useful Reading Challenge 2027</h2>
@@ -240,7 +242,7 @@ game=head("Mystery Book: the daily nonfiction book guessing game","Guess today's
 <aside class="grow-side" style="display:flex;flex-direction:column;gap:16px">
 <div class="card" style="padding:22px;display:flex;flex-direction:column;gap:10px"><p class="mono">How it works</p><p style="font-size:15px">1 nonfiction book a day. You start with 1 clue. Every wrong guess opens the next. Solve it in as few clues as you can, then share your grid.</p>
 <p style="display:flex;gap:6px;align-items:center;font-size:13px;color:var(--muted)"><span class="sq" style="width:16px;height:16px;border-radius:4px;background:#B8913A"></span>wrong guess<span class="sq" style="width:16px;height:16px;border-radius:4px;background:#4E8A6C;margin-left:10px"></span>solved</p></div>
-<div class="dark" style="padding:22px;display:flex;align-items:center;gap:16px"><svg width="72" height="72" viewBox="0 0 160 160" aria-hidden="true">{plate("habits")}</svg><div><p class="mono">Your streak</p><p class="serif" style="font-size:30px" data-streak>0 days</p></div></div>
+<div class="dark" style="padding:22px;display:flex;align-items:center;gap:16px"><svg width="72" height="72" viewBox="0 0 160 160" aria-hidden="true">{A.stamp("streak-3")}</svg><div><p class="mono">Your streak</p><p class="serif" style="font-size:30px" data-streak>0 days</p></div></div>
 <a class="card lift" href="/library/" style="padding:22px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px"><p class="mono" style="color:var(--green)">The Useful Library</p><p class="serif" style="font-size:24px">Fix a real problem with a real book</p></a>
 </aside>
 </section>
@@ -333,7 +335,7 @@ idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2
 <h1 class="rise d1">The 2 minute rule</h1>
 <p class="lede rise d2">Same name, 2 different rules. Both work. They fix different problems.</p>
 </div>
-<svg class="stamp d4 idea-plate" width="170" height="170" viewBox="0 0 160 160" role="img" aria-label="Bookplate for the 2 minute rule">{plate("habits")}</svg>
+{A.scene("habits").replace('<svg class="art"','<svg class="art rise d3 idea-plate" width="190" height="190"')}
 </section>
 
 <section class="card reveal" style="display:flex;flex-direction:column;gap:22px;border-radius:28px">
@@ -376,7 +378,7 @@ idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2
 <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line2);padding-top:18px">
 <p style="font-weight:700">Day 30: did you keep it?</p>
 <div data-vote-btns style="display:flex;gap:10px;flex-wrap:wrap"><button type="button" class="btn btn-green" data-vote="kept">I kept it</button><button type="button" class="btn btn-line" data-vote="dropped">I dropped it</button></div>
-<div data-voted hidden style="display:flex;gap:12px;align-items:center"><svg class="stamp" width="60" height="60" viewBox="0 0 160 160" aria-hidden="true">{plate("habits")}</svg><p data-msg></p></div>
+<div data-voted hidden style="display:flex;gap:12px;align-items:center"><svg class="stamp" width="64" height="64" viewBox="0 0 160 160" aria-hidden="true">{A.stamp("kept")}</svg><p data-msg></p></div>
 </div>
 </section>
 
@@ -393,9 +395,9 @@ write(f'{R}/ideas/the-2-minute-rule/index.html',idea)
 print("book, idea ok")
 
 # ---------------- OFFLINE page (not indexed)
-off=head("You're offline: The Useful Library","You're offline.","/library/offline/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("home")+'''
+off=head("You're offline: The Useful Library","You're offline.","/library/offline/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("home")+f'''
 <main id="main" class="wrap"><section class="card" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;margin-top:20px">
-<p class="mono">No connection</p><h1 style="font-size:44px">You're offline</h1><p class="lede">Pages you opened before still work. Today's game needs a connection to load.</p>
+{A.scene("sleep").replace('<svg class="art"','<svg class="art" width="160" height="160"')}<p class="mono">No connection</p><h1 style="font-size:44px">You're offline</h1><p class="lede">Pages you opened before still work. Today's game needs a connection to load.</p>
 <a class="btn btn-green" href="/library/">Try again</a></section></main>
 '''+FOOT
 write(f'{R}/offline/index.html',off)

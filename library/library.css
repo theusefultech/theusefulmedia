@@ -358,3 +358,18 @@ a.more{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .empty{color:var(--muted);font-size:15px}
 @media (max-width:760px){.stat b{font-size:32px}}
 @media (prefers-color-scheme:dark){.sh-row{background:#222D27}}
+
+/* ---------- Dog-Ear ---------- */
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.dog-eyes{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+.tile .art-box .art{width:150px;height:150px}
+.gametile{position:relative;overflow:hidden}
+.gt-art{position:absolute;right:12px;bottom:12px;width:96px;height:90px;opacity:.95;pointer-events:none}
+.gt-art svg{width:100%;height:100%}
+.gametile:hover .gt-art svg{animation:wiggle .6s ease-in-out}
+.fan{position:relative}
+.hero-dog{position:absolute;left:-2%;bottom:-14px;width:140px;height:140px;z-index:3;animation:rise .7s .5s var(--ease) both}
+.hero-dog svg{width:100%;height:100%}
+.hero-dog svg>g{transform-box:fill-box}
+@media (max-width:760px){.hero-dog{width:96px;height:96px;left:-6px;bottom:-10px}.gt-art{width:80px;height:76px;bottom:10px;right:8px}.idea-plate{width:120px!important;height:120px!important}}
+@media (prefers-color-scheme:dark){.tile .art-box,.tile[data-area] .art-box{background:#E9EDE9}}

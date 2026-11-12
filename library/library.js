@@ -436,7 +436,7 @@
   try { plates = JSON.parse($("#plates").textContent); } catch (e) {}
   function toast(st) {
     var t = document.createElement("div"); t.className = "stamp-toast"; t.setAttribute("role", "status");
-    t.innerHTML = '<svg class="stamp" width="64" height="64" viewBox="0 0 160 160" aria-hidden="true">' + (plates[st.art] || "") + '</svg><span><small>New stamp</small><b></b></span>';
+    t.innerHTML = '<svg class="stamp" width="64" height="64" viewBox="0 0 160 160" aria-hidden="true">' + (plates[st.id] || "") + '</svg><span><small>New stamp</small><b></b></span>';
     $("b", t).textContent = st.name;
     document.body.appendChild(t); window.LibConfetti(t);
     t.addEventListener("click", function () { location.href = "/library/shelf/"; });
@@ -473,7 +473,7 @@
     $("[data-sh-count]").textContent = have.length + " of " + window.LibStamps.list.length + " collected";
     $("[data-sh-stamps]").innerHTML = window.LibStamps.list.map(function (s) {
       var got = have.indexOf(s.id) !== -1;
-      return '<div class="stamp-card ' + (got ? "earned" : "locked") + '"><svg viewBox="0 0 160 160" aria-hidden="true">' + (plates[s.art] || "") + '</svg><b>' + s.name + '</b><small>' + (got ? "Collected" : s.how) + '</small></div>';
+      return '<div class="stamp-card ' + (got ? "earned" : "locked") + '"><svg viewBox="0 0 160 160" aria-hidden="true">' + (plates[s.id] || "") + '</svg><b>' + s.name + '</b><small>' + (got ? "Collected" : s.how) + '</small></div>';
     }).join("");
     var meta = JSON.parse($("#sh-meta").textContent);
     var tests = Object.keys(meta.tests).map(function (k) { var v = store.get("test:" + k, null); return v && v.start ? { k: k, v: v } : null; }).filter(Boolean);

@@ -613,4 +613,133 @@
   });
   var allDone = $("[data-alldone]");
   if (allDone) new MutationObserver(function () { if (!allDone.hidden) setTimeout(function () { window.LibAsk(allDone, "done"); }, 500); }).observe(allDone, { attributes: true, attributeFilter: ["hidden"] });
+  // ---------- Save my progress: email + 4-digit PIN, synced through the library-sync Worker ----------
+  (function () {
+    var URL_ = "https://library-sync.raja-822.workers.dev/";
+    var SKIP = /^lib:(snooze:|asked$|req$|_|sync$|did:)/;
+    var LISTS = { stamps: 1, seen: 1 };
+    function raw(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function put(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    function meta() { try { return JSON.parse(raw("lib:_mt") || "{}"); } catch (e) { return {}; } }
+    function seenMap() { try { return JSON.parse(raw("lib:_seen") || "{}"); } catch (e) { return {}; } }
+    var me = store.get("sync", null);
+    // Note what changed on this device since the last look, with the time it changed
+    function collect() {
+      var mt = meta(), sn = seenMap(), d = {}, now = Date.now();
+      try {
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (!k || k.indexOf("lib:") !== 0 || SKIP.test(k)) continue;
+          var v = localStorage.getItem(k), s = k.slice(4);
+          if (sn[s] !== v) { mt[s] = now; sn[s] = v; }
+          d[s] = { v: v, t: mt[s] || 0 };
+        }
+      } catch (e) {}
+      put("lib:_mt", JSON.stringify(mt)); put("lib:_seen", JSON.stringify(sn));
+      return d;
+    }
+    // Take what is newer on the account; lists come back already joined
+    function apply(d) {
+      var mt = meta(), sn = seenMap(), changed = [];
+      Object.keys(d || {}).forEach(function (s) {
+        var r = d[s], cur = raw("lib:" + s);
+        if (!r || typeof r.v !== "string" || r.v === cur) return;
+        if (LISTS[s] || !(s in mt) || r.t > mt[s]) { put("lib:" + s, r.v); mt[s] = r.t; sn[s] = r.v; changed.push(s); }
+      });
+      put("lib:_mt", JSON.stringify(mt)); put("lib:_seen", JSON.stringify(sn));
+      return changed;
+    }
+    function call(body, keep) {
+      return fetch(URL_, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), keepalive: !!keep })
+        .then(function (r) { return r.json(); });
+    }
+    var lastSent = "";
+    function push(keep) {
+      if (!me) return Promise.resolve(null);
+      var d = collect(), sig = JSON.stringify(d);
+      if (keep && sig === lastSent) return Promise.resolve(null);
+      lastSent = sig;
+      return call({ act: "push", token: me.tk, d: d }, keep).then(function (res) {
+        if (res && res.code === "signed_out") { me = null; store.set("sync", null, true); paint(); return null; }
+        if (!res || !res.ok) return null;
+        var ch = apply(res.d); lastSent = JSON.stringify(collect());
+        me.at = Date.now(); store.set("sync", me, true); paint();
+        return ch;
+      }).catch(function () { return null; });
+    }
+    var refreshPage = document.querySelector("[data-shelf-page],[data-game]");
+    function maybeReload(ch) {
+      if (!ch || !ch.length || !refreshPage) return;
+      try { if (sessionStorage.getItem("lib:synced")) return; sessionStorage.setItem("lib:synced", "1"); } catch (e) {}
+      location.reload();
+    }
+    // Sync on open, when leaving the page, and a little after any change
+    if (me) push().then(maybeReload);
+    document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") push(true); });
+    var soon = null, baseSet = store.set;
+    store.set = function (k, v, skip) { baseSet(k, v, skip); if (me && k !== "sync") { clearTimeout(soon); soon = setTimeout(push, 4000); } };
+
+    // ----- UI -----
+    var sheet = $("[data-sync-sheet]"), form = $("[data-sync-form]");
+    function ago(t) { var m = Math.round((Date.now() - t) / 60000); return m < 1 ? "just now" : m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + " h ago" : Math.round(m / 1440) + " days ago"; }
+    function paint() {
+      $$("[data-sync-open]").forEach(function (b) {
+        b.classList.toggle("done", !!me);
+        var l = $("[data-sync-label]", b), s = $("[data-sync-sub]", b);
+        if (l) l.textContent = me ? "Progress saved" : "Save my progress";
+        if (s) s.textContent = me ? me.e : "Keep your streak on every device";
+      });
+      var line = $("[data-sync-line]");
+      if (line) line.textContent = me ? "Saved to " + me.e + ". Same shelf on every device." : "Saved on this device. Save it to your email to keep it everywhere.";
+      if (!sheet) return;
+      $("[data-sync-out]", sheet).hidden = !!me; $("[data-sync-in]", sheet).hidden = !me;
+      if (me) { $("[data-sync-email]", sheet).textContent = me.e; $("[data-sync-when]", sheet).textContent = me.at ? ago(me.at) : "just now"; }
+    }
+    paint();
+    function open() {
+      if (!sheet) return;
+      var menu = $("[data-sheet]"); if (menu) menu.hidden = true;
+      sheet.hidden = false; document.body.classList.add("lock"); paint();
+      var f = me ? $("[data-sync-signout]", sheet) : $("input", sheet); if (f) setTimeout(function () { f.focus(); }, 60);
+      if (!me && form && typeof forms !== "undefined" && forms.indexOf(form) === -1) { forms.push(form); loadTS(); setTimeout(initTS, 50); }
+    }
+    function close() { if (!sheet) return; sheet.hidden = true; document.body.classList.remove("lock"); }
+    $$("[data-sync-open]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); open(); }); });
+    $$("[data-sync-close]").forEach(function (b) { b.addEventListener("click", close); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && sheet && !sheet.hidden) close(); });
+    if (location.hash === "#save") setTimeout(open, 300);
+    var out = sheet && $("[data-sync-signout]", sheet);
+    if (out) out.addEventListener("click", function () { me = null; store.set("sync", null, true); paint(); $(".sync-msg", sheet).textContent = "Signed out on this device. Your progress stays here and on your account."; });
+    if (!form) return;
+    var em = $("input[type=email]", form), pin = $("input[inputmode=numeric]", form), btn = $("button[type=submit]", form), msg = $(".sync-msg", sheet);
+    pin.addEventListener("input", function () { pin.value = pin.value.replace(/\D/g, "").slice(0, 4); });
+    function say(t) { msg.textContent = t; form.classList.remove("shake"); void form.offsetWidth; form.classList.add("shake"); }
+    var ERR = { format: "That email looks off. Check it and try again.", pin: "Your PIN needs exactly 4 digits.", wait: "Too many tries. Wait 15 minutes, then try again." };
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (btn.disabled) return;
+      var email = em.value.trim().toLowerCase(), p = pin.value;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { say(ERR.format); em.focus(); return; }
+      if (!/^\d{4}$/.test(p)) { say(ERR.pin); pin.focus(); return; }
+      btn.disabled = true; btn.textContent = "Saving"; msg.textContent = "";
+      call({ act: "login", email: email, pin: p, d: collect() }).then(function (res) {
+        btn.disabled = false; btn.textContent = "Save my progress";
+        if (!res || !res.ok) {
+          if (res && res.code === "wrong") return say("That PIN doesn't match " + email + ". " + res.left + (res.left === 1 ? " try" : " tries") + " left.");
+          return say(ERR[res && res.code] || "Something went wrong on our side. Try again in a minute.");
+        }
+        me = { e: email, tk: res.token, at: Date.now() }; store.set("sync", me, true);
+        var ch = apply(res.d); lastSent = JSON.stringify(collect());
+        pin.value = ""; paint();
+        msg.innerHTML = '<span class="stamp-box stamp">SAVED</span> ' + (res.created ? "Your progress is saved. Use this email and PIN on any device." : "Welcome back. " + (ch.length ? "Your progress from your other device is here." : "Everything is in sync."));
+        if (window.LibConfetti) window.LibConfetti($(".sheet-panel", sheet));
+        if (res.created && !store.get("subscribed", false)) {
+          token(form, 6000).then(function (tk) {
+            return fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: email, token: tk, list: "life", utm_source: "theusefulmedia.com", utm_medium: "library", utm_campaign: "save-progress" }) }).then(function (r) { return r.json(); });
+          }).then(function (r) { if (r && r.ok) store.set("subscribed", true); }).catch(function () {});
+        }
+        if (ch.length && refreshPage) setTimeout(function () { location.reload(); }, 1400);
+      }).catch(function () { btn.disabled = false; btn.textContent = "Save my progress"; say("Couldn't reach the Library. Check your connection and try again."); });
+    });
+  })();
 })();

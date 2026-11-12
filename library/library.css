@@ -374,3 +374,15 @@ a.more{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 @media (max-width:760px){.hero-dog{width:96px;height:96px;left:-6px;bottom:-10px}.gt-art{width:80px;height:76px;bottom:10px;right:8px}.idea-plate{width:120px!important;height:120px!important}}
 @media (prefers-color-scheme:dark){.tile .art-box,.tile[data-area] .art-box{background:#E9EDE9}}
 .r-head.ai::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:8px;animation:pop .4s both}
+/* Save my progress */
+.sync-lede{color:var(--soft);font-size:15px;line-height:1.45}
+.sync-form{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.sync-form label{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.sync-form input{border:none;background:var(--paper);border-radius:12px;padding:0 16px;min-height:52px;font-family:var(--sans);font-size:16px;color:var(--ink);outline:none}
+.sync-form input:focus{box-shadow:inset 0 0 0 2px var(--green)}
+.sync-form input[inputmode=numeric]{letter-spacing:.5em;font-size:22px;max-width:180px}
+.sync-panel .fine{font-size:13px;color:var(--muted);margin-top:8px}
+.sync-panel .fine a{color:var(--green)}
+.sync-msg{font-size:15px;min-height:1px}
+.sync-panel{max-height:92vh;overflow:auto}
+[data-sync-open].done small::after{content:none}

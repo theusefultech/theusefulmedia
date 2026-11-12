@@ -81,9 +81,24 @@ STAY_BLOCK='''<div class="stay" data-stay>
 <div class="stay-row">
 <button type="button" class="stay-btn" data-install><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M12 8v6M9 11l3 3 3-3"/></svg><span><b>Add to home screen</b><small>Opens like an app</small></span></button>
 <a class="stay-btn" href="/library/mystery-book.ics" data-cal><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M12 13.5v4M10 15.5h4"/></svg><span><b>Add a daily reminder</b><small>2 minutes in your calendar</small></span></a>
+<button type="button" class="stay-btn" data-sync-open><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18.5h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.6 4.5 4.5 0 0 0 7 18.5z"/><path d="M9.5 13.5l2 2 3.5-3.8"/></svg><span><b data-sync-label>Save my progress</b><small data-sync-sub>Keep your streak on every device</small></span></button>
 <a class="stay-btn" href="/library/#signup" data-menu-close><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg><span><b>Get the lessons by email</b><small>3 a week, free</small></span></a>
 </div></div>'''
 FOOT=f'''<script type="application/json" id="plates">{json.dumps({k:A.stamp(k) for k in A.STAMP_POSES})}</script><footer class="wrap"><div class="stay-foot">'''+STAY_BLOCK+'''</div><div class="lib-foot"><div>The Useful Library is part of The Useful Life, from <a href="/">The Useful Media Co</a>.</div><div><a href="/library/game/">Daily game</a> · <a href="/tech/">The Useful Tech</a> · <a href="/contact/">Contact</a></div></div></footer>
+<div class="sheet" data-sync-sheet hidden><div class="sheet-backdrop" data-sync-close></div>
+<div class="sheet-panel sync-panel" role="dialog" aria-modal="true" aria-label="Save my progress"><div class="sheet-grip" aria-hidden="true"></div>
+<div data-sync-out><p class="serif" style="font-size:28px;line-height:1.1">Save my progress</p>
+<p class="sync-lede">Your streak, stamps, shelf and 30-day tests live on this device. Save them to your email with a 4-digit PIN. Enter the same email and PIN on any phone or laptop to bring them back.</p>
+<form class="sync-form" data-sync-form novalidate>
+<label for="sync-em">Email</label><input id="sync-em" type="email" autocomplete="email" placeholder="you@email.com" required>
+<label for="sync-pin">4-digit PIN</label><input id="sync-pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="0000" required>
+<button class="btn btn-green" type="submit">Save my progress</button></form>
+<p class="fine">New here? Saving also gets you The Useful Life lessons, 3 a week, free. Unsubscribe anytime. Forgot your PIN? <a href="/contact/">Contact us</a>.</p></div>
+<div data-sync-in hidden><p class="serif" style="font-size:28px;line-height:1.1">Progress saved</p>
+<p class="sync-lede">Synced with <b data-sync-email></b>. Last saved <span data-sync-when></span>. On another device, open the menu, tap Save my progress and enter the same email and PIN.</p>
+<button type="button" class="btn btn-line" data-sync-signout>Sign out on this device</button></div>
+<p class="sync-msg" aria-live="polite"></p>
+<button type="button" class="btn btn-line" data-sync-close>Close</button></div></div>
 <div class="sheet" data-ios-guide hidden><div class="sheet-backdrop" data-guide-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Add to home screen"><div class="sheet-grip" aria-hidden="true"></div>
 <p class="serif" style="font-size:28px;line-height:1.1">Add the Library to your home screen</p>
@@ -407,7 +422,7 @@ print("offline ok")
 shelf=head("My shelf: The Useful Library","Your stamps, streak, saved books and 30-day tests.","/library/shelf/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("shelf")+f'''
 <main id="main" class="wrap" data-shelf-page>
 <section style="display:flex;flex-direction:column;gap:10px;padding-top:8px">
-<p class="mono rise">Saved on this device. No account needed.</p>
+<p class="mono rise" data-sync-line>Saved on this device. Save it to your email to keep it everywhere.</p>
 <h1 class="rise d1">My shelf</h1>
 </section>
 <section class="row">

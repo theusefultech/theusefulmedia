@@ -7,6 +7,7 @@ import library_art as A
 from library_problems import PROBLEMS
 from library_books import BOOKS as BOOKPAGES
 from library_summaries import SUMMARIES
+from library_takes import TAKES
 R=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'library')
 BASE='https://theusefulmedia.com'
 def cov(slug):
@@ -808,6 +809,9 @@ def book_page(B):
         r=lambda x: max(0.5,round(x*2)/2); fmt=lambda x: (str(int(x)) if x==int(x) else str(x))
         summary_block=f'''<section class="sum card reveal" id="summary"><div class="sum-main"><p class="mono">The book in 60 seconds</p><p class="sum-t">{html.escape(sm[0])}</p></div><div class="sum-time"><p class="mono">Your time</p><div class="tbar"><i style="width:{round(part/full*100)}%"></i></div><p><b>About {fmt(r(part))} hours</b> to read the parts that matter, instead of about {fmt(r(full))} hours for the whole book.</p><p class="fine">Based on about {sm[1]} pages at 40 pages an hour, with skimmed parts counted at a third.</p></div></section>'''
     else: summary_block=""
+    tk=TAKES.get(B["slug"])
+    if not tk: raise SystemExit(f'Missing Raja take for {B["slug"]}: add it to scripts/library_takes.py (see RUNBOOK)')
+    summary_block+=f'<section class="take card reveal" id="take"><span class="take-av" aria-hidden="true">R</span><div><p class="mono">Raja&#39;s take</p><p class="take-t">{html.escape(tk)}</p></div></section>'
     nt=B.get("note")
     note_block=f'<section class="card lift reveal" style="display:flex;flex-direction:column;gap:10px;border-radius:28px"><p class="mono">{html.escape(nt[0])}</p><p class="serif" style="font-size:26px;line-height:1.2">{html.escape(nt[1])}</p><a class="more" href="{nt[2]}">{html.escape(nt[3])}</a></section>' if nt else ""
     q=[(f"Is {B['t']} worth reading?",f"Yes, but not all of it. Read {nread} of its {len(units)} {unit}: {reads}. {B['verdict'].split('. ',1)[-1] if '. ' in B['verdict'] else ''}".strip()),

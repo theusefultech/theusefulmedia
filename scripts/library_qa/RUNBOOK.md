@@ -50,3 +50,4 @@ python3 -c "from PIL import Image; import glob; [Image.open(f).convert('RGB').qu
 - Cover: 600px wide or more. Best source is `https://m.media-amazon.com/images/P/<ISBN-10>.01._SCRMZZZZZZ_.jpg`, saved as `library/img/covers/<slug>.webp`. Look at it before committing. Cover URLs carry a content hash, so a new file reaches every visitor without cache problems.
 - After the build, run `python3 scripts/render_library_og.py` and `python3 scripts/render_library_cards.py` (share cards in `library/og/card-<slug>.png` and the lead-magnet PDF `library/verdicts.pdf`), then quantize PNGs to 256 colors.
 - If you change library.js, library.css or sw.js file caching, bump `V` in `library/sw.js`.
+- Add "Raja's take" for every new book to `scripts/library_takes.py`, in his voice. Personal claims only if Raja said them; otherwise an opinion. The build fails without it.

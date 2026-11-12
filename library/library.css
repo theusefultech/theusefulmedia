@@ -637,3 +637,7 @@ body[data-area] h2{text-decoration-color:var(--accent)}
 .buybar.on{transform:none;opacity:1}
 @media (max-width:760px){.buybar{display:flex}}
 @media (max-width:760px){body:has(.buybar.on) .peek{bottom:calc(160px + env(safe-area-inset-bottom))}}
+.take{display:flex;gap:18px;align-items:flex-start;border-radius:28px;padding:26px 30px;border-left:6px solid var(--accent,var(--green))}
+.take-av{flex:none;width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:"DM Serif Display",serif;font-size:22px}
+.take-t{font-size:20px;line-height:1.5;color:var(--ink)}
+@media (max-width:760px){.take{padding:20px}.take-t{font-size:18px}}

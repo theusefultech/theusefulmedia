@@ -13,4 +13,6 @@ TAKES = {
  "your-money-or-your-life": "Start with step 2. Price your next big purchase in hours of your life. It's uncomfortable, and that's the point.",
  "the-power-of-habit": "This book explains my piano breaks. The cue was a break. The reward was a rest from work. I kept both and swapped the phone for the piano. The appendix shows you how to do the same tonight.",
  "tiny-habits": "The celebration step will feel silly. Do it anyway. But the idea to steal is the anchor: do the new habit right after something you already do every day.",
+ "the-little-book-of-common-sense-investing": "The most boring money book I'd recommend, and that's the point. Read chapters 1 and 4, then look up the fee on every fund you own. If that's all you do, it was worth the time.",
+ "essentialism": "Read chapter 11 before you answer your next big request. Saying no politely is a skill, and this chapter teaches it. Keep the 90 percent rule from chapter 9 for every decision after that.",
 }

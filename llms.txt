@@ -26,6 +26,15 @@ Last updated: 2026-11-03
 - [The Useful Apps, every app](https://theusefulmedia.com/apps/llms-full.txt): Every app in the directory with a one-line description, price and devices, plus every best-of guide and its winner.
 - [Best-of guides](https://theusefulmedia.com/apps/best/): 39 guides naming the best Mac and iPhone app for each job, the best free pick and who should choose something else.
 
+## The Useful Library
+
+> The Useful Library is The Useful Life's site for using nonfiction books to fix real problems: habits, focus, money and mindset. Each book page says which chapters to read, skim or skip, and why. Each idea page compares what different books say and gives steps to try today.
+
+- [The Useful Library](https://theusefulmedia.com/library/): Search nonfiction books by the problem you want to fix.
+- [Mystery Book, the daily game](https://theusefulmedia.com/library/game/): Guess the day's nonfiction book from 6 clues.
+- [Atomic Habits: which chapters to read](https://theusefulmedia.com/library/books/atomic-habits/): Read chapters 1, 2, 3, 5, 13 and 16; skim or skip the rest, with a reason for each.
+- [The 2 minute rule](https://theusefulmedia.com/library/ideas/the-2-minute-rule/): James Clear's 2 minute rule (shrink a new habit) vs David Allen's (do any task under 2 minutes now).
+
 ## Company
 
 - [Home](https://theusefulmedia.com/): The brands, products and apps.

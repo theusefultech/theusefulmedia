@@ -37,6 +37,9 @@ Last updated: 2026-11-03
 - [I can't focus for long: 3 fixes](https://theusefulmedia.com/library/problems/cant-focus/): 3 nonfiction books, 3 different reasons your focus breaks, and 1 thing to try today from each: Deep Work, Indistractable and Digital Minimalism.
 - [I overthink everything: 3 fixes](https://theusefulmedia.com/library/problems/overthinking/): 3 ways nonfiction books tackle overthinking, and 1 thing to try today from each: Meditations, The Obstacle Is the Way and Four Thousand Weeks.
 - [I overspend every month: 3 fixes](https://theusefulmedia.com/library/problems/overspending/): 3 money books, 3 ways to stop overspending, and 1 thing to try today from each: I Will Teach You to Be Rich, The Psychology of Money and Your Money or Your Life.
+- [Books](https://theusefulmedia.com/library/books/): Every book in the Library, sorted by area, with its verdict or fix.
+- [Ideas](https://theusefulmedia.com/library/ideas/): Single ideas from nonfiction books, each with 1 thing to try today.
+- Area hubs: [Habits](https://theusefulmedia.com/library/habits/), [Focus](https://theusefulmedia.com/library/focus/), [Money](https://theusefulmedia.com/library/money/), [Mindset](https://theusefulmedia.com/library/mindset/).
 - [Problems](https://theusefulmedia.com/library/problems/): Every problem page: 3 fixes from 3 nonfiction books each.
 - [About the Library](https://theusefulmedia.com/library/about/): Who writes it (Raja, 70+ nonfiction books a year) and how verdicts are made.
 

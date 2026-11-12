@@ -770,6 +770,13 @@
     }
   }
 
+  // ----- First visit: a 3-step "how it works" strip, hidden once the reader has done anything -----
+  var fvs = $("[data-firstvisit]");
+  if (fvs) {
+    var used = false; try { for (var fi = 0; fi < localStorage.length; fi++) { var fk = localStorage.key(fi); if (fk && /^lib:(game:|check:|test:|shelf:|sync$|subscribed$|seen-intro$|last$|pick:)/.test(fk)) { used = true; break; } } } catch (e) {}
+    if (!used) { fvs.hidden = false; $("[data-firstvisit-x]", fvs).addEventListener("click", function () { store.set("seen-intro", true, true); fvs.hidden = true; }); }
+  }
+
   // ----- Dog-Ear peeks in after a quiet moment -----
   var peek = $("[data-peek]");
   if (peek && !reduce) {
@@ -890,6 +897,15 @@
     $$("[data-sync-close]").forEach(function (b) { b.addEventListener("click", close); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && sheet && !sheet.hidden) close(); });
     if (location.hash === "#save") setTimeout(open, 300);
+    var del = sheet && $("[data-sync-delete]", sheet);
+    if (del) del.addEventListener("click", function () {
+      if (!me) return;
+      if (del.getAttribute("data-armed") !== "1") { del.setAttribute("data-armed", "1"); del.textContent = "Tap again to delete it for good"; return; }
+      call({ act: "delete", token: me.tk }).then(function (res) {
+        me = null; store.set("sync", null, true); paint(); del.removeAttribute("data-armed"); del.textContent = "Delete my saved progress";
+        $(".sync-msg", sheet).textContent = res && res.ok ? "Deleted from your account. Your progress stays on this device." : "Couldn't reach the Library. Try again in a minute.";
+      }).catch(function () { $(".sync-msg", sheet).textContent = "Couldn't reach the Library. Try again in a minute."; });
+    });
     var out = sheet && $("[data-sync-signout]", sheet);
     if (out) out.addEventListener("click", function () { me = null; store.set("sync", null, true); paint(); $(".sync-msg", sheet).textContent = "Signed out on this device. Your progress stays here and on your account."; });
     if (!form) return;

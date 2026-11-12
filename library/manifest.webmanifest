@@ -9,11 +9,39 @@
   "background_color": "#EEF0EC",
   "theme_color": "#2F6B4F",
   "icons": [
-    { "src": "/library/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/library/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "/library/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/library/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/library/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/library/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
-    { "name": "Today's Mystery Book", "url": "/library/game/" }
+    {
+      "name": "Today's Mystery Book",
+      "url": "/library/game/"
+    },
+    {
+      "name": "Search a problem",
+      "url": "/library/#q"
+    },
+    {
+      "name": "Problems",
+      "url": "/library/problems/"
+    },
+    {
+      "name": "My shelf",
+      "url": "/library/shelf/"
+    }
   ]
 }

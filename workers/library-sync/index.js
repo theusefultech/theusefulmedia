@@ -88,6 +88,14 @@ export default {
       return out({ ok: true, token, created, d: acc.d });
     }
 
+    if (b.act === "delete") {
+      const token = String(b.token || "");
+      if (!/^[a-f0-9]{48}$/.test(token)) return out({ ok: false, code: "signed_out" }, 401);
+      const email = await env.SYNC.get("t:" + token);
+      if (!email) return out({ ok: false, code: "signed_out" }, 401);
+      await Promise.all([env.SYNC.delete("a:" + email), env.SYNC.delete("t:" + token)]);
+      return out({ ok: true, deleted: true });
+    }
     if (b.act === "push" || b.act === "pull") {
       const token = String(b.token || "");
       if (!/^[a-f0-9]{48}$/.test(token)) return out({ ok: false, code: "signed_out" }, 401);

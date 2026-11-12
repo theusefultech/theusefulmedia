@@ -276,7 +276,7 @@
   // Newsletter signup: adds the reader to The Useful Life through the signup Worker.
   // Falls back to The Useful Life's Beehiiv page if the Worker can't be reached.
   var ENDPOINT = "https://useful-signup.raja-822.workers.dev/";
-  var WORKER_READY = false; // true once the Worker accepts list: "life"
+  var WORKER_READY = true; // true once the Worker accepts list: "life"
   var SITEKEY = "0x4AAAAAAFPMggcqkSSP8L92";
   var LIFE = "https://the-useful-life.beehiiv.com/subscribe";
   var RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;

@@ -31,6 +31,11 @@
   s = s || { shown: 1, wrong: [], won: false, lost: false };
 
   var $ = function (q) { return root.querySelector(q); };
+  function rnd(n) { var x = Math.sin(n * 7919 + no * 104729) * 10000; return x - Math.floor(x); }
+  var others = ALL.filter(function (b) { return b !== pz.a; }).map(function (b, i) { return { b: b, r: rnd(i + 1) }; })
+    .sort(function (x, y) { return x.r - y.r; }).slice(0, 7).map(function (x) { return x.b; });
+  var starters = others.concat([pz.a]).map(function (b, i) { return { b: b, r: rnd(i + 50) }; })
+    .sort(function (x, y) { return x.r - y.r; }).map(function (x) { return x.b; });
   $("[data-no]").textContent = "No. " + no;
   var cluesEl = $("[data-clues]"), counter = $("[data-counter]"), input = $("[data-guess]"), opts = $("[data-opts]");
   var playEl = $("[data-play]"), doneEl = $("[data-done]"), note = $("[data-note]");
@@ -52,7 +57,7 @@
   }
   function renderOpts() {
     var q = input.value.trim().toLowerCase();
-    var list = ALL.filter(function (b) { return !q || b.toLowerCase().indexOf(q) !== -1; }).slice(0, q ? 8 : 6);
+    var list = q ? ALL.filter(function (b) { return b.toLowerCase().indexOf(q) !== -1; }).slice(0, 8) : starters;
     opts.innerHTML = "";
     list.forEach(function (b) {
       var btn = document.createElement("button");

@@ -335,7 +335,7 @@
           body: JSON.stringify({ email: email, token: tk, list: "life", utm_source: "theusefulmedia.com", utm_medium: "library", utm_campaign: f.getAttribute("data-campaign") || "library" }) })
           .then(function (r) { return r.json(); });
       }).then(function (res) {
-        var w = widgets.get(f); if (w && window.turnstile) { w.token = ""; window.turnstile.reset(w.id); }
+        var w = widgets.get(f); try { if (w && window.turnstile) { w.token = ""; window.turnstile.reset(w.id); } } catch (er) {}
         btn.disabled = false; btn.textContent = label;
         if (res && res.ok) {
           f.hidden = true;
@@ -344,7 +344,7 @@
         }
         if (res && res.code === "typo" && res.suggestion) { input.value = res.suggestion; say("Did you mean " + res.suggestion + "? We fixed it. Press the button again."); return; }
         say(MSG[res && res.code] || MSG.server);
-      }).catch(function () { fallback(email); });
+      }).catch(function (er) { try { console.warn("Library signup fell back", er); } catch (x) {} fallback(email); });
     });
   });
 })();

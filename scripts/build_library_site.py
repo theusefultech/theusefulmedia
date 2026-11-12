@@ -7,6 +7,11 @@ R=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'libr
 BASE='https://theusefulmedia.com'
 def cov(slug): return f'/library/img/covers/{slug}.webp'
 
+import hashlib
+def ver(rel):
+    fp=os.path.join(R,rel)
+    try: return hashlib.md5(open(fp,'rb').read()).hexdigest()[:8]
+    except Exception: return "1"
 def head(title, desc, path, extra_ld=None, og='/library/og.png'):
     ld=[{"@type":"Organization","@id":BASE+"/#org","name":"The Useful Media Co","url":BASE+"/"},
         {"@type":"WebPage","@id":BASE+path,"url":BASE+path,"name":title,"description":desc,"isPartOf":{"@type":"WebSite","name":"The Useful Library","url":BASE+"/library/"},"publisher":{"@id":BASE+"/#org"}}]
@@ -31,9 +36,9 @@ def head(title, desc, path, extra_ld=None, og='/library/og.png'):
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/library/fonts/dm-serif-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/library/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/library/library.css">
+<link rel="stylesheet" href="/library/library.css?v={ver('library.css')}">
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":ld})}</script>
-<script src="/library/library.js" defer></script>
+<script src="/library/library.js?v={ver('library.js')}" defer></script>
 <script src="/apps/hit.js" defer></script>
 '''
 
@@ -177,7 +182,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 write(f'{R}/index.html',home)
 
 # ---------------- GAME
-game=head("Mystery Book: the daily nonfiction book guessing game","Guess today's nonfiction book from 6 clues. Every wrong guess opens the next clue. Share your grid. A new book every day.","/library/game/")+'<script src="/library/game/game.js" defer></script>\n</head>\n<body>\n'+nav("game")+f'''
+game=head("Mystery Book: the daily nonfiction book guessing game","Guess today's nonfiction book from 6 clues. Every wrong guess opens the next clue. Share your grid. A new book every day.","/library/game/")+f'<script src="/library/game/game.js?v={ver("game/game.js")}" defer></script>\n</head>\n<body>\n'+nav("game")+f'''
 <main id="main" class="wrap">
 <section class="row" style="align-items:flex-start;gap:32px;padding-top:16px">
 <div class="game grow-main" data-game>

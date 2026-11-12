@@ -56,7 +56,8 @@ def nav(cur):
      "home":'<path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/>',
      "game":'<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
      "search":'<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',
-     "menu":'<path d="M4 7h16M4 12h16M4 17h10"/>'}
+     "menu":'<path d="M4 7h16M4 12h16M4 17h10"/>',
+     "shelf":'<path d="M5 4v16M9 4v16M13.5 4.5l4 15M3 20h18"/>'}
     def svg(k): return f'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ic[k]}</svg>'
     def tab(href,label,key):
         c=' aria-current="page"' if key==cur else ''
@@ -64,13 +65,13 @@ def nav(cur):
     return f'''<a class="skip" href="#main">Skip to content</a>
 <header class="wrap"><nav class="lib-nav" aria-label="The Useful Library">
 <a class="lib-brand" href="/library/" aria-label="The Useful Library home"><svg width="34" height="34" viewBox="0 0 160 160" aria-hidden="true">{plate("habits")}</svg><span>The Useful Library</span></a>
-<div class="lib-links">{a("/library/game/","Today&#39;s game","game")}{a("/library/books/atomic-habits/","Books","book")}{a("/library/ideas/the-2-minute-rule/","Ideas","idea")}<a class="btn btn-ink pill" href="/library/#signup" style="min-height:44px;padding:10px 18px;font-size:15px">Get the free lessons</a></div>
+<div class="lib-links">{a("/library/game/","Today&#39;s game","game")}{a("/library/books/atomic-habits/","Books","book")}{a("/library/ideas/the-2-minute-rule/","Ideas","idea")}{a("/library/shelf/","My shelf","shelf")}<a class="btn btn-ink pill" href="/library/#signup" style="min-height:44px;padding:10px 18px;font-size:15px">Get the free lessons</a></div>
 <button class="menu-btn" type="button" data-menu-open aria-haspopup="dialog" aria-label="Open menu">{svg("menu")}</button>
 </nav></header>
-<nav class="tabbar" aria-label="Quick links">{tab("/library/","Home","home")}{tab("/library/game/","Game","game")}<a href="/library/#q" data-search-open>{svg("search")}<span>Search</span></a><button type="button" data-menu-open aria-haspopup="dialog">{svg("menu")}<span>Menu</span></button></nav>
+<nav class="tabbar" aria-label="Quick links">{tab("/library/","Home","home")}{tab("/library/game/","Game","game")}<a href="/library/#q" data-search-open>{svg("search")}<span>Search</span></a>{tab("/library/shelf/","Shelf","shelf")}<button type="button" data-menu-open aria-haspopup="dialog">{svg("menu")}<span>Menu</span></button></nav>
 <div class="sheet" data-sheet hidden><div class="sheet-backdrop" data-menu-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="sheet-grip" aria-hidden="true"></div>
-<a href="/library/">Home</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/books/atomic-habits/">Books: Atomic Habits</a><a href="/library/ideas/the-2-minute-rule/">Ideas: The 2 minute rule</a>
+<a href="/library/">Home</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/books/atomic-habits/">Books: Atomic Habits</a><a href="/library/ideas/the-2-minute-rule/">Ideas: The 2 minute rule</a><a href="/library/shelf/">My shelf: stamps, streak, tests</a>
 {STAY_BLOCK}
 <button type="button" class="btn btn-line" data-menu-close>Close</button></div></div>'''
 
@@ -81,7 +82,7 @@ STAY_BLOCK='''<div class="stay" data-stay>
 <a class="stay-btn" href="/library/mystery-book.ics" data-cal><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M12 13.5v4M10 15.5h4"/></svg><span><b>Add a daily reminder</b><small>2 minutes in your calendar</small></span></a>
 <a class="stay-btn" href="/library/#signup" data-menu-close><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg><span><b>Get the lessons by email</b><small>3 a week, free</small></span></a>
 </div></div>'''
-FOOT='''<footer class="wrap"><div class="stay-foot">'''+STAY_BLOCK+'''</div><div class="lib-foot"><div>The Useful Library is part of The Useful Life, from <a href="/">The Useful Media Co</a>.</div><div><a href="/library/game/">Daily game</a> · <a href="/tech/">The Useful Tech</a> · <a href="/contact/">Contact</a></div></div></footer>
+FOOT=f'''<script type="application/json" id="plates">{json.dumps({k:plate(k) for k in ['habits','focus','money','mindset']})}</script><footer class="wrap"><div class="stay-foot">'''+STAY_BLOCK+'''</div><div class="lib-foot"><div>The Useful Library is part of The Useful Life, from <a href="/">The Useful Media Co</a>.</div><div><a href="/library/game/">Daily game</a> · <a href="/tech/">The Useful Tech</a> · <a href="/contact/">Contact</a></div></div></footer>
 <div class="sheet" data-ios-guide hidden><div class="sheet-backdrop" data-guide-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Add to home screen"><div class="sheet-grip" aria-hidden="true"></div>
 <p class="serif" style="font-size:28px;line-height:1.1">Add the Library to your home screen</p>
@@ -103,9 +104,18 @@ SIGNUP='''<section id="signup" class="card row reveal" style="align-items:center
 def write(path, s):
     os.makedirs(os.path.dirname(path), exist_ok=True); open(path,'w').write(s)
 
+
+def next3(here):
+    cards=[]
+    if here!="game": cards.append(('<a class="n3 lift gametile" href="/library/game/"><p class="mono" style="color:#CFE3D7">Daily game</p><h3>Guess today&#39;s book</h3><p style="font-size:15px;color:#E3EEE7">6 clues. Keep your streak going.</p></a>'))
+    if here!="idea": cards.append('<a class="n3 card lift" href="/library/ideas/the-2-minute-rule/"><p class="mono">Idea · 2 books disagree</p><h3>The 2 minute rule</h3><p style="font-size:15px;color:var(--soft)">Shrink the habit, or just do it now?</p></a>')
+    if here!="book": cards.append(f'<a class="n3 card lift" href="/library/books/atomic-habits/" style="display:flex;gap:14px;align-items:center"><img src="{cov("atomic-habits")}" alt="" width="64" height="97" style="width:64px;height:97px;object-fit:cover;border-radius:3px 7px 7px 3px"><span><span class="mono" style="display:block">Read only 6 of 20 chapters</span><span class="serif" style="font-size:24px">Atomic Habits</span></span></a>')
+    cards.append('<a class="n3 card lift" href="/library/shelf/"><p class="mono">Your shelf</p><h3>See your stamps and streak</h3><p style="font-size:15px;color:var(--soft)">9 stamps to collect.</p></a>')
+    return '<section class="reveal" style="display:flex;flex-direction:column;gap:16px"><h2 style="font-size:36px">Your next 3</h2><div class="grid n3-grid">'+"".join(cards[:3])+'</div></section>'
+
 # ---------------- HOME
 problems=[
- {"text":"I keep procrastinating","area":"FOCUS","keys":"procrastinate procrastinating delay put off start lazy","url":"/library/ideas/the-2-minute-rule/"},
+ {"text":"I keep procrastinating","area":"FOCUS","keys":"procrastinate procrastinating delay put putt putting off start lazy later","url":"/library/ideas/the-2-minute-rule/"},
  {"text":"I can't stick to new habits","area":"HABITS","keys":"habit habits stick routine discipline consistent","url":"/library/ideas/the-2-minute-rule/"},
  {"text":"I start strong, then quit","area":"HABITS","keys":"quit quitting motivation consistent give up","url":"/library/books/atomic-habits/"},
  {"text":"Small tasks pile up on me","area":"FOCUS","keys":"tasks pile emails chores todo to-do overwhelmed","url":"/library/ideas/the-2-minute-rule/"},
@@ -120,14 +130,14 @@ catalog=[{"slug":"atomic-habits","t":"Atomic Habits","a":"habits"},{"slug":"the-
  {"slug":"the-psychology-of-money","t":"The Psychology of Money","a":"money"},{"slug":"i-will-teach-you-to-be-rich","t":"I Will Teach You to Be Rich","a":"money"},
  {"slug":"mans-search-for-meaning","t":"Man's Search for Meaning","a":"mindset"},{"slug":"meditations","t":"Meditations","a":"mindset"},{"slug":"thinking-fast-and-slow","t":"Thinking, Fast and Slow","a":"money"},{"slug":"how-to-win-friends-and-influence-people","t":"How to Win Friends and Influence People","a":"mindset"}]
 ideas_daily=[
- {"area":"Habits","src":"Atomic Habits, ch. 13","t":"The 2 minute rule","d":"Shrink any new habit to a version that takes 2 minutes. \"Read 30 pages\" becomes \"read 1 page\". Starting is the hard part, so make starting tiny.","s":["Pick 1 habit you keep putting off.","Cut it to its first 2 minutes. Running becomes putting on your shoes.","Do only that today. Stop there, even if you want more."],"url":"/library/ideas/the-2-minute-rule/"},
- {"area":"Habits","src":"Atomic Habits, ch. 5","t":"Habit stacking","d":"Tie a new habit to one you already do every day: after I pour my morning coffee, I will write 1 line in my journal.","s":["List 5 things you already do every day without thinking.","Pick the one that happens at the right time and place for your new habit.","Write \"After I ___, I will ___\" and put it where you will see it."],"url":"/library/books/atomic-habits/"},
- {"area":"Habits","src":"Atomic Habits, ch. 16","t":"Never miss twice","d":"Missing a day happens. Missing 2 in a row is how a habit quietly dies. Treat the day after a miss as the one that counts.","s":["Pick the habit you most often drop.","Decide now what the smallest version is on a bad day.","If you miss today, put that tiny version first on tomorrow's list."],"url":"/library/books/atomic-habits/"},
- {"area":"Focus","src":"Essentialism","t":"The 90 percent rule","d":"Score each option out of 100 on what matters most to you. Anything below 90 counts as a no. If it isn't a clear yes, it's a clear no.","s":["Pick 1 decision you have been putting off.","Write the 1 thing that matters most in it.","Score each option out of 100. Drop everything under 90."],"url":"/library/game/"},
- {"area":"Focus","src":"Deep Work","t":"The shutdown ritual","d":"End every workday the same way: check what's left, plan tomorrow, then say a set phrase that tells your brain work is done.","s":["5 minutes before you stop, list what is still open.","Put each open item on tomorrow or a later date.","Close with the same short phrase every day, then stop checking work."],"url":"/library/game/"},
- {"area":"Money","src":"The Psychology of Money","t":"Wealth is what you don't see","d":"The money you didn't spend is the wealth. The nice car shows what someone spent, not what they have.","s":["Pick 1 thing you were about to buy to look good.","Skip it, and move that amount into savings today.","Name that savings pot after what it will buy you: time."],"url":"/library/game/"},
- {"area":"Habits","src":"The Power of Habit","t":"Keep the cue, swap the routine","d":"You can't delete a bad habit easily, but you can change what you do when the urge hits, as long as you still get a reward.","s":["Pick 1 habit you want to break.","Write down what sets it off: a time, place, feeling or person.","Choose a new routine for that moment that gives a similar reward."],"url":"/library/game/"},
- {"area":"Mindset","src":"Meditations","t":"Spend energy only on what you control","d":"Marcus Aurelius kept reminding himself that other people's actions are outside his control. His own choices and responses are not.","s":["Write down what is worrying you today.","Split it into 2 lists: what you control and what you don't.","Do 1 thing from the first list. Let the second list go for today."],"url":"/library/game/"}]
+ {"area":"Habits","src":"Atomic Habits, ch. 13","slug":"the-2-minute-rule","keys":"procrastinate start starting lazy habit tiny small begin put putt putting off motivation read reading","t":"The 2 minute rule","d":"Shrink any new habit to a version that takes 2 minutes. \"Read 30 pages\" becomes \"read 1 page\". Starting is the hard part, so make starting tiny.","s":["Pick 1 habit you keep putting off.","Cut it to its first 2 minutes. Running becomes putting on your shoes.","Do only that today. Stop there, even if you want more."],"url":"/library/ideas/the-2-minute-rule/"},
+ {"area":"Habits","src":"Atomic Habits, ch. 5","slug":"habit-stacking","keys":"habit routine remember forget new habit morning stick consistent","t":"Habit stacking","d":"Tie a new habit to one you already do every day: after I pour my morning coffee, I will write 1 line in my journal.","s":["List 5 things you already do every day without thinking.","Pick the one that happens at the right time and place for your new habit.","Write \"After I ___, I will ___\" and put it where you will see it."],"url":"/library/?idea=habit-stacking#today"},
+ {"area":"Habits","src":"Atomic Habits, ch. 16","slug":"never-miss-twice","keys":"quit give up streak consistent miss skip relapse fail","t":"Never miss twice","d":"Missing a day happens. Missing 2 in a row is how a habit quietly dies. Treat the day after a miss as the one that counts.","s":["Pick the habit you most often drop.","Decide now what the smallest version is on a bad day.","If you miss today, put that tiny version first on tomorrow's list."],"url":"/library/?idea=never-miss-twice#today"},
+ {"area":"Focus","src":"Essentialism","slug":"the-90-percent-rule","keys":"decide decision choice choices yes no busy overwhelmed priorities commit too much","t":"The 90 percent rule","d":"Score each option out of 100 on what matters most to you. Anything below 90 counts as a no. If it isn't a clear yes, it's a clear no.","s":["Pick 1 decision you have been putting off.","Write the 1 thing that matters most in it.","Score each option out of 100. Drop everything under 90."],"url":"/library/?idea=the-90-percent-rule#today"},
+ {"area":"Focus","src":"Deep Work","slug":"the-shutdown-ritual","keys":"work stress evening switch off overwork burnout rest relax worry focus","t":"The shutdown ritual","d":"End every workday the same way: check what's left, plan tomorrow, then say a set phrase that tells your brain work is done.","s":["5 minutes before you stop, list what is still open.","Put each open item on tomorrow or a later date.","Close with the same short phrase every day, then stop checking work."],"url":"/library/?idea=the-shutdown-ritual#today"},
+ {"area":"Money","src":"The Psychology of Money","slug":"wealth-is-what-you-dont-see","keys":"money spend spending save saving rich wealth buy shopping budget debt broke","t":"Wealth is what you don't see","d":"The money you didn't spend is the wealth. The nice car shows what someone spent, not what they have.","s":["Pick 1 thing you were about to buy to look good.","Skip it, and move that amount into savings today.","Name that savings pot after what it will buy you: time."],"url":"/library/?idea=wealth-is-what-you-dont-see#today"},
+ {"area":"Habits","src":"The Power of Habit","slug":"keep-the-cue-swap-the-routine","keys":"bad habit break stop quit smoking phone scrolling snack craving urge addiction","t":"Keep the cue, swap the routine","d":"You can't delete a bad habit easily, but you can change what you do when the urge hits, as long as you still get a reward.","s":["Pick 1 habit you want to break.","Write down what sets it off: a time, place, feeling or person.","Choose a new routine for that moment that gives a similar reward."],"url":"/library/?idea=keep-the-cue-swap-the-routine#today"},
+ {"area":"Mindset","src":"Meditations","slug":"spend-energy-on-what-you-control","keys":"worry anxious anxiety stress overthink control calm angry upset stoic peace","t":"Spend energy only on what you control","d":"Marcus Aurelius kept reminding himself that other people's actions are outside his control. His own choices and responses are not.","s":["Write down what is worrying you today.","Split it into 2 lists: what you control and what you don't.","Do 1 thing from the first list. Let the second list go for today."],"url":"/library/?idea=spend-energy-on-what-you-control#today"}]
 areas=[("habits","Habits and discipline","Build what sticks. Break what doesn't.","/library/books/atomic-habits/","Open Atomic Habits"),
        ("focus","Focus and productivity","Do the 1 thing that matters.","/library/ideas/the-2-minute-rule/","Open the 2 minute rule"),
        ("money","Money and wealth mindset","Spend, save and think better about money.","#signup","First books this month"),
@@ -147,8 +157,10 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 <input id="q" type="text" autocomplete="off" placeholder="I keep procrastinating" data-examples="I keep procrastinating|I overspend every month|I can&#39;t stop overthinking|I lose focus after 10 minutes">
 <button class="btn btn-green pill search-go" type="submit" aria-label="Find the idea"><span class="lbl">Find the idea</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
 <button type="button" class="search-close" data-search-close>Cancel</button>
+<div class="pills" data-pills aria-label="Popular problems"></div>
+<div class="filters" data-filters hidden role="group" aria-label="Filter by area"><button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="habits">Habits</button><button type="button" aria-pressed="false" data-f="focus">Focus</button><button type="button" aria-pressed="false" data-f="money">Money</button><button type="button" aria-pressed="false" data-f="mindset">Mindset</button></div>
 <div class="suggest" hidden aria-live="polite"></div>
-<p data-nomatch hidden style="font-size:15px;color:var(--soft)">Nothing for that yet. Try "habits", "focus" or "money".</p>
+
 </form>
 <script type="application/json" id="problems">{json.dumps(problems)}</script>
 <script type="application/json" id="catalog">{json.dumps(catalog)}</script>
@@ -161,7 +173,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 </section>
 
 <section class="row">
-<div class="flipcard" data-flip data-today>
+<div class="flipcard" data-flip data-today id="today">
 <div class="face card">
 <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap" class="mono"><span>Today&#39;s idea · <span data-i-area>Habits</span></span><span data-i-src>Atomic Habits, ch. 13</span></div>
 <h2 style="font-size:clamp(34px,4.5vw,46px)" data-i-t>The 2 minute rule</h2>
@@ -222,7 +234,7 @@ game=head("Mystery Book: the daily nonfiction book guessing game","Guess today's
 <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:10px"><p class="mono" data-r-label style="color:var(--brass)"></p><h2 data-r-title style="font-size:34px"></h2><p data-r-by style="color:#C6D1CA;font-size:15px"></p><div class="grid6" data-r-grid aria-hidden="true"></div></div></div>
 <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-green" type="button" data-share style="flex:1 1 200px">Share my grid</button><a class="btn btn-line" href="#signup">Get a new book idea 3 times a week</a></div>
 <div class="card" style="display:flex;flex-direction:column;gap:8px"><p class="mono">1 idea to take from it</p><p data-r-idea style="font-family:var(--serif);font-size:26px;line-height:1.2"></p><a data-r-link hidden href="#" style="font-weight:700">Open this idea</a></div>
-<p style="font-size:15px;color:var(--muted)">A new book unlocks at midnight.</p>
+<div class="card stats-card"><div class="stats" data-stats></div><p class="mono" style="margin-top:12px">Next book in <span data-countdown class="countdown">--:--:--</span></p></div>
 </div>
 </div>
 <aside class="grow-side" style="display:flex;flex-direction:column;gap:16px">
@@ -232,6 +244,7 @@ game=head("Mystery Book: the daily nonfiction book guessing game","Guess today's
 <a class="card lift" href="/library/" style="padding:22px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px"><p class="mono" style="color:var(--green)">The Useful Library</p><p class="serif" style="font-size:24px">Fix a real problem with a real book</p></a>
 </aside>
 </section>
+{next3("game")}
 {SIGNUP.replace("CAMP","game")}
 </main>
 '''+FOOT
@@ -300,6 +313,7 @@ book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic H
 <div class="card lift grow-main reveal" style="display:flex;flex-direction:column;gap:10px"><p class="mono">Where books disagree</p><p class="serif" style="font-size:26px;line-height:1.2">Atomic Habits says shrink a new habit to 2 minutes. Getting Things Done says do any task under 2 minutes right now. Same name, different rule.</p><a class="more" href="/library/ideas/the-2-minute-rule/">Compare them</a></div>
 <a class="gametile lift grow-side" href="/library/game/"><div style="display:flex;flex-direction:column;gap:8px"><p class="mono" style="color:#CFE3D7">Daily game</p><h2 style="font-size:32px">Guess today&#39;s book</h2></div><span style="font-weight:800">Play</span></a>
 </section>
+{next3("book")}
 {SIGNUP.replace("CAMP","book")}
 </main>
 '''+FOOT
@@ -371,6 +385,7 @@ idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2
 <a href="/library/books/atomic-habits/" class="card lift" style="text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px;padding:22px"><p class="mono">Atomic Habits · ch. 16</p><h3>Never miss twice</h3><p style="font-size:15px;color:var(--soft)">The rule that keeps a 30-day test alive.</p></a>
 <a href="/library/game/" class="gametile lift" style="padding:22px"><p class="mono" style="color:#CFE3D7">Daily game</p><h3>Guess today&#39;s book</h3><p style="font-size:15px;color:#E3EEE7">6 clues. 1 book. Share your grid.</p></a>
 </div></section>
+{next3("idea")}
 {SIGNUP.replace("CAMP","idea")}
 </main>
 '''+FOOT
@@ -385,3 +400,33 @@ off=head("You're offline: The Useful Library","You're offline.","/library/offlin
 '''+FOOT
 write(f'{R}/offline/index.html',off)
 print("offline ok")
+
+# ---------------- SHELF (personal, not indexed)
+shelf=head("My shelf: The Useful Library","Your stamps, streak, saved books and 30-day tests.","/library/shelf/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("shelf")+f'''
+<main id="main" class="wrap" data-shelf-page>
+<section style="display:flex;flex-direction:column;gap:10px;padding-top:8px">
+<p class="mono rise">Saved on this device. No account needed.</p>
+<h1 class="rise d1">My shelf</h1>
+</section>
+<section class="row">
+<div class="dark grow-main" style="display:flex;flex-direction:column;gap:14px;border-radius:28px">
+<p class="mono">Mystery Book</p>
+<div class="stat-row" data-sh-stats></div>
+<div class="dist" data-sh-dist aria-label="Solves by number of clues"></div>
+<a class="btn btn-brass" href="/library/game/" style="align-self:flex-start">Play today&#39;s book</a>
+</div>
+<div class="card grow-side" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><p class="mono">Stay in the loop</p>{STAY_BLOCK}</div>
+</section>
+<section style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px"><h2>Stamps</h2><p class="mono" data-sh-count></p></div>
+<div class="stamps" data-sh-stamps></div>
+</section>
+<section class="row">
+<div class="card grow-main" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><h2 style="font-size:32px">30-day tests</h2><div data-sh-tests style="display:flex;flex-direction:column;gap:10px"></div></div>
+<div class="card grow-side" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><h2 style="font-size:32px">Saved books</h2><div data-sh-books style="display:flex;flex-direction:column;gap:10px"></div></div>
+</section>
+<script type="application/json" id="sh-meta">{json.dumps({"tests":{"2-minute-rule":{"t":"The 2 minute rule","url":"/library/ideas/the-2-minute-rule/"}},"books":{"atomic-habits":{"t":"Atomic Habits","url":"/library/books/atomic-habits/","cover":cov("atomic-habits")}}})}</script>
+</main>
+'''+FOOT
+write(f'{R}/shelf/index.html',shelf)
+print("shelf ok")

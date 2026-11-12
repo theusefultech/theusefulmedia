@@ -92,6 +92,24 @@
     if (animate) { var c = $("[data-r-card]"); c.classList.remove("flipin"); void c.offsetWidth; c.classList.add("flipin");
       setTimeout(function () { if (window.LibAsk) window.LibAsk(c.parentNode.children[1], "win"); }, 1400); }
     var st = streak(); document.querySelector("[data-streak]").textContent = st + (st === 1 ? " day" : " days");
+    var gsAll = window.LibStamps ? window.LibStamps.games() : [];
+    var pl = gsAll.filter(function (g) { return g.won || g.lost; }).length, wn = gsAll.filter(function (g) { return g.won; }).length;
+    var sEl = $("[data-stats]");
+    if (sEl) sEl.innerHTML = [["Played", pl], ["Win %", pl ? Math.round(wn / pl * 100) : 0], ["Streak", st], ["Best", window.LibStamps ? window.LibStamps.bestStreak(gsAll) : st]]
+      .map(function (x) { return '<div class="stat"><b>' + x[1] + '</b><span>' + x[0] + '</span></div>'; }).join("");
+    if (animate) {
+      if (window.LibStamps) window.LibStamps.check();
+      if (s.won && window.LibConfetti) setTimeout(function () { window.LibConfetti($("[data-r-card]")); }, 350);
+    }
+    tick();
+  }
+  function tick() {
+    var el = $("[data-countdown]"); if (!el) return;
+    var n = new Date(), m = new Date(n); m.setHours(24, 0, 0, 0);
+    var sec = Math.max(0, Math.floor((m - n) / 1000));
+    el.textContent = [Math.floor(sec / 3600), Math.floor(sec % 3600 / 60), sec % 60].map(function (x) { return String(x).padStart(2, "0"); }).join(":");
+    if (!tick.t) tick.t = setInterval(tick, 1000);
+    if (sec === 0) location.reload();
   }
   function streak() {
     function won(d) { try { var v = JSON.parse(localStorage.getItem("lib:game:" + d)); return !!(v && v.won); } catch (e) { return false; } }

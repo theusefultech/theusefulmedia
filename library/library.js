@@ -7,6 +7,7 @@
     get: function (k, d) { try { var v = localStorage.getItem("lib:" + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
     set: function (k, v) { try { localStorage.setItem("lib:" + k, JSON.stringify(v)); } catch (e) {} }
   };
+  var phone = window.matchMedia("(max-width: 760px)");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Reveal on scroll, count-ups and bar charts
@@ -32,45 +33,92 @@
   }, { threshold: 0.2 }) : null;
   $$(".reveal,[data-observe]").forEach(function (el) { if (io) io.observe(el); else el.classList.add("in"); });
 
-  // Home search: rotating examples + matching problems
+  // Home search: plain-language matching across problems and ideas, pills, area filters, never a dead end
   var search = $("[data-search]");
   if (search) {
-    var input = $("input", search), box = $(".suggest", search), none = $("[data-nomatch]", search);
+    var input = $("input", search), box = $(".suggest", search), pillsEl = $("[data-pills]", search), filt = $("[data-filters]", search);
     var examples = (input.getAttribute("data-examples") || "").split("|");
-    var i = 0;
+    var exI = 0;
     if (examples.length > 1 && !reduce) setInterval(function () {
       if (document.activeElement === input || input.value) return;
-      i = (i + 1) % examples.length; input.placeholder = examples[i];
+      exI = (exI + 1) % examples.length; input.placeholder = examples[exI];
     }, 2400);
     var problems = JSON.parse($("#problems").textContent);
+    var ideasAll = JSON.parse(($("#ideas") || { textContent: "[]" }).textContent);
+    // What people say -> which area it belongs to
+    var AREA_WORDS = {
+      focus: "focus distract distraction phone scroll scrolling social media instagram youtube notification attention concentrate concentration deep work busy productive productivity procrastinate procrastination deadline overwhelm overwhelmed prioritize priority time waste wasting decide decision",
+      habits: "habit habits routine discipline consistent consistency motivation lazy gym workout exercise morning wake early read reading streak quit start stick goal goals tiny",
+      money: "money spend spending save saving savings debt loan broke salary budget invest investing investment stock stocks rich wealth retire retirement buy shopping expensive afford",
+      mindset: "stress stressed anxious anxiety worry worried overthink overthinking calm angry anger sad upset fear confidence meaning purpose boss setback failure lonely peace mind emotion emotions"
+    };
+    var STOP = " i im i'm my me a an the to and or of in on at for with is are be it this that so but just keep always never really very can cant can't dont don't how what why want need feel get do too ";
+    function words(t) {
+      return t.toLowerCase().replace(/[^a-z0-9' ]+/g, " ").split(/\s+/).filter(function (w) { return w && STOP.indexOf(" " + w + " ") === -1; })
+        .map(function (w) { return w.replace(/'s$/, "").replace(/(ing|ed|es|s)$/, function (m, x, i, str) { return str.length > 4 ? "" : m; }); });
+    }
+    function hit(w, hay) { return hay.indexOf(" " + w) !== -1 || (w.length > 4 && hay.indexOf(" " + w.slice(0, 5)) !== -1); }
+    var items = problems.map(function (p) { return { kind: "Problem", title: p.text, area: p.area.toLowerCase(), url: p.url || "", hay: " " + (p.text + " " + p.keys).toLowerCase() + " " }; })
+      .concat(ideasAll.map(function (it) { return { kind: "Idea", title: it.t, sub: it.src, area: it.area.toLowerCase(), url: it.url, hay: " " + (it.t + " " + it.keys + " " + it.d + " " + it.src).toLowerCase() + " " }; }));
+    var area = "all", lastQ = "";
+    function guessArea(ws) {
+      var best = null, n = 0;
+      Object.keys(AREA_WORDS).forEach(function (k) { var h = " " + AREA_WORDS[k] + " ", c = ws.filter(function (w) { return hit(w, h); }).length; if (c > n) { n = c; best = k; } });
+      return best;
+    }
+    function row(it, why) {
+      var a = document.createElement("a");
+      a.href = it.url || "#signup";
+      a.innerHTML = '<span class="r-main"><span class="r-t"></span><span class="r-s"></span></span><span class="tag"></span>';
+      $(".r-t", a).textContent = it.title;
+      $(".r-s", a).textContent = why || it.sub || (it.url ? "" : "Not covered yet. Get it by email when it is.");
+      $(".tag", a).textContent = it.url ? (it.kind + " · " + it.area.toUpperCase()) : "SOON";
+      if (!it.url) $(".tag", a).className = "tag soon";
+      a.addEventListener("click", function () { document.body.classList.remove("searching"); });
+      return a;
+    }
     function render() {
-      var q = input.value.trim().toLowerCase();
-      if (!q) { box.hidden = true; none.hidden = true; return; }
-      var words = q.split(/\s+/).filter(function (w) { return w.length > 2; });
-      var m = problems.filter(function (p) {
-        var hay = (p.text + " " + p.keys).toLowerCase();
-        return hay.indexOf(q) !== -1 || words.some(function (w) { return p.keys.indexOf(w.slice(0, 5)) !== -1; });
-      }).slice(0, 4);
+      var q = input.value.trim();
+      lastQ = q;
+      if (!q) { box.hidden = true; filt.hidden = true; return; }
+      var ws = words(q);
+      var scored = items.map(function (it) {
+        var sc = ws.reduce(function (n, w) { return n + (hit(w, it.hay) ? (it.title.toLowerCase().indexOf(w) !== -1 ? 3 : 1) : 0); }, 0);
+        return { it: it, sc: sc ? sc + (it.url ? 1 : 0) : 0 };
+      }).filter(function (x) { return x.sc > 0 && (area === "all" || x.it.area === area); })
+        .sort(function (x, y) { return y.sc - x.sc || (y.it.url ? 1 : 0) - (x.it.url ? 1 : 0); });
       box.innerHTML = "";
-      m.forEach(function (p) {
-        var a = document.createElement("a");
-        a.href = p.url || "#signup";
-        a.innerHTML = '<span></span><span class="tag"></span>';
-        a.firstChild.textContent = p.text;
-        a.lastChild.textContent = p.url ? p.area : "Coming soon";
-        if (!p.url) a.lastChild.className = "tag soon";
-        a.addEventListener("click", function () { document.body.classList.remove("searching"); });
-        box.appendChild(a);
-      });
-      box.hidden = !m.length;
-      none.hidden = m.length > 0 || q.length < 3;
-      if (m.length) { box.classList.remove("pop"); void box.offsetWidth; box.classList.add("pop"); }
+      filt.hidden = false;
+      if (scored.length) {
+        scored.slice(0, 6).forEach(function (x) { box.appendChild(row(x.it)); });
+      } else {
+        var g = area !== "all" ? area : guessArea(ws);
+        var near = items.filter(function (it) { return it.url && (!g || it.area === g); }).slice(0, 3);
+        var head = document.createElement("p"); head.className = "r-head";
+        head.textContent = g ? "Nothing exact yet. Closest ideas for " + g + ":" : "Nothing exact yet. Start with these:";
+        box.appendChild(head);
+        near.forEach(function (it) { box.appendChild(row(it)); });
+        var ask = document.createElement("a"); ask.href = "#signup"; ask.className = "r-ask";
+        ask.innerHTML = '<span class="r-main"><span class="r-t">Ask the Library to cover this</span><span class="r-s">Join the free lessons. New problems get covered every week.</span></span><span class="tag">ASK</span>';
+        ask.addEventListener("click", function () { document.body.classList.remove("searching"); try { sessionStorage.setItem("lib:req", q); } catch (e) {} });
+        box.appendChild(ask);
+      }
+      box.hidden = false;
+      box.classList.remove("pop"); void box.offsetWidth; box.classList.add("pop");
     }
     input.addEventListener("input", render);
-    search.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var first = $("a", box);
-      if (first && !box.hidden) location.href = first.getAttribute("href");
+    search.addEventListener("submit", function (e) { e.preventDefault(); var first = $("a", box); if (!input.value.trim()) { input.focus(); return; } render(); first = $("a", box); if (first) location.href = first.getAttribute("href"); });
+    // Pills: 6 a day, picked from a larger set
+    var PILLS = ["Procrastination", "Phone addiction", "Saving money", "Overthinking", "Morning routine", "Too busy", "No motivation", "Stress at work", "Reading more", "Investing basics", "Breaking a bad habit", "Focus at work", "Hard decisions", "Self-discipline", "Staying calm", "Overspending"];
+    var dI = (function () { var d = new Date(); d.setHours(0, 0, 0, 0); return Math.round((d - new Date(2026, 10, 12)) / 86400000); })();
+    var todays = PILLS.map(function (p, i) { return { p: p, r: Math.sin((dI + 1) * 97 + i * 13) }; }).sort(function (a, b) { return a.r - b.r; }).slice(0, 6);
+    todays.forEach(function (x, i) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "pill-btn"; b.textContent = x.p; b.style.animationDelay = (0.3 + i * 0.05) + "s";
+      b.addEventListener("click", function () { input.value = x.p; input.dispatchEvent(new Event("input")); if (phone.matches) document.body.classList.add("searching"); });
+      pillsEl.appendChild(b);
+    });
+    $$("button", filt).forEach(function (b) {
+      b.addEventListener("click", function () { area = b.getAttribute("data-f"); $$("button", filt).forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); }); render(); input.focus(); });
     });
   }
 
@@ -193,7 +241,6 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") { closeSheet(); document.body.classList.remove("searching"); } });
 
   // Phone search: full screen while typing
-  var phone = window.matchMedia("(max-width: 760px)");
   if (search) {
     var sInput = $("input", search);
     sInput.addEventListener("focus", function () { if (phone.matches) document.body.classList.add("searching"); });
@@ -262,7 +309,7 @@
   // Today's idea: a new one each day
   var today = $("[data-today]"), ideasEl = $("#ideas");
   if (today && ideasEl) {
-    var ideas = JSON.parse(ideasEl.textContent), it = ideas[((dayIndex() % ideas.length) + ideas.length) % ideas.length];
+    var ideas = JSON.parse(ideasEl.textContent), want = (location.search.match(/[?&]idea=([a-z0-9-]+)/) || [])[1], it = ideas.filter(function (x) { return x.slug === want; })[0] || ideas[((dayIndex() % ideas.length) + ideas.length) % ideas.length];
     $("[data-i-area]", today).textContent = it.area;
     $("[data-i-src]", today).textContent = it.src;
     $("[data-i-t]", today).textContent = it.t;
@@ -350,6 +397,93 @@
   }
   forms.forEach(bindSignup);
   window.LibBindSignup = function (f) { forms.push(f); bindSignup(f); loadTS(); setTimeout(initTS, 50); };
+  // ---------- Celebrations ----------
+  window.LibConfetti = function (el) {
+    if (reduce || !el || !el.getBoundingClientRect) return;
+    var r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + Math.min(r.height / 2, 120);
+    var colors = ["#2F6B4F", "#B8913A", "#4E8A6C", "#E3EEE7", "#7A4A78", "#3A5BA0"];
+    for (var i = 0; i < 34; i++) {
+      var p = document.createElement("i");
+      var sz = 6 + Math.random() * 6;
+      p.style.cssText = "position:fixed;z-index:120;pointer-events:none;left:" + cx + "px;top:" + cy + "px;width:" + sz + "px;height:" + (sz * (Math.random() > .5 ? 1 : 2.2)) + "px;border-radius:" + (Math.random() > .6 ? "50%" : "2px") + ";background:" + colors[i % colors.length];
+      document.body.appendChild(p);
+      var a = Math.random() * Math.PI * 2, v = 120 + Math.random() * 220, dx = Math.cos(a) * v, dy = Math.sin(a) * v - 160;
+      var an = p.animate([{ transform: "translate(0,0) rotate(0)", opacity: 1 }, { transform: "translate(" + dx + "px," + (dy + 380) + "px) rotate(" + (Math.random() * 720 - 360) + "deg)", opacity: 0 }], { duration: 1100 + Math.random() * 700, easing: "cubic-bezier(.2,.7,.4,1)" });
+      an.onfinish = (function (n) { return function () { n.remove(); }; })(p);
+    }
+  };
+
+  // ---------- Stamps you collect ----------
+  function games() {
+    var out = [];
+    try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i), m = k && k.match(/^lib:game:(\d+)$/); if (m) { var v = JSON.parse(localStorage.getItem(k)); if (v) { v.no = +m[1]; out.push(v); } } } } catch (e) {}
+    return out.sort(function (a, b) { return a.no - b.no; });
+  }
+  function bestStreak(gs) { var best = 0, cur = 0, last = null; gs.forEach(function (g) { if (g.won) { cur = (last !== null && g.no === last + 1) ? cur + 1 : 1; last = g.no; best = Math.max(best, cur); } else { cur = 0; last = g.no; } }); return best; }
+  function anyKey(prefix, test) { try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf("lib:" + prefix) === 0) { var v = JSON.parse(localStorage.getItem(k)); if (test(v)) return true; } } } catch (e) {} return false; }
+  var STAMPS = [
+    { id: "first-solve", name: "First solve", how: "Solve your first Mystery Book", art: "habits", ok: function () { return games().some(function (g) { return g.won; }); } },
+    { id: "ace", name: "1 clue wonder", how: "Solve a Mystery Book on the first clue", art: "focus", ok: function () { return games().some(function (g) { return g.won && g.wrong.length === 0; }); } },
+    { id: "streak-3", name: "3 day streak", how: "Solve 3 days in a row", art: "mindset", ok: function () { return bestStreak(games()) >= 3; } },
+    { id: "streak-7", name: "7 day streak", how: "Solve 7 days in a row", art: "money", ok: function () { return bestStreak(games()) >= 7; } },
+    { id: "checklist", name: "Did the thing", how: "Finish a try-it-today checklist", art: "habits", ok: function () { return anyKey("check:", function (v) { return v && v.length >= 3 && v.every(Boolean); }); } },
+    { id: "tester", name: "Tester", how: "Start a 30-day test", art: "focus", ok: function () { return anyKey("test:", function (v) { return v && v.start; }); } },
+    { id: "kept", name: "Kept it", how: "Keep an idea for 30 days", art: "mindset", ok: function () { return anyKey("test:", function (v) { return v && v.vote === "kept"; }); } },
+    { id: "regular", name: "Regular", how: "Add the Library to your home screen or calendar", art: "money", ok: function () { return store.get("did:install", false) || store.get("did:cal", false); } },
+    { id: "reader", name: "On the list", how: "Get the lessons by email", art: "habits", ok: function () { return store.get("subscribed", false); } }
+  ];
+  var plates = {};
+  try { plates = JSON.parse($("#plates").textContent); } catch (e) {}
+  function toast(st) {
+    var t = document.createElement("div"); t.className = "stamp-toast"; t.setAttribute("role", "status");
+    t.innerHTML = '<svg class="stamp" width="64" height="64" viewBox="0 0 160 160" aria-hidden="true">' + (plates[st.art] || "") + '</svg><span><small>New stamp</small><b></b></span>';
+    $("b", t).textContent = st.name;
+    document.body.appendChild(t); window.LibConfetti(t);
+    t.addEventListener("click", function () { location.href = "/library/shelf/"; });
+    setTimeout(function () { t.classList.add("out"); setTimeout(function () { t.remove(); }, 400); }, 3600);
+  }
+  var checking = null;
+  window.LibStamps = {
+    list: STAMPS, games: games, bestStreak: bestStreak,
+    check: function (quiet) {
+      var have = store.get("stamps", []), fresh = [];
+      STAMPS.forEach(function (s) { if (have.indexOf(s.id) === -1 && s.ok()) { have.push(s.id); fresh.push(s); } });
+      if (!fresh.length) return;
+      store.set("stamps", have, true);
+      if (!quiet) fresh.forEach(function (s, i) { setTimeout(function () { toast(s); }, 700 + i * 1800); });
+    }
+  };
+  var setRaw = store.set;
+  store.set = function (k, v, skip) { setRaw(k, v); if (skip) return; clearTimeout(checking); checking = setTimeout(function () { window.LibStamps.check(); }, 500); };
+  window.LibStamps.check(store.get("stamps", null) === null);
+
+  // ---------- My shelf page ----------
+  var shelfPage = $("[data-shelf-page]");
+  if (shelfPage) {
+    var gs = window.LibStamps.games(), wins = gs.filter(function (g) { return g.won; });
+    var played = gs.filter(function (g) { return g.won || g.lost; }).length;
+    var cur = (function () { var d = new Date(); d.setHours(0, 0, 0, 0); var no = Math.round((d - new Date(2026, 10, 12)) / 86400000) + 1; var map = {}; gs.forEach(function (g) { map[g.no] = g; }); var n = 0, k = map[no] && map[no].won ? no : no - 1; while (map[k] && map[k].won) { n++; k--; } return n; })();
+    var stats = [["Played", played], ["Win %", played ? Math.round(wins.length / played * 100) : 0], ["Streak", cur], ["Best", window.LibStamps.bestStreak(gs)]];
+    $("[data-sh-stats]").innerHTML = stats.map(function (s) { return '<div class="stat"><b data-count="' + s[1] + '">0</b><span>' + s[0] + '</span></div>'; }).join("");
+    $$("[data-sh-stats] [data-count]").forEach(function (el) { el.textContent = el.getAttribute("data-count"); });
+    var dist = [0, 0, 0, 0, 0, 0]; wins.forEach(function (g) { dist[Math.min(5, g.wrong.length)]++; });
+    var mx = Math.max.apply(null, dist.concat([1]));
+    $("[data-sh-dist]").innerHTML = dist.map(function (n, i) { return '<div><span>' + (i + 1) + '</span><i style="width:' + (8 + n / mx * 82) + '%">' + n + '</i></div>'; }).join("");
+    var have = store.get("stamps", []);
+    $("[data-sh-count]").textContent = have.length + " of " + window.LibStamps.list.length + " collected";
+    $("[data-sh-stamps]").innerHTML = window.LibStamps.list.map(function (s) {
+      var got = have.indexOf(s.id) !== -1;
+      return '<div class="stamp-card ' + (got ? "earned" : "locked") + '"><svg viewBox="0 0 160 160" aria-hidden="true">' + (plates[s.art] || "") + '</svg><b>' + s.name + '</b><small>' + (got ? "Collected" : s.how) + '</small></div>';
+    }).join("");
+    var meta = JSON.parse($("#sh-meta").textContent);
+    var tests = Object.keys(meta.tests).map(function (k) { var v = store.get("test:" + k, null); return v && v.start ? { k: k, v: v } : null; }).filter(Boolean);
+    $("[data-sh-tests]").innerHTML = tests.length ? tests.map(function (t) { var n = Object.keys(t.v.days || {}).filter(function (d) { return t.v.days[d]; }).length; var m = meta.tests[t.k]; return '<a class="sh-row" href="' + m.url + '"><b>' + m.t + '</b><span class="bar"><i style="width:' + Math.round(n / 30 * 100) + '%"></i></span><span class="mono">' + n + '/30</span></a>'; }).join("")
+      : '<p class="empty">No tests yet. <a href="/library/ideas/the-2-minute-rule/">Start with the 2 minute rule</a>.</p>';
+    var books = Object.keys(meta.books).filter(function (k) { return store.get("shelf:" + k, false); });
+    $("[data-sh-books]").innerHTML = books.length ? books.map(function (k) { var b = meta.books[k]; return '<a class="sh-row" href="' + b.url + '"><img src="' + b.cover + '" alt="" width="40" height="60" style="width:40px;height:60px;object-fit:cover;border-radius:3px 6px 6px 3px"><b style="flex:1">' + b.t + '</b><span class="mono">Open</span></a>'; }).join("")
+      : '<p class="empty">Nothing saved yet. Tap "Add to my shelf" on any book.</p>';
+  }
+
   // ---------- Come back tomorrow: home screen, calendar, email ----------
   if ("serviceWorker" in navigator && location.protocol === "https:") {
     window.addEventListener("load", function () { navigator.serviceWorker.register("/library/sw.js", { scope: "/library/" }).catch(function () {}); });

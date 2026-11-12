@@ -595,3 +595,13 @@ section[id],article[id]{scroll-margin-top:16px}
 @media (max-width:760px){main img.float[width="230"]{width:150px!important;height:227px!important}}
 .cell{font-size:14px}
 @media (min-width:761px){main>.toc{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:10px 0;margin:-10px 0}}
+/* Book hero: big sharp cover on a soft wash of its own colors */
+.book-hero{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:48px;align-items:center;padding:40px;border-radius:32px;background:var(--card);box-shadow:0 1px 0 var(--line)}
+.book-hero::before{content:"";position:absolute;inset:-60px;z-index:-1;background:var(--cover) center/cover no-repeat;filter:blur(70px) saturate(1.4);opacity:.34;transform:scale(1.2)}
+.book-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 40%,var(--card) 100%);opacity:.6}
+html.dk .book-hero::before{opacity:.26}
+.bh-cover{display:flex;justify-content:center}
+.bh-cover img{width:100%;max-width:300px;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:4px 14px 14px 4px;box-shadow:0 2px 0 rgba(0,0,0,.08),0 40px 60px -26px rgba(20,30,25,.65);transform:perspective(900px) rotateY(-6deg);transition:transform .5s var(--ease)}
+.bh-cover img:hover{transform:perspective(900px) rotateY(0) scale(1.02)}
+.bh-text{display:flex;flex-direction:column;gap:14px;min-width:0}
+@media (max-width:760px){.book-hero{grid-template-columns:1fr;gap:22px;padding:28px 20px 22px;border-radius:26px;text-align:left}.bh-cover img{max-width:210px}}

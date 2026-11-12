@@ -1,0 +1,30 @@
+name: Library checks
+on:
+  push:
+    branches: [main]
+    paths: ["library/**", "scripts/build_library_site.py", "scripts/library_*.py", "scripts/library_qa/**", ".github/workflows/library-checks.yml"]
+  schedule:
+    - cron: "41 20 * * *"   # daily, 2:11 AM IST: catches anything that broke overnight
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Static checks on the live pages (h1, canonical, JSON-LD, links, share images, em dashes)
+        run: python3 scripts/library_qa/check_static.py
+      - name: The builder still runs cleanly from source
+        run: python3 scripts/build_library_site.py && python3 scripts/library_qa/check_static.py
+      - name: Game puzzles stay at least 7 days ahead
+        run: |
+          python3 - <<'PY'
+          import re, datetime, sys
+          s = open("library/game/game.js").read()
+          n = len(re.findall(r'\{ a: "', s.split("var EXTRA")[0]))
+          last = datetime.date(2026, 11, 12) + datetime.timedelta(days=n - 1)
+          left = (last - datetime.date.today()).days
+          print(f"{n} puzzles, last new one on {last}, {left} days left")
+          sys.exit(1 if left < 7 else 0)
+          PY

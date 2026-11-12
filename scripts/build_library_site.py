@@ -146,7 +146,9 @@ SIGNUP='''<section id="signup" class="card row reveal" style="align-items:center
 <div class="signup-msg" aria-live="polite"></div></div>
 </section>'''
 
+WRITTEN=set()
 def write(path, s):
+    WRITTEN.add("/"+os.path.relpath(os.path.dirname(path),os.path.dirname(R)).replace(os.sep,"/")+"/")
     os.makedirs(os.path.dirname(path), exist_ok=True); open(path,'w').write(s)
 
 
@@ -345,9 +347,9 @@ bc_h,bc_ld=crumbs([("Books","/library/books/"),("Atomic Habits",None)])
 book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic Habits by James Clear, chapter by chapter: read {len([c for c in ch if c[0]==R_])} of 20 chapters ({reads}), skim or skip the rest, and why. Plus the 4 ideas worth using.","/library/books/atomic-habits/",bookld+[bc_ld])+'</head>\n<body data-area="habits">\n'+nav("book")+f'''
 <main id="main" class="wrap">
 {bc_h}
-<section class="row" style="align-items:center;gap:40px;padding-top:12px">
-<div style="flex:0 1 240px;display:flex;justify-content:center"><img class="float rise" src="{cov('atomic-habits')}" alt="Atomic Habits cover" width="230" height="348" style="width:230px;height:348px;object-fit:cover;border-radius:4px 12px 12px 4px;box-shadow:0 30px 50px -24px rgba(28,43,36,.6)"></div>
-<div class="grow-main" style="display:flex;flex-direction:column;gap:16px">
+<section class="book-hero" style="--cover:url({cov('atomic-habits')})">
+<div class="bh-cover"><img class="rise" src="{cov('atomic-habits')}" alt="Atomic Habits cover" width="300" height="455" fetchpriority="high"></div>
+<div class="bh-text">
 <p class="mono rise">Book · Habits and discipline · 2018</p>
 <h1 class="rise d1">Atomic Habits</h1>
 <p class="rise d1" style="font-size:18px;color:var(--soft)">James Clear · 20 chapters</p>
@@ -797,9 +799,9 @@ def book_page(B):
     page=head(title,desc,path,ld)+f'</head>\n<body data-area="{B["area"]}">\n'+nav("book")+f'''
 <main id="main" class="wrap">
 {bc_h2}
-<section class="row" style="align-items:center;gap:40px;padding-top:4px">
-<div style="flex:0 1 240px;display:flex;justify-content:center"><img class="float rise" src="{cov(B["slug"])}" alt="{html.escape(B["t"])} cover" width="230" height="348" style="width:230px;height:348px;object-fit:cover;border-radius:4px 12px 12px 4px;box-shadow:0 30px 50px -24px rgba(28,43,36,.6)"></div>
-<div class="grow-main" style="display:flex;flex-direction:column;gap:14px">
+<section class="book-hero" style="--cover:url({cov(B["slug"])})">
+<div class="bh-cover"><img class="rise" src="{cov(B["slug"])}" alt="{html.escape(B["t"])} cover" width="300" height="455" fetchpriority="high"></div>
+<div class="bh-text">
 <p class="mono rise">Book · {html.escape(AREA_META[B["area"]][0])} · {B["year"]}</p>
 <h1 class="rise d1">{html.escape(B["t"])}</h1>
 <p class="rise d1" style="font-size:18px;color:var(--soft)">{html.escape(B["by"])} · {len(units)} {unit}</p>
@@ -834,3 +836,19 @@ def book_page(B):
     write(f'{R}/books/{B["slug"]}/index.html',page)
 for B in BOOKPAGES: book_page(B)
 print(len(BOOKPAGES),"book pages ok")
+
+# ---------------- Keep sitemap.xml and llms.txt in step with every page written (new pages appear automatically)
+_ROOT=os.path.dirname(R)
+_sm=os.path.join(_ROOT,"sitemap.xml"); _s=open(_sm).read(); _add=""
+for _p in sorted(WRITTEN):
+    if "/lost/" in _p or "/shelf/" in _p or "/offline/" in _p: continue
+    _u=BASE+_p
+    if f"<loc>{_u}</loc>" not in _s: _add+=f"  <url><loc>{_u}</loc><lastmod>{UPDATED.get(_p,PUBLISHED)}</lastmod></url>\n"
+if _add: open(_sm,"w").write(_s.replace("</urlset>",_add+"</urlset>"))
+_lt=os.path.join(_ROOT,"llms.txt"); _l=open(_lt).read(); _new=""
+for B in BOOKPAGES:
+    if f"/library/books/{B['slug']}/" not in _l: _new+=f"- [{B['t']}: which parts to read]({BASE}/library/books/{B['slug']}/): {B['verdict']}\n"
+for P in PROBLEMS:
+    if f"/library/problems/{P['slug']}/" not in _l: _new+=f"- [{P['problem']}: 3 fixes]({BASE}/library/problems/{P['slug']}/): {P['desc']}\n"
+if _new and "- [Books](https://theusefulmedia.com/library/books/)" in _l: open(_lt,"w").write(_l.replace("- [Books](https://theusefulmedia.com/library/books/)",_new+"- [Books](https://theusefulmedia.com/library/books/)",1))
+print("sitemap +",_add.count("<url>"),"| llms +",_new.count("\n"))

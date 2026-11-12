@@ -116,7 +116,7 @@ BOOKS = [
   "for": "You feel behind all the time, no matter how productive you get.",
   "skip": "You need a daily system. Pair it with Deep Work or Indistractable."},
  {"slug": "the-psychology-of-money", "t": "The Psychology of Money", "by": "Morgan Housel", "year": 2020, "area": "money", "unit": "Chapter",
-  "verdict": "Read 7 of the 20 short chapters. They hold the ideas that change how you spend and save.",
+  "verdict": "Read 6 of the 20 short chapters. They hold the ideas that change how you spend and save.",
   "units": [
    (S, "1. No One's Crazy", "Everyone's money choices make sense from their own experience."),
    (S, "2. Luck & Risk", "Outcomes are shaped by luck and risk more than we admit."),

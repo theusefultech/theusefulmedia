@@ -1,0 +1,25 @@
+import asyncio
+from playwright.async_api import async_playwright
+async def main():
+    async with async_playwright() as p:
+        b=await p.chromium.launch(executable_path="/usr/bin/google-chrome")
+        pg=await b.new_page(viewport={"width":390,"height":844}); errs=[]; pg.on("pageerror",lambda e: errs.append(str(e)))
+        await pg.goto("http://localhost:8765/library/problems/overthinking/"); await pg.wait_for_timeout(900)
+        await pg.screenshot(path="/tmp/libqa_p2_top.png")
+        await pg.click("[data-pick='1']"); await pg.wait_for_timeout(900)
+        print("picked:", await pg.eval_on_selector_all("[data-fix]","e=>e.map(x=>x.classList.contains('picked'))"), "scrollY", await pg.evaluate("Math.round(scrollY)"))
+        await pg.screenshot(path="/tmp/libqa_p2_fix.png")
+        await pg.reload(); await pg.wait_for_timeout(600)
+        print("remembered:", await pg.get_attribute("[data-pick='1']","aria-pressed"))
+        await pg.click(".check >> nth=0"); await pg.click("[data-start]"); await pg.wait_for_timeout(300)
+        await pg.goto("http://localhost:8765/library/shelf/"); await pg.wait_for_timeout(600)
+        print("shelf tests:", (await pg.inner_text("[data-sh-tests]")).replace("\n"," | "))
+        await pg.goto("http://localhost:8765/library/"); await pg.fill("#q","I worry about everything"); await pg.wait_for_timeout(400)
+        print("search:", await pg.eval_on_selector_all(".suggest a","e=>e.slice(0,3).map(x=>x.innerText.split('\\n')[0]+' -> '+x.getAttribute('href'))"))
+        await pg.goto("http://localhost:8765/library/about/"); await pg.wait_for_timeout(900); await pg.screenshot(path="/tmp/libqa_p2_about.png")
+        await pg.goto("http://localhost:8765/library/problems/"); await pg.wait_for_timeout(900); await pg.screenshot(path="/tmp/libqa_p2_hub.png")
+        d=await b.new_page(viewport={"width":1280,"height":900}); d.on("pageerror",lambda e: errs.append(str(e)))
+        await d.goto("http://localhost:8765/library/problems/cant-focus/"); await d.wait_for_timeout(1000); await d.evaluate("scrollTo(0,700)"); await d.wait_for_timeout(700)
+        await d.screenshot(path="/tmp/libqa_p2_desk.png")
+        print("errs",errs); await b.close()
+asyncio.run(main())

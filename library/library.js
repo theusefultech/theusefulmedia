@@ -966,3 +966,12 @@
     });
   })();
 })();
+// Reading Challenge 2027: site-wide strip and launch state. Waitlist until 1 Dec IST, open until 31 Dec, then the strip goes away.
+(function () {
+  var now = Date.now(), OPEN = Date.parse("2026-11-30T18:30:00Z"), END = Date.parse("2026-12-31T18:30:00Z");
+  var open = now >= OPEN || /[?&]open=1/.test(location.search);
+  document.querySelectorAll("[data-pre]").forEach(function (e) { e.hidden = open; });
+  document.querySelectorAll("[data-open]").forEach(function (e) { e.hidden = !open; });
+  var s = document.querySelector("[data-ch-strip]");
+  if (s && now < END && !document.body.hasAttribute("data-challenge-sales") && !document.body.hasAttribute("data-challenge-tracker")) s.hidden = false;
+})();

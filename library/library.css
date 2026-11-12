@@ -709,3 +709,6 @@ html.dk .chm-picks button[aria-checked="true"]{background:#222D27}
 .chm-t [data-today][disabled]{opacity:.6}
 @media (max-width:900px){.ch-hero{grid-template-columns:1fr}.ch-stack{height:220px;order:-1}.ch-stack img{width:110px}.ch-how{grid-template-columns:1fr 1fr}.chmonths{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.ch-how,.chmonths,.ch-get ul{grid-template-columns:1fr}.ch-year{grid-template-columns:1fr}.chm-days{grid-template-columns:repeat(10,1fr)}}
+.ch-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 10px;background:#1C2B24;color:#E3EEE7;padding:10px 16px;font-size:14px;text-decoration:none;min-height:44px;align-items:center;text-align:center}
+.ch-strip b{color:#FBFBF8}.ch-strip span{color:var(--brass);text-decoration:underline;text-underline-offset:3px;font-weight:700}
+.ch-strip[hidden]{display:none}

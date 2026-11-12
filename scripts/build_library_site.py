@@ -96,6 +96,7 @@ def nav(cur):
         c=' aria-current="page"' if key==cur else ''
         return f'<a href="{href}"{c}>{svg(key)}<span>{label}</span></a>'
     return f'''<a class="skip" href="#main">Skip to content</a>
+<a class="ch-strip" href="/library/challenge/" data-ch-strip hidden><b data-pre>The Useful Reading Challenge 2027 opens 1 Dec.</b><span data-pre>Get on the early-bird list</span><b data-open hidden>The Useful Reading Challenge 2027 is open.</b><span data-open hidden>Join for $29 until 31 Dec</span></a>
 <header class="wrap"><nav class="lib-nav" aria-label="The Useful Library">
 <a class="lib-brand" href="/library/" aria-label="The Useful Library home"><svg width="38" height="38" viewBox="0 0 160 160" aria-hidden="true">{A.logo()}</svg><span>The Useful Library</span></a>
 <div class="lib-links">{a("/library/problems/","Problems","problems")}{a("/library/books/","Books","book")}{a("/library/game/","Today&#39;s game","game")}{a("/library/ideas/","Ideas","idea")}{a("/library/shelf/","My shelf","shelf")}<a class="btn btn-ink pill" href="/library/#signup" style="min-height:44px;padding:10px 18px;font-size:15px">Get the free lessons</a></div>
@@ -270,11 +271,11 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 <section class="dark row reveal" style="align-items:center;gap:32px;border-radius:28px;padding:40px">
 {A.scene("read").replace('<svg class="art"','<svg class="art float" width="150" height="150"')}
 <div class="grow-main" style="display:flex;flex-direction:column;gap:10px;flex-basis:420px">
-<p class="mono" style="color:var(--brass)">Early-bird opens 1 Dec · $29 until 31 Dec, then $39</p>
+<p class="mono" style="color:var(--brass)"><span data-pre>Early-bird opens 1 Dec · $29 until 31 Dec, then $39</span><span data-open hidden>Open now · $29 until 31 Dec, then $39</span></p>
 <h2 style="font-size:clamp(30px,4vw,40px)">The Useful Reading Challenge 2027</h2>
 <p style="color:#C6D1CA;max-width:560px">1 year of nonfiction, read to change something. Monthly prompts, a tracker, and a private Discord channel for the readers doing it with you.</p>
 </div>
-<a class="btn btn-brass" href="/library/challenge/" style="font-size:17px;padding:16px 26px">See the challenge</a>
+<a class="btn btn-brass" href="/library/challenge/" style="font-size:17px;padding:16px 26px"><span data-pre>See the challenge</span><span data-open hidden>Join the challenge</span></a>
 </section>
 {LEAD.replace("CAMP","home")}
 </main>

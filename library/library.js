@@ -58,8 +58,8 @@
         .map(function (w) { return w.replace(/'s$/, "").replace(/(ing|ed|es|s)$/, function (m, x, i, str) { return str.length > 4 ? "" : m; }); });
     }
     function hit(w, hay) { return hay.indexOf(" " + w) !== -1 || (w.length > 4 && hay.indexOf(" " + w.slice(0, 5)) !== -1); }
-    var items = problems.map(function (p) { return { kind: "Problem", title: p.text, area: p.area.toLowerCase(), url: p.url || "", hay: " " + (p.text + " " + p.keys).toLowerCase() + " " }; })
-      .concat(ideasAll.map(function (it) { return { kind: "Idea", title: it.t, sub: it.src, area: it.area.toLowerCase(), url: it.url, hay: " " + (it.t + " " + it.keys + " " + it.d + " " + it.src).toLowerCase() + " " }; }));
+    var items = problems.map(function (p) { return { kind: "Problem", title: p.text, area: p.area.toLowerCase(), url: p.url || "", ai: p.text + ". " + p.keys, hay: " " + (p.text + " " + p.keys).toLowerCase() + " " }; })
+      .concat(ideasAll.map(function (it) { return { kind: "Idea", title: it.t, sub: it.src, area: it.area.toLowerCase(), url: it.url, ai: it.t + ". " + it.d + " " + (it.s || []).join(" "), hay: " " + (it.t + " " + it.keys + " " + it.d + " " + it.src).toLowerCase() + " " }; }));
     var area = "all", lastQ = "";
     function guessArea(ws) {
       var best = null, n = 0;
@@ -106,7 +106,43 @@
       box.hidden = false;
       box.classList.remove("pop"); void box.offsetWidth; box.classList.add("pop");
     }
-    input.addEventListener("input", render);
+    // AI ranking: sends the question plus the Library's ideas to the search Worker, which ranks them by meaning.
+    // Word matching above shows instantly; the AI order replaces it when it arrives. Any failure keeps word matching.
+    var AI_URL = "https://library-search.raja-822.workers.dev/", aiTimer = null, aiSeq = 0, aiCache = {};
+    function aiRank() {
+      var q = input.value.trim(); if (q.length < 4) return;
+      var seq = ++aiSeq;
+      function apply(res) {
+        if (seq !== aiSeq || input.value.trim() !== q || !res || !res.ok) return;
+        var top = res.results[0] ? res.results[0].s : 0; if (top < 0.62) return;
+        var ok = res.results.filter(function (x) { var it = items[+x.id]; return it && (area === "all" || it.area === area); });
+        var picked = ok.filter(function (x) { return x.s >= top - 0.06; }).slice(0, 4);
+        // Always leave something to open: add the closest pages when the best matches are not covered yet
+        var withUrl = picked.filter(function (x) { return items[+x.id].url; }).length;
+        ok.forEach(function (x) { if (withUrl < 2 && picked.indexOf(x) === -1 && items[+x.id].url && x.s >= top - 0.12) { picked.push(x); withUrl++; } });
+        var topArea = picked[0] && items[+picked[0].id].area;
+        if (!withUrl) ok.some(function (x) { var it = items[+x.id]; if (it.url && it.area === topArea) { picked.push(x); return true; } });
+        if (!picked.length) return;
+        box.innerHTML = "";
+        var head = document.createElement("p"); head.className = "r-head ai"; head.textContent = "Best matches for what you wrote";
+        box.appendChild(head);
+        picked.forEach(function (x) { box.appendChild(row(items[+x.id])); });
+        if (picked.some(function (x) { return !items[+x.id].url; })) {
+          var ask = document.createElement("a"); ask.href = "#signup"; ask.className = "r-ask";
+          ask.innerHTML = '<span class="r-main"><span class="r-t">Ask the Library to cover this</span><span class="r-s">Join the free lessons. New problems get covered every week.</span></span><span class="tag">ASK</span>';
+          ask.addEventListener("click", function () { document.body.classList.remove("searching"); try { sessionStorage.setItem("lib:req", q); } catch (e) {} });
+          box.appendChild(ask);
+        }
+        box.hidden = false; filt.hidden = false;
+      }
+      if (aiCache[q]) { apply(aiCache[q]); return; }
+      var ctl = window.AbortController ? new AbortController() : null;
+      var to = setTimeout(function () { if (ctl) ctl.abort(); }, 2500);
+      fetch(AI_URL, { method: "POST", headers: { "Content-Type": "application/json" }, signal: ctl ? ctl.signal : undefined,
+        body: JSON.stringify({ q: q, items: items.map(function (it, i) { return { id: String(i), t: it.ai.slice(0, 300) }; }) }) })
+        .then(function (r) { return r.json(); }).then(function (res) { clearTimeout(to); aiCache[q] = res; apply(res); }).catch(function () { clearTimeout(to); });
+    }
+    input.addEventListener("input", function () { render(); clearTimeout(aiTimer); aiTimer = setTimeout(aiRank, 450); });
     search.addEventListener("submit", function (e) { e.preventDefault(); var first = $("a", box); if (!input.value.trim()) { input.focus(); return; } render(); first = $("a", box); if (first) location.href = first.getAttribute("href"); });
     // Pills: 6 a day, picked from a larger set
     var PILLS = ["Procrastination", "Phone addiction", "Saving money", "Overthinking", "Morning routine", "Too busy", "No motivation", "Stress at work", "Reading more", "Investing basics", "Breaking a bad habit", "Focus at work", "Hard decisions", "Self-discipline", "Staying calm", "Overspending"];

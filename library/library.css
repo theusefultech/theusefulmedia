@@ -373,3 +373,4 @@ a.more{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .hero-dog svg>g{transform-box:fill-box}
 @media (max-width:760px){.hero-dog{width:96px;height:96px;left:-6px;bottom:-10px}.gt-art{width:80px;height:76px;bottom:10px;right:8px}.idea-plate{width:120px!important;height:120px!important}}
 @media (prefers-color-scheme:dark){.tile .art-box,.tile[data-area] .art-box{background:#E9EDE9}}
+.r-head.ai::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:8px;animation:pop .4s both}

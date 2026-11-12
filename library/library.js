@@ -441,10 +441,13 @@
     for (var i = 0; i < 34; i++) {
       var p = document.createElement("i");
       var sz = 6 + Math.random() * 6;
-      p.style.cssText = "position:fixed;z-index:120;pointer-events:none;left:" + cx + "px;top:" + cy + "px;width:" + sz + "px;height:" + (sz * (Math.random() > .5 ? 1 : 2.2)) + "px;border-radius:" + (Math.random() > .6 ? "50%" : "2px") + ";background:" + colors[i % colors.length];
+      var page = i % 3 === 0;
+      p.style.cssText = "position:fixed;z-index:120;pointer-events:none;left:" + cx + "px;top:" + cy + "px;" + (page
+        ? "width:" + (12 + Math.random() * 6) + "px;height:" + (16 + Math.random() * 6) + "px;border-radius:1px 4px 4px 1px;background:#FBFBF8 repeating-linear-gradient(180deg,transparent 0 3px,rgba(28,43,36,.28) 3px 4px);background-clip:content-box;padding:3px;box-shadow:0 0 0 1px rgba(28,43,36,.35)"
+        : "width:" + sz + "px;height:" + (sz * (Math.random() > .5 ? 1 : 2.2)) + "px;border-radius:" + (Math.random() > .6 ? "50%" : "2px") + ";background:" + colors[i % colors.length]);
       document.body.appendChild(p);
       var a = Math.random() * Math.PI * 2, v = 120 + Math.random() * 220, dx = Math.cos(a) * v, dy = Math.sin(a) * v - 160;
-      var an = p.animate([{ transform: "translate(0,0) rotate(0)", opacity: 1 }, { transform: "translate(" + dx + "px," + (dy + 380) + "px) rotate(" + (Math.random() * 720 - 360) + "deg)", opacity: 0 }], { duration: 1100 + Math.random() * 700, easing: "cubic-bezier(.2,.7,.4,1)" });
+      var an = p.animate([{ transform: "translate(0,0) rotate(0)", opacity: 1 }, { transform: "translate(" + dx + "px," + (dy + 380) + "px) rotate(" + (Math.random() * 720 - 360) + "deg)" + (page ? " rotateX(" + (360 + Math.random() * 540) + "deg)" : ""), opacity: 0 }], { duration: 1100 + Math.random() * 700, easing: "cubic-bezier(.2,.7,.4,1)" });
       an.onfinish = (function (n) { return function () { n.remove(); }; })(p);
     }
   };
@@ -455,7 +458,22 @@
     try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i), m = k && k.match(/^lib:game:(\d+)$/); if (m) { var v = JSON.parse(localStorage.getItem(k)); if (v) { v.no = +m[1]; out.push(v); } } } } catch (e) {}
     return out.sort(function (a, b) { return a.no - b.no; });
   }
-  function bestStreak(gs) { var best = 0, cur = 0, last = null; gs.forEach(function (g) { if (g.won) { cur = (last !== null && g.no === last + 1) ? cur + 1 : 1; last = g.no; best = Math.max(best, cur); } else { cur = 0; last = g.no; } }); return best; }
+  // Streaks with freezes: every 7 days in a row earns 1 freeze (hold up to 2). A freeze covers 1 missed or lost day.
+  function todayNo() { var d = new Date(); d.setHours(0, 0, 0, 0); return Math.round((d - new Date(2026, 10, 12)) / 86400000) + 1; }
+  function streakInfo(gs, upto) {
+    var map = {}; (gs || games()).forEach(function (g) { map[g.no] = g; });
+    upto = upto || todayNo();
+    var cur = 0, best = 0, fz = 0, run = 0, used = [];
+    for (var d = 1; d <= upto; d++) {
+      var g = map[d];
+      if (g && g.won) { cur++; run++; if (run % 7 === 0 && fz < 2) fz++; best = Math.max(best, cur); }
+      else if (d === upto && !(g && g.lost)) { /* today not played yet */ }
+      else if (cur > 0 && fz > 0) { fz--; used.push(d); run = 0; }
+      else { cur = 0; run = 0; }
+    }
+    return { cur: cur, best: best, freezes: fz, used: used };
+  }
+  function bestStreak(gs) { return streakInfo(gs).best; }
   function anyKey(prefix, test) { try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf("lib:" + prefix) === 0) { var v = JSON.parse(localStorage.getItem(k)); if (test(v)) return true; } } } catch (e) {} return false; }
   var STAMPS = [
     { id: "first-solve", name: "First solve", how: "Solve your first Mystery Book", art: "habits", ok: function () { return games().some(function (g) { return g.won; }); } },
@@ -475,12 +493,14 @@
     t.innerHTML = '<svg class="stamp" width="64" height="64" viewBox="0 0 160 160" aria-hidden="true">' + (plates[st.id] || "") + '</svg><span><small>New stamp</small><b></b></span>';
     $("b", t).textContent = st.name;
     document.body.appendChild(t); window.LibConfetti(t);
+    if (window.LibSound) window.LibSound.play("stamp");
+    var mn = $("main"); if (mn && !reduce) { mn.classList.remove("thump"); void mn.offsetWidth; mn.classList.add("thump"); }
     t.addEventListener("click", function () { location.href = "/library/shelf/"; });
     setTimeout(function () { t.classList.add("out"); setTimeout(function () { t.remove(); }, 400); }, 3600);
   }
   var checking = null;
   window.LibStamps = {
-    list: STAMPS, games: games, bestStreak: bestStreak,
+    list: STAMPS, games: games, bestStreak: bestStreak, streakInfo: streakInfo, todayNo: todayNo,
     check: function (quiet) {
       var have = store.get("stamps", []), fresh = [];
       STAMPS.forEach(function (s) { if (have.indexOf(s.id) === -1 && s.ok()) { have.push(s.id); fresh.push(s); } });
@@ -498,7 +518,7 @@
   if (shelfPage) {
     var gs = window.LibStamps.games(), wins = gs.filter(function (g) { return g.won; });
     var played = gs.filter(function (g) { return g.won || g.lost; }).length;
-    var cur = (function () { var d = new Date(); d.setHours(0, 0, 0, 0); var no = Math.round((d - new Date(2026, 10, 12)) / 86400000) + 1; var map = {}; gs.forEach(function (g) { map[g.no] = g; }); var n = 0, k = map[no] && map[no].won ? no : no - 1; while (map[k] && map[k].won) { n++; k--; } return n; })();
+    var si = window.LibStamps.streakInfo(gs), cur = si.cur;
     var stats = [["Played", played], ["Win %", played ? Math.round(wins.length / played * 100) : 0], ["Streak", cur], ["Best", window.LibStamps.bestStreak(gs)]];
     $("[data-sh-stats]").innerHTML = stats.map(function (s) { return '<div class="stat"><b data-count="' + s[1] + '">0</b><span>' + s[0] + '</span></div>'; }).join("");
     $$("[data-sh-stats] [data-count]").forEach(function (el) { el.textContent = el.getAttribute("data-count"); });
@@ -613,10 +633,150 @@
   });
   var allDone = $("[data-alldone]");
   if (allDone) new MutationObserver(function () { if (!allDone.hidden) setTimeout(function () { window.LibAsk(allDone, "done"); }, 500); }).observe(allDone, { attributes: true, attributeFilter: ["hidden"] });
+  // ===================== Phase 1: life and motion =====================
+  var fine = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+
+  // ----- Sound: tiny sounds made in the browser, off until the reader turns them on -----
+  window.LibSound = (function () {
+    var ctx = null;
+    function on() { return store.get("sound", false); }
+    function ac() { if (!ctx) { var C = window.AudioContext || window.webkitAudioContext; if (!C) return null; ctx = new C(); } if (ctx.state === "suspended") ctx.resume(); return ctx; }
+    function tone(f, t0, dur, type, vol, f2) {
+      var c = ac(); if (!c) return; var o = c.createOscillator(), g = c.createGain(), t = c.currentTime + t0;
+      o.type = type || "sine"; o.frequency.setValueAtTime(f, t); if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + dur);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol || 0.18, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + dur + 0.02);
+    }
+    function noise(t0, dur, from, to, vol) {
+      var c = ac(); if (!c) return; var n = Math.floor(c.sampleRate * dur), b = c.createBuffer(1, n, c.sampleRate), d = b.getChannelData(0);
+      for (var i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / n);
+      var src = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(), t = c.currentTime + t0;
+      src.buffer = b; f.type = "bandpass"; f.Q.value = 1.2; f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
+      g.gain.value = vol || 0.35; src.connect(f); f.connect(g); g.connect(c.destination); src.start(t);
+    }
+    var S = {
+      turn: function () { noise(0, 0.22, 900, 3800, 0.3); },
+      pop: function () { tone(660, 0, 0.08, "sine", 0.12, 990); },
+      miss: function () { tone(220, 0, 0.16, "triangle", 0.16, 150); tone(165, 0.1, 0.2, "triangle", 0.12, 120); },
+      win: function () { [523, 659, 784, 1047].forEach(function (f, i) { tone(f, i * 0.09, 0.22, "sine", 0.14); }); },
+      stamp: function () { tone(95, 0, 0.18, "sine", 0.4, 55); noise(0, 0.08, 400, 200, 0.25); }
+    };
+    return { on: on, play: function (k) { if (on() && S[k]) try { S[k](); } catch (e) {} }, set: function (v) { store.set("sound", !!v); if (v) S.pop(); } };
+  })();
+
+  // ----- Lamp: light and dark mode -----
+  var root = document.documentElement, mq = window.matchMedia("(prefers-color-scheme: dark)");
+  function themePref() { return store.get("theme", "auto"); }
+  function applyTheme(animate) {
+    var t = themePref(), dk = t === "dark" || (t !== "light" && mq.matches);
+    if (animate && !reduce) { root.classList.add("theme-anim"); setTimeout(function () { root.classList.remove("theme-anim"); }, 600); }
+    root.classList.toggle("dk", dk);
+    var m = $('meta[name="theme-color"]'); if (m) m.setAttribute("content", dk ? "#111814" : "#EEF0EC");
+    $$("[data-lamp]").forEach(function (b) { b.setAttribute("aria-label", dk ? "Switch to light mode" : "Switch to dark mode"); });
+  }
+  applyTheme(false);
+  if (mq.addEventListener) mq.addEventListener("change", function () { applyTheme(true); });
+  $$("[data-lamp]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      b.classList.remove("pull"); void b.offsetWidth; b.classList.add("pull"); setTimeout(function () { b.classList.remove("pull"); }, 380);
+      store.set("theme", root.classList.contains("dk") ? "light" : "dark");
+      window.LibSound.play("pop");
+      setTimeout(function () { applyTheme(true); }, 120);
+    });
+  });
+
+  // ----- Bookmark ribbon on long reads -----
+  if (document.body.hasAttribute("data-area")) {
+    var rib = document.createElement("div"); rib.className = "ribbon"; rib.setAttribute("aria-hidden", "true"); document.body.appendChild(rib);
+    var ribT = null;
+    var setRib = function () { ribT = null; var h = document.documentElement.scrollHeight - window.innerHeight; rib.style.setProperty("--p", h > 0 ? Math.min(1, window.scrollY / h).toFixed(3) : 0); };
+    window.addEventListener("scroll", function () { if (!ribT) ribT = requestAnimationFrame(setRib); }, { passive: true }); setRib();
+  }
+
+  // ----- Highlighter -----
+  var hls = $$(".hl");
+  if (hls.length) {
+    if ("IntersectionObserver" in window && !reduce) { var hio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); hio.unobserve(e.target); } }); }, { threshold: 1, rootMargin: "0px 0px -15% 0px" }); hls.forEach(function (h) { hio.observe(h); }); }
+    else hls.forEach(function (h) { h.classList.add("on"); });
+  }
+
+  // ----- Tilt cards and wobble covers -----
+  if (fine && !reduce) {
+    $$(".tile,.n3,.gametile,.plug").forEach(function (el) {
+      el.addEventListener("pointermove", function (e) { var r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5; el.classList.add("tilt"); el.style.setProperty("--ry", (x * 8).toFixed(2) + "deg"); el.style.setProperty("--rx", (-y * 8).toFixed(2) + "deg"); el.style.setProperty("--ty", "-4px"); });
+      el.addEventListener("pointerleave", function () { el.classList.remove("tilt"); el.style.removeProperty("--rx"); el.style.removeProperty("--ry"); el.style.removeProperty("--ty"); });
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var img = e.target.closest && e.target.closest('img[src*="/covers/"]');
+    if (!img || reduce || img.closest("a")) return;
+    img.classList.remove("wobble"); void img.offsetWidth; img.classList.add("wobble"); window.LibSound.play("turn");
+  });
+
+  // ----- Living hero: Dog-Ear changes with the time of day -----
+  var todWrap = $("[data-tod-wrap]");
+  if (todWrap) {
+    var hr = new Date().getHours();
+    var tod = hr >= 5 && hr < 11 ? "morning" : hr >= 11 && hr < 17 ? "day" : hr >= 17 && hr < 22 ? "evening" : "night";
+    $$("[data-tod]", todWrap).forEach(function (el) { el.hidden = el.getAttribute("data-tod") !== tod; });
+    var gameDone = (function () { try { var v = JSON.parse(localStorage.getItem("lib:game:" + todayNo())); return v && (v.won || v.lost); } catch (e) { return false; } })();
+    var SAY = { morning: ["Morning. Coffee and 1 idea?", "Morning. Today's book is up."], day: ["Hi. 1 idea today?", "Psst. Guess today's book?"], evening: ["Evening. 2 minutes, 1 idea.", "Wind down with 1 idea?"], night: ["Still up? Same. 1 idea?", "Late read? Keep it short."] };
+    var say = $("[data-tod-say]", todWrap); if (say) say.textContent = SAY[tod][gameDone ? 0 : (new Date().getDate() % 2)];
+  }
+
+  // ----- You left off here -----
+  var lastKey = "last";
+  if (document.body.hasAttribute("data-area")) {
+    var h1 = $("h1"), saveLast = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight, p = h > 0 ? Math.min(1, window.scrollY / h) : 1;
+      var prev = store.get(lastKey, null), keep = prev && prev.u === location.pathname ? Math.max(prev.p || 0, p) : p;
+      if (keep < 0.08) return;
+      try { localStorage.setItem("lib:" + lastKey, JSON.stringify({ u: location.pathname, t: h1 ? h1.textContent : document.title, p: +keep.toFixed(2), at: Date.now() })); } catch (e) {}
+    };
+    document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") saveLast(); });
+    window.addEventListener("pagehide", saveLast);
+    if (location.hash === "#resume") { var lp = store.get(lastKey, null); if (lp && lp.u === location.pathname) setTimeout(function () { window.scrollTo({ top: (document.documentElement.scrollHeight - window.innerHeight) * lp.p - 80, behavior: reduce ? "auto" : "smooth" }); }, 350); }
+  }
+  var homeHero = $(".hero");
+  if (homeHero && todWrap) {
+    var lp2 = store.get(lastKey, null);
+    if (lp2 && lp2.p < 0.9 && Date.now() - lp2.at > 20 * 60000 && Date.now() - lp2.at < 14 * 86400000) {
+      var a = document.createElement("a"); a.className = "resume rise"; a.href = lp2.u + "#resume";
+      a.innerHTML = '<span style="display:flex;flex-direction:column;gap:2px;flex:1 1 auto"><span class="mono">Pick up where you left off</span><b class="serif" style="font-size:22px;font-weight:400"></b></span><span class="bar"><i></i></span><span class="mono"></span>';
+      $("b", a).textContent = lp2.t; $(".bar i", a).style.width = Math.round(lp2.p * 100) + "%"; $(".mono:last-child", a).textContent = Math.round(lp2.p * 100) + "%";
+      homeHero.parentNode.insertBefore(a, homeHero.nextSibling);
+    }
+  }
+
+  // ----- Dog-Ear peeks in after a quiet moment -----
+  var peek = $("[data-peek]");
+  if (peek && !reduce) {
+    var shown = false; try { shown = !!sessionStorage.getItem("lib:peeked"); } catch (e) {}
+    var idleT = null, IDLE = 22000;
+    var arm = function () { clearTimeout(idleT); if (!shown) idleT = setTimeout(show, IDLE); };
+    var hide = function () { peek.classList.remove("on"); setTimeout(function () { peek.hidden = true; }, 600); };
+    var show = function () {
+      if (shown || document.visibilityState !== "visible" || document.body.classList.contains("lock")) return arm();
+      shown = true; try { sessionStorage.setItem("lib:peeked", "1"); } catch (e) {}
+      var onGame = !!$("[data-game]"), played = (function () { try { var v = JSON.parse(localStorage.getItem("lib:game:" + todayNo())); return v && (v.won || v.lost); } catch (e) { return false; } })();
+      var msg = onGame ? (played ? ["Come back at midnight. A new book is waiting.", "See your stamps", "/library/shelf/"] : ["Stuck? Every wrong guess opens a new clue.", "", ""])
+        : played ? (location.pathname.indexOf("/library/ideas/") === 0 ? ["Nice solve today. Your stamps are waiting on your shelf.", "Open my shelf", "/library/shelf/"] : ["Nice, you played today. Try 1 idea for 2 minutes?", "Open the 2 minute rule", "/library/ideas/the-2-minute-rule/"])
+        : ["Psst. Today's Mystery Book is waiting.", "Play it", "/library/game/"];
+      $("[data-peek-t]", peek).textContent = msg[0];
+      var pa = $("[data-peek-a]", peek); pa.hidden = !msg[1]; pa.textContent = msg[1]; if (msg[2]) pa.href = msg[2];
+      peek.hidden = false; void peek.offsetWidth; peek.classList.add("on"); window.LibSound.play("pop");
+      setTimeout(hide, 9000);
+    };
+    ["scroll", "pointerdown", "keydown", "touchstart"].forEach(function (ev) { window.addEventListener(ev, arm, { passive: true }); });
+    $("[data-peek-x]", peek).addEventListener("click", hide);
+    $(".peek-dog", peek).addEventListener("click", hide);
+    arm();
+  }
+
   // ---------- Save my progress: email + 4-digit PIN, synced through the library-sync Worker ----------
   (function () {
     var URL_ = "https://library-sync.raja-822.workers.dev/";
-    var SKIP = /^lib:(snooze:|asked$|req$|_|sync$|did:)/;
+    var SKIP = /^lib:(snooze:|asked$|req$|_|sync$|did:|theme$|sound$)/;
     var LISTS = { stamps: 1, seen: 1 };
     function raw(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
     function put(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }

@@ -22,6 +22,7 @@ def head(title, desc, path, extra_ld=None, og='/library/og.png'):
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>(function(){{try{{var t=JSON.parse(localStorage.getItem("lib:theme")||'"auto"');if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dk")}}catch(e){{}}}})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{t}</title>
 <meta name="description" content="{d}">
@@ -67,6 +68,7 @@ def nav(cur):
 <header class="wrap"><nav class="lib-nav" aria-label="The Useful Library">
 <a class="lib-brand" href="/library/" aria-label="The Useful Library home"><svg width="38" height="38" viewBox="0 0 160 160" aria-hidden="true">{A.logo()}</svg><span>The Useful Library</span></a>
 <div class="lib-links">{a("/library/game/","Today&#39;s game","game")}{a("/library/books/atomic-habits/","Books","book")}{a("/library/ideas/the-2-minute-rule/","Ideas","idea")}{a("/library/shelf/","My shelf","shelf")}<a class="btn btn-ink pill" href="/library/#signup" style="min-height:44px;padding:10px 18px;font-size:15px">Get the free lessons</a></div>
+<button class="lamp" type="button" data-lamp aria-label="Switch to dark mode"><svg width="30" height="40" viewBox="0 0 30 40" aria-hidden="true"><path class="lamp-cord" d="M22 0 V22" stroke="currentColor" stroke-width="1.6"/><circle class="lamp-knob" cx="22" cy="24" r="2.6" fill="currentColor"/><path d="M10 0 V9" stroke="currentColor" stroke-width="2"/><path d="M3 20 Q10 6 17 20 Z" fill="var(--green)" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle class="lamp-bulb" cx="10" cy="22" r="3.4"/><path class="lamp-glow" d="M2 24 L-4 40 H24 L18 24 Z"/></svg></button>
 <button class="menu-btn" type="button" data-menu-open aria-haspopup="dialog" aria-label="Open menu">{svg("menu")}</button>
 </nav></header>
 <nav class="tabbar" aria-label="Quick links">{tab("/library/","Home","home")}{tab("/library/game/","Game","game")}<a href="/library/#q" data-search-open>{svg("search")}<span>Search</span></a>{tab("/library/shelf/","Shelf","shelf")}<button type="button" data-menu-open aria-haspopup="dialog">{svg("menu")}<span>Menu</span></button></nav>
@@ -99,6 +101,7 @@ FOOT=f'''<script type="application/json" id="plates">{json.dumps({k:A.stamp(k) f
 <button type="button" class="btn btn-line" data-sync-signout>Sign out on this device</button></div>
 <p class="sync-msg" aria-live="polite"></p>
 <button type="button" class="btn btn-line" data-sync-close>Close</button></div></div>
+<div class="peek" data-peek hidden><span class="peek-dog">'''+A.peek()+'''</span><div class="peek-bubble" role="status"><button type="button" class="peek-x" data-peek-x aria-label="Hide">×</button><p data-peek-t></p><a data-peek-a class="more" href="/library/game/"></a></div></div>
 <div class="sheet" data-ios-guide hidden><div class="sheet-backdrop" data-guide-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Add to home screen"><div class="sheet-grip" aria-hidden="true"></div>
 <p class="serif" style="font-size:28px;line-height:1.1">Add the Library to your home screen</p>
@@ -129,6 +132,14 @@ def next3(here):
     cards.append('<a class="n3 card lift" href="/library/shelf/"><p class="mono">Your shelf</p><h3>See your stamps and streak</h3><p style="font-size:15px;color:var(--soft)">9 stamps to collect.</p></a>')
     return '<section class="reveal" style="display:flex;flex-direction:column;gap:16px"><h2 style="font-size:36px">Your next 3</h2><div class="grid n3-grid">'+"".join(cards[:3])+'</div></section>'
 
+RTT='https://theusefultech.gumroad.com/l/read-to-transform?utm_source=theusefulmedia.com&utm_medium=library'
+def plug(where, line):
+    art=A.scene("read").replace('<svg class="art"','<svg class="art" width="96" height="96"')
+    return f'<a class="plug lift reveal" href="{RTT}&utm_campaign={where}" rel="noopener"><span class="plug-art">{art}</span><span style="display:flex;flex-direction:column;gap:4px;flex:1 1 240px"><span class="mono">From The Useful Life</span><span class="serif" style="font-size:24px;line-height:1.15">Read to Transform</span><span style="font-size:15px;color:var(--soft)">{line}</span></span><span class="go" style="font-weight:800;color:var(--green)">See the journal</span></a>'
+def faq(qs):
+    return '<section class="faq reveal"><h2 style="font-size:32px">Quick answers</h2>'+"".join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q,a in qs)+'</section>'
+BQ=[('Is Atomic Habits worth reading?', 'Yes, but not cover to cover. 6 of its 20 chapters carry the whole system: {reads}. The rest repeats the same ideas with more stories.'), ('Which chapters of Atomic Habits should I read?', 'Read chapters {reads}. Skim the ones marked skim for their 1 rule, and skip the rest unless you enjoy the stories.'), ('What is the most useful idea in Atomic Habits?', 'The 2 minute rule in chapter 13: shrink any new habit until it takes 2 minutes, so starting is easy.')]
+IQ=[('What is the 2 minute rule?', 'There are 2. In Atomic Habits, James Clear says a new habit should take under 2 minutes to start. In Getting Things Done, David Allen says any task under 2 minutes should be done right away.'), ('Which 2 minute rule should I use?', "Use James Clear's version for habits you never start. Use David Allen's for small tasks that pile up. They solve different problems, so you can use both.")]
 # ---------------- HOME
 problems=[
  {"text":"I keep procrastinating","area":"FOCUS","keys":"procrastinate procrastinating delay put putt putting off start lazy later","url":"/library/ideas/the-2-minute-rule/"},
@@ -181,7 +192,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 <script type="application/json" id="problems">{json.dumps(problems)}</script>
 <script type="application/json" id="catalog">{json.dumps(catalog)}</script>
 </div>
-<div class="fan rise d3" data-covers aria-live="polite"><span class="hero-dog">{A.svg(A.dog(60,70,1,"smile",A.G,"wave"),"0 0 130 130","art")}</span><div class="float">
+<div class="fan rise d3" data-covers aria-live="polite"><span class="hero-dog" data-tod-wrap>{"".join(f'<span class="tod" data-tod="{t}"{" hidden" if t!="day" else ""}>{A.hero(t)}</span>' for t in ("morning","day","evening","night"))}<span class="hero-bubble" data-tod-say>Hi. 1 idea today?</span></span><div class="float">
 <img class="c1" src="{cov('atomic-habits')}" alt="Atomic Habits cover" width="150" height="228">
 <img class="c2" src="{cov('the-psychology-of-money')}" alt="The Psychology of Money cover" width="150" height="228">
 <img class="c3" src="{cov('mans-search-for-meaning')}" alt="Man&#39;s Search for Meaning cover" width="150" height="228">
@@ -237,9 +248,9 @@ game=head("Mystery Book: the daily nonfiction book guessing game","Guess today's
 <div class="game grow-main" data-game>
 <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
 <div style="display:flex;flex-direction:column;gap:4px"><p class="mono">Daily game · <span data-no>No. 1</span></p><h1 style="font-size:clamp(44px,6vw,56px)">Mystery Book</h1></div>
-<p class="mono" data-counter style="background:var(--card);border-radius:999px;padding:10px 14px;box-shadow:0 1px 0 var(--line);color:var(--ink)">Clue 1/6</p>
+<div style="display:flex;gap:8px;align-items:center"><button type="button" class="sound-btn" data-sound aria-pressed="false" aria-label="Sound off. Turn sound on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h4l5 4V6L8 10z"/><path class="s-on" d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/><path class="s-off" d="M17 9l5 6M22 9l-5 6"/></svg></button><p class="mono" data-counter style="background:var(--card);border-radius:999px;padding:10px 14px;box-shadow:0 1px 0 var(--line);color:var(--ink)">Clue 1/6</p></div>
 </div>
-<div data-clues style="display:flex;flex-direction:column;gap:8px" aria-live="polite"></div>
+<div class="clue-wrap"><div class="mcover" data-mcover hidden aria-hidden="true"><span class="mc-frame"><img alt="" width="96" height="146"></span><span class="mono">Clears with each clue</span></div><div data-clues style="display:flex;flex-direction:column;gap:8px;flex:1 1 0;min-width:0" aria-live="polite"></div></div>
 <div data-play class="card" style="padding:20px;display:flex;flex-direction:column;gap:10px">
 <label for="guess" style="font-weight:700">Your guess</label>
 <input id="guess" type="text" data-guess placeholder="Start typing a book title" autocomplete="off">
@@ -247,11 +258,12 @@ game=head("Mystery Book: the daily nonfiction book guessing game","Guess today's
 <p data-note hidden style="font-size:15px;color:#7A5A12" aria-live="polite"></p>
 </div>
 <div data-done hidden style="display:flex;flex-direction:column;gap:14px">
-<div class="dark result" data-r-card><div data-r-cover></div>
+<div class="dark result" data-r-card><span class="r-dog" data-r-dog="win" hidden>{A.react(True)}</span><span class="r-dog sulk" data-r-dog="lose" hidden>{A.react(False)}</span><div data-r-cover></div>
 <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:10px"><p class="mono" data-r-label style="color:var(--brass)"></p><h2 data-r-title style="font-size:34px"></h2><p data-r-by style="color:#C6D1CA;font-size:15px"></p><div class="grid6" data-r-grid aria-hidden="true"></div></div></div>
 <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-green" type="button" data-share style="flex:1 1 200px">Share my grid</button><a class="btn btn-line" href="#signup">Get a new book idea 3 times a week</a></div>
 <div class="card" style="display:flex;flex-direction:column;gap:8px"><p class="mono">1 idea to take from it</p><p data-r-idea style="font-family:var(--serif);font-size:26px;line-height:1.2"></p><a data-r-link hidden href="#" style="font-weight:700">Open this idea</a></div>
-<div class="card stats-card"><div class="stats" data-stats></div><p class="mono" style="margin-top:12px">Next book in <span data-countdown class="countdown">--:--:--</span></p></div>
+<div class="card stats-card"><div class="stats" data-stats></div><p class="mono" style="margin-top:12px" data-next-line>Next book in <span data-countdown class="countdown">--:--:--</span></p><button type="button" class="btn btn-brass ready-btn" data-ready hidden>Today&#39;s new book is ready</button></div>
+<div class="card teaser" data-teaser hidden><div class="teaser-cover" data-teaser-cover></div><div style="display:flex;flex-direction:column;gap:6px"><p class="mono">Tomorrow&#39;s book</p><p class="serif" style="font-size:24px;line-height:1.15" data-teaser-t>Can you guess it from the cover?</p><p style="font-size:15px;color:var(--soft)" data-freeze-line></p></div></div>
 </div>
 </div>
 <aside class="grow-side" style="display:flex;flex-direction:column;gap:16px">
@@ -298,7 +310,8 @@ ideas=[("Ch. 13","The 2 minute rule","Shrink a new habit until it takes 2 minute
        ("Ch. 16","Never miss twice","Missing once is an accident. Missing twice is the start of a new habit.",None)]
 icards="".join((f'<a href="{u}" class="card lift reveal" style="text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;padding:24px">' if u else '<div class="card reveal" style="display:flex;flex-direction:column;gap:10px;padding:24px">')+f'<p class="mono">{c}</p><h3>{t}</h3><p style="font-size:15px;color:var(--soft)">{d}</p>'+(f'<span class="go" style="font-weight:700;font-size:14px;color:var(--green)">Open idea</span></a>' if u else '<span style="font-size:14px;color:var(--muted)">Full idea page soon</span></div>') for c,t,d,u in ideas)
 bookld=[{"@type":"Book","name":"Atomic Habits","author":{"@type":"Person","name":"James Clear"},"datePublished":"2018","image":BASE+cov('atomic-habits')},
-        {"@type":"Review","itemReviewed":{"@type":"Book","name":"Atomic Habits","author":{"@type":"Person","name":"James Clear"}},"author":{"@type":"Organization","name":"The Useful Library"},"reviewBody":f"Worth it, but not cover to cover. Read chapters {reads}; skim or skip the rest."}]
+        {"@type":"Review","itemReviewed":{"@type":"Book","name":"Atomic Habits","author":{"@type":"Person","name":"James Clear"}},"author":{"@type":"Organization","name":"The Useful Library"},"reviewBody":f"Worth it, but not cover to cover. Read chapters {reads}; skim or skip the rest."},
+        {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a.format(reads=reads)}} for q,a in BQ]}]
 book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic Habits by James Clear, chapter by chapter: read {len([c for c in ch if c[0]==R_])} of 20 chapters ({reads}), skim or skip the rest, and why. Plus the 4 ideas worth using.","/library/books/atomic-habits/",bookld)+'</head>\n<body data-area="habits">\n'+nav("book")+f'''
 <main id="main" class="wrap">
 <section class="row" style="align-items:center;gap:40px;padding-top:12px">
@@ -309,7 +322,7 @@ book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic H
 <p class="rise d1" style="font-size:18px;color:var(--soft)">James Clear · 20 chapters</p>
 <div class="card rise d2 row" style="padding:22px 24px;align-items:center;gap:20px">
 <span class="stamp-box stamp d4">READ 6 OF 20</span>
-<p style="flex:1 1 280px;font-size:17px"><b>The Useful verdict:</b> worth it, but not cover to cover. 6 chapters carry the whole system. The rest repeats it with stories.</p></div>
+<p style="flex:1 1 280px;font-size:17px"><b>The Useful verdict:</b> <span class="hl">worth it, but not cover to cover.</span> 6 chapters carry the whole system. The rest repeats it with stories.</p></div>
 <div class="rise d3" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-green" href="https://jamesclear.com/atomic-habits" rel="noopener">Get the book</a><button type="button" class="btn btn-line" data-shelf="atomic-habits">Add to my shelf</button></div>
 </div>
 </section>
@@ -324,6 +337,8 @@ book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic H
 <script type="application/json" id="chapters">{json.dumps(ch)}</script>
 </section>
 
+<a class="plug lift reveal" href="https://theusefultech.gumroad.com/l/read-to-transform?utm_source=theusefulmedia.com&utm_medium=library&utm_campaign=book-atomic-habits" rel="noopener"><span class="plug-art">{A.scene("read").replace('<svg class="art"','<svg class="art" width="96" height="96"')}</span><span style="display:flex;flex-direction:column;gap:4px;flex:1 1 240px"><span class="mono">From The Useful Life</span><span class="serif" style="font-size:24px;line-height:1.15">Read to Transform</span><span style="font-size:15px;color:var(--soft)">Pick 1 book, turn 1 idea into a 30-day pact, and change 1 real habit. A journal built for exactly what this page is about.</span></span><span class="go" style="font-weight:800;color:var(--green)">See the journal</span></a>
+{faq([(q,a.format(reads=reads)) for q,a in BQ])}
 <section style="display:flex;flex-direction:column;gap:18px"><h2>4 ideas from this book</h2><div class="grid">{icards}</div></section>
 
 <section class="row">
@@ -341,14 +356,14 @@ days="".join(f'<button type="button" class="day" data-day="{i}" aria-pressed="fa
 check='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>'
 steps=["Pick 1 habit you keep putting off.","Cut it to its first 2 minutes. Running becomes putting on your shoes.","Do only that today, then stop."]
 stepsH="".join(f'<button type="button" class="check" aria-pressed="false"><span class="box">{check}</span><span class="t">{s}</span></button>' for s in steps)
-ideald=[{"@type":"HowTo","name":"How to use the 2 minute rule","step":[{"@type":"HowToStep","text":s} for s in steps]}]
+ideald=[{"@type":"HowTo","name":"How to use the 2 minute rule","step":[{"@type":"HowToStep","text":s} for s in steps]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in IQ]}]
 idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2 different 2 minute rules. James Clear's shrinks a new habit to 2 minutes. David Allen's says do any task under 2 minutes now. What each fixes, and how to try it today.","/library/ideas/the-2-minute-rule/",ideald)+'</head>\n<body data-area="habits">\n'+nav("idea")+f'''
 <main id="main" class="wrap">
 <section class="row" style="align-items:flex-start;gap:32px;padding-top:12px">
 <div class="grow-main" style="display:flex;flex-direction:column;gap:16px">
 <div class="rise" style="display:flex;gap:8px;flex-wrap:wrap"><span class="tag">IDEA No. 0001</span><span class="tag green">HABITS · FOCUS</span><span class="tag brass">2 BOOKS · THEY DISAGREE</span></div>
 <h1 class="rise d1">The 2 minute rule</h1>
-<p class="lede rise d2">Same name, 2 different rules. Both work. They fix different problems.</p>
+<p class="lede rise d2">Same name, 2 different rules. Both work. <span class="hl">They fix different problems.</span></p>
 </div>
 {A.scene("habits").replace('<svg class="art"','<svg class="art rise d3 idea-plate" width="190" height="190"')}
 </section>
@@ -361,11 +376,11 @@ idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2
 </div>
 <div id="p-clear" role="tabpanel" aria-labelledby="t-clear" class="row" style="gap:28px;align-items:flex-start">
 <img src="{cov('atomic-habits')}" alt="Atomic Habits cover" width="110" height="166" style="width:110px;height:166px;object-fit:cover;border-radius:4px 10px 10px 4px;box-shadow:0 16px 30px -14px rgba(28,43,36,.5)">
-<div class="grow-main" style="display:flex;flex-direction:column;gap:10px;flex-basis:420px"><h3 style="font-size:32px">Shrink the habit</h3><p style="font-size:18px;color:var(--ink2)">When you start a new habit, it should take less than 2 minutes. "Do 30 minutes of yoga" becomes "take out my yoga mat". Master showing up first. Grow it later.</p><p style="font-size:15px;color:var(--muted)">James Clear · <a href="/library/books/atomic-habits/">chapter 13 is the 1 to read</a></p><p style="font-weight:700;color:var(--green)">Fixes: habits you never start.</p></div>
+<div class="grow-main" style="display:flex;flex-direction:column;gap:10px;flex-basis:420px"><h3 style="font-size:32px">Shrink the habit</h3><p style="font-size:18px;color:var(--ink2)">When you start a new habit, it should take less than 2 minutes. "Do 30 minutes of yoga" becomes "take out my yoga mat". Master showing up first. Grow it later.</p><p style="font-size:15px;color:var(--muted)">James Clear · <a href="/library/books/atomic-habits/">chapter 13 is the 1 to read</a></p><p style="font-weight:700;color:var(--green)"><span class="hl">Fixes: habits you never start.</span></p></div>
 </div>
 <div id="p-allen" role="tabpanel" aria-labelledby="t-allen" class="row" style="gap:28px;align-items:flex-start" hidden>
 <div style="width:110px;height:166px;border-radius:4px 10px 10px 4px;background:var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;color:var(--muted)">GTD</div>
-<div class="grow-main" style="display:flex;flex-direction:column;gap:10px;flex-basis:420px"><h3 style="font-size:32px">Just do it now</h3><p style="font-size:18px;color:var(--ink2)">If a task takes less than 2 minutes, do it the moment you notice it. Writing it down and tracking it would take longer than doing it.</p><p style="font-size:15px;color:var(--muted)">David Allen, Getting Things Done</p><p style="font-weight:700;color:var(--green)">Fixes: small tasks that pile up.</p></div>
+<div class="grow-main" style="display:flex;flex-direction:column;gap:10px;flex-basis:420px"><h3 style="font-size:32px">Just do it now</h3><p style="font-size:18px;color:var(--ink2)">If a task takes less than 2 minutes, do it the moment you notice it. Writing it down and tracking it would take longer than doing it.</p><p style="font-size:15px;color:var(--muted)">David Allen, Getting Things Done</p><p style="font-weight:700;color:var(--green)"><span class="hl">Fixes: small tasks that pile up.</span></p></div>
 </div>
 </section>
 
@@ -397,6 +412,8 @@ idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2
 </div>
 </section>
 
+<a class="plug lift reveal" href="https://theusefultech.gumroad.com/l/read-to-transform?utm_source=theusefulmedia.com&utm_medium=library&utm_campaign=idea-2-minute-rule" rel="noopener"><span class="plug-art">{A.scene("read").replace('<svg class="art"','<svg class="art" width="96" height="96"')}</span><span style="display:flex;flex-direction:column;gap:4px;flex:1 1 240px"><span class="mono">From The Useful Life</span><span class="serif" style="font-size:24px;line-height:1.15">Read to Transform</span><span style="font-size:15px;color:var(--soft)">Your 30-day test, on paper. Pick the idea, write the pact, and track the 30 days in a journal made for it.</span></span><span class="go" style="font-weight:800;color:var(--green)">See the journal</span></a>
+{faq(IQ)}
 <section style="display:flex;flex-direction:column;gap:16px"><h2 style="font-size:36px">Pairs well with</h2><div class="grid">
 <a href="/library/books/atomic-habits/" class="card lift" style="text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px;padding:22px"><p class="mono">Atomic Habits · ch. 5</p><h3>Habit stacking</h3><p style="font-size:15px;color:var(--soft)">Attach your 2 minutes to something you already do.</p></a>
 <a href="/library/books/atomic-habits/" class="card lift" style="text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px;padding:22px"><p class="mono">Atomic Habits · ch. 16</p><h3>Never miss twice</h3><p style="font-size:15px;color:var(--soft)">The rule that keeps a 30-day test alive.</p></a>
@@ -417,6 +434,18 @@ off=head("You're offline: The Useful Library","You're offline.","/library/offlin
 '''+FOOT
 write(f'{R}/offline/index.html',off)
 print("offline ok")
+
+# ---------------- LOST (404 for /library/, not indexed)
+lostp=head("Dog-Ear lost this page: The Useful Library","This page doesn't exist.","/library/lost/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("home")+f'''
+<main id="main" class="wrap"><section class="card" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:44px 24px;border-radius:28px;margin-top:16px">
+<span class="lost-art">{A.lost().replace('<svg class="art"','<svg class="art" width="200" height="200"')}</span>
+<p class="mono">Error 404</p><h1 style="font-size:clamp(38px,6vw,56px)">Dog-Ear lost this page</h1>
+<p class="lede" style="max-width:520px">It was here a minute ago. Probably. Try 1 of these instead, or tell the Library what you were looking for.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><a class="btn btn-green" href="/library/#q">Search the Library</a><a class="btn btn-line" href="/library/game/">Play today&#39;s game</a><a class="btn btn-line" href="/library/">Home</a></div>
+</section></main>
+'''+FOOT
+write(f'{R}/lost/index.html',lostp)
+print("lost ok")
 
 # ---------------- SHELF (personal, not indexed)
 shelf=head("My shelf: The Useful Library","Your stamps, streak, saved books and 30-day tests.","/library/shelf/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("shelf")+f'''

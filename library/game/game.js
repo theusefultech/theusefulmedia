@@ -69,6 +69,15 @@
       d.appendChild(n); d.appendChild(tx); cluesEl.appendChild(d);
     });
     counter.textContent = "Clue " + (done() ? 6 : s.shown) + "/6";
+    var mc = document.querySelector("[data-mcover]");
+    if (mc) {
+      if (!pz.cover || done()) { mc.hidden = true; }
+      else {
+        var im = mc.querySelector("img"); if (!im.getAttribute("src")) im.src = "/library/img/covers/" + pz.cover + ".webp";
+        var B = [24, 19, 15, 11, 8, 5][Math.min(5, s.shown - 1)], Z = [1.55, 1.45, 1.35, 1.25, 1.15, 1.05][Math.min(5, s.shown - 1)];
+        mc.style.setProperty("--blur", B + "px"); mc.style.setProperty("--zoom", Z); mc.hidden = false;
+      }
+    }
   }
   function renderOpts() {
     var q = input.value.trim().toLowerCase();
@@ -106,7 +115,16 @@
     if (pz.url) { link.href = pz.url; link.hidden = false; } else link.hidden = true;
     if (animate) { var c = $("[data-r-card]"); c.classList.remove("flipin"); void c.offsetWidth; c.classList.add("flipin");
       setTimeout(function () { if (window.LibAsk) window.LibAsk(c.parentNode.children[1], "win"); }, 1400); }
+    document.querySelectorAll("[data-r-dog]").forEach(function (d) { d.hidden = d.getAttribute("data-r-dog") !== (s.won ? "win" : "lose"); });
     var st = streak(); document.querySelector("[data-streak]").textContent = st + (st === 1 ? " day" : " days");
+    var nx = P[(dayN + 1) % P.length], tz = document.querySelector("[data-teaser]");
+    if (tz) {
+      tz.hidden = false;
+      document.querySelector("[data-teaser-cover]").innerHTML = nx.cover ? '<img src="/library/img/covers/' + nx.cover + '.webp" alt="" width="70" height="106">' : "?";
+      document.querySelector("[data-teaser-t]").textContent = nx.cover ? "Can you guess it from the cover?" : "No cover clue for this one. Good luck.";
+      var si = window.LibStamps && window.LibStamps.streakInfo ? window.LibStamps.streakInfo() : null, fl = document.querySelector("[data-freeze-line]");
+      if (fl && si) fl.innerHTML = si.freezes ? '<span class="freeze-chip">' + si.freezes + (si.freezes === 1 ? " streak freeze" : " streak freezes") + '</span> Miss a day and your streak stays.' : "Solve 7 days in a row to earn a streak freeze.";
+    }
     var gsAll = window.LibStamps ? window.LibStamps.games() : [];
     var pl = gsAll.filter(function (g) { return g.won || g.lost; }).length, wn = gsAll.filter(function (g) { return g.won; }).length;
     var sEl = $("[data-stats]");
@@ -124,9 +142,15 @@
     var sec = Math.max(0, Math.floor((m - n) / 1000));
     el.textContent = [Math.floor(sec / 3600), Math.floor(sec % 3600 / 60), sec % 60].map(function (x) { return String(x).padStart(2, "0"); }).join(":");
     if (!tick.t) tick.t = setInterval(tick, 1000);
-    if (sec === 0) location.reload();
+    if (sec === 0 && !tick.ready) {
+      tick.ready = true; clearInterval(tick.t);
+      var rb = document.querySelector("[data-ready]"), nl = document.querySelector("[data-next-line]");
+      if (rb) { rb.hidden = false; if (nl) nl.textContent = "A new book just arrived."; rb.addEventListener("click", function () { location.reload(); }); if (window.LibSound) window.LibSound.play("pop"); }
+      else location.reload();
+    }
   }
   function streak() {
+    if (window.LibStamps && window.LibStamps.streakInfo) return window.LibStamps.streakInfo(null, no).cur;
     function won(d) { try { var v = JSON.parse(localStorage.getItem("lib:game:" + d)); return !!(v && v.won); } catch (e) { return false; } }
     var n = 0, d = won(no) ? no : no - 1;
     while (d >= 1 && won(d)) { n++; d--; }
@@ -135,10 +159,10 @@
   function guess(b) {
     if (done() || s.wrong.indexOf(b) !== -1) return;
     input.value = "";
-    if (b === pz.a) { s.won = true; save(); renderClues(); renderDone(true); return; }
+    if (b === pz.a) { s.won = true; save(); renderClues(); renderDone(true); if (window.LibSound) window.LibSound.play("win"); return; }
     s.wrong.push(b);
     if (s.shown >= 6) { s.lost = true; save(); renderClues(); renderDone(true); return; }
-    s.shown++; save();
+    s.shown++; save(); if (window.LibSound) window.LibSound.play("miss");
     renderClues(s.shown - 1); renderOpts();
     note.hidden = false; note.textContent = "Not " + b + ". A new clue just opened.";
     note.classList.remove("pop"); void note.offsetWidth; note.classList.add("pop");
@@ -155,6 +179,11 @@
     if (navigator.clipboard) navigator.clipboard.writeText(text).then(ok, ok); else ok();
   });
 
+  var sb = document.querySelector("[data-sound]");
+  if (sb && window.LibSound) {
+    var paintS = function () { var on = window.LibSound.on(); sb.setAttribute("aria-pressed", String(on)); sb.setAttribute("aria-label", on ? "Sound on. Turn sound off" : "Sound off. Turn sound on"); };
+    paintS(); sb.addEventListener("click", function () { window.LibSound.set(!window.LibSound.on()); paintS(); });
+  }
   renderClues(); renderOpts();
   if (done()) renderDone(false);
   else { var st0 = streak(); document.querySelector("[data-streak]").textContent = st0 + (st0 === 1 ? " day" : " days"); }

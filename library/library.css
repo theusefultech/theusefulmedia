@@ -263,25 +263,24 @@ body[data-area="mindset"]{--accent:#7A4A78;--accent-bg:#EFE4EE}
 .tile[data-area="habits"] .art-box{background:#E3EEE7}
 
 /* ---------- dark mode ---------- */
-@media (prefers-color-scheme:dark){
-  :root{--ink:#E6ECE8;--ink2:#CFD8D2;--muted:#9FB0A6;--soft:#B5C2BA;--paper:#111814;--card:#1A231E;--line:#2B3832;--line2:#2B3832;--mint:#1E3328;--green:#4E9A74;--green2:#4E8A6C;--brassbg:#3A3020;--brassink:#E2C37A}
-  body{background:var(--paper)}
-  .dark{background:#0B110E}
-  .btn-ink{background:#E6ECE8;color:#111814}.btn-ink:hover{color:#111814}
-  .lib-links a.btn,.lib-links a.btn:hover{color:#111814}
-  .btn-green,.btn-green:hover{background:#3E8A65;color:#fff}
-  .gametile{background:#255A41}
-  .seg .knob{background:var(--green)}
-  .chap-panel,.check,.opt,.day,.signup input[type=email],.game input[type=text]{background:#222D27}
-  .opt:hover,.opt:disabled{background:#2A3630}
-  .cell.v-skip{background:#2B3832;color:#9FB0A6}
-  .tile .art-box,.tile[data-area] .art-box{background:#222D27}
-  .suggest a:hover,.suggest a:focus{background:#222D27}
-  .clue.locked{border-color:#3A4842;color:#8FA096}
-  .tabbar{background:rgba(26,35,30,.86)!important;box-shadow:0 12px 30px -12px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.06)!important}
-  .stamp-box{border-color:#4E9A74;color:#7FC4A0}
-  .tag{background:#222D27}
-}
+html.dk{--ink:#E6ECE8;--ink2:#CFD8D2;--muted:#9FB0A6;--soft:#B5C2BA;--paper:#111814;--card:#1A231E;--line:#2B3832;--line2:#2B3832;--mint:#1E3328;--green:#4E9A74;--green2:#4E8A6C;--brassbg:#3A3020;--brassink:#E2C37A}
+html.dk body{background:var(--paper)}
+html.dk .dark{background:#0B110E}
+html.dk .btn-ink{background:#E6ECE8;color:#111814}
+html.dk .btn-ink:hover{color:#111814}
+html.dk .lib-links a.btn,html.dk .lib-links a.btn:hover{color:#111814}
+html.dk .btn-green,html.dk .btn-green:hover{background:#3E8A65;color:#fff}
+html.dk .gametile{background:#255A41}
+html.dk .seg .knob{background:var(--green)}
+html.dk .chap-panel,html.dk .check,html.dk .opt,html.dk .day,html.dk .signup input[type=email],html.dk .game input[type=text]{background:#222D27}
+html.dk .opt:hover,html.dk .opt:disabled{background:#2A3630}
+html.dk .cell.v-skip{background:#2B3832;color:#9FB0A6}
+html.dk .tile .art-box,html.dk .tile[data-area] .art-box{background:#222D27}
+html.dk .suggest a:hover,html.dk .suggest a:focus{background:#222D27}
+html.dk .clue.locked{border-color:#3A4842;color:#8FA096}
+html.dk .tabbar{background:rgba(26,35,30,.86)!important;box-shadow:0 12px 30px -12px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.06)!important}
+html.dk .stamp-box{border-color:#4E9A74;color:#7FC4A0}
+html.dk .tag{background:#222D27}
 main{overflow-x:clip}
 .lib-brand{min-height:44px}
 .days{grid-template-columns:repeat(auto-fill,minmax(42px,1fr))}
@@ -314,7 +313,8 @@ a.more{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .ask form{display:flex;gap:8px;flex-wrap:wrap;flex:1 1 100%}
 .ask form input{flex:1 1 200px;border:none;background:var(--paper);border-radius:12px;padding:0 14px;min-height:48px;font:inherit;color:var(--ink);outline:none}
 .ask form input:focus{box-shadow:inset 0 0 0 2px var(--green)}
-@media (prefers-color-scheme:dark){.stay-btn{background:#222D27}.ask form input{background:#222D27}}
+html.dk .stay-btn{background:#222D27}
+html.dk .ask form input{background:#222D27}
 
 /* ---------- search v3 ---------- */
 .pills{display:flex;gap:8px;flex-wrap:wrap}
@@ -330,7 +330,7 @@ a.more{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .suggest .r-ask{background:var(--mint)}
 .suggest .tag{white-space:nowrap;font-size:11px}
 @media (max-width:760px){.pills{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:2px 16px 6px;scrollbar-width:none}.pills::-webkit-scrollbar{display:none}.pill-btn{flex:0 0 auto}}
-@media (prefers-color-scheme:dark){.filters button[aria-pressed="true"]{background:#E6ECE8;color:#111814}}
+html.dk .filters button[aria-pressed="true"]{background:#E6ECE8;color:#111814}
 
 /* ---------- stamps, shelf, stats ---------- */
 .stamp-toast{position:fixed;left:16px;right:16px;margin:0 auto;width:max-content;max-width:calc(100% - 32px);top:18px;z-index:110;display:flex;align-items:center;gap:12px;background:var(--card);color:var(--ink);border-radius:20px;padding:10px 18px 10px 10px;box-shadow:0 20px 40px -16px rgba(28,43,36,.55);cursor:pointer;animation:rise .5s var(--ease) both;transition:opacity .35s,transform .35s}
@@ -357,7 +357,7 @@ a.more{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .sh-row .bar{flex:1;height:8px;border-radius:9px;background:var(--line2);overflow:hidden}.sh-row .bar i{display:block;height:100%;background:var(--green)}
 .empty{color:var(--muted);font-size:15px}
 @media (max-width:760px){.stat b{font-size:32px}}
-@media (prefers-color-scheme:dark){.sh-row{background:#222D27}}
+html.dk .sh-row{background:#222D27}
 
 /* ---------- Dog-Ear ---------- */
 @keyframes blink{0%,94%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
@@ -372,7 +372,7 @@ a.more{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .hero-dog svg{width:100%;height:100%}
 .hero-dog svg>g{transform-box:fill-box}
 @media (max-width:760px){.hero-dog{width:96px;height:96px;left:-6px;bottom:-10px}.gt-art{width:80px;height:76px;bottom:10px;right:8px}.idea-plate{width:120px!important;height:120px!important}}
-@media (prefers-color-scheme:dark){.tile .art-box,.tile[data-area] .art-box{background:#E9EDE9}}
+html.dk .tile .art-box,html.dk .tile[data-area] .art-box{background:#E9EDE9}
 .r-head.ai::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:8px;animation:pop .4s both}
 /* Save my progress */
 .sync-lede{color:var(--soft);font-size:15px;line-height:1.45}
@@ -386,3 +386,135 @@ a.more{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
 .sync-msg{font-size:15px;min-height:1px}
 .sync-panel{max-height:92vh;overflow:auto}
 [data-sync-open].done small::after{content:none}
+
+/* ===================== Phase 1: motion ===================== */
+/* Page turns between Library pages */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:pt-out .3s cubic-bezier(.4,0,.2,1) both}
+::view-transition-new(root){animation:pt-in .45s var(--ease) both}
+@keyframes pt-out{to{opacity:0;transform:perspective(1400px) translateX(-3%) rotateY(10deg);transform-origin:left center}}
+@keyframes pt-in{from{opacity:0;transform:perspective(1400px) translateX(4%) rotateY(-8deg);transform-origin:right center}}
+.tabbar{view-transition-name:tabbar}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+
+/* Squish on tap */
+.btn:active,.stay-btn:active,.opt:active,.pill-btn:active,.filters button:active,.tabbar a:active,.tabbar button:active,.check:active,.day:active,.cell:active,.sound-btn:active,.menu-btn:active{transform:scale(.94)!important;transition:transform .08s!important}
+.tile:active,.n3:active,.gametile:active,.plug:active{transform:scale(.98)!important;transition:transform .1s!important}
+
+/* Bookmark ribbon for reading progress */
+.ribbon{position:fixed;top:0;right:clamp(10px,3vw,40px);width:20px;height:calc(var(--p,0) * 34vh + 18px);background:linear-gradient(90deg,#A7812F,var(--brass) 40%,#C9A24E);z-index:65;pointer-events:none;clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 9px),0 100%);box-shadow:0 6px 12px -6px rgba(0,0,0,.35);transition:height .15s linear}
+@media (max-width:760px){.ribbon{width:14px;right:8px}}
+
+/* Highlighter on key lines */
+.hl{background:linear-gradient(transparent 56%,rgba(230,199,122,.7) 56%,rgba(230,199,122,.7) 92%,transparent 92%) no-repeat 0 0/0% 100%;transition:background-size 1.1s var(--ease) .25s;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl.on{background-size:100% 100%}
+html.dk .hl{background-image:linear-gradient(transparent 56%,rgba(184,145,58,.45) 56%,rgba(184,145,58,.45) 92%,transparent 92%)}
+
+/* Dog-Ear peeks in */
+.peek{position:fixed;right:14px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:70;display:flex;align-items:flex-end;gap:6px;flex-direction:row-reverse;pointer-events:none}
+.peek-dog{width:92px;height:86px;transform:translateY(120%) rotate(-8deg);transition:transform .6s cubic-bezier(.3,1.5,.5,1);pointer-events:auto}
+.peek-dog svg{width:100%;height:100%}
+.peek-bubble{background:var(--card);color:var(--ink);border-radius:18px 18px 4px 18px;padding:12px 30px 12px 14px;max-width:240px;box-shadow:0 18px 40px -18px rgba(0,0,0,.45),0 0 0 1px var(--line2);font-size:15px;line-height:1.35;opacity:0;transform:scale(.6);transform-origin:right bottom;transition:opacity .25s .35s,transform .45s .35s cubic-bezier(.3,1.5,.5,1);pointer-events:auto;position:relative;margin-bottom:56px}
+.peek-bubble .more{min-height:32px;font-size:15px}
+.peek-x{position:absolute;top:4px;right:6px;border:none;background:none;font-size:20px;line-height:1;color:var(--muted);cursor:pointer;width:28px;height:28px}
+.peek.on .peek-dog{transform:translateY(18%) rotate(0)}
+.peek.on .peek-bubble{opacity:1;transform:scale(1)}
+@media (max-width:760px){.peek{bottom:calc(92px + env(safe-area-inset-bottom))}}
+
+/* Tilt and wobble */
+.tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0))!important;transition:transform .12s linear!important}
+@keyframes wobble{0%,100%{transform:rotate(0)}20%{transform:rotate(-6deg) scale(1.04)}45%{transform:rotate(5deg)}70%{transform:rotate(-3deg)}85%{transform:rotate(1deg)}}
+.wobble{animation:wobble .6s var(--ease)}
+
+/* Lamp: dark mode switch */
+.lib-nav{justify-content:flex-start}.lib-links{margin-left:auto}
+.lamp{border:none;background:none;color:var(--ink);width:44px;height:48px;display:inline-flex;align-items:flex-start;justify-content:center;cursor:pointer;padding:0;margin-top:-18px;flex:0 0 auto}
+.lamp svg{overflow:visible}
+.lamp-bulb{fill:#E4E8E4;stroke:currentColor;stroke-width:1.4;transition:fill .3s}
+.lamp-glow{fill:rgba(255,214,102,0);transition:fill .4s}
+html.dk .lamp-bulb{fill:#FFD666}
+html.dk .lamp-glow{fill:rgba(255,214,102,.16)}
+.lamp-cord,.lamp-knob{transition:transform .35s cubic-bezier(.3,1.8,.5,1)}
+.lamp.pull .lamp-cord{transform:scaleY(1.3)}.lamp.pull .lamp-knob{transform:translateY(7px)}
+.lamp-cord{transform-origin:22px 0}
+@media (max-width:760px){.lamp{margin-left:auto;margin-top:-14px}}
+html.theme-anim,html.theme-anim *{transition:background-color .45s,color .45s,border-color .45s,fill .45s!important}
+
+/* Living hero */
+.hero-dog .tod{display:block;width:100%;height:100%}
+.hero-bubble{position:absolute;left:78%;top:-6px;background:var(--card);color:var(--ink);font-size:13px;font-weight:700;padding:7px 11px;border-radius:14px 14px 14px 4px;box-shadow:0 10px 24px -12px rgba(0,0,0,.4),0 0 0 1px var(--line2);white-space:nowrap;animation:pop .45s 1.3s both}
+@media (max-width:760px){.hero-bubble{font-size:12px;left:70%;top:-14px}}
+.a-steam{animation:steam 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center bottom}
+@keyframes steam{0%,100%{opacity:.3;transform:translateY(2px)}50%{opacity:1;transform:translateY(-3px)}}
+.a-zz{animation:zz 3s ease-in-out infinite}
+@keyframes zz{0%,100%{opacity:.2;transform:translateY(4px)}50%{opacity:1;transform:translateY(-4px)}}
+
+/* Area tiles come alive */
+.art-box svg g{transform-box:fill-box;transform-origin:center}
+.tile.in .a-star,.tile:hover .a-star{animation:spin-star 1.6s var(--ease) 2}
+.tile.in .a-hop,.tile:hover .a-hop{animation:hop 1.1s var(--ease) 2}
+.tile:hover .a-star,.tile:hover .a-hop,.tile:hover .a-coin,.tile:hover .a-plant,.tile:hover .a-clouds,.tile:hover .a-breathe,.tile:hover .a-bob,.tile:hover .a-beat{animation-iteration-count:infinite}
+.tile.in .a-trail{stroke-dashoffset:0;animation:trail 1.6s linear 2}
+.tile.in .a-coin,.tile:hover .a-coin{animation:coin 1.4s cubic-bezier(.5,0,.8,.6) 2}
+.tile.in .a-plant,.tile:hover .a-plant{animation:sway 2.2s ease-in-out 2;transform-origin:center bottom}
+.tile.in .a-clouds,.tile:hover .a-clouds{animation:drift 4s ease-in-out 2}
+.tile.in .a-breathe,.tile:hover .a-breathe{animation:breathe 3s ease-in-out 2}
+.tile.in .a-bob,.tile:hover .a-bob{animation:bob 1.2s ease-in-out 3}
+.tile.in .a-beat,.tile:hover .a-beat{animation:beat .6s ease-in-out 4}
+@keyframes spin-star{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.3)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-14px)}60%{transform:translateY(-14px)}}
+@keyframes trail{to{stroke-dashoffset:-36}}
+@keyframes coin{0%{transform:translate(0,0)}70%{transform:translate(18px,48px);opacity:1}100%{transform:translate(24px,60px);opacity:0}}
+@keyframes sway{0%,100%{transform:rotate(0)}30%{transform:rotate(-6deg)}70%{transform:rotate(5deg)}}
+@keyframes drift{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes bob{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+@keyframes beat{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* Game: blurred cover, Dog-Ear reacts, sound, ready, teaser */
+.clue-wrap{display:flex;gap:14px;align-items:flex-start}
+.mcover{flex:0 0 96px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.mc-frame{display:block;width:96px;height:146px;overflow:hidden;border-radius:3px 8px 8px 3px;box-shadow:0 12px 24px -12px rgba(0,0,0,.5);background:var(--line2)}
+.mcover img{width:100%;height:100%;object-fit:cover;filter:blur(var(--blur,24px)) saturate(.85);transform:scale(var(--zoom,1.5));transition:filter .9s var(--ease),transform .9s var(--ease)}
+.mcover .mono{font-size:10px;text-align:center;line-height:1.25;max-width:96px}
+@media (max-width:760px){.mcover{flex-basis:70px}.mc-frame{width:70px;height:106px}.mcover .mono{max-width:70px}}
+@media (min-width:761px){.fan{flex:0 0 440px}}
+.result{position:relative}
+.r-dog{position:absolute;right:10px;top:-58px;width:110px;height:102px;animation:dog-in .6s .3s cubic-bezier(.3,1.6,.5,1) both}
+.r-dog svg{width:100%;height:100%}
+.r-dog:not(.sulk) svg{animation:hop 1s 1s ease-in-out 3}
+.r-dog.sulk svg{animation:droop 2.6s 1s ease-in-out infinite;transform-origin:center bottom}
+@keyframes dog-in{from{opacity:0;transform:translateY(30px) scale(.6)}}
+@keyframes droop{0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg) translateY(2px)}}
+[data-done]{padding-top:40px}
+.sound-btn{border:none;background:var(--card);color:var(--ink);width:44px;height:44px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 0 var(--line)}
+.sound-btn .s-on{display:none}.sound-btn[aria-pressed="true"] .s-on{display:inline}.sound-btn[aria-pressed="true"] .s-off{display:none}
+.sound-btn[aria-pressed="true"]{color:var(--green)}
+.ready-btn{margin-top:12px;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,145,58,.55)}60%{box-shadow:0 0 0 14px rgba(184,145,58,0)}}
+.teaser{display:flex;gap:16px;align-items:center}
+.teaser-cover{flex:0 0 70px;width:70px;height:106px;border-radius:3px 8px 8px 3px;overflow:hidden;background:var(--line2);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:40px;color:var(--brass)}
+.teaser-cover img{width:100%;height:100%;object-fit:cover;filter:blur(9px) saturate(.8);transform:scale(1.4)}
+
+/* Product plug, FAQ, 404 */
+.plug{display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--brassbg);border-radius:24px;padding:20px 24px;text-decoration:none;color:var(--ink)}
+.plug-art{flex:0 0 96px;width:96px;height:96px}
+.faq{display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--card);border-radius:16px;box-shadow:0 1px 0 var(--line);padding:0 18px}
+.faq summary{cursor:pointer;font-weight:700;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--green);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 16px;color:var(--soft)}
+.faq details[open] p{animation:rise .35s var(--ease) both}
+.lost-art svg{animation:bob 2.4s ease-in-out infinite}
+
+/* You left off here */
+.resume{display:flex;gap:14px;align-items:center;background:var(--card);border-radius:20px;padding:14px 18px;box-shadow:0 1px 0 var(--line);text-decoration:none;color:var(--ink)}
+.resume .bar{flex:0 0 90px;height:8px;border-radius:9px;background:var(--line2);overflow:hidden}.resume .bar i{display:block;height:100%;background:var(--green);border-radius:9px}
+.freeze-chip{display:inline-flex;align-items:center;gap:6px;background:#E2ECF6;color:#2C4E86;border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700}
+html.dk .freeze-chip{background:#22324A;color:#BFD3F2}
+
+@media (prefers-reduced-motion:reduce){.hl{transition:none;background-size:100% 100%}.peek-dog,.peek-bubble{transition:none}.tile .art-box *{animation:none!important}.ribbon{transition:none}}
+@keyframes thump{0%,100%{transform:none}15%{transform:translateY(3px) scale(.995)}30%{transform:translate(-3px,-1px)}45%{transform:translate(2px,1px)}60%{transform:translate(-1px,0)}}
+main.thump{animation:thump .45s var(--ease)}

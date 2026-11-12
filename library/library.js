@@ -59,6 +59,7 @@
     }
     function hit(w, hay) { return hay.indexOf(" " + w) !== -1 || (w.length > 4 && hay.indexOf(" " + w.slice(0, 5)) !== -1); }
     var items = problems.map(function (p) { return { kind: "Problem", title: p.text, area: p.area.toLowerCase(), url: p.url || "", ai: p.text + ". " + p.keys, hay: " " + (p.text + " " + p.keys).toLowerCase() + " " }; })
+      .concat(JSON.parse(($("#bookpages") || { textContent: "[]" }).textContent).map(function (b) { return { kind: "Book", title: b.t, sub: b.by, area: b.area, url: b.url, ai: b.t + " by " + b.by + ". " + b.keys, hay: " " + (b.t + " " + b.by + " " + b.keys).toLowerCase() + " " }; }))
       .concat(ideasAll.map(function (it) { return { kind: "Idea", title: it.t, sub: it.src, area: it.area.toLowerCase(), url: it.url, ai: it.t + ". " + it.d + " " + (it.s || []).join(" "), hay: " " + (it.t + " " + it.keys + " " + it.d + " " + it.src).toLowerCase() + " " }; }));
     var area = "all", lastQ = "";
     function guessArea(ws) {
@@ -182,7 +183,7 @@
       $$(".cell").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.getAttribute("data-n") === n)); });
       var v = $("[data-v]", panel);
       v.textContent = c[0]; v.style.background = colors[c[0]][0]; v.style.color = colors[c[0]][1];
-      $("[data-t]", panel).textContent = "Chapter " + n + ": " + c[1];
+      $("[data-t]", panel).textContent = chapData.getAttribute("data-raw") ? c[1] : "Chapter " + n + ": " + c[1];
       $("[data-w]", panel).textContent = c[2];
       panel.classList.remove("swap"); void panel.offsetWidth; panel.classList.add("swap");
     }

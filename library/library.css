@@ -592,3 +592,6 @@ section[id],article[id]{scroll-margin-top:16px}
 .firstvisit li::before{content:counter(s);flex:0 0 28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px}
 .firstvisit li b{color:var(--ink)}
 .legal h2{font-size:26px;margin-top:8px}.legal p{color:var(--ink2);max-width:760px}
+@media (max-width:760px){main img.float[width="230"]{width:150px!important;height:227px!important}}
+.cell{font-size:14px}
+@media (min-width:761px){main>.toc{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:10px 0;margin:-10px 0}}

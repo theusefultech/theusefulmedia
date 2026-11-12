@@ -5,6 +5,7 @@ sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from library_illus import paper, plate
 import library_art as A
 from library_problems import PROBLEMS
+from library_books import BOOKS as BOOKPAGES
 R=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'library')
 BASE='https://theusefulmedia.com'
 def cov(slug): return f'/library/img/covers/{slug}.webp'
@@ -217,6 +218,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 </form>
 <script type="application/json" id="problems">{json.dumps(problems)}</script>
 <script type="application/json" id="catalog">{json.dumps(catalog)}</script>
+<script type="application/json" id="bookpages">{json.dumps([{"t":B["t"],"by":B["by"],"area":B["area"],"url":"/library/books/"+B["slug"]+"/","keys":" ".join(i[1] for i in B["ideas"])+" "+B["for"]} for B in BOOKPAGES]+[{"t":"Atomic Habits","by":"James Clear","area":"habits","url":"/library/books/atomic-habits/","keys":"habits 2 minute rule habit stacking identity never miss twice"}])}</script>
 </div>
 <div class="fan rise d3" data-covers aria-live="polite"><span class="hero-dog" data-tod-wrap>{"".join(f'<span class="tod" data-tod="{t}"{" hidden" if t!="day" else ""}>{A.hero(t)}</span>' for t in ("morning","day","evening","night"))}<span class="hero-bubble" data-tod-say>Hi. 1 idea today?</span></span><div class="float">
 <img class="c1" src="{cov('atomic-habits')}" alt="Atomic Habits cover" width="150" height="228">
@@ -505,7 +507,7 @@ shelf=head("My shelf: The Useful Library","Your stamps, streak, saved books and 
 <div class="card grow-main" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><h2 style="font-size:32px">30-day tests</h2><div data-sh-tests style="display:flex;flex-direction:column;gap:10px"></div></div>
 <div class="card grow-side" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><h2 style="font-size:32px">Saved books</h2><div data-sh-books style="display:flex;flex-direction:column;gap:10px"></div></div>
 </section>
-<script type="application/json" id="sh-meta">{json.dumps({"tests":dict({"2-minute-rule":{"t":"The 2 minute rule","url":"/library/ideas/the-2-minute-rule/"}},**{"p-"+p["slug"]:{"t":p["problem"],"url":"/library/problems/"+p["slug"]+"/"} for p in PROBLEMS}),"books":{"atomic-habits":{"t":"Atomic Habits","url":"/library/books/atomic-habits/","cover":cov("atomic-habits")}}})}</script>
+<script type="application/json" id="sh-meta">{json.dumps({"tests":dict({"2-minute-rule":{"t":"The 2 minute rule","url":"/library/ideas/the-2-minute-rule/"}},**{"p-"+p["slug"]:{"t":p["problem"],"url":"/library/problems/"+p["slug"]+"/"} for p in PROBLEMS}),"books":dict({"atomic-habits":{"t":"Atomic Habits","url":"/library/books/atomic-habits/","cover":cov("atomic-habits")}},**{B["slug"]:{"t":B["t"],"url":"/library/books/"+B["slug"]+"/","cover":cov(B["slug"])} for B in BOOKPAGES})})}</script>
 </main>
 '''+FOOT
 write(f'{R}/shelf/index.html',shelf)
@@ -530,7 +532,7 @@ def problem_page(P):
 <p class="mono fix-where">{html.escape(f["where"])}</p>
 <div class="fix-try"><p class="mono">Try it today</p><p>{html.escape(f["try"])}</p></div>
 <p class="fix-fits"><b>Best if:</b> {html.escape(f["fits"])}</p>
-<a class="btn btn-line" href="#" data-buy="{html.escape(f["book"]+" "+f["by"].split(" and ")[0])}">Get the book</a>
+<span style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-green" href="/library/books/{f["cover"]}/">Which chapters to read</a><a class="btn btn-line" href="#" data-buy="{html.escape(f["book"]+" "+f["by"].split(" and ")[0])}">Get the book</a></span>
 </div></article>'''
     checks="".join(f'<button type="button" class="check" aria-pressed="false"><span class="box">{check}</span><span class="t"><b>{html.escape(f["book"])}:</b> {html.escape(f["try"])}</span></button>' for f in fixes)
     days30="".join(f'<button type="button" class="day" data-day="{i}" aria-pressed="false" aria-label="Day {i}">{i}</button>' for i in range(1,31))
@@ -643,6 +645,7 @@ def addbook(slug,t,by,area,url,note,cover=True):
     if slug in BOOKS: return
     BOOKS[slug]={"t":t,"by":by,"area":area,"url":url,"note":note,"cover":cov(slug) if cover else ""}
 addbook("atomic-habits","Atomic Habits","James Clear","habits","/library/books/atomic-habits/","Read 6 of 20 chapters")
+for B in BOOKPAGES: addbook(B["slug"],B["t"],B["by"],B["area"],f"/library/books/{B['slug']}/",f"Read {len([u for u in B['units'] if u[0]=='READ'])} of {len(B['units'])} {B['unit'].lower()}s")
 for P in PROBLEMS:
     for i,f in enumerate(P["fixes"]):
         addbook(f["cover"],f["book"],f["by"],P["area"],f"/library/problems/{P['slug']}/#fix-{i+1}",f"Fix for: {P['problem']}")
@@ -745,7 +748,89 @@ privacy=head("Privacy: The Useful Library","What The Useful Library stores, why,
 write(f'{R}/privacy/index.html',privacy)
 
 # ---------------- FEED (Atom) of Library pages
-_feed=[("/library/about/","About The Useful Library and Raja","Who writes the Library and how verdicts are made.")]+[("/library/problems/"+P["slug"]+"/",P["title"],P["desc"]) for P in PROBLEMS]+[("/library/books/atomic-habits/","Atomic Habits: which chapters to read","Read 6 of 20 chapters."),("/library/ideas/the-2-minute-rule/","The 2 minute rule: Atomic Habits vs Getting Things Done","2 books, 2 different rules.")]
+_feed=[("/library/about/","About The Useful Library and Raja","Who writes the Library and how verdicts are made.")]+[("/library/problems/"+P["slug"]+"/",P["title"],P["desc"]) for P in PROBLEMS]+[("/library/books/"+B["slug"]+"/",B["t"]+": which parts to read",B["verdict"]) for B in BOOKPAGES]+[("/library/books/atomic-habits/","Atomic Habits: which chapters to read","Read 6 of 20 chapters."),("/library/ideas/the-2-minute-rule/","The 2 minute rule: Atomic Habits vs Getting Things Done","2 books, 2 different rules.")]
 _entries="".join(f"<entry><title>{html.escape(t)}</title><link href=\"{BASE}{u}\"/><id>{BASE}{u}</id><updated>{UPDATED.get(u,PUBLISHED)}T00:00:00Z</updated><summary>{html.escape(d)}</summary><author><name>Raja</name></author></entry>" for u,t,d in _feed)
 open(f'{R}/feed.xml','w').write(f'<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>The Useful Library</title><subtitle>Fix real problems with ideas from nonfiction books.</subtitle><link href="{BASE}/library/feed.xml" rel="self"/><link href="{BASE}/library/"/><id>{BASE}/library/</id><updated>{PUBLISHED}T00:00:00Z</updated>{_entries}</feed>')
 print("privacy, feed ok")
+
+
+# ---------------- BOOK PAGES (data-driven)
+import re as _re
+def ucell(u,i):
+    t=u[1]; m=_re.match(r"^(\d+)\.",t)
+    if m: return m.group(1)
+    m=_re.match(r"^(Part|Rule|Book|Step) (\d+)",t)
+    if m: return {"Part":"P","Rule":"R","Book":"","Step":""}[m.group(1)]+m.group(2)
+    for k,v in (("Intro","In"),("Appendix","Ap"),("Afterword","Af"),("Conclusion","C"),("Final","F")):
+        if t.startswith(k): return v
+    return str(i+1)
+def uname(u,unit):
+    t=u[1]; m=_re.match(r"^(\d+)\.",t)
+    if m: return ("ch. " if unit=="Chapter" else "")+m.group(1)
+    m=_re.match(r"^(Part|Rule|Book|Step) (\d+)",t)
+    if m: return m.group(1)+" "+m.group(2)
+    for k,v in (("Intro","the introduction"),("Appendix","the appendix"),("Afterword","the afterword"),("Conclusion","the conclusion")):
+        if t.startswith(k): return v
+    return t
+def andlist(xs): return xs[0] if len(xs)==1 else ", ".join(xs[:-1])+" and "+xs[-1]
+
+def book_page(B):
+    path=f"/library/books/{B['slug']}/"
+    units=B["units"]; nread=len([u for u in units if u[0]=="READ"]); unit=B["unit"].lower()+("s" if len(units)!=1 else "")
+    first_read=next(i for i,u in enumerate(units) if u[0]=="READ")
+    cells="".join(f'<button type="button" class="cell v-{u[0].lower()}" data-n="{i+1}" aria-pressed="{"true" if i==first_read else "false"}" aria-label="{html.escape(u[1])}, {u[0].lower()}">{ucell(u,i)}</button>' for i,u in enumerate(units))
+    reads=andlist([uname(u,B["unit"]) for u in units if u[0]=="READ"])
+    used=[(P,i) for P in PROBLEMS for i,f in enumerate(P["fixes"]) if f["cover"]==B["slug"]]
+    usedH="".join(f'<a class="card lift pcard" href="/library/problems/{P["slug"]}/#fix-{i+1}"><span class="mono">Fix {i+1} for</span><h3>{html.escape(P["problem"])}</h3><span class="go">See the fix</span></a>' for P,i in used)
+    pairs=[b for b in BOOKPAGES if b["area"]==B["area"] and b["slug"]!=B["slug"]][:3]
+    pairsH="".join(f'<a class="card lift bcard" href="/library/books/{b["slug"]}/"><img src="{cov(b["slug"])}" alt="" width="64" height="97" loading="lazy"><span><span class="mono">{html.escape(b["by"])}</span><b class="serif">{html.escape(b["t"])}</b><small>Read {len([u for u in b["units"] if u[0]=="READ"])} of {len(b["units"])}</small></span></a>' for b in pairs)
+    ideasH="".join(f'<div class="card reveal icard"><span class="mono">{html.escape(w)}</span><h3>{html.escape(t)}</h3><p>{html.escape(d)}</p></div>' for w,t,d in B["ideas"])
+    q=[(f"Is {B['t']} worth reading?",f"Yes, but not all of it. Read {nread} of its {len(units)} {unit}: {reads}. {B['verdict'].split('. ',1)[-1] if '. ' in B['verdict'] else ''}".strip()),
+       (f"Which parts of {B['t']} should I read?",f"Read {reads}. Skim the parts marked skim for their 1 idea, and skip the rest on a first read."),
+       (f"Who is {B['t']} for?",B["for"]+" Skip it if: "+B["skip"])]
+    bc_h2,bc_ld2=crumbs([("Books","/library/books/"),(B["t"],None)])
+    ld=[{"@type":"Book","name":B["t"],"author":{"@type":"Person","name":B["by"]},"image":BASE+cov(B["slug"])},
+        {"@type":"Review","itemReviewed":{"@type":"Book","name":B["t"],"author":{"@type":"Person","name":B["by"]}},"author":{"@id":BASE+"/library/about/#raja"},"reviewBody":B["verdict"]},
+        {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":a,"acceptedAnswer":{"@type":"Answer","text":b}} for a,b in q]},bc_ld2]
+    title=f"{B['t']}: which {unit} to read (and which to skip)"
+    desc=f"{B['t']} by {B['by']}, part by part: read {nread} of {len(units)} {unit}, skim or skip the rest, and why. Plus the 4 ideas worth using."
+    page=head(title,desc,path,ld)+f'</head>\n<body data-area="{B["area"]}">\n'+nav("book")+f'''
+<main id="main" class="wrap">
+{bc_h2}
+<section class="row" style="align-items:center;gap:40px;padding-top:4px">
+<div style="flex:0 1 240px;display:flex;justify-content:center"><img class="float rise" src="{cov(B["slug"])}" alt="{html.escape(B["t"])} cover" width="230" height="348" style="width:230px;height:348px;object-fit:cover;border-radius:4px 12px 12px 4px;box-shadow:0 30px 50px -24px rgba(28,43,36,.6)"></div>
+<div class="grow-main" style="display:flex;flex-direction:column;gap:14px">
+<p class="mono rise">Book · {html.escape(AREA_META[B["area"]][0])} · {B["year"]}</p>
+<h1 class="rise d1">{html.escape(B["t"])}</h1>
+<p class="rise d1" style="font-size:18px;color:var(--soft)">{html.escape(B["by"])} · {len(units)} {unit}</p>
+<div class="rise d1">{byline(path)}</div>
+<div class="card rise d2 row" style="padding:22px 24px;align-items:center;gap:20px">
+<span class="stamp-box stamp d4">READ {nread} OF {len(units)}</span>
+<p style="flex:1 1 280px;font-size:17px"><b>The Useful verdict:</b> <span class="hl">{html.escape(B["verdict"].split(". ")[0])}.</span> {html.escape(B["verdict"].split(". ",1)[1]) if ". " in B["verdict"] else ""}</p></div>
+<div class="rise d3" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-green" href="#" data-buy="{html.escape(B["t"]+" "+B["by"].split(" and ")[0])}">Get the book</a><button type="button" class="btn btn-line" data-shelf="{B["slug"]}">Add to my shelf</button></div>
+</div>
+</section>
+{toc([("verdicts","Which "+unit),("ideas","4 ideas"),("fit","Is it for you?"),("faq","Quick answers")])}
+<section class="card reveal" id="verdicts" style="display:flex;flex-direction:column;gap:18px;border-radius:28px;padding:34px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px"><h2>Read only these {unit}</h2>
+<div class="legend"><span><i style="background:var(--green)"></i>Read</span><span><i style="background:var(--brass)"></i>Skim</span><span><i style="background:var(--line2)"></i>Skip</span></div></div>
+<p style="font-size:15px;color:var(--muted)">Tap any {B["unit"].lower()}. Read: {html.escape(reads)}.</p>
+<div class="cells">{cells}</div>
+<div class="chap-panel" data-chap-panel aria-live="polite"><span class="verdict" data-v style="background:var(--green);color:#fff">READ</span>
+<div style="flex:1 1 380px;display:flex;flex-direction:column;gap:6px"><p class="serif" data-t style="font-size:26px;line-height:1.15">{html.escape(units[first_read][1])}</p><p data-w style="color:var(--ink2)">{html.escape(units[first_read][2])}</p></div></div>
+<script type="application/json" id="chapters" data-raw="1">{json.dumps([list(u) for u in units])}</script>
+</section>
+<section id="ideas" style="display:flex;flex-direction:column;gap:18px"><h2>4 ideas from this book</h2><div class="grid">{ideasH}</div></section>
+<section class="row" id="fit">
+<div class="card grow-main reveal" style="display:flex;flex-direction:column;gap:10px;border-radius:28px"><p class="mono">Read it if</p><p class="serif" style="font-size:24px;line-height:1.2">{html.escape(B["for"])}</p><p class="mono" style="margin-top:8px">Skip it if</p><p style="color:var(--soft)">{html.escape(B["skip"])}</p></div>
+{('<div class="grow-side" style="display:flex;flex-direction:column;gap:12px"><p class="mono">Used to fix</p>'+usedH+'</div>') if used else ''}
+</section>
+{faq(q)}
+{('<section style="display:flex;flex-direction:column;gap:16px"><h2 style="font-size:36px">Pairs well with</h2><div class="grid bgrid">'+pairsH+'</div></section>') if pairs else ''}
+{next3("book",B["area"],path)}
+{SIGNUP.replace("CAMP","book-"+B["slug"])}
+</main>
+'''+FOOT
+    write(f'{R}/books/{B["slug"]}/index.html',page)
+for B in BOOKPAGES: book_page(B)
+print(len(BOOKPAGES),"book pages ok")

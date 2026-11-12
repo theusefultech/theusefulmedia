@@ -15,6 +15,8 @@ PAGES = [("home", "THE USEFUL LIBRARY", "Fix real problems with ideas from nonfi
  ("books-atomic-habits", "BOOK VERDICT", "Atomic Habits: read only 6 of 20 chapters", ["atomic-habits"], "habits"),
  ("ideas-the-2-minute-rule", "IDEA", "The 2 minute rule: 2 books, 2 different rules", ["atomic-habits"], "habits")]
 PAGES += [("problems-" + P["slug"], "PROBLEM · 3 FIXES FROM 3 BOOKS", P["problem"], [f["cover"] for f in P["fixes"]], P["area"]) for P in PROBLEMS]
+from library_books import BOOKS as BP
+PAGES += [("books-" + B["slug"], "BOOK VERDICT · READ %d OF %d" % (len([u for u in B["units"] if u[0] == "READ"]), len(B["units"])), B["t"], [B["slug"]], B["area"]) for B in BP]
 PAGES += [(k, "AREA", n, [], k) for k, n in [("habits", "Habits and discipline"), ("focus", "Focus and productivity"), ("money", "Money and wealth mindset"), ("mindset", "Mindset and emotions")]]
 def tpl(kicker, title, covers, area):
     art = A.scene(area if area in AREA else "habits") if not covers else ""

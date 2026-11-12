@@ -37,6 +37,15 @@ Last updated: 2026-11-03
 - [I can't focus for long: 3 fixes](https://theusefulmedia.com/library/problems/cant-focus/): 3 nonfiction books, 3 different reasons your focus breaks, and 1 thing to try today from each: Deep Work, Indistractable and Digital Minimalism.
 - [I overthink everything: 3 fixes](https://theusefulmedia.com/library/problems/overthinking/): 3 ways nonfiction books tackle overthinking, and 1 thing to try today from each: Meditations, The Obstacle Is the Way and Four Thousand Weeks.
 - [I overspend every month: 3 fixes](https://theusefulmedia.com/library/problems/overspending/): 3 money books, 3 ways to stop overspending, and 1 thing to try today from each: I Will Teach You to Be Rich, The Psychology of Money and Your Money or Your Life.
+- [Deep Work: which parts to read](https://theusefulmedia.com/library/books/deep-work/): Read the 4 rules, skim the rest. Part 1 argues for focus at length; Part 2 tells you how to do it.
+- [Indistractable: which parts to read](https://theusefulmedia.com/library/books/indistractable/): Read parts 1, 2 and 4. They hold the whole method; the rest applies it to work, kids and relationships.
+- [Digital Minimalism: which parts to read](https://theusefulmedia.com/library/books/digital-minimalism/): Read chapters 3, 4 and 6. The declutter plus what to fill the time with.
+- [Meditations: which parts to read](https://theusefulmedia.com/library/books/meditations/): Start with Books 2, 4, 5 and 8. The other books repeat the same ideas in new words, which is the point, but not where to start.
+- [The Obstacle Is the Way: which parts to read](https://theusefulmedia.com/library/books/the-obstacle-is-the-way/): Read Parts 1 and 2. They turn Stoicism into a method: see clearly, then act.
+- [Four Thousand Weeks: which parts to read](https://theusefulmedia.com/library/books/four-thousand-weeks/): Read the introduction, chapters 1, 2, 4 and 7, and the 10 tools at the end. That's the whole argument plus what to do with it.
+- [The Psychology of Money: which parts to read](https://theusefulmedia.com/library/books/the-psychology-of-money/): Read 7 of the 20 short chapters. They hold the ideas that change how you spend and save.
+- [I Will Teach You to Be Rich: which parts to read](https://theusefulmedia.com/library/books/i-will-teach-you-to-be-rich/): Read chapters 4, 5 and 6 wherever you live. Much of the rest is built around US banks, cards and accounts.
+- [Your Money or Your Life: which parts to read](https://theusefulmedia.com/library/books/your-money-or-your-life/): Do steps 2, 3, 4 and 8. They turn money into hours of your life, which changes how small buys feel.
 - [Books](https://theusefulmedia.com/library/books/): Every book in the Library, sorted by area, with its verdict or fix.
 - [Ideas](https://theusefulmedia.com/library/ideas/): Single ideas from nonfiction books, each with 1 thing to try today.
 - Area hubs: [Habits](https://theusefulmedia.com/library/habits/), [Focus](https://theusefulmedia.com/library/focus/), [Money](https://theusefulmedia.com/library/money/), [Mindset](https://theusefulmedia.com/library/mindset/).

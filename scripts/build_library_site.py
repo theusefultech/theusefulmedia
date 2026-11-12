@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """Builds the static pages of The Useful Library (theusefulmedia.com/library/). Run from anywhere: python3 scripts/build_library_site.py"""
-import json, os, sys, html
+import json, os, sys, html, hashlib
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from library_illus import paper, plate
 import library_art as A
 from library_problems import PROBLEMS
 from library_books import BOOKS as BOOKPAGES
+from library_summaries import SUMMARIES
 R=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'library')
 BASE='https://theusefulmedia.com'
-def cov(slug): return f'/library/img/covers/{slug}.webp'
+def cov(slug):
+    f=os.path.join(R,'img','covers',slug+'.webp')
+    v=hashlib.md5(open(f,'rb').read()).hexdigest()[:8] if os.path.exists(f) else '0'
+    return f'/library/img/covers/{slug}.webp?v={v}'
 
 import hashlib
 def ver(rel):
@@ -93,14 +97,14 @@ def nav(cur):
     return f'''<a class="skip" href="#main">Skip to content</a>
 <header class="wrap"><nav class="lib-nav" aria-label="The Useful Library">
 <a class="lib-brand" href="/library/" aria-label="The Useful Library home"><svg width="38" height="38" viewBox="0 0 160 160" aria-hidden="true">{A.logo()}</svg><span>The Useful Library</span></a>
-<div class="lib-links">{a("/library/game/","Today&#39;s game","game")}{a("/library/books/","Books","book")}{a("/library/problems/","Problems","problems")}{a("/library/ideas/","Ideas","idea")}{a("/library/shelf/","My shelf","shelf")}<a class="btn btn-ink pill" href="/library/#signup" style="min-height:44px;padding:10px 18px;font-size:15px">Get the free lessons</a></div>
+<div class="lib-links">{a("/library/problems/","Problems","problems")}{a("/library/books/","Books","book")}{a("/library/game/","Today&#39;s game","game")}{a("/library/ideas/","Ideas","idea")}{a("/library/shelf/","My shelf","shelf")}<a class="btn btn-ink pill" href="/library/#signup" style="min-height:44px;padding:10px 18px;font-size:15px">Get the free lessons</a></div>
 <button class="lamp" type="button" data-lamp aria-label="Switch to dark mode"><svg width="30" height="40" viewBox="0 0 30 40" aria-hidden="true"><path class="lamp-cord" d="M22 0 V22" stroke="currentColor" stroke-width="1.6"/><circle class="lamp-knob" cx="22" cy="24" r="2.6" fill="currentColor"/><path d="M10 0 V9" stroke="currentColor" stroke-width="2"/><path d="M3 20 Q10 6 17 20 Z" fill="var(--green)" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle class="lamp-bulb" cx="10" cy="22" r="3.4"/><path class="lamp-glow" d="M2 24 L-4 40 H24 L18 24 Z"/></svg></button>
 <button class="menu-btn" type="button" data-menu-open aria-haspopup="dialog" aria-label="Open menu">{svg("menu")}</button>
 </nav></header>
 <nav class="tabbar" aria-label="Quick links">{tab("/library/","Home","home")}{tab("/library/game/","Game","game")}<a href="/library/#q" data-search-open>{svg("search")}<span>Search</span></a>{tab("/library/shelf/","Shelf","shelf")}<button type="button" data-menu-open aria-haspopup="dialog">{svg("menu")}<span>Menu</span></button></nav>
 <div class="sheet" data-sheet hidden><div class="sheet-backdrop" data-menu-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="sheet-grip" aria-hidden="true"></div>
-<a href="/library/">Home</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/books/">Books: what to read, skim or skip</a><a href="/library/problems/">Problems: 3 fixes from 3 books</a><a href="/library/ideas/">Ideas: 1 idea, 2 minutes</a><a href="/library/about/">About the Library</a><a href="/library/shelf/">My shelf: stamps, streak, tests</a>
+<a href="/library/">Home</a><a href="/library/problems/">Problems: 3 fixes from 3 books</a><a href="/library/books/">Books: what to read, skim or skip</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/ideas/">Ideas: 1 idea, 2 minutes</a><a href="/library/about/">About the Library</a><a href="/library/shelf/">My shelf: stamps, streak, tests</a>
 {STAY_BLOCK}
 <button type="button" class="btn btn-line" data-menu-close>Close</button></div></div>'''
 
@@ -139,6 +143,10 @@ FOOT=f'''<script type="application/json" id="plates">{json.dumps({k:A.stamp(k) f
 </html>
 '''
 
+LEAD='''<section id="signup" class="lead card reveal"><div class="lead-art" aria-hidden="true"><span class="lead-pdf"><b>READ ONLY THESE CHAPTERS</b><i></i><i></i><i></i><i></i><i></i><small>Every verdict, 1 page per book</small></span></div>
+<div class="lead-main"><p class="mono">Free PDF</p><h2 style="font-size:32px">Every chapter verdict, in 1 PDF</h2><p style="color:var(--soft)">Which chapters to read, skim or skip for every book in the Library, updated as new books arrive. Plus The Useful Life lessons, 3 a week. Unsubscribe anytime.</p>
+<form class="signup" data-life-signup data-campaign="CAMP" data-reward="/library/verdicts.pdf" novalidate><label class="vh" for="em-CAMP">Email address</label><input id="em-CAMP" type="email" autocomplete="email" placeholder="you@email.com" required><button class="btn btn-green" type="submit">Send me the PDF</button></form>
+<div class="signup-msg" aria-live="polite"></div></div></section>'''
 SIGNUP='''<section id="signup" class="card row reveal" style="align-items:center">
 <div class="grow-main" style="display:flex;flex-direction:column;gap:8px"><h2 style="font-size:36px">Lessons from real books, 3 times a week</h2><p style="color:var(--soft)">The Useful Life newsletter: 1 lesson every Monday, a worksheet every Wednesday, 3 useful finds every Friday. Free.</p></div>
 <div class="grow-side" style="display:flex;flex-direction:column;gap:8px">
@@ -267,7 +275,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 </div>
 <a class="btn btn-brass" href="#signup" style="font-size:17px;padding:16px 26px">Get early access</a>
 </section>
-{SIGNUP.replace("CAMP","home")}
+{LEAD.replace("CAMP","home")}
 </main>
 '''+FOOT
 write(f'{R}/index.html',home)
@@ -384,7 +392,13 @@ book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic H
 {SIGNUP.replace("CAMP","book")}
 </main>
 '''+FOOT
-write(f'{R}/books/atomic-habits/index.html',book)
+BOOKPAGES.insert(0,{"slug":"atomic-habits","t":"Atomic Habits","by":"James Clear","year":2018,"area":"habits","unit":"Chapter",
+  "verdict":"Worth it, but not cover to cover. 6 chapters carry the whole system; the rest repeats it with stories.",
+  "units":[(c[0],f"{i+1}. {c[1]}",c[2]) for i,c in enumerate(ch)],
+  "ideas":[(c,t,d) for c,t,d,u in ideas],
+  "for":"You want to build or break a habit and keep quitting after a week.",
+  "skip":"You already track your habits daily and they stick. Read chapter 13 and move on.",
+  "note":("Where books disagree","Atomic Habits says shrink a new habit to 2 minutes. Getting Things Done says do any task under 2 minutes right now. Same name, different rule.","/library/ideas/the-2-minute-rule/","Compare them")})
 
 # ---------------- IDEA: The 2 minute rule
 days="".join(f'<button type="button" class="day" data-day="{i}" aria-pressed="false" aria-label="Day {i}">{i}</button>' for i in range(1,31))
@@ -676,7 +690,7 @@ booksp=head("Books: what to read, skim or skip | The Useful Library","Every nonf
 <section style="display:flex;flex-direction:column;gap:12px;padding-top:4px"><p class="mono rise">Books</p><h1 class="rise d1">Books, and what to take from them</h1><p class="lede rise d2">Every book here is used for something: a chapter verdict, or a fix for a real problem. New books every week.</p><div class="rise d2">{byline()}</div></section>
 {toc([(k,AREA_META[k][0].split(" and ")[0]) for k in AREA_META if any(b["area"]==k for b in BOOKS.values())])}
 {books_by_area}
-{SIGNUP.replace("CAMP","books")}
+{LEAD.replace("CAMP","books")}
 </main>
 '''+FOOT
 write(f'{R}/books/index.html',booksp)
@@ -750,7 +764,7 @@ privacy=head("Privacy: The Useful Library","What The Useful Library stores, why,
 write(f'{R}/privacy/index.html',privacy)
 
 # ---------------- FEED (Atom) of Library pages
-_feed=[("/library/about/","About The Useful Library and Raja","Who writes the Library and how verdicts are made.")]+[("/library/problems/"+P["slug"]+"/",P["title"],P["desc"]) for P in PROBLEMS]+[("/library/books/"+B["slug"]+"/",B["t"]+": which parts to read",B["verdict"]) for B in BOOKPAGES]+[("/library/books/atomic-habits/","Atomic Habits: which chapters to read","Read 6 of 20 chapters."),("/library/ideas/the-2-minute-rule/","The 2 minute rule: Atomic Habits vs Getting Things Done","2 books, 2 different rules.")]
+_feed=[("/library/about/","About The Useful Library and Raja","Who writes the Library and how verdicts are made.")]+[("/library/problems/"+P["slug"]+"/",P["title"],P["desc"]) for P in PROBLEMS]+[("/library/books/"+B["slug"]+"/",B["t"]+": which parts to read",B["verdict"]) for B in BOOKPAGES]+[("/library/ideas/the-2-minute-rule/","The 2 minute rule: Atomic Habits vs Getting Things Done","2 books, 2 different rules.")]
 _entries="".join(f"<entry><title>{html.escape(t)}</title><link href=\"{BASE}{u}\"/><id>{BASE}{u}</id><updated>{UPDATED.get(u,PUBLISHED)}T00:00:00Z</updated><summary>{html.escape(d)}</summary><author><name>Raja</name></author></entry>" for u,t,d in _feed)
 open(f'{R}/feed.xml','w').write(f'<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>The Useful Library</title><subtitle>Fix real problems with ideas from nonfiction books.</subtitle><link href="{BASE}/library/feed.xml" rel="self"/><link href="{BASE}/library/"/><id>{BASE}/library/</id><updated>{PUBLISHED}T00:00:00Z</updated>{_entries}</feed>')
 print("privacy, feed ok")
@@ -786,7 +800,16 @@ def book_page(B):
     usedH="".join(f'<a class="card lift pcard" href="/library/problems/{P["slug"]}/#fix-{i+1}"><span class="mono">Fix {i+1} for</span><h3>{html.escape(P["problem"])}</h3><span class="go">See the fix</span></a>' for P,i in used)
     pairs=[b for b in BOOKPAGES if b["area"]==B["area"] and b["slug"]!=B["slug"]][:3]
     pairsH="".join(f'<a class="card lift bcard" href="/library/books/{b["slug"]}/"><img src="{cov(b["slug"])}" alt="" width="64" height="97" loading="lazy"><span><span class="mono">{html.escape(b["by"])}</span><b class="serif">{html.escape(b["t"])}</b><small>Read {len([u for u in b["units"] if u[0]=="READ"])} of {len(b["units"])}</small></span></a>' for b in pairs)
-    ideasH="".join(f'<div class="card reveal icard"><span class="mono">{html.escape(w)}</span><h3>{html.escape(t)}</h3><p>{html.escape(d)}</p></div>' for w,t,d in B["ideas"])
+    ideasH="".join(f'<div class="card reveal icard inum"><span class="inum-n" aria-hidden="true">{n+1}</span><span class="mono">{html.escape(w)}</span><h3>{html.escape(t)}</h3><p>{html.escape(d)}</p></div>' for n,(w,t,d) in enumerate(B["ideas"]))
+    sm=SUMMARIES.get(B["slug"])
+    if not sm: raise SystemExit(f'Missing 60-second summary for {B["slug"]}: add it to scripts/library_summaries.py (see RUNBOOK)')
+    if sm:
+        nskim=len([u for u in units if u[0]=="SKIM"]); full=sm[1]/40; part=full*(nread+0.3*nskim)/len(units)
+        r=lambda x: max(0.5,round(x*2)/2); fmt=lambda x: (str(int(x)) if x==int(x) else str(x))
+        summary_block=f'''<section class="sum card reveal" id="summary"><div class="sum-main"><p class="mono">The book in 60 seconds</p><p class="sum-t">{html.escape(sm[0])}</p></div><div class="sum-time"><p class="mono">Your time</p><div class="tbar"><i style="width:{round(part/full*100)}%"></i></div><p><b>About {fmt(r(part))} hours</b> to read the parts that matter, instead of about {fmt(r(full))} hours for the whole book.</p><p class="fine">Based on about {sm[1]} pages at 40 pages an hour, with skimmed parts counted at a third.</p></div></section>'''
+    else: summary_block=""
+    nt=B.get("note")
+    note_block=f'<section class="card lift reveal" style="display:flex;flex-direction:column;gap:10px;border-radius:28px"><p class="mono">{html.escape(nt[0])}</p><p class="serif" style="font-size:26px;line-height:1.2">{html.escape(nt[1])}</p><a class="more" href="{nt[2]}">{html.escape(nt[3])}</a></section>' if nt else ""
     q=[(f"Is {B['t']} worth reading?",f"Yes, but not all of it. Read {nread} of its {len(units)} {unit}: {reads}. {B['verdict'].split('. ',1)[-1] if '. ' in B['verdict'] else ''}".strip()),
        (f"Which parts of {B['t']} should I read?",f"Read {reads}. Skim the parts marked skim for their 1 idea, and skip the rest on a first read."),
        (f"Who is {B['t']} for?",B["for"]+" Skip it if: "+B["skip"])]
@@ -809,10 +832,11 @@ def book_page(B):
 <div class="card rise d2 row" style="padding:22px 24px;align-items:center;gap:20px">
 <span class="stamp-box stamp d4">READ {nread} OF {len(units)}</span>
 <p style="flex:1 1 280px;font-size:17px"><b>The Useful verdict:</b> <span class="hl">{html.escape(B["verdict"].split(". ")[0])}.</span> {html.escape(B["verdict"].split(". ",1)[1]) if ". " in B["verdict"] else ""}</p></div>
-<div class="rise d3" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-green" href="#" data-buy="{html.escape(B["t"]+" "+B["by"].split(" and ")[0])}">Get the book</a><button type="button" class="btn btn-line" data-shelf="{B["slug"]}">Add to my shelf</button></div>
+<div class="rise d3" style="display:flex;gap:10px;flex-wrap:wrap" data-hero-actions><a class="btn btn-green" href="#" data-buy="{html.escape(B["t"]+" "+B["by"].split(" and ")[0])}">Get the book</a><button type="button" class="btn btn-line" data-shelf="{B["slug"]}">Add to my shelf</button><button type="button" class="btn btn-line" data-share-card="/library/og/card-{B["slug"]}.png" data-share-title="{html.escape(B["t"])}: read {nread} of {len(units)}">Share the verdict</button></div>
 </div>
 </section>
-{toc([("verdicts","Which "+unit),("ideas","4 ideas"),("fit","Is it for you?"),("faq","Quick answers")])}
+{summary_block}
+{toc([("summary","In 60 seconds"),("verdicts","Which "+unit),("ideas","4 ideas"),("fit","Is it for you?"),("faq","Quick answers")])}
 <section class="card reveal" id="verdicts" style="display:flex;flex-direction:column;gap:18px;border-radius:28px;padding:34px">
 <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px"><h2>Read only these {unit}</h2>
 <div class="legend"><span><i style="background:var(--green)"></i>Read</span><span><i style="background:var(--brass)"></i>Skim</span><span><i style="background:var(--line2)"></i>Skip</span></div></div>
@@ -823,15 +847,17 @@ def book_page(B):
 <script type="application/json" id="chapters" data-raw="1">{json.dumps([list(u) for u in units])}</script>
 </section>
 <section id="ideas" style="display:flex;flex-direction:column;gap:18px"><h2>4 ideas from this book</h2><div class="grid">{ideasH}</div></section>
+{note_block}
 <section class="row" id="fit">
 <div class="card grow-main reveal" style="display:flex;flex-direction:column;gap:10px;border-radius:28px"><p class="mono">Read it if</p><p class="serif" style="font-size:24px;line-height:1.2">{html.escape(B["for"])}</p><p class="mono" style="margin-top:8px">Skip it if</p><p style="color:var(--soft)">{html.escape(B["skip"])}</p></div>
 {('<div class="grow-side" style="display:flex;flex-direction:column;gap:12px"><p class="mono">Used to fix</p>'+usedH+'</div>') if used else ''}
 </section>
 {faq(q)}
+{LEAD.replace("CAMP","verdicts-"+B["slug"])}
 {('<section style="display:flex;flex-direction:column;gap:16px"><h2 style="font-size:36px">Pairs well with</h2><div class="grid bgrid">'+pairsH+'</div></section>') if pairs else ''}
 {next3("book",B["area"],path)}
-{SIGNUP.replace("CAMP","book-"+B["slug"])}
 </main>
+<div class="buybar" data-buybar aria-hidden="true"><img src="{cov(B["slug"])}" alt="" width="34" height="52"><span><b>{html.escape(B["t"])}</b><small>Read {nread} of {len(units)} {unit}</small></span><a class="btn btn-green" href="#" data-buy="{html.escape(B["t"]+" "+B["by"].split(" and ")[0])}" tabindex="-1">Get it</a></div>
 '''+FOOT
     write(f'{R}/books/{B["slug"]}/index.html',page)
 for B in BOOKPAGES: book_page(B)

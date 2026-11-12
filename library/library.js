@@ -311,10 +311,10 @@
       current = list;
       imgs.forEach(function (im, i) {
         var b = list[i]; if (!b) return;
-        if (reduce) { im.src = "/library/img/covers/" + b.slug + ".webp"; im.alt = b.t + " cover"; return; }
+        if (reduce) { im.src = "/library/img/covers/" + b.slug + ".webp?v=2"; im.alt = b.t + " cover"; return; }
         im.classList.add("out");
         setTimeout(function () {
-          im.src = "/library/img/covers/" + b.slug + ".webp"; im.alt = b.t + " cover";
+          im.src = "/library/img/covers/" + b.slug + ".webp?v=2"; im.alt = b.t + " cover";
           im.onload = function () { im.classList.remove("out"); };
           setTimeout(function () { im.classList.remove("out"); }, 400);
         }, 180 + i * 70);
@@ -424,6 +424,8 @@
         if (res && res.ok) {
           store.set("subscribed", true);
           f.hidden = true;
+          var rw = f.getAttribute("data-reward");
+          if (rw) { setTimeout(function () { var dl = document.createElement("a"); dl.className = "btn btn-brass"; dl.href = rw; dl.setAttribute("download", ""); dl.textContent = "Download the PDF"; msg.appendChild(document.createElement("br")); msg.appendChild(dl); }, 50); }
           msg.innerHTML = '<span class="stamp-box stamp">CARD ISSUED</span> ' + (res.existing ? "You were already on the list. Next lesson soon." : "You&#39;re in. Your first lesson lands with the next issue.");
           return;
         }
@@ -655,6 +657,26 @@
     btns.forEach(function (b) { b.setAttribute("aria-pressed", "false"); b.addEventListener("click", function () { var i = +b.getAttribute("data-pick"); store.set(key, i); window.LibSound.play("pop"); choose(i, true); }); });
     var prev = store.get(key, null); if (prev !== null) choose(prev, false);
   });
+
+  // ----- Share the verdict card (image) -----
+  $$("[data-share-card]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var url = b.getAttribute("data-share-card"), title = b.getAttribute("data-share-title") || document.title, page = location.href.split("#")[0];
+      function fallback() { if (navigator.share) { navigator.share({ title: title, text: title, url: page }).catch(function () {}); return; } window.open(url, "_blank"); }
+      if (!window.fetch || !navigator.canShare) return fallback();
+      fetch(url).then(function (r) { return r.blob(); }).then(function (bl) {
+        var file = new File([bl], "verdict.png", { type: "image/png" });
+        if (navigator.canShare({ files: [file] })) return navigator.share({ files: [file], title: title, text: title + " " + page }).catch(function () {});
+        fallback();
+      }).catch(fallback);
+    });
+  });
+  // ----- Phone: a "Get it" bar once the book header scrolls away -----
+  var bb = $("[data-buybar]"), ha = $("[data-hero-actions]");
+  if (bb && ha && "IntersectionObserver" in window) {
+    $$("[data-buy]", bb).forEach(function (a) { if (window.LibBuy) window.LibBuy(a); });
+    new IntersectionObserver(function (es) { var show = !es[0].isIntersecting && es[0].boundingClientRect.top < 0; bb.classList.toggle("on", show); bb.setAttribute("aria-hidden", String(!show)); $("a", bb).tabIndex = show ? 0 : -1; }).observe(ha);
+  }
 
   // ===================== Phase 1: life and motion =====================
   var fine = window.matchMedia("(hover:hover) and (pointer:fine)").matches;

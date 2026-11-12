@@ -1,5 +1,5 @@
 // The Useful Library offline support. Pages: network first, then cache. Files: cache first.
-var V = "lib-v1";
+var V = "lib-v2";
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(V).then(function (c) { return c.addAll(["/library/", "/library/game/", "/library/offline/"]); }).then(function () { return self.skipWaiting(); }));
 });
@@ -14,7 +14,11 @@ self.addEventListener("fetch", function (e) {
       .catch(function () { return caches.match(r).then(function (m) { return m || caches.match("/library/offline/"); }); }));
     return;
   }
-  e.respondWith(caches.match(r).then(function (m) {
-    return m || fetch(r).then(function (res) { if (res.ok) { var cp = res.clone(); caches.open(V).then(function (c) { c.put(r, cp); }); } return res; });
+  // Files: serve the cached copy fast, but always refresh it in the background so updated images and files show up next time
+  e.respondWith(caches.open(V).then(function (c) {
+    return c.match(r).then(function (m) {
+      var net = fetch(r).then(function (res) { if (res.ok) c.put(r, res.clone()); return res; }).catch(function () { return m; });
+      return m || net;
+    });
   }));
 });

@@ -44,3 +44,9 @@ from data files. Never hand-edit files under `library/` that the builder writes.
 
 ## Quantize share images
 python3 -c "from PIL import Image; import glob; [Image.open(f).convert('RGB').quantize(colors=256,method=Image.Quantize.MEDIANCUT,dither=Image.Dither.FLOYDSTEINBERG).save(f,optimize=True) for f in glob.glob('library/og/*.png')]"
+
+## When a book is added or changed (since 12 Nov 2026)
+- Add its 60-second summary and page count to `scripts/library_summaries.py`. The builder needs it.
+- Cover: 600px wide or more. Best source is `https://m.media-amazon.com/images/P/<ISBN-10>.01._SCRMZZZZZZ_.jpg`, saved as `library/img/covers/<slug>.webp`. Look at it before committing. Cover URLs carry a content hash, so a new file reaches every visitor without cache problems.
+- After the build, run `python3 scripts/render_library_og.py` and `python3 scripts/render_library_cards.py` (share cards in `library/og/card-<slug>.png` and the lead-magnet PDF `library/verdicts.pdf`), then quantize PNGs to 256 colors.
+- If you change library.js, library.css or sw.js file caching, bump `V` in `library/sw.js`.

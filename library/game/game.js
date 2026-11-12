@@ -73,7 +73,7 @@
     if (mc) {
       if (!pz.cover || done()) { mc.hidden = true; }
       else {
-        var im = mc.querySelector("img"); if (!im.getAttribute("src")) im.src = "/library/img/covers/" + pz.cover + ".webp";
+        var im = mc.querySelector("img"); if (!im.getAttribute("src")) im.src = "/library/img/covers/" + pz.cover + ".webp?v=2";
         var B = [24, 19, 15, 11, 8, 5][Math.min(5, s.shown - 1)], Z = [1.55, 1.45, 1.35, 1.25, 1.15, 1.05][Math.min(5, s.shown - 1)];
         mc.style.setProperty("--blur", B + "px"); mc.style.setProperty("--zoom", Z); mc.hidden = false;
       }
@@ -103,7 +103,7 @@
     $("[data-r-title]").textContent = pz.a;
     $("[data-r-by]").textContent = pz.by;
     var cv = $("[data-r-cover]");
-    cv.innerHTML = pz.cover ? '<img src="/library/img/covers/' + pz.cover + '.webp" alt="' + pz.a.replace(/"/g, "") + ' cover" width="110" height="168">' : '<div class="nocover">' + pz.a + "</div>";
+    cv.innerHTML = pz.cover ? '<img src="/library/img/covers/' + pz.cover + '.webp?v=2" alt="' + pz.a.replace(/"/g, "") + ' cover" width="110" height="168">' : '<div class="nocover">' + pz.a + "</div>";
     var g = $("[data-r-grid]"); g.innerHTML = "";
     grid().forEach(function (k, i) {
       var d = document.createElement("div"); d.className = "sq" + (animate ? " pop" : "");
@@ -121,7 +121,7 @@
     var nx = P[(dayN + 1) % P.length], tz = document.querySelector("[data-teaser]");
     if (tz) {
       tz.hidden = false;
-      document.querySelector("[data-teaser-cover]").innerHTML = nx.cover ? '<img src="/library/img/covers/' + nx.cover + '.webp" alt="" width="70" height="106">' : "?";
+      document.querySelector("[data-teaser-cover]").innerHTML = nx.cover ? '<img src="/library/img/covers/' + nx.cover + '.webp?v=2" alt="" width="70" height="106">' : "?";
       document.querySelector("[data-teaser-t]").textContent = nx.cover ? "Can you guess it from the cover?" : "No cover clue for this one. Good luck.";
       var si = window.LibStamps && window.LibStamps.streakInfo ? window.LibStamps.streakInfo() : null, fl = document.querySelector("[data-freeze-line]");
       if (fl && si) fl.innerHTML = si.freezes ? '<span class="freeze-chip">' + si.freezes + (si.freezes === 1 ? " streak freeze" : " streak freezes") + '</span> Miss a day and your streak stays.' : "Solve 7 days in a row to earn a streak freeze.";

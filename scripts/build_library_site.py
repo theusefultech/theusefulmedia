@@ -274,7 +274,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 <h2 style="font-size:clamp(30px,4vw,40px)">The Useful Reading Challenge 2027</h2>
 <p style="color:#C6D1CA;max-width:560px">1 year of nonfiction, read to change something. Monthly prompts, a tracker, and a private Discord channel for the readers doing it with you.</p>
 </div>
-<a class="btn btn-brass" href="#signup" style="font-size:17px;padding:16px 26px">Get early access</a>
+<a class="btn btn-brass" href="/library/challenge/" style="font-size:17px;padding:16px 26px">See the challenge</a>
 </section>
 {LEAD.replace("CAMP","home")}
 </main>
@@ -867,11 +867,106 @@ def book_page(B):
 for B in BOOKPAGES: book_page(B)
 print(len(BOOKPAGES),"book pages ok")
 
+# ---------------- READING CHALLENGE 2027: sales page and tracker
+from library_challenge import MONTHS, GUMROAD, OPENS, PRICE_UP
+_BK={b["slug"]:b for b in BOOKPAGES}
+AREA_NAME={"habits":"Habits","focus":"Focus","money":"Money","mindset":"Mindset"}
+def _covers(sl,w=54):
+    return "".join(f'<img src="{cov(x)}" alt="{html.escape(_BK[x]["t"])} cover" width="{w}" height="{round(w*1.52)}" loading="lazy">' for x in sl)
+monthsH="".join(f'<li class="chm reveal" data-area="{a}" ><span class="chm-m mono">{m} · {AREA_NAME[a]}</span><b class="serif">{html.escape(t)}</b><p>{html.escape(d)}</p><span class="chm-covers">{_covers(bs,46)}</span></li>' for m,a,t,d,bs in MONTHS)
+ch_faq=[("Do I have to finish 12 books?","No. You read the chapters that matter in 1 book a month, about 3 to 4 hours, and test 1 idea. Most months you won't finish the whole book, and that's the point."),
+ ("Which books do I read?","Each month gives you 3 picks from The Useful Library, each with read, skim or skip verdicts for every chapter. Any newer Library book in the same area counts too."),
+ ("Can I start late?","Yes. Start on any month. The tracker keeps your place, and the Discord channel stays open all year."),
+ ("Where do I get the books?","Anywhere: a library, Kindle, a used copy or the book links on each page. You don't need to buy all 12."),
+ ("Is it only for one country?","No. The prompts work anywhere, and the money months use your own currency."),
+ ("What happens in the Discord channel?","1 thread a month for that month's problem. Share what you tried, what worked and what didn't, with readers doing the same month as you.")]
+ch_h,ch_ld=crumbs([("Reading Challenge 2027",None)])
+_offer={"@type":"Product","name":"The Useful Reading Challenge 2027","description":"12 months, 12 problems, 1 nonfiction book a month with chapter verdicts, a tracker and a private Discord channel.","brand":{"@type":"Brand","name":"The Useful Life"},"offers":{"@type":"Offer","price":"29","priceCurrency":"USD","url":GUMROAD,"availability":"https://schema.org/PreOrder","priceValidUntil":"2026-12-31"}}
+chal=head("The Useful Reading Challenge 2027: 12 books, 12 changes","Read 1 nonfiction book a month in 2027, only the chapters that matter, and test 1 idea for 30 days. Monthly prompts, a tracker and a private Discord channel.","/library/challenge/",[_offer,ch_ld,{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in ch_faq]}])+f'<script src="https://gumroad.com/js/gumroad.js" defer></script>\n<script src="/library/challenge/challenge.js?v={ver("challenge/challenge.js")}" defer></script>\n</head>\n<body data-challenge-sales>\n'+nav("challenge")+f'''
+<main id="main" class="wrap">
+{ch_h}
+<section class="ch-hero dark">
+<div class="ch-hero-main">
+<p class="mono rise" style="color:var(--brass)">The Useful Reading Challenge 2027</p>
+<h1 class="rise d1">12 books. 12 problems fixed.</h1>
+<p class="lede rise d2">1 nonfiction book a month, picked for 1 problem you want gone. Read only the chapters that matter, test 1 idea for 30 days, and compare notes with readers doing the same month.</p>
+<div class="ch-buy rise d3" data-ch-buy data-opens="{OPENS}" data-price-up="{PRICE_UP}">
+<div data-ch-before><p class="ch-price"><b>$29</b> early-bird from 1 Dec<small>$39 from 1 Jan</small></p>
+<form class="signup" data-life-signup data-campaign="challenge-waitlist" novalidate><label class="vh" for="em-chw">Email address</label><input id="em-chw" type="email" autocomplete="email" placeholder="you@email.com" required><button class="btn btn-brass" type="submit">Email me on 1 Dec</button></form><div class="signup-msg" aria-live="polite"></div></div>
+<div data-ch-after hidden><p class="ch-price"><b data-ch-now>$29</b> <span data-ch-note>early-bird until 31 Dec</span><small data-ch-then>$39 from 1 Jan</small></p>
+<a class="btn btn-brass gumroad-button" href="{GUMROAD}?wanted=true" style="font-size:18px;padding:16px 28px">Join the challenge</a></div>
+<a class="ch-try" href="/library/challenge/tracker/">Try January free in the tracker</a>
+</div></div>
+<div class="ch-stack rise d2" aria-hidden="true">{_covers(["atomic-habits","deep-work","the-psychology-of-money","meditations"],120)}</div>
+</section>
+
+<section class="ch-how">
+<div class="card reveal"><span class="inum-n">1</span><h3>Pick the problem</h3><p>Every month opens with 1 prompt, like &quot;take back 1 hour a day&quot;.</p></div>
+<div class="card reveal"><span class="inum-n">2</span><h3>Read what matters</h3><p>Choose 1 of 3 books. Chapter verdicts cut it to about 3 to 4 hours.</p></div>
+<div class="card reveal"><span class="inum-n">3</span><h3>Test 1 idea</h3><p>Tick off each day you try it. 30 days tells you if it stays.</p></div>
+<div class="card reveal"><span class="inum-n">4</span><h3>Check in</h3><p>Write 1 line on what changed, and share it in the private Discord channel.</p></div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px"><h2>Your 2027, month by month</h2><p style="color:var(--muted);font-size:15px">4 areas, each 3 times. Every pick has chapter verdicts.</p></div>
+<ol class="chmonths">{monthsH}</ol>
+</section>
+
+<section class="card reveal ch-get">
+<h2 style="font-size:32px">What you get</h2>
+<ul>
+<li><b>12 monthly prompts</b> by email on the 1st, each with 3 book picks and the 1 idea to test.</li>
+<li><b>The tracker</b>: pick your book, tick off test days, keep a 1-line note. Works on your phone and saves across devices.</li>
+<li><b>A private Discord channel</b> with 1 thread a month for readers on the same problem.</li>
+<li><b>Your year card</b> in December: 12 books, 12 tests, ready to share.</li>
+</ul>
+</section>
+{faq([(html.escape(q),html.escape(a)) for q,a in ch_faq])}
+</main>
+'''+FOOT
+write(f'{R}/challenge/index.html',chal)
+
+monthsT="".join(f'''<section class="chm-t card" data-m="{i+1:02d}" data-area="{a}" {' data-locked' if i else ''}>
+<div class="chm-top"><span class="mono">{m} · {AREA_NAME[a]}</span><span class="chm-state" data-state></span></div>
+<h2 class="serif">{html.escape(t)}</h2><p>{html.escape(d)}</p>
+<div class="chm-body">
+<p class="mono">Pick your book</p>
+<div class="chm-picks" role="radiogroup" aria-label="Book for {m}">{"".join(f'<button type="button" role="radio" aria-checked="false" data-pick="{x}"><img src="{cov(x)}" alt="" width="60" height="91" loading="lazy"><span>{html.escape(_BK[x]["t"])}</span></button>' for x in bs)}</div>
+<a class="more" data-verdict href="#" hidden>Open the chapter verdicts</a>
+<div class="chm-steps"><button type="button" class="btn btn-line" data-done>I finished the parts that matter</button></div>
+<p class="mono">30-day test <span data-days>0</span>/30</p>
+<div class="chm-days" data-grid aria-label="Days tested"></div>
+<button type="button" class="btn btn-green" data-today>I tried it today</button>
+<label class="mono" for="n-{i+1:02d}">1 line: what changed?</label>
+<textarea id="n-{i+1:02d}" data-note maxlength="500" rows="2" placeholder="Wrote 1 page before email on 22 of 30 days."></textarea>
+</div>
+<div class="chm-lock" hidden><p>Unlocks with the challenge.</p></div>
+</section>''' for i,(m,a,t,d,bs) in enumerate(MONTHS))
+trk=head("My Reading Challenge 2027 tracker","Track your 12 books and 12 30-day tests for The Useful Reading Challenge 2027.","/library/challenge/tracker/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+f'<script src="/library/challenge/challenge.js?v={ver("challenge/challenge.js")}" defer></script>\n</head>\n<body data-challenge-tracker>\n'+nav("challenge")+f'''
+<main id="main" class="wrap">
+<section class="ch-year dark">
+<div><p class="mono" style="color:var(--brass)">My Reading Challenge 2027</p><h1 style="font-size:clamp(34px,5vw,52px)"><span data-ch-books>0</span> books · <span data-ch-tests>0</span> tests</h1>
+<p style="color:#C6D1CA" data-sync-line>Saved on this device. Save it to your email to keep it everywhere.</p></div>
+<div class="ch-dots" data-ch-dots aria-hidden="true"></div>
+<button type="button" class="btn btn-line-light" data-sync-open>Save my progress</button>
+</section>
+<section class="card ch-unlock" data-unlock>
+<div><h2 style="font-size:26px">January is free. Unlock the other 11 months.</h2><p style="color:var(--soft)">Paste the license key from your purchase email.</p></div>
+<form data-unlock-form novalidate><label class="vh" for="lic">License key</label><input id="lic" autocomplete="off" spellcheck="false" placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX" required><button class="btn btn-green" type="submit">Unlock</button></form>
+<p class="signup-msg" data-unlock-msg aria-live="polite"></p>
+<a class="more" href="/library/challenge/">Not joined yet? See the challenge</a>
+</section>
+<div class="chm-list">{monthsT}</div>
+</main>
+<script type="application/json" id="ch-books">{json.dumps({x:"/library/books/"+x+"/" for x in _BK})}</script>
+'''+FOOT
+write(f'{R}/challenge/tracker/index.html',trk)
+
 # ---------------- Keep sitemap.xml and llms.txt in step with every page written (new pages appear automatically)
 _ROOT=os.path.dirname(R)
 _sm=os.path.join(_ROOT,"sitemap.xml"); _s=open(_sm).read(); _add=""
 for _p in sorted(WRITTEN):
-    if "/lost/" in _p or "/shelf/" in _p or "/offline/" in _p: continue
+    if "/lost/" in _p or "/shelf/" in _p or "/offline/" in _p or "/tracker/" in _p: continue
     _u=BASE+_p
     if f"<loc>{_u}</loc>" not in _s: _add+=f"  <url><loc>{_u}</loc><lastmod>{UPDATED.get(_p,PUBLISHED)}</lastmod></url>\n"
 if _add: open(_sm,"w").write(_s.replace("</urlset>",_add+"</urlset>"))

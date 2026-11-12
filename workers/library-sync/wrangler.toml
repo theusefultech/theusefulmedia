@@ -6,3 +6,6 @@ workers_dev = true
 [[kv_namespaces]]
 binding = "SYNC"
 id = "96c536e08e4b42648a051d03e4c67f4d"
+
+[vars]
+GUMROAD_PRODUCT_ID = ""

@@ -53,6 +53,22 @@ export default {
     let b;
     try { b = await r.json(); } catch (e) { return out({ ok: false, code: "bad" }, 400); }
 
+    // Reading Challenge: check a Gumroad license key. Needs the product id in env.GUMROAD_PRODUCT_ID.
+    if (b.act === "license") {
+      const key = String(b.key || "").trim().slice(0, 80);
+      if (!/^[A-Z0-9-]{20,60}$/i.test(key)) return out({ ok: false, code: "format" }, 400);
+      if (!env.GUMROAD_PRODUCT_ID) return out({ ok: false, code: "not_ready" }, 503);
+      const ck = "lic:" + (await sha(key));
+      if (await env.SYNC.get(ck)) return out({ ok: true });
+      const g = await fetch("https://api.gumroad.com/v2/licenses/verify", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ product_id: env.GUMROAD_PRODUCT_ID, license_key: key, increment_uses_count: "false" }) });
+      let j = {};
+      try { j = await g.json(); } catch (e) {}
+      const p = j.purchase || {};
+      if (!j.success || p.refunded || p.chargebacked || p.disputed) return out({ ok: false, code: "invalid" }, 404);
+      await env.SYNC.put(ck, "1");
+      return out({ ok: true });
+    }
+
     if (b.act === "login") {
       const email = String(b.email || "").trim().toLowerCase().slice(0, 200);
       const pin = String(b.pin || "");

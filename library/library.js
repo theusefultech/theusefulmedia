@@ -875,6 +875,7 @@
         if (res && res.code === "signed_out") { me = null; store.set("sync", null, true); paint(); return null; }
         if (!res || !res.ok) return null;
         var ch = apply(res.d); lastSent = JSON.stringify(collect());
+        if (ch.length) try { document.dispatchEvent(new CustomEvent("lib:synced")); } catch (e) {}
         me.at = Date.now(); store.set("sync", me, true); paint();
         return ch;
       }).catch(function () { return null; });
@@ -951,6 +952,7 @@
         }
         me = { e: email, tk: res.token, at: Date.now() }; store.set("sync", me, true);
         var ch = apply(res.d); lastSent = JSON.stringify(collect());
+        if (ch.length) try { document.dispatchEvent(new CustomEvent("lib:synced")); } catch (e) {}
         pin.value = ""; paint();
         msg.innerHTML = '<span class="stamp-box stamp">SAVED</span> ' + (res.created ? "Your progress is saved. Use this email and PIN on any device." : "Welcome back. " + (ch.length ? "Your progress from your other device is here." : "Everything is in sync."));
         if (window.LibConfetti) window.LibConfetti($(".sheet-panel", sheet));

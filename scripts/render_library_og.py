@@ -12,6 +12,7 @@ PAGES = [("home", "THE USEFUL LIBRARY", "Fix real problems with ideas from nonfi
  ("ideas", "IDEAS", "1 idea from a book, 2 minutes to try", ["tiny-habits", "meditations", "indistractable"], "mindset"),
  ("problems", "PROBLEMS", "Pick what you want to fix. 3 fixes from 3 books.", [f["cover"] for f in PROBLEMS[0]["fixes"]], "focus"),
  ("about", "ABOUT", "Hi, I'm Raja. 70+ nonfiction books a year.", [], "habits"),
+ ("challenge", "THE USEFUL READING CHALLENGE 2027", "12 books. 12 problems fixed.", ["atomic-habits", "deep-work", "the-psychology-of-money"], "money"),
  ("books-atomic-habits", "BOOK VERDICT", "Atomic Habits: read only 6 of 20 chapters", ["atomic-habits"], "habits"),
  ("ideas-the-2-minute-rule", "IDEA", "The 2 minute rule: 2 books, 2 different rules", ["atomic-habits"], "habits")]
 PAGES += [("problems-" + P["slug"], "PROBLEM · 3 FIXES FROM 3 BOOKS", P["problem"], [f["cover"] for f in P["fixes"]], P["area"]) for P in PROBLEMS]

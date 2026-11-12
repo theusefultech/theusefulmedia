@@ -20,6 +20,7 @@
       $("[data-ch-now]", buy).textContent = "$39";
       $("[data-ch-note]", buy).textContent = "";
       $("[data-ch-then]", buy).textContent = "";
+      var ln = $("[data-ch-link]", buy); if (ln) ln.href = ln.getAttribute("data-late");
     }
   }
 

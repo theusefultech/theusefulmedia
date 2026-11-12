@@ -894,7 +894,7 @@ chal=head("The Useful Reading Challenge 2027: 12 books, 12 changes","Read 1 nonf
 <div data-ch-before><p class="ch-price"><b>$29</b> early-bird from 1 Dec<small>$39 from 1 Jan</small></p>
 <form class="signup" data-life-signup data-campaign="challenge-waitlist" novalidate><label class="vh" for="em-chw">Email address</label><input id="em-chw" type="email" autocomplete="email" placeholder="you@email.com" required><button class="btn btn-brass" type="submit">Email me on 1 Dec</button></form><div class="signup-msg" aria-live="polite"></div></div>
 <div data-ch-after hidden><p class="ch-price"><b data-ch-now>$29</b> <span data-ch-note>early-bird until 31 Dec</span><small data-ch-then>$39 from 1 Jan</small></p>
-<a class="btn btn-brass gumroad-button" href="{GUMROAD}?wanted=true" style="font-size:18px;padding:16px 28px">Join the challenge</a></div>
+<a class="btn btn-brass gumroad-button" data-ch-link href="{GUMROAD}/EARLYBIRD?wanted=true" data-late="{GUMROAD}?wanted=true" style="font-size:18px;padding:16px 28px">Join the challenge</a></div>
 <a class="ch-try" href="/library/challenge/tracker/">Try January free in the tracker</a>
 </div></div>
 <div class="ch-stack rise d2" aria-hidden="true">{_covers(["atomic-habits","deep-work","the-psychology-of-money","meditations"],120)}</div>

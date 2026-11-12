@@ -633,6 +633,16 @@
   });
   var allDone = $("[data-alldone]");
   if (allDone) new MutationObserver(function () { if (!allDone.hidden) setTimeout(function () { window.LibAsk(allDone, "done"); }, 500); }).observe(allDone, { attributes: true, attributeFilter: ["hidden"] });
+  // ----- Book links: Amazon.in with Raja's Associates tag for readers in India, Amazon.com for everyone else -----
+  var inIndia = (function () { try { var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; return /^Asia\/(Kolkata|Calcutta)$/.test(tz) || /-IN$/i.test(navigator.language || ""); } catch (e) { return false; } })();
+  window.LibBuy = function (a) {
+    var q = encodeURIComponent((a.getAttribute("data-buy") || "").trim()).replace(/%20/g, "+");
+    if (!q) return;
+    a.href = inIndia ? "https://www.amazon.in/s?k=" + q + "&i=stripbooks&tag=theusefultech-21" : (a.getAttribute("href") && a.getAttribute("href") !== "#" ? a.getAttribute("href") : "https://www.amazon.com/s?k=" + q + "&i=stripbooks");
+    a.setAttribute("rel", "sponsored noopener"); a.setAttribute("target", "_blank");
+  };
+  $$("[data-buy]").forEach(function (a) { if (a.getAttribute("data-buy")) window.LibBuy(a); });
+
   // ===================== Phase 1: life and motion =====================
   var fine = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
 

@@ -111,6 +111,7 @@
       d.style.animationDelay = (0.25 + i * 0.09).toFixed(2) + "s"; g.appendChild(d);
     });
     $("[data-r-idea]").textContent = pz.idea;
+    var buy = document.querySelector("[data-r-buy]"); if (buy) { buy.setAttribute("data-buy", pz.a + " " + pz.by.split(",")[0]); if (window.LibBuy) window.LibBuy(buy); }
     var link = $("[data-r-link]");
     if (pz.url) { link.href = pz.url; link.hidden = false; } else link.hidden = true;
     if (animate) { var c = $("[data-r-card]"); c.classList.remove("flipin"); void c.offsetWidth; c.classList.add("flipin");

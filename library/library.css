@@ -518,3 +518,4 @@ html.dk .freeze-chip{background:#22324A;color:#BFD3F2}
 @media (prefers-reduced-motion:reduce){.hl{transition:none;background-size:100% 100%}.peek-dog,.peek-bubble{transition:none}.tile .art-box *{animation:none!important}.ribbon{transition:none}}
 @keyframes thump{0%,100%{transform:none}15%{transform:translateY(3px) scale(.995)}30%{transform:translate(-3px,-1px)}45%{transform:translate(2px,1px)}60%{transform:translate(-1px,0)}}
 main.thump{animation:thump .45s var(--ease)}
+.aff-note{font-size:12px;color:var(--muted);flex-basis:100%}

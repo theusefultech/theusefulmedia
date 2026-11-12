@@ -1,0 +1,21 @@
+name: Deploy Library Workers
+on:
+  push:
+    branches: [main]
+    paths: ["workers/**", ".github/workflows/deploy-workers.yml"]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        worker: [library-sync, library-search]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 8228f116d9475a10166686e7391f95ef
+          workingDirectory: workers/${{ matrix.worker }}
+          command: deploy

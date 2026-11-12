@@ -317,8 +317,8 @@
       (function poll() { var w = widgets.get(f); if (w && w.token) return res(w.token); if (Date.now() - t0 > ms) return res(""); setTimeout(poll, 150); })();
     });
   }
-  forms.forEach(function (f) {
-    var input = $("input[type=email]", f), btn = $("button", f), msg = f.parentNode.querySelector(".signup-msg"), label = btn.textContent;
+  function bindSignup(f) {
+    var input = $("input[type=email]", f), btn = $("button[type=submit]", f) || $("button", f), msg = f.parentNode.querySelector(".signup-msg"), label = btn.textContent;
     f.addEventListener("focusin", loadTS);
     function say(t) { msg.textContent = t; f.classList.remove("shake"); void f.offsetWidth; f.classList.add("shake"); }
     function fallback(email) { location.href = LIFE + "?email=" + encodeURIComponent(email) + "&utm_source=theusefulmedia.com&utm_medium=library"; }
@@ -338,6 +338,7 @@
         var w = widgets.get(f); try { if (w && window.turnstile) { w.token = ""; window.turnstile.reset(w.id); } } catch (er) {}
         btn.disabled = false; btn.textContent = label;
         if (res && res.ok) {
+          store.set("subscribed", true);
           f.hidden = true;
           msg.innerHTML = '<span class="stamp-box stamp">CARD ISSUED</span> ' + (res.existing ? "You were already on the list. Next lesson soon." : "You&#39;re in. Your first lesson lands with the next issue.");
           return;
@@ -346,5 +347,100 @@
         say(MSG[res && res.code] || MSG.server);
       }).catch(function (er) { try { console.warn("Library signup fell back", er); } catch (x) {} fallback(email); });
     });
+  }
+  forms.forEach(bindSignup);
+  window.LibBindSignup = function (f) { forms.push(f); bindSignup(f); loadTS(); setTimeout(initTS, 50); };
+  // ---------- Come back tomorrow: home screen, calendar, email ----------
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    window.addEventListener("load", function () { navigator.serviceWorker.register("/library/sw.js", { scope: "/library/" }).catch(function () {}); });
+  }
+  var ua = navigator.userAgent;
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+  var standalone = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+  if (standalone) store.set("did:install", true);
+  var deferredInstall = null;
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferredInstall = e; });
+  window.addEventListener("appinstalled", function () { store.set("did:install", true); paintStay(); });
+  var guide = $("[data-ios-guide]");
+  function openGuide() { if (!guide) return; guide.hidden = false; document.body.classList.add("lock"); var b = $("[data-guide-close].btn", guide); if (b) b.focus(); }
+  $$("[data-guide-close]").forEach(function (b) { b.addEventListener("click", function () { guide.hidden = true; document.body.classList.remove("lock"); }); });
+  function install() {
+    if (standalone) return;
+    if (deferredInstall) { deferredInstall.prompt(); deferredInstall.userChoice.then(function (c) { if (c.outcome === "accepted") { store.set("did:install", true); paintStay(); } deferredInstall = null; }); return; }
+    if (isIOS) { closeSheet(); openGuide(); return; }
+    openDeskTip();
+  }
+  function openDeskTip() {
+    var t = document.createElement("div"); t.className = "ask pop"; t.setAttribute("role", "status");
+    t.style.cssText = "position:fixed;left:16px;right:16px;bottom:24px;z-index:95;max-width:520px;margin:0 auto";
+    t.innerHTML = '<div class="ask-t"><b>Bookmark the Library</b><span>Press ' + (/Mac/.test(ua) ? "Cmd" : "Ctrl") + ' + D now, or use your browser menu to install it as an app.</span></div><div class="ask-go"><button type="button" class="btn btn-green">Got it</button></div>';
+    document.body.appendChild(t); $("button", t).addEventListener("click", function () { t.remove(); });
+    store.set("did:install", true); setTimeout(function () { if (t.parentNode) t.remove(); }, 9000); paintStay();
+  }
+  function calendar(e) {
+    store.set("did:cal", true); paintStay();
+    if (isAndroid) {
+      e.preventDefault();
+      var d = new Date(); d.setDate(d.getDate() + 1);
+      var ymd = d.getFullYear() + String(d.getMonth() + 1).padStart(2, "0") + String(d.getDate()).padStart(2, "0");
+      location.href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("Mystery Book: guess today's book") +
+        "&dates=" + ymd + "T083000/" + ymd + "T083500&recur=" + encodeURIComponent("RRULE:FREQ=DAILY") +
+        "&details=" + encodeURIComponent("2 minutes. 6 clues. 1 nonfiction book. https://theusefulmedia.com/library/game/");
+    }
+  }
+  function paintStay() {
+    $$("[data-install]").forEach(function (b) { b.classList.toggle("done", !!store.get("did:install", false)); });
+    $$("[data-cal]").forEach(function (b) { b.classList.toggle("done", !!store.get("did:cal", false)); });
+  }
+  $$("[data-install]").forEach(function (b) { b.addEventListener("click", install); });
+  $$("[data-cal]").forEach(function (b) { b.addEventListener("click", calendar); });
+  paintStay();
+
+  // The ask: 1 per visit, only after a moment of value, never repeated within 14 days of a "Not now"
+  var ICONS = {
+    install: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M12 8v6M9 11l3 3 3-3"/></svg>',
+    cal: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>',
+    email: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>'
+  };
+  function snoozed(k) { var t = store.get("snooze:" + k, 0); return t && Date.now() - t < 14 * 86400000; }
+  function asked() { try { return sessionStorage.getItem("lib:asked") === "1"; } catch (e) { return false; } }
+  window.LibAsk = function (anchor, moment) {
+    if (!anchor || asked()) return;
+    var copy = {
+      win: { install: ["Make tomorrow's book 1 tap away", "Add the Library to your home screen. It opens like an app."], cal: ["Keep your streak alive", "Add a 2-minute daily reminder for Mystery Book."], email: ["Get a new book idea 3 times a week", "The Useful Life newsletter. Free."] },
+      test: { cal: ["Day 7 is where most tests die", "Add a daily 2-minute reminder so you don't miss twice."], install: ["Track your test from your home screen", "Add the Library. Tick each day in 1 tap."], email: ["Get 1 more idea to test, 3 times a week", "The Useful Life newsletter. Free."] },
+      done: { email: ["Liked that? Get 3 more a week", "Lessons from real books, by email. Free."], install: ["Come back to it anytime", "Add the Library to your home screen."], cal: ["Make it a habit", "Add a daily 2-minute reminder."] }
+    }[moment] || {};
+    var order = moment === "test" ? ["cal", "install", "email"] : (moment === "done" ? ["email", "install", "cal"] : (isIOS || isAndroid ? ["install", "email", "cal"] : ["email", "cal", "install"]));
+    var pick = null;
+    for (var i = 0; i < order.length; i++) {
+      var k = order[i];
+      if (snoozed(k)) continue;
+      if (k === "install" && (standalone || store.get("did:install", false))) continue;
+      if (k === "cal" && store.get("did:cal", false)) continue;
+      if (k === "email" && store.get("subscribed", false)) continue;
+      pick = k; break;
+    }
+    if (!pick || !copy[pick]) return;
+    try { sessionStorage.setItem("lib:asked", "1"); } catch (e) {}
+    var c = document.createElement("div"); c.className = "ask rise"; c.setAttribute("role", "region"); c.setAttribute("aria-label", "Stay in the loop");
+    var go = pick === "install" ? '<button type="button" class="btn btn-green" data-a="install">' + (isIOS ? "Show me how" : "Add it") + '</button>'
+      : pick === "cal" ? '<a class="btn btn-green" data-a="cal" href="/library/mystery-book.ics">Add reminder</a>' : '';
+    c.innerHTML = '<div class="ask-ic">' + ICONS[pick] + '</div><div class="ask-t"><b></b><span></span></div><div class="ask-go">' + go + '<button type="button" class="later">Not now</button></div>' +
+      (pick === "email" ? '<form data-life-signup data-campaign="ask-' + moment + '" novalidate><label class="vh" for="ask-em">Email address</label><input id="ask-em" type="email" autocomplete="email" placeholder="you@email.com" required><button class="btn btn-green" type="submit">Send me the lessons</button></form><div class="signup-msg" aria-live="polite"></div>' : '');
+    $(".ask-t b", c).textContent = copy[pick][0]; $(".ask-t span", c).textContent = copy[pick][1];
+    anchor.parentNode.insertBefore(c, anchor.nextSibling);
+    var b = $("[data-a=install]", c); if (b) b.addEventListener("click", function () { install(); c.remove(); });
+    var cl = $("[data-a=cal]", c); if (cl) cl.addEventListener("click", function (e) { calendar(e); setTimeout(function () { c.remove(); }, 300); });
+    $(".later", c).addEventListener("click", function () { store.set("snooze:" + pick, Date.now()); c.remove(); });
+    var f = $("form", c); if (f && window.LibBindSignup) window.LibBindSignup(f);
+  };
+  // Checklist finished and 30-day test started trigger the ask
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest && e.target.closest("[data-start]");
+    if (t) setTimeout(function () { window.LibAsk(t.closest("[data-test]"), "test"); }, 600);
   });
+  var allDone = $("[data-alldone]");
+  if (allDone) new MutationObserver(function () { if (!allDone.hidden) setTimeout(function () { window.LibAsk(allDone, "done"); }, 500); }).observe(allDone, { attributes: true, attributeFilter: ["hidden"] });
 })();

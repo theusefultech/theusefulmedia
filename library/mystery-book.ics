@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Useful Media Co//The Useful Library//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:mystery-book-daily@theusefulmedia.com
+DTSTAMP:20261112T000000Z
+DTSTART:20261113T083000
+DURATION:PT5M
+RRULE:FREQ=DAILY
+SUMMARY:Mystery Book: guess today's book
+DESCRIPTION:2 minutes. 6 clues. 1 nonfiction book. https://theusefulmedia.com/library/game/
+URL:https://theusefulmedia.com/library/game/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Today's Mystery Book is ready
+TRIGGER:PT0M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

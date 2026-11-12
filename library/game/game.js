@@ -89,7 +89,8 @@
     $("[data-r-idea]").textContent = pz.idea;
     var link = $("[data-r-link]");
     if (pz.url) { link.href = pz.url; link.hidden = false; } else link.hidden = true;
-    if (animate) { var c = $("[data-r-card]"); c.classList.remove("flipin"); void c.offsetWidth; c.classList.add("flipin"); }
+    if (animate) { var c = $("[data-r-card]"); c.classList.remove("flipin"); void c.offsetWidth; c.classList.add("flipin");
+      setTimeout(function () { if (window.LibAsk) window.LibAsk(c.parentNode.children[1], "win"); }, 1400); }
     var st = streak(); document.querySelector("[data-streak]").textContent = st + (st === 1 ? " day" : " days");
   }
   function streak() {

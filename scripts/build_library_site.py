@@ -34,6 +34,12 @@ def head(title, desc, path, extra_ld=None, og='/library/og.png'):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#EEF0EC">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/library/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/library/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Library">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preload" href="/library/fonts/dm-serif-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/library/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/library/library.css?v={ver('library.css')}">
@@ -65,10 +71,24 @@ def nav(cur):
 <div class="sheet" data-sheet hidden><div class="sheet-backdrop" data-menu-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="sheet-grip" aria-hidden="true"></div>
 <a href="/library/">Home</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/books/atomic-habits/">Books: Atomic Habits</a><a href="/library/ideas/the-2-minute-rule/">Ideas: The 2 minute rule</a>
-<a class="btn btn-green" href="/library/#signup" data-menu-close>Get the free lessons</a>
+{STAY_BLOCK}
 <button type="button" class="btn btn-line" data-menu-close>Close</button></div></div>'''
 
-FOOT='''<footer class="wrap"><div class="lib-foot"><div>The Useful Library is part of The Useful Life, from <a href="/">The Useful Media Co</a>.</div><div><a href="/library/game/">Daily game</a> · <a href="/tech/">The Useful Tech</a> · <a href="/contact/">Contact</a></div></div></footer>
+STAY_BLOCK='''<div class="stay" data-stay>
+<p class="mono">Never miss a day</p>
+<div class="stay-row">
+<button type="button" class="stay-btn" data-install><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M12 8v6M9 11l3 3 3-3"/></svg><span><b>Add to home screen</b><small>Opens like an app</small></span></button>
+<a class="stay-btn" href="/library/mystery-book.ics" data-cal><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M12 13.5v4M10 15.5h4"/></svg><span><b>Add a daily reminder</b><small>2 minutes in your calendar</small></span></a>
+<a class="stay-btn" href="/library/#signup" data-menu-close><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg><span><b>Get the lessons by email</b><small>3 a week, free</small></span></a>
+</div></div>'''
+FOOT='''<footer class="wrap"><div class="stay-foot">'''+STAY_BLOCK+'''</div><div class="lib-foot"><div>The Useful Library is part of The Useful Life, from <a href="/">The Useful Media Co</a>.</div><div><a href="/library/game/">Daily game</a> · <a href="/tech/">The Useful Tech</a> · <a href="/contact/">Contact</a></div></div></footer>
+<div class="sheet" data-ios-guide hidden><div class="sheet-backdrop" data-guide-close></div>
+<div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Add to home screen"><div class="sheet-grip" aria-hidden="true"></div>
+<p class="serif" style="font-size:28px;line-height:1.1">Add the Library to your home screen</p>
+<div class="guide-step"><span class="guide-n">1</span><span>Tap the <b>Share</b> button <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="bob"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11v8.5A1.5 1.5 0 0 0 7.5 21h9a1.5 1.5 0 0 0 1.5-1.5V11"/></svg> in Safari&#39;s bar.</span></div>
+<div class="guide-step"><span class="guide-n">2</span><span>Scroll down and tap <b>Add to Home Screen</b>.</span></div>
+<div class="guide-step"><span class="guide-n">3</span><span>Tap <b>Add</b>. The Library opens like an app, with today&#39;s game 1 tap away.</span></div>
+<button type="button" class="btn btn-green" data-guide-close>Got it</button></div></div>
 </body>
 </html>
 '''
@@ -356,3 +376,12 @@ idea=head("The 2 minute rule: Atomic Habits vs Getting Things Done","There are 2
 '''+FOOT
 write(f'{R}/ideas/the-2-minute-rule/index.html',idea)
 print("book, idea ok")
+
+# ---------------- OFFLINE page (not indexed)
+off=head("You're offline: The Useful Library","You're offline.","/library/offline/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("home")+'''
+<main id="main" class="wrap"><section class="card" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;margin-top:20px">
+<p class="mono">No connection</p><h1 style="font-size:44px">You're offline</h1><p class="lede">Pages you opened before still work. Today's game needs a connection to load.</p>
+<a class="btn btn-green" href="/library/">Try again</a></section></main>
+'''+FOOT
+write(f'{R}/offline/index.html',off)
+print("offline ok")

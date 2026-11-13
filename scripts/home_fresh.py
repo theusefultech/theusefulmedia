@@ -104,8 +104,12 @@ def main():
             if kind in old:
                 cards.append(old[kind])
     new = "<!-- fresh:start -->\n" + "\n".join(cards) + "\n<!-- fresh:end -->"
-    if new != m.group(0):
-        INDEX.write_text(s[:m.start()] + new + s[m.end():])
+    books = len([d for d in (ROOT / "library/books").iterdir() if d.is_dir()])
+    s = re.sub(r"(<b data-books>)\d+(</b>)", rf"\g<1>{books}\2", s)
+    m = re.search(r"<!-- fresh:start -->(.*?)<!-- fresh:end -->", s, re.S)
+    out = s[:m.start()] + new + s[m.end():]
+    if out != INDEX.read_text():
+        INDEX.write_text(out)
         print("home fresh updated")
     else:
         print("home fresh unchanged")

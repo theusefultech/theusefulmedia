@@ -61,6 +61,8 @@ def main():
             if not own and needle in raw:
                 out["retired"].append({"page": rel, "thing": name})
         for a in live:
+            for m in re.finditer(re.escape(a["name"]) + r"\s+(?:beta|coming soon|is coming)\b", t, re.I):
+                out["liveCalledSoon"].append({"page": rel, "app": a["name"], "text": m.group(0)})
             for m in SOON.finditer(t):
                 window = t[max(0, m.start() - 200): m.end() + 200]
                 if a["name"] in window:

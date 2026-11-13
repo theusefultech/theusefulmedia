@@ -9,7 +9,7 @@
 
   // ---------- Where the buttons go ----------
   // Launch day: set APP_STORE_URL and the buttons become App Store downloads.
-  var APP_STORE_URL = "";
+  var APP_STORE_URL = "https://apps.apple.com/app/wristkeeper-watch-collection/id6819904928?ct=landing";
   var BETA = "https://testflight.apple.com/join/s1WWcVCV";
 
   // ---------- Headline A/B test (50/50, sticky per visitor; ?v=a or ?v=b to force) ----------

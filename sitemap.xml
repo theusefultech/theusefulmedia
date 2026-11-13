@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://theusefulmedia.com/</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://theusefulmedia.com/sponsor/</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://theusefulmedia.com/tech/</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://theusefulmedia.com/advertise/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://theusefulmedia.com/tech/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://theusefulmedia.com/products/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/free/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/studio/</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://theusefulmedia.com/rosewood/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://theusefulmedia.com/wristkeeper/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/about/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/contact/</loc><lastmod>2026-11-13</lastmod></url>
@@ -61,8 +60,9 @@
   <url><loc>https://theusefulmedia.com/library/problems/overthinking/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/library/problems/start-investing/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/library/problems/start-strong-then-quit/</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://theusefulmedia.com/network/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://theusefulmedia.com/network/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://theusefulmedia.com/our-apps/</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://theusefulmedia.com/rosewood/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://theusefulmedia.com/rosewood/privacy/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/rosewood/support/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/studio/explainer-videos-with-claude-code/</loc><lastmod>2026-11-13</lastmod></url>
@@ -128,9 +128,9 @@
   <url><loc>https://theusefulmedia.com/tech/library/useful-studio-15-to-90-second-videos-made-inside-claude-code/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/tech/library/your-ai-has-nothing-to-read/</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://theusefulmedia.com/wristkeeper/cost-per-wear/</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://theusefulmedia.com/wristkeeper/credits/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://theusefulmedia.com/wristkeeper/credits/</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://theusefulmedia.com/wristkeeper/press/</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://theusefulmedia.com/wristkeeper/privacy/</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://theusefulmedia.com/wristkeeper/support/</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://theusefulmedia.com/wristkeeper/terms/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://theusefulmedia.com/wristkeeper/privacy/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://theusefulmedia.com/wristkeeper/support/</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://theusefulmedia.com/wristkeeper/terms/</loc><lastmod>2026-11-12</lastmod></url>
 </urlset>

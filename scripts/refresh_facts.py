@@ -28,7 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FACTS = ROOT / "sponsor" / "facts.json"
 SLOTS = ROOT / "sponsor" / "slots.json"
 STATS_URL = "https://mymedium.info/@theusefultech/"
-PAGES = ["index.html", "about/index.html", "sponsor/index.html", "studio/index.html",
+PAGES = ["index.html", "about/index.html", "advertise/index.html", "studio/index.html",
          "products/index.html", "network/index.html", "tech/index.html", "llms.txt"]
 
 

@@ -11,7 +11,7 @@ import datetime, pathlib, re, subprocess
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://theusefulmedia.com"
 SKIP_DIRS = {".git", ".github", "scripts", "assets", "node_modules"}
-PRIORITY = ["", "sponsor/", "tech/", "products/", "free/", "studio/", "rosewood/", "wristkeeper/", "about/", "contact/", "links/"]
+PRIORITY = ["", "advertise/", "tech/", "products/", "free/", "studio/", "wristkeeper/", "about/", "contact/", "links/"]
 
 
 def last_commit(path):

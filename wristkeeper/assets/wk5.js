@@ -21,7 +21,8 @@
   // Each variant's clicks go through its own counted page, then on to TestFlight.
   $$("[data-cta]").forEach(function (a) {
     if (APP_STORE_URL) {
-      a.href = APP_STORE_URL;
+      // Through the variant's counted page (it forwards to the App Store), so the headline test keeps its click data.
+      a.href = "/wristkeeper/go/" + v + "/";
       var l = $("[data-cta-label]", a);
       if (l) l.textContent = l.textContent === "Join" ? "Get it" : "Download free";
     } else {

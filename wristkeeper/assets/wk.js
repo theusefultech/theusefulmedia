@@ -35,7 +35,7 @@
   // Launch day: paste the App Store link between the quotes, for example
   // "https://apps.apple.com/app/wristkeeper/id0000000000". Every badge on the
   // Wristkeeper pages then reads "Download on the App Store" and links there.
-  var APP_STORE_URL = "";
+  var APP_STORE_URL = "https://apps.apple.com/app/wristkeeper-watch-collection/id6819904928?ct=press";
   if (APP_STORE_URL) {
     $$("[data-store-badge]").forEach(function (b) {
       b.setAttribute("href", APP_STORE_URL);

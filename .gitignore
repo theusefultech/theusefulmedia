@@ -1,3 +1,4 @@
 .claude/
 .DS_Store
 __pycache__/
+scripts/freshness_report.json

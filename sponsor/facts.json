@@ -8,11 +8,62 @@
   "newsletterSubs": "1,333",
   "openRate": "55%",
   "clickRate": "1.5%",
-  "discord": "250+",
   "sponsors": "31",
   "usShare": "53%",
   "appleShare": "89%",
   "macShare": "46%",
   "iphoneShare": "43%",
-  "topPostViews": "156K"
+  "topPostViews": "156K",
+  "guides": "35",
+  "apps": [
+    {
+      "name": "Wristkeeper",
+      "status": "live",
+      "since": "2026-11-13",
+      "platform": "iPhone",
+      "price": "Free for 3 watches, Pro from $3.99 a month",
+      "line": "Picks which of your watches to wear each morning and shows what each one costs per wear.",
+      "page": "/wristkeeper/",
+      "store": "https://apps.apple.com/app/wristkeeper-watch-collection/id6819904928"
+    },
+    {
+      "name": "Textlore",
+      "status": "live",
+      "since": "2026-10",
+      "platform": "Mac",
+      "price": "14-day free trial, then from $20 once",
+      "line": "Search, browse and export your whole Messages history on your Mac. Nothing leaves your Mac.",
+      "page": "https://textlore.app/",
+      "store": "https://textlore.app/"
+    }
+  ],
+  "brands": {
+    "active": [
+      "The Useful Tech",
+      "The Useful Life"
+    ],
+    "retired": [
+      "The Useful Creator",
+      "The Useful Gaming"
+    ]
+  },
+  "retired": {
+    "Rosewood Music Box": "/rosewood/",
+    "The Useful Tech Club (Discord)": "discord.gg/WjfenUSZp4",
+    "The Useful Creator": "the-useful-creator",
+    "The Useful Gaming": "theusefulgaming"
+  },
+  "focus": {
+    "what": "Wristkeeper launch",
+    "until": "2026-11-19",
+    "url": "https://apps.apple.com/app/wristkeeper-watch-collection/id6819904928",
+    "bio": "New: Wristkeeper, my iPhone app for watch collectors",
+    "next": {
+      "what": "Black Friday Mac and iPhone app deals",
+      "from": "2026-11-20",
+      "until": "2026-12-02",
+      "url": "https://theusefulmedia.com/apps/deals/",
+      "bio": "Every Black Friday Mac and iPhone app deal, checked daily"
+    }
+  }
 }

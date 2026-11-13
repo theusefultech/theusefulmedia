@@ -1,0 +1,27 @@
+name: Library bookshelves
+# Daily: pulls book recommendations from the YouTube transcript engine (D1) and builds the Library's
+# "Books {person} recommends" pages and the most-recommended ranking. Approved by Raja 13 Nov 2026 ("A").
+on:
+  schedule:
+    - cron: "41 17 * * *"   # 23:11 in Chennai, after the nightly extraction
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: library-recs, cancel-in-progress: false }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Pull book picks
+        env: { CLOUDFLARE_API_TOKEN: "${{ secrets.CLOUDFLARE_API_TOKEN }}" }
+        run: python3 scripts/library_recs_pull.py
+      - name: Build bookshelf pages
+        run: python3 scripts/library_recs.py
+      - name: Save
+        run: |
+          git config user.name "useful-library-bot"
+          git config user.email "bot@theusefulmedia.com"
+          git add library/data/recs.json library/people library/recommended sitemap.xml 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Library bookshelves: daily update" && (git push || (git pull --rebase && git push)))

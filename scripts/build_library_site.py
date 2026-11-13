@@ -367,7 +367,7 @@ book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic H
 <div class="card rise d2 row" style="padding:22px 24px;align-items:center;gap:20px">
 <span class="stamp-box stamp d4">READ 6 OF 20</span>
 <p style="flex:1 1 280px;font-size:17px"><b>The Useful verdict:</b> <span class="hl">worth it, but not cover to cover.</span> 6 chapters carry the whole system. The rest repeats it with stories.</p></div>
-<div class="rise d3" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-green" href="https://jamesclear.com/atomic-habits" rel="noopener" data-buy="Atomic Habits James Clear">Get the book</a><button type="button" class="btn btn-line" data-shelf="atomic-habits">Add to my shelf</button></div>
+<div class="rise d3" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-green" href="https://jamesclear.com/atomic-habits" rel="noopener" data-buy="Atomic Habits James Clear">Get the book</a><button type="button" class="btn btn-line" data-shelf="atomic-habits">Add to my shelf</button><button type="button" class="btn btn-line" data-read="atomic-habits">I've read this</button></div>
 </div>
 </section>
 
@@ -837,7 +837,7 @@ def book_page(B):
 <div class="card rise d2 row" style="padding:22px 24px;align-items:center;gap:20px">
 <span class="stamp-box stamp d4">READ {nread} OF {len(units)}</span>
 <p style="flex:1 1 280px;font-size:17px"><b>The Useful verdict:</b> <span class="hl">{html.escape(B["verdict"].split(". ")[0])}.</span> {html.escape(B["verdict"].split(". ",1)[1]) if ". " in B["verdict"] else ""}</p></div>
-<div class="rise d3" style="display:flex;gap:10px;flex-wrap:wrap" data-hero-actions><a class="btn btn-green" href="#" data-buy="{html.escape(B["t"]+" "+B["by"].split(" and ")[0])}">Get the book</a><button type="button" class="btn btn-line" data-shelf="{B["slug"]}">Add to my shelf</button><button type="button" class="btn btn-line" data-share-card="/library/og/card-{B["slug"]}.png" data-share-title="{html.escape(B["t"])}: read {nread} of {len(units)}">Share the verdict</button></div>
+<div class="rise d3" style="display:flex;gap:10px;flex-wrap:wrap" data-hero-actions><a class="btn btn-green" href="#" data-buy="{html.escape(B["t"]+" "+B["by"].split(" and ")[0])}">Get the book</a><button type="button" class="btn btn-line" data-shelf="{B["slug"]}">Add to my shelf</button><button type="button" class="btn btn-line" data-read="{B["slug"]}">I've read this</button><button type="button" class="btn btn-line" data-share-card="/library/og/card-{B["slug"]}.png" data-share-title="{html.escape(B["t"])}: read {nread} of {len(units)}">Share the verdict</button></div>
 </div>
 </section>
 {summary_block}

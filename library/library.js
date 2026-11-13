@@ -266,6 +266,15 @@
     var key = "shelf:" + b.getAttribute("data-shelf");
     function paint() { var on = store.get(key, false); b.setAttribute("aria-pressed", String(on)); b.textContent = on ? "On your shelf" : "Add to my shelf"; b.className = on ? "btn btn-ink" : "btn btn-line"; }
     b.addEventListener("click", function () { store.set(key, !store.get(key, false)); paint(); });
+    b.addEventListener("repaint", paint);
+    paint();
+  });
+
+  // I've read this (13 Nov 2026, Raja): marks a book as read on this device; reading a book also puts it on the shelf
+  $$("[data-read]").forEach(function (b) {
+    var slug = b.getAttribute("data-read"), key = "read:" + slug;
+    function paint() { var on = store.get(key, false); b.setAttribute("aria-pressed", String(on)); b.textContent = on ? "Read it" : "I've read this"; b.className = on ? "btn btn-ink" : "btn btn-line"; }
+    b.addEventListener("click", function () { var on = !store.get(key, false); store.set(key, on); if (on) store.set("shelf:" + slug, true); paint(); $$('[data-shelf="' + slug + '"]').forEach(function (x) { x.dispatchEvent(new Event("repaint")); }); });
     paint();
   });
 

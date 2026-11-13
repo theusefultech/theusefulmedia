@@ -18,7 +18,7 @@ for r in rows:
     title, author = r["entity"], ""
     m = re.match(r"^(.*?)\s+by\s+(.+)$", title)
     if m: title, author = m.group(1), m.group(2)
-    p["books"].append({"title": title.strip(), "author": author.strip(), "note": r["note"] or "", "video": r["video_id"], "ts": r["ts"] or 0, "date": r["vdate"]})
+    p["books"].append({"title": title.strip(), "author": author.strip(), "note": r["note"] or "", "video": r["video_id"], "url": r.get("url"), "ts": r["ts"] or 0, "date": r["vdate"]})
     k = re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
     x = rank.setdefault(k, {"title": title.strip(), "author": author.strip(), "people": []})
     if p["slug"] not in x["people"]: x["people"].append(p["slug"])

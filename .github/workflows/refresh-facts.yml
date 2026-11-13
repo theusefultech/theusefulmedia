@@ -27,6 +27,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: python3 scripts/refresh_facts.py
+      - run: python3 scripts/home_fresh.py || true
       - name: Commit changes
         run: |
           if [ -n "$(git status --porcelain)" ]; then

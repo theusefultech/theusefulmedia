@@ -12,7 +12,7 @@ def api(method, path, body=None):
         j = json.load(r)
     if not j.get("success"): raise SystemExit(str(j.get("errors"))[:300])
     return j["result"]
-acc = os.environ.get("CLOUDFLARE_ACCOUNT_ID") or api("GET", "/accounts?per_page=5")[0]["id"]
+acc = os.environ.get("CLOUDFLARE_ACCOUNT_ID") or "8228f116d9475a10166686e7391f95ef"  # The Useful Media Co Cloudflare account
 rows = api("POST", f"/accounts/{acc}/d1/database/{DB}/query", {"sql": "SELECT person, channel, entity, ekey, note, video_id, ts, vdate FROM yt_mentions WHERE etype = 'book' AND mtype IN ('recommends','uses','mentions') ORDER BY vdate DESC, id DESC"})[0]["results"]
 slug = lambda s: re.sub(r"[^a-z0-9]+", "-", str(s).lower()).strip("-")[:60]
 people, rank = {}, {}

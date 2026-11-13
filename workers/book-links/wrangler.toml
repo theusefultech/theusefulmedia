@@ -1,0 +1,7 @@
+name = "book-links"
+main = "index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+routes = [
+  { pattern = "theusefulmedia.com/go/*", zone_name = "theusefulmedia.com" }
+]

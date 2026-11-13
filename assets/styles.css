@@ -1323,3 +1323,12 @@ a.qitem:hover { opacity: 1; }
   .nav::-webkit-scrollbar { display: none; }
   .nav a { flex: none; }
 }
+
+/* 13 Nov 2026: "My apps" row on the homepage is a real card, not a dashed placeholder */
+.cell--apps { border-style: solid; background: #0C0B12; border-color: #0C0B12; color: #EDECF5; }
+.cell--apps .what { color: #B9B6CC; }
+.cell--apps .what b { color: #EDECF5; }
+.cell--apps .chip { color: #EDECF5; border-color: rgba(237, 236, 245, 0.35); }
+.cell--apps .links li:first-child .chip { background: #D4F75C; border-color: #D4F75C; color: #0C0B12; }
+.cell--apps .links { margin-left: auto; }
+@media (max-width: 760px) { .cell--apps .links { margin-left: 0; } }

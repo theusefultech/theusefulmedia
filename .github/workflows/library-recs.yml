@@ -22,5 +22,5 @@ jobs:
         run: |
           git config user.name "useful-library-bot"
           git config user.email "bot@theusefulmedia.com"
-          git add library/data/recs.json library/people library/recommended sitemap.xml 2>/dev/null || true
+          for f in library/data/recs.json library/people library/recommended sitemap.xml; do if [ -e "$f" ]; then git add "$f"; fi; done
           git diff --cached --quiet || (git commit -m "Library bookshelves: daily update" && (git push || (git pull --rebase && git push)))

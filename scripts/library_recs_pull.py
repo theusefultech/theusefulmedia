@@ -1,19 +1,11 @@
 #!/usr/bin/env python3
-"""Pulls book recommendations from the YouTube transcript engine (Cloudflare D1 useful-apps, table yt_mentions)
-into library/data/recs.json for scripts/library_recs.py. Runs in GitHub Actions with CLOUDFLARE_API_TOKEN."""
+"""Pulls book recommendations from the YouTube transcript engine (public feed on theusefulmedia.com/apps/api/yt/books)
+into library/data/recs.json for scripts/library_recs.py. Runs daily in GitHub Actions."""
 import json, os, re, urllib.request, datetime
-DB = "2d537ca2-0fc2-4c23-ad31-e36e24df8e9a"
-TOKEN = os.environ["CLOUDFLARE_API_TOKEN"]
+FEED = "https://theusefulmedia.com/apps/api/yt/books"  # public read-only feed from the transcript engine
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-def api(method, path, body=None):
-    req = urllib.request.Request("https://api.cloudflare.com/client/v4" + path, method=method, data=json.dumps(body).encode() if body else None,
-                                 headers={"authorization": "Bearer " + TOKEN, "content-type": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        j = json.load(r)
-    if not j.get("success"): raise SystemExit(str(j.get("errors"))[:300])
-    return j["result"]
-acc = os.environ.get("CLOUDFLARE_ACCOUNT_ID") or "8228f116d9475a10166686e7391f95ef"  # The Useful Media Co Cloudflare account
-rows = api("POST", f"/accounts/{acc}/d1/database/{DB}/query", {"sql": "SELECT person, channel, entity, ekey, note, video_id, ts, vdate FROM yt_mentions WHERE etype = 'book' AND mtype IN ('recommends','uses','mentions') ORDER BY vdate DESC, id DESC"})[0]["results"]
+with urllib.request.urlopen(urllib.request.Request(FEED, headers={"user-agent": "useful-library/1"}), timeout=60) as r:
+    rows = json.load(r)["rows"]
 slug = lambda s: re.sub(r"[^a-z0-9]+", "-", str(s).lower()).strip("-")[:60]
 people, rank = {}, {}
 for r in rows:

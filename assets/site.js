@@ -107,16 +107,18 @@
     var end = Number(el.getAttribute("data-count"));
     var from = Number(el.getAttribute("data-from") || 0);
     var suffix = el.getAttribute("data-suffix") || "";
-    if (reduce) { el.textContent = end + suffix; return; }
+    var dec = Number(el.getAttribute("data-dec") || 0);
+    var fmt = function (v) { return dec ? v.toFixed(dec) : (v >= 10000 || v < 1000 ? Math.round(v) : Math.round(v).toLocaleString("en-US")); };
+    if (reduce) { el.textContent = fmt(end) + suffix; return; }
     var start = null, dur = 1400;
     var step = function (ts) {
       if (!start) start = ts;
       var t = Math.min(1, (ts - start) / dur);
       var eased = 1 - Math.pow(1 - t, 4);
-      el.textContent = Math.round(from + (end - from) * eased) + suffix;
+      el.textContent = fmt(from + (end - from) * eased) + suffix;
       if (t < 1) requestAnimationFrame(step);
     };
-    el.textContent = from + suffix;
+    el.textContent = fmt(from) + suffix;
     requestAnimationFrame(step);
   }
   if ("IntersectionObserver" in window) {

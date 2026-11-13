@@ -1332,3 +1332,94 @@ a.qitem:hover { opacity: 1; }
 .cell--apps .links li:first-child .chip { background: #D4F75C; border-color: #D4F75C; color: #0C0B12; }
 .cell--apps .links { margin-left: auto; }
 @media (max-width: 760px) { .cell--apps .links { margin-left: 0; } }
+
+/* Apps I make: shared by the homepage and /our-apps/ (13 Nov 2026) */
+.oa-hero { padding-block: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2.5rem); }
+.oa-hero h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 1rem; max-width: 14ch; }
+.oa-hero p { color: var(--graphite); font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 46ch; margin: 0; }
+.oa-list { display: grid; gap: clamp(1.25rem, 3vw, 2rem); padding-bottom: clamp(3rem, 8vw, 6rem); }
+.oa-app { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--rule); border-radius: var(--radius-lg); background: var(--paper); overflow: hidden; }
+.oa-app.is-wk { background: #0C0B12; color: #EDECF5; border-color: #0C0B12; }
+.oa-app.is-wk .oa-line, .oa-app.is-wk .oa-meta { color: #B9B6CC; }
+.oa-app.is-wk .btn { background: #D4F75C; border-color: #D4F75C; color: #0C0B12; }
+.oa-app.is-wk .btn--ghost { background: transparent; color: #EDECF5; border-color: rgba(237,236,245,.4); }
+.oa-app.is-tl { background: var(--lilac); border-color: var(--lilac); }
+.oa-top { display: flex; align-items: center; gap: 14px; margin-bottom: 1.1rem; }
+.oa-top img { border-radius: 22%; flex: none; }
+.oa-kind { font-family: var(--mono); font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; opacity: .75; }
+.oa-app h2, .oa-app h3 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0; }
+.oa-line { font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--graphite); margin: 0 0 1.1rem; max-width: 40ch; }
+.oa-points { list-style: none; padding: 0; margin: 0 0 1.4rem; display: grid; gap: .45rem; }
+.oa-points li { padding-left: 1.3rem; position: relative; }
+.oa-points li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .5; }
+.oa-cta { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: .9rem; }
+.oa-meta { font-size: .92rem; color: var(--graphite); margin: 0; }
+.oa-shots { display: flex; gap: 12px; justify-content: center; }
+.oa-shots img { width: 31%; height: auto; border-radius: 18px; box-shadow: 0 18px 40px -18px rgba(0,0,0,.55); }
+.oa-shots img:nth-child(2) { transform: translateY(-16px); }
+.oa-mac img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 24px 50px -24px var(--cover-shadow); }
+@media (max-width: 820px) { .oa-app { grid-template-columns: 1fr; } .oa-art { order: -1; } }
+
+/* Homepage v3 (13 Nov 2026): hero signup, proof quotes, 6 facts, New this week, app and library card animations */
+.hero-new { display: inline-flex; align-items: center; gap: .55rem; margin-bottom: 1.1rem; padding: .35rem .8rem .35rem .4rem; border: 1px solid var(--rule); border-radius: 999px; text-decoration: none; color: var(--ink); font-size: .9rem; background: var(--paper); }
+.hero-new:hover { border-color: var(--purple); }
+.hero-new svg { width: 11px; height: 11px; }
+.hero-new-tag { background: #D4F75C; color: #0C0B12; font: 600 .72rem/1 var(--mono); text-transform: uppercase; letter-spacing: .04em; padding: .3rem .5rem; border-radius: 999px; }
+.hero .lede { max-width: 48ch; }
+.nl-band.hero-nl { margin: 1.4rem 0 0; max-width: 34rem; }
+.hero-proof { display: grid; gap: 14px; }
+.hq { margin: 0; padding: 1.1rem 1.25rem; border-radius: var(--radius-md); background: var(--lilac); border: 1px solid transparent; }
+.hq:nth-child(2) { background: var(--paper); border-color: var(--rule); margin-left: clamp(0px, 3vw, 28px); }
+.hq:nth-child(3) { background: var(--slab); color: #F2F1F8; }
+.hq blockquote { margin: 0; }
+.hq blockquote p { margin: 0; font-size: 1.05rem; line-height: 1.4; }
+.hq figcaption { margin-top: .6rem; display: grid; font-size: .85rem; }
+.hq figcaption span { opacity: .7; }
+@media (max-width: 900px) { .hero-proof { margin-top: .5rem; } .hq:nth-child(2) { margin-left: 0; } .hq:nth-child(3) { display: none; } }
+.facts--6 li { flex: 1 1 150px; }
+@media (max-width: 900px) { .facts--6 li { flex-basis: 33%; padding-bottom: 1rem; } .facts--6 li:nth-child(4) { padding-left: 0; border-left: 0; } }
+@media (max-width: 640px) { .facts--6 li { flex-basis: 50%; } }
+.fresh { padding-top: clamp(2rem, 5vw, 3.5rem); }
+.fresh-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 1000px) { .fresh-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .fresh-row { grid-template-columns: 1fr; } }
+.fresh-card { display: grid; grid-template-rows: auto 1fr auto auto; gap: .5rem; padding: 1.2rem; border: 1px solid var(--rule); border-radius: var(--radius-md); text-decoration: none; color: var(--ink); background: var(--paper); transition: transform 240ms cubic-bezier(.3,1.4,.4,1), border-color 200ms; }
+.fresh-card:hover { transform: translateY(-4px); border-color: var(--purple); }
+.fresh-k { font: 500 .72rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--purple-ink); }
+.fresh-t { font-weight: 600; font-size: 1.08rem; line-height: 1.25; letter-spacing: -0.01em; }
+.fresh-s { color: var(--graphite); font-size: .9rem; line-height: 1.4; }
+.fresh-c { font-size: .88rem; font-weight: 600; display: inline-flex; align-items: center; gap: .35rem; }
+.fresh-c svg { width: 11px; height: 11px; }
+.fresh--deal { background: var(--lilac); border-color: var(--lilac); }
+.fresh--issue { background: var(--slab); border-color: var(--slab); color: #F2F1F8; }
+.fresh--issue .fresh-k { color: #B9A8FF; } .fresh--issue .fresh-s { color: rgba(242,241,248,.7); }
+.oa-home .oa-list { padding-bottom: 0; }
+/* The Useful Apps card: icons shuffle, a deal price drops */
+.appstack { width: 104px; height: 96px; }
+.cell--creator .stat, .cell--gaming .stat { max-width: calc(100% - 130px); }
+.cell--products .stat span { white-space: normal; }
+.cell--products .stat { max-width: calc(100% - 110px); }
+.appstack img { position: absolute; width: 44px; height: 44px; border-radius: 11px; box-shadow: 0 6px 14px -6px rgba(0,0,0,.4); left: calc(var(--k) * 20px); bottom: 0; transition: transform 500ms cubic-bezier(.3,1.5,.4,1); }
+.appstack .tag { position: absolute; right: -6px; top: -4px; font: 600 .78rem/1 var(--mono); background: var(--ink); color: var(--paper); padding: .35rem .5rem; border-radius: 999px; }
+.appstack .tag s { opacity: .55; }
+.appstack .tag b { color: #D4F75C; }
+@media (prefers-reduced-motion: no-preference) {
+  .appstack img { animation: shuffle 6s cubic-bezier(.3,1.4,.4,1) infinite; animation-delay: calc(var(--k) * -1s); }
+  @keyframes shuffle { 0%, 12% { transform: translateY(0); } 18% { transform: translateY(-26px) rotate(-6deg); } 26%, 100% { transform: translateY(0); } }
+  .appstack .tag b { display: inline-block; animation: dropin 3.2s ease-in-out infinite; }
+  @keyframes dropin { 0%, 35% { transform: translateY(-8px); opacity: 0; } 45%, 90% { transform: none; opacity: 1; } 100% { opacity: 0; } }
+}
+.cell--creator:hover .appstack img { transform: translateY(-10px); }
+/* The Useful Library card: a book slides off the shelf and gets its verdict */
+.shelf { width: 120px; height: 84px; display: flex; align-items: flex-end; gap: 5px; }
+.shelf i { display: block; width: 20px; height: var(--h); background: var(--c); border-radius: 3px 3px 1px 1px; box-shadow: inset -3px 0 0 rgba(0,0,0,.15); }
+.shelf .stamp { position: absolute; right: -16px; top: 8px; font: 600 .66rem/1.25 var(--mono); text-transform: uppercase; color: #3E6B4F; border: 2px solid #3E6B4F; border-radius: 6px; padding: .3rem .4rem; transform: rotate(-8deg); background: var(--paper); opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .shelf .pull { animation: pull 5s cubic-bezier(.3,1.3,.4,1) infinite; }
+  @keyframes pull { 0%, 15% { transform: none; } 30%, 75% { transform: translateY(-24px) rotate(8deg); } 90%, 100% { transform: none; } }
+  .shelf .stamp { animation: stamp 5s ease infinite; }
+  @keyframes stamp { 0%, 30% { opacity: 0; transform: rotate(-8deg) scale(1.6); } 38%, 75% { opacity: 1; transform: rotate(-8deg) scale(1); } 85%, 100% { opacity: 0; } }
+}
+@media (prefers-reduced-motion: reduce) { .shelf .stamp { opacity: 1; } }
+.qbrand { font: 500 .7rem/1 var(--mono); text-transform: uppercase; letter-spacing: .05em; opacity: .7; margin-left: auto; }
+.qtop { display: flex; align-items: center; gap: .5rem; }

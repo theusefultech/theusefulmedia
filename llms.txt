@@ -20,7 +20,7 @@ Last updated: 2026-11-03
 
 - [Rosewood Music Box](https://theusefulmedia.com/rosewood/): A music box for the iPhone Duo. Close the phone and the lid closes; open it and the dancer turns. $2.99 one time on the App Store.
 - [Textlore](https://textlore.app/): Mac app to search, browse and export your whole iMessage and WhatsApp history, with recommendations friends sent you and promises you made pulled out automatically. 14-day free trial, then $20 once for the next 15 licences, then $25, rising $5 every 20 sales up to $39.
-- [Wristkeeper](https://theusefulmedia.com/wristkeeper/): iPhone app for analog watch collectors: collection, wear log and a daily watch pick. Free for 3 watches; Pro $24.99 a year with 14 days free, $3.99 a month or $59.99 once. On the App Store since 16 Nov 2026: https://apps.apple.com/app/wristkeeper-watch-collection/id6819904928
+- [Wristkeeper](https://theusefulmedia.com/wristkeeper/): iPhone app for analog watch collectors: collection, wear log and a daily watch pick. Free for 3 watches; Pro $24.99 a year with 14 days free, $3.99 a month or $59.99 once. On the App Store since 13 Nov 2026: https://apps.apple.com/app/wristkeeper-watch-collection/id6819904928
 - [Watch cost per wear](https://theusefulmedia.com/wristkeeper/cost-per-wear/): Watch cost per wear is what you paid divided by the days you wore it, worked out by hand, in a spreadsheet, or with Wristkeeper.
 - [The Useful Apps](https://theusefulmedia.com/apps/): Directory of Mac and iPhone apps worth paying for, and where they cost least.
 - [The Useful Apps, every app](https://theusefulmedia.com/apps/llms-full.txt): Every app in the directory with a one-line description, price and devices, plus every best-of guide and its winner.

@@ -1315,3 +1315,11 @@ a.qitem:hover { opacity: 1; }
 .nl-band .nl-fine { margin-top: 0.7rem; font-family: var(--mono); font-size: 0.74rem; color: var(--graphite); }
 .nl-band .nl-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 1rem; }
 .nl-band .nl-links a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 500; }
+
+/* 13 Nov 2026: 7 menu items; on phones the menu scrolls sideways instead of overflowing */
+@media (max-width: 760px) {
+  .site-header .header-end { min-width: 0; }
+  .nav { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); padding-right: 1.2rem; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { flex: none; }
+}

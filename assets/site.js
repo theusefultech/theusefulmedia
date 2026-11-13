@@ -797,7 +797,7 @@
       topics.forEach(function (x) { x.setAttribute("aria-checked", String(x === t)); });
       var isProduct = t.getAttribute("data-topic") === "product";
       card2.classList.toggle("is-alt", isProduct);
-      alt.hidden = !isProduct;
+      if (alt) alt.hidden = !isProduct;
       card2.classList.remove("bump"); void card2.offsetWidth; card2.classList.add("bump");
       if (!isProduct) {
         var subject = t.getAttribute("data-subject"), body = t.getAttribute("data-body");

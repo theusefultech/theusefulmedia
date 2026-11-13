@@ -192,7 +192,7 @@ problems=[
  {"text":"I don't know how to start investing","area":"MONEY","keys":"invest investing stock stocks wealth retire money","url":"/library/problems/start-investing/"},
  {"text":"I overthink everything","area":"MINDSET","keys":"overthink overthinking worry anxious stress mind calm","url":"/library/problems/overthinking/"},
  {"text":"I can't focus for long","area":"FOCUS","keys":"focus distract distracted phone attention concentrate","url":"/library/problems/cant-focus/"},
- {"text":"Small setbacks ruin my week","area":"MINDSET","keys":"setback setbacks resilience calm upset"},
+ {"text":"Small setbacks ruin my week","area":"MINDSET","keys":"setback setbacks resilience calm upset bad day failure mistake","url":"/library/problems/small-setbacks/"},
 ]
 catalog=[{"slug":"atomic-habits","t":"Atomic Habits","a":"habits"},{"slug":"the-power-of-habit","t":"The Power of Habit","a":"habits"},{"slug":"mindset","t":"Mindset","a":"mindset"},
  {"slug":"deep-work","t":"Deep Work","a":"focus"},{"slug":"essentialism","t":"Essentialism","a":"focus"},{"slug":"indistractable","t":"Indistractable","a":"focus"},{"slug":"the-7-habits-of-highly-effective-people","t":"The 7 Habits of Highly Effective People","a":"habits"},

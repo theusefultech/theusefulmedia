@@ -14,5 +14,7 @@ TAKES = {
  "the-power-of-habit": "This book explains my piano breaks. The cue was a break. The reward was a rest from work. I kept both and swapped the phone for the piano. The appendix shows you how to do the same tonight.",
  "tiny-habits": "The celebration step will feel silly. Do it anyway. But the idea to steal is the anchor: do the new habit right after something you already do every day.",
  "the-little-book-of-common-sense-investing": "The most boring money book I'd recommend, and that's the point. Read chapters 1 and 4, then look up the fee on every fund you own. If that's all you do, it was worth the time.",
+ "mindset": "Read chapters 1 and 2 first, then close the book for a week. The line about failing once versus being a failure is the part to use on a bad day. The middle chapters are for coaches, managers and parents.",
+ "mans-search-for-meaning": "Read it in 1 or 2 sittings. It's short, and it puts every small bad day in proportion. Then go back to the 3 sources of meaning in part 2 whenever your work starts to feel empty.",
  "essentialism": "Read chapter 11 before you answer your next big request. Saying no politely is a skill, and this chapter teaches it. Keep the 90 percent rule from chapter 9 for every decision after that.",
 }

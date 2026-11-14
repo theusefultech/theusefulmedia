@@ -4,11 +4,10 @@
   "views": "3.39M",
   "posts": "478",
   "readRatio": "50.2%",
-  "emailSubs": "8,000+",
   "newsletterSubs": "1,347",
   "openRate": "55%",
-  "clickRate": "1.5%",
-  "sponsors": "31",
+  "clickRate": "2%",
+  "sponsors": "29",
   "usShare": "53%",
   "appleShare": "89%",
   "macShare": "46%",
@@ -75,5 +74,7 @@
   "repeatBuyerRate": "28%",
   "appsReviewed": "426",
   "gumroadRating": "4.5 from 8 reviews",
-  "factsCheckedAt": "2026-11-13"
+  "factsCheckedAt": "2026-11-13",
+  "sponsorsSince": "September 2026",
+  "reads": "1.7M"
 }

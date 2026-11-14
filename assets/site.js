@@ -661,6 +661,34 @@
     nav.addEventListener("mouseleave", function () { nav.classList.remove("has-pill"); });
   }
 
+  // ---------- Phone menu (14 Nov 2026): a button that opens the full menu ----------
+  var mainNav = $('.nav[aria-label="Main"]'), hEnd = $(".header-end");
+  if (mainNav && hEnd) {
+    var mb = doc.createElement("button");
+    mb.type = "button"; mb.className = "menu-btn"; mb.setAttribute("aria-label", "Open menu");
+    mb.setAttribute("aria-expanded", "false"); mb.setAttribute("aria-controls", "phone-menu");
+    mb.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>';
+    hEnd.appendChild(mb);
+    var sheet = doc.createElement("div"); sheet.id = "phone-menu"; sheet.className = "phone-menu"; sheet.hidden = true;
+    var hints = { "/tech/": "3 emails a week", "/library/": "Nonfiction worth reading", "/free/": "Free guides and cheat sheets", "/products/": "Guides and templates", "/our-apps/": "Wristkeeper and Textlore", "/apps/": "The Useful Apps", "/advertise/": "Reach Apple users", "/about/": "Who runs this" };
+    sheet.innerHTML = '<nav aria-label="Menu">' + $$("a", mainNav).map(function (a) {
+      var h = a.getAttribute("href"), cur = a.getAttribute("aria-current") ? ' aria-current="page"' : "";
+      return '<a href="' + h + '"' + cur + '><b>' + a.textContent + '</b><small>' + (hints[h] || "") + '</small></a>';
+    }).join("") + '</nav>';
+    var header = mb.closest("header") || hEnd.parentNode;
+    header.appendChild(sheet);
+    var setOpen = function (open) {
+      sheet.hidden = !open; mb.setAttribute("aria-expanded", String(open));
+      mb.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      root.classList.toggle("menu-open", open);
+      if (open) { var f = $("a", sheet); if (f) f.focus({ preventScroll: true }); }
+    };
+    mb.addEventListener("click", function () { setOpen(sheet.hidden); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && !sheet.hidden) { setOpen(false); mb.focus(); } });
+    doc.addEventListener("click", function (e) { if (!sheet.hidden && !sheet.contains(e.target) && !mb.contains(e.target)) setOpen(false); });
+    window.matchMedia("(min-width: 961px)").addEventListener("change", function (m) { if (m.matches) setOpen(false); });
+  }
+
   // Facts re-count on hover
   $$(".facts li").forEach(function (li) {
     var n = $(".num[data-count]", li), busy = false;

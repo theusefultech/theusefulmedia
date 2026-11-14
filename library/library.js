@@ -650,7 +650,10 @@
   window.LibBuy = function (a) {
     var q = encodeURIComponent((a.getAttribute("data-buy") || "").trim()).replace(/%20/g, "+");
     if (!q) return;
-    a.href = inIndia ? "https://www.amazon.in/s?k=" + q + "&i=stripbooks&tag=theusefultech-21" : (a.getAttribute("href") && a.getAttribute("href") !== "#" ? a.getAttribute("href") : "https://www.amazon.com/s?k=" + q + "&i=stripbooks");
+    // 14 Nov 2026: readers outside India get Raja's Amazon.com Associates tag too (theusefultech-20); before, US links carried no tag.
+    var us = a.getAttribute("href") && a.getAttribute("href") !== "#" ? a.getAttribute("href") : "https://www.amazon.com/s?k=" + q + "&i=stripbooks";
+    if (/^https:\/\/(www\.)?amazon\.com\//.test(us) && !/[?&]tag=/.test(us)) us += (us.indexOf("?") < 0 ? "?" : "&") + "tag=theusefultech-20";
+    a.href = inIndia ? "https://www.amazon.in/s?k=" + q + "&i=stripbooks&tag=theusefultech-21" : us;
     a.setAttribute("rel", "sponsored noopener"); a.setAttribute("target", "_blank");
   };
   $$("[data-buy]").forEach(function (a) { if (a.getAttribute("data-buy")) window.LibBuy(a); });

@@ -1,5 +1,30 @@
 {
- "updated": "2026-11-13",
- "people": [],
- "ranking": []
+ "updated": "2026-11-14",
+ "people": [
+  {
+   "slug": "sean",
+   "name": "Sean",
+   "channels": [],
+   "books": [
+    {
+     "title": "Obviously Awesome",
+     "author": "",
+     "note": "Positioning book that took the company from zero to $4M ARR",
+     "video": "MLAH5OZ5FO8",
+     "url": null,
+     "ts": 1,
+     "date": "2026-11-14"
+    }
+   ]
+  }
+ ],
+ "ranking": [
+  {
+   "title": "Obviously Awesome",
+   "author": "",
+   "people": [
+    "sean"
+   ]
+  }
+ ]
 }

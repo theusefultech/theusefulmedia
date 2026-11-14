@@ -1514,3 +1514,13 @@ a.qitem:hover { opacity: 1; }
   .menu-btn { display: inline-grid; }
 }
 @media (max-width: 360px) { .phone-menu nav { grid-template-columns: 1fr; } }
+/* Signup messages on pages without tech.css (14 Nov 2026) */
+.signup-msg { font-size: 0.92rem; line-height: 1.45; }
+.signup-msg:empty { display: none; }
+.signup-msg.is-error, .signup-msg.is-info, .signup-msg.is-ok { padding: 10px 12px; border-radius: 12px; margin-top: 10px; }
+.signup-msg.is-error { background: rgba(214, 69, 69, 0.09); color: #A12E2E; }
+.signup-msg.is-info { background: var(--lilac); color: var(--ink); }
+.signup-msg.is-ok { background: rgba(18, 184, 134, 0.12); color: #0B6B4F; }
+:root[data-theme="dark"] .signup-msg.is-ok { color: #7EE8C4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .signup-msg.is-ok { color: #7EE8C4; } }
+.signup-msg a { color: inherit; text-decoration: underline; }

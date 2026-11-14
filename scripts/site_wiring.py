@@ -16,7 +16,7 @@ SKIP_DIRS = {".git", ".github", "scripts", "assets", "node_modules", "files", "i
 BEACON = '<script src="/apps/hit.js" defer></script>'
 MARK_NL = "data-tum-nl"
 MARK_APPS = "data-tum-apps"
-NL = ('<p %s style="margin:18px 0 0;font-size:14px">Free: <a href="/tech/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=%s">'
+NL = ('<p %s style="margin:18px 0 0;font-size:14px">Free: <a href="/tech/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=%s" data-subscribe>'
       'The Useful Tech newsletter</a>, the Mac and iPhone apps and settings worth your time, Monday, Wednesday and Friday.</p>')
 APPS = ('<p %s style="margin:10px 0 0;font-size:14px">More from The Useful Media Co: <a href="/apps/">The Useful Apps</a>, '
         'Mac and iPhone apps worth paying for and where they cost least, with guides to the '

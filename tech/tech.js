@@ -22,7 +22,6 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
 // ---------- Signup ----------
 (function () {
   var forms = Array.prototype.slice.call(document.querySelectorAll("form[data-signup]"));
-  if (!forms.length) return;
 
   var POPULAR = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com", "me.com", "mac.com",
     "live.com", "aol.com", "proton.me", "protonmail.com", "yahoo.co.in", "yahoo.co.uk", "rediffmail.com",
@@ -121,7 +120,7 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
     });
   }
 
-  forms.forEach(function (form) {
+  function bind(form) {
     var input = form.querySelector('input[type="email"]');
     var hp = form.querySelector(".hp");
     var btn = form.querySelector("button");
@@ -180,7 +179,7 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
         // data-source names the form itself (e.g. the Wristkeeper page), so it wins over a link's utm_source.
         if (form.getAttribute("data-source")) extra.utm_source = form.getAttribute("data-source");
         if (form.getAttribute("data-medium") && !extra.utm_medium) extra.utm_medium = form.getAttribute("data-medium");
-        var payload = Object.assign({ email: email, token: token, website: hp ? hp.value : "" }, extra);
+        var payload = Object.assign({ email: email, token: token, website: hp ? hp.value : "", list: form.getAttribute("data-list") || "tech" }, extra);
         return fetch(SIGNUP_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -198,6 +197,13 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
           form.classList.add("is-done");
           // data-next="stay" keeps the reader on the page (freebie pages reveal the download)
           var next = form.getAttribute("data-next");
+          // 14 Nov 2026 (Raja: no redirects to subscribe): outside the /tech/ landing page the reader stays where they are.
+          if (!next && !/^\/tech\/(index\.html)?$/.test(location.pathname)) {
+            var life = form.getAttribute("data-list") === "life";
+            show(res.existing ? "You're already on the list. Thanks for reading." : "You're in. Your first email from " + (life ? "The Useful Life" : "The Useful Tech") + " is on its way to <b>" + email.replace(/</g, "&lt;") + "</b>.", "ok");
+            form.dispatchEvent(new CustomEvent("signup:done", { bubbles: true, detail: { email: email, existing: !!res.existing } }));
+            return;
+          }
           if (next === "stay") {
             form.dispatchEvent(new CustomEvent("signup:done", { bubbles: true, detail: { email: email, existing: !!res.existing } }));
             return;
@@ -213,5 +219,75 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
         show(MESSAGES.network);
       });
     });
+  }
+  forms.forEach(bind);
+
+  // Add a form built later (the subscribe sheet) to the same flow.
+  window.TUTSignup = {
+    add: function (form) {
+      if (forms.indexOf(form) !== -1) return;
+      forms.push(form); bind(form);
+      form.addEventListener("focusin", loadTurnstile);
+      loadTurnstile();
+      if (window.turnstile) initTurnstile();
+    }
+  };
+})();
+
+// ---------- Subscribe sheet (14 Nov 2026) ----------
+// Any link or button with data-subscribe (data-list="life" for The Useful Life) opens
+// a small email form over the page instead of sending the reader somewhere else.
+(function () {
+  var css = '.tum-sub{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:16px}.tum-sub[hidden]{display:none}' +
+    '.tum-sub-bg{position:absolute;inset:0;background:rgba(12,12,28,.5)}' +
+    '.tum-sub-p{position:relative;width:min(440px,100%);background:#fff;color:#17172B;border-radius:22px;padding:26px 22px 20px;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);font-family:inherit}' +
+    '.tum-sub-x{position:absolute;top:10px;right:10px;width:40px;height:40px;border:0;border-radius:12px;background:transparent;font-size:24px;line-height:1;color:#5A5A73;cursor:pointer}.tum-sub-x:hover{background:#F1EFF7}' +
+    '.tum-sub h2{font-size:22px;line-height:1.2;margin:0 32px 6px 0;letter-spacing:-.01em}.tum-sub p.tum-sub-l{margin:0 0 16px;color:#5A5A73;font-size:15px;line-height:1.45}' +
+    '.tum-sub form{display:flex;gap:8px;flex-wrap:wrap}.tum-sub input[type=email]{flex:1 1 200px;min-width:0;height:48px;border:1.5px solid #D9D5E8;border-radius:14px;padding:0 14px;font:inherit;font-size:16px;color:#17172B;background:#fff}' +
+    '.tum-sub input[type=email]:focus{outline:none;border-color:#7C5CFC;box-shadow:0 0 0 3px rgba(124,92,252,.2)}.tum-sub .hp{position:absolute;left:-9999px}' +
+    '.tum-sub button[type=submit]{flex:1 1 auto;height:48px;border:0;border-radius:14px;background:#5638E6;color:#fff;font:inherit;font-weight:600;font-size:16px;padding:0 18px;cursor:pointer}.tum-sub button[disabled]{opacity:.7}' +
+    '.tum-sub .is-done button[type=submit]{background:#12B886}.tum-sub .signup-msg{font-size:14px;line-height:1.45;margin-top:10px;min-height:0}.tum-sub .signup-msg.is-error{color:#C62D42}.tum-sub .signup-msg.is-ok{color:#0E7A5A}' +
+    '.tum-sub .signup-msg button{margin:8px 8px 0 0;border:1px solid #D9D5E8;background:#fff;border-radius:10px;padding:6px 10px;font:inherit;cursor:pointer}.tum-sub small{display:block;margin-top:12px;color:#5A5A73;font-size:13px}' +
+    '@media (prefers-color-scheme:dark){.tum-sub-p{background:#1C1C34;color:#F1F0F7}.tum-sub input[type=email]{background:#121224;color:#F1F0F7;border-color:#2C2C4A}.tum-sub p.tum-sub-l,.tum-sub small{color:#ABAAC4}.tum-sub .signup-msg.is-ok{color:#3DDCA9}}' +
+    '@media (prefers-reduced-motion:no-preference){.tum-sub:not([hidden]) .tum-sub-p{animation:tumsub .22s cubic-bezier(.2,.8,.2,1)}@keyframes tumsub{from{opacity:0;transform:translateY(10px) scale(.98)}}}';
+  var COPY = {
+    tech: ["Get The Useful Tech", "3 short emails a week: the apps worth installing, the settings worth changing and the AI features worth turning on. Free.", "Monday, Wednesday and Friday. Unsubscribe in 1 click."],
+    life: ["Get The Useful Life", "1 book lesson and 1 action step, 3 times a week. Free.", "Unsubscribe in 1 click."]
+  };
+  var sheet = null, form = null, last = null;
+  function build() {
+    var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
+    sheet = document.createElement("div"); sheet.className = "tum-sub"; sheet.hidden = true;
+    sheet.innerHTML = '<div class="tum-sub-bg" data-sub-close></div><div class="tum-sub-p" role="dialog" aria-modal="true" aria-labelledby="tum-sub-h">' +
+      '<button class="tum-sub-x" type="button" data-sub-close aria-label="Close">&times;</button><h2 id="tum-sub-h"></h2><p class="tum-sub-l"></p>' +
+      '<div class="signup"><form data-signup data-campaign="subscribe-sheet" novalidate><label class="visually-hidden" for="tum-sub-email" style="position:absolute;left:-9999px">Email address</label>' +
+      '<input id="tum-sub-email" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>' +
+      '<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit"><span class="btn-label">Subscribe free</span></button></form>' +
+      '<div class="ts-slot"></div><div class="signup-msg" aria-live="polite"></div></div><small></small></div>';
+    document.body.appendChild(sheet);
+    form = sheet.querySelector("form");
+    sheet.addEventListener("click", function (e) { if (e.target.closest("[data-sub-close]")) close(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && sheet && !sheet.hidden) close(); });
+    if (window.TUTSignup) window.TUTSignup.add(form);
+  }
+  function open(list, source) {
+    if (!sheet) build();
+    var c = COPY[list] || COPY.tech;
+    sheet.querySelector("h2").textContent = c[0];
+    sheet.querySelector(".tum-sub-l").textContent = c[1];
+    sheet.querySelector("small").textContent = c[2];
+    form.setAttribute("data-list", list);
+    if (source) form.setAttribute("data-source", source); else form.removeAttribute("data-source");
+    if (!form.classList.contains("is-done")) form.querySelector(".btn-label").textContent = "Subscribe free";
+    last = document.activeElement;
+    sheet.hidden = false; document.documentElement.style.overflow = "hidden";
+    setTimeout(function () { form.querySelector("input[type=email]").focus(); }, 30);
+  }
+  function close() { sheet.hidden = true; document.documentElement.style.overflow = ""; if (last && last.focus) last.focus(); }
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-subscribe]");
+    if (!t || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    open(t.getAttribute("data-list") || "tech", t.getAttribute("data-source") || location.pathname.split("/")[1] || "home");
   });
 })();

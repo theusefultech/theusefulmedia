@@ -1,0 +1,33 @@
+/* Shared menu and footer for pages with their own design (Advertise and others). Scoped tum- classes. 14 Nov 2026 */
+.tum-h { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper, #FAFAF8) 92%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line, #E6E3EF); font-family: var(--display, system-ui); }
+.tum-h-in { max-width: 1180px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); min-height: 64px; display: flex; align-items: center; gap: 16px; }
+.tum-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink, #17172B); font-weight: 600; letter-spacing: -.02em; white-space: nowrap; margin-right: auto; }
+.tum-logo svg { width: 28px; height: 19px; fill: currentColor; }
+.tum-nav { display: flex; gap: 2px; }
+.tum-nav a { text-decoration: none; color: var(--ink-soft, #5A5A73); font-size: 15px; padding: 8px 10px; border-radius: 999px; white-space: nowrap; }
+.tum-nav a:hover, .tum-nav a[aria-current] { color: var(--ink, #17172B); background: var(--sunk, #F1EFF7); }
+.tum-cta { text-decoration: none; background: var(--ink, #17172B); color: var(--paper, #fff); font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 999px; white-space: nowrap; }
+.tum-mb { display: none; width: 44px; height: 44px; border: 0; border-radius: 12px; background: transparent; color: var(--ink, #17172B); cursor: pointer; place-items: center; }
+.tum-mb svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.tum-mb[aria-expanded="true"] { background: var(--sunk, #F1EFF7); }
+.tum-sheet { position: absolute; left: 0; right: 0; top: 100%; background: var(--paper, #FAFAF8); border-bottom: 1px solid var(--line, #E6E3EF); box-shadow: 0 24px 40px -24px rgba(0,0,0,.35); max-height: calc(100dvh - 64px); overflow-y: auto; }
+.tum-sheet[hidden] { display: none; }
+.tum-sheet nav { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 12px clamp(16px, 4vw, 32px) 20px; }
+.tum-sheet a { display: grid; gap: 2px; padding: 14px; border-radius: 14px; text-decoration: none; color: var(--ink, #17172B); }
+.tum-sheet a:hover, .tum-sheet a[aria-current] { background: var(--sunk, #F1EFF7); }
+.tum-sheet b { font-size: 17px; font-weight: 600; }
+.tum-sheet small { font-size: 13px; color: var(--ink-soft, #5A5A73); }
+@media (max-width: 1080px) { .tum-nav { display: none; } .tum-mb { display: inline-grid; } }
+@media (max-width: 420px) { .tum-cta { display: none; } }
+.tum-f { margin-top: 64px; border-top: 1px solid var(--line, #E6E3EF); background: var(--paper, #FAFAF8); font-family: var(--display, system-ui); color: var(--ink, #17172B); }
+.tum-f-in { max-width: 1180px; margin: 0 auto; padding: 48px clamp(16px, 4vw, 32px) 28px; }
+.tum-f-top { display: grid; grid-template-columns: 1.2fr 2fr; gap: 40px; }
+.tum-f-top p { color: var(--ink-soft, #5A5A73); font-size: 15px; line-height: 1.5; max-width: 34ch; margin: 12px 0 0; }
+.tum-f-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.tum-f h3 { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft, #5A5A73); margin: 0 0 10px; font-weight: 600; }
+.tum-f ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.tum-f li a { color: var(--ink, #17172B); text-decoration: none; font-size: 15px; }
+.tum-f li a:hover { color: var(--purple-ink, #5638E6); }
+.tum-f-base { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line, #E6E3EF); display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; font-size: 14px; color: var(--ink-soft, #5A5A73); }
+.tum-f-base a { color: inherit; }
+@media (max-width: 860px) { .tum-f-top { grid-template-columns: 1fr; } .tum-f-cols { grid-template-columns: 1fr 1fr; } }

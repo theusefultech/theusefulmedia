@@ -17,4 +17,6 @@ TAKES = {
  "mindset": "Read chapters 1 and 2 first, then close the book for a week. The line about failing once versus being a failure is the part to use on a bad day. The middle chapters are for coaches, managers and parents.",
  "mans-search-for-meaning": "Read it in 1 or 2 sittings. It's short, and it puts every small bad day in proportion. Then go back to the 3 sources of meaning in part 2 whenever your work starts to feel empty.",
  "essentialism": "Read chapter 11 before you answer your next big request. Saying no politely is a skill, and this chapter teaches it. Keep the 90 percent rule from chapter 9 for every decision after that.",
+ "the-one-thing": "Read chapters 10 and 15 first. The focusing question picks the task, and the time block protects it. Ask the question on Sunday night, and block the answer into Monday morning before anything else lands there.",
+ "the-7-habits-of-highly-effective-people": "Don't try to read it in a week. Read Habit 3 first, draw the grid, and plan 1 week with it. Come back for Habit 5 the next time a conversation goes wrong.",
 }

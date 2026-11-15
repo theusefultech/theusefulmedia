@@ -30,7 +30,7 @@ body{{margin:0;width:1080px;height:1350px;background:#EEF0EC;font-family:var(--s
 .stamp{{display:inline-block;border:6px solid {ac};color:{ac};font-family:var(--mono);font-weight:500;font-size:44px;letter-spacing:.06em;padding:14px 24px;border-radius:14px;transform:rotate(-6deg);margin-top:30px}}
 h1{{font-family:var(--serif);font-weight:400;font-size:72px;line-height:1.02;color:#1C2B24;margin:34px 0 10px}}.by{{font-size:30px;color:#4A5A52}}
 h2{{font-family:var(--mono);font-size:26px;letter-spacing:.06em;color:{ac};margin:64px 0 18px;font-weight:500}}
-ol{{margin:0;padding-left:40px;font-size:34px;line-height:1.5;color:#1C2B24}}
+ol{{margin:0;padding-left:0;list-style:none;font-size:34px;line-height:1.5;color:#1C2B24}}
 .foot{{position:absolute;left:80px;right:80px;bottom:70px;display:flex;align-items:center;gap:16px;font-size:28px;font-weight:700;color:#4A5A52}}.foot svg{{width:64px;height:64px}}
 .bar{{position:absolute;left:0;right:0;bottom:0;height:18px;background:{ac}}}
 </style></head><body><div class="top"><img src="/library/img/covers/{B["slug"]}.webp"><div><span class="stamp">READ {len(reads)} OF {n}</span><h1>{html.escape(B["t"])}</h1><div class="by">{html.escape(B["by"])}</div></div></div>
@@ -57,9 +57,9 @@ async def main():
         b = await p.chromium.launch(executable_path="/usr/bin/google-chrome")
         pg = await b.new_page(viewport={"width": 1080, "height": 1350})
         for B in bs:
-            open(tmp, "w").write(card(B)); await pg.goto("http://localhost:8765/library/_card_tmp.html"); await pg.wait_for_timeout(500)
+            open(tmp, "w").write(card(B)); await pg.goto("http://localhost:8765/library/_card_tmp.html?k=" + B["slug"]); await pg.wait_for_timeout(500)
             await pg.screenshot(path=os.path.join(LIB, "og", f"card-{B['slug']}.png"))
-        open(tmp, "w").write(pdf(bs)); await pg.goto("http://localhost:8765/library/_card_tmp.html"); await pg.wait_for_timeout(800)
+        open(tmp, "w").write(pdf(bs)); await pg.goto("http://localhost:8765/library/_card_tmp.html?k=verdicts-pdf"); await pg.wait_for_timeout(800)
         await pg.pdf(path=os.path.join(LIB, "verdicts.pdf"), format="A4", print_background=True)
         await b.close()
     os.remove(tmp); print(len(bs), "cards + verdicts.pdf")

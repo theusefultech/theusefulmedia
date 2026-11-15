@@ -42,7 +42,7 @@ async def main():
         for key, k, t, c, a in PAGES:
             if only and key not in only: continue
             open(tmp, "w").write(tpl(k, t, c, a))
-            await pg.goto("http://localhost:8765/library/_og_tmp.html"); await pg.wait_for_timeout(500)
+            await pg.goto("http://localhost:8765/library/_og_tmp.html?k=" + key); await pg.wait_for_timeout(500)
             await pg.screenshot(path=os.path.join(OUT, key + ".png"))
         await b.close()
     os.remove(tmp)

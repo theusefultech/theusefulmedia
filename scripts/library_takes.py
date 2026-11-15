@@ -19,4 +19,6 @@ TAKES = {
  "essentialism": "Read chapter 11 before you answer your next big request. Saying no politely is a skill, and this chapter teaches it. Keep the 90 percent rule from chapter 9 for every decision after that.",
  "the-one-thing": "Read chapters 10 and 15 first. The focusing question picks the task, and the time block protects it. Ask the question on Sunday night, and block the answer into Monday morning before anything else lands there.",
  "the-7-habits-of-highly-effective-people": "Don't try to read it in a week. Read Habit 3 first, draw the grid, and plan 1 week with it. Come back for Habit 5 the next time a conversation goes wrong.",
+ "the-total-money-makeover": "Read chapters 6 and 7 and start this week. The smallest-balance-first order isn't the cheapest on paper, but a finished debt does more for you than a spreadsheet. Skip the US retirement and college chapters until the debt is gone.",
+ "the-millionaire-next-door": "Read chapter 1 and run the net worth test on yourself before anything else. For a high earner it can be an uncomfortable number. Then read chapter 4 before your next car purchase.",
 }

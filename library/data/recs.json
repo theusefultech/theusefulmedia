@@ -1,6 +1,123 @@
 {
- "updated": "2026-11-14",
+ "updated": "2026-11-15",
  "people": [
+  {
+   "slug": "ali-abdaal",
+   "name": "Ali Abdaal",
+   "channels": [
+    "@aliabdaal"
+   ],
+   "books": [
+    {
+     "title": "The World: A Brief Introduction",
+     "author": "",
+     "note": "Richard Haass book he is currently reading to understand world affairs",
+     "video": "szVXpM7VVMg",
+     "url": null,
+     "ts": 761,
+     "date": "2026-11-15"
+    },
+    {
+     "title": "$100M Offers",
+     "author": "",
+     "note": "Book on creating offers so good people feel stupid saying no; shaped academy's North Star",
+     "video": "dKsp8aXrwJw",
+     "url": null,
+     "ts": 73,
+     "date": "2026-11-15"
+    }
+   ]
+  },
+  {
+   "slug": "alex-hormozi",
+   "name": "Alex Hormozi",
+   "channels": [
+    "Alex Hormozi"
+   ],
+   "books": [
+    {
+     "title": "$100 Million Leads",
+     "author": "",
+     "note": "His book; launch pushed across email, content, ads, outreach and affiliates, but many people still",
+     "video": "HxEQCHpZzHk",
+     "url": null,
+     "ts": 345,
+     "date": "2026-11-15"
+    }
+   ]
+  },
+  {
+   "slug": "unknown-host",
+   "name": "Unknown host",
+   "channels": [
+    "@MyFirstMillionPod"
+   ],
+   "books": [
+    {
+     "title": "DARE",
+     "author": "",
+     "note": "Host read it about a month ago; book titled DARE",
+     "video": "c7HzTX9CZic",
+     "url": null,
+     "ts": 2045,
+     "date": "2026-11-15"
+    }
+   ]
+  },
+  {
+   "slug": "my-first-million",
+   "name": "My First Million",
+   "channels": [
+    "My First Million"
+   ],
+   "books": [
+    {
+     "title": "Dying to Live: Near-Death Experiences",
+     "author": "",
+     "note": "Susan Blackmore book on near-death experiences, linked in show notes",
+     "video": "pod-4bc0b759b71b",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-15"
+    },
+    {
+     "title": "The Escape Artist",
+     "author": "",
+     "note": "Jonathan Freedland book about the man who broke out of Auschwitz",
+     "video": "pod-4bc0b759b71b",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-15"
+    },
+    {
+     "title": "Man's Search for Meaning",
+     "author": "",
+     "note": "Viktor Frankl book linked in show notes",
+     "video": "pod-4bc0b759b71b",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-15"
+    }
+   ]
+  },
+  {
+   "slug": "robert-greene",
+   "name": "Robert Greene",
+   "channels": [
+    "My First Million"
+   ],
+   "books": [
+    {
+     "title": "The Law of the Sublime",
+     "author": "",
+     "note": "Robert Greene's new book, the topic of the episode",
+     "video": "pod-4bc0b759b71b",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-15"
+    }
+   ]
+  },
   {
    "slug": "sean",
    "name": "Sean",
@@ -19,6 +136,62 @@
   }
  ],
  "ranking": [
+  {
+   "title": "The World: A Brief Introduction",
+   "author": "",
+   "people": [
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "$100M Offers",
+   "author": "",
+   "people": [
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "$100 Million Leads",
+   "author": "",
+   "people": [
+    "alex-hormozi"
+   ]
+  },
+  {
+   "title": "DARE",
+   "author": "",
+   "people": [
+    "unknown-host"
+   ]
+  },
+  {
+   "title": "Dying to Live: Near-Death Experiences",
+   "author": "",
+   "people": [
+    "my-first-million"
+   ]
+  },
+  {
+   "title": "The Escape Artist",
+   "author": "",
+   "people": [
+    "my-first-million"
+   ]
+  },
+  {
+   "title": "Man's Search for Meaning",
+   "author": "",
+   "people": [
+    "my-first-million"
+   ]
+  },
+  {
+   "title": "The Law of the Sublime",
+   "author": "",
+   "people": [
+    "robert-greene"
+   ]
+  },
   {
    "title": "Obviously Awesome",
    "author": "",

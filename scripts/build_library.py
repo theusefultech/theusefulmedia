@@ -111,6 +111,37 @@ def block_kind(tag):
     return "other"
 
 
+# 17 Nov 2026 (Raja, audit #20): a plain App Store or developer link to an app that has a listing on
+# The Useful Apps points to that listing instead. Sponsors, Raja's own apps and tracked links (ct=, utm_, ref=)
+# keep their own links; the list of eligible apps comes from the Useful Apps build (linkmap.json).
+_LINKMAP = None
+TRACKED = re.compile(r"[?&](ct|pt|utm_[a-z]+|ref|via|aff|aff_id|irclickid|partner)=", re.I)
+
+
+def listing_for(href):
+    global _LINKMAP
+    if _LINKMAP is None:
+        _LINKMAP = ({}, {})
+        try:
+            data = json.loads(fetch(SITE + "/apps/data/linkmap.json"))
+            by_id = {i: s for s, v in data.items() for i in v.get("ids", [])}
+            by_host = {h: s for s, v in data.items() for h in v.get("hosts", [])}
+            _LINKMAP = (by_id, by_host)
+        except Exception as e:
+            print("linkmap unavailable, keeping original links:", e)
+    by_id, by_host = _LINKMAP
+    u = html_lib.unescape(href)
+    if TRACKED.search(u):
+        return None
+    m = re.search(r"apps\.apple\.com/.*?id(\d+)", u)
+    if m:
+        slug = by_id.get(m.group(1))
+    else:
+        m = re.match(r"https?://(?:www\.)?([^/?#]+)/?(?:[?#].*)?$", u)  # only a bare homepage, not a deep page
+        slug = by_host.get(m.group(1).lower()) if m else None
+    return f"{SITE}/apps/app/{slug}/" if slug else None
+
+
 def inline(node):
     out = []
     for c in node.children:
@@ -125,6 +156,7 @@ def inline(node):
                 if "{{" in href:
                     out.append(inner)
                     continue
+                href = listing_for(href) or href
                 ext = not href.startswith(SITE)
                 out.append(f'<a href="{esc(href)}"' + (' target="_blank" rel="noopener"' if ext else "") + f">{inner}</a>")
             elif name in ("strong", "b"):
@@ -156,7 +188,8 @@ def render_block(tag):
                 continue
             t = clean_text(el.get_text(" ", strip=True))
             if t and not el.find("img"):
-                parts.append(f'<p class="btn-row"><a class="is-btn" href="{esc(el["href"])}" target="_blank" rel="noopener">{esc(t)}</a></p>')
+                bh = listing_for(el["href"])
+                parts.append(f'<p class="btn-row"><a class="is-btn" href="{esc(bh or el["href"])}"' + ("" if bh else ' target="_blank" rel="noopener"') + f'>{esc(t)}</a></p>')
             continue
         # only top-most matching elements
         if el.find_parent(["ul", "ol", "table"]) and el.name not in ("ul", "ol", "table"):

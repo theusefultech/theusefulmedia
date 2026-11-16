@@ -28,9 +28,7 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /cr/
 
 Sitemap: https://theusefulmedia.com/sitemap.xml
 Sitemap: https://theusefulmedia.com/apps/sitemap.xml
-
-User-agent: *
-Disallow: /cr/

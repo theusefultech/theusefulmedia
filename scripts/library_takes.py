@@ -21,4 +21,6 @@ TAKES = {
  "the-7-habits-of-highly-effective-people": "Don't try to read it in a week. Read Habit 3 first, draw the grid, and plan 1 week with it. Come back for Habit 5 the next time a conversation goes wrong.",
  "the-total-money-makeover": "Read chapters 6 and 7 and start this week. The smallest-balance-first order isn't the cheapest on paper, but a finished debt does more for you than a spreadsheet. Skip the US retirement and college chapters until the debt is gone.",
  "the-millionaire-next-door": "Read chapter 1 and run the net worth test on yourself before anything else. For a high earner it can be an uncomfortable number. Then read chapter 4 before your next car purchase.",
+ "the-courage-to-be-disliked": "Read the third night first if other people's opinions run your week, then go back to the start. Keep the 1 question it teaches: whose task is this? Ask it before you spend an evening worrying about someone else's reaction.",
+ "the-subtle-art-of-not-giving-a-f-ck": "Read chapters 1 and 5 back to back. The first tells you to care about fewer things. The second says how you respond is always yours. If the swearing wears you out, those 2 chapters are enough.",
 }

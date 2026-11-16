@@ -23,7 +23,8 @@ stats = [
     (F["newsletterSubs"], f'Newsletter subscribers, {F["openRate"]} open rate'),
     (F["sponsors"], f'Apps that paid for a spot since {F.get("sponsorsSince", "September 2026")}'),
 ]
-PRICES = {"Top spot in a roundup": "From $200", "Spot in a roundup": "From $100", "Dedicated review": "From $500", "Newsletter feature": "From $150", "Full campaign": "Quote"}
+# 16 Nov 2026: fixed price list, same as /advertise/. $200 is the floor for any paid spot.
+PRICES = {"Top spot in a roundup": "From $200", "Dedicated review": "From $500", "Full campaign": "Quote"}
 EXAMPLES = [
     ("Mic Drop", "#1 in 4 Mac Apps That Make Every Video Call a Little Less Awkward", "https://medium.com/the-useful-tech/4-mac-apps-that-make-every-video-call-a-little-less-awkward-8289e20cf309"),
     ("App Cleaner & Uninstaller", "#1 in 4 Mac Apps That Free Up Gigabytes Even After You Empty the Trash", "https://medium.com/the-useful-tech/4-mac-apps-that-free-up-gigabytes-even-after-you-empty-the-trash-2c47e8735f4d"),
@@ -31,9 +32,7 @@ EXAMPLES = [
 ]
 place = [
     ("Top spot in a roundup", "Your app at #1 with its own section, screenshots and your tracked link, plus a newsletter feature."),
-    ("Spot in a roundup", "Your app with its own section in a roundup of Mac or iPhone apps. Stays up for good."),
-    ("Dedicated review", "A full post about your app alone, plus a newsletter feature."),
-    ("Newsletter feature", f'Your app in front of {F["newsletterSubs"]} subscribers with a {F["openRate"]} open rate and {F["clickRate"]} click rate.'),
+    ("Dedicated review", f'A full post about your app alone, plus a newsletter feature to {F["newsletterSubs"]} subscribers ({F["openRate"]} open rate).'),
     ("Full campaign", "2 dedicated posts plus a newsletter issue, an Instagram carousel, and X and LinkedIn posts."),
 ]
 bars = [("US readers", F["usShare"]), ("Read on a Mac", F["macShare"]), ("Read on an iPhone", F["iphoneShare"])]

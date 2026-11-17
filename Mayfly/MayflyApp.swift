@@ -133,7 +133,7 @@ struct HeroCard: View {
 
                 HStack(spacing: 10) {
                     Button { } label: {
-                        Text("Buy now").font(.headline).frame(maxWidth: .infinity).frame(height: 32)
+                        Text("Buy now").font(.headline).foregroundStyle(Color(uiColor: .systemBackground)).frame(maxWidth: .infinity).frame(height: 32)
                     }
                     .buttonStyle(.glassProminent)
                     Button { } label: {

@@ -1,0 +1,48 @@
+name: Mayfly simulator screenshots
+on:
+  push:
+    branches: [mayfly-sim]
+  workflow_dispatch:
+jobs:
+  shots:
+    runs-on: macos-26
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pick newest Xcode
+        run: |
+          X=$(ls -d /Applications/Xcode*.app | grep -v -i beta | sort -V | tail -1)
+          [ -z "$X" ] && X=$(ls -d /Applications/Xcode*.app | sort -V | tail -1)
+          sudo xcode-select -s "$X"; xcodebuild -version
+      - run: brew install xcodegen && xcodegen generate
+      - name: Build
+        run: |
+          set -o pipefail
+          xcodebuild -project Mayfly.xcodeproj -scheme Mayfly -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build | tail -40
+      - name: Screenshots
+        run: |
+          xcrun simctl list devices available
+          UDID=$(xcrun simctl list devices available -j | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin)['devices']
+          c=[(r,x) for r,v in d.items() if 'iOS' in r for x in v if x['name'].startswith('iPhone') and 'Pro' in x['name'] and 'Max' not in x['name']]
+          c.sort(key=lambda t:(t[0],t[1]['name']))
+          print(c[-1][1]['udid'])")
+          xcrun simctl boot "$UDID"; xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3
+          APP=$(find build -name 'Mayfly.app' -path '*iphonesimulator*' | head -1)
+          xcrun simctl install "$UDID" "$APP"
+          mkdir -p out
+          for m in dark light; do
+            xcrun simctl ui "$UDID" appearance $m
+            xcrun simctl terminate "$UDID" com.theusefulmedia.mayfly || true
+            xcrun simctl launch "$UDID" com.theusefulmedia.mayfly
+            sleep 10
+            xcrun simctl io "$UDID" screenshot "out/home-$m.png"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shots
+          path: out/

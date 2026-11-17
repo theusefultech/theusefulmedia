@@ -1,13 +1,439 @@
 {
- "updated": "2026-11-15",
+ "updated": "2026-11-17",
  "people": [
+  {
+   "slug": "guest",
+   "name": "Guest",
+   "channels": [
+    "@TheDiaryOfACEO"
+   ],
+   "books": [
+    {
+     "title": "AI as a positive and negative factor in global risk",
+     "author": "",
+     "note": "Essay by Eliezer Yudkowsky the guest read; shaped his thinking on AI risk",
+     "video": "qDzg-xvkeXw",
+     "url": null,
+     "ts": 186,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "chase-hughes",
+   "name": "Chase Hughes",
+   "channels": [
+    "The Diary Of A CEO with Steven Bartlett"
+   ],
+   "books": [
+    {
+     "title": "Six-Minute X-Ray",
+     "author": "",
+     "note": "Chase's bestselling book on profiling and reading human behaviour",
+     "video": "pod-bc22d2241b4b",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 0,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Obedience to Authority",
+     "author": "",
+     "note": "Milgram's book on obedience experiments, cited as focused on authority figures",
+     "video": "pod-bc22d2241b4b",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 1151,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "katt-williams",
+   "name": "Katt Williams",
+   "channels": [
+    "The Diary Of A CEO with Steven Bartlett",
+    "@TheDiaryOfACEO"
+   ],
+   "books": [
+    {
+     "title": "Little Women",
+     "author": "",
+     "note": "Read it as a kid, didn't understand it at first, reread two or three times",
+     "video": "pod-2ac384533236",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 1423,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "david-perlmutter",
+   "name": "David Perlmutter",
+   "channels": [
+    "The Diary Of A CEO with Steven Bartlett",
+    "@TheDiaryOfACEO"
+   ],
+   "books": [
+    {
+     "title": "Brainwash",
+     "author": "",
+     "note": "Co-written book defining Disconnection Syndrome at a microscopic level",
+     "video": "pod-145d5dd50150",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 6844,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Brain Defenders",
+     "author": "",
+     "note": "His latest book on harnessing the brain's immune system to prevent cognitive decline",
+     "video": "pod-145d5dd50150",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 6883,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "steven-bartlett",
+   "name": "Steven Bartlett",
+   "channels": [
+    "@TheDiaryOfACEO"
+   ],
+   "books": [
+    {
+     "title": "Bombing to Win: Air Power and Coercion in War",
+     "author": "",
+     "note": "Robert Pape's book on air power and coercion, raised when discussing Iran bombing models",
+     "video": "a1mI-ozLyYM",
+     "url": null,
+     "ts": 888,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Our Own Worst Enemies: America in the Age of Violent Populism",
+     "author": "",
+     "note": "Robert Pape's evidence-based book on violent populism; called the definitive book on the subject",
+     "video": "a1mI-ozLyYM",
+     "url": null,
+     "ts": 4931,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Brain Defenders",
+     "author": "",
+     "note": "Dr. Perlmutter's most recent book, praised by the host",
+     "video": "FRoQOzZRcpw",
+     "url": null,
+     "ts": 6810,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "james-talarico",
+   "name": "James Talarico",
+   "channels": [
+    "@TheDiaryOfACEO"
+   ],
+   "books": [
+    {
+     "title": "The Bible",
+     "author": "",
+     "note": "Holds up the Bible during the conversation while discussing faith and politics",
+     "video": "FpIN6tYC5XM",
+     "url": null,
+     "ts": 4622,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "mark-cuban",
+   "name": "Mark Cuban",
+   "channels": [
+    "@TheDiaryOfACEO"
+   ],
+   "books": [
+    {
+     "title": "Ari Emanuel's book about rage",
+     "author": "",
+     "note": "Was reading Ari Emanuel's book about rage",
+     "video": "6VTSAs4Rsck",
+     "url": null,
+     "ts": 3888,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Why Men Rebel",
+     "author": "",
+     "note": "Read it in high school; ties it to the idea that people will rebel",
+     "video": "6VTSAs4Rsck",
+     "url": null,
+     "ts": 1246,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "tim-ferriss",
+   "name": "Tim Ferriss",
+   "channels": [
+    "The Tim Ferriss Show"
+   ],
+   "books": [
+    {
+     "title": "I Ching",
+     "author": "",
+     "note": "Teases a future live casting of it, calling it a weird book",
+     "video": "pod-b3fdddcf5e6c",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1710,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Book of Revelation",
+     "author": "",
+     "note": "Chapter 13, verse 18 is the source of the number of the beast, 666",
+     "video": "pod-b3fdddcf5e6c",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1440,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Awareness",
+     "author": "",
+     "note": "By Anthony de Mello; gifted 100+ times, read 15-20 times",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 4231,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 15 Commitments of Conscious Leadership",
+     "author": "",
+     "note": "Used by tech startups; applies to relationships too",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 4083,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Conscious Loving",
+     "author": "",
+     "note": "By Gay and Katie Hendricks; relationships and conscious leadership",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 4078,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Outlive",
+     "author": "",
+     "note": "Peter Attia's book; describes heart disease risk factors",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 3217,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 4-Hour Chef",
+     "author": "",
+     "note": "Meta-learning section (about 80 pages) is the most important part",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1484,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Hard Times",
+     "author": "",
+     "note": "Studs Terkel's oral history of the Great Depression; shows human resilience, boosts optimism",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1363,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Effective Executive",
+     "author": "",
+     "note": "By Peter Drucker; evergreen, increasingly important; previously recommended",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1133,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 80/20 Principle",
+     "author": "",
+     "note": "By Richard Koch; evergreen topic for the AI era",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1127,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Atomic Habits",
+     "author": "",
+     "note": "Sold 25-30 million copies; useful for habit formation",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 507,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Back Mechanic",
+     "author": "",
+     "note": "Stuart McGill's book on back pain; Tim is a fan",
+     "video": "pod-0b83e69d7610",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 3866,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Healing Back Pain",
+     "author": "",
+     "note": "John Sarno's book arguing back pain is psychosomatic; friends credit it with cures",
+     "video": "pod-0b83e69d7610",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 3470,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Great Nerve",
+     "author": "",
+     "note": "Dr. Kevin Tracy's book on the vagus nerve and vagal tone",
+     "video": "pod-0b83e69d7610",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 2920,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Surrender Experiment",
+     "author": "",
+     "note": "Michael Singer; recommended by Kevin Rose, a counterexample to over-engineering life",
+     "video": "pod-0b83e69d7610",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 2423,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Crucial Conversations",
+     "author": "",
+     "note": "Suggested reading for staying close to drifting friends and handling hard talks",
+     "video": "pod-0b83e69d7610",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1154,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "dr-anna-lembke",
+   "name": "Dr. Anna Lembke",
+   "channels": [
+    "Huberman Lab"
+   ],
+   "books": [
+    {
+     "title": "Dopamine Nation",
+     "author": "",
+     "note": "Her earlier book; she cut a spiritual surrender chapter from it",
+     "video": "pod-3a933b01accb",
+     "url": "https://www.hubermanlab.com/episode/overcome-addictions-and-obsessions-of-all-kinds-anna-lembke",
+     "ts": 140,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Radical Surrender",
+     "author": "",
+     "note": "Her new book on giving up control and spiritual surrender; Huberman read it and praised it",
+     "video": "pod-3a933b01accb",
+     "url": "https://www.hubermanlab.com/episode/overcome-addictions-and-obsessions-of-all-kinds-anna-lembke",
+     "ts": 79,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "naomi-brockwell",
+   "name": "Naomi Brockwell",
+   "channels": [
+    "Naomi Brockwell TV"
+   ],
+   "books": [
+    {
+     "title": "Michael Basil's macOS privacy guide",
+     "author": "",
+     "note": "Book on hardening a Mac for privacy; she follows its settings and credits it",
+     "video": "1g0RzOGxe40",
+     "url": null,
+     "ts": 134,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "dante-kim",
+   "name": "Dante Kim",
+   "channels": [
+    "Dante Kim"
+   ],
+   "books": [
+    {
+     "title": "The Lean Startup",
+     "author": "",
+     "note": "Read it to prepare for launching his second app",
+     "video": "TiuWk14VKZA",
+     "url": null,
+     "ts": 110,
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Hacking Growth",
+     "author": "",
+     "note": "Read it to prepare for launching his second app",
+     "video": "TiuWk14VKZA",
+     "url": null,
+     "ts": 106,
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "slug": "tool-finder",
+   "name": "Tool Finder",
+   "channels": [
+    "Tool Finder"
+   ],
+   "books": [
+    {
+     "title": "Getting Things Done",
+     "author": "",
+     "note": "David Allen's system; Todoist filters and labels support it",
+     "video": "DlpZO-x4qT8",
+     "url": null,
+     "ts": 181,
+     "date": "2026-11-16"
+    }
+   ]
+  },
   {
    "slug": "ali-abdaal",
    "name": "Ali Abdaal",
    "channels": [
+    "Ali Abdaal",
     "@aliabdaal"
    ],
    "books": [
+    {
+     "title": "Feel Good Productivity",
+     "author": "",
+     "note": "his own bestselling book displayed on desk",
+     "video": "4eq7ienNumY",
+     "url": null,
+     "ts": 576,
+     "date": "2026-11-16"
+    },
     {
      "title": "The World: A Brief Introduction",
      "author": "",
@@ -25,6 +451,24 @@
      "url": null,
      "ts": 73,
      "date": "2026-11-15"
+    }
+   ]
+  },
+  {
+   "slug": "thomas-frank",
+   "name": "Thomas Frank",
+   "channels": [
+    "@ThomasFrankExplains"
+   ],
+   "books": [
+    {
+     "title": "Building a Second Brain",
+     "author": "",
+     "note": "Tiago Forte's book teaching the PARA methodology for tracking projects and goals",
+     "video": "kA0-xFwhH4A",
+     "url": null,
+     "ts": 1520,
+     "date": "2026-11-16"
     }
    ]
   },
@@ -136,6 +580,252 @@
   }
  ],
  "ranking": [
+  {
+   "title": "AI as a positive and negative factor in global risk",
+   "author": "",
+   "people": [
+    "guest"
+   ]
+  },
+  {
+   "title": "Six-Minute X-Ray",
+   "author": "",
+   "people": [
+    "chase-hughes"
+   ]
+  },
+  {
+   "title": "Obedience to Authority",
+   "author": "",
+   "people": [
+    "chase-hughes"
+   ]
+  },
+  {
+   "title": "Little Women",
+   "author": "",
+   "people": [
+    "katt-williams"
+   ]
+  },
+  {
+   "title": "Brainwash",
+   "author": "",
+   "people": [
+    "david-perlmutter"
+   ]
+  },
+  {
+   "title": "Brain Defenders",
+   "author": "",
+   "people": [
+    "david-perlmutter",
+    "steven-bartlett"
+   ]
+  },
+  {
+   "title": "Bombing to Win: Air Power and Coercion in War",
+   "author": "",
+   "people": [
+    "steven-bartlett"
+   ]
+  },
+  {
+   "title": "Our Own Worst Enemies: America in the Age of Violent Populism",
+   "author": "",
+   "people": [
+    "steven-bartlett"
+   ]
+  },
+  {
+   "title": "The Bible",
+   "author": "",
+   "people": [
+    "james-talarico"
+   ]
+  },
+  {
+   "title": "Ari Emanuel's book about rage",
+   "author": "",
+   "people": [
+    "mark-cuban"
+   ]
+  },
+  {
+   "title": "Why Men Rebel",
+   "author": "",
+   "people": [
+    "mark-cuban"
+   ]
+  },
+  {
+   "title": "I Ching",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Book of Revelation",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Awareness",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "The 15 Commitments of Conscious Leadership",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Conscious Loving",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Outlive",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "The 4-Hour Chef",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Hard Times",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "The Effective Executive",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "The 80/20 Principle",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Atomic Habits",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Dopamine Nation",
+   "author": "",
+   "people": [
+    "dr-anna-lembke"
+   ]
+  },
+  {
+   "title": "Radical Surrender",
+   "author": "",
+   "people": [
+    "dr-anna-lembke"
+   ]
+  },
+  {
+   "title": "Back Mechanic",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Healing Back Pain",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "The Great Nerve",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "The Surrender Experiment",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Crucial Conversations",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Michael Basil's macOS privacy guide",
+   "author": "",
+   "people": [
+    "naomi-brockwell"
+   ]
+  },
+  {
+   "title": "The Lean Startup",
+   "author": "",
+   "people": [
+    "dante-kim"
+   ]
+  },
+  {
+   "title": "Hacking Growth",
+   "author": "",
+   "people": [
+    "dante-kim"
+   ]
+  },
+  {
+   "title": "Getting Things Done",
+   "author": "",
+   "people": [
+    "tool-finder"
+   ]
+  },
+  {
+   "title": "Feel Good Productivity",
+   "author": "",
+   "people": [
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "Building a Second Brain",
+   "author": "",
+   "people": [
+    "thomas-frank"
+   ]
+  },
   {
    "title": "The World: A Brief Introduction",
    "author": "",

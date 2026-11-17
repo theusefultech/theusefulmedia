@@ -45,6 +45,20 @@
   "tags": [
    "iphone",
    "siri"
+  ],
+  "faq": [
+   [
+    "Which iPhones can run these Siri AI prompts?",
+    "An iPhone 15 Pro, 15 Pro Max, or any iPhone 16 or newer, with Siri set to English. You start Siri by saying Hey Siri, holding the side button, or swiping down from the Dynamic Island."
+   ],
+   [
+    "Do I need a separate AI app for these prompts?",
+    "No. Every prompt runs in Siri itself, inside apps you already use: Mail, Messages, Photos, Calendar, Reminders, Maps and Shortcuts."
+   ],
+   [
+    "How do I use Write with Siri on a message?",
+    "Leave the cursor in any text field and tap Write with Siri on the keyboard, then say what you want, for example make this shorter without losing the ask. It works in Mail, Messages, Slack, WhatsApp and web forms."
+   ]
   ]
  },
  {
@@ -116,6 +130,20 @@
   "tags": [
    "iphone",
    "ios27"
+  ],
+  "faq": [
+   [
+    "How many new features are in iOS 27?",
+    "The list counts 311 updates across iOS 27, iPadOS 27, macOS, watchOS 27 and visionOS 27, sorted into 21 categories. Performance and System has the most with 34, then Photos and Camera with 27."
+   ],
+   [
+    "Is iOS 27 faster than iOS 26?",
+    "Apple says apps launch up to 30% faster, new photos load up to 70% faster, AirDrop transfers run up to 80% faster and file browsing is up to 5x faster. The new CPU scheduler is supported back to iPhone 11."
+   ],
+   [
+    "What are the biggest changes in iOS 27?",
+    "The list opens with 12 headline features, including Siri AI, Visual Intelligence in Camera, Write with Siri, Spatial Reframing for photos, a Liquid Glass slider from clear to tinted, and Call Context, which shows your confirmation code when you call a business."
+   ]
   ]
  },
  {
@@ -164,6 +192,20 @@
   "thumb": "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/product_variant_asset/asset/d810346d-0cf9-4a88-9bbb-27d58cdbcccd/The-Option-Key-Map-cover.png",
   "tags": [
    "mac"
+  ],
+  "faq": [
+   [
+    "What does holding Option do on a Mac?",
+    "It shows a hidden second set of actions in menus, the Dock, Finder and Safari. Hold Option as you click, and items change: Quit becomes Force Quit, Copy becomes Copy as Pathname, and Duplicate becomes Save As."
+   ],
+   [
+    "How do I see Wi-Fi details on a Mac?",
+    "Hold Option and click the Wi-Fi icon in the menu bar. Instead of just the list of networks, you get your IP and router address, the security type, the channel and live signal strength."
+   ],
+   [
+    "How do I copy a file path in Finder?",
+    "Select the file, hold Option and open the Edit menu. Copy becomes Copy as Pathname, which copies the full path as text for Terminal or a support ticket."
+   ]
   ]
  },
  {
@@ -439,6 +481,20 @@
   "thumb": "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/product_variant_asset/asset/288924fd-e6e2-4841-be3b-9c6e22eac63f/taskade-starter-pack-cover.png",
   "tags": [
    "ai"
+  ],
+  "faq": [
+   [
+    "Can I use these Taskade agents on the free plan?",
+    "Yes. The free plan is enough to test all 9. Its credits are a one-time batch, not a monthly refill, so the pack includes a playbook on how to make them last."
+   ],
+   [
+    "How long does it take to set up a Taskade agent?",
+    "About a minute per agent. Create a new AI Agent in your workspace, paste the prompt into its instructions, pick the model and tools on the card, then run it or put it on a schedule."
+   ],
+   [
+    "Which agents come in the pack?",
+    "Overnight Research, Second Brain, Notes-to-Plan Cleaner, Ghostwriter, Page Watcher, Inbox Triage, Weekly Review, Meeting Notes Summarizer and Tutor. Each card lists its model, tools and schedule."
+   ]
   ]
  },
  {

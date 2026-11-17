@@ -23,4 +23,6 @@ TAKES = {
  "the-millionaire-next-door": "Read chapter 1 and run the net worth test on yourself before anything else. For a high earner it can be an uncomfortable number. Then read chapter 4 before your next car purchase.",
  "the-courage-to-be-disliked": "Read the third night first if other people's opinions run your week, then go back to the start. Keep the 1 question it teaches: whose task is this? Ask it before you spend an evening worrying about someone else's reaction.",
  "the-subtle-art-of-not-giving-a-f-ck": "Read chapters 1 and 5 back to back. The first tells you to care about fewer things. The second says how you respond is always yours. If the swearing wears you out, those 2 chapters are enough.",
+ "the-willpower-instinct": "Read chapter 6 before the rest. Most bad habits don't win on the first slip. They win on the guilt after it. If you keep 1 thing, keep the rule to forgive the slip and make the next choice a good one.",
+ "the-craving-mind": "Read chapter 1 with the habit you want to drop in mind. The idea is simple: watch the habit closely instead of fighting it. The first 2 chapters are enough to try it this week.",
 }

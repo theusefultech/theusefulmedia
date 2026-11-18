@@ -19,8 +19,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&display=swap">
-<link rel="stylesheet" href="/stack/stack.css">
-<script src="/stack/stack.js" defer></script>
+<link rel="stylesheet" href="/stack/stack.css?v=2">
+<script>document.documentElement.classList.add("js")</script>
+<script src="/stack/stack.js?v=2" defer></script>
 <script src="/tech/tech.js" defer></script>
 <script src="/apps/hit.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Tinystack","operatingSystem":"iOS, macOS","applicationCategory":"LifestyleApplication","description":"An AI planner for your free time. It picks offline activities you enjoy, stacks them to fit the time you have, and runs the stack while your phone is out of reach.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"The Useful Media Co","url":"https://theusefulmedia.com/"}}</script>
@@ -40,8 +41,10 @@
     <a href="#ai">What the AI does</a>
     <a href="#faq">Questions</a>
   </nav>
+  <button class="snd" type="button" data-snd aria-pressed="true" data-tip="Soft tap sounds while you pick. Tap to turn them off." aria-label="Tap sounds">🔈</button>
   <a class="btn btn-small" href="#join">Join the waitlist</a>
 </header>
+<canvas class="confetti" data-confetti aria-hidden="true"></canvas>
 
 <main id="main">
 
@@ -65,25 +68,36 @@
     <a class="hero-try" href="#build"><span aria-hidden="true">↓</span> Or build your first stack now, free, in 30 seconds</a>
   </div>
 
-  <div class="hero-art" aria-hidden="true">
-    <div class="phone">
+  <div class="hero-art">
+    <div class="phone" aria-hidden="true">
       <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <p class="ph-time">8:42 PM</p>
-        <div class="bubble me">I have 40 minutes. Low energy.</div>
-        <div class="bubble ai"><span class="spark">✦</span> Here's a calm stack from your things:</div>
-        <div class="mini-stack">
-          <div class="mini c-read"><span>📖</span><b>Book</b><i>20 min</i></div>
-          <div class="mini c-make"><span>✏️</span><b>Sketching</b><i>15 min</i></div>
-          <div class="mini c-home"><span>🍵</span><b>Tea ritual</b><i>5 min</i></div>
+      <div class="phone-screen is-rot" data-phone>
+        <div class="feed">
+          <div class="feed-top"><span class="feed-time">1:14 AM</span><span class="feed-meter">Scrolled today <b data-scrolled>3h 12m</b></span></div>
+          <div class="feed-track"><div class="reel r1"><span class="reel-ico"><img src="/stack/i/skull.webp" alt="" width="64" height="64" decoding="async"></span><p>POV: it's 1:14 AM and you said 5 more minutes</p><i>♥ 2.1M</i></div><div class="reel r2"><span class="reel-ico"><img src="/stack/i/melting.webp" alt="" width="64" height="64" decoding="async"></span><p>wait for it…</p><i>♥ 884K</i></div><div class="reel r3"><span class="reel-ico"><img src="/stack/i/mindblown.webp" alt="" width="64" height="64" decoding="async"></span><p>part 47 of a story you won't finish</p><i>♥ 1.3M</i></div><div class="reel r4"><span class="reel-ico"><img src="/stack/i/phone.webp" alt="" width="64" height="64" decoding="async"></span><p>10 apps you need (you don't)</p><i>♥ 402K</i></div><div class="reel r5"><span class="reel-ico"><img src="/stack/i/party.webp" alt="" width="64" height="64" decoding="async"></span><p>this changed my life (it didn't)</p><i>♥ 3.8M</i></div><div class="reel r6"><span class="reel-ico"><img src="/stack/i/cat.webp" alt="" width="64" height="64" decoding="async"></span><p>cat falls off table, again</p><i>♥ 9.2M</i></div><div class="reel r1"><span class="reel-ico"><img src="/stack/i/skull.webp" alt="" width="64" height="64" decoding="async"></span><p>POV: it's 1:14 AM and you said 5 more minutes</p><i>♥ 2.1M</i></div><div class="reel r2"><span class="reel-ico"><img src="/stack/i/melting.webp" alt="" width="64" height="64" decoding="async"></span><p>wait for it…</p><i>♥ 884K</i></div><div class="reel r3"><span class="reel-ico"><img src="/stack/i/mindblown.webp" alt="" width="64" height="64" decoding="async"></span><p>part 47 of a story you won't finish</p><i>♥ 1.3M</i></div><div class="reel r4"><span class="reel-ico"><img src="/stack/i/phone.webp" alt="" width="64" height="64" decoding="async"></span><p>10 apps you need (you don't)</p><i>♥ 402K</i></div><div class="reel r5"><span class="reel-ico"><img src="/stack/i/party.webp" alt="" width="64" height="64" decoding="async"></span><p>this changed my life (it didn't)</p><i>♥ 3.8M</i></div><div class="reel r6"><span class="reel-ico"><img src="/stack/i/cat.webp" alt="" width="64" height="64" decoding="async"></span><p>cat falls off table, again</p><i>♥ 9.2M</i></div></div>
         </div>
-        <div class="ph-start">Start · phone goes away</div>
+        <div class="calm">
+          <p class="ph-time">8:42 PM</p>
+          <div class="bubble me">I have 40 minutes. Low energy.</div>
+          <div class="bubble ai"><span class="spark">✦</span> Here's a calm stack from your things:</div>
+          <div class="mini-stack">
+            <div class="mini c-read"><span><img src="/stack/i/book.webp" alt="" width="64" height="64" decoding="async"></span><b>Book</b><i>20 min</i></div>
+            <div class="mini c-make"><span><img src="/stack/i/sketching.webp" alt="" width="64" height="64" decoding="async"></span><b>Sketching</b><i>15 min</i></div>
+            <div class="mini c-home"><span><img src="/stack/i/tea.webp" alt="" width="64" height="64" decoding="async"></span><b>Tea ritual</b><i>5 min</i></div>
+          </div>
+          <div class="ph-start">Start · phone goes away</div>
+        </div>
       </div>
     </div>
-    <div class="pile">
-      <div class="obj o1"><span>📓</span></div>
-      <div class="obj o2"><span>🧶</span></div>
-      <div class="obj o3"><span>📚</span></div>
+    <div class="pile" aria-hidden="true">
+      <div class="obj o1"><img src="/stack/i/journal.webp" alt="" width="96" height="96" decoding="async"></div>
+      <div class="obj o2"><img src="/stack/i/knitting.webp" alt="" width="96" height="96" decoding="async"></div>
+      <div class="obj o3"><img src="/stack/i/books.webp" alt="" width="96" height="96" decoding="async"></div>
+    </div>
+    <div class="swap" role="group" aria-label="Show the phone as">
+      <button type="button" data-swap="rot" aria-pressed="true"><img src="/stack/i/melting.webp" alt="" width="22" height="22"> Brain rot</button>
+      <button type="button" data-swap="stack" aria-pressed="false"><img src="/stack/i/sparkle.webp" alt="" width="22" height="22"> Brain stack</button>
+      <span class="swap-thumb" aria-hidden="true"></span>
     </div>
   </div>
 </section>
@@ -91,6 +105,34 @@
 <!-- Strip -->
 <section class="strip" aria-label="What a stack is">
   <p><b>Brain stacking</b> is the trend of doing 2 to 4 offline things back to back, phone out of reach. Reading, then sketching, then a walk. It went viral on TikTok in Oct 2026. Tinystack plans it for you.</p>
+</section>
+
+<!-- Screen time calculator -->
+<section class="calc" id="calc">
+  <div class="sec-head">
+    <p class="eyebrow">Your scroll, in real life</p>
+    <h2>What could your scrolling turn into?</h2>
+  </div>
+  <div class="calc-box">
+    <div class="calc-in">
+      <label for="scroll-hours" class="calc-q">How long do you scroll a day?</label>
+      <p class="calc-val" aria-hidden="true"><b data-hours>3h</b> a day</p>
+      <input id="scroll-hours" type="range" min="0.5" max="8" step="0.25" value="3" aria-valuetext="3 hours a day">
+      <div class="calc-ends" aria-hidden="true"><span>30 min</span><span>8 hours</span></div>
+      <p class="calc-tip">Not sure? Check <b>Settings › Screen Time</b> on iPhone or <b>Digital Wellbeing</b> on Android.</p>
+    </div>
+    <div class="calc-out">
+      <p class="calc-year">That's <b data-year>1,095</b> hours a year. Enough for:</p>
+      <div class="calc-grid">
+        <div class="calc-tile c-read"><img src="/stack/i/books.webp" alt="" width="64" height="64" decoding="async" loading="lazy"><b data-n="books">219</b><span>books</span></div>
+        <div class="calc-tile c-make"><img src="/stack/i/sketching.webp" alt="" width="64" height="64" decoding="async" loading="lazy"><b data-n="sketch">54</b><span>sketchbooks filled</span></div>
+        <div class="calc-tile c-music"><img src="/stack/i/byear.webp" alt="" width="64" height="64" decoding="async" loading="lazy"><b data-n="songs">365</b><span>songs learned</span></div>
+        <div class="calc-tile c-move"><img src="/stack/i/walk.webp" alt="" width="64" height="64" decoding="async" loading="lazy"><b data-n="walks">2,190</b><span>30-minute walks</span></div>
+      </div>
+      <p class="calc-swap">Swap just <b>30 minutes</b> a day and it's still <b data-swap-books>36</b> books a year. <button class="link-btn" type="button" data-tip="Books: 5 hours each (a 70,000 word book at 250 words a minute). Sketchbook: 20 hours (40 pages, 30 minutes a page). Song by ear: 3 hours. Walk: 30 minutes.">How we count</button></p>
+      <a class="btn" href="#build">Build a stack for tonight <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
 </section>
 
 <!-- Builder -->
@@ -197,6 +239,7 @@
 
       <div class="pane-foot sticky-foot">
         <button class="btn btn-ghost" type="button" data-go="1"><span aria-hidden="true">←</span> Back</button>
+        <button class="tower" type="button" data-tower aria-label="See what you picked" data-tip="Your stack so far. Tap to see everything you picked."><span class="tower-pile" data-tower-pile></span><span class="tower-n" data-tower-n></span></button>
         <button class="btn" type="button" data-go="3" data-need-picks disabled>Build my stack <span aria-hidden="true">→</span></button>
       </div>
     </div>
@@ -204,8 +247,19 @@
     <!-- Step 3 -->
     <div class="pane" data-pane="3" hidden>
       <div class="result">
+        <div class="thinking" data-thinking aria-live="polite">
+          <div class="think-orb" aria-hidden="true"><span></span><span></span><span></span></div>
+          <ul class="think-steps" data-think-steps></ul>
+        </div>
         <div class="stack-card" data-card>
-          <p class="sc-kicker" data-archetype>Your brain stack</p>
+          <div class="char">
+            <div class="char-txt">
+              <p class="sc-kicker">You're</p>
+              <p class="char-name" data-archetype>The Reader</p>
+              <p class="char-line" data-char-line></p>
+            </div>
+            <div class="char-art"><img data-char-img src="/stack/i/ch-reader.webp" alt="" width="128" height="128"><span class="char-prop" data-char-prop></span></div>
+          </div>
           <h3 class="sc-title" data-title>40 minutes, low energy</h3>
           <ol class="sc-list" data-stacklist></ol>
           <p class="sc-why" data-why></p>
@@ -218,6 +272,10 @@
             <button class="btn btn-ghost" type="button" data-shuffle>↻ Another mix</button>
             <button class="btn btn-ghost" type="button" data-share>Share my stack</button>
             <button class="btn btn-ghost" type="button" data-go="2">Edit picks</button>
+          </div>
+          <div class="types">
+            <p class="types-lbl">9 brain stackers. Which are your friends? <button class="link-btn" type="button" data-tip="Your type comes from what you picked most. Pick differently and you might get another one.">How it works</button></p>
+            <div class="types-row" data-types></div>
           </div>
           <div class="save-box">
             <p class="save-title">Want this planned for you every day?</p>
@@ -239,6 +297,31 @@
   </div>
 </section>
 
+<!-- Shelf: only shows once you've finished a stack on this device -->
+<section class="shelf" id="shelf" hidden>
+  <div class="sec-head">
+    <p class="eyebrow">Saved on this device</p>
+    <h2>Your shelf</h2>
+  </div>
+  <div class="shelf-box">
+    <div class="shelf-top">
+      <div class="streak" data-streak><img src="/stack/i/fire.webp" alt="" width="64" height="64" decoding="async" loading="lazy"><div><b data-streak-n>1</b><span data-streak-lbl>day streak</span></div></div>
+      <div class="week" data-week aria-label="This week"></div>
+      <div class="totals"><div><b data-tot-stacks>0</b><span>stacks</span></div><div><b data-tot-mins>0</b><span>minutes offline</span></div></div>
+    </div>
+    <div class="row-wrap">
+      <button class="row-arrow prev" type="button" aria-label="Scroll shelf left">‹</button>
+      <div class="shelf-row scroll-row" data-shelf tabindex="0" aria-label="Finished stacks"></div>
+      <button class="row-arrow next" type="button" aria-label="Scroll shelf right">›</button>
+    </div>
+    <div class="shelf-foot">
+      <p data-shelf-msg>Come back tomorrow to keep your streak going.</p>
+      <button class="btn btn-ghost" type="button" data-ics data-tip="Downloads a calendar invite for this time tomorrow, so your phone reminds you. Nothing is sent anywhere.">Remind me tomorrow</button>
+      <a class="btn" href="#build">Build another</a>
+    </div>
+  </div>
+</section>
+
 <!-- How it works -->
 <section class="how">
   <div class="sec-head">
@@ -249,7 +332,7 @@
     <article class="how-card">
       <div class="how-art art-ask" aria-hidden="true">
         <div class="bubble me">I'm bored</div>
-        <div class="tri"><span>🧩</span><span>🚶</span><span>🎸</span></div>
+        <div class="tri"><span><img src="/stack/i/jigsaw.webp" alt="" width="64" height="64" decoding="async"></span><span><img src="/stack/i/walk.webp" alt="" width="64" height="64" decoding="async"></span><span><img src="/stack/i/byear.webp" alt="" width="64" height="64" decoding="async"></span></div>
       </div>
       <p class="num">1</p>
       <h3>Ask</h3>
@@ -257,9 +340,9 @@
     </article>
     <article class="how-card">
       <div class="how-art art-stack" aria-hidden="true">
-        <div class="mini c-read"><span>📖</span><b>Book</b><i>20</i></div>
-        <div class="mini c-move"><span>🚶</span><b>Walk</b><i>15</i></div>
-        <div class="mini c-calm"><span>🌬️</span><b>Breathe</b><i>5</i></div>
+        <div class="mini c-read"><span><img src="/stack/i/book.webp" alt="" width="64" height="64" decoding="async"></span><b>Book</b><i>20</i></div>
+        <div class="mini c-move"><span><img src="/stack/i/walk.webp" alt="" width="64" height="64" decoding="async"></span><b>Walk</b><i>15</i></div>
+        <div class="mini c-calm"><span><img src="/stack/i/breathe.webp" alt="" width="64" height="64" decoding="async"></span><b>Breathe</b><i>5</i></div>
       </div>
       <p class="num">2</p>
       <h3>Stack</h3>
@@ -268,7 +351,7 @@
     <article class="how-card">
       <div class="how-art art-lock" aria-hidden="true">
         <p class="lock-time">9:05</p>
-        <div class="live"><span>📖</span><b>Book</b><i>12:40 left</i></div>
+        <div class="live"><span><img src="/stack/i/book.webp" alt="" width="64" height="64" decoding="async"></span><b>Book</b><i>12:40 left</i></div>
       </div>
       <p class="num">3</p>
       <h3>Phone away</h3>
@@ -282,21 +365,43 @@
   <div class="sec-head">
     <p class="eyebrow">Not a timer</p>
     <h2>10 ways it decides for you</h2>
-    <p class="sub">It runs on Apple's on-device AI, so your plans stay on your phone. Drag, swipe or use the arrows.</p>
+    <p class="sub">It runs on Apple's on-device AI, so your plans stay on your phone. Try a preview first.</p>
   </div>
+  <div class="ask">
+    <p class="ask-title"><img src="/stack/i/sparkle.webp" alt="" width="28" height="28"> Tell it your situation</p>
+    <form class="ask-box" data-ask-form>
+      <label class="sr" for="ask-in">Describe your free time</label>
+      <input id="ask-in" type="text" maxlength="120" autocomplete="off" placeholder="I have 25 minutes and it's raining">
+      <button class="btn" type="submit">Plan it</button>
+    </form>
+    <div class="ask-chips" aria-label="Examples">
+      <button type="button">I have 25 minutes and it's raining</button>
+      <button type="button">Bored, 1 hour, with my kid</button>
+      <button type="button">15 minutes before bed, so tired</button>
+      <button type="button">Sunny Saturday, full of energy, 90 min</button>
+      <button type="button">Half an hour, want to draw</button>
+    </div>
+    <div class="ask-out" data-ask-out hidden>
+      <div class="ask-read" data-ask-read></div>
+      <ol class="sc-list" data-ask-list></ol>
+      <button class="btn" type="button" data-ask-run>▶ Run this stack now</button>
+    </div>
+    <p class="hint ask-note">Preview: this page plans with simple rules. The app uses Apple's on-device AI and learns what you like.</p>
+  </div>
+  <p class="row-hint">10 things the app does. Drag, swipe or use the arrows.</p>
   <div class="row-wrap">
     <button class="row-arrow prev" type="button" aria-label="Scroll left">‹</button>
     <div class="ai-row scroll-row" tabindex="0" aria-label="AI features">
-      <article class="ai-card"><span class="ai-ico">⏱️</span><h3>"I have 40 minutes"</h3><p>Time, energy and mood in. A stack from your own things out.</p></article>
-      <article class="ai-card"><span class="ai-ico">🗓️</span><h3>Plans your day</h3><p>Finds free gaps in your calendar and books a stack into them.</p></article>
-      <article class="ai-card"><span class="ai-ico">🥱</span><h3>"I'm bored"</h3><p>1 tap, 3 picks you can start right now.</p></article>
-      <article class="ai-card"><span class="ai-ico">🧠</span><h3>Learns you</h3><p>"Sketching calms you most." Your stacks shift to match.</p></article>
-      <article class="ai-card"><span class="ai-ico">🎯</span><h3>Goals to plans</h3><p>"24 books this year" becomes small weekly steps.</p></article>
-      <article class="ai-card"><span class="ai-ico">🌦️</span><h3>Reads the room</h3><p>Sunny: a walk. Rain: a board game. Travelling: a pocket stack.</p></article>
-      <article class="ai-card"><span class="ai-ico">🛟</span><h3>Scroll rescue</h3><p>Tap when the urge to scroll hits. The best 10 minutes for right now.</p></article>
-      <article class="ai-card"><span class="ai-ico">☕</span><h3>Sunday recap</h3><p>A short look at your week and 1 idea to try next.</p></article>
-      <article class="ai-card"><span class="ai-ico">🎙️</span><h3>Siri</h3><p>"Hey Siri, plan my evening." Done.</p></article>
-      <article class="ai-card"><span class="ai-ico">👯</span><h3>Together</h3><p>Finds a time you and a friend are both free, and a stack you both like.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/clock.webp" alt="" width="64" height="64" decoding="async"></span><h3>"I have 40 minutes"</h3><p>Time, energy and mood in. A stack from your own things out.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/plan.webp" alt="" width="64" height="64" decoding="async"></span><h3>Plans your day</h3><p>Finds free gaps in your calendar and books a stack into them.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/melting.webp" alt="" width="64" height="64" decoding="async"></span><h3>"I'm bored"</h3><p>1 tap, 3 picks you can start right now.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/logic.webp" alt="" width="64" height="64" decoding="async"></span><h3>Learns you</h3><p>"Sketching calms you most." Your stacks shift to match.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/trophy.webp" alt="" width="64" height="64" decoding="async"></span><h3>Goals to plans</h3><p>"24 books this year" becomes small weekly steps.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/rain.webp" alt="" width="64" height="64" decoding="async"></span><h3>Reads the room</h3><p>Sunny: a walk. Rain: a board game. Travelling: a pocket stack.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/sparkle.webp" alt="" width="64" height="64" decoding="async"></span><h3>Scroll rescue</h3><p>Tap when the urge to scroll hits. The best 10 minutes for right now.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/coffee.webp" alt="" width="64" height="64" decoding="async"></span><h3>Sunday recap</h3><p>A short look at your week and 1 idea to try next.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/sing.webp" alt="" width="64" height="64" decoding="async"></span><h3>Siri</h3><p>"Hey Siri, plan my evening." Done.</p></article>
+      <article class="ai-card"><span class="ai-ico"><img src="/stack/i/party.webp" alt="" width="64" height="64" decoding="async"></span><h3>Together</h3><p>Finds a time you and a friend are both free, and a stack you both like.</p></article>
     </div>
     <button class="row-arrow next" type="button" aria-label="Scroll right">›</button>
   </div>
@@ -310,12 +415,12 @@
   </div>
   <div class="mode-grid">
     <article class="mode">
-      <div class="mode-art away" aria-hidden="true"><div class="room"><span class="door"></span><span class="ph-down"></span></div><span class="you">🧘</span></div>
+      <div class="mode-art away" aria-hidden="true"><div class="room"><span class="door"></span><span class="ph-down"></span></div><span class="you"><img src="/stack/i/yoga.webp" alt="" width="96" height="96" decoding="async"></span></div>
       <h3>Away <span class="tag">daily</span></h3>
       <p>Your phone goes in another room. In a 2017 study, people did best with the phone in another room, not face down on the desk. The Lock Screen keeps time.</p>
     </article>
     <article class="mode">
-      <div class="mode-art film" aria-hidden="true"><div class="stand"><span class="rec"></span></div><span class="you">🎨</span></div>
+      <div class="mode-art film" aria-hidden="true"><div class="stand"><span class="rec"></span></div><span class="you"><img src="/stack/i/watercolour.webp" alt="" width="96" height="96" decoding="async"></span></div>
       <h3>Film <span class="tag">once a week</span></h3>
       <p>Your phone sits on a stand facing your desk, screen dark, and makes a short time-lapse of your stack. Touch it and the recording ends.</p>
     </article>
@@ -330,17 +435,17 @@
   </div>
   <div class="sci-grid">
     <article class="sci">
-      <p class="big">91%</p>
+      <p class="big"><span data-count-to="91">91</span>%</p>
       <p>of 467 people improved on at least 1 measure of mood, wellbeing or attention after 2 weeks without mobile internet.</p>
       <a href="https://www.wfae.org/health/2025-02-24/a-break-from-your-smartphone-can-reboot-your-mood-heres-how-long-you-need" rel="noopener" target="_blank">PNAS Nexus, 2025 ↗</a>
     </article>
     <article class="sci">
-      <p class="big">66 <small>days</small></p>
+      <p class="big"><span data-count-to="66">66</span> <small>days</small></p>
       <p>is the median time for a daily habit to feel automatic. Some took 18 days, some 254. Small and daily wins.</p>
       <a href="https://www.ucl.ac.uk/news/2009/aug/how-long-does-it-take-form-habit" rel="noopener" target="_blank">Lally et al., UCL ↗</a>
     </article>
     <article class="sci">
-      <p class="big">642 <small>tests</small></p>
+      <p class="big"><span data-count-to="642">642</span> <small>tests</small></p>
       <p>show if-then plans ("After dinner, I start my stack") help people follow through. Tinystack writes yours in onboarding.</p>
       <a href="https://doi.org/10.1080/10463283.2024.2334563" rel="noopener" target="_blank">Sheeran et al., 2024 ↗</a>
     </article>
@@ -394,7 +499,7 @@
 
 <!-- Final CTA -->
 <section class="final" id="join">
-  <div class="final-art" aria-hidden="true"><span>📖</span><span>🎨</span><span>🚶</span><span>🎹</span><span>🍵</span></div>
+  <div class="final-art" aria-hidden="true"><span><img src="/stack/i/book.webp" alt="" width="64" height="64" decoding="async"></span><span><img src="/stack/i/watercolour.webp" alt="" width="64" height="64" decoding="async"></span><span><img src="/stack/i/walk.webp" alt="" width="64" height="64" decoding="async"></span><span><img src="/stack/i/instrument.webp" alt="" width="64" height="64" decoding="async"></span><span><img src="/stack/i/tea.webp" alt="" width="64" height="64" decoding="async"></span></div>
   <h2>Be first on 28 Dec.</h2>
   <p class="sub">Launch day email with the founding price: $49.99 for life, first 500 people only.</p>
   <div class="signup">
@@ -414,6 +519,7 @@
 
 <footer class="foot">
   <p>Tinystack is made by <a href="/">The Useful Media Co</a> in Chennai. · <a href="/privacy/">Privacy</a> · <a href="/our-apps/">Our other apps</a></p>
+  <p class="credit">3D icons: <a href="https://github.com/microsoft/fluentui-emoji" rel="noopener">Microsoft Fluent Emoji</a>, MIT licence.</p>
 <p data-tum-nl style="margin:18px 0 0;font-size:14px">Free: <a href="/tech/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=stack" data-subscribe>The Useful Tech newsletter</a>, the Mac and iPhone apps and settings worth your time, Monday, Wednesday and Friday.</p>
 <p data-tum-apps style="margin:10px 0 0;font-size:14px">More from The Useful Media Co: <a href="/apps/">The Useful Apps</a>, Mac and iPhone apps worth paying for and where they cost least, with guides to the <a href="/apps/collections/new-mac/">first apps for a new Mac</a> and the <a href="/apps/best/">best app for each job</a>.</p>
 </footer>
@@ -430,18 +536,37 @@
   </div>
   <div class="run-live" data-run-live hidden>
     <p class="run-step" data-run-step>1 of 3</p>
-    <div class="run-ring">
-      <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="trk" cx="100" cy="100" r="90"/><circle class="bar" cx="100" cy="100" r="90" data-run-bar/></svg>
-      <div class="run-mid"><span class="run-emoji" data-run-emoji>📖</span><p class="run-left" data-run-left>20:00</p></div>
+    <div class="candle" data-candle style="--left:1">
+      <svg viewBox="0 0 200 250" aria-hidden="true">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFD98A" stop-opacity=".55"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/></radialGradient>
+          <linearGradient id="wax" x1="0" x2="1"><stop offset="0" stop-color="#EDE3CF"/><stop offset=".55" stop-color="#FBF6EC"/><stop offset="1" stop-color="#D9CDB4"/></linearGradient>
+          <radialGradient id="flame" cx="50%" cy="70%" r="60%"><stop offset="0" stop-color="#FFF7D6"/><stop offset=".45" stop-color="#FFD24D"/><stop offset="1" stop-color="#FF8A3D"/></radialGradient>
+        </defs>
+        <ellipse cx="100" cy="226" rx="70" ry="12" fill="#2A2633"/>
+        <g class="wax-g"><rect x="68" y="80" width="64" height="146" rx="10" fill="url(#wax)"/><path d="M68 92 q0 -12 12 -12 h40 q12 0 12 12 v6 q-6 10 -10 0 q-5 18 -10 2 q-6 8 -12 0 q-4 22 -10 4 q-6 6 -10 -2 q-6 10 -12 -4 z" fill="#FBF6EC"/></g>
+        <g class="flame-g">
+          <circle cx="100" cy="52" r="46" fill="url(#glow)" class="halo"/>
+          <line x1="100" y1="80" x2="100" y2="66" stroke="#3A3545" stroke-width="3" stroke-linecap="round"/>
+          <path class="flame" d="M100 18 C112 38 116 50 112 60 C109 68 104 71 100 71 C96 71 91 68 88 60 C84 50 88 38 100 18 Z" fill="url(#flame)"/>
+        </g>
+      </svg>
     </div>
-    <h2 class="run-name" data-run-name>Book</h2>
+    <p class="run-left" data-run-left>20:00</p>
+    <div class="run-now"><span class="run-emoji" data-run-emoji></span>    <h2 class="run-name" data-run-name>Book</h2></div>
     <p class="run-next" data-run-next>Next: Sketching</p>
     <div class="run-ctrl">
       <button class="btn btn-ghost" type="button" data-run-pause>Pause</button>
       <button class="btn btn-ghost" type="button" data-run-skip>Next item</button>
       <button class="btn btn-ghost" type="button" data-run-end>End</button>
     </div>
-    <button class="sound" type="button" data-run-sound aria-pressed="true">🔔 Chime on</button>
+    <div class="ambient" role="group" aria-label="Background sound">
+      <button type="button" data-amb="off" aria-pressed="true">Silence</button>
+      <button type="button" data-amb="rain" aria-pressed="false"><img src="/stack/i/rain.webp" alt="" width="20" height="20"> Rain</button>
+      <button type="button" data-amb="cafe" aria-pressed="false"><img src="/stack/i/coffee.webp" alt="" width="20" height="20"> Café</button>
+      <button type="button" data-amb="fire" aria-pressed="false"><img src="/stack/i/fire.webp" alt="" width="20" height="20"> Fire</button>
+    </div>
+    <button class="sound" type="button" data-run-sound aria-pressed="true">🔔 Chime between items: on</button>
   </div>
   <div class="run-done" data-run-done hidden>
     <p class="eyebrow">Stack done</p>
@@ -450,6 +575,7 @@
     <div class="scale" data-scale="after" role="group" aria-label="1 is calm, 10 is very busy"></div>
     <p class="scale-ends"><span>1 calm</span><span>10 very busy</span></p>
     <p class="done-result" data-done-result aria-live="polite"></p>
+    <p class="done-saved" data-done-saved hidden><img src="/stack/i/fire.webp" alt="" width="28" height="28"> <span></span></p>
     <button class="btn" type="button" data-run-close>Back to the page</button>
   </div>
 </div>

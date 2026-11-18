@@ -114,7 +114,7 @@ def nav(cur):
 <nav class="tabbar" aria-label="Quick links">{tab("/library/","Home","home")}{tab("/library/game/","Game","game")}<a href="/library/#q" data-search-open>{svg("search")}<span>Search</span></a>{tab("/library/shelf/","Shelf","shelf")}<button type="button" data-menu-open aria-haspopup="dialog">{svg("menu")}<span>Menu</span></button></nav>
 <div class="sheet" data-sheet hidden><div class="sheet-backdrop" data-menu-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="sheet-grip" aria-hidden="true"></div>
-<a href="/library/">Home</a><a href="/library/problems/">Problems: 3 fixes from 3 books</a><a href="/library/books/">Books: what to read, skim or skip</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/ideas/">Ideas: 1 idea, 2 minutes</a><a href="/library/people/">Bookshelves: books famous people recommend</a><a href="/library/recommended/">Most recommended: the books named most</a><a href="/library/about/">About the Library</a><a href="/library/shelf/">My shelf: badges, streak, tests</a>
+<a href="/library/">Home</a><a href="/library/problems/">Problems: 3 fixes from 3 books</a><a href="/library/books/">Books: what to read, skim or skip</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/ideas/">Ideas: 1 idea, 2 minutes</a><a href="/library/people/">Bookshelves: books famous people recommend</a><a href="/library/recommended/">Most recommended: the books named most</a><a href="/library/about/">About the Library</a><a href="/library/shelf/">My shelf: badges, streak, tests</a><a href="/library/wrapped/">Your 2026 in books</a>
 {STAY_BLOCK}
 <button type="button" class="btn btn-line" data-menu-close>Close</button></div></div>'''
 

@@ -518,7 +518,8 @@
       STAMPS.forEach(function (s) { if (have.indexOf(s.id) === -1 && s.ok()) { have.push(s.id); fresh.push(s); } });
       if (!fresh.length) return;
       store.set("stamps", have, true);
-      if (!quiet) fresh.forEach(function (s, i) { setTimeout(function () { toast(s); }, 700 + i * 1800); });
+      // 18 Nov 2026: the badges on Your Shelf replace stamp toasts; stamps are still recorded for old progress
+      if (quiet === "toast") fresh.forEach(function (s, i) { setTimeout(function () { toast(s); }, 700 + i * 1800); });
     }
   };
   var setRaw = store.set;
@@ -531,18 +532,13 @@
     var gs = window.LibStamps.games(), wins = gs.filter(function (g) { return g.won; });
     var played = gs.filter(function (g) { return g.won || g.lost; }).length;
     var si = window.LibStamps.streakInfo(gs), cur = si.cur;
-    var stats = [["Played", played], ["Win %", played ? Math.round(wins.length / played * 100) : 0], ["Streak", cur], ["Best", window.LibStamps.bestStreak(gs)]];
+    var stats = [["Played", played], ["Win %", played ? Math.round(wins.length / played * 100) : 0], ["Solved", wins.length], ["1 clue", wins.filter(function (g) { return !g.wrong.length; }).length]];
     $("[data-sh-stats]").innerHTML = stats.map(function (s) { return '<div class="stat"><b data-count="' + s[1] + '">0</b><span>' + s[0] + '</span></div>'; }).join("");
     $$("[data-sh-stats] [data-count]").forEach(function (el) { el.textContent = el.getAttribute("data-count"); });
     var dist = [0, 0, 0, 0, 0, 0]; wins.forEach(function (g) { dist[Math.min(5, g.wrong.length)]++; });
     var mx = Math.max.apply(null, dist.concat([1]));
     $("[data-sh-dist]").innerHTML = dist.map(function (n, i) { return '<div><span>' + (i + 1) + '</span><i style="width:' + (8 + n / mx * 82) + '%">' + n + '</i></div>'; }).join("");
-    var have = store.get("stamps", []);
-    $("[data-sh-count]").textContent = have.length + " of " + window.LibStamps.list.length + " collected";
-    $("[data-sh-stamps]").innerHTML = window.LibStamps.list.map(function (s) {
-      var got = have.indexOf(s.id) !== -1;
-      return '<div class="stamp-card ' + (got ? "earned" : "locked") + '"><svg viewBox="0 0 160 160" aria-hidden="true">' + (plates[s.id] || "") + '</svg><b>' + s.name + '</b><small>' + (got ? "Collected" : s.how) + '</small></div>';
-    }).join("");
+    // 18 Nov 2026: stamps moved into the badges on Your Shelf (library/badges/)
     var meta = JSON.parse($("#sh-meta").textContent);
     var tests = Object.keys(meta.tests).map(function (k) { var v = store.get("test:" + k, null); return v && v.start ? { k: k, v: v } : null; }).filter(Boolean);
     $("[data-sh-tests]").innerHTML = tests.length ? tests.map(function (t) { var n = Object.keys(t.v.days || {}).filter(function (d) { return t.v.days[d]; }).length; var m = meta.tests[t.k]; return '<a class="sh-row" href="' + m.url + '"><b>' + m.t + '</b><span class="bar"><i style="width:' + Math.round(n / 30 * 100) + '%"></i></span><span class="mono">' + n + '/30</span></a>'; }).join("")
@@ -674,6 +670,8 @@
   $$("[data-share-card]").forEach(function (b) {
     b.addEventListener("click", function () {
       var url = b.getAttribute("data-share-card"), title = b.getAttribute("data-share-title") || document.title, page = location.href.split("#")[0];
+      // Lending Library badge (18 Nov 2026): the link carries this reader's device tag; a friend opening it counts once
+      if (window.LibShareTag) { try { var pu = new URL(page); pu.searchParams.set("r", window.LibShareTag()); page = pu.toString(); } catch (e) {} }
       function fallback() { if (navigator.share) { navigator.share({ title: title, text: title, url: page }).catch(function () {}); return; } window.open(url, "_blank"); }
       if (!window.fetch || !navigator.canShare) return fallback();
       fetch(url).then(function (r) { return r.blob(); }).then(function (bl) {

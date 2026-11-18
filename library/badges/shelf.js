@@ -25,7 +25,7 @@ function render() {
   // ribbon: grows with each day toward the next title
   const st = s.streak || 0, t = E.titleOf(st), nt = E.nextTitle(st), len = 40 + Math.min(st, 30) * 7;
   $("#ysRib rect").setAttribute("height", len); $("#ysRib path").setAttribute("transform", `translate(0 ${len - 150})`); $("#ysRib g path").setAttribute("d", `M8 0v${len}M32 0v${len}`);
-  $("[data-rib-tag]").style.setProperty("--y", (len - 10) + "px"); $("[data-st-n]").textContent = st;
+  $("[data-rib-tag]").style.setProperty("--y", Math.max(80, len - 10) + "px"); $("[data-st-n]").textContent = st;
   $("[data-st-title]").textContent = t || (st ? "On the shelf" : "No streak yet");
   const sub = [], done = s.days.includes(today);
   if (s.holdNote && !s.holdSeen) sub.push(`Hold My Place saved your streak on ${new Date(s.holdNote + "T12:00").toLocaleDateString("en-GB", { weekday: "long" })}.`);

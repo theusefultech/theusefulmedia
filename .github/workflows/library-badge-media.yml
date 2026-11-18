@@ -1,0 +1,24 @@
+name: Library badge images and GIFs
+# 18 Nov 2026 (Raja, Library badges): free. Redraws every Library badge PNG, email hero, share card and Pop-up Book GIF used by
+# the badge emails whenever the drawings change, then commits them to library/badges/img (served at /library/badges/img/).
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["library/badges/art.js", "library/badges/badges.css", "scripts/library_badge_media.py"]
+concurrency: { group: library-badge-media, cancel-in-progress: true }
+permissions: { contents: write }
+jobs:
+  media:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install playwright==1.48.0 && python -m playwright install --with-deps chromium && sudo apt-get install -y ffmpeg
+      - run: python3 scripts/library_badge_media.py
+      - run: |
+          git config user.name "useful-archive-bot"; git config user.email "actions@users.noreply.github.com"
+          git add library/badges/img
+          git diff --cached --quiet || (git commit -m "Library badge images and GIFs redrawn" && git pull --rebase && git push)

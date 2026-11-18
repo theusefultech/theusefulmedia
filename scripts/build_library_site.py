@@ -16,6 +16,12 @@ def cov(slug):
     return f'/library/img/covers/{slug}.webp?v={v}'
 
 import hashlib
+def bver():
+    # 1 version for the whole badges folder, so engine, art, shelf, CSS and meta always load as a matching set
+    h=hashlib.md5()
+    for f in sorted(os.listdir(os.path.join(R,'badges'))):
+        if f.endswith(('.js','.css')): h.update(open(os.path.join(R,'badges',f),'rb').read())
+    return h.hexdigest()[:8]
 def ver(rel):
     fp=os.path.join(R,rel)
     try: return hashlib.md5(open(fp,'rb').read()).hexdigest()[:8]
@@ -78,6 +84,8 @@ def head(title, desc, path, extra_ld=None, og='/library/og.png'):
 <link rel="stylesheet" href="/library/library.css?v={ver('library.css')}">
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":ld})}</script>
 <script src="/library/library.js?v={ver('library.js')}" defer></script>
+<link rel="stylesheet" href="/library/badges/badges.css?v={bver()}">
+<script type="module" src="/library/badges/engine.js?v={bver()}"></script>
 <script src="/apps/hit.js" defer></script>
 '''
 
@@ -106,7 +114,7 @@ def nav(cur):
 <nav class="tabbar" aria-label="Quick links">{tab("/library/","Home","home")}{tab("/library/game/","Game","game")}<a href="/library/#q" data-search-open>{svg("search")}<span>Search</span></a>{tab("/library/shelf/","Shelf","shelf")}<button type="button" data-menu-open aria-haspopup="dialog">{svg("menu")}<span>Menu</span></button></nav>
 <div class="sheet" data-sheet hidden><div class="sheet-backdrop" data-menu-close></div>
 <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="sheet-grip" aria-hidden="true"></div>
-<a href="/library/">Home</a><a href="/library/problems/">Problems: 3 fixes from 3 books</a><a href="/library/books/">Books: what to read, skim or skip</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/ideas/">Ideas: 1 idea, 2 minutes</a><a href="/library/about/">About the Library</a><a href="/library/shelf/">My shelf: stamps, streak, tests</a>
+<a href="/library/">Home</a><a href="/library/problems/">Problems: 3 fixes from 3 books</a><a href="/library/books/">Books: what to read, skim or skip</a><a href="/library/game/">Today&#39;s game: Mystery Book</a><a href="/library/ideas/">Ideas: 1 idea, 2 minutes</a><a href="/library/about/">About the Library</a><a href="/library/shelf/">My shelf: badges, streak, tests</a>
 {STAY_BLOCK}
 <button type="button" class="btn btn-line" data-menu-close>Close</button></div></div>'''
 
@@ -122,7 +130,7 @@ FOOT=f'''<script type="application/json" id="plates">{json.dumps({k:A.stamp(k) f
 <div class="sheet" data-sync-sheet hidden><div class="sheet-backdrop" data-sync-close></div>
 <div class="sheet-panel sync-panel" role="dialog" aria-modal="true" aria-label="Save my progress"><div class="sheet-grip" aria-hidden="true"></div>
 <div data-sync-out><p class="serif" style="font-size:28px;line-height:1.1">Save my progress</p>
-<p class="sync-lede">Your streak, stamps, shelf and 30-day tests live on this device. Save them to your email with a 4-digit PIN. Enter the same email and PIN on any phone or laptop to bring them back.</p>
+<p class="sync-lede">Your streak, badges, shelf and 30-day tests live on this device. Save them to your email with a 4-digit PIN. Enter the same email and PIN on any phone or laptop to bring them back.</p>
 <form class="sync-form" data-sync-form novalidate>
 <label for="sync-em">Email</label><input id="sync-em" type="email" autocomplete="email" placeholder="you@email.com" required>
 <label for="sync-pin">4-digit PIN</label><input id="sync-pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="0000" required>
@@ -170,7 +178,7 @@ def next3(here, area="habits", path=""):
     if sib:
         P=sib[0]; cards.append(f'<a class="n3 card lift" href="/library/problems/{P["slug"]}/"><p class="mono">Problem · 3 fixes</p><h3>{html.escape(P["problem"])}</h3><p style="font-size:15px;color:var(--soft)">{html.escape(", ".join(f["book"] for f in P["fixes"]))}</p></a>')
     if here!="game": cards.append('<a class="n3 lift gametile" href="/library/game/"><p class="mono" style="color:#CFE3D7">Daily game</p><h3>Guess today&#39;s book</h3><p style="font-size:15px;color:#E3EEE7">6 clues. Keep your streak going.</p></a>')
-    else: cards.append('<a class="n3 card lift" href="/library/shelf/"><p class="mono">Your shelf</p><h3>See your stamps and streak</h3><p style="font-size:15px;color:var(--soft)">9 stamps to collect.</p></a>')
+    else: cards.append('<a class="n3 card lift" href="/library/shelf/"><p class="mono">Your shelf</p><h3>See your badges and streak</h3><p style="font-size:15px;color:var(--soft)">18 badges to collect.</p></a>')
     return '<section class="reveal" style="display:flex;flex-direction:column;gap:16px"><h2 style="font-size:36px">Your next 3</h2><div class="grid n3-grid">'+"".join(cards[:3])+'</div></section>'
 
 
@@ -243,7 +251,7 @@ home=head("The Useful Library: fix real problems with ideas from nonfiction book
 </div></div>
 </section>
 
-<section class="firstvisit" data-firstvisit hidden><p class="mono">New here? The Library in 3 steps</p><ol><li><b>Type a problem</b> in your own words, like &quot;I overthink everything&quot;.</li><li><b>Get 3 fixes</b> from 3 nonfiction books, and pick the 1 that fits you.</li><li><b>Try it today</b>, then test it for 30 days and collect stamps.</li></ol><button type="button" class="linkish" data-firstvisit-x>Got it</button></section>
+<section class="firstvisit" data-firstvisit hidden><p class="mono">New here? The Library in 3 steps</p><ol><li><b>Type a problem</b> in your own words, like &quot;I overthink everything&quot;.</li><li><b>Get 3 fixes</b> from 3 nonfiction books, and pick the 1 that fits you.</li><li><b>Try it today</b>, then test it for 30 days and collect badges.</li></ol><button type="button" class="linkish" data-firstvisit-x>Got it</button></section>
 <section class="row">
 <div class="flipcard" data-flip data-today id="today">
 <div class="face card">
@@ -506,12 +514,25 @@ write(f'{R}/lost/index.html',lostp)
 print("lost ok")
 
 # ---------------- SHELF (personal, not indexed)
-shelf=head("My shelf: The Useful Library","Your stamps, streak, saved books and 30-day tests.","/library/shelf/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("shelf")+f'''
+shelf=head("My shelf: The Useful Library","Your badges, reading streak, saved books and 30-day tests.","/library/shelf/").replace('<meta name="description"','<meta name="robots" content="noindex">\n<meta name="description"')+'</head>\n<body>\n'+nav("shelf")+f'''
 <main id="main" class="wrap" data-shelf-page>
-<section style="display:flex;flex-direction:column;gap:10px;padding-top:8px">
-<p class="mono rise" data-sync-line>Saved on this device. Save it to your email to keep it everywhere.</p>
-<h1 class="rise d1">My shelf</h1>
-</section>
+<div class="ys" data-ys-page>
+<div class="yhead"><p class="mono" data-sync-line>Saved on this device. Save it to your email to keep it everywhere.</p><h1>Your shelf</h1><p>Every badge starts as a pencil outline on the shelf. Read, and it inks in, then turns into a real binding: Paperback, Hardcover, Clothbound, First Edition.</p></div>
+<section class="ytop" aria-label="Reading streak"><div class="plank"></div>
+<div class="rib"><svg width="40" height="250" viewBox="0 0 40 250" aria-hidden="true"><defs><linearGradient id="ysRg" x1="0" x2="1"><stop offset="0" stop-color="#5E1426"/><stop offset=".5" stop-color="#9A2840"/><stop offset="1" stop-color="#5E1426"/></linearGradient></defs><g id="ysRib"><rect x="8" y="0" width="24" height="150" fill="url(#ysRg)"/><path d="M8 150h24v18l-12-9-12 9z" fill="url(#ysRg)"/><g stroke="rgba(255,255,255,.35)" stroke-width="1"><path d="M8 0v150M32 0v150"/></g></g></svg>
+<div class="ytag" data-rib-tag style="--y:120px"><strong data-st-n>0</strong><span>day<br>streak</span></div></div>
+<div class="tinfo"><h2 data-st-title>Your reading streak</h2><div class="sub" data-st-sub></div><div class="ladder" data-ladder></div>
+<div class="yhold"><span class="ychip" data-hold></span><span class="yhint" data-hold-h></span></div><div class="ypledge" data-pledge hidden></div></div></section>
+<div class="ysec"><h3>Next up</h3><span>The 2 badges closest to inking in</span></div>
+<div class="ybook" data-next></div>
+<div class="ysec"><h3>The collection</h3><span data-coll-n>Pull any book to see its badge.</span></div>
+<div class="yhow"><span><i></i>Pencil outline: still to earn</span><span><i class="s"></i>Solid spine: earned</span></div>
+<div class="ylib"><div class="ycase" data-case></div><aside class="ystand" data-stand aria-live="polite"></aside></div>
+<section class="ybackup" data-backup><div class="yt"><b>Keep your shelf safe</b><span>Your badges live in this browser. Add your email and we send a link that restores them on any device. You&#39;ll also get The Useful Life newsletter. Unsubscribe any time.</span><span class="msg" aria-live="polite"></span></div>
+<form novalidate><input type="email" autocomplete="email" placeholder="you@email.com" aria-label="Your email"><button class="ys-btn">Email me my link</button></form></section>
+<noscript><p>Your shelf needs JavaScript to show your badges.</p></noscript>
+</div>
+<section style="display:flex;flex-direction:column;gap:10px;padding-top:28px"><h2>Mystery Book</h2></section>
 <section class="row">
 <div class="dark grow-main" style="display:flex;flex-direction:column;gap:14px;border-radius:28px">
 <p class="mono">Mystery Book</p>
@@ -521,19 +542,25 @@ shelf=head("My shelf: The Useful Library","Your stamps, streak, saved books and 
 </div>
 <div class="card grow-side" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><p class="mono">Stay in the loop</p>{STAY_BLOCK}</div>
 </section>
-<section style="display:flex;flex-direction:column;gap:16px">
-<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px"><h2>Stamps</h2><p class="mono" data-sh-count></p></div>
-<div class="stamps" data-sh-stamps></div>
-</section>
 <section class="row">
 <div class="card grow-main" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><h2 style="font-size:32px">30-day tests</h2><div data-sh-tests style="display:flex;flex-direction:column;gap:10px"></div></div>
-<div class="card grow-side" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><h2 style="font-size:32px">Saved books</h2><div data-sh-books style="display:flex;flex-direction:column;gap:10px"></div></div>
+<div class="card grow-side" id="saved" style="display:flex;flex-direction:column;gap:12px;border-radius:28px"><h2 style="font-size:32px">Saved books</h2><div data-sh-books style="display:flex;flex-direction:column;gap:10px"></div></div>
 </section>
 <script type="application/json" id="sh-meta">{json.dumps({"tests":dict({"2-minute-rule":{"t":"The 2 minute rule","url":"/library/ideas/the-2-minute-rule/"}},**{"p-"+p["slug"]:{"t":p["problem"],"url":"/library/problems/"+p["slug"]+"/"} for p in PROBLEMS}),"books":dict({"atomic-habits":{"t":"Atomic Habits","url":"/library/books/atomic-habits/","cover":cov("atomic-habits")}},**{B["slug"]:{"t":B["t"],"url":"/library/books/"+B["slug"]+"/","cover":cov(B["slug"])} for B in BOOKPAGES})})}</script>
 </main>
 '''+FOOT
 write(f'{R}/shelf/index.html',shelf)
 print("shelf ok")
+
+# ---------------- BADGES: what each book, checklist and idea counts toward, and /library/badges/ -> Your Shelf
+_bm={"books":dict({"atomic-habits":"habits"},**{B["slug"]:B["area"] for B in BOOKPAGES}),
+     "checks":dict({"2-minute-rule":"habits"},**{"p-"+P["slug"]:P["area"] for P in PROBLEMS}),
+     "ideas":{i["slug"]:i["area"].lower() for i in ideas_daily if i.get("slug")},
+     "people":sorted(d for d in os.listdir(os.path.join(R,"people")) if os.path.isdir(os.path.join(R,"people",d)))}
+os.makedirs(os.path.join(R,"badges"),exist_ok=True)
+open(os.path.join(R,"badges","meta.json"),"w").write(json.dumps(_bm,separators=(",",":")))
+open(os.path.join(R,"badges","index.html"),"w").write('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Your shelf: The Useful Library</title><meta name="robots" content="noindex"><link rel="canonical" href="'+BASE+'/library/shelf/"><meta http-equiv="refresh" content="0; url=/library/shelf/"><script>location.replace("/library/shelf/"+location.search+location.hash)</script></head><body><h1>Your shelf</h1><p><a href="/library/shelf/">Open your shelf</a></p></body></html>')
+print("badges ok")
 
 
 # ---------------- PROBLEM PAGES: 1 problem, 3 fixes from 3 books
@@ -751,7 +778,8 @@ privacy=head("Privacy: The Useful Library","What The Useful Library stores, why,
 <h1 style="font-size:clamp(36px,5vw,48px)">What the Library stores, and why</h1>
 <p>The Useful Library is run by The Useful Media Co (Raja, Chennai, India). Questions or deletion requests: raja@theusefultech.com or the <a href="/contact/">contact page</a>.</p>
 <h2>On your device</h2>
-<p>Your game results, streak, stamps, shelf, checklists, 30-day tests and theme choice are saved in your browser&#39;s local storage. They never leave your device unless you choose Save my progress. Clearing your browser data removes them.</p>
+<p>Your game results, streak, badges, shelf, checklists, 30-day tests and theme choice are saved in your browser&#39;s local storage. They never leave your device unless you choose Save my progress. Clearing your browser data removes them.</p>
+<p>Badges: to show how rare each badge is, your badge levels and streak count go to our server with a random device code, never your name. If you add your email to back up your shelf, we keep it to send your restore link and at most 3 badge emails a week. Every badge email has a link to turn them off.</p>
 <h2>Save my progress</h2>
 <p>If you save your progress, we store your email, a scrambled version of your PIN (never the PIN itself) and your Library progress on Cloudflare, so you can load it on another device. You can delete it any time: open the menu, tap Save my progress, then Delete my saved progress.</p>
 <h2>Email lessons</h2>

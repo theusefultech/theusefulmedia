@@ -558,6 +558,54 @@ p { margin: 0; }
 <script src="/apps/hit.js" defer></script>
 <link rel="stylesheet" href="/assets/chrome.css">
 <style>body > .tum-h { margin: calc(-18px - env(safe-area-inset-top, 0px)) -20px 18px; padding-top: env(safe-area-inset-top, 0px); } body > .tum-f { margin: 64px -20px calc(-80px - env(safe-area-inset-bottom, 0px)); padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }</style>
+<style>
+/* Phone layout (18 Nov 2026): swipe rows, 2-column numbers, folded FAQ */
+.hrow-nav { display: none; }
+.faq-more > summary { color: var(--purple-ink); }
+.faq-in { display: grid; gap: 10px; padding: 0 12px 12px; }
+.faq-in details { box-shadow: none; border: 1px solid var(--line); }
+@media (max-width: 760px) {
+  [data-hrow] { display: grid !important; grid-template-columns: none !important; grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; margin-inline: -20px; padding: 6px 20px 10px; scroll-padding-inline: 20px; align-items: stretch; }
+  [data-hrow]::-webkit-scrollbar { display: none; }
+  [data-hrow] > * { scroll-snap-align: start; }
+  [data-hrow]:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
+  [data-hrow].is-dragging { scroll-snap-type: none; cursor: grabbing; }
+  [data-hrow].is-dragging * { pointer-events: none; }
+  .hrow-nav { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+  .hrow-nav button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); display: grid; place-items: center; cursor: pointer; padding: 0; }
+  .hrow-nav button:disabled { opacity: .35; cursor: default; }
+  .hrow-nav svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .hrow-dots { display: flex; gap: 5px; margin-left: 6px; }
+  .hrow-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--ink); opacity: .2; transition: opacity .2s, width .2s; }
+  .hrow-dots i.on { opacity: 1; width: 16px; border-radius: 3px; }
+}
+@media (max-width: 520px) {
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; gap: 10px; }
+  .bento .t-big, .bento .t-wide { grid-column: span 2; }
+  .bento .tile { padding: 16px; }
+  .tp.l, .tp.m, .tp.s { font-size: 14px; padding: 7px 12px; }
+  .cloud { gap: 8px; }
+  .traits { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .trait { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px; font-size: 14px; line-height: 1.3; }
+  .track { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .step { grid-template-columns: none; justify-items: start; text-align: left; padding: 14px; gap: 6px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); align-content: start; }
+  .step .node { grid-row: auto; width: 40px; height: 40px; } .step .node svg { width: 18px; height: 18px; }
+  .step h3 { font-size: 16px; } .step p { font-size: 13px; line-height: 1.4; }
+  .step .when { font-size: 10px; padding: 3px 8px; }
+  .inbox-list[data-hrow] { grid-auto-columns: 74%; margin: 0; padding: 10px; gap: 8px; border-bottom: 1px solid var(--line); }
+  .inbox-list[data-hrow] button { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  .inbox-list[data-hrow] + .hrow-nav { padding: 0 10px 8px; margin: 0; background: var(--sunk); }
+  .est-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px; }
+  .est { padding: 10px; } .est b { font-size: 17px; } .est span { font-size: 12px; line-height: 1.3; }
+}
+@media (max-width: 880px) {
+  .hero > div:first-child { display: contents; }
+  .hero > *, .hero > div:first-child > * { min-width: 0; } .wrap { grid-template-columns: minmax(0, 1fr); gap: 72px; } .hero { gap: 18px; grid-template-columns: minmax(0, 1fr); } .hero .stage { max-width: 100%; } .hero h1 { order: 1; } .hero .sub { order: 2; } .hero .stage { order: 3; margin-block: 4px 8px; } .hero .finder { order: 4; } .hero .trust { order: 5; }
+}
+#results .dock-wrap { margin-bottom: 28px; }
+.inbox-h { margin: 36px 0 14px; font-size: 22px; letter-spacing: -.02em; }
+</style>
+<script src="/assets/hrow.js" defer></script>
 </head>
 <body>
 <header class="tum-h"><div class="tum-h-in">
@@ -624,17 +672,15 @@ p { margin: 0; }
   <section id="results">
     <div class="head">
       <h2>Apps keep booking, and the posts stay up for good</h2>
+      <p class="sub"><b data-fact="sponsors">29</b> apps paid for a spot since September. Pick your category to see the apps like yours that booked a post.</p>
     </div>
-    <div class="results">
-      <article class="result card">
-        <div class="ill" aria-hidden="true">
-          <div class="notif a"><span class="ni"><svg><use href="#i-bag"/></svg></span><span><b>New sale</b><span>from The Useful Tech</span></span></div>
-          <div class="notif b"><span class="ni"><svg><use href="#i-bag"/></svg></span><span><b>New sale</b><span>from The Useful Tech</span></span></div>
-        </div>
-        <b>29 paid spots in 10 weeks</b>
-        <p>29 apps paid for a spot between September and November, from indie Mac tools to a $2,000 campaign.</p>
-        <small>Paid bookings, Sep to Nov 2026</small>
-      </article>
+    <div class="dock-wrap">
+      <div class="cats" id="cats" role="group" aria-label="Filter sponsors by category"></div>
+      <div class="dock" id="dock"></div>
+      <div class="aff-row" id="aff"><span class="lb">Affiliate partner of</span></div>
+    </div>
+
+    <div class="results" data-hrow role="region" aria-label="Results for sponsors">
       <article class="result card">
         <div class="ill" aria-hidden="true">
           <svg class="clock" viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle class="fg" cx="50" cy="50" r="45"/><text x="50" y="57" text-anchor="middle">Free</text></svg>
@@ -651,6 +697,11 @@ p { margin: 0; }
       </article>
     </div>
     <p class="live-link">Recent sponsors include Excire, Mic Drop, Bike and App Cleaner &amp; Uninstaller. <a href="https://theusefultech.com/6-mac-apps-that-fix-everything-annoying-about-the-dock-9e264511a45e?sk=880ad77b8e8a379d1ee35df4a05ef453" target="_blank" rel="noopener">Read a live sponsored post</a></p>
+    <h3 class="inbox-h">What landed in my inbox after posts went live</h3>
+    <div class="inbox card">
+      <div class="inbox-list" role="tablist" aria-label="Messages from sponsors" id="inboxList" data-hrow></div>
+      <div class="reader" role="tabpanel" id="reader" aria-live="polite"></div>
+    </div>
   </section>
 
   <section>
@@ -709,7 +760,7 @@ p { margin: 0; }
       <h2>One post keeps selling long after launch day</h2>
       <p class="sub">Sponsored posts stay live for good. My top app roundups have each pulled in 54,000 to 156,000 views, with readers finishing them start to end.</p>
     </div>
-    <div class="stories" id="stories"></div>
+    <div class="stories" id="stories" data-hrow role="region" aria-label="Sponsored roundups"></div>
   </section>
 
   <section>
@@ -754,7 +805,7 @@ p { margin: 0; }
       <h2>Pick a placement, pick a day, book it</h2>
       <p class="sub">Every price is on the page. Pay when you book and the draft starts the same week. Bigger brands and multi-post plans get a quote by email.</p>
     </div>
-    <div class="offers" role="group" aria-label="Placements">
+    <div class="offers" role="group" aria-label="Placements" data-hrow>
       <button type="button" class="offer" data-name="top spot in a roundup" aria-pressed="true">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true"><div class="r top"><i></i><s></s></div><div class="r"><i></i><s></s></div><div class="r"><i></i><s></s></div></div>
@@ -841,6 +892,7 @@ p { margin: 0; }
       <details><summary>How do I see clicks and sales?</summary><p>Medium doesn't show writers clicks on outbound links, so every sponsor gets their own tracked link. Send me a UTM or App Store campaign link and every click, install and sale shows up in your own analytics.</p></details>
       <details><summary>Where are your readers, and what do they read on?</summary><p><span data-fact="usShare">53%</span> are in the United States, followed by the UK, Australia, India and Canada. <span data-fact="appleShare">89%</span> read on a Mac or iPhone.</p></details>
       <details><summary>Is the post free to read?</summary><p>Sponsored posts are member-only, like the rest of the blog, so Medium keeps recommending them to its paying readers. If you want yours free for everyone, say so when you book and it will be.</p></details>
+      <details class="faq-more"><summary>7 more questions</summary><div class="faq-in">
       <details><summary>What's included, and can I add extras?</summary><p>Every spot includes your own section, your link and a newsletter mention, and you approve the draft. Every placement is fixed as listed. Guarantees, content plans and multi-post deals come as a campaign package, so ask for one if you want more.</p></details>
       <details><summary>Is the post marked as sponsored?</summary><p>Yes. Every sponsored post says so at the top, as Medium requires, and the newsletter feature is marked too. Readers trust the picks because the label is honest.</p></details>
       <details><summary>Does the post stay up?</summary><p>For good. Sponsored posts never come down, and your link keeps working in every one.</p></details>
@@ -848,28 +900,7 @@ p { margin: 0; }
       <details><summary>How fast can it go live?</summary><p>You get the draft within 5 days of payment and your license. Once you approve it, it goes live on the next open day or a day you pick.</p></details>
       <details><summary>How does payment work?</summary><p>You pay when you book, right on this page with PayPal in US dollars, and the draft starts as soon as it lands. Inside India, PayPal can't be used between Indian accounts, so you pay by UPI or bank transfer in rupees at that day's exchange rate. You still approve every line before the post goes live.</p></details>
       <details><summary>Can we get on a call?</summary><p>No. Everything happens by email, so every detail stays in writing for both of us. I reply within 1 working day.</p></details>
-    </div>
-  </section>
-
-  <section>
-    <div class="head">
-      <h2>What landed in my inbox after posts went live</h2>
-    </div>
-    <div class="inbox card">
-      <div class="inbox-list" role="tablist" aria-label="Messages from sponsors" id="inboxList"></div>
-      <div class="reader" role="tabpanel" id="reader" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="head" style="justify-items:center;text-align:center">
-      <h2 style="max-width:none"><span data-fact="sponsors">29</span> apps paid for a spot since September</h2>
-      <p class="sub">Pick your category to see the apps like yours that booked a post.</p>
-    </div>
-    <div class="dock-wrap">
-      <div class="cats" id="cats" role="group" aria-label="Filter sponsors by category"></div>
-      <div class="dock" id="dock"></div>
-      <div class="aff-row" id="aff"><span class="lb">Affiliate partner of</span></div>
+      </div></details>
     </div>
   </section>
 

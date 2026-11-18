@@ -144,7 +144,7 @@ html.wr-lock{overflow:hidden}
 .wr-sum dt{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#A9B8AF}
 .wr-sum dd{margin:2px 0 0;font-family:var(--serif);font-size:clamp(20px,3vh,28px);line-height:1.1;color:#EEF0EC}
 .wr-url{font:500 12px var(--mono);color:var(--brass)}
-.s-sum{align-items:flex-start;overflow:auto}.s-sum .wr-sl{gap:12px;padding-top:4px}
+.s-sum{align-items:flex-start;overflow:auto}.s-sum .wr-sl{gap:12px;padding-top:4px;margin:auto 0}
 .wr-foot{position:relative;z-index:3;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:12px 14px 18px}
 .wr-foot .btn{min-height:44px;padding:10px 16px;font-size:15px}
 .wr-hint{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#A9B8AF}

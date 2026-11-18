@@ -510,6 +510,16 @@ def build_tech_page(issues):
         page = re.sub(rf'(<span class="mail-subj" data-latest="{k}">)[^<]*(</span>)', lambda m: m.group(1) + esc(it["title"]) + m.group(2), page)
         page = re.sub(rf'(<span class="mail-prev" data-latest="{k}">)[^<]*(</span>)', lambda m: m.group(1) + esc(cap(it["subtitle"], 90)) + m.group(2), page)
     open(path, "w", encoding="utf-8").write(page)
+    # Home hero inbox (18 Nov 2026): same latest issue per series, with its link and thumbnail
+    if os.path.exists("index.html"):
+        home = open("index.html", encoding="utf-8").read()
+        for k, it in latest.items():
+            home = re.sub(rf'(<span class="mail-subj" data-latest="{k}">)[^<]*(</span>)', lambda m: m.group(1) + esc(it["title"]) + m.group(2), home)
+            home = re.sub(rf'href="[^"]*"( data-latest-link="{k}")', lambda m: f'href="/tech/library/{esc(it["slug"])}/"' + m.group(1), home)
+            if it.get("image"):
+                thumb = re.sub(r"width=\d+", "width=200", it["image"])
+                home = re.sub(rf'src="[^"]*"((?: [a-z-]+="[^"]*")*? data-latest-img="{k}")', lambda m: f'src="{esc(thumb)}"' + m.group(1), home)
+        open("index.html", "w", encoding="utf-8").write(home)
 
 
 def build_issue(issue, content, prev_i, next_i):

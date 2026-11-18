@@ -26,14 +26,14 @@ def nice(iso):
 TPL = open(os.path.join(LIB, "books", "index.html")).read()
 def shell(path, title, desc, main):
     h = TPL
-    h = re.sub(r"<title>.*?</title>", f"<title>{e(title)}</title>", h, count=1, flags=re.S)
-    h = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{e(desc)}">', h, count=1)
-    h = re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{BASE}{path}">', h, count=1)
+    h = re.sub(r"<title>.*?</title>", lambda m: f"<title>{e(title)}</title>", h, count=1, flags=re.S)
+    h = re.sub(r'<meta name="description" content="[^"]*">', lambda m: f'<meta name="description" content="{e(desc)}">', h, count=1)
+    h = re.sub(r'<link rel="canonical" href="[^"]*">', lambda m: f'<link rel="canonical" href="{BASE}{path}">', h, count=1)
     for k, v in (("og:title", title), ("og:description", desc), ("og:url", BASE + path), ("twitter:title", title), ("twitter:description", desc)):
         h = re.sub(rf'(<meta (?:property|name)="{k}" content=")[^"]*(">)', lambda m: m.group(1) + e(v) + m.group(2), h, count=1)
     crumbs = [("Library", "/library/"), ("Bookshelves", "/library/people/")] + ([] if path == "/library/people/" else [(title.split(" | ")[0], path)])
     ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": BASE + u} for i, (n, u) in enumerate(crumbs)]}
-    h = re.sub(r'<script type="application/ld\+json">.*?</script>', f'<script type="application/ld+json">{json.dumps(ld)}</script>', h, count=1, flags=re.S)
+    h = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda m: f'<script type="application/ld+json">{json.dumps(ld)}</script>', h, count=1, flags=re.S)
     h = re.sub(r'<main id="main" class="wrap">.*?</main>', lambda m: f'<main id="main" class="wrap">{main}</main>', h, count=1, flags=re.S)
     return h
 

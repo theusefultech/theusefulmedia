@@ -2,6 +2,7 @@
   "updated": "2026-11-18",
   "note": "Days with a sponsored post already committed. Past dates drop off daily (scripts/refresh_facts.py). Names stay private.",
   "booked": [
-    "2026-11-23"
+    "2026-11-23",
+    "2026-12-01"
   ]
 }

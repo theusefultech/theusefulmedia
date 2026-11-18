@@ -270,6 +270,103 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
 .ladder{margin-top:46px}
 .ladder h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:6px}
 .ladder>p{color:var(--ink-2);max-width:60ch;margin-bottom:18px}
+
+/* 18 Nov 2026 (visual rule): a picture for every command, group and plan, an at-a-glance chart, a terminal for setup.
+   Phones: the film sits under the headline, and long blocks become swipe rows (hrow.js: arrows, dots, drag, arrow keys). */
+.th{display:block;width:100%;aspect-ratio:16/9;height:auto;border-radius:10px;object-fit:cover;background:var(--paper-2)}
+.cmd-row{grid-template-columns:132px minmax(0,1fr);column-gap:16px;align-items:start}
+.cmd-row .th{grid-row:1 / 3;border:1px solid var(--stage-line)}
+.cmd-row code,.cmd-row > span:not(.th){grid-column:2}
+.g{position:relative;overflow:hidden;background:#232246}
+.g-brand{display:flex;align-items:center;justify-content:center;gap:6px}
+.cmd-row .g-brand b,.g-brand b{font:600 26px var(--display);color:#F4F2FF;margin-right:6px}
+.g-brand i{width:16px;height:16px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2px #232246,0 0 0 3px rgba(255,255,255,.25)}
+.g-tpl{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:9px}
+.g-tpl i{border-radius:5px;background:linear-gradient(135deg,#7C5CFC,#B9A8FF)}
+.g-tpl i:nth-child(2){background:linear-gradient(135deg,#2BB673,#9BE3BD)}
+.g-tpl i:nth-child(3){background:linear-gradient(135deg,#FF8A5B,#FFD0A8)}
+.g-tpl i:nth-child(4){background:linear-gradient(135deg,#17172B,#4A4863)}
+.g-tpl i:nth-child(5){background:linear-gradient(135deg,#1B8A8F,#9ED9D4)}
+.g-tpl i:nth-child(6){background:linear-gradient(135deg,#E8B000,#FFE7A3)}
+.g-tpl.wide{aspect-ratio:auto;height:84px;grid-template-columns:repeat(6,1fr);background:var(--paper-2)}
+.g-crit{display:grid;align-content:center;gap:7px;padding:12px 16px}
+.g-crit i{display:block;height:7px;width:var(--w);border-radius:4px;background:#9A82FF}
+.g-crit u{position:absolute;top:10px;bottom:10px;left:calc(16px + (100% - 32px) * .8);border-left:1px dashed rgba(255,255,255,.5)}
+.g-term{display:grid;align-content:center;gap:3px;padding:10px 12px;background:#0E0E1C}
+.cmd-row .g-term em,.g-term em{font:500 10.5px/1.3 var(--mono);font-style:normal;color:#F4F2FF;white-space:nowrap}
+.cmd-row .g-term em.ok,.g-term em.ok{color:#4CC38A}
+.who-grid .th{margin-bottom:16px;border:1px solid var(--line)}
+.tstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.tstrip.two{grid-template-columns:repeat(2,1fr)}
+.tstrip .th{border-radius:7px;border:1px solid var(--line)}
+.tstrip .g-tpl.wide{grid-column:1 / -1;width:100%}
+.qa-more > summary{color:var(--purple)}
+.qa-in{padding:0 0 4px 14px}
+.glance{margin:0 0 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px 28px;border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;background:var(--paper)}
+.gl-h{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);margin-bottom:10px}
+.gl-r{display:grid;grid-template-columns:104px minmax(0,1fr) 110px;gap:10px;align-items:center;font-size:14.5px;margin-top:8px}
+.gl-r b{font-weight:600;font-size:14px;font-variant-numeric:tabular-nums}
+.gl-t{position:relative;height:12px;border-radius:6px;background:var(--paper-2)}
+.gl-t i{position:absolute;top:0;bottom:0;left:calc(var(--a) / 60 * 100%);width:calc((var(--b) - var(--a)) / 60 * 100%);border-radius:6px;background:var(--ink-2)}
+.gl-t i.us{background:var(--purple)}
+.gl-ax{display:flex;justify-content:space-between;margin:6px 110px 0 114px;font:11px var(--mono);color:var(--ink-2)}
+.glance figcaption{grid-column:1 / -1;font:11.5px var(--mono);color:var(--ink-2)}
+.tfold > summary{display:none}
+.term{margin:22px 0 26px;background:#0E0E1C;border-radius:var(--r);padding:0 0 14px;max-width:620px;box-shadow:0 24px 40px -30px rgba(40,20,120,.6)}
+.term-b{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #2A2850;margin-bottom:10px}
+.term-b i{width:10px;height:10px;border-radius:50%;background:#FF5F57}.term-b i+i{background:#FEBC2E}.term-b i+i+i{background:#28C840}
+.term-b span{font:12px var(--mono);color:#ABA7C9;margin-left:8px}
+.term p{font:13.5px/1.6 var(--mono);color:#F4F2FF;padding:0 16px}
+.term p em{font-style:normal;color:#9A82FF;margin-right:6px}
+.term p.ok{color:#4CC38A;margin-bottom:6px}
+.hrow-nav{display:none}
+@media (max-width:760px){
+  .hero-grid{display:flex;flex-direction:column;gap:0}
+  .hero-grid > div{display:contents}
+  .hero-grid .eyebrow{order:1}.hero-grid h1{order:2}.hero-grid .monitor{order:3;margin-top:22px!important}
+  .hero-grid .lede{order:4}.hero-grid .ctas{order:5}.hero-grid .fine{order:6}
+  [data-hrow]{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:84%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;margin-inline:calc(var(--gut) * -1);padding:6px var(--gut) 10px;scroll-padding-inline:var(--gut);gap:14px!important;align-items:stretch}
+  [data-hrow]::-webkit-scrollbar{display:none}
+  [data-hrow] > *{scroll-snap-align:start}
+  [data-hrow] > [hidden]{display:none!important}
+  [data-hrow]:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+  [data-hrow].is-dragging{scroll-snap-type:none;cursor:grabbing}
+  [data-hrow].is-dragging *{pointer-events:none}
+  #gridT[data-hrow]{grid-auto-columns:42%;align-items:start}
+  .tiers[data-hrow]{padding-top:18px}
+  .facts[data-hrow]{margin-top:36px}
+  .facts[data-hrow] .fact{border:1px solid var(--stage-line);border-radius:var(--r);padding:16px}
+  .steps[data-hrow]{margin-top:4px}
+  main > section:not(.hero){padding-block:40px!important}
+  .sh{margin-bottom:22px}
+  .hero-grid .ctas{gap:10px}.hero-grid .ctas .btn.ghost{padding:12px 16px;font-size:15px}
+  .guide{grid-template-columns:1fr 1fr;gap:10px 14px}.guide li{font-size:14px}
+  .maker{margin:-6px 0 18px;font-size:14px}
+  .ladder{margin-top:28px}
+  .critic{margin-top:28px}
+  .hrow-nav{display:flex;align-items:center;gap:8px;margin-top:6px}
+  .hrow-nav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+  .hrow-nav button:disabled{opacity:.35;cursor:default}
+  .hrow-nav svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .hrow-dots{display:flex;gap:5px;margin-left:6px}
+  .hrow-dots i{width:6px;height:6px;border-radius:50%;background:var(--ink);opacity:.2;transition:opacity .2s,width .2s}
+  .hrow-dots i.on{opacity:1;width:16px;border-radius:3px}
+  .inside .hrow-nav button{background:transparent;color:var(--stage-fg);border-color:var(--stage-line)}
+  .inside .hrow-dots i{background:var(--stage-fg)}
+  .cmds[data-hrow] .cmd-row{grid-template-columns:minmax(0,1fr);border:1px solid var(--stage-line);border-radius:var(--r);padding:12px;align-content:start;row-gap:8px}
+  .cmds[data-hrow] .cmd-row .th{grid-row:auto}
+  .cmds[data-hrow] .cmd-row code,.cmds[data-hrow] .cmd-row > span:not(.th){grid-column:1}
+  .who-grid[data-hrow] > div{border:1px solid var(--line);border-radius:var(--r);padding:14px}
+  .vs-picks[data-hrow]{margin-top:22px}
+  .steps[data-hrow] li{border:1px solid var(--line);border-top:2px solid var(--ink);border-radius:0 0 var(--r) var(--r)}
+  .tfold > summary{display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;font:500 14px var(--mono);color:var(--purple);padding:12px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
+  .tfold > summary::-webkit-details-marker{display:none}
+  .tfold > summary::after{content:"+";margin-left:auto;font-size:18px}
+  .tfold[open] > summary{margin-bottom:12px}.tfold[open] > summary::after{content:"−"}
+  .gl-r{grid-template-columns:92px minmax(0,1fr) 92px;font-size:13.5px}.gl-ax{margin:6px 102px 0 102px}
+  .req2{grid-template-columns:1fr 1fr;gap:18px 14px}
+  .term p{font-size:12px;padding:0 12px}
+}
 </style>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://theusefulmedia.com/"}, {"@type": "ListItem", "position": 2, "name": "Useful Studio: launch videos from 1 line in Claude Code", "item": "https://theusefulmedia.com/studio/"}]}</script>
@@ -338,7 +435,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         <h2>You type 1 line and it does the studio work.</h2>
         <p>Every command asks a few plain questions, then runs on its own. Most videos take 10 to 40 minutes from prompt to finished file while you do something else.</p>
       </div>
-      <ol class="steps">
+      <ol class="steps" data-hrow aria-label="How it works">
         <li><h3>Learns your brand</h3><p><code>/studio-brand</code> saves your name, logo, colours, fonts and tone once. Every video after that is on-brand.</p></li>
         <li><h3>Writes the story</h3><p>It turns your product into a storyboard with a hook, a reveal and a clear ending. One idea on screen at a time.</p></li>
         <li><h3>Animates every frame</h3><p>Damped springs, 12 signature moves, drawn illustrations and your real screenshots. Music cut to the beat.</p></li>
@@ -350,7 +447,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
           <h3>A strict critic is built in.</h3>
           <p>A 9 or 10 means a professional motion designer would ship it. Automatic checks catch text that moves while you read it, icons 2 px off and lines that leave the screen too soon.</p>
         </div>
-        <div class="score" role="img" aria-label="Critique scores for the Useful Studio launch film: hook 10, readability 9, motion 9, pace 9, composition 10, brand 10, sound 10 out of 10.">
+        <div class="score" data-visual role="img" aria-label="Critique scores for the Useful Studio launch film: hook 10, readability 9, motion 9, pace 9, composition 10, brand 10, sound 10 out of 10.">
           <div class="cap"><span>/studio-critique · useful-studio-launch 16:9</span><span>Final round</span></div>
           <div id="bars"></div>
           <p class="legend">Out of 10. The thin line marks 8, the bar every film must clear.</p>
@@ -373,8 +470,8 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         <button class="chip" type="button" data-f="/studio-broll" aria-pressed="false">/studio-broll</button>
         <button class="chip" type="button" data-f="pro" aria-pressed="false">Studio Pro</button>
       </div>
-      <div class="grid" id="grid"></div>
-      <div class="grid tall" id="gridT"></div>
+      <div class="grid" id="grid" data-hrow aria-label="Wide videos"></div>
+      <div class="grid tall" id="gridT" data-hrow aria-label="Vertical videos"></div>
       <p class="gnote">Plotwren, Leafkin and Kettlewise are demo brands made up for this gallery. Run times are from a 4-core cloud machine. A recent Mac is faster.</p>
     </div>
   </section>
@@ -385,20 +482,20 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         <h2>Everything in the box.</h2>
         <p>Commands you type in Claude Code. Each one ends with finished files in your Movies folder.</p>
       </div>
-      <div class="cmds">
-        <div class="cmd-row"><code>/studio-launch</code><span>A 25 to 35 second launch film for your app or product, with your screenshots inside device frames.</span></div>
-        <div class="cmd-row"><code>/studio-reel</code><span>15 to 30 second vertical reels and Shorts that loop cleanly.</span></div>
-        <div class="cmd-row"><code>/studio-explainer</code><span>60 to 90 second explainers with voiceover and captions.</span></div>
-        <div class="cmd-row"><code>/studio-broll</code><span>Graphics over your talking-head video, timed to your words. Transparent clips included.</span></div>
-        <div class="cmd-row"><code>/studio-brand</code><span>Saves your logo, colours, fonts and tone. Cuts the white box out of a logo.</span></div>
-        <div class="cmd-row"><code>/studio-templates</code><span>A gallery of 20 templates and 12 styles, with the exact words to type.</span></div>
-        <div class="cmd-row"><code>/studio-critique</code><span>Scores any film on 7 things and fixes the weakest.</span></div>
-        <div class="cmd-row"><code>/studio-setup</code><span>Installs everything in a few minutes. No admin password.</span></div>
-        <div class="cmd-row"><code>/studio-appstore<span class="pro">PRO</span></code><span>App Store and Google Play previews from your own screen recordings, at every required size.</span></div>
-        <div class="cmd-row"><code>/studio-blog<span class="pro">PRO</span></code><span>Turns a blog post into a 45 to 60 second narrated vertical video.</span></div>
+      <div class="cmds" data-hrow aria-label="Commands">
+        <div class="cmd-row"><img class="th" src="media/thumbs/launch-plotwren.webp" alt="A Plotwren launch film frame made with /studio-launch" width="480" height="270" loading="lazy" decoding="async"><code>/studio-launch</code><span>A 25 to 35 second launch film for your app or product, with your screenshots inside device frames.</span></div>
+        <div class="cmd-row"><img class="th" src="media/thumbs/reel-leafkin.webp" alt="A Leafkin reel frame made with /studio-reel" width="480" height="270" loading="lazy" decoding="async"><code>/studio-reel</code><span>15 to 30 second vertical reels and Shorts that loop cleanly.</span></div>
+        <div class="cmd-row"><img class="th" src="media/thumbs/explainer-kettlewise.webp" alt="A Kettlewise explainer frame made with /studio-explainer" width="480" height="270" loading="lazy" decoding="async"><code>/studio-explainer</code><span>60 to 90 second explainers with voiceover and captions.</span></div>
+        <div class="cmd-row"><img class="th" src="media/thumbs/broll-kettlewise.webp" alt="A Kettlewise b-roll frame made with /studio-broll" width="480" height="270" loading="lazy" decoding="async"><code>/studio-broll</code><span>Graphics over your talking-head video, timed to your words. Transparent clips included.</span></div>
+        <div class="cmd-row"><span class="th g g-brand" data-visual aria-hidden="true"><b>Aa</b><i style="--c:#7C5CFC"></i><i style="--c:#FF8A5B"></i><i style="--c:#2BB673"></i><i style="--c:#17172B"></i></span><code>/studio-brand</code><span>Saves your logo, colours, fonts and tone. Cuts the white box out of a logo.</span></div>
+        <div class="cmd-row"><span class="th g g-tpl" data-visual aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><code>/studio-templates</code><span>A gallery of 20 templates and 12 styles, with the exact words to type.</span></div>
+        <div class="cmd-row"><span class="th g g-crit" data-visual aria-hidden="true"><i style="--w:100%"></i><i style="--w:90%"></i><i style="--w:90%"></i><i style="--w:100%"></i><u></u></span><code>/studio-critique</code><span>Scores any film on 7 things and fixes the weakest.</span></div>
+        <div class="cmd-row"><span class="th g g-term" data-visual aria-hidden="true"><em>&gt; /studio-setup</em><em class="ok">✓ installed</em><em class="ok">✓ no admin password</em><em class="ok">✓ ready</em></span><code>/studio-setup</code><span>Installs everything in a few minutes. No admin password.</span></div>
+        <div class="cmd-row"><img class="th" src="media/thumbs/appstore-plotwren.webp" alt="A Plotwren App Store preview frame made with /studio-appstore" width="480" height="270" loading="lazy" decoding="async"><code>/studio-appstore<span class="pro">PRO</span></code><span>App Store and Google Play previews from your own screen recordings, at every required size.</span></div>
+        <div class="cmd-row"><img class="th" src="media/thumbs/blog-leafkin.webp" alt="A Leafkin blog video frame made with /studio-blog" width="480" height="270" loading="lazy" decoding="async"><code>/studio-blog<span class="pro">PRO</span></code><span>Turns a blog post into a 45 to 60 second narrated vertical video.</span></div>
       </div>
 
-      <div class="facts">
+      <div class="facts" data-hrow aria-label="What is included">
         <div class="fact"><div class="n">20<small>templates</small></div><p>Launch, feature spotlight, before and after, stat reveal, myth vs fact, countdown, sale and 13 more.</p></div>
         <div class="fact"><div class="n">12<small>styles</small></div><p>Ask for any look by 1 word. Always in your colours.</p>
           <div class="styles"><span>editorial</span><span>swiss</span><span>pop</span><span>mono</span><span>cinematic</span><span>playful</span><span>paper</span><span>tech</span><span>retro</span><span>luxury</span><span>neon</span><span>calm</span></div></div>
@@ -411,10 +508,10 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
   <section class="who" data-kf="Who">
     <div class="wrap">
       <div class="sh"><h2>Built for people who ship.</h2></div>
-      <div class="who-grid">
-        <div><h3>Indie app makers</h3><p>A launch film for Product Hunt, an App Store preview and a reel for every update. Made the day you ship, not the week after. App Store previews come with Studio Pro.</p><p class="ex">/studio-launch · /studio-appstore (Pro)</p></div>
-        <div><h3>Creators</h3><p>Reels, Shorts and b-roll in your own brand, with music that hits on the beat and captions you can read on a phone.</p><p class="ex">/studio-reel · /studio-broll</p></div>
-        <div><h3>Small studios</h3><p>Client videos in each client's brand, at the speed of a prompt. Studio Pro includes the client license.</p><p class="ex">Studio Pro · client work</p></div>
+      <div class="who-grid" data-hrow aria-label="Who it is for">
+        <div><img class="th" src="media/thumbs/launch-plotwren.webp" alt="Frame from a launch film for the demo app Plotwren" width="480" height="270" loading="lazy" decoding="async"><h3>Indie app makers</h3><p>A launch film for Product Hunt, an App Store preview and a reel for every update. Made the day you ship, not the week after. App Store previews come with Studio Pro.</p><p class="ex">/studio-launch · /studio-appstore (Pro)</p></div>
+        <div><img class="th" src="media/thumbs/reel-leafkin.webp" alt="Frame from a reel for the demo brand Leafkin" width="480" height="270" loading="lazy" decoding="async"><h3>Creators</h3><p>Reels, Shorts and b-roll in your own brand, with music that hits on the beat and captions you can read on a phone.</p><p class="ex">/studio-reel · /studio-broll</p></div>
+        <div><img class="th" src="media/thumbs/explainer-kettlewise.webp" alt="Frame from an explainer for the demo client Kettlewise" width="480" height="270" loading="lazy" decoding="async"><h3>Small studios</h3><p>Client videos in each client's brand, at the speed of a prompt. Studio Pro includes the client license.</p><p class="ex">Studio Pro · client work</p></div>
       </div>
       <p class="more"><a href="/studio/launch-video-for-your-app/">Guide: launch video for your app</a><a href="/studio/explainer-videos-with-claude-code/">Guide: explainer videos with Claude Code</a></p>
     </div>
@@ -426,6 +523,18 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         <h2>Why pay $79 when free repos exist?</h2>
         <p>Fair question. Some free options are very good. Here is what each gives you, checked against its README on 22 Oct 2026.</p>
       </div>
+      <figure class="glance" data-visual role="img" aria-label="Time per video: Useful Studio 10 to 40 minutes, lemo-opuscar about 30 to 60 minutes. Film styles: Useful Studio 12, lemo-opuscar 59.">
+        <div class="gl"><p class="gl-h">Time per video, minutes</p>
+          <div class="gl-r"><span>Useful Studio</span><div class="gl-t"><i class="us" style="--a:10;--b:40"></i></div><b>10 to 40</b></div>
+          <div class="gl-r"><span>lemo-opuscar</span><div class="gl-t"><i style="--a:30;--b:60"></i></div><b>about 30 to 60</b></div>
+          <div class="gl-ax"><span>0</span><span>30</span><span>60</span></div></div>
+        <div class="gl"><p class="gl-h">Film styles</p>
+          <div class="gl-r"><span>Useful Studio</span><div class="gl-t"><i class="us" style="--a:0;--b:12.2"></i></div><b>12</b></div>
+          <div class="gl-r"><span>lemo-opuscar</span><div class="gl-t"><i style="--a:0;--b:60"></i></div><b>59</b></div>
+          <div class="gl-ax"><span>0</span><span>30</span><span>60</span></div></div>
+        <figcaption>From the table below. The prompt repos vary by prompt, so they have no bar.</figcaption>
+      </figure>
+      <details class="tfold" open data-tfold><summary>See all 10 rows side by side</summary>
       <div class="tw" role="region" aria-label="Useful Studio compared with free repos" tabindex="0">
       <table class="cmp">
         <caption>Useful Studio, lemo-opuscar and the awesome Opus video repos</caption>
@@ -444,7 +553,8 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         </tbody>
       </table>
       </div>
-      <div class="vs-picks">
+      </details>
+      <div class="vs-picks" data-hrow aria-label="Where each one wins">
         <div><h3>Where the free options win</h3><ul>
           <li>lemo-opuscar has 59 styles to my 12, and it costs $0. For cinematic, art-directed shorts, start there.</li>
           <li>The prompt repos show what Opus 5.5 can do. They are free and worth reading.</li>
@@ -472,10 +582,11 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
       </div>
       <ul class="guide" aria-label="Which one to buy"><li><b>Making videos for your own app or channel?</b> Useful Studio, $79.</li><li><b>Need App Store previews or client work?</b> Studio Pro, $349.</li><li><b>No Claude Code?</b> The Template Pack, $49.</li><li><b>Not sure yet?</b> The 3 free templates, $0.</li></ul>
       <p class="maker">Made by Raja, who runs <a href="https://theusefultech.com">The Useful Tech</a>, the #1 Apple blog on Medium with 78,000 followers.</p>
-      <div class="tiers">
+      <div class="tiers" data-hrow aria-label="Plans">
         <div class="tier feat">
           <span class="tag">20 licences left at $79</span>
           <h3>Useful Studio</h3>
+          <div class="tstrip"><img class="th" src="media/thumbs/launch-plotwren.webp" alt="Launch film frame" width="480" height="270" loading="lazy" decoding="async"><img class="th" src="media/thumbs/reel-leafkin.webp" alt="Reel frame" width="480" height="270" loading="lazy" decoding="async"><img class="th" src="media/thumbs/explainer-kettlewise.webp" alt="Explainer frame" width="480" height="270" loading="lazy" decoding="async"></div>
           <div class="amt"><b>$79</b><s>$199</s><span>one time</span></div>
           <ul>
             <li>8 commands: launch films, reels, explainers, b-roll and more, 15 to 90 seconds each</li>
@@ -490,6 +601,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         </div>
         <div class="tier">
           <h3>Useful Studio Pro</h3>
+          <div class="tstrip two"><img class="th" src="media/thumbs/appstore-plotwren.webp" alt="App Store preview frame" width="480" height="270" loading="lazy" decoding="async"><img class="th" src="media/thumbs/blog-leafkin.webp" alt="Blog video frame" width="480" height="270" loading="lazy" decoding="async"></div>
           <div class="amt"><b>$349</b><span>one time</span></div>
           <ul>
             <li>Everything in Useful Studio</li>
@@ -504,6 +616,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         </div>
         <div class="tier">
           <h3>Template Pack</h3>
+          <div class="tstrip"><span class="th g g-tpl wide" data-visual aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
           <div class="amt"><b>$49</b><span>one time</span></div>
           <ul>
             <li>10 animated templates that play in any browser</li>
@@ -530,14 +643,18 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
       <div class="ladder" style="margin-top:0;margin-bottom:46px">
         <h3>From purchase to first video</h3>
         <p>About 5 minutes of setup, then 10 to 40 minutes while you do something else.</p>
-        <ol class="steps">
+        <div class="term" data-visual aria-hidden="true"><div class="term-b"><i></i><i></i><i></i><span>Claude Code</span></div>
+          <p><em>&gt;</em> /studio-setup</p><p class="ok">✓ Installed. No admin password.</p>
+          <p><em>&gt;</em> /studio-brand</p><p class="ok">✓ Logo, colours, fonts and tone saved.</p>
+          <p><em>&gt;</em> /studio-launch</p><p class="ok">✓ 16:9 and 9:16 MP4s saved to Movies</p></div>
+        <ol class="steps" data-hrow aria-label="From purchase to first video">
           <li><h3>Buy on Gumroad</h3><p>You get your license key and the install guide. 1 key works on up to 3 of your Macs.</p></li>
           <li><h3>Run <code>/studio-setup</code></h3><p>Type it in Claude Code. It installs everything. No admin password.</p></li>
           <li><h3>Run <code>/studio-brand</code></h3><p>Save your logo, colours, fonts and tone once.</p></li>
           <li><h3>Run <code>/studio-launch</code></h3><p>Answer a few plain questions. Your MP4s land in your Movies folder.</p></li>
         </ol>
       </div>
-      <dl class="req">
+      <dl class="req req2">
         <div><dt>Computer</dt><dd>A Mac with macOS 14 or later. Apple silicon or Intel.</dd></div>
         <div><dt>Claude</dt><dd>Claude Code with a paid Claude plan: Pro, Max, Team or Enterprise.</dd></div>
         <div><dt>Space</dt><dd>About 1 GB for the tools, plus room for your videos.</dd></div>
@@ -547,14 +664,16 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
         <details><summary>Do I need to know how to code or edit video?</summary><p>No. You type a command like /studio-launch and answer a few questions in plain words. Setup takes about 5 minutes and the guide shows every step.</p></details>
         <details><summary>Does it cost anything per video?</summary><p>No. There is no API key, no subscription and no watermark. Making a video uses some of your Claude plan's usage, like any other Claude Code task.</p></details>
         <details><summary>Why pay $79 when free repos exist?</summary><p>lemo-opuscar is free and has 59 film styles. Useful Studio has 12 styles and 20 templates, a brand you save once, 16:9 and 9:16 files from one run, a critic that scores every film, and email support. If you make 1 video and like tinkering, use the free repo. If you make videos every month, Studio saves the time.</p></details>
+<details class="qa-more"><summary>8 more questions</summary><div class="qa-in">
         <details><summary>Can I try it before I pay?</summary><p>Watch the 11 videos in the gallery. Each one was made by a real command run. Then get the 3 free templates, which you can use for anything, including client work.</p></details>
         <details><summary>What does Useful Studio not do?</summary><p>It makes short videos only: 15 to 90 seconds. It does not generate AI images or footage of people. It runs on a Mac only. It does not include custom work for buyers.</p></details>
-        <details><summary>How long does a video take?</summary><p>Most commands finish in 10 to 40 minutes, start to end, on their own. The final render takes about 3 minutes per size on an Apple silicon Mac. An older Intel Mac is slower, and it still finishes.</p></details>
+                <details><summary>How long does a video take?</summary><p>Most commands finish in 10 to 40 minutes, start to end, on their own. The final render takes about 3 minutes per size on an Apple silicon Mac. An older Intel Mac is slower, and it still finishes.</p></details>
         <details><summary>Can I use my own music?</summary><p>Yes, and it gives the best result. Drop in an MP3, M4A or WAV you have the rights to. Useful Studio finds the beat and lands your big reveal on the drop. No track? It builds one from 76 recorded samples cleared for commercial use.</p></details>
         <details><summary>Can I make videos for clients?</summary><p>With Useful Studio Pro, yes. Your clients get the videos and can use them for anything. Useful Studio is licensed for your own videos and your own business.</p></details>
         <details><summary>Is it made by Anthropic?</summary><p>No. Useful Studio is an independent product by The Useful Media Co. It is a plugin for Claude Code and is not made or endorsed by Anthropic.</p></details>
         <details><summary>What gets sent from my Mac?</summary><p>Only your license key, once, to Gumroad to check it. Nothing about you, your Mac or your videos is sent anywhere.</p></details>
         <details><summary>What happens after 12 months?</summary><p>Your version keeps working forever. You can renew to get newer versions.</p></details>
+              </div></details>
       </div>
     </div>
   </section>
@@ -720,6 +839,9 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
 })();
 </script>
 
+<script src="/assets/hrow.js" defer></script>
+<script>(function(){var d=document.querySelector("[data-tfold]");if(d&&matchMedia("(max-width:760px)").matches)d.open=false;
+document.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){["grid","gridT"].forEach(function(id){var r=document.getElementById(id);if(r){r.scrollLeft=0;r.dispatchEvent(new Event("scroll"))}})})})})();</script>
 <script src="/tech/tech.js" defer></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 // Swipe rows for phones (18 Nov 2026): touch swipe plus arrow buttons, dots, mouse drag and arrow keys.
-// Mark a row with data-hrow. Buttons only show while the row overflows.
+// Mark a row with data-hrow. Buttons only show while the row overflows. Hidden items (filters) are skipped (18 Nov 2026).
 (function () {
   function chev(d) { return '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="' + (d < 0 ? "M12.5 4.5 7 10l5.5 5.5" : "M7.5 4.5 13 10l-5.5 5.5") + '"/></svg>'; }
   function init(row) {
@@ -8,9 +8,10 @@
     nav.innerHTML = '<button type="button" data-d="-1" aria-label="Previous">' + chev(-1) + '</button><button type="button" data-d="1" aria-label="Next">' + chev(1) + '</button><span class="hrow-dots" aria-hidden="true"></span>';
     row.after(nav);
     var dots = nav.querySelector(".hrow-dots"), prev = nav.children[0], next = nav.children[1];
-    function step() { var it = row.children; return it.length > 1 ? it[1].offsetLeft - it[0].offsetLeft : row.clientWidth; }
+    function vis() { return Array.prototype.filter.call(row.children, function (c) { return !c.hidden && c.getClientRects().length; }); }
+    function step() { var it = vis(); return it.length > 1 ? it[1].offsetLeft - it[0].offsetLeft : row.clientWidth; }
     function sync() {
-      var n = row.children.length, on = row.scrollWidth > row.clientWidth + 4;
+      var n = vis().length, on = row.scrollWidth > row.clientWidth + 4;
       nav.style.display = on ? "" : "none"; row.tabIndex = on ? 0 : -1;
       if (!on) return;
       while (dots.children.length < n) dots.appendChild(document.createElement("i"));
@@ -41,7 +42,7 @@
     row.addEventListener("click", function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
     row.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
-    if ("MutationObserver" in window) new MutationObserver(sync).observe(row, { childList: true });
+    if ("MutationObserver" in window) new MutationObserver(sync).observe(row, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
     sync();
   }
   function start() { document.querySelectorAll("[data-hrow]").forEach(init); }

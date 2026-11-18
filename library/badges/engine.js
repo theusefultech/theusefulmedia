@@ -323,13 +323,14 @@ function todayCard() {
   let timer = null;
   const io = new IntersectionObserver(es => { for (const e of es) { if (e.isIntersecting && e.intersectionRatio > .5) { if (!timer) timer = setTimeout(() => { const sl = slugOf(); if (sl) readIdea(sl); io.disconnect(); }, 8000); } else { clearTimeout(timer); timer = null; } } }, { threshold: [0, .5, 1] });
   io.observe(t);
-  t.addEventListener("click", e => { if (e.target.closest("[data-i-url]")) { const sl = slugOf(); if (sl) readIdea(sl); } });
-  // the streak chip under Today's idea
-  const chip = document.createElement("a"); chip.className = "ys-chip"; chip.href = PAGE; chip.dataset.ysChip = ""; t.appendChild(chip);
+  t.addEventListener("click", e => { if (e.target.closest("[data-i-url],[data-flip-btn]")) { const sl = slugOf(); if (sl) readIdea(sl); } });
+  // the streak chip under Today's idea, inside its front face
+  const front = t.querySelector(".face") || t;
+  const chip = document.createElement("a"); chip.className = "ys-chip"; chip.href = PAGE; chip.dataset.ysChip = ""; front.appendChild(chip);
   paintChips();
   // the pledge reward: tomorrow's idea, 1 day early
   const s = load();
-  if (s.pledge && s.pledge.kept) { const el = document.getElementById("ideas"); try { const I = JSON.parse(el.textContent), d = new Date(); d.setHours(0, 0, 0, 0); const di = Math.round((d - new Date(2026, 10, 12)) / 864e5) + 1, nx = I[((di % I.length) + I.length) % I.length]; const a = document.createElement("a"); a.className = "ys-early"; a.href = "/library/?idea=" + nx.slug + "#today"; a.textContent = "Pledge kept: read tomorrow’s idea a day early"; t.appendChild(a); } catch (e) {} }
+  if (s.pledge && s.pledge.kept) { const el = document.getElementById("ideas"); try { const I = JSON.parse(el.textContent), d = new Date(); d.setHours(0, 0, 0, 0); const di = Math.round((d - new Date(2026, 10, 12)) / 864e5) + 1, nx = I[((di % I.length) + I.length) % I.length]; const a = document.createElement("a"); a.className = "ys-early"; a.href = "/library/?idea=" + nx.slug + "#today"; a.textContent = "Pledge kept: read tomorrow’s idea a day early"; front.appendChild(a); } catch (e) {} }
 }
 export function paintChips() {
   const s = settle(load()), st = s.streak || 0, done = s.days.includes(dayOf());

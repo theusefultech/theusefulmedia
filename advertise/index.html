@@ -654,7 +654,7 @@ p { margin: 0; }
         <p><b data-fact="sponsors">29</b> apps paid for a spot since September, from indie Mac tools to MacPaw.</p>
       </div>
     </div>
-    <div class="stage" id="stage">
+    <div class="stage" id="stage" data-visual>
       <div class="post card" id="post" aria-label="Preview of a roundup post with your app at #1">
         <div class="meta"><span class="av"><i></i></span>The Useful Tech · 6 min read</div>
         <h4 id="postTitle">7 Mac apps I'd pay for again tomorrow</h4>
@@ -682,7 +682,7 @@ p { margin: 0; }
 
     <div class="results" data-hrow role="region" aria-label="Results for sponsors">
       <article class="result card">
-        <div class="ill" aria-hidden="true">
+        <div class="ill" aria-hidden="true" data-visual>
           <svg class="clock" viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle class="fg" cx="50" cy="50" r="45"/><text x="50" y="57" text-anchor="middle">Free</text></svg>
         </div>
         <b>Free to read, for good</b>
@@ -690,7 +690,7 @@ p { margin: 0; }
         <small>Every sponsored post</small>
       </article>
       <article class="result card">
-        <div class="ill" aria-hidden="true"><div class="repeat" id="craftStack"></div></div>
+        <div class="ill" aria-hidden="true" data-visual><div class="repeat" id="craftStack"></div></div>
         <b>MacPaw booked twice</b>
         <p>A $2,000 Eney campaign in October, then a CleanMyMac spot in the Black Friday deals post.</p>
         <small>Repeat sponsor</small>
@@ -700,7 +700,7 @@ p { margin: 0; }
     <h3 class="inbox-h">What landed in my inbox after posts went live</h3>
     <div class="inbox card">
       <div class="inbox-list" role="tablist" aria-label="Messages from sponsors" id="inboxList" data-hrow></div>
-      <div class="reader" role="tabpanel" id="reader" aria-live="polite"></div>
+      <div class="reader" role="tabpanel" id="reader" aria-live="polite" data-visual></div>
     </div>
   </section>
 
@@ -738,7 +738,7 @@ p { margin: 0; }
           <div class="split" style="justify-content:flex-start"><svg class="ring mint" viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="34"/><circle class="fg" cx="40" cy="40" r="34" style="stroke-dasharray:18.4 214"/></svg><div><div class="num" data-fact="clickRate">2%</div><p>click rate</p></div></div>
         </div>
       </div>
-      <div class="tile card t-wide geo">
+      <div class="tile card t-wide geo" data-visual>
         <span class="k">Where readers are and what they read on</span>
         <div class="bars" aria-hidden="true">
           <div class="bar-r"><span>United States</span><i style="--w:53%"></i><b data-fact="usShare">53%</b></div>
@@ -768,7 +768,7 @@ p { margin: 0; }
       <h2>Meet the reader your app is looking for</h2>
     </div>
     <div class="aud">
-      <div class="persona card">
+      <div class="persona card" data-visual>
         <div class="who">
           <div class="face" aria-hidden="true">
             <svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="16" r="9" fill="var(--purple)"/><path d="M6 42c2-10 9-15 16-15s14 5 16 15" fill="var(--purple)"/><rect x="13" y="13" width="18" height="6" rx="3" fill="var(--ink)" opacity=".85"/></svg>
@@ -808,17 +808,17 @@ p { margin: 0; }
     <div class="offers" role="group" aria-label="Placements" data-hrow>
       <button type="button" class="offer" data-name="top spot in a roundup" aria-pressed="true">
         <span class="check"><svg><use href="#i-check"/></svg></span>
-        <div class="mini" aria-hidden="true"><div class="r top"><i></i><s></s></div><div class="r"><i></i><s></s></div><div class="r"><i></i><s></s></div></div>
+        <div class="mini" aria-hidden="true" data-visual><div class="r top"><i></i><s></s></div><div class="r"><i></i><s></s></div><div class="r"><i></i><s></s></div></div>
         <div class="txt"><span class="tag">Most booked</span><h3>Top spot in a roundup</h3><b class="price">From $200</b><p>Your app at #1 with its own section and a newsletter feature.</p></div>
       </button>
       <button type="button" class="offer" data-name="dedicated review" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
-        <div class="mini" aria-hidden="true"><div class="art"><div class="hero-i"></div><s></s><s></s><s></s></div></div>
+        <div class="mini" aria-hidden="true" data-visual><div class="art"><div class="hero-i"></div><s></s><s></s><s></s></div></div>
         <div class="txt"><span class="tag">Most depth</span><h3>Dedicated review</h3><b class="price">From $500</b><p>A full post about your app only, a newsletter feature and posts on X and LinkedIn.</p></div>
       </button>
       <button type="button" class="offer" data-name="full campaign" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
-        <div class="mini" aria-hidden="true"><div class="layers"><i></i><i></i><i></i></div></div>
+        <div class="mini" aria-hidden="true" data-visual><div class="layers"><i></i><i></i><i></i></div></div>
         <div class="txt"><span class="tag">Most reach</span><h3>Full campaign</h3><b class="price">Custom quote</b><p>2 dedicated posts, a dedicated newsletter issue, plus Instagram, X and LinkedIn posts.</p></div>
       </button>
     </div>
@@ -843,10 +843,10 @@ p { margin: 0; }
         </div>
         <div class="cal-wrap">
           <div class="cal-head"><span>Pick a go-live day</span><span class="cal-key"><i class="k-open"></i>Open <i class="k-booked"></i>Booked</span></div>
-          <div class="cal" id="cal" role="group" aria-label="Open days in the next 3 weeks"></div>
+          <div class="cal" id="cal" data-visual role="group" aria-label="Open days in the next 3 weeks"></div>
         </div>
       </div>
-      <div class="mail checkout">
+      <div class="mail checkout" data-visual>
         <div class="mail-bar" aria-hidden="true"><i></i><i></i><i></i><span>Your booking</span></div>
         <dl class="bill" id="bill">
           <div><dt>Placement</dt><dd id="bPlace">Top spot in a roundup</dd></div>
@@ -920,7 +920,7 @@ p { margin: 0; }
         <a href="https://theusefulmedia.com">theusefulmedia.com</a>
       </div>
     </div>
-    <div class="slot" aria-hidden="true">
+    <div class="slot" aria-hidden="true" data-visual>
       <div class="r empty">#1 · YOUR APP HERE</div>
       <div class="r"><i></i><s></s></div>
       <div class="r"><i></i><s></s></div>
@@ -968,7 +968,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
   ];
   document.getElementById('stories').innerHTML = posts.map(function (p) {
     var pct = Math.round(p.r / p.v * 100);
-    return '<article class="story card"><div class="cover" style="--h:' + p.h + '" aria-hidden="true"><i></i><i></i><i></i></div>' +
+    return '<article class="story card" data-visual><div class="cover" style="--h:' + p.h + '" aria-hidden="true"><i></i><i></i><i></i></div>' +
       '<div class="body"><h3>' + p.t + '</h3><div class="views">' + p.v.toLocaleString('en-US') + '<small>views</small></div>' +
       '<div class="reads"><span>' + p.r.toLocaleString('en-US') + ' full reads</span><span class="bar"><i style="width:' + pct + '%"></i></span></div></div></article>';
   }).join('');

@@ -34,7 +34,7 @@ FAQ = [
 ld["@graph"][1]["mainEntity"] = [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]
 head = re.sub(r'<script type="application/ld\+json">.*?</script>', '<script type="application/ld+json">' + json.dumps(ld) + "</script>", head, flags=re.S)
 # PREVIEW until Raja approves: keep it out of search; flip to False to go live
-PREVIEW = True
+PREVIEW = False
 if PREVIEW: head = head.replace('<meta name="description"', '<meta name="robots" content="noindex">\n<meta name="description"', 1)
 head += f'<link rel="stylesheet" href="/library/wrapped/wrapped.css?v={ver("library/wrapped/wrapped.css")}">\n<script src="/library/wrapped/wrapped.js?v={ver("library/wrapped/wrapped.js")}" defer></script>\n'
 

@@ -263,7 +263,7 @@ html.dk .ys .ys-btn.ghost{background:rgba(255,255,255,.1)}
 .ys .ysm-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border:0;border-radius:999px;background:rgba(29,36,32,.07);color:var(--ink);cursor:pointer;font-size:18px;line-height:1}
 .ys .ysm-f{display:flex;gap:6px;margin-top:6px}.ys .ysm-f input{width:52px;text-align:center;font-size:20px;padding:6px;border-radius:10px;border:1px solid rgba(29,36,32,.25);background:transparent;color:var(--ink);text-transform:uppercase}
 /* streak chip under Today's idea, Plot Twist button, pressed flower, the pledge reward */
-.ys-chip{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;color:inherit;opacity:.85;text-decoration:none}
+.ys-chip{display:inline-flex;align-items:center;gap:8px;margin-top:12px;min-height:44px;font-size:14px;color:inherit;opacity:.85;text-decoration:none}
 .ys-chip:hover{opacity:1;text-decoration:underline}
 .ys-early{display:inline-block;margin-top:8px;margin-left:12px;font-size:14px;color:inherit}
 .ys-twist{display:inline-flex;align-items:center;gap:6px;margin-top:10px;min-height:40px;padding:8px 14px;border-radius:999px;border:1px dashed currentColor;background:none;color:inherit;font:inherit;font-size:14px;cursor:pointer;opacity:.85}

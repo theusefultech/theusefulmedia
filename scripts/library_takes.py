@@ -25,4 +25,6 @@ TAKES = {
  "the-subtle-art-of-not-giving-a-f-ck": "Read chapters 1 and 5 back to back. The first tells you to care about fewer things. The second says how you respond is always yours. If the swearing wears you out, those 2 chapters are enough.",
  "the-willpower-instinct": "Read chapter 6 before the rest. Most bad habits don't win on the first slip. They win on the guilt after it. If you keep 1 thing, keep the rule to forgive the slip and make the next choice a good one.",
  "the-craving-mind": "Read chapter 1 with the habit you want to drop in mind. The idea is simple: watch the habit closely instead of fighting it. The first 2 chapters are enough to try it this week.",
+ "rest": "Read Stop first. The rule is small: end the day mid-task, with the next step written down. The evening gets easier to let go of and the morning gets easier to start. Then read Walk.",
+ "make-time": "Don't try all 87 tactics. Pick 2. The Highlight is the part that matters: 1 thing a day you protect. Every other tactic in the book is there to protect it.",
 }

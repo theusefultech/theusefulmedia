@@ -13,7 +13,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #1E1B26; --paper2: #26222F; --card: #2A2633; --line: #3A3545;
+    --paper: #000000; --paper2: #0E0E10; --card: #141416; --line: #2A2A2E;
     --ink: #F3EEE4; --soft: #CFC8BB; --muted: #A79FB0;
     --green: #6FB592; --green2: #8CCBA9; --on-green: #12241B;
     --err: #FF8A9C; --ok: #8CCBA9;

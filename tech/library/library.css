@@ -17,8 +17,8 @@
 .fmt.f-dive { background: #17172B; color: #FAFAF8; }
 .fmt.f-five { background: #ECE7FF; color: #17172B; }
 .fmt.f-extra { background: transparent; color: var(--graphite); box-shadow: inset 0 0 0 1px var(--rule); }
-:root[data-theme="dark"] .fmt.f-dive { background: #2B2B4A; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fmt.f-dive { background: #2B2B4A; } }
+:root[data-theme="dark"] .fmt.f-dive { background: #2A2A30; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fmt.f-dive { background: #2A2A30; } }
 .ic-date { font-family: var(--mono); font-size: 0.74rem; color: var(--graphite); }
 
 /* thumbnails */

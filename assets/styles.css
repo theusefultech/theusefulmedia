@@ -1154,26 +1154,27 @@ a { color: inherit; }
 
 /* =========================================================
    Dark theme: automatic, or forced with data-theme on <html>
+   18 Nov 2026 (Raja, "A"): pitch black, neutral near-black surfaces, no navy tint (matches The Useful Apps)
    ========================================================= */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #EDECF5; --paper: #0E0E1C; --lilac: #221E3B; --graphite: #A3A2BA; --purple: #8F74FF; --purple-ink: #A08BFF;
+    --ink: #F2F2F4; --paper: #000000; --lilac: #16131F; --graphite: #A7A7AF; --purple: #8F74FF; --purple-ink: #A08BFF;
     --rule: rgba(237, 236, 245, 0.13); --rule-strong: rgba(237, 236, 245, 0.78);
-    --on-ink-muted: rgba(14, 14, 28, 0.7); --slab: #1B1B33; --cover-shadow: rgba(0, 0, 0, 0.45); color-scheme: dark;
+    --on-ink-muted: rgba(0, 0, 0, 0.7); --slab: #111113; --cover-shadow: rgba(0, 0, 0, 0.45); color-scheme: dark;
   }
   :root:not([data-theme="light"]) :is(.site-footer, .cell--tech, .cell--products, .feature, .promise, .rule:nth-child(3), .tldr li:last-child, .pcard.is-member .pcard-link, .flip:nth-child(4) .flip-front, .pk-chat, .pick, .dial) {
-    --ink: #1B1B33; --paper: #F2F1F8; --lilac: #ECE7FF; --graphite: #A9A8BF;
+    --ink: #111113; --paper: #F2F2F4; --lilac: #ECE7FF; --graphite: #A9A9B1;
     --rule: rgba(242, 241, 248, 0.14); --rule-strong: rgba(242, 241, 248, 0.85); --on-ink-muted: rgba(242, 241, 248, 0.66);
   }
   :root:not([data-theme="light"]) .cell--products { --ink: #7C5CFC; }
 }
 :root[data-theme="dark"] {
-  --ink: #EDECF5; --paper: #0E0E1C; --lilac: #221E3B; --graphite: #A3A2BA; --purple: #8F74FF; --purple-ink: #A08BFF;
+  --ink: #F2F2F4; --paper: #000000; --lilac: #16131F; --graphite: #A7A7AF; --purple: #8F74FF; --purple-ink: #A08BFF;
   --rule: rgba(237, 236, 245, 0.13); --rule-strong: rgba(237, 236, 245, 0.78);
-  --on-ink-muted: rgba(14, 14, 28, 0.7); --slab: #1B1B33; --cover-shadow: rgba(0, 0, 0, 0.45); color-scheme: dark;
+  --on-ink-muted: rgba(0, 0, 0, 0.7); --slab: #111113; --cover-shadow: rgba(0, 0, 0, 0.45); color-scheme: dark;
 }
 :root[data-theme="dark"] :is(.site-footer, .cell--tech, .cell--products, .feature, .promise, .rule:nth-child(3), .tldr li:last-child, .pcard.is-member .pcard-link, .flip:nth-child(4) .flip-front, .pk-chat, .pick, .dial) {
-  --ink: #1B1B33; --paper: #F2F1F8; --lilac: #ECE7FF; --graphite: #A9A8BF;
+  --ink: #111113; --paper: #F2F2F4; --lilac: #ECE7FF; --graphite: #A9A9B1;
   --rule: rgba(242, 241, 248, 0.14); --rule-strong: rgba(242, 241, 248, 0.85); --on-ink-muted: rgba(242, 241, 248, 0.66);
 }
 :root[data-theme="dark"] .cell--products { --ink: #7C5CFC; }

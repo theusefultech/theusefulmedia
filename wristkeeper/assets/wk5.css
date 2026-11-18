@@ -5,7 +5,7 @@
 @font-face{font-family:"Geist Mono";src:url(/wristkeeper/assets/fonts/geist-mono-latin.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 
 :root{
-  --night:#0C0B12;--night2:#15131F;--plum:#2A1F4A;--line:rgba(214,206,255,.14);
+  --night:#000000;--night2:#0E0D13;--plum:#2A1F4A;--line:rgba(214,206,255,.14);
   --paper:#F2EEE6;--paper2:#E9E3D6;--ink:#17151F;--ink2:#4A4655;
   --lav:#B6A4FF;--lav-ink:#5B45C8;--lume:#D4F75C;--lume-ink:#2A2D10;
   --soft:#CFCADB;--mute:#9C97AE;

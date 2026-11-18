@@ -23,7 +23,7 @@
   --on-accent: #FFFFFF;
   --band: #16172B;
   --on-band: #F3F2EE;
-  --on-band-2: #A9AAC0;
+  --on-band-2: #AAAAB2;
   --shadow: 0 1px 2px rgba(22, 23, 43, .05), 0 12px 32px -12px rgba(22, 23, 43, .18);
   --shadow-lift: 0 2px 4px rgba(22, 23, 43, .06), 0 24px 48px -16px rgba(22, 23, 43, .26);
   --font: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -37,40 +37,40 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0E0E1C;
-    --paper-2: #141426;
-    --card: #191A2E;
+    --paper: #000000;
+    --paper-2: #0A0A0B;
+    --card: #121214;
     --ink: #F3F2EE;
-    --ink-2: #B9BACB;
-    --ink-3: #8C8DA2;
+    --ink-2: #BCBCC4;
+    --ink-3: #8F8F98;
     --rule: rgba(243, 242, 238, .10);
     --rule-strong: rgba(243, 242, 238, .20);
     --accent-text: #A893FF;
-    --accent-soft: #241F48;
+    --accent-soft: #1A1630;
     --accent-glow: rgba(124, 98, 245, .28);
-    --band: #1A1B31;
+    --band: #141416;
     --on-band: #F3F2EE;
-    --on-band-2: #A9AAC0;
+    --on-band-2: #AAAAB2;
     --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 32px -12px rgba(0, 0, 0, .6);
     --shadow-lift: 0 2px 4px rgba(0, 0, 0, .3), 0 24px 48px -16px rgba(0, 0, 0, .7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0E0E1C;
-  --paper-2: #141426;
-  --card: #191A2E;
+  --paper: #000000;
+  --paper-2: #0A0A0B;
+  --card: #121214;
   --ink: #F3F2EE;
-  --ink-2: #B9BACB;
-  --ink-3: #8C8DA2;
+  --ink-2: #BCBCC4;
+  --ink-3: #8F8F98;
   --rule: rgba(243, 242, 238, .10);
   --rule-strong: rgba(243, 242, 238, .20);
   --accent-text: #A893FF;
-  --accent-soft: #241F48;
+  --accent-soft: #1A1630;
   --accent-glow: rgba(124, 98, 245, .28);
-  --band: #1A1B31;
+  --band: #141416;
   --on-band: #F3F2EE;
-  --on-band-2: #A9AAC0;
+  --on-band-2: #AAAAB2;
   --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 32px -12px rgba(0, 0, 0, .6);
   --shadow-lift: 0 2px 4px rgba(0, 0, 0, .3), 0 24px 48px -16px rgba(0, 0, 0, .7);
   color-scheme: dark;

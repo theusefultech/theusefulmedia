@@ -192,7 +192,7 @@
       var c = doc.createElement("canvas"); c.width = 1080; c.height = 1350;
       var x = c.getContext("2d"), w = +range.value;
       var g = x.createRadialGradient(780, 300, 50, 600, 600, 1100);
-      g.addColorStop(0, "#3A2A6A"); g.addColorStop(0.55, "#0C0B12"); g.addColorStop(1, "#0C0B12");
+      g.addColorStop(0, "#3A2A6A"); g.addColorStop(0.55, "#000000"); g.addColorStop(1, "#000000");
       x.fillStyle = g; x.fillRect(0, 0, 1080, 1350);
       x.fillStyle = "#B6A4FF"; x.font = "500 30px 'Geist Mono', monospace"; x.fillText("MY WATCH, BY THE WEAR", 90, 170);
       x.fillStyle = "#F2EEE6"; x.font = "400 92px 'Instrument Serif', serif"; x.fillText("It cost me", 90, 330);

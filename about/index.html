@@ -26,6 +26,16 @@
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://theusefulmedia.com/"}, {"@type": "ListItem", "position": 2, "name": "About Raja, founder of The Useful Media Co", "item": "https://theusefulmedia.com/about/"}]}</script>
 <script src="/apps/hit.js" defer></script>
+<style>
+/* 18 Nov 2026 (visual rule): real covers, screenshots and app icons on the timeline */
+.stop-art{margin-top:14px}
+.st-covers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:520px}
+.st-covers img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--rule);display:block}
+.st-app{display:flex;align-items:flex-end;gap:14px}
+.st-ic{width:64px;height:64px;border-radius:22.5%;box-shadow:0 10px 22px -12px rgba(0,0,0,.45);flex:none}
+.st-shot{flex:0 1 380px;min-width:0;width:100%;max-width:380px;height:auto;border-radius:12px;border:1px solid var(--rule);display:block}
+.st-phone .st-shot{flex:none;width:150px;border-radius:22px}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -54,7 +64,7 @@
         <a class="btn btn--ghost" href="https://theusefultech.com" target="_blank" rel="noopener">Read my Apple posts<svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
       </div>
     </div>
-    <div class="flips" aria-label="Six facts about Raja">
+    <div class="flips" data-visual aria-label="Six facts about Raja">
       <button class="flip" type="button" style="--k:0" aria-label="2016: The year I published my first Apple post on Medium."><span class="flip-inner"><span class="flip-front"><b>2016</b><i>Tap to flip</i></span><span class="flip-back">The year I published my first Apple post on Medium.</span></span></button><button class="flip" type="button" style="--k:1" aria-label="78K+: Readers following The Useful Tech on Medium."><span class="flip-inner"><span class="flip-front"><b>78K+</b><i>Tap to flip</i></span><span class="flip-back">Readers following The Useful Tech on Medium.</span></span></button><button class="flip" type="button" style="--k:2" aria-label="70+: Books I read every year for The Useful Life."><span class="flip-inner"><span class="flip-front"><b>70+</b><i>Tap to flip</i></span><span class="flip-back">Books I read every year for The Useful Life.</span></span></button><button class="flip" type="button" style="--k:3" aria-label="30+: Watches in my collection, which is why Wristkeeper exists."><span class="flip-inner"><span class="flip-front"><b>30+</b><i>Tap to flip</i></span><span class="flip-back">Watches in my collection, which is why Wristkeeper exists.</span></span></button><button class="flip" type="button" style="--k:4" aria-label="Nov 2025: The month I quit my job to do this full-time."><span class="flip-inner"><span class="flip-front"><b>Nov 2025</b><i>Tap to flip</i></span><span class="flip-back">The month I quit my job to do this full-time.</span></span></button><button class="flip" type="button" style="--k:5" aria-label="2: Apps on sale, Wristkeeper for iPhone and Textlore for Mac."><span class="flip-inner"><span class="flip-front"><b>2</b><i>Tap to flip</i></span><span class="flip-back">Apps on sale: Wristkeeper for iPhone and Textlore for Mac.</span></span></button>
     </div>
   </div>
@@ -69,9 +79,9 @@
     <li class="stop"><time>2016</time><h3>The first Apple post</h3><p>I started writing about iPhones and Mac apps on Medium at night, after a full day at an early-stage startup.</p></li>
     <li class="stop"><time>The next nine years</time><h3>480+ posts later</h3><p>The Useful Tech grew into the most followed Apple blog on Medium, with 78,000+ followers.</p></li>
     <li class="stop"><time>Nov 2025</time><h3>Full-time</h3><p>I left my job and turned the blog into The Useful Media Co, with its own brands, guides and apps.</p></li>
-    <li class="stop"><time>2026</time><h3>Newsletters and a shop</h3><p>The Useful Tech and The Useful Life newsletters launched, and the Gumroad store passed 35 products.</p></li>
-    <li class="stop"><time>Oct 2026</time><h3>The first apps</h3><p>Textlore, my Mac app for searching every message you have sent, went on sale.</p></li>
-    <li class="stop is-now"><time>Nov 2026</time><h3>Wristkeeper</h3><p>My iPhone app for people who collect watches the way I do, on the App Store since 13 Nov.</p></li>
+    <li class="stop"><time>2026</time><h3>Newsletters and a shop</h3><p>The Useful Tech and The Useful Life newsletters launched, and the Gumroad store passed 35 products.</p><div class="stop-art st-covers" data-visual><img src="/assets/products/apple-bundle.webp" alt="Apple bundle cover from the Gumroad store" width="640" height="360" loading="lazy" decoding="async"><img src="/assets/products/claude-code-playbook.webp" alt="Claude Code playbook cover" width="640" height="360" loading="lazy" decoding="async"><img src="/assets/products/2026-apple-life-planner.webp" alt="2026 Apple life planner cover" width="640" height="411" loading="lazy" decoding="async"></div></li>
+    <li class="stop"><time>Oct 2026</time><h3>The first apps</h3><p>Textlore, my Mac app for searching every message you have sent, went on sale.</p><div class="stop-art st-app"><img class="st-ic" src="/our-apps/img/textlore-icon.webp" alt="Textlore app icon" width="192" height="192" loading="lazy" decoding="async"><img class="st-shot" src="/our-apps/img/textlore-main.webp" alt="Textlore on a Mac, searching message history" width="1000" height="625" loading="lazy" decoding="async"></div></li>
+    <li class="stop is-now"><time>Nov 2026</time><h3>Wristkeeper</h3><p>My iPhone app for people who collect watches the way I do, on the App Store since 13 Nov.</p><div class="stop-art st-app st-phone"><img class="st-ic" src="/wristkeeper/assets/icon-180.webp" alt="Wristkeeper app icon" width="180" height="180" loading="lazy" decoding="async"><img class="st-shot" src="/wristkeeper/assets/shots/07-dial-icons-480.webp" alt="Wristkeeper on iPhone" width="480" height="1043" loading="lazy" decoding="async"></div></li>
   </ol>
 </section>
 

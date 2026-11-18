@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tinystack: trade brain rot for a brain stack</title>
+<meta name="description" content="Tinystack is an AI planner for your free time. Tell it how long you have and it stacks real things you enjoy, like reading, sketching or a walk, while your phone stays out of reach. Build your first stack free, right here.">
+<link rel="canonical" href="https://theusefulmedia.com/stack/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tinystack by The Useful Media Co">
+<meta property="og:title" content="Trade brain rot for a brain stack">
+<meta property="og:description" content="Pick what you enjoy offline. Tinystack builds your stack and runs it while your phone is out of reach. Build your first one free in 30 seconds.">
+<meta property="og:url" content="https://theusefulmedia.com/stack/">
+<meta property="og:image" content="https://theusefulmedia.com/stack/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F5F0E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1E1B26" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/stack/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&display=swap">
+<link rel="stylesheet" href="/stack/stack.css">
+<script src="/stack/stack.js" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="/apps/hit.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Tinystack","operatingSystem":"iOS, macOS","applicationCategory":"LifestyleApplication","description":"An AI planner for your free time. It picks offline activities you enjoy, stacks them to fit the time you have, and runs the stack while your phone is out of reach.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"The Useful Media Co","url":"https://theusefulmedia.com/"}}</script>
+</head>
+<body>
+<a class="skip" href="#build">Skip to the stack builder</a>
+
+<header class="top">
+  <a class="logo" href="/stack/" aria-label="Tinystack home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="20" width="22" height="7" rx="3.5" class="l1"/><rect x="8" y="12.5" width="16" height="7" rx="3.5" class="l2"/><rect x="11" y="5" width="10" height="7" rx="3.5" class="l3"/></svg>
+    <span>Tinystack</span>
+  </a>
+  <nav class="top-nav" aria-label="On this page">
+    <a href="#build">Build a stack</a>
+    <a href="#ai">What the AI does</a>
+    <a href="#faq">Questions</a>
+  </nav>
+  <a class="btn btn-small" href="#join">Join the waitlist</a>
+</header>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-copy">
+    <p class="pill"><span class="dot" aria-hidden="true"></span> iPhone and Mac · launching Mon 28 Dec</p>
+    <h1>Trade brain rot for a <em>brain stack</em>.</h1>
+    <p class="lead">Tinystack is an AI planner for your free time. Tell it how long you have. It picks real things you enjoy, stacks them, and runs them while your phone stays out of reach.</p>
+    <div class="signup hero-signup">
+      <form class="signup-form" data-signup data-list="life" data-source="tinystack" data-campaign="tinystack-waitlist" data-next="stay" novalidate>
+        <label class="sr" for="email-hero">Email address</label>
+        <input id="email-hero" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit"><span class="btn-label">Join the waitlist</span></button>
+      </form>
+      <div class="ts-slot"></div>
+      <div class="signup-msg" aria-live="polite"></div>
+    </div>
+    <p class="fine">Free. Launch day email on 28 Dec, plus the founding price: $49.99 for life, first 500 people only. <button class="link-btn" type="button" data-tip="You also get The Useful Life newsletter: 1 book lesson and 1 action step, 3 times a week. Unsubscribe in 1 click.">What else do I get?</button></p>
+    <a class="hero-try" href="#build"><span aria-hidden="true">↓</span> Or build your first stack now, free, in 30 seconds</a>
+  </div>
+
+  <div class="hero-art" aria-hidden="true">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <p class="ph-time">8:42 PM</p>
+        <div class="bubble me">I have 40 minutes. Low energy.</div>
+        <div class="bubble ai"><span class="spark">✦</span> Here's a calm stack from your things:</div>
+        <div class="mini-stack">
+          <div class="mini c-read"><span>📖</span><b>Book</b><i>20 min</i></div>
+          <div class="mini c-make"><span>✏️</span><b>Sketching</b><i>15 min</i></div>
+          <div class="mini c-home"><span>🍵</span><b>Tea ritual</b><i>5 min</i></div>
+        </div>
+        <div class="ph-start">Start · phone goes away</div>
+      </div>
+    </div>
+    <div class="pile">
+      <div class="obj o1"><span>📓</span></div>
+      <div class="obj o2"><span>🧶</span></div>
+      <div class="obj o3"><span>📚</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Strip -->
+<section class="strip" aria-label="What a stack is">
+  <p><b>Brain stacking</b> is the trend of doing 2 to 4 offline things back to back, phone out of reach. Reading, then sketching, then a walk. It went viral on TikTok in Oct 2026. Tinystack plans it for you.</p>
+</section>
+
+<!-- Builder -->
+<section class="build" id="build">
+  <div class="sec-head">
+    <p class="eyebrow">Try it now · free · works on any phone</p>
+    <h2>Build your brain stack</h2>
+    <p class="sub">4 quick taps, then pick what you enjoy. You get a stack that fits your time, and you can run it right here.</p>
+  </div>
+
+  <div class="builder" data-step="1">
+    <ol class="steps" aria-label="Progress">
+      <li data-s="1" class="on"><span>1</span><i class="lbl">Your time</i></li>
+      <li data-s="2"><span>2</span><i class="lbl">What you enjoy</i></li>
+      <li data-s="3"><span>3</span><i class="lbl">Your stack</i></li>
+    </ol>
+
+    <!-- Step 1 -->
+    <div class="pane" data-pane="1">
+      <fieldset class="q">
+        <legend>How much free time do you have?</legend>
+        <div class="chips" data-q="minutes">
+          <button type="button" data-v="10">10 min</button>
+          <button type="button" data-v="20">20 min</button>
+          <button type="button" data-v="40" aria-pressed="true">40 min</button>
+          <button type="button" data-v="60">1 hour</button>
+          <button type="button" data-v="90">90 min</button>
+        </div>
+      </fieldset>
+      <fieldset class="q">
+        <legend>How's your energy?</legend>
+        <div class="chips" data-q="energy">
+          <button type="button" data-v="1" aria-pressed="true">🫖 Low</button>
+          <button type="button" data-v="2">🙂 Okay</button>
+          <button type="button" data-v="3">⚡ High</button>
+        </div>
+      </fieldset>
+      <fieldset class="q">
+        <legend>Where will you be?</legend>
+        <div class="chips" data-q="place">
+          <button type="button" data-v="in" aria-pressed="true">🏠 Inside</button>
+          <button type="button" data-v="out">🌳 Outside</button>
+          <button type="button" data-v="any">Either</button>
+        </div>
+      </fieldset>
+      <fieldset class="q">
+        <legend>On your own or with someone?</legend>
+        <div class="chips" data-q="company">
+          <button type="button" data-v="solo" aria-pressed="true">Just me</button>
+          <button type="button" data-v="social">With someone</button>
+        </div>
+      </fieldset>
+      <div class="pane-foot">
+        <button class="btn" type="button" data-go="2">Next: pick what you enjoy <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="pane" data-pane="2" hidden>
+      <div class="pick-head">
+        <div>
+          <h3>What do you enjoy doing offline?</h3>
+          <p class="hint">Pick at least 3. Tap again to remove. Each card shows its usual time and energy, so you know what you're picking.</p>
+        </div>
+        <div class="picked-count" aria-live="polite"><b data-count>0</b> picked</div>
+      </div>
+
+      <div class="row-wrap">
+        <button class="row-arrow prev" type="button" aria-label="Scroll categories left">‹</button>
+        <div class="cat-row scroll-row" role="tablist" aria-label="Filter by category" tabindex="0"></div>
+        <button class="row-arrow next" type="button" aria-label="Scroll categories right">›</button>
+      </div>
+
+      <div class="search">
+        <label class="sr" for="act-search">Search activities</label>
+        <input id="act-search" type="search" placeholder="Search 60 activities" autocomplete="off">
+      </div>
+
+      <div class="grid" data-grid></div>
+      <p class="empty-search" hidden>Nothing matches. Add it as your own below.</p>
+
+      <form class="custom" data-custom novalidate>
+        <p class="custom-title">+ Add your own</p>
+        <p class="hint">Anything you love that isn't here: Carnatic practice, Lego with your kid, fixing your bike.</p>
+        <div class="custom-row">
+          <label class="sr" for="custom-name">Activity name</label>
+          <input id="custom-name" type="text" maxlength="40" placeholder="e.g. Piano practice" autocomplete="off">
+          <label class="sr" for="custom-min">Usual minutes</label>
+          <select id="custom-min" aria-label="Usual minutes">
+            <option value="10">10 min</option><option value="20" selected>20 min</option><option value="30">30 min</option><option value="45">45 min</option><option value="60">60 min</option>
+          </select>
+          <label class="sr" for="custom-energy">Energy it needs</label>
+          <select id="custom-energy" aria-label="Energy it needs">
+            <option value="1">Low energy</option><option value="2" selected>Some energy</option><option value="3">High energy</option>
+          </select>
+          <label class="sr" for="custom-place">Where</label>
+          <select id="custom-place" aria-label="Where">
+            <option value="in" selected>Inside</option><option value="out">Outside</option><option value="any">Either</option>
+          </select>
+          <button class="btn btn-ghost" type="submit">Add</button>
+        </div>
+        <p class="custom-msg" aria-live="polite"></p>
+      </form>
+
+      <div class="pane-foot sticky-foot">
+        <button class="btn btn-ghost" type="button" data-go="1"><span aria-hidden="true">←</span> Back</button>
+        <button class="btn" type="button" data-go="3" data-need-picks disabled>Build my stack <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="pane" data-pane="3" hidden>
+      <div class="result">
+        <div class="stack-card" data-card>
+          <p class="sc-kicker" data-archetype>Your brain stack</p>
+          <h3 class="sc-title" data-title>40 minutes, low energy</h3>
+          <ol class="sc-list" data-stacklist></ol>
+          <p class="sc-why" data-why></p>
+          <p class="sc-foot">tinystack · theusefulmedia.com/stack</p>
+        </div>
+        <div class="result-side">
+          <button class="btn btn-big" type="button" data-run>▶ Start this stack now</button>
+          <p class="hint">Put your phone face down or in another room. A soft chime plays when it's time to move on. Keep this page open.</p>
+          <div class="result-actions">
+            <button class="btn btn-ghost" type="button" data-shuffle>↻ Another mix</button>
+            <button class="btn btn-ghost" type="button" data-share>Share my stack</button>
+            <button class="btn btn-ghost" type="button" data-go="2">Edit picks</button>
+          </div>
+          <div class="save-box">
+            <p class="save-title">Want this planned for you every day?</p>
+            <p class="hint">The app finds the free gaps in your calendar, checks the weather and learns what calms you most. Join the waitlist and get the founding price on 28 Dec.</p>
+            <div class="signup">
+              <form class="signup-form" data-signup data-list="life" data-source="tinystack" data-campaign="tinystack-waitlist" data-medium="builder" data-next="stay" novalidate>
+                <label class="sr" for="email-result">Email address</label>
+                <input id="email-result" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+                <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <button class="btn" type="submit"><span class="btn-label">Join the waitlist</span></button>
+              </form>
+              <div class="ts-slot"></div>
+              <div class="signup-msg" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="how">
+  <div class="sec-head">
+    <p class="eyebrow">How the app works</p>
+    <h2>Ask. Stack. Put the phone away.</h2>
+  </div>
+  <div class="how-grid">
+    <article class="how-card">
+      <div class="how-art art-ask" aria-hidden="true">
+        <div class="bubble me">I'm bored</div>
+        <div class="tri"><span>🧩</span><span>🚶</span><span>🎸</span></div>
+      </div>
+      <p class="num">1</p>
+      <h3>Ask</h3>
+      <p>Say how long you have, or tap "I'm bored". It answers with picks from the things you like, not a generic list.</p>
+    </article>
+    <article class="how-card">
+      <div class="how-art art-stack" aria-hidden="true">
+        <div class="mini c-read"><span>📖</span><b>Book</b><i>20</i></div>
+        <div class="mini c-move"><span>🚶</span><b>Walk</b><i>15</i></div>
+        <div class="mini c-calm"><span>🌬️</span><b>Breathe</b><i>5</i></div>
+      </div>
+      <p class="num">2</p>
+      <h3>Stack</h3>
+      <p>It orders them so you start easy and end calm, and fits them into the free gaps in your calendar.</p>
+    </article>
+    <article class="how-card">
+      <div class="how-art art-lock" aria-hidden="true">
+        <p class="lock-time">9:05</p>
+        <div class="live"><span>📖</span><b>Book</b><i>12:40 left</i></div>
+      </div>
+      <p class="num">3</p>
+      <h3>Phone away</h3>
+      <p>The timer lives on your Lock Screen. A soft chime moves you on. You never need to open the app mid-stack.</p>
+    </article>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="ai" id="ai">
+  <div class="sec-head">
+    <p class="eyebrow">Not a timer</p>
+    <h2>10 ways it decides for you</h2>
+    <p class="sub">It runs on Apple's on-device AI, so your plans stay on your phone. Drag, swipe or use the arrows.</p>
+  </div>
+  <div class="row-wrap">
+    <button class="row-arrow prev" type="button" aria-label="Scroll left">‹</button>
+    <div class="ai-row scroll-row" tabindex="0" aria-label="AI features">
+      <article class="ai-card"><span class="ai-ico">⏱️</span><h3>"I have 40 minutes"</h3><p>Time, energy and mood in. A stack from your own things out.</p></article>
+      <article class="ai-card"><span class="ai-ico">🗓️</span><h3>Plans your day</h3><p>Finds free gaps in your calendar and books a stack into them.</p></article>
+      <article class="ai-card"><span class="ai-ico">🥱</span><h3>"I'm bored"</h3><p>1 tap, 3 picks you can start right now.</p></article>
+      <article class="ai-card"><span class="ai-ico">🧠</span><h3>Learns you</h3><p>"Sketching calms you most." Your stacks shift to match.</p></article>
+      <article class="ai-card"><span class="ai-ico">🎯</span><h3>Goals to plans</h3><p>"24 books this year" becomes small weekly steps.</p></article>
+      <article class="ai-card"><span class="ai-ico">🌦️</span><h3>Reads the room</h3><p>Sunny: a walk. Rain: a board game. Travelling: a pocket stack.</p></article>
+      <article class="ai-card"><span class="ai-ico">🛟</span><h3>Scroll rescue</h3><p>Tap when the urge to scroll hits. The best 10 minutes for right now.</p></article>
+      <article class="ai-card"><span class="ai-ico">☕</span><h3>Sunday recap</h3><p>A short look at your week and 1 idea to try next.</p></article>
+      <article class="ai-card"><span class="ai-ico">🎙️</span><h3>Siri</h3><p>"Hey Siri, plan my evening." Done.</p></article>
+      <article class="ai-card"><span class="ai-ico">👯</span><h3>Together</h3><p>Finds a time you and a friend are both free, and a stack you both like.</p></article>
+    </div>
+    <button class="row-arrow next" type="button" aria-label="Scroll right">›</button>
+  </div>
+</section>
+
+<!-- Modes -->
+<section class="modes">
+  <div class="sec-head">
+    <p class="eyebrow">2 ways to run a stack</p>
+    <h2>Phone away, or phone filming. Never in your hand.</h2>
+  </div>
+  <div class="mode-grid">
+    <article class="mode">
+      <div class="mode-art away" aria-hidden="true"><div class="room"><span class="door"></span><span class="ph-down"></span></div><span class="you">🧘</span></div>
+      <h3>Away <span class="tag">daily</span></h3>
+      <p>Your phone goes in another room. In a 2017 study, people did best with the phone in another room, not face down on the desk. The Lock Screen keeps time.</p>
+    </article>
+    <article class="mode">
+      <div class="mode-art film" aria-hidden="true"><div class="stand"><span class="rec"></span></div><span class="you">🎨</span></div>
+      <h3>Film <span class="tag">once a week</span></h3>
+      <p>Your phone sits on a stand facing your desk, screen dark, and makes a short time-lapse of your stack. Touch it and the recording ends.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Science -->
+<section class="science">
+  <div class="sec-head">
+    <p class="eyebrow">Built on research about habits and phones</p>
+    <h2>Why it works</h2>
+  </div>
+  <div class="sci-grid">
+    <article class="sci">
+      <p class="big">91%</p>
+      <p>of 467 people improved on at least 1 measure of mood, wellbeing or attention after 2 weeks without mobile internet.</p>
+      <a href="https://www.wfae.org/health/2025-02-24/a-break-from-your-smartphone-can-reboot-your-mood-heres-how-long-you-need" rel="noopener" target="_blank">PNAS Nexus, 2025 ↗</a>
+    </article>
+    <article class="sci">
+      <p class="big">66 <small>days</small></p>
+      <p>is the median time for a daily habit to feel automatic. Some took 18 days, some 254. Small and daily wins.</p>
+      <a href="https://www.ucl.ac.uk/news/2009/aug/how-long-does-it-take-form-habit" rel="noopener" target="_blank">Lally et al., UCL ↗</a>
+    </article>
+    <article class="sci">
+      <p class="big">642 <small>tests</small></p>
+      <p>show if-then plans ("After dinner, I start my stack") help people follow through. Tinystack writes yours in onboarding.</p>
+      <a href="https://doi.org/10.1080/10463283.2024.2334563" rel="noopener" target="_blank">Sheeran et al., 2024 ↗</a>
+    </article>
+  </div>
+</section>
+
+<!-- Founder -->
+<section class="founder">
+  <figure class="note">
+    <blockquote>"I tried the blockers. One Sec, deleting apps, all of it. None of it stuck. What stuck was keeping real things within reach: notebooks, a book in every room, piano breaks instead of phone breaks, walks without earbuds. Tinystack is that, planned for you."</blockquote>
+    <figcaption><span class="avatar" aria-hidden="true">R</span><span><b>Raja</b>, maker of Tinystack, writing The Useful Tech for nearly 10 years</span></figcaption>
+  </figure>
+</section>
+
+<!-- Pricing -->
+<section class="price">
+  <div class="sec-head">
+    <p class="eyebrow">Price</p>
+    <h2>Free to start. Pro when you want the full planner.</h2>
+  </div>
+  <div class="price-grid">
+    <article class="plan">
+      <h3>Free</h3>
+      <p class="amt">$0</p>
+      <ul><li>All 60 activities plus your own</li><li>Unlimited sessions and streaks</li><li>"I'm bored" and scroll rescue</li><li>3 AI stacks a day</li></ul>
+    </article>
+    <article class="plan hot">
+      <h3>Pro</h3>
+      <p class="amt">$29.99 <small>a year</small></p>
+      <ul><li>Unlimited AI stacks</li><li>Day planner and goals</li><li>Learns you and Sunday recap</li><li>Mac app, sync, no watermark</li></ul>
+      <p class="hint">7-day free trial. Or $4.99 a month.</p>
+    </article>
+    <article class="plan founding">
+      <h3>Founding</h3>
+      <p class="amt">$49.99 <small>once</small></p>
+      <ul><li>Pro for life</li><li>First 500 people only</li><li>Launch week, 28 Dec to 3 Jan</li><li>Waitlist gets it first</li></ul>
+    </article>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="sec-head"><h2>Questions</h2></div>
+  <details><summary>Why would I need an app to use my phone less?</summary><p>You don't, forever. It gets you started and then gets out of the way. The hard part of putting the phone down is deciding what to do instead. Tinystack makes that decision in 1 tap.</p></details>
+  <details><summary>Is this just another focus timer?</summary><p>No. A timer counts down. Tinystack decides what to do with your time, from the things you enjoy, your calendar, the weather and how you felt last time.</p></details>
+  <details><summary>Do I have to film myself?</summary><p>No. Away mode is the default and nothing is recorded. Film mode is optional, about once a week, and the video stays on your phone unless you share it.</p></details>
+  <details><summary>What if my iPhone doesn't support Apple Intelligence?</summary><p>Every feature still works, using a simpler built-in planner. Apple's on-device AI makes the picks smarter on iPhone 15 Pro and newer.</p></details>
+  <details><summary>Is there an Android version?</summary><p>Not yet. The stack builder on this page works on any phone and computer, free.</p></details>
+  <details><summary>What happens to my data?</summary><p>It stays on your device and your own iCloud. No account, no server, nothing sold.</p></details>
+</section>
+
+<!-- Final CTA -->
+<section class="final" id="join">
+  <div class="final-art" aria-hidden="true"><span>📖</span><span>🎨</span><span>🚶</span><span>🎹</span><span>🍵</span></div>
+  <h2>Be first on 28 Dec.</h2>
+  <p class="sub">Launch day email with the founding price: $49.99 for life, first 500 people only.</p>
+  <div class="signup">
+    <form class="signup-form" data-signup data-list="life" data-source="tinystack" data-campaign="tinystack-waitlist" data-medium="footer" data-next="stay" novalidate>
+      <label class="sr" for="email-final">Email address</label>
+      <input id="email-final" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" type="submit"><span class="btn-label">Join the waitlist</span></button>
+    </form>
+    <div class="ts-slot"></div>
+    <div class="signup-msg" aria-live="polite"></div>
+  </div>
+  <p class="fine">You also get The Useful Life: 1 book lesson and 1 action step, 3 times a week. Unsubscribe in 1 click.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p>Tinystack is made by <a href="/">The Useful Media Co</a> in Chennai. · <a href="/privacy/">Privacy</a> · <a href="/our-apps/">Our other apps</a></p>
+</footer>
+
+<!-- Runner -->
+<div class="runner" data-runner hidden role="dialog" aria-modal="true" aria-label="Stack in progress">
+  <div class="run-pre" data-run-pre>
+    <p class="eyebrow">Before you start</p>
+    <h2>How busy is your head right now?</h2>
+    <div class="scale" data-scale="before" role="group" aria-label="1 is calm, 10 is very busy"></div>
+    <p class="scale-ends"><span>1 calm</span><span>10 very busy</span></p>
+    <button class="btn btn-big" type="button" data-run-start>Start · put the phone away</button>
+    <button class="link-btn" type="button" data-run-close>Not now</button>
+  </div>
+  <div class="run-live" data-run-live hidden>
+    <p class="run-step" data-run-step>1 of 3</p>
+    <div class="run-ring">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="trk" cx="100" cy="100" r="90"/><circle class="bar" cx="100" cy="100" r="90" data-run-bar/></svg>
+      <div class="run-mid"><span class="run-emoji" data-run-emoji>📖</span><p class="run-left" data-run-left>20:00</p></div>
+    </div>
+    <h2 class="run-name" data-run-name>Book</h2>
+    <p class="run-next" data-run-next>Next: Sketching</p>
+    <div class="run-ctrl">
+      <button class="btn btn-ghost" type="button" data-run-pause>Pause</button>
+      <button class="btn btn-ghost" type="button" data-run-skip>Next item</button>
+      <button class="btn btn-ghost" type="button" data-run-end>End</button>
+    </div>
+    <button class="sound" type="button" data-run-sound aria-pressed="true">🔔 Chime on</button>
+  </div>
+  <div class="run-done" data-run-done hidden>
+    <p class="eyebrow">Stack done</p>
+    <h2 data-done-title>40 minutes offline.</h2>
+    <p class="sub">How busy is your head now?</p>
+    <div class="scale" data-scale="after" role="group" aria-label="1 is calm, 10 is very busy"></div>
+    <p class="scale-ends"><span>1 calm</span><span>10 very busy</span></p>
+    <p class="done-result" data-done-result aria-live="polite"></p>
+    <button class="btn" type="button" data-run-close>Back to the page</button>
+  </div>
+</div>
+
+<div class="tip" role="tooltip" hidden></div>
+<div class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

@@ -645,7 +645,7 @@
 
   // ---------- Nav: sliding pill ----------
   var nav = $(".nav");
-  if (nav && fine) {
+  if (nav && fine && !nav.hasAttribute("data-tmn")) {
     var pill = doc.createElement("span"); pill.className = "nav-pill"; nav.appendChild(pill);
     var moveTo = function (a) {
       var nr = nav.getBoundingClientRect(), ar = a.getBoundingClientRect();
@@ -663,7 +663,7 @@
 
   // ---------- Phone menu (14 Nov 2026): a button that opens the full menu ----------
   var mainNav = $('.nav[aria-label="Main"]'), hEnd = $(".header-end");
-  if (mainNav && hEnd) {
+  if (mainNav && hEnd && !mainNav.hasAttribute("data-tmn")) { // 18 Nov 2026: menu.js builds the grouped menus instead
     var mb = doc.createElement("button");
     mb.type = "button"; mb.className = "menu-btn"; mb.setAttribute("aria-label", "Open menu");
     mb.setAttribute("aria-expanded", "false"); mb.setAttribute("aria-controls", "phone-menu");

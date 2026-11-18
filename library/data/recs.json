@@ -2,6 +2,2411 @@
  "updated": "2026-11-18",
  "people": [
   {
+   "slug": "please-read-your-book",
+   "name": "Please Read Your Book",
+   "channels": [
+    "Please read your book"
+   ],
+   "books": [
+    {
+     "title": "Going to Meet the Man",
+     "author": "",
+     "note": "James Baldwin short story collection read in college, angry and moving stories",
+     "video": "87wupQdaERk",
+     "url": null,
+     "ts": 568,
+     "date": "2026-11-19"
+    },
+    {
+     "title": "The Sorrow of War",
+     "author": "",
+     "note": "Bao Ninh; bought in Hanoi on first Vietnam trip, autofiction about a young soldier",
+     "video": "87wupQdaERk",
+     "url": null,
+     "ts": 322,
+     "date": "2026-11-19"
+    },
+    {
+     "title": "Coin Locker Babies",
+     "author": "",
+     "note": "Ryu Murakami's transgressive, bizarre novel that opened his mind to postmodern art",
+     "video": "87wupQdaERk",
+     "url": null,
+     "ts": 301,
+     "date": "2026-11-19"
+    },
+    {
+     "title": "The Heart is a Lonely Hunter",
+     "author": "",
+     "note": "Carson McCullers; read at 18 after dropping out, quiet devastation and unfulfilled longing",
+     "video": "87wupQdaERk",
+     "url": null,
+     "ts": 190,
+     "date": "2026-11-19"
+    },
+    {
+     "title": "A Farewell to Arms",
+     "author": "",
+     "note": "Hemingway novel read in high school; made him want to be a writer, peak terse prose",
+     "video": "87wupQdaERk",
+     "url": null,
+     "ts": 105,
+     "date": "2026-11-19"
+    }
+   ]
+  },
+  {
+   "slug": "tam-kaur",
+   "name": "Tam Kaur",
+   "channels": [
+    "Tam Kaur"
+   ],
+   "books": [
+    {
+     "title": "The Chimp Paradox",
+     "author": "",
+     "note": "Professor Steve Peters; psychology-based emotional control; she is midway through it",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 1055,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Miracle Morning",
+     "author": "",
+     "note": "Hal Elrod; reread for five years; turned her into a morning person; Life Savers routine",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 1002,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Atomic Habits",
+     "author": "",
+     "note": "James Clear; habit system, identity comes from habits; make habits obvious, attractive, easy, satisfying",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 805,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Why Men Love Bitches",
+     "author": "",
+     "note": "Sherry Argov; her first relationship book, read at 17; 100 attraction principles, independence",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 663,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Attached",
+     "author": "",
+     "note": "Dr. Amir Levine; explains attachment styles and how to move toward secure attachment",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 573,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "All About Love",
+     "author": "",
+     "note": "bell hooks; her most transformative book; seven components of real love",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 464,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Conversations on Love",
+     "author": "",
+     "note": "Natasha Lunn; interviews on romantic, family and self-love; don't rely on one person for all needs",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 387,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "101 Essays That Will Change Your Life",
+     "author": "",
+     "note": "Brianna Wiest; her all-time favorite; short chapters; taught her detachment",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 295,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Mountain Is You",
+     "author": "",
+     "note": "Brianna Wiest; about self-sabotage and the subconscious mind; covers the upper limit idea",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 161,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Daily Stoic",
+     "author": "",
+     "note": "Ryan Holiday; one page a day on stoicism, mindset and resilience; good for beginners",
+     "video": "pwIIlCs5QGA",
+     "url": null,
+     "ts": 94,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "paul-stamets",
+   "name": "Paul Stamets",
+   "channels": [
+    "Huberman Lab",
+    "@hubermanlab"
+   ],
+   "books": [
+    {
+     "title": "Mycelium Running",
+     "author": "",
+     "note": "His 2004 book on how mushrooms can help save the world",
+     "video": "pod-b18e7a29b3ce",
+     "url": "https://www.hubermanlab.com/episode/mushrooms-for-the-mind-and-immune-system-paul-stamets",
+     "ts": 7243,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Prince of Medicine",
+     "author": "",
+     "note": "Dense book about Galen and how medicine evolved",
+     "video": "pod-b18e7a29b3ce",
+     "url": "https://www.hubermanlab.com/episode/mushrooms-for-the-mind-and-immune-system-paul-stamets",
+     "ts": 3764,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Crack in the Cosmic Egg",
+     "author": "",
+     "note": "Joseph Chilton Pearce book; one of his favorite books",
+     "video": "pod-b18e7a29b3ce",
+     "url": "https://www.hubermanlab.com/episode/mushrooms-for-the-mind-and-immune-system-paul-stamets",
+     "ts": 232,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "phil",
+   "name": "Phil",
+   "channels": [
+    "phil got books"
+   ],
+   "books": [
+    {
+     "title": "Jade War",
+     "author": "",
+     "note": "Book two of Greenbone Saga; enjoyed Jade City in 2025",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 928,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Will of the Many",
+     "author": "",
+     "note": "Loves it; needs a reread before the sequel",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 848,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Red Rising",
+     "author": "",
+     "note": "Pierce Brown series that made him an avid reader; wants to reread before Red God",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 716,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Just Friends",
+     "author": "",
+     "note": "Haley Fahm romance, his first real romance read",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 619,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Looking for Alaska",
+     "author": "",
+     "note": "John Green book he plans to read in 2026",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 532,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Upgrade",
+     "author": "",
+     "note": "Blake Crouch, planned read; he liked Dark Matter and Recursion",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 407,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Man's Search for Meaning",
+     "author": "",
+     "note": "Viktor Frankl memoir plus logotherapy, planned 2026 read",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 355,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Blacktop Wasteland",
+     "author": "",
+     "note": "Read in 2025 and enjoyed; same author as a thriller planned for 2026",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 192,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Shadow of the Gods",
+     "author": "",
+     "note": "John Gwynne, book one of a trilogy, action-packed fantasy",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 126,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Lies of Locke Lamora",
+     "author": "",
+     "note": "Ocean's Eleven-style fantasy heist, standalone-feeling first in a series, on 2026 list",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 83,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Lonesome Dove",
+     "author": "",
+     "note": "Larry McMurtry novel, first book on his 2026 reading list",
+     "video": "fjBd8ss87qw",
+     "url": null,
+     "ts": 44,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "na",
+   "name": "NA",
+   "channels": [
+    "NA"
+   ],
+   "books": [
+    {
+     "title": "The American Way of Death",
+     "author": "",
+     "note": "Jessica Mitford's book that changed the funeral system",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 1649,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Fun Home",
+     "author": "",
+     "note": "Graphic memoir she really liked, compared with Do Admit",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 1520,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Death of an Ordinary Man",
+     "author": "",
+     "note": "Sarah Perry; her favourite non-fiction of 2026 so far, about dying and caring, should be required reading",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 1730,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Do Admit: The Mitford Sisters and Me",
+     "author": "",
+     "note": "Mimi Pond graphic memoir about the Mitford sisters; her number two non-fiction pick",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 1337,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Memorial Days",
+     "author": "",
+     "note": "Geraldine Brooks; memoir about grief and death after her husband died suddenly",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 1099,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Mother Mary Comes to Me",
+     "author": "",
+     "note": "Arundhati Roy; memoir of her difficult relationship with her mother, favourite on the Women's Prize list",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 921,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Lise Doucette's hotel book (Afghanistan)",
+     "author": "",
+     "note": "Winner of Women's Prize for Nonfiction 2026; gripping, set in a hotel in Afghanistan",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 739,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Eche Tamul Karan book",
+     "author": "",
+     "note": "Women's Prize for Nonfiction shortlist; hopeful, about strangers forming found family, heartily recommended",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 549,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Argonauts",
+     "author": "",
+     "note": "Maggie Nelson; mind-expanding, thought-provoking, one of her favourite non-fiction books",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 224,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Kate Moss's Feminist History for Every Day of the Year",
+     "author": "",
+     "note": "Daily entry on a feminist figure; read each morning, halfway through, humorous and engaging",
+     "video": "SWyKULgAjnI",
+     "url": null,
+     "ts": 75,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Neon Ghosts",
+     "author": "",
+     "note": "Book he just finished reading",
+     "video": "Q_j6xAzqpnM",
+     "url": null,
+     "ts": 533,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "aun-abdi",
+   "name": "Aun Abdi",
+   "channels": [
+    "Aun Abdi"
+   ],
+   "books": [
+    {
+     "title": "Thinking, Fast and Slow",
+     "author": "",
+     "note": "Daniel Kahneman; analysis of topics you'd otherwise not read",
+     "video": "H5oWbNhCyYo",
+     "url": null,
+     "ts": 159,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Astrophysics for People in a Hurry",
+     "author": "",
+     "note": "Neil deGrasse Tyson; science book that challenges thinking",
+     "video": "H5oWbNhCyYo",
+     "url": null,
+     "ts": 151,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Life 3.0",
+     "author": "",
+     "note": "Max Tegmark; science book that challenged his understanding",
+     "video": "H5oWbNhCyYo",
+     "url": null,
+     "ts": 151,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Gulag Archipelago",
+     "author": "",
+     "note": "Alexander Solzhenitsyn; reminder not to take life for granted",
+     "video": "H5oWbNhCyYo",
+     "url": null,
+     "ts": 97,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Man's Search for Meaning",
+     "author": "",
+     "note": "Viktor Frankl; reminder that life is fragile, gives perspective and meaning",
+     "video": "H5oWbNhCyYo",
+     "url": null,
+     "ts": 97,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "lena",
+   "name": "Lena",
+   "channels": [
+    "NA"
+   ],
+   "books": [
+    {
+     "title": "Mrs Orwell biography of Eileen Blair",
+     "author": "",
+     "note": "Book on George Orwell's wife Eileen; honest about gaps, uses marked fiction; one of best nonfiction she's read",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 1051,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Careless People",
+     "author": "",
+     "note": "Sarah Wynn-Williams' Facebook whistleblower memoir; Meta is trying to suppress it",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 1860,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Unsafe: The Carceral Roots of the Anti-Trans Backlash",
+     "author": "",
+     "note": "Sarah Lamble; fact-based look at fear in the UK TERF movement",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 1688,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "A Hymn to Life",
+     "author": "",
+     "note": "Gis\u00e8le Pelicot's memoir; she listened to the Emma Thompson audiobook",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 1463,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Once There Are Wolves",
+     "author": "",
+     "note": "Charlotte McConaghy novel, one of her favourite climate fiction books",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 489,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Finding Albion",
+     "author": "",
+     "note": "Read as a proof copy; folk customs and Afro-Caribbean and British ancestry",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 906,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Art Cure",
+     "author": "",
+     "note": "Daisy Fancourt on the evidence for art's health benefits; good Christmas gift for parents",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 756,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "To Exist As I Am",
+     "author": "",
+     "note": "Grace Spence-Green's memoir; not a misery memoir, beautifully written",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 624,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Migrations",
+     "author": "",
+     "note": "Charlotte McConaghy's 2020 novel, one of her favourites",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 483,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Almost Life",
+     "author": "",
+     "note": "Kiran Millwood Hargrave love story about Erica and Laurie, who meet in Paris",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 362,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Awake in the Floating City",
+     "author": "",
+     "note": "Climate fiction about an artist in an evacuating tower block; made her cry",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 238,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Correspondent",
+     "author": "",
+     "note": "Epistolary novel that won the Women's Prize for Fiction; uses letter format well",
+     "video": "2As5pBFUfhs",
+     "url": null,
+     "ts": 126,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "iman-gadzhi",
+   "name": "Iman Gadzhi",
+   "channels": [
+    "Iman Gadzhi"
+   ],
+   "books": [
+    {
+     "title": "The 48 Laws of Power",
+     "author": "",
+     "note": "Concise edition; teaches Machiavellian thinking, take with a pinch of salt",
+     "video": "XfwUDljlI8w",
+     "url": null,
+     "ts": 942,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Made in America",
+     "author": "",
+     "note": "Sam Walton's story; bonus pick, business lessons from Walmart's founder",
+     "video": "XfwUDljlI8w",
+     "url": null,
+     "ts": 877,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Everything Store",
+     "author": "",
+     "note": "Biography of Jeff Bezos on Amazon's creation and long-term thinking; bonus pick",
+     "video": "XfwUDljlI8w",
+     "url": null,
+     "ts": 794,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Meditations",
+     "author": "",
+     "note": "Marcus Aurelius; owned since 2015, kept by his bedside, heavily highlighted",
+     "video": "XfwUDljlI8w",
+     "url": null,
+     "ts": 529,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Way of the Superior Man",
+     "author": "",
+     "note": "By David Deida; gave away about 25 copies, first read at 14, on masculine purpose and sexual energy",
+     "video": "XfwUDljlI8w",
+     "url": null,
+     "ts": 185,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Atomic Habits",
+     "author": "",
+     "note": "Most punchy habit book; gives a roadmap to pick and make habits stick",
+     "video": "XfwUDljlI8w",
+     "url": null,
+     "ts": 82,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "arri",
+   "name": "Arri",
+   "channels": [
+    "Arri"
+   ],
+   "books": [
+    {
+     "title": "Black and Blues",
+     "author": "Imani Perry",
+     "note": "Made a whole video on it; about how a color tells the story of Black people",
+     "video": "To7dqR4fe_A",
+     "url": null,
+     "ts": 737,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Black Owned",
+     "author": "Char Adams",
+     "note": "History of Black bookstores from 1834; includes state lists and a reading list",
+     "video": "To7dqR4fe_A",
+     "url": null,
+     "ts": 1339,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Looking for Lorraine",
+     "author": "Imani Perry",
+     "note": "Biography of Lorraine Hansberry; she has barely started it and is excited",
+     "video": "To7dqR4fe_A",
+     "url": null,
+     "ts": 723,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Library Book",
+     "author": "Susan Orlean",
+     "note": "Love letter to libraries, framed around the 1986 LA Central Library fire; structure can feel cramped",
+     "video": "To7dqR4fe_A",
+     "url": null,
+     "ts": 635,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Positive Obsession",
+     "author": "Susanna M. Morris",
+     "note": "Biography of Octavia E. Butler; she is 60% through and loves it",
+     "video": "To7dqR4fe_A",
+     "url": null,
+     "ts": 481,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "kevan-shah",
+   "name": "Kevan Shah",
+   "channels": [
+    "Kevan Shah"
+   ],
+   "books": [
+    {
+     "title": "The Creative Act",
+     "author": "",
+     "note": "book 10; he says not useful for 99% of people",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 2094,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "China's Economy",
+     "author": "",
+     "note": "Mao to Xi era; peaceful power transfer, late communism early capitalism",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 1618,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Theory of Everything",
+     "author": "",
+     "note": "Stephen Hawking; reads one physics book yearly, entropy insight",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 1417,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Skin in the Game",
+     "author": "",
+     "note": "never give advice unless you can help them",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 1230,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Why We Sleep",
+     "author": "",
+     "note": "his top book for everyone; avoid sleeping pills, don't eat before bed",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 944,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Thinking, Fast and Slow",
+     "author": "",
+     "note": "automatic vs manual brain; great for marketers",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 747,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Inner Game of Tennis",
+     "author": "",
+     "note": "show people what to do rather than telling them",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 733,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Thinking in Systems",
+     "author": "",
+     "note": "everything is a system, useful for business and life",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 603,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Breathe",
+     "author": "",
+     "note": "James Nestor; breathe through your nose, led him to track HRV",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 418,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Obesity Code",
+     "author": "",
+     "note": "insulin resistance drives weight; Outlive extends this health reading",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 232,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Outlive",
+     "author": "",
+     "note": "VO2 max is the key measure of physical health; Medicine 3.0 idea",
+     "video": "Owy9LTuzvkk",
+     "url": null,
+     "ts": 214,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "makayla-lucero",
+   "name": "Makayla Lucero",
+   "channels": [
+    "Makayla Lucero"
+   ],
+   "books": [
+    {
+     "title": "Be All You Can Be",
+     "author": "",
+     "note": "John C. Maxwell's 1987 book; dated in places but has good nuggets like the 10 conflict commandments",
+     "video": "Gud32Gmwilk",
+     "url": null,
+     "ts": 1148,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Worthy: How to Believe You Are Enough and Transform Your Life",
+     "author": "",
+     "note": "Jamie Kern Lima's 2024 book; possibly her favorite self-help book ever, audiobook read by the author",
+     "video": "Gud32Gmwilk",
+     "url": null,
+     "ts": 92,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Believe It: How to Go from Underestimated to Unstoppable",
+     "author": "",
+     "note": "Jamie Kern Lima's 2021 book; rated 10/10, best read first for her life story",
+     "video": "Gud32Gmwilk",
+     "url": null,
+     "ts": 87,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "life-on-books",
+   "name": "Life on Books",
+   "channels": [
+    "Life on Books"
+   ],
+   "books": [
+    {
+     "title": "Middle C",
+     "author": "",
+     "note": "William Gass novel recently read for book club, still processing it",
+     "video": "27D_gT83j2M",
+     "url": null,
+     "ts": 814,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Omensetter's Luck",
+     "author": "",
+     "note": "William Gass novel he liked more than The Tunnel",
+     "video": "27D_gT83j2M",
+     "url": null,
+     "ts": 814,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Tunnel",
+     "author": "",
+     "note": "William Gass novel, notoriously difficult; marker of his growth as a reader",
+     "video": "27D_gT83j2M",
+     "url": null,
+     "ts": 800,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "If This Is a Man / The Truce",
+     "author": "",
+     "note": "Primo Levi Holocaust memoir; deepened his empathy and started his note-taking habit",
+     "video": "27D_gT83j2M",
+     "url": null,
+     "ts": 565,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Catch-22",
+     "author": "",
+     "note": "His favorite book; WWII satire that got him into fiction and postmodern literature",
+     "video": "27D_gT83j2M",
+     "url": null,
+     "ts": 428,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Hard Rain Falling",
+     "author": "",
+     "note": "Don Carpenter novel; his review went viral, showed he didn't need popular books for social media success",
+     "video": "27D_gT83j2M",
+     "url": null,
+     "ts": 266,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "One Hundred Years of Solitude",
+     "author": "",
+     "note": "Magical realism classic; first translated work read, pushed him toward more fiction. Netflix adaptation helps.",
+     "video": "27D_gT83j2M",
+     "url": null,
+     "ts": 65,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "kim-foster",
+   "name": "Kim Foster",
+   "channels": [
+    "Kim Foster, M.D."
+   ],
+   "books": [
+    {
+     "title": "The Big Leap",
+     "author": "",
+     "note": "Gay Hendricks book on the Upper Limit Problem; explained her self-sabotage and helped her leave medicine",
+     "video": "q0cTcTtq5uI",
+     "url": null,
+     "ts": 169,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "ali-abdaal",
+   "name": "Ali Abdaal",
+   "channels": [
+    "Ali Abdaal",
+    "@aliabdaal"
+   ],
+   "books": [
+    {
+     "title": "The Paradox of Choice",
+     "author": "",
+     "note": "Barry Schwartz book, quoted on maximizers and choice",
+     "video": "kM0ZADKIXU8",
+     "url": null,
+     "ts": 583,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Mindset",
+     "author": "",
+     "note": "Carol Dweck book on growth mindset; he has made a video about it",
+     "video": "kM0ZADKIXU8",
+     "url": null,
+     "ts": 702,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Science of Happily Ever After",
+     "author": "",
+     "note": "Cited for two key traits in a partner: emotional stability and kindness",
+     "video": "kM0ZADKIXU8",
+     "url": null,
+     "ts": 683,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "How to Not Die Alone",
+     "author": "",
+     "note": "Logan Ury's dating book; says it changed how he approaches his love life",
+     "video": "kM0ZADKIXU8",
+     "url": null,
+     "ts": 1,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Surrender Experiment",
+     "author": "",
+     "note": "Michael Singer; suggested as a gateway into spiritual books instead of Power of Now",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 812,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Outlive",
+     "author": "",
+     "note": "Peter Attia's longevity book, huge; listened on Audible",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 627,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Steve Jobs",
+     "author": "Walter Isaacson",
+     "note": "Biography audiobook, compelling and engaging",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 590,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Million Dollar Weekend",
+     "author": "",
+     "note": "Noah Kagan's step-by-step roadmap to starting a business",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 532,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Death",
+     "author": "Meeting",
+     "note": "Patrick Lencioni business fable on meetings; listened on Audible",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 487,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Goal",
+     "author": "",
+     "note": "Eliyahu Goldratt's old-school business novel, over 10 million copies sold",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 446,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Traction",
+     "author": "",
+     "note": "Most recommended to entrepreneurs; for businesses of three or more people, read on Kindle",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 395,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Ready, Fire, Aim",
+     "author": "",
+     "note": "Michael Masterson business book with novel ideas on growing a business",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 267,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Slow Productivity",
+     "author": "",
+     "note": "Cal Newport's three rules of slow productivity",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 173,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Rest",
+     "author": "",
+     "note": "Alex Soojung-Kim Pang on resting more to boost creativity",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 121,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Pathless Path",
+     "author": "",
+     "note": "Paul Millerd's book, one of his favorites",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 61,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Good Work",
+     "author": "",
+     "note": "Paul Millerd's book on quitting a prestigious career; gives permission",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 58,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Getting Things Done",
+     "author": "",
+     "note": "David Allen's stress-free productivity system; read several times, boring but useful",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 11,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Nicholas Cole online writing book",
+     "author": "",
+     "note": "Online writing book; most recommended to people starting online creator work",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 450,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "How to Win Friends and Influence People",
+     "author": "",
+     "note": "Named as possibly the other most famous self-help book",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 494,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 12 Immutable Laws of Marketing",
+     "author": "",
+     "note": "Read recently alongside Scorecard Marketing to level up in marketing",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 631,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Scorecard Marketing",
+     "author": "",
+     "note": "Daniel Priestley's short technical book on lead generation and marketing",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 578,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Seven Habits of Highly Effective People",
+     "author": "",
+     "note": "Stephen Covey classic; calls it best self-help book he has read",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 455,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Beyond Wealth",
+     "author": "",
+     "note": "Alexander Green book on happiness beyond money; life lessons, highlighted every chapter",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 286,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Storyworthy",
+     "author": "",
+     "note": "Matthew Dicks book on telling better stories; his favorite book of 2020",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 116,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Way of Kings",
+     "author": "",
+     "note": "First Stormlight Archive book; Sanderson is his favourite author",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1352,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Rhythm of War",
+     "author": "",
+     "note": "Fourth Stormlight Archive book by Brandon Sanderson",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1347,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Final Empire",
+     "author": "",
+     "note": "Brandon Sanderson fiction; recommended as audiobook",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1340,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Four Obsessions of an Extraordinary Executive",
+     "author": "",
+     "note": "Pat Lencioni leadership fable on being a good team leader",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1150,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The New One Minute Manager",
+     "author": "",
+     "note": "Short management book: one minute goals, praisings, redirects",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1116,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "It Doesn't Have to Be Crazy at Work",
+     "author": "",
+     "note": "Jason and David's book on decision-making, transparency, leadership; short and readable",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 989,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Millionaire Fast Lane",
+     "author": "",
+     "note": "MJ DeMarco; best book on building wealth through business",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 834,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Educated",
+     "author": "",
+     "note": "Tara Westover memoir, not self-help, very good",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 755,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Can't Hurt Me",
+     "author": "",
+     "note": "David Goggins memoir; best as audiobook; inspiring",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 679,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Happy Sexy Millionaire",
+     "author": "",
+     "note": "Steven Bartlett's book on fulfillment and success; plans to reread",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 582,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Die With Zero",
+     "author": "",
+     "note": "Bill Perkins on spending money and enjoying life rather than hoarding it",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 375,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Never Split the Difference",
+     "author": "",
+     "note": "Chris Voss, ex-FBI hostage negotiator; practical negotiation techniques; listened twice on Audible",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 298,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Models",
+     "author": "",
+     "note": "Mark Manson's book on attracting women through authenticity; Ali reread it this year",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 190,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Think and Grow Rich",
+     "author": "",
+     "note": "Napoleon Hill book, grouped with Nightingale's goal-setting themes",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 685,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Atomic Habits",
+     "author": "",
+     "note": "Cited as an amazing book whose core idea is that small habits lead to great results",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 394,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Strangest Secret",
+     "author": "",
+     "note": "Earl Nightingale 1950s self-help; first half is great, skip the second",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 548,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Practice",
+     "author": "",
+     "note": "Seth Godin book on shipping creative work; he made about 70 highlights",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 171,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Four Hour Workweek",
+     "author": "",
+     "note": "Tim Ferriss book that changed his life; led him to use medical school years differently",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 55,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Feel Good Productivity",
+     "author": "",
+     "note": "his own bestselling book displayed on desk",
+     "video": "4eq7ienNumY",
+     "url": null,
+     "ts": 576,
+     "date": "2026-11-16"
+    },
+    {
+     "title": "The World: A Brief Introduction",
+     "author": "",
+     "note": "Richard Haass book he is currently reading to understand world affairs",
+     "video": "szVXpM7VVMg",
+     "url": null,
+     "ts": 761,
+     "date": "2026-11-15"
+    },
+    {
+     "title": "$100M Offers",
+     "author": "",
+     "note": "Book on creating offers so good people feel stupid saying no; shaped academy's North Star",
+     "video": "dKsp8aXrwJw",
+     "url": null,
+     "ts": 73,
+     "date": "2026-11-15"
+    }
+   ]
+  },
+  {
+   "slug": "anna-howard",
+   "name": "Anna Howard",
+   "channels": [
+    "Anna Howard"
+   ],
+   "books": [
+    {
+     "title": "The Book Thief",
+     "author": "",
+     "note": "Markus Zusak; narrated by Death, possibly her favorite book of the year",
+     "video": "J68-BOaZZLw",
+     "url": null,
+     "ts": 1237,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Giovanni's Room",
+     "author": "",
+     "note": "James Baldwin; fast, heavy read and a good entry point to classics",
+     "video": "J68-BOaZZLw",
+     "url": null,
+     "ts": 1123,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Martyr",
+     "author": "",
+     "note": "Kaveh Akbar novel; bought after reading the first page",
+     "video": "J68-BOaZZLw",
+     "url": null,
+     "ts": 953,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Slaughterhouse-Five",
+     "author": "",
+     "note": "Kurt Vonnegut; sci-fi satire war classic, great writing to study",
+     "video": "J68-BOaZZLw",
+     "url": null,
+     "ts": 800,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Seven Year Slip",
+     "author": "",
+     "note": "Ashley Poston romance; roommate's copy, surprisingly deep despite her skepticism of romance",
+     "video": "J68-BOaZZLw",
+     "url": null,
+     "ts": 588,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Book of Longings",
+     "author": "",
+     "note": "Sue Monk Kidd historical fiction about Jesus's fictional wife; feminist, not evangelizing",
+     "video": "J68-BOaZZLw",
+     "url": null,
+     "ts": 361,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "topher-s-library",
+   "name": "Topher's Library",
+   "channels": [
+    "Topher's Library"
+   ],
+   "books": [
+    {
+     "title": "Dead Wake",
+     "author": "",
+     "note": "Erik Larson; Lusitania sinking driven by anticipation and dread",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 924,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Devil in the White City",
+     "author": "",
+     "note": "Erik Larson's best known book and his first one Topher read",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 908,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Radium Girls",
+     "author": "",
+     "note": "Kate Moore; 1920s women painting watch dials, an unjust story",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 815,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Midnight in Chernobyl",
+     "author": "",
+     "note": "Adam Higginbotham; minute-by-minute 1986 disaster as a human failure",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 735,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Unbroken",
+     "author": "",
+     "note": "Louis Zamperini's 47 days adrift and wartime captivity; better than the movie",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 654,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Lost City of Z",
+     "author": "",
+     "note": "Another David Grann book, great and heartbreaking",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 576,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Killers of the Flower Moon",
+     "author": "",
+     "note": "Another David Grann book, great and heartbreaking",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 576,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Wager",
+     "author": "",
+     "note": "David Grann; shipwreck story where you judge who is lying",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 576,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Into Thin Air",
+     "author": "",
+     "note": "1996 Everest disaster; hooks from the start, one he often recommends",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 516,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Professor and the Madman",
+     "author": "",
+     "note": "Winchester's book on making the Oxford English Dictionary",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 452,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Krakatoa",
+     "author": "",
+     "note": "Simon Winchester; built around anticipation of the volcanic eruption",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 392,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The River of Doubt",
+     "author": "",
+     "note": "Candice Millard; Theodore Roosevelt's deadly Amazon expedition after his presidency",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 323,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Monster of Florence",
+     "author": "",
+     "note": "Preston's true crime book on a Tuscany serial killer hunt",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 309,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Lost City of the Monkey God",
+     "author": "",
+     "note": "Douglas Preston; expedition story that turns into a medical nightmare",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 236,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Just Mercy",
+     "author": "",
+     "note": "Bryan Stevenson; legal drama about death row cases, structured like courtroom fiction",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 150,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Immortal Life of Henrietta Lacks",
+     "author": "",
+     "note": "Rebecca Skloot; dual timeline of science and Henrietta's family, reads like an investigation",
+     "video": "-gkrqS5A9dg",
+     "url": null,
+     "ts": 68,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "tim-olukanni",
+   "name": "Tim Olukanni",
+   "channels": [
+    "TIM OLUKANNI"
+   ],
+   "books": [
+    {
+     "title": "Die With Zero",
+     "author": "",
+     "note": "Bill Perkins; money as a tool, spend on experiences; read on his phone",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 769,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Deep Work",
+     "author": "",
+     "note": "Cal Newport; fixed his shot attention span, inspired an early video",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 713,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Don't Believe Everything You Think",
+     "author": "",
+     "note": "Helps chronic overthinkers separate thought from thinking; still reading it",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 651,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "How to Win Friends and Influence People",
+     "author": "",
+     "note": "Practical but repetitive classic; helped him become more social and outgoing",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 615,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Millionaire Fastlane",
+     "author": "",
+     "note": "MJ DeMarco; inspiration after online failures, challenges the traditional script",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 526,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Master of the Day",
+     "author": "",
+     "note": "Alexander Haney; sustainable fitness and daily routine mindset, read during burnout",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 438,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Rich Dad's Cashflow Quadrant",
+     "author": "",
+     "note": "Builds on Rich Dad Poor Dad; four types of earners framework",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 371,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Rich Dad Poor Dad",
+     "author": "",
+     "note": "Robert Kiyosaki; taught him what an asset is, reframed wealth",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 317,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The 4-Hour Work Week",
+     "author": "",
+     "note": "Timothy Ferriss; read after graduating during first 9-to-5 job",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 247,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Way of the Superior Man",
+     "author": "",
+     "note": "David Deida; practical frameworks on purpose, relationships and integrity for men",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 188,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Outwitting the Devil",
+     "author": "",
+     "note": "Napoleon Hill; explains why most people stay stuck, lent his copy to a friend",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 103,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Think and Grow Rich",
+     "author": "",
+     "note": "Napoleon Hill; gave him the mindset to believe in big goals, read in college",
+     "video": "ziP3ngo6qw4",
+     "url": null,
+     "ts": 49,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "chris-williamson",
+   "name": "Chris Williamson",
+   "channels": [
+    "Chris Williamson"
+   ],
+   "books": [
+    {
+     "title": "Models",
+     "author": "",
+     "note": "Mark Manson's book on ethical dating advice for men",
+     "video": "tKd_tzYmdGQ",
+     "url": null,
+     "ts": 685,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Endurance",
+     "author": "",
+     "note": "Alfred Lansing's retelling of Shackleton's 1914 Antarctic voyage",
+     "video": "tKd_tzYmdGQ",
+     "url": null,
+     "ts": 550,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The War of Art",
+     "author": "",
+     "note": "Steven Pressfield on beating procrastination; the Turning Pro chapter stood out",
+     "video": "tKd_tzYmdGQ",
+     "url": null,
+     "ts": 479,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Precipice",
+     "author": "",
+     "note": "Toby Ord on existential risk and how humanity could go extinct",
+     "video": "tKd_tzYmdGQ",
+     "url": null,
+     "ts": 287,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Ape That Understood the Universe",
+     "author": "",
+     "note": "Steve Stewart-Williams' accessible book on evolutionary psychology",
+     "video": "tKd_tzYmdGQ",
+     "url": null,
+     "ts": 220,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Lying",
+     "author": "",
+     "note": "Sam Harris's one-hour read on why you should never lie",
+     "video": "tKd_tzYmdGQ",
+     "url": null,
+     "ts": 161,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Forgotten Highlander",
+     "author": "",
+     "note": "Alistair Urquhart's true story of surviving Japanese captivity in WWII",
+     "video": "tKd_tzYmdGQ",
+     "url": null,
+     "ts": 72,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Essentialism",
+     "author": "",
+     "note": "Greg McKeown's book on focusing on the vital few; read it before other self-help",
+     "video": "tKd_tzYmdGQ",
+     "url": null,
+     "ts": 7,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "bren-booth-jones",
+   "name": "Bren Booth-Jones",
+   "channels": [
+    "Bren Booth-Jones"
+   ],
+   "books": [
+    {
+     "title": "Notes on Grief",
+     "author": "",
+     "note": "Chimamanda Ngozi Adichie's short, impactful memoir about her relationship with her father",
+     "video": "qqZx-f8bRIE",
+     "url": null,
+     "ts": 1737,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Patrimony",
+     "author": "",
+     "note": "Philip Roth's memoir of his relationship with his father",
+     "video": "qqZx-f8bRIE",
+     "url": null,
+     "ts": 1610,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Experience",
+     "author": "",
+     "note": "Martin Amis memoir about his father Kingsley, dark digressions, funny and moving",
+     "video": "qqZx-f8bRIE",
+     "url": null,
+     "ts": 1297,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Cultural Amnesia",
+     "author": "",
+     "note": "Clive James's alphabetical portraits of writers and thinkers; defends humanism; rereading it",
+     "video": "qqZx-f8bRIE",
+     "url": null,
+     "ts": 863,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Unauthorized Life of Ted Hughes",
+     "author": "",
+     "note": "Jonathan Bate's balanced, comprehensive literary biography, a model of the form",
+     "video": "qqZx-f8bRIE",
+     "url": null,
+     "ts": 587,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Writing of Fiction",
+     "author": "",
+     "note": "Edith Wharton's short essays on craft; a Proust chapter feels tacked on",
+     "video": "qqZx-f8bRIE",
+     "url": null,
+     "ts": 345,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "l-a-crumpton",
+   "name": "L\u00e9a Crumpton",
+   "channels": [
+    "L\u00e9a Crumpton"
+   ],
+   "books": [
+    {
+     "title": "Rumi selected poems",
+     "author": "",
+     "note": "found a selected poems edition in a charity shop; revisited as an adult",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 1040,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Near to the Wild Heart",
+     "author": "",
+     "note": "Lispector's debut; her favourite book of all time",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 952,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "\u00c1gua Viva",
+     "author": "",
+     "note": "first Clarice Lispector she read; good place to start",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 848,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "If Not, Winter: Fragments of Sappho",
+     "author": "",
+     "note": "Anne Carson's translation of Sappho, read in 2021",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 793,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Les Fleurs du mal",
+     "author": "",
+     "note": "read in a bilingual English and French edition; obscenity trial context",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 604,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Poems from the Book of Hours",
+     "author": "",
+     "note": "Rilke collection, her least favourite of his but still spectacular",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 578,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Letters to a Young Poet",
+     "author": "",
+     "note": "Rilke letters to a young cadet; read in lockdown and reread often",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 433,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Wuthering Heights",
+     "author": "",
+     "note": "wrote her dissertation on it",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 383,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Jane Eyre",
+     "author": "",
+     "note": "one of her all-time favourites; reread it many times",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 274,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Romeo and Juliet",
+     "author": "",
+     "note": "studied for GCSEs; made her fall back in love with classics",
+     "video": "pqEHj_KuQrY",
+     "url": null,
+     "ts": 216,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "tiffani-thiessen",
+   "name": "Tiffani Thiessen",
+   "channels": [
+    "Books That Changed My Life"
+   ],
+   "books": [
+    {
+     "title": "The Invisible Life of Addie LaRue",
+     "author": "",
+     "note": "Hefty novel about a woman's deal with the devil, immortality",
+     "video": "cqUJbFKgxs4",
+     "url": null,
+     "ts": 2280,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "First Lie Wins",
+     "author": "",
+     "note": "Thriller she wishes she could forget and reread; unpredictable plot",
+     "video": "cqUJbFKgxs4",
+     "url": null,
+     "ts": 2233,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Theo of Golden",
+     "author": "",
+     "note": "Feel-good book someone suggested to her; intention of giving love and happiness",
+     "video": "cqUJbFKgxs4",
+     "url": null,
+     "ts": 2183,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Seat of the Soul",
+     "author": "",
+     "note": "Would make it mandatory school reading; gave copies away often",
+     "video": "cqUJbFKgxs4",
+     "url": null,
+     "ts": 2078,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "accepting-the-universe",
+   "name": "Accepting the Universe",
+   "channels": [
+    "Accepting the Universe"
+   ],
+   "books": [
+    {
+     "title": "Meditations",
+     "author": "",
+     "note": "Marcus Aurelius; read a few pages daily, go to the source, not modern rewrites",
+     "video": "bj9s4dMzrlA",
+     "url": null,
+     "ts": 521,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "What Is Ancient Philosophy?",
+     "author": "",
+     "note": "Pierre Hadot; the suggested starting point for his work",
+     "video": "bj9s4dMzrlA",
+     "url": null,
+     "ts": 229,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Present Alone Is Our Happiness",
+     "author": "",
+     "note": "Another Pierre Hadot book; recommends everything with his name",
+     "video": "bj9s4dMzrlA",
+     "url": null,
+     "ts": 199,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Philosophy as a Way of Life",
+     "author": "",
+     "note": "Pierre Hadot book; philosophy as a practice, not just theory",
+     "video": "bj9s4dMzrlA",
+     "url": null,
+     "ts": 119,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "chantal",
+   "name": "Chantal",
+   "channels": [
+    "Chantal's Chapters"
+   ],
+   "books": [
+    {
+     "title": "Crime and Punishment",
+     "author": "",
+     "note": "Dostoevsky character study of a murderer; read before maternity leave and sparked her reading drive",
+     "video": "bBiJVr6_P2s",
+     "url": null,
+     "ts": 620,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Pride and Prejudice",
+     "author": "",
+     "note": "Jane Austen; the book that made her love literature, her favourite romance, about social class",
+     "video": "bBiJVr6_P2s",
+     "url": null,
+     "ts": 548,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Brave New World",
+     "author": "",
+     "note": "Huxley's novel; she prefers it to 1984, finds it scary and still relevant",
+     "video": "bBiJVr6_P2s",
+     "url": null,
+     "ts": 447,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Cannery Row",
+     "author": "",
+     "note": "Steinbeck's short, funny novel about a poor seaside community; made her love reading about communities",
+     "video": "bBiJVr6_P2s",
+     "url": null,
+     "ts": 362,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Picture of Dorian Gray",
+     "author": "",
+     "note": "Oscar Wilde, 1890, overtly homosexual and scandalous for its time; she admires Wilde's writing",
+     "video": "bBiJVr6_P2s",
+     "url": null,
+     "ts": 266,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Heart is a Lonely Hunter",
+     "author": "",
+     "note": "Carson McCullers novel that made her love McCullers' writing on human emotion",
+     "video": "bBiJVr6_P2s",
+     "url": null,
+     "ts": 167,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Master and Margarita",
+     "author": "",
+     "note": "Bulgakov's banned Soviet-era magical realism novel about the devil visiting Moscow; her favourite magical realism",
+     "video": "bBiJVr6_P2s",
+     "url": null,
+     "ts": 31,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "orpheus",
+   "name": "Orpheus",
+   "channels": [
+    "Orpheus"
+   ],
+   "books": [
+    {
+     "title": "Eric Hobsbawm tetralogy",
+     "author": "",
+     "note": "Four-volume history from Industrial/French Revolution to 1991; halfway through",
+     "video": "X7k9872iXh0",
+     "url": null,
+     "ts": 1894,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Decline and Fall of the Roman Empire",
+     "author": "",
+     "note": "Gibbon's work on his history shelf",
+     "video": "X7k9872iXh0",
+     "url": null,
+     "ts": 1776,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Columbus and Other Cannibals",
+     "author": "",
+     "note": "Native American revisionist history heading in the right direction",
+     "video": "X7k9872iXh0",
+     "url": null,
+     "ts": 1882,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Rediscovery of America",
+     "author": "",
+     "note": "Ned Blackhawk's Native American revisionist history; currently reading",
+     "video": "X7k9872iXh0",
+     "url": null,
+     "ts": 1805,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "A Study of History (Toynbee)",
+     "author": "",
+     "note": "Enjoys dipping in and out of it, though not read in full",
+     "video": "X7k9872iXh0",
+     "url": null,
+     "ts": 1749,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "How to Kill a Dragon",
+     "author": "",
+     "note": "Indo-European linguistics book by Calvert Watkins on his shelf",
+     "video": "X7k9872iXh0",
+     "url": null,
+     "ts": 1585,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Sutri",
+     "author": "",
+     "note": "Names it as his favorite book by one of his favorite writers",
+     "video": "X7k9872iXh0",
+     "url": null,
+     "ts": 37,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "isa-s-corner",
+   "name": "isa's corner",
+   "channels": [
+    "isa's corner"
+   ],
+   "books": [
+    {
+     "title": "The Idiot",
+     "author": "",
+     "note": "Elif Batuman; contemporary campus novel following Selin, humorous and character-driven",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 911,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Bell Jar",
+     "author": "",
+     "note": "Sylvia Plath; for emotional people who journal, owns illustrated copy",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 777,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Fran Lebowitz Reader",
+     "author": "",
+     "note": "Combines Metropolitan Life and Social Studies; first nonfiction, sparked interest in essays",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 672,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Normal People",
+     "author": "",
+     "note": "Sally Rooney; character-driven, follows Connell and Marianne, read twice",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 550,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Pure Colour",
+     "author": "",
+     "note": "Sheila Heti; follows life and death cycle of protagonist, shifted her perspective",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 458,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Clara and the Sun",
+     "author": "",
+     "note": "Kazuo Ishiguro; dystopian novel with a robot narrator that made her cry",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 360,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Secret History",
+     "author": "",
+     "note": "Donna Tartt; read three times, owns three copies, critiques academia pretension",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 241,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Book of Goose",
+     "author": "",
+     "note": "Yiyun Li; emotionally intense story of female friendship, recommended for Ferrante fans",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 148,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Waves",
+     "author": "",
+     "note": "Virginia Woolf; stream of consciousness following six friends, sparked her love of character-led narratives",
+     "video": "9xsYCiivBok",
+     "url": null,
+     "ts": 64,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "athena",
+   "name": "Athena",
+   "channels": [
+    "Athena"
+   ],
+   "books": [
+    {
+     "title": "Clarice Lispector",
+     "author": "",
+     "note": "Her first Lispector read; became one of her all-time favorite authors",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 253,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "I Have Never Known Men",
+     "author": "",
+     "note": "Replaced Never Let Me Go as her favorite book ever",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 364,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "My Dark Vanessa",
+     "author": "",
+     "note": "Heavy Lolita-like novel from female view; she doesn't recommend it broadly, check warnings",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 892,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Glass Castle",
+     "author": "",
+     "note": "Jeannette Walls memoir about her childhood; heavy, check content warnings; wants to reread",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 702,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Death Valley",
+     "author": "",
+     "note": "By Melissa Broder; strange literary fiction that resonated on grief",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 600,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Monstrilio",
+     "author": "",
+     "note": "By Gerardo S\u00e1mano C\u00f3rdova; literary horror inspired by Frankenstein, about grief",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 506,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Never Let Me Go",
+     "author": "",
+     "note": "Was her favorite book for years; changed how she buys eggs",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 354,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "One Day",
+     "author": "",
+     "note": "By David Nicholls; five parts each opening with a quote, Dickens quote stuck with her",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 120,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "My Brilliant Friend",
+     "author": "",
+     "note": "Elena Ferrante novel; opened her up to literary fiction, her favorite genre",
+     "video": "94rpMoqdC28",
+     "url": null,
+     "ts": 59,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "40909",
+   "name": "40909",
+   "channels": [
+    "40909"
+   ],
+   "books": [
+    {
+     "title": "Pride and Prejudice",
+     "author": "",
+     "note": "Example of a book that teaches about love and empathy through its four sisters",
+     "video": "pP8Gebq2t0k",
+     "url": null,
+     "ts": 509,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Tintin",
+     "author": "",
+     "note": "Childhood comics that took him to the moon and Tibet",
+     "video": "pP8Gebq2t0k",
+     "url": null,
+     "ts": 273,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
+   "slug": "harry-hamlin",
+   "name": "Harry Hamlin",
+   "channels": [
+    "4276"
+   ],
+   "books": [
+    {
+     "title": "The Secret",
+     "author": "",
+     "note": "Book people read and loved, about perception creating reality",
+     "video": "C1fJRWZ-0n0",
+     "url": null,
+     "ts": 5305,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Wayne Dyer",
+     "author": "",
+     "note": "Modern spiritual author who speaks in accessible 21st-century language",
+     "video": "C1fJRWZ-0n0",
+     "url": null,
+     "ts": 2310,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Eckhart Tolle",
+     "author": "",
+     "note": "Modern author who writes in language understandable today, easier than Bible interpretation",
+     "video": "C1fJRWZ-0n0",
+     "url": null,
+     "ts": 2310,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "A Course in Miracles",
+     "author": "",
+     "note": "Book that changed his life; a daily-exercise guide to living, centered on love over fear",
+     "video": "C1fJRWZ-0n0",
+     "url": null,
+     "ts": 78,
+     "date": "2026-11-18"
+    }
+   ]
+  },
+  {
    "slug": "jack-edwards",
    "name": "Jack Edwards",
    "channels": [
@@ -889,394 +3294,6 @@
      "url": null,
      "ts": 52,
      "date": "2026-11-17"
-    }
-   ]
-  },
-  {
-   "slug": "ali-abdaal",
-   "name": "Ali Abdaal",
-   "channels": [
-    "Ali Abdaal",
-    "@aliabdaal"
-   ],
-   "books": [
-    {
-     "title": "The Surrender Experiment",
-     "author": "",
-     "note": "Michael Singer; suggested as a gateway into spiritual books instead of Power of Now",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 812,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Outlive",
-     "author": "",
-     "note": "Peter Attia's longevity book, huge; listened on Audible",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 627,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Steve Jobs",
-     "author": "Walter Isaacson",
-     "note": "Biography audiobook, compelling and engaging",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 590,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Million Dollar Weekend",
-     "author": "",
-     "note": "Noah Kagan's step-by-step roadmap to starting a business",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 532,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Death",
-     "author": "Meeting",
-     "note": "Patrick Lencioni business fable on meetings; listened on Audible",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 487,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Goal",
-     "author": "",
-     "note": "Eliyahu Goldratt's old-school business novel, over 10 million copies sold",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 446,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Traction",
-     "author": "",
-     "note": "Most recommended to entrepreneurs; for businesses of three or more people, read on Kindle",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 395,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Ready, Fire, Aim",
-     "author": "",
-     "note": "Michael Masterson business book with novel ideas on growing a business",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 267,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Slow Productivity",
-     "author": "",
-     "note": "Cal Newport's three rules of slow productivity",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 173,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Rest",
-     "author": "",
-     "note": "Alex Soojung-Kim Pang on resting more to boost creativity",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 121,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Pathless Path",
-     "author": "",
-     "note": "Paul Millerd's book, one of his favorites",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 61,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Good Work",
-     "author": "",
-     "note": "Paul Millerd's book on quitting a prestigious career; gives permission",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 58,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Getting Things Done",
-     "author": "",
-     "note": "David Allen's stress-free productivity system; read several times, boring but useful",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 11,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Nicholas Cole online writing book",
-     "author": "",
-     "note": "Online writing book; most recommended to people starting online creator work",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 450,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "How to Win Friends and Influence People",
-     "author": "",
-     "note": "Named as possibly the other most famous self-help book",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 494,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The 12 Immutable Laws of Marketing",
-     "author": "",
-     "note": "Read recently alongside Scorecard Marketing to level up in marketing",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 631,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Scorecard Marketing",
-     "author": "",
-     "note": "Daniel Priestley's short technical book on lead generation and marketing",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 578,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Seven Habits of Highly Effective People",
-     "author": "",
-     "note": "Stephen Covey classic; calls it best self-help book he has read",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 455,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Beyond Wealth",
-     "author": "",
-     "note": "Alexander Green book on happiness beyond money; life lessons, highlighted every chapter",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 286,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Storyworthy",
-     "author": "",
-     "note": "Matthew Dicks book on telling better stories; his favorite book of 2020",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 116,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Way of Kings",
-     "author": "",
-     "note": "First Stormlight Archive book; Sanderson is his favourite author",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1352,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Rhythm of War",
-     "author": "",
-     "note": "Fourth Stormlight Archive book by Brandon Sanderson",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1347,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Final Empire",
-     "author": "",
-     "note": "Brandon Sanderson fiction; recommended as audiobook",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1340,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Four Obsessions of an Extraordinary Executive",
-     "author": "",
-     "note": "Pat Lencioni leadership fable on being a good team leader",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1150,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The New One Minute Manager",
-     "author": "",
-     "note": "Short management book: one minute goals, praisings, redirects",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1116,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "It Doesn't Have to Be Crazy at Work",
-     "author": "",
-     "note": "Jason and David's book on decision-making, transparency, leadership; short and readable",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 989,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Millionaire Fast Lane",
-     "author": "",
-     "note": "MJ DeMarco; best book on building wealth through business",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 834,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "How to Not Die Alone",
-     "author": "",
-     "note": "Transformed his approach to dating and relationships; has own video",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 810,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Educated",
-     "author": "",
-     "note": "Tara Westover memoir, not self-help, very good",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 755,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Can't Hurt Me",
-     "author": "",
-     "note": "David Goggins memoir; best as audiobook; inspiring",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 679,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Happy Sexy Millionaire",
-     "author": "",
-     "note": "Steven Bartlett's book on fulfillment and success; plans to reread",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 582,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Die With Zero",
-     "author": "",
-     "note": "Bill Perkins on spending money and enjoying life rather than hoarding it",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 375,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Never Split the Difference",
-     "author": "",
-     "note": "Chris Voss, ex-FBI hostage negotiator; practical negotiation techniques; listened twice on Audible",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 298,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Models",
-     "author": "",
-     "note": "Mark Manson's book on attracting women through authenticity; Ali reread it this year",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 190,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Think and Grow Rich",
-     "author": "",
-     "note": "Napoleon Hill book, grouped with Nightingale's goal-setting themes",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 685,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Atomic Habits",
-     "author": "",
-     "note": "Cited as an amazing book whose core idea is that small habits lead to great results",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 394,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Strangest Secret",
-     "author": "",
-     "note": "Earl Nightingale 1950s self-help; first half is great, skip the second",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 548,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Practice",
-     "author": "",
-     "note": "Seth Godin book on shipping creative work; he made about 70 highlights",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 171,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Four Hour Workweek",
-     "author": "",
-     "note": "Tim Ferriss book that changed his life; led him to use medical school years differently",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 55,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Feel Good Productivity",
-     "author": "",
-     "note": "his own bestselling book displayed on desk",
-     "video": "4eq7ienNumY",
-     "url": null,
-     "ts": 576,
-     "date": "2026-11-16"
-    },
-    {
-     "title": "The World: A Brief Introduction",
-     "author": "",
-     "note": "Richard Haass book he is currently reading to understand world affairs",
-     "video": "szVXpM7VVMg",
-     "url": null,
-     "ts": 761,
-     "date": "2026-11-15"
-    },
-    {
-     "title": "$100M Offers",
-     "author": "",
-     "note": "Book on creating offers so good people feel stupid saying no; shaped academy's North Star",
-     "video": "dKsp8aXrwJw",
-     "url": null,
-     "ts": 73,
-     "date": "2026-11-15"
     }
    ]
   },
@@ -4472,6 +6489,1392 @@
  ],
  "ranking": [
   {
+   "title": "Going to Meet the Man",
+   "author": "",
+   "people": [
+    "please-read-your-book"
+   ]
+  },
+  {
+   "title": "The Sorrow of War",
+   "author": "",
+   "people": [
+    "please-read-your-book"
+   ]
+  },
+  {
+   "title": "Coin Locker Babies",
+   "author": "",
+   "people": [
+    "please-read-your-book"
+   ]
+  },
+  {
+   "title": "The Heart is a Lonely Hunter",
+   "author": "",
+   "people": [
+    "please-read-your-book",
+    "chantal"
+   ]
+  },
+  {
+   "title": "A Farewell to Arms",
+   "author": "",
+   "people": [
+    "please-read-your-book"
+   ]
+  },
+  {
+   "title": "The Chimp Paradox",
+   "author": "",
+   "people": [
+    "tam-kaur"
+   ]
+  },
+  {
+   "title": "Miracle Morning",
+   "author": "",
+   "people": [
+    "tam-kaur"
+   ]
+  },
+  {
+   "title": "Atomic Habits",
+   "author": "",
+   "people": [
+    "tam-kaur",
+    "iman-gadzhi",
+    "unjaded-jade",
+    "mark-manson",
+    "sandeep-swadia",
+    "ali-abdaal",
+    "mihika",
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Why Men Love Bitches",
+   "author": "",
+   "people": [
+    "tam-kaur"
+   ]
+  },
+  {
+   "title": "Attached",
+   "author": "",
+   "people": [
+    "tam-kaur",
+    "bjorn"
+   ]
+  },
+  {
+   "title": "All About Love",
+   "author": "",
+   "people": [
+    "tam-kaur"
+   ]
+  },
+  {
+   "title": "Conversations on Love",
+   "author": "",
+   "people": [
+    "tam-kaur"
+   ]
+  },
+  {
+   "title": "101 Essays That Will Change Your Life",
+   "author": "",
+   "people": [
+    "tam-kaur"
+   ]
+  },
+  {
+   "title": "The Mountain Is You",
+   "author": "",
+   "people": [
+    "tam-kaur"
+   ]
+  },
+  {
+   "title": "The Daily Stoic",
+   "author": "",
+   "people": [
+    "tam-kaur",
+    "bj-rn"
+   ]
+  },
+  {
+   "title": "Mycelium Running",
+   "author": "",
+   "people": [
+    "paul-stamets"
+   ]
+  },
+  {
+   "title": "The Prince of Medicine",
+   "author": "",
+   "people": [
+    "paul-stamets"
+   ]
+  },
+  {
+   "title": "The Crack in the Cosmic Egg",
+   "author": "",
+   "people": [
+    "paul-stamets"
+   ]
+  },
+  {
+   "title": "Jade War",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "The Will of the Many",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "Red Rising",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "Just Friends",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "Looking for Alaska",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "Upgrade",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "Man's Search for Meaning",
+   "author": "",
+   "people": [
+    "phil",
+    "aun-abdi",
+    "my-first-million"
+   ]
+  },
+  {
+   "title": "Blacktop Wasteland",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "The Shadow of the Gods",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "The Lies of Locke Lamora",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "Lonesome Dove",
+   "author": "",
+   "people": [
+    "phil"
+   ]
+  },
+  {
+   "title": "The American Way of Death",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "Fun Home",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "Death of an Ordinary Man",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "Do Admit: The Mitford Sisters and Me",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "Memorial Days",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "Mother Mary Comes to Me",
+   "author": "",
+   "people": [
+    "na",
+    "jack-edwards"
+   ]
+  },
+  {
+   "title": "Lise Doucette's hotel book (Afghanistan)",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "Eche Tamul Karan book",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "The Argonauts",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "Kate Moss's Feminist History for Every Day of the Year",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
+   "title": "Thinking, Fast and Slow",
+   "author": "",
+   "people": [
+    "aun-abdi",
+    "kevan-shah",
+    "bj-rn",
+    "mark-manson",
+    "sandeep-swadia",
+    "jay-shetty"
+   ]
+  },
+  {
+   "title": "Astrophysics for People in a Hurry",
+   "author": "",
+   "people": [
+    "aun-abdi"
+   ]
+  },
+  {
+   "title": "Life 3.0",
+   "author": "",
+   "people": [
+    "aun-abdi"
+   ]
+  },
+  {
+   "title": "The Gulag Archipelago",
+   "author": "",
+   "people": [
+    "aun-abdi"
+   ]
+  },
+  {
+   "title": "Mrs Orwell biography of Eileen Blair",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "Careless People",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "Unsafe: The Carceral Roots of the Anti-Trans Backlash",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "A Hymn to Life",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "Once There Are Wolves",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "Finding Albion",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "The Art Cure",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "To Exist As I Am",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "Migrations",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "Almost Life",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "Awake in the Floating City",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "The Correspondent",
+   "author": "",
+   "people": [
+    "lena"
+   ]
+  },
+  {
+   "title": "The 48 Laws of Power",
+   "author": "",
+   "people": [
+    "iman-gadzhi",
+    "ryan-holiday",
+    "andrew-huberman"
+   ]
+  },
+  {
+   "title": "Made in America",
+   "author": "",
+   "people": [
+    "iman-gadzhi"
+   ]
+  },
+  {
+   "title": "The Everything Store",
+   "author": "",
+   "people": [
+    "iman-gadzhi"
+   ]
+  },
+  {
+   "title": "Meditations",
+   "author": "",
+   "people": [
+    "iman-gadzhi",
+    "accepting-the-universe"
+   ]
+  },
+  {
+   "title": "The Way of the Superior Man",
+   "author": "",
+   "people": [
+    "iman-gadzhi",
+    "tim-olukanni"
+   ]
+  },
+  {
+   "title": "Black and Blues",
+   "author": "Imani Perry",
+   "people": [
+    "arri"
+   ]
+  },
+  {
+   "title": "Black Owned",
+   "author": "Char Adams",
+   "people": [
+    "arri"
+   ]
+  },
+  {
+   "title": "Looking for Lorraine",
+   "author": "Imani Perry",
+   "people": [
+    "arri"
+   ]
+  },
+  {
+   "title": "The Library Book",
+   "author": "Susan Orlean",
+   "people": [
+    "arri"
+   ]
+  },
+  {
+   "title": "Positive Obsession",
+   "author": "Susanna M. Morris",
+   "people": [
+    "arri"
+   ]
+  },
+  {
+   "title": "The Creative Act",
+   "author": "",
+   "people": [
+    "kevan-shah",
+    "unjaded-jade",
+    "jared-henderson"
+   ]
+  },
+  {
+   "title": "China's Economy",
+   "author": "",
+   "people": [
+    "kevan-shah"
+   ]
+  },
+  {
+   "title": "The Theory of Everything",
+   "author": "",
+   "people": [
+    "kevan-shah"
+   ]
+  },
+  {
+   "title": "Skin in the Game",
+   "author": "",
+   "people": [
+    "kevan-shah"
+   ]
+  },
+  {
+   "title": "Why We Sleep",
+   "author": "",
+   "people": [
+    "kevan-shah",
+    "unjaded-jade",
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "The Inner Game of Tennis",
+   "author": "",
+   "people": [
+    "kevan-shah"
+   ]
+  },
+  {
+   "title": "Thinking in Systems",
+   "author": "",
+   "people": [
+    "kevan-shah"
+   ]
+  },
+  {
+   "title": "Breathe",
+   "author": "",
+   "people": [
+    "kevan-shah"
+   ]
+  },
+  {
+   "title": "The Obesity Code",
+   "author": "",
+   "people": [
+    "kevan-shah"
+   ]
+  },
+  {
+   "title": "Outlive",
+   "author": "",
+   "people": [
+    "kevan-shah",
+    "ali-abdaal",
+    "mark-manson",
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Be All You Can Be",
+   "author": "",
+   "people": [
+    "makayla-lucero"
+   ]
+  },
+  {
+   "title": "Worthy: How to Believe You Are Enough and Transform Your Life",
+   "author": "",
+   "people": [
+    "makayla-lucero"
+   ]
+  },
+  {
+   "title": "Believe It: How to Go from Underestimated to Unstoppable",
+   "author": "",
+   "people": [
+    "makayla-lucero"
+   ]
+  },
+  {
+   "title": "Middle C",
+   "author": "",
+   "people": [
+    "life-on-books"
+   ]
+  },
+  {
+   "title": "Omensetter's Luck",
+   "author": "",
+   "people": [
+    "life-on-books"
+   ]
+  },
+  {
+   "title": "The Tunnel",
+   "author": "",
+   "people": [
+    "life-on-books",
+    "the-active-mind"
+   ]
+  },
+  {
+   "title": "If This Is a Man / The Truce",
+   "author": "",
+   "people": [
+    "life-on-books"
+   ]
+  },
+  {
+   "title": "Catch-22",
+   "author": "",
+   "people": [
+    "life-on-books"
+   ]
+  },
+  {
+   "title": "Hard Rain Falling",
+   "author": "",
+   "people": [
+    "life-on-books"
+   ]
+  },
+  {
+   "title": "One Hundred Years of Solitude",
+   "author": "",
+   "people": [
+    "life-on-books"
+   ]
+  },
+  {
+   "title": "The Big Leap",
+   "author": "",
+   "people": [
+    "kim-foster"
+   ]
+  },
+  {
+   "title": "The Paradox of Choice",
+   "author": "",
+   "people": [
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "Mindset",
+   "author": "",
+   "people": [
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "The Science of Happily Ever After",
+   "author": "",
+   "people": [
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "How to Not Die Alone",
+   "author": "",
+   "people": [
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "The Book Thief",
+   "author": "",
+   "people": [
+    "anna-howard",
+    "kate-lee"
+   ]
+  },
+  {
+   "title": "Giovanni's Room",
+   "author": "",
+   "people": [
+    "anna-howard"
+   ]
+  },
+  {
+   "title": "Martyr",
+   "author": "",
+   "people": [
+    "anna-howard"
+   ]
+  },
+  {
+   "title": "Slaughterhouse-Five",
+   "author": "",
+   "people": [
+    "anna-howard"
+   ]
+  },
+  {
+   "title": "The Seven Year Slip",
+   "author": "",
+   "people": [
+    "anna-howard"
+   ]
+  },
+  {
+   "title": "The Book of Longings",
+   "author": "",
+   "people": [
+    "anna-howard"
+   ]
+  },
+  {
+   "title": "Dead Wake",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "The Devil in the White City",
+   "author": "",
+   "people": [
+    "topher-s-library",
+    "josh-johnson"
+   ]
+  },
+  {
+   "title": "The Radium Girls",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "Midnight in Chernobyl",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "Unbroken",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "The Lost City of Z",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "Killers of the Flower Moon",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "The Wager",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "Into Thin Air",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "The Professor and the Madman",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "Krakatoa",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "The River of Doubt",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "The Monster of Florence",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "The Lost City of the Monkey God",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "Just Mercy",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "The Immortal Life of Henrietta Lacks",
+   "author": "",
+   "people": [
+    "topher-s-library"
+   ]
+  },
+  {
+   "title": "Die With Zero",
+   "author": "",
+   "people": [
+    "tim-olukanni",
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "Deep Work",
+   "author": "",
+   "people": [
+    "tim-olukanni",
+    "bj-rn",
+    "mark-manson"
+   ]
+  },
+  {
+   "title": "Don't Believe Everything You Think",
+   "author": "",
+   "people": [
+    "tim-olukanni"
+   ]
+  },
+  {
+   "title": "How to Win Friends and Influence People",
+   "author": "",
+   "people": [
+    "tim-olukanni",
+    "ali-abdaal",
+    "mark-manson"
+   ]
+  },
+  {
+   "title": "The Millionaire Fastlane",
+   "author": "",
+   "people": [
+    "tim-olukanni"
+   ]
+  },
+  {
+   "title": "Master of the Day",
+   "author": "",
+   "people": [
+    "tim-olukanni"
+   ]
+  },
+  {
+   "title": "Rich Dad's Cashflow Quadrant",
+   "author": "",
+   "people": [
+    "tim-olukanni"
+   ]
+  },
+  {
+   "title": "Rich Dad Poor Dad",
+   "author": "",
+   "people": [
+    "tim-olukanni",
+    "mark-manson"
+   ]
+  },
+  {
+   "title": "The 4-Hour Work Week",
+   "author": "",
+   "people": [
+    "tim-olukanni",
+    "mark-manson"
+   ]
+  },
+  {
+   "title": "Outwitting the Devil",
+   "author": "",
+   "people": [
+    "tim-olukanni"
+   ]
+  },
+  {
+   "title": "Think and Grow Rich",
+   "author": "",
+   "people": [
+    "tim-olukanni",
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "Models",
+   "author": "",
+   "people": [
+    "chris-williamson",
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "Endurance",
+   "author": "",
+   "people": [
+    "chris-williamson"
+   ]
+  },
+  {
+   "title": "The War of Art",
+   "author": "",
+   "people": [
+    "chris-williamson"
+   ]
+  },
+  {
+   "title": "The Precipice",
+   "author": "",
+   "people": [
+    "chris-williamson"
+   ]
+  },
+  {
+   "title": "The Ape That Understood the Universe",
+   "author": "",
+   "people": [
+    "chris-williamson"
+   ]
+  },
+  {
+   "title": "Lying",
+   "author": "",
+   "people": [
+    "chris-williamson"
+   ]
+  },
+  {
+   "title": "The Forgotten Highlander",
+   "author": "",
+   "people": [
+    "chris-williamson"
+   ]
+  },
+  {
+   "title": "Essentialism",
+   "author": "",
+   "people": [
+    "chris-williamson"
+   ]
+  },
+  {
+   "title": "Notes on Grief",
+   "author": "",
+   "people": [
+    "bren-booth-jones"
+   ]
+  },
+  {
+   "title": "Patrimony",
+   "author": "",
+   "people": [
+    "bren-booth-jones"
+   ]
+  },
+  {
+   "title": "Experience",
+   "author": "",
+   "people": [
+    "bren-booth-jones"
+   ]
+  },
+  {
+   "title": "Cultural Amnesia",
+   "author": "",
+   "people": [
+    "bren-booth-jones"
+   ]
+  },
+  {
+   "title": "The Unauthorized Life of Ted Hughes",
+   "author": "",
+   "people": [
+    "bren-booth-jones"
+   ]
+  },
+  {
+   "title": "The Writing of Fiction",
+   "author": "",
+   "people": [
+    "bren-booth-jones"
+   ]
+  },
+  {
+   "title": "Rumi selected poems",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "Near to the Wild Heart",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "\u00c1gua Viva",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "If Not, Winter: Fragments of Sappho",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "Les Fleurs du mal",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "Poems from the Book of Hours",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "Letters to a Young Poet",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "Wuthering Heights",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "Jane Eyre",
+   "author": "",
+   "people": [
+    "l-a-crumpton",
+    "caitlyn"
+   ]
+  },
+  {
+   "title": "Romeo and Juliet",
+   "author": "",
+   "people": [
+    "l-a-crumpton"
+   ]
+  },
+  {
+   "title": "The Invisible Life of Addie LaRue",
+   "author": "",
+   "people": [
+    "tiffani-thiessen"
+   ]
+  },
+  {
+   "title": "First Lie Wins",
+   "author": "",
+   "people": [
+    "tiffani-thiessen"
+   ]
+  },
+  {
+   "title": "Theo of Golden",
+   "author": "",
+   "people": [
+    "tiffani-thiessen",
+    "sarah-gelman"
+   ]
+  },
+  {
+   "title": "The Seat of the Soul",
+   "author": "",
+   "people": [
+    "tiffani-thiessen"
+   ]
+  },
+  {
+   "title": "What Is Ancient Philosophy?",
+   "author": "",
+   "people": [
+    "accepting-the-universe"
+   ]
+  },
+  {
+   "title": "The Present Alone Is Our Happiness",
+   "author": "",
+   "people": [
+    "accepting-the-universe"
+   ]
+  },
+  {
+   "title": "Philosophy as a Way of Life",
+   "author": "",
+   "people": [
+    "accepting-the-universe"
+   ]
+  },
+  {
+   "title": "Crime and Punishment",
+   "author": "",
+   "people": [
+    "chantal"
+   ]
+  },
+  {
+   "title": "Pride and Prejudice",
+   "author": "",
+   "people": [
+    "chantal",
+    "40909"
+   ]
+  },
+  {
+   "title": "Brave New World",
+   "author": "",
+   "people": [
+    "chantal",
+    "mark-manson"
+   ]
+  },
+  {
+   "title": "Cannery Row",
+   "author": "",
+   "people": [
+    "chantal"
+   ]
+  },
+  {
+   "title": "The Picture of Dorian Gray",
+   "author": "",
+   "people": [
+    "chantal"
+   ]
+  },
+  {
+   "title": "The Master and Margarita",
+   "author": "",
+   "people": [
+    "chantal"
+   ]
+  },
+  {
+   "title": "Eric Hobsbawm tetralogy",
+   "author": "",
+   "people": [
+    "orpheus"
+   ]
+  },
+  {
+   "title": "Decline and Fall of the Roman Empire",
+   "author": "",
+   "people": [
+    "orpheus"
+   ]
+  },
+  {
+   "title": "Columbus and Other Cannibals",
+   "author": "",
+   "people": [
+    "orpheus"
+   ]
+  },
+  {
+   "title": "The Rediscovery of America",
+   "author": "",
+   "people": [
+    "orpheus"
+   ]
+  },
+  {
+   "title": "A Study of History (Toynbee)",
+   "author": "",
+   "people": [
+    "orpheus"
+   ]
+  },
+  {
+   "title": "How to Kill a Dragon",
+   "author": "",
+   "people": [
+    "orpheus"
+   ]
+  },
+  {
+   "title": "Sutri",
+   "author": "",
+   "people": [
+    "orpheus"
+   ]
+  },
+  {
+   "title": "The Idiot",
+   "author": "",
+   "people": [
+    "isa-s-corner",
+    "aleks"
+   ]
+  },
+  {
+   "title": "The Bell Jar",
+   "author": "",
+   "people": [
+    "isa-s-corner"
+   ]
+  },
+  {
+   "title": "The Fran Lebowitz Reader",
+   "author": "",
+   "people": [
+    "isa-s-corner"
+   ]
+  },
+  {
+   "title": "Normal People",
+   "author": "",
+   "people": [
+    "isa-s-corner"
+   ]
+  },
+  {
+   "title": "Pure Colour",
+   "author": "",
+   "people": [
+    "isa-s-corner"
+   ]
+  },
+  {
+   "title": "Clara and the Sun",
+   "author": "",
+   "people": [
+    "isa-s-corner"
+   ]
+  },
+  {
+   "title": "The Secret History",
+   "author": "",
+   "people": [
+    "isa-s-corner",
+    "aleks",
+    "kate-lee"
+   ]
+  },
+  {
+   "title": "The Book of Goose",
+   "author": "",
+   "people": [
+    "isa-s-corner"
+   ]
+  },
+  {
+   "title": "The Waves",
+   "author": "",
+   "people": [
+    "isa-s-corner"
+   ]
+  },
+  {
+   "title": "Clarice Lispector",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "I Have Never Known Men",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "My Dark Vanessa",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "The Glass Castle",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "Death Valley",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "Monstrilio",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "Never Let Me Go",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "One Day",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "My Brilliant Friend",
+   "author": "",
+   "people": [
+    "athena"
+   ]
+  },
+  {
+   "title": "Tintin",
+   "author": "",
+   "people": [
+    "40909"
+   ]
+  },
+  {
+   "title": "The Secret",
+   "author": "",
+   "people": [
+    "harry-hamlin",
+    "mihika"
+   ]
+  },
+  {
+   "title": "Wayne Dyer",
+   "author": "",
+   "people": [
+    "harry-hamlin"
+   ]
+  },
+  {
+   "title": "Eckhart Tolle",
+   "author": "",
+   "people": [
+    "harry-hamlin"
+   ]
+  },
+  {
+   "title": "A Course in Miracles",
+   "author": "",
+   "people": [
+    "harry-hamlin"
+   ]
+  },
+  {
+   "title": "Neon Ghosts",
+   "author": "",
+   "people": [
+    "na"
+   ]
+  },
+  {
    "title": "Rejection",
    "author": "Tony Tulathimutte",
    "people": [
@@ -4480,13 +7883,6 @@
   },
   {
    "title": "The God of Small Things",
-   "author": "",
-   "people": [
-    "jack-edwards"
-   ]
-  },
-  {
-   "title": "Mother Mary Comes to Me",
    "author": "",
    "people": [
     "jack-edwards"
@@ -4522,13 +7918,6 @@
   },
   {
    "title": "The Last Viking",
-   "author": "",
-   "people": [
-    "josh-johnson"
-   ]
-  },
-  {
-   "title": "The Devil in the White City",
    "author": "",
    "people": [
     "josh-johnson"
@@ -4784,13 +8173,6 @@
    ]
   },
   {
-   "title": "The Tunnel",
-   "author": "",
-   "people": [
-    "the-active-mind"
-   ]
-  },
-  {
    "title": "Mexico: A 500-Year History",
    "author": "",
    "people": [
@@ -4799,13 +8181,6 @@
   },
   {
    "title": "The Curious Mind of Elon Musk",
-   "author": "",
-   "people": [
-    "bjorn"
-   ]
-  },
-  {
-   "title": "Attached",
    "author": "",
    "people": [
     "bjorn"
@@ -5038,15 +8413,6 @@
    ]
   },
   {
-   "title": "Outlive",
-   "author": "",
-   "people": [
-    "ali-abdaal",
-    "mark-manson",
-    "tim-ferriss"
-   ]
-  },
-  {
    "title": "Steve Jobs",
    "author": "Walter Isaacson",
    "people": [
@@ -5195,13 +8561,6 @@
    ]
   },
   {
-   "title": "Theo of Golden",
-   "author": "",
-   "people": [
-    "sarah-gelman"
-   ]
-  },
-  {
    "title": "The Vanishing Family",
    "author": "",
    "people": [
@@ -5294,14 +8653,6 @@
    ]
   },
   {
-   "title": "Deep Work",
-   "author": "",
-   "people": [
-    "bj-rn",
-    "mark-manson"
-   ]
-  },
-  {
    "title": "The Rush",
    "author": "",
    "people": [
@@ -5317,13 +8668,6 @@
   },
   {
    "title": "Sleeping Beauties",
-   "author": "",
-   "people": [
-    "bj-rn"
-   ]
-  },
-  {
-   "title": "The Daily Stoic",
    "author": "",
    "people": [
     "bj-rn"
@@ -5386,25 +8730,10 @@
    ]
   },
   {
-   "title": "The Idiot",
-   "author": "",
-   "people": [
-    "aleks"
-   ]
-  },
-  {
    "title": "Perfection",
    "author": "Vincenzo Latronico",
    "people": [
     "aleks"
-   ]
-  },
-  {
-   "title": "The Secret History",
-   "author": "",
-   "people": [
-    "aleks",
-    "kate-lee"
    ]
   },
   {
@@ -5541,14 +8870,6 @@
    ]
   },
   {
-   "title": "How to Win Friends and Influence People",
-   "author": "",
-   "people": [
-    "ali-abdaal",
-    "mark-manson"
-   ]
-  },
-  {
    "title": "The 12 Immutable Laws of Marketing",
    "author": "",
    "people": [
@@ -5644,16 +8965,6 @@
    "author": "",
    "people": [
     "bj-rn"
-   ]
-  },
-  {
-   "title": "Thinking, Fast and Slow",
-   "author": "",
-   "people": [
-    "bj-rn",
-    "mark-manson",
-    "sandeep-swadia",
-    "jay-shetty"
    ]
   },
   {
@@ -5785,26 +9096,10 @@
    ]
   },
   {
-   "title": "Why We Sleep",
-   "author": "",
-   "people": [
-    "unjaded-jade",
-    "tim-ferriss"
-   ]
-  },
-  {
    "title": "The Artist's Way",
    "author": "",
    "people": [
     "unjaded-jade"
-   ]
-  },
-  {
-   "title": "The Creative Act",
-   "author": "",
-   "people": [
-    "unjaded-jade",
-    "jared-henderson"
    ]
   },
   {
@@ -5826,18 +9121,6 @@
    "author": "",
    "people": [
     "unjaded-jade"
-   ]
-  },
-  {
-   "title": "Atomic Habits",
-   "author": "",
-   "people": [
-    "unjaded-jade",
-    "mark-manson",
-    "sandeep-swadia",
-    "ali-abdaal",
-    "mihika",
-    "tim-ferriss"
    ]
   },
   {
@@ -5977,13 +9260,6 @@
    ]
   },
   {
-   "title": "How to Not Die Alone",
-   "author": "",
-   "people": [
-    "ali-abdaal"
-   ]
-  },
-  {
    "title": "Educated",
    "author": "",
    "people": [
@@ -6005,21 +9281,7 @@
    ]
   },
   {
-   "title": "Die With Zero",
-   "author": "",
-   "people": [
-    "ali-abdaal"
-   ]
-  },
-  {
    "title": "Never Split the Difference",
-   "author": "",
-   "people": [
-    "ali-abdaal"
-   ]
-  },
-  {
-   "title": "Models",
    "author": "",
    "people": [
     "ali-abdaal"
@@ -6069,13 +9331,6 @@
   },
   {
    "title": "The Brothers Karamazov",
-   "author": "",
-   "people": [
-    "caitlyn"
-   ]
-  },
-  {
-   "title": "Jane Eyre",
    "author": "",
    "people": [
     "caitlyn"
@@ -6267,14 +9522,6 @@
    ]
   },
   {
-   "title": "The 48 Laws of Power",
-   "author": "",
-   "people": [
-    "ryan-holiday",
-    "andrew-huberman"
-   ]
-  },
-  {
    "title": "Throne of Glass",
    "author": "",
    "people": [
@@ -6387,13 +9634,6 @@
    ]
   },
   {
-   "title": "The Book Thief",
-   "author": "",
-   "people": [
-    "kate-lee"
-   ]
-  },
-  {
    "title": "The Witches",
    "author": "",
    "people": [
@@ -6465,13 +9705,6 @@
    ]
   },
   {
-   "title": "Rich Dad Poor Dad",
-   "author": "",
-   "people": [
-    "mark-manson"
-   ]
-  },
-  {
    "title": "The Denial of Death",
    "author": "",
    "people": [
@@ -6484,13 +9717,6 @@
    "people": [
     "mark-manson",
     "dr-anna-lembke"
-   ]
-  },
-  {
-   "title": "The 4-Hour Work Week",
-   "author": "",
-   "people": [
-    "mark-manson"
    ]
   },
   {
@@ -6524,13 +9750,6 @@
   },
   {
    "title": "Open",
-   "author": "",
-   "people": [
-    "mark-manson"
-   ]
-  },
-  {
-   "title": "Brave New World",
    "author": "",
    "people": [
     "mark-manson"
@@ -6749,13 +9968,6 @@
    ]
   },
   {
-   "title": "Think and Grow Rich",
-   "author": "",
-   "people": [
-    "ali-abdaal"
-   ]
-  },
-  {
    "title": "The Strangest Secret",
    "author": "",
    "people": [
@@ -6820,13 +10032,6 @@
   },
   {
    "title": "Better Than the Movies",
-   "author": "",
-   "people": [
-    "mihika"
-   ]
-  },
-  {
-   "title": "The Secret",
    "author": "",
    "people": [
     "mihika"
@@ -7284,13 +10489,6 @@
   },
   {
    "title": "The Escape Artist",
-   "author": "",
-   "people": [
-    "my-first-million"
-   ]
-  },
-  {
-   "title": "Man's Search for Meaning",
    "author": "",
    "people": [
     "my-first-million"

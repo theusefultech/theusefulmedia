@@ -1,0 +1,14 @@
+# 19 Nov 2026 (Raja, "Fix"): every page needs a visual (rule of 17 Nov 2026). Free, rules only, no Claude usage.
+# Fails (and GitHub emails the owner) when a page that isn't in plans/visual-backlog.txt has no visual.
+name: Visual rule check
+on:
+  push:
+    branches: [main]
+    paths: ["**.html", "plans/visual-backlog.txt", "scripts/visual_check.py"]
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/visual_check.py . / plans/visual-backlog.txt

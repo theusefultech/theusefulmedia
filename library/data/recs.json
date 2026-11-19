@@ -1,6 +1,24 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "people": [
+  {
+   "slug": "luke-dashwood",
+   "name": "Luke Dashwood",
+   "channels": [
+    "Luke Dashwood"
+   ],
+   "books": [
+    {
+     "title": "The Courage to be Disliked",
+     "author": "",
+     "note": "Japanese book on Adlerian philosophy and fear of being disliked; read twice, calls it life-changing, not sponsored",
+     "video": "JnAl1PfAIvg",
+     "url": null,
+     "ts": 403,
+     "date": "2026-11-19"
+    }
+   ]
+  },
   {
    "slug": "please-read-your-book",
    "name": "Please Read Your Book",
@@ -6489,6 +6507,15 @@
  ],
  "ranking": [
   {
+   "title": "The Courage to be Disliked",
+   "author": "",
+   "people": [
+    "luke-dashwood",
+    "jay-shetty",
+    "mihika"
+   ]
+  },
+  {
    "title": "Going to Meet the Man",
    "author": "",
    "people": [
@@ -9922,14 +9949,6 @@
    "people": [
     "jay-shetty",
     "dante-kim"
-   ]
-  },
-  {
-   "title": "The Courage to be Disliked",
-   "author": "",
-   "people": [
-    "jay-shetty",
-    "mihika"
    ]
   },
   {

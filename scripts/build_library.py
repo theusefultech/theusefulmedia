@@ -534,7 +534,8 @@ def build_issue(issue, content, prev_i, next_i):
     extra = f'<script type="application/ld+json">{json.dumps(ld)}</script>'
     head = HEAD.format(title=esc(page_title(issue['title'])), desc=esc(desc), canonical=f"{SITE}/tech/library/{issue['slug']}/",
                        ogtype="article", image=esc(img), extra_head=extra, bodyclass="issue")
-    hero_img = f'<figure class="is-hero-img">{thumb(issue)}</figure>' if issue["image"] else ""
+    # 19 Nov 2026 (visual rule): issues without a Beehiiv thumbnail show their made cover (scripts/make_issue_covers.py)
+    hero_img = f'<figure class="is-hero-img">{thumb(issue)}</figure>' if issue["image"] else (f'<figure class="is-hero-img"><img src="/tech/library/{esc(issue["slug"])}/og.jpg" alt="{esc(issue["title"])}" width="1200" height="630" fetchpriority="high"></figure>' if os.path.exists(os.path.join(OUT, issue["slug"], "og.jpg")) else "")
     nav = []
     if next_i:
         nav.append(f'<a class="is-nav-card" href="/tech/library/{esc(next_i["slug"])}/"><span class="is-nav-k">Newer</span><span class="is-nav-t">{esc(next_i["title"])}</span></a>')

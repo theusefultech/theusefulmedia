@@ -27,4 +27,6 @@ TAKES = {
  "the-craving-mind": "Read chapter 1 with the habit you want to drop in mind. The idea is simple: watch the habit closely instead of fighting it. The first 2 chapters are enough to try it this week.",
  "rest": "Read Stop first. The rule is small: end the day mid-task, with the next step written down. The evening gets easier to let go of and the morning gets easier to start. Then read Walk.",
  "make-time": "Don't try all 87 tactics. Pick 2. The Highlight is the part that matters: 1 thing a day you protect. Every other tactic in the book is there to protect it.",
+ "broke-millennial": "Don't read it in order. Jump to the chapter that answers the question you have right now. If your money runs out before payday, start with Pay Yourself First, then the budgeting chapter.",
+ "thinking-fast-and-slow": "Don't try to finish it in a week. It's dense. Read Part 1, then 1 chapter a day. Anchors is the chapter I'd keep: once you know it, you see it on every price tag.",
 }

@@ -8,13 +8,12 @@ Source artifacts:
 Status: `todo` / `doing` / `waiting on Raja` / `done`. Order: money impact first, then effort.
 Rules: 1 item at a time. Pull before push. Update this file and commit as soon as an item changes.
 
-Last updated: 19 Nov 2026, 21:30 IST
+Last updated: 19 Nov 2026, 21:45 IST
 
 ## Open items (work top to bottom)
 
 | # | id | from | item | done means | status | notes |
 |---|----|------|------|-----------|--------|-------|
-| 1 | M01 | AUDIT | Reading Challenge checkout ready before 1 Dec | Gumroad product reading-challenge-2027 live at $29 early bird (EARLYBIRD code) then $39; buy buttons on /library/challenge/ work end to end with a free test purchase; buyer gets the welcome and Discord access | doing | 19 Nov: product live on Gumroad at $39, EARLYBIRD code valid ($10 off = $29), page buttons point to both links. Left: 1 free test purchase, check the receipt has the welcome and Discord invite, check EARLYBIRD ends 31 Dec. Asked Raja if he wants to do the test buy himself. |
 | 2 | M02 | AUDIT | Lemon Squeezy guide promotion | Raja OKs the guide and each promotion; first promo (X replies to the Lemon Squeezy posts) goes out; page tracked toward 1,000 visits a month; $300/month sponsor pitch ready for 4 to 7 Dec; drop the plan if under 300 visits by mid Dec | waiting on Raja | 2 views in 14 days on 18 Nov. Guide redesign (no accent stripes) is live, awaiting his "ok". Then promos 1 at a time, each needs his OK. |
 | 3 | M03 | RESEARCH 2 | Claim your page | Free claim flow (verify by email domain, edit tagline, add deal code, see views), "Verified by developer" mark on listings, claim email template OK'd by Raja and sent through Resend, each email offers the $15 pin without ad tone | todo | About $400/month at a 5% pin rate. Email template needs his OK. |
 | 4 | M04 | RESEARCH 3 | Rankings and winner badges, paid queue skip | New this week ranked by reactions (day, week, month), embeddable "#1 on The Useful Apps" badges, free queue about 3 weeks with Skip the line $29 and Fast track $19, winners in the Friday newsletter | todo | $200 to $600/month. New prices need his OK before going live. Free: rankings are a SQL query. |
@@ -49,7 +48,8 @@ Last updated: 19 Nov 2026, 21:30 IST
 | 33 | M33 | AUDIT media kit, sponsor | Sponsor links tidy | Pitch templates link /advertise/ directly (no /sponsor/ hop); media kit PDF numbers match /advertise/ | todo | Pitch template change: tell him. |
 | 34 | M34 | AUDIT home | Homepage in Medium author bio | theusefulmedia.com in every Medium author bio | todo | |
 | 35 | M35 | AUDIT about | About page desk redesign | Redesign after his questionnaire | waiting on Raja | Questionnaire not answered yet. |
-| 36 | M36 | NEW | Gumroad ping signing | Optional: Gumroad signs pings and the Worker checks them | todo | Left off on purpose until a real booking arrives. Lowest priority. |
+| 36 | M37 | NEW | Remove upsells from the Reading Challenge checkout | A $29 buyer sees 2 upsell pop-ups (Useful Studio Pro $349, then the Craft template) before paying; turn them off for this product or swap in 1 matching offer (Read to Transform journal) | todo | Found in the 19 Nov test buy. Checkout setting change on Gumroad, small. |
+| 37 | M36 | NEW | Gumroad ping signing | Optional: Gumroad signs pings and the Worker checks them | todo | Left off on purpose until a real booking arrives. Lowest priority. |
 
 ## Done
 
@@ -65,4 +65,5 @@ Last updated: 19 Nov 2026, 21:30 IST
 | D08 | RESEARCH 1 | Move 1 step 2: live booking page /apps/developers/book/ with open-months board, picker and 15 minute holds | Same chat |
 | D09 | RESEARCH 1 | Move 1 step 3: pins first on category pages, Spotlight in home Featured, sponsor bar on every page, from D1 | Same chat |
 | D10 | RESEARCH 1 | Move 1 step 4: booking page linked from Developers menu, For developers, Submit, Where apps advertise and Advertise | Same chat. One-off $79 Spotlight removed (Raja "A"). |
+| D12 | AUDIT | M01 Reading Challenge checkout ready | 19 Nov free test buy passed: receipt shows license key and the 3 welcome steps, the key unlocks all 12 months in /library/challenge/tracker/. EARLYBIRD ($10 off, $29) runs 5 Nov to 31 Dec. Buyers in India get Gumroad purchasing power pricing instead ($19.50), which is bigger than EARLYBIRD. Discord invite goes by email before 1 Jan (by design). |
 | D11 | RESEARCH 1 | Move 1 step 5: test bookings, then live | 2 free Gumroad test bookings passed end to end. Booking page indexed and live 19 Nov. |

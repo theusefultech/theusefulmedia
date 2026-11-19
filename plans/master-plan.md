@@ -1,0 +1,68 @@
+# Master plan
+
+Source artifacts:
+- **AUDIT**: Site page audit, https://claude.ai/artifact/QnT2mVNkHDTrEz16pAJYtt (18 Nov 2026)
+- **RESEARCH**: How the big sites do it, https://claude.ai/artifact/PMMjVJHA1BnVHnfg4PD2st (18 Nov 2026)
+- **NEW**: came up while working
+
+Status: `todo` / `doing` / `waiting on Raja` / `done`. Order: money impact first, then effort.
+Rules: 1 item at a time. Pull before push. Update this file and commit as soon as an item changes.
+
+Last updated: 19 Nov 2026, 21:30 IST
+
+## Open items (work top to bottom)
+
+| # | id | from | item | done means | status | notes |
+|---|----|------|------|-----------|--------|-------|
+| 1 | M01 | AUDIT | Reading Challenge checkout ready before 1 Dec | Gumroad product reading-challenge-2027 live at $29 early bird (EARLYBIRD code) then $39; buy buttons on /library/challenge/ work end to end with a free test purchase; buyer gets the welcome and Discord access | doing | Page links gumroad.com/l/reading-challenge-2027 and /EARLYBIRD. Not yet test-bought. |
+| 2 | M02 | AUDIT | Lemon Squeezy guide promotion | Raja OKs the guide and each promotion; first promo (X replies to the Lemon Squeezy posts) goes out; page tracked toward 1,000 visits a month; $300/month sponsor pitch ready for 4 to 7 Dec; drop the plan if under 300 visits by mid Dec | waiting on Raja | 2 views in 14 days on 18 Nov. Guide redesign (no accent stripes) is live, awaiting his "ok". Then promos 1 at a time, each needs his OK. |
+| 3 | M03 | RESEARCH 2 | Claim your page | Free claim flow (verify by email domain, edit tagline, add deal code, see views), "Verified by developer" mark on listings, claim email template OK'd by Raja and sent through Resend, each email offers the $15 pin without ad tone | todo | About $400/month at a 5% pin rate. Email template needs his OK. |
+| 4 | M04 | RESEARCH 3 | Rankings and winner badges, paid queue skip | New this week ranked by reactions (day, week, month), embeddable "#1 on The Useful Apps" badges, free queue about 3 weeks with Skip the line $29 and Fast track $19, winners in the Friday newsletter | todo | $200 to $600/month. New prices need his OK before going live. Free: rankings are a SQL query. |
+| 5 | M05 | RESEARCH 4 | Useful Apps Pro, $99 a year | Pro plan on Gumroad: unlimited fast reviews, Review radar for 10 rivals, weekly pricing alerts, 1 free Featured week a quarter; free version of every tool stays; 1 developer price page listing every product | todo | About $400/month at 50 members. Price needs his OK. |
+| 6 | M06 | RESEARCH 5 | Advertise page: live numbers | Live stats strip (Medium followers, newsletter subscribers, monthly site visitors, clicks sent to apps) refreshed nightly by script; link to the open-months board; 1 named sponsor result | todo | Lifts close rate on the 30 daily pitches. Monthly spots strip already links the booking page. Audience numbers only from mymedium.info. |
+| 7 | M07 | RESEARCH 8 | Paid public review, $99 | $99 review option on Submit: full review page labelled paid plus 1 newsletter mention; drafted through the API credit | todo | $200 to $400/month. Price needs his OK. |
+| 8 | M08 | RESEARCH 9, AUDIT deals | Hardware deals and deal alerts | AirPods, iPad, MacBook, AirTag deals with real photos on /apps/deals/, daily price refresh, deal-alert sign-up at the top, kept all year | todo | $100 to $500/month Amazon (theusefultech-20). Already queued in another chat: check first. |
+| 9 | M09 | AUDIT welcome | Product offer on /tech/welcome/ | 1 Gumroad guide offer under the welcome message | todo | Best moment to buy. Small. |
+| 10 | M10 | AUDIT free | Upsells on free downloads | Gumroad upsell under every /free/ download, newsletter form on the /free/ hub, page weight under 1 MB | todo | 20 freebies. |
+| 11 | M11 | AUDIT products | Guides page leads with 1 best-seller | /products/ shows the best-seller first with a buy button | todo | |
+| 12 | M12 | RESEARCH 7, AUDIT books | Library topic lists and affiliate links | "Most recommended habit books, by N founders" style lists per topic from Bookshelves data, Get the book link on every list entry and book page | todo | $50 to $300/month. Book pages already carry Get the book links: check coverage. |
+| 13 | M13 | AUDIT library | Reading Challenge banner from 1 Dec | Pre-launch banner on top of /library/ switches to the $29 early bird on 1 Dec | todo | Depends on M01. |
+| 14 | M14 | AUDIT launch planner | Launch Pack button on the launch planner | $199 Launch Pack button next to each good date | todo | Small. |
+| 15 | M15 | AUDIT where-to-advertise | Ad leads from "no" replies | where-to-advertise link added to replies to apps that say no; title under 60 | todo | Reply template change needs his OK. |
+| 16 | M16 | AUDIT review radar | Review radar in you're-live emails | 1-line offer in the automatic you're-live email | todo | 1 subscriber today. Template change: tell him what changed. |
+| 17 | M17 | RESEARCH page by page | Setapp affiliate link on every Setapp app | Setapp affiliate link on every listing that is in Setapp | todo | Free. |
+| 18 | M18 | RESEARCH page by page | Home rows: Biggest savings and Winners this week | 2 new rows on /apps/ home | todo | Winners row depends on M04. |
+| 19 | M19 | AUDIT setups | Tell creators their Setups page exists | Email each creator with a Setups page | todo | New email type: needs his OK. |
+| 20 | M20 | AUDIT sherlocked, new Mac apps | Social for Sherlocked and New Mac apps | Sherlocked posted on X and r/macapps; weekly New Mac apps X thread | todo | Reddit needs his OK. X is auto-approved. |
+| 21 | M21 | RESEARCH 6 | Video engine links apps | Every YouTube Short and reel names 1 app and links its Useful Apps page; script inserts the link on upload | todo | Covered by YouTube work: check other chats first. |
+| 22 | M22 | AUDIT home, tech | Home and newsletter page | Home leads with 1 choice per visitor (reader, developer, sponsor); /tech/ moves the email field to the top with a real issue preview and subscriber count | todo | |
+| 23 | M23 | AUDIT titles | Shorten long titles and descriptions | Every page title under 60 characters, /stack/ description under 160 | todo | About 20 pages (home 70, /apps/ 80, app-pricing 80, awards 75, where-to-advertise 73, Library hubs 68 to 72...). |
+| 24 | M24 | AUDIT, standard | Visual element on text-only pages | /tech/, /library/ideas/, /library/about/, /library/people/, /about/, /contact/, /network/, /privacy/, /terms/ each get a real visual | todo | Standing rule: no walls of text. |
+| 25 | M25 | AUDIT index | Open remaining hubs to Google | /apps/compare/ and /apps/most-used/ indexed in the next Tuesday wave | todo | Both still noindex on 19 Nov. |
+| 26 | M26 | AUDIT awards | Rename /apps/awards/ | New address (e.g. /apps/apple-design-awards/) with redirect, title under 60, linked from more pages | todo | Clashes with The Usefuls. |
+| 27 | M27 | RESEARCH 10, AUDIT | Fewer, deeper pages | Raja OKs a 30-day pause on new page types; Collections folded into best-of guides, Switches into alternatives, with redirects | todo | Decision needs his OK. |
+| 28 | M28 | AUDIT setups build, devs | Internal links for orphan tools | /apps/setups/build/ linked from every Setups page; name checker linked from Submit; app-pricing linked from more pages | todo | Small. |
+| 29 | M29 | RESEARCH page by page | Setups changelog | "What changed" list with dates on Setups pages; MacStories added as a Setups entry | todo | |
+| 30 | M30 | AUDIT game | Share card after each Mystery Book game | Share card shows after every game | todo | |
+| 31 | M31 | AUDIT badges | Badges page fix | 1 h1 on /apps/badges/ | todo | 2 h1 headings today. |
+| 32 | M32 | AUDIT wristkeeper | App Store button above the fold | Wristkeeper page shows the App Store button on the first screen | todo | Check first, may be there. |
+| 33 | M33 | AUDIT media kit, sponsor | Sponsor links tidy | Pitch templates link /advertise/ directly (no /sponsor/ hop); media kit PDF numbers match /advertise/ | todo | Pitch template change: tell him. |
+| 34 | M34 | AUDIT home | Homepage in Medium author bio | theusefulmedia.com in every Medium author bio | todo | |
+| 35 | M35 | AUDIT about | About page desk redesign | Redesign after his questionnaire | waiting on Raja | Questionnaire not answered yet. |
+| 36 | M36 | NEW | Gumroad ping signing | Optional: Gumroad signs pings and the Worker checks them | todo | Left off on purpose until a real booking arrives. Lowest priority. |
+
+## Done
+
+| id | from | item | notes |
+|----|------|------|-------|
+| D01 | AUDIT | All 5 audit fixes: Tinystack links, Raycast link hidden, 2 Library pages linked, Submit and Lineup opened to Google, newsletter boxes | Done before this chat |
+| D02 | AUDIT | Hidden pages fix; Tinystack in nav and footer | Done before this chat |
+| D03 | AUDIT | Grouped menus and the page finder on theusefulmedia.com and The Useful Apps | Done before this chat |
+| D04 | RESEARCH | Research report finished and corrected | Done before this chat |
+| D05 | AUDIT 3 | The Usefuls invites | 67 developers emailed through Resend on 18 Nov. 14 apps nominated by 19 Nov. |
+| D06 | RESEARCH 1 | Move 1: monthly prices approved ($15 pin, $79 Spotlight, $125 sponsor bar), booking page design approved, 3 Gumroad memberships published (pin enygac, Spotlight gjshi, bar zcsxri) | Done before this chat |
+| D07 | RESEARCH 1 | Move 1 step 1: Gumroad Ping to /apps/api/gumroad/ping, bookings in D1 (spots table), seller id lock | Done in chat "Useful Apps monthly spots", 19 Nov |
+| D08 | RESEARCH 1 | Move 1 step 2: live booking page /apps/developers/book/ with open-months board, picker and 15 minute holds | Same chat |
+| D09 | RESEARCH 1 | Move 1 step 3: pins first on category pages, Spotlight in home Featured, sponsor bar on every page, from D1 | Same chat |
+| D10 | RESEARCH 1 | Move 1 step 4: booking page linked from Developers menu, For developers, Submit, Where apps advertise and Advertise | Same chat. One-off $79 Spotlight removed (Raja "A"). |
+| D11 | RESEARCH 1 | Move 1 step 5: test bookings, then live | 2 free Gumroad test bookings passed end to end. Booking page indexed and live 19 Nov. |

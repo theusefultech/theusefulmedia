@@ -27,6 +27,8 @@ Last updated: 2026-11-17
 - [The Useful Apps](https://theusefulmedia.com/apps/): Directory of Mac and iPhone apps worth paying for, and where they cost least.
 - [The Useful Apps, every app](https://theusefulmedia.com/apps/llms-full.txt): Every app in the directory with a one-line description, price and devices, plus every best-of guide and its winner.
 - [Best-of guides](https://theusefulmedia.com/apps/best/): 39 guides naming the best Mac and iPhone app for each job, the best free pick and who should choose something else.
+- [Lemon Squeezy alternatives: 8 compared on fees](https://theusefulmedia.com/apps/developers/lemon-squeezy-alternatives/): Lemon Squeezy closed sign-ups on 16 Nov 2026 and stops payments on 31 Mar 2027. Compares Stripe Managed Payments, Paddle, Dodo Payments, Creem, Polar, Fungies, Freemius and Payhip on fees, license keys, downloads, PayPal and seller countries, with a fee calculator.
+- [For developers](https://theusefulmedia.com/apps/developers/): Free tools for Mac and iPhone developers: claim your app's page, Review radar, App Store pricing, launch day planner and app name checker.
 
 ## The Useful Library
 

@@ -552,6 +552,14 @@ p { margin: 0; }
 @media (hover: none) { .stage:hover .post { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) rotate(-1.5deg); } }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+/* 19 Nov 2026: smaller budgets go to the monthly spots on The Useful Apps */
+.mspot { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 20px; align-items: center; margin-top: 18px; padding: 18px 20px; border: 1px dashed var(--line); border-radius: var(--r); background: var(--sunk); }
+.mspot h3 { margin: 0 0 4px; font-size: 18px; } .mspot p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+.mspot ul { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.mspot li { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; }
+.mspot li i { width: 18px; height: 12px; border-radius: 3px; background: var(--purple); } .mspot li b { font-family: var(--mono); font-weight: 600; color: var(--purple-ink); }
+.mspot li:nth-child(1) i { clip-path: inset(30% 0 0 0); } .mspot li:nth-child(3) i { clip-path: inset(0 0 60% 0); }
+@media (max-width: 640px) { .mspot { grid-template-columns: 1fr; } }
 </style>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://theusefulmedia.com/"}, {"@type": "ListItem", "position": 2, "name": "Advertise with The Useful Tech", "item": "https://theusefulmedia.com/advertise/"}]}</script>
@@ -864,6 +872,11 @@ p { margin: 0; }
         <p class="bill-in">Made for Mac and iPhone apps a regular person installs for themselves, not VPN, security, password manager, crypto or smart home apps.</p>
         <pre id="msgText" hidden></pre>
       </div>
+    </div>
+    <div class="mspot">
+      <div><h3>Smaller budget? Book a monthly spot on The Useful Apps</h3><p>Keep your app in front of people choosing their next Mac or iPhone app. Live availability, pay monthly, cancel anytime.</p>
+        <ul><li><i aria-hidden="true"></i>Category pin <b>$15/mo</b></li><li><i aria-hidden="true"></i>Spotlight <b>$79/mo</b></li><li><i aria-hidden="true"></i>Sponsor bar <b>$125/mo</b></li></ul></div>
+      <a class="btn ghost" href="/apps/developers/book/?utm_source=advertise">See open months</a>
     </div>
   </section>
 

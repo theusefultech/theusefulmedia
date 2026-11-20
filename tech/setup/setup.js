@@ -5,7 +5,7 @@
   var sid = new URLSearchParams(location.search).get("s") || "";
   var form = document.querySelector("[data-form]");
   var tiles = Array.prototype.slice.call(document.querySelectorAll(".su-tile"));
-  var countEl = document.querySelector("[data-count]");
+  var countEl = document.querySelector("[data-picked]");
   var msg = document.querySelector("[data-msg]");
   var save = document.querySelector("[data-save]");
   function show(state) { var el = document.querySelector('[data-state="' + state + '"]'); if (el) el.hidden = false; }

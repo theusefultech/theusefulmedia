@@ -1,0 +1,5 @@
+name = "useful-signup"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+# Secrets BEEHIIV_API_KEY and TURNSTILE_SECRET live in Cloudflare and survive deploys.

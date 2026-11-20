@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        worker: [library-sync, library-search, book-links]
+        worker: [library-sync, library-search, book-links, useful-signup]
     steps:
       - uses: actions/checkout@v4
       - uses: cloudflare/wrangler-action@v3

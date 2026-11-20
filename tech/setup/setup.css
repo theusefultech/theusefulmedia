@@ -1,0 +1,32 @@
+/* theusefulmedia.com/tech/setup: readers tick their Apple devices and services */
+.su-hero { text-align: center; padding-block: clamp(2.5rem, 6vw, 4.5rem) 1.5rem; max-width: 46rem; }
+.su-kicker { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--purple); font-weight: 600; margin: 0 0 .75rem; }
+.su-hero h1 { font-size: clamp(1.9rem, 4.6vw, 3rem); line-height: 1.08; margin: 0 0 1rem; }
+.su-sub { color: color-mix(in srgb, var(--ink) 70%, transparent); font-size: 1.05rem; line-height: 1.55; margin: 0 auto; max-width: 38rem; }
+.su-board { max-width: 52rem; padding-bottom: clamp(3rem, 7vw, 5rem); }
+.su-state { border: 1.5px solid color-mix(in srgb, var(--ink) 14%, transparent); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; text-align: center; line-height: 1.55; }
+.su-state a { color: var(--purple); font-weight: 600; }
+.su-bad { border-color: #D2553F; }
+.su-form fieldset { border: 0; margin: 0 0 1.75rem; padding: 0; }
+.su-form legend { font-weight: 700; font-size: 1.1rem; margin-bottom: .85rem; }
+.su-hint { font-weight: 400; font-size: .85rem; color: color-mix(in srgb, var(--ink) 55%, transparent); margin-left: .4rem; }
+.su-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
+@media (max-width: 640px) { .su-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.su-tile { position: relative; display: grid; justify-items: center; gap: .55rem; padding: 1.1rem .6rem 1rem; border-radius: var(--radius-md); border: 1.5px solid color-mix(in srgb, var(--ink) 14%, transparent); background: var(--paper); color: var(--ink); font: inherit; font-size: .95rem; font-weight: 600; cursor: pointer; transition: transform 160ms ease, border-color 160ms ease, background 160ms ease; }
+.su-tile svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.su-tile:hover { border-color: var(--purple); }
+.su-tile:active { transform: scale(.97); }
+.su-tile:focus-visible { outline: 3px solid var(--purple); outline-offset: 2px; }
+.su-tile[aria-pressed="true"] { background: var(--lilac); border-color: var(--purple); color: #17172B; }
+.su-tick { position: absolute; top: .55rem; right: .55rem; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid color-mix(in srgb, var(--ink) 25%, transparent); }
+.su-tile[aria-pressed="true"] .su-tick { background: var(--purple); border-color: var(--purple); }
+.su-tile[aria-pressed="true"] .su-tick::after { content: ""; position: absolute; left: 6px; top: 2.5px; width: 5px; height: 10px; border: solid #FAFAF8; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.su-bar { position: sticky; bottom: 0; display: flex; align-items: center; gap: .75rem; padding: .9rem 0; background: var(--paper); border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); }
+.su-count { margin: 0 auto 0 0; font-weight: 600; }
+.su-clear { background: none; border: 0; color: color-mix(in srgb, var(--ink) 60%, transparent); font: inherit; cursor: pointer; text-decoration: underline; }
+.su-save { background: var(--ink); color: var(--paper); border: 0; border-radius: 999px; padding: .8rem 1.4rem; font: inherit; font-weight: 700; cursor: pointer; }
+.su-save[disabled] { opacity: .55; cursor: default; }
+.su-msg { min-height: 1.5em; margin: .5rem 0 0; font-weight: 600; }
+.su-msg.ok { color: #2F8F5B; }
+.su-msg.err { color: #D2553F; }
+.su-fine { margin-top: 1.5rem; font-size: .85rem; color: color-mix(in srgb, var(--ink) 55%, transparent); text-align: center; }

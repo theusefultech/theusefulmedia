@@ -1,6 +1,520 @@
 {
- "updated": "2026-11-19",
+ "updated": "2026-11-20",
  "people": [
+  {
+   "slug": "bernie-sanders",
+   "name": "Bernie Sanders",
+   "channels": [
+    "The Diary Of A CEO with Steven Bartlett"
+   ],
+   "books": [
+    {
+     "title": "It's OK to Be Angry About Capitalism",
+     "author": "",
+     "note": "Bestselling book by Sanders on capitalism and oligarchy",
+     "video": "pod-71551ca49051",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 0,
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Fight Oligarchy",
+     "author": "",
+     "note": "Book describing Donald Trump's America; linked to his Fight Oligarchy tour",
+     "video": "pod-71551ca49051",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 3760,
+     "date": "2026-11-20"
+    }
+   ]
+  },
+  {
+   "slug": "steven-bartlett",
+   "name": "Steven Bartlett",
+   "channels": [
+    "@TheDiaryOfACEO"
+   ],
+   "books": [
+    {
+     "title": "Fight Oligarchy",
+     "author": "",
+     "note": "Host references Bernie Sanders' book while asking about his views",
+     "video": "eocM1C3HfQg",
+     "url": null,
+     "ts": 3754,
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Conversations: How to Connect with Anyone and Make Every Interaction Count",
+     "author": "",
+     "note": "Host calls Vanessa Van Edwards' book brilliant, well timed given AI, and urges viewers to buy it",
+     "video": "q2cg1gEYWJQ",
+     "url": null,
+     "ts": 8759,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Bible",
+     "author": "",
+     "note": "Has read about half; plans a podcast series covering every book of it",
+     "video": "UQ3O04Wtqa4",
+     "url": null,
+     "ts": 4705,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Richard Dawkins books",
+     "author": "",
+     "note": "Read them during his new atheist phase around age 18-19",
+     "video": "UQ3O04Wtqa4",
+     "url": null,
+     "ts": 4453,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Bombing to Win: Air Power and Coercion in War",
+     "author": "",
+     "note": "Robert Pape's book on air power and coercion, raised when discussing Iran bombing models",
+     "video": "a1mI-ozLyYM",
+     "url": null,
+     "ts": 888,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Our Own Worst Enemies: America in the Age of Violent Populism",
+     "author": "",
+     "note": "Robert Pape's evidence-based book on violent populism; called the definitive book on the subject",
+     "video": "a1mI-ozLyYM",
+     "url": null,
+     "ts": 4931,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Brain Defenders",
+     "author": "",
+     "note": "Dr. Perlmutter's most recent book, praised by the host",
+     "video": "FRoQOzZRcpw",
+     "url": null,
+     "ts": 6810,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "ali-abdaal",
+   "name": "Ali Abdaal",
+   "channels": [
+    "Ali Abdaal",
+    "@aliabdaal"
+   ],
+   "books": [
+    {
+     "title": "Feel Good Productivity",
+     "author": "",
+     "note": "His own book, linked in the description as an easy purchase example",
+     "video": "FM9AOfcxNTI",
+     "url": null,
+     "ts": 1232,
+     "date": "2026-11-20"
+    },
+    {
+     "title": "The Paradox of Choice",
+     "author": "",
+     "note": "Barry Schwartz book, quoted on maximizers and choice",
+     "video": "kM0ZADKIXU8",
+     "url": null,
+     "ts": 583,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "Mindset",
+     "author": "",
+     "note": "Carol Dweck book on growth mindset; he has made a video about it",
+     "video": "kM0ZADKIXU8",
+     "url": null,
+     "ts": 702,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Science of Happily Ever After",
+     "author": "",
+     "note": "Cited for two key traits in a partner: emotional stability and kindness",
+     "video": "kM0ZADKIXU8",
+     "url": null,
+     "ts": 683,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "How to Not Die Alone",
+     "author": "",
+     "note": "Logan Ury's dating book; says it changed how he approaches his love life",
+     "video": "kM0ZADKIXU8",
+     "url": null,
+     "ts": 1,
+     "date": "2026-11-18"
+    },
+    {
+     "title": "The Surrender Experiment",
+     "author": "",
+     "note": "Michael Singer; suggested as a gateway into spiritual books instead of Power of Now",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 812,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Outlive",
+     "author": "",
+     "note": "Peter Attia's longevity book, huge; listened on Audible",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 627,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Steve Jobs",
+     "author": "Walter Isaacson",
+     "note": "Biography audiobook, compelling and engaging",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 590,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Million Dollar Weekend",
+     "author": "",
+     "note": "Noah Kagan's step-by-step roadmap to starting a business",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 532,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Death",
+     "author": "Meeting",
+     "note": "Patrick Lencioni business fable on meetings; listened on Audible",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 487,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Goal",
+     "author": "",
+     "note": "Eliyahu Goldratt's old-school business novel, over 10 million copies sold",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 446,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Traction",
+     "author": "",
+     "note": "Most recommended to entrepreneurs; for businesses of three or more people, read on Kindle",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 395,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Ready, Fire, Aim",
+     "author": "",
+     "note": "Michael Masterson business book with novel ideas on growing a business",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 267,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Slow Productivity",
+     "author": "",
+     "note": "Cal Newport's three rules of slow productivity",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 173,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Rest",
+     "author": "",
+     "note": "Alex Soojung-Kim Pang on resting more to boost creativity",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 121,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Pathless Path",
+     "author": "",
+     "note": "Paul Millerd's book, one of his favorites",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 61,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Good Work",
+     "author": "",
+     "note": "Paul Millerd's book on quitting a prestigious career; gives permission",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 58,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Getting Things Done",
+     "author": "",
+     "note": "David Allen's stress-free productivity system; read several times, boring but useful",
+     "video": "3KLE_xwbGqg",
+     "url": null,
+     "ts": 11,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Nicholas Cole online writing book",
+     "author": "",
+     "note": "Online writing book; most recommended to people starting online creator work",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 450,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "How to Win Friends and Influence People",
+     "author": "",
+     "note": "Named as possibly the other most famous self-help book",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 494,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 12 Immutable Laws of Marketing",
+     "author": "",
+     "note": "Read recently alongside Scorecard Marketing to level up in marketing",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 631,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Scorecard Marketing",
+     "author": "",
+     "note": "Daniel Priestley's short technical book on lead generation and marketing",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 578,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Seven Habits of Highly Effective People",
+     "author": "",
+     "note": "Stephen Covey classic; calls it best self-help book he has read",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 455,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Beyond Wealth",
+     "author": "",
+     "note": "Alexander Green book on happiness beyond money; life lessons, highlighted every chapter",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 286,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Storyworthy",
+     "author": "",
+     "note": "Matthew Dicks book on telling better stories; his favorite book of 2020",
+     "video": "N24X8kK7H4Q",
+     "url": null,
+     "ts": 116,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Way of Kings",
+     "author": "",
+     "note": "First Stormlight Archive book; Sanderson is his favourite author",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1352,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Rhythm of War",
+     "author": "",
+     "note": "Fourth Stormlight Archive book by Brandon Sanderson",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1347,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Final Empire",
+     "author": "",
+     "note": "Brandon Sanderson fiction; recommended as audiobook",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1340,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Four Obsessions of an Extraordinary Executive",
+     "author": "",
+     "note": "Pat Lencioni leadership fable on being a good team leader",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1150,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The New One Minute Manager",
+     "author": "",
+     "note": "Short management book: one minute goals, praisings, redirects",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 1116,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "It Doesn't Have to Be Crazy at Work",
+     "author": "",
+     "note": "Jason and David's book on decision-making, transparency, leadership; short and readable",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 989,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Millionaire Fast Lane",
+     "author": "",
+     "note": "MJ DeMarco; best book on building wealth through business",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 834,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Educated",
+     "author": "",
+     "note": "Tara Westover memoir, not self-help, very good",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 755,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Can't Hurt Me",
+     "author": "",
+     "note": "David Goggins memoir; best as audiobook; inspiring",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 679,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Happy Sexy Millionaire",
+     "author": "",
+     "note": "Steven Bartlett's book on fulfillment and success; plans to reread",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 582,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Die With Zero",
+     "author": "",
+     "note": "Bill Perkins on spending money and enjoying life rather than hoarding it",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 375,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Never Split the Difference",
+     "author": "",
+     "note": "Chris Voss, ex-FBI hostage negotiator; practical negotiation techniques; listened twice on Audible",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 298,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Models",
+     "author": "",
+     "note": "Mark Manson's book on attracting women through authenticity; Ali reread it this year",
+     "video": "lCrMAtbBUJA",
+     "url": null,
+     "ts": 190,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Think and Grow Rich",
+     "author": "",
+     "note": "Napoleon Hill book, grouped with Nightingale's goal-setting themes",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 685,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Atomic Habits",
+     "author": "",
+     "note": "Cited as an amazing book whose core idea is that small habits lead to great results",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 394,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Strangest Secret",
+     "author": "",
+     "note": "Earl Nightingale 1950s self-help; first half is great, skip the second",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 548,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Practice",
+     "author": "",
+     "note": "Seth Godin book on shipping creative work; he made about 70 highlights",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 171,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Four Hour Workweek",
+     "author": "",
+     "note": "Tim Ferriss book that changed his life; led him to use medical school years differently",
+     "video": "AvKGYyowFK4",
+     "url": null,
+     "ts": 55,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The World: A Brief Introduction",
+     "author": "",
+     "note": "Richard Haass book he is currently reading to understand world affairs",
+     "video": "szVXpM7VVMg",
+     "url": null,
+     "ts": 761,
+     "date": "2026-11-15"
+    },
+    {
+     "title": "$100M Offers",
+     "author": "",
+     "note": "Book on creating offers so good people feel stupid saying no; shaped academy's North Star",
+     "video": "dKsp8aXrwJw",
+     "url": null,
+     "ts": 73,
+     "date": "2026-11-15"
+    }
+   ]
+  },
   {
    "slug": "luke-dashwood",
    "name": "Luke Dashwood",
@@ -944,421 +1458,6 @@
      "url": null,
      "ts": 169,
      "date": "2026-11-18"
-    }
-   ]
-  },
-  {
-   "slug": "ali-abdaal",
-   "name": "Ali Abdaal",
-   "channels": [
-    "Ali Abdaal",
-    "@aliabdaal"
-   ],
-   "books": [
-    {
-     "title": "The Paradox of Choice",
-     "author": "",
-     "note": "Barry Schwartz book, quoted on maximizers and choice",
-     "video": "kM0ZADKIXU8",
-     "url": null,
-     "ts": 583,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Mindset",
-     "author": "",
-     "note": "Carol Dweck book on growth mindset; he has made a video about it",
-     "video": "kM0ZADKIXU8",
-     "url": null,
-     "ts": 702,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "The Science of Happily Ever After",
-     "author": "",
-     "note": "Cited for two key traits in a partner: emotional stability and kindness",
-     "video": "kM0ZADKIXU8",
-     "url": null,
-     "ts": 683,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "How to Not Die Alone",
-     "author": "",
-     "note": "Logan Ury's dating book; says it changed how he approaches his love life",
-     "video": "kM0ZADKIXU8",
-     "url": null,
-     "ts": 1,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "The Surrender Experiment",
-     "author": "",
-     "note": "Michael Singer; suggested as a gateway into spiritual books instead of Power of Now",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 812,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Outlive",
-     "author": "",
-     "note": "Peter Attia's longevity book, huge; listened on Audible",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 627,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Steve Jobs",
-     "author": "Walter Isaacson",
-     "note": "Biography audiobook, compelling and engaging",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 590,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Million Dollar Weekend",
-     "author": "",
-     "note": "Noah Kagan's step-by-step roadmap to starting a business",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 532,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Death",
-     "author": "Meeting",
-     "note": "Patrick Lencioni business fable on meetings; listened on Audible",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 487,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Goal",
-     "author": "",
-     "note": "Eliyahu Goldratt's old-school business novel, over 10 million copies sold",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 446,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Traction",
-     "author": "",
-     "note": "Most recommended to entrepreneurs; for businesses of three or more people, read on Kindle",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 395,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Ready, Fire, Aim",
-     "author": "",
-     "note": "Michael Masterson business book with novel ideas on growing a business",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 267,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Slow Productivity",
-     "author": "",
-     "note": "Cal Newport's three rules of slow productivity",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 173,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Rest",
-     "author": "",
-     "note": "Alex Soojung-Kim Pang on resting more to boost creativity",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 121,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Pathless Path",
-     "author": "",
-     "note": "Paul Millerd's book, one of his favorites",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 61,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Good Work",
-     "author": "",
-     "note": "Paul Millerd's book on quitting a prestigious career; gives permission",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 58,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Getting Things Done",
-     "author": "",
-     "note": "David Allen's stress-free productivity system; read several times, boring but useful",
-     "video": "3KLE_xwbGqg",
-     "url": null,
-     "ts": 11,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Nicholas Cole online writing book",
-     "author": "",
-     "note": "Online writing book; most recommended to people starting online creator work",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 450,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "How to Win Friends and Influence People",
-     "author": "",
-     "note": "Named as possibly the other most famous self-help book",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 494,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The 12 Immutable Laws of Marketing",
-     "author": "",
-     "note": "Read recently alongside Scorecard Marketing to level up in marketing",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 631,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Scorecard Marketing",
-     "author": "",
-     "note": "Daniel Priestley's short technical book on lead generation and marketing",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 578,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Seven Habits of Highly Effective People",
-     "author": "",
-     "note": "Stephen Covey classic; calls it best self-help book he has read",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 455,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Beyond Wealth",
-     "author": "",
-     "note": "Alexander Green book on happiness beyond money; life lessons, highlighted every chapter",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 286,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Storyworthy",
-     "author": "",
-     "note": "Matthew Dicks book on telling better stories; his favorite book of 2020",
-     "video": "N24X8kK7H4Q",
-     "url": null,
-     "ts": 116,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Way of Kings",
-     "author": "",
-     "note": "First Stormlight Archive book; Sanderson is his favourite author",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1352,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Rhythm of War",
-     "author": "",
-     "note": "Fourth Stormlight Archive book by Brandon Sanderson",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1347,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Final Empire",
-     "author": "",
-     "note": "Brandon Sanderson fiction; recommended as audiobook",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1340,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Four Obsessions of an Extraordinary Executive",
-     "author": "",
-     "note": "Pat Lencioni leadership fable on being a good team leader",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1150,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The New One Minute Manager",
-     "author": "",
-     "note": "Short management book: one minute goals, praisings, redirects",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 1116,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "It Doesn't Have to Be Crazy at Work",
-     "author": "",
-     "note": "Jason and David's book on decision-making, transparency, leadership; short and readable",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 989,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Millionaire Fast Lane",
-     "author": "",
-     "note": "MJ DeMarco; best book on building wealth through business",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 834,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Educated",
-     "author": "",
-     "note": "Tara Westover memoir, not self-help, very good",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 755,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Can't Hurt Me",
-     "author": "",
-     "note": "David Goggins memoir; best as audiobook; inspiring",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 679,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Happy Sexy Millionaire",
-     "author": "",
-     "note": "Steven Bartlett's book on fulfillment and success; plans to reread",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 582,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Die With Zero",
-     "author": "",
-     "note": "Bill Perkins on spending money and enjoying life rather than hoarding it",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 375,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Never Split the Difference",
-     "author": "",
-     "note": "Chris Voss, ex-FBI hostage negotiator; practical negotiation techniques; listened twice on Audible",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 298,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Models",
-     "author": "",
-     "note": "Mark Manson's book on attracting women through authenticity; Ali reread it this year",
-     "video": "lCrMAtbBUJA",
-     "url": null,
-     "ts": 190,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Think and Grow Rich",
-     "author": "",
-     "note": "Napoleon Hill book, grouped with Nightingale's goal-setting themes",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 685,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Atomic Habits",
-     "author": "",
-     "note": "Cited as an amazing book whose core idea is that small habits lead to great results",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 394,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Strangest Secret",
-     "author": "",
-     "note": "Earl Nightingale 1950s self-help; first half is great, skip the second",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 548,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Practice",
-     "author": "",
-     "note": "Seth Godin book on shipping creative work; he made about 70 highlights",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 171,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Four Hour Workweek",
-     "author": "",
-     "note": "Tim Ferriss book that changed his life; led him to use medical school years differently",
-     "video": "AvKGYyowFK4",
-     "url": null,
-     "ts": 55,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Feel Good Productivity",
-     "author": "",
-     "note": "his own bestselling book displayed on desk",
-     "video": "4eq7ienNumY",
-     "url": null,
-     "ts": 576,
-     "date": "2026-11-16"
-    },
-    {
-     "title": "The World: A Brief Introduction",
-     "author": "",
-     "note": "Richard Haass book he is currently reading to understand world affairs",
-     "video": "szVXpM7VVMg",
-     "url": null,
-     "ts": 761,
-     "date": "2026-11-15"
-    },
-    {
-     "title": "$100M Offers",
-     "author": "",
-     "note": "Book on creating offers so good people feel stupid saying no; shaped academy's North Star",
-     "video": "dKsp8aXrwJw",
-     "url": null,
-     "ts": 73,
-     "date": "2026-11-15"
     }
    ]
   },
@@ -6037,69 +6136,6 @@
    ]
   },
   {
-   "slug": "steven-bartlett",
-   "name": "Steven Bartlett",
-   "channels": [
-    "@TheDiaryOfACEO"
-   ],
-   "books": [
-    {
-     "title": "Conversations: How to Connect with Anyone and Make Every Interaction Count",
-     "author": "",
-     "note": "Host calls Vanessa Van Edwards' book brilliant, well timed given AI, and urges viewers to buy it",
-     "video": "q2cg1gEYWJQ",
-     "url": null,
-     "ts": 8759,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Bible",
-     "author": "",
-     "note": "Has read about half; plans a podcast series covering every book of it",
-     "video": "UQ3O04Wtqa4",
-     "url": null,
-     "ts": 4705,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Richard Dawkins books",
-     "author": "",
-     "note": "Read them during his new atheist phase around age 18-19",
-     "video": "UQ3O04Wtqa4",
-     "url": null,
-     "ts": 4453,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Bombing to Win: Air Power and Coercion in War",
-     "author": "",
-     "note": "Robert Pape's book on air power and coercion, raised when discussing Iran bombing models",
-     "video": "a1mI-ozLyYM",
-     "url": null,
-     "ts": 888,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Our Own Worst Enemies: America in the Age of Violent Populism",
-     "author": "",
-     "note": "Robert Pape's evidence-based book on violent populism; called the definitive book on the subject",
-     "video": "a1mI-ozLyYM",
-     "url": null,
-     "ts": 4931,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Brain Defenders",
-     "author": "",
-     "note": "Dr. Perlmutter's most recent book, praised by the host",
-     "video": "FRoQOzZRcpw",
-     "url": null,
-     "ts": 6810,
-     "date": "2026-11-17"
-    }
-   ]
-  },
-  {
    "slug": "the-diary-of-a-ceo",
    "name": "The Diary of a CEO",
    "channels": [
@@ -6506,6 +6542,28 @@
   }
  ],
  "ranking": [
+  {
+   "title": "It's OK to Be Angry About Capitalism",
+   "author": "",
+   "people": [
+    "bernie-sanders"
+   ]
+  },
+  {
+   "title": "Fight Oligarchy",
+   "author": "",
+   "people": [
+    "bernie-sanders",
+    "steven-bartlett"
+   ]
+  },
+  {
+   "title": "Feel Good Productivity",
+   "author": "",
+   "people": [
+    "ali-abdaal"
+   ]
+  },
   {
    "title": "The Courage to be Disliked",
    "author": "",
@@ -10455,13 +10513,6 @@
    "author": "",
    "people": [
     "dante-kim"
-   ]
-  },
-  {
-   "title": "Feel Good Productivity",
-   "author": "",
-   "people": [
-    "ali-abdaal"
    ]
   },
   {

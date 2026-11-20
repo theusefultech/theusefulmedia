@@ -61,6 +61,46 @@ def read_medium():
     return out
 
 
+REACH_URL = "https://theusefulmedia.com/apps/api/reach"
+SUBS_URL = "https://useful-signup.raja-822.workers.dev/?count=tech"
+CLICKS_MIN = 100  # the clicks tile stays hidden until it shows a number worth showing
+
+
+def read_reach(facts):
+    """M06: site visitors and clicks sent to apps (useful-apps Worker), newsletter subscribers (useful-signup Worker)."""
+    try:
+        r = json.loads(fetch(REACH_URL))
+        v, first = int(r.get("visitors") or 0), r.get("visitorsSince")
+        if v >= 100:
+            facts["siteVisitors"] = f"{v:,}"
+            if not first or (dt.date.today() - dt.date.fromisoformat(first)).days >= 29:
+                facts["siteVisitorsLabel"] = "site visitors in the last 30 days"
+            else:
+                d = dt.date.fromisoformat(first)
+                facts["siteVisitorsLabel"] = f"site visitors since {d.day} {d.strftime('%b')}"
+        c = int(r.get("appClicks") or 0)
+        if c >= CLICKS_MIN:
+            facts["appClicks"] = f"{c:,}"
+            cf = r.get("clicksSince")
+            if cf and (dt.date.today() - dt.date.fromisoformat(cf)).days >= 29:
+                facts["appClicksLabel"] = "clicks sent to apps in the last 30 days"
+            elif cf:
+                d = dt.date.fromisoformat(cf)
+                facts["appClicksLabel"] = f"clicks sent to apps since {d.day} {d.strftime('%b')}"
+        else:
+            facts.pop("appClicks", None); facts.pop("appClicksLabel", None)
+        print("reach:", r)
+    except Exception as e:
+        print("reach not read, keeping old numbers:", e, file=sys.stderr)
+    try:
+        n = json.loads(fetch(SUBS_URL)).get("subscribers")
+        if isinstance(n, int) and 500 <= n <= 100000:
+            facts["newsletterSubs"] = f"{n:,}"
+            print("newsletter:", n)
+    except Exception as e:
+        print("newsletter count not read, keeping old number:", e, file=sys.stderr)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--newsletter", help="Beehiiv The Useful Tech active subscribers, e.g. 1,340")
@@ -68,6 +108,7 @@ def main():
     args = ap.parse_args()
     facts = json.loads(FACTS.read_text())
     old = dict(facts)
+    read_reach(facts)
     if args.newsletter:
         n = num(args.newsletter)
         if 500 <= n <= 100000:
@@ -104,6 +145,8 @@ def main():
         # every <x data-fact="key">value</x>
         s = re.sub(r'(data-fact="(\w+)">)([^<]*)(<)',
                    lambda mm: mm.group(1) + (mm.group(3) if mm.group(2) == "updated" else facts.get(mm.group(2), mm.group(3))) + mm.group(4), s)
+        # tiles that wait for a number (data-need="key") are hidden until facts.json has it
+        s = re.sub(r'(<[a-z]+ [^>]*data-need="(\w+)")( hidden)?', lambda mm: mm.group(1) + ("" if facts.get(mm.group(2)) else " hidden"), s)
         if s != s0:  # numbers moved, so the "as of" date moves too
             s = re.sub(r'(data-fact="updated">)[^<]*(<)', rf"\g<1>{pretty_day}\2", s)
         # rounded follower counts: 78,000 / 78,000+ / 78K+ / data-count="78" data-suffix="K+"

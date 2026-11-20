@@ -152,6 +152,22 @@ p { margin: 0; }
 @keyframes ping { 0% { opacity: .8; transform: scale(.9); } 70%, 100% { opacity: 0; transform: scale(1.25); } }
 @media (max-width: 880px) { .hero { grid-template-columns: minmax(0, 1fr); } .stage { max-width: 520px; } }
 
+/* Live numbers strip (M06): refreshed every morning by scripts/refresh_facts.py */
+.live { display: grid; gap: 16px; }
+.live-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 18px; }
+.live-top h2 { font-size: clamp(22px, 2.6vw, 28px); max-width: none; }
+.live-top .src { font: 500 12px var(--mono); color: var(--ink-soft); }
+.live-top .src i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); margin-right: 6px; box-shadow: 0 0 0 4px color-mix(in srgb, var(--mint) 22%, transparent); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.tile { padding: 18px 20px; display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; align-items: center; }
+.tile[hidden] { display: none; }
+.tile .ti { grid-row: span 2; width: 42px; height: 42px; border-radius: 12px; background: var(--purple-soft); color: var(--purple-ink); display: grid; place-items: center; }
+.tile .ti svg { width: 20px; height: 20px; }
+.tile b { font-size: clamp(26px, 2.8vw, 32px); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.tile span:last-child { color: var(--ink-soft); font-size: 14px; }
+.live-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; padding: 14px 18px; border-radius: var(--r); background: var(--sunk); }
+.live-foot p { font-size: 15px; } .live-foot p b { color: var(--ink); }
+.live-foot a.res { color: var(--purple-ink); font-weight: 600; }
 /* Results */
 .results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .result { padding: 22px; display: grid; gap: 14px; align-content: start; transition: transform .25s ease; }
@@ -677,6 +693,23 @@ p { margin: 0; }
     </div>
   </header>
 
+  <section class="live" id="live" aria-labelledby="live-h">
+    <div class="live-top">
+      <h2 id="live-h">The numbers today</h2>
+      <p class="src"><i aria-hidden="true"></i>Updated every morning, last on <span data-fact="updated">20 Nov 2026</span></p>
+    </div>
+    <div class="tiles" data-visual>
+      <div class="tile card"><span class="ti" aria-hidden="true"><svg><use href="#i-pen"/></svg></span><b data-fact="followers">78,753</b><span><a href="https://mymedium.info/@theusefultech/">Medium followers</a></span></div>
+      <div class="tile card"><span class="ti" aria-hidden="true"><svg><use href="#i-mail"/></svg></span><b data-fact="newsletterSubs">1,364</b><span>newsletter subscribers</span></div>
+      <div class="tile card" data-need="siteVisitors"><span class="ti" aria-hidden="true"><svg><use href="#i-eye"/></svg></span><b data-fact="siteVisitors">866</b><span data-fact="siteVisitorsLabel">site visitors since 5 Nov</span></div>
+      <div class="tile card" data-need="appClicks" hidden><span class="ti" aria-hidden="true"><svg><use href="#i-rocket"/></svg></span><b data-fact="appClicks">0</b><span data-fact="appClicksLabel">clicks sent to apps</span></div>
+    </div>
+    <div class="live-foot">
+      <p><b>MacPaw booked twice:</b> a $2,000 Eney campaign, then a CleanMyMac spot. <a class="res" href="#results">See every sponsor</a></p>
+      <a class="btn ghost" href="/apps/developers/book/?utm_source=advertise-live">See open months <svg class="arrow"><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+
   <section id="results">
     <div class="head">
       <h2>Apps keep booking, and the posts stay up for good</h2>
@@ -1123,6 +1156,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
     if (!f) return;
     if (f.updated) { var p = f.updated.split('-'); f.updated = (+p[2]) + ' ' + MONTHS[+p[1] - 1] + ' ' + p[0]; }
     Array.prototype.forEach.call(document.querySelectorAll('[data-fact]'), function (el) { var k = el.getAttribute('data-fact'); if (f[k]) el.textContent = f[k]; });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-need]'), function (el) { el.hidden = !f[el.getAttribute('data-need')]; });
   }).catch(function () {});
 
   /* ---------- See your app at #1 ---------- */

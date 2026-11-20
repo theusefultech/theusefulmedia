@@ -48,6 +48,9 @@ export default {
     const cors = corsHeaders(origin);
 
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
+    // 20 Nov 2026 (M06): GET ?count=tech gives the newsletter's active subscriber count, read nightly by
+    // scripts/refresh_facts.py for the Advertise page. A total only, cached 6 hours.
+    if (request.method === "GET" && new URL(request.url).searchParams.has("count")) return subscriberCount(new URL(request.url).searchParams.get("count"), env, ctx);
     if (request.method !== "POST") return json({ ok: false, code: "method" }, 405, cors);
     if (!ALLOWED_ORIGINS.includes(origin)) return json({ ok: false, code: "origin" }, 403, cors);
 
@@ -243,4 +246,19 @@ async function createSubscriber(apiKey, email, body, request, list) {
 function clean(v) {
   if (!v) return "";
   return String(v).slice(0, 200);
+}
+
+async function subscriberCount(which, env, ctx) {
+  const list = LISTS[which] || LISTS.tech;
+  const ck = new Request("https://useful-signup-cache/count/" + list.publication);
+  const hit = await caches.default.match(ck);
+  if (hit) return hit;
+  let n = null;
+  try {
+    const res = await fetch(`https://api.beehiiv.com/v2/publications/${list.publication}?expand[]=stats`, { headers: { Authorization: `Bearer ${env.BEEHIIV_API_KEY}` } });
+    if (res.ok) { const d = await res.json(); n = d && d.data && d.data.stats ? d.data.stats.active_subscriptions : null; }
+  } catch (e) {}
+  const out = new Response(JSON.stringify({ ok: typeof n === "number", subscribers: typeof n === "number" ? n : null }), { headers: { "content-type": "application/json", "cache-control": "public, max-age=21600" } });
+  if (typeof n === "number") ctx.waitUntil(caches.default.put(ck, out.clone()));
+  return out;
 }

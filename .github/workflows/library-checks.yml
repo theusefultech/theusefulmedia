@@ -1,3 +1,6 @@
+# Free Library QA on GitHub (no Claude usage). 20 Nov 2026: Raja chose "E" to cut the Library task's usage:
+# the Claude task only writes pages; this workflow runs every check, and saves its result to the qa-status branch
+# (library.json) so the next Claude run fixes anything that failed. GitHub also emails the owner when it fails.
 name: Library checks
 on:
   push:
@@ -6,6 +9,11 @@ on:
   schedule:
     - cron: "41 20 * * *"   # daily, 2:11 AM IST: catches anything that broke overnight
   workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: library-checks
+  cancel-in-progress: true
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -14,10 +22,16 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: Static checks on the live pages (h1, canonical, JSON-LD, links, share images, em dashes)
+        id: static
+        continue-on-error: true
         run: python3 scripts/library_qa/check_static.py
       - name: The builder still runs cleanly from source
-        run: python3 scripts/build_library_site.py && python3 scripts/library_qa/check_static.py
-      - name: Game puzzles stay at least 7 days ahead
+        id: builder
+        continue-on-error: true
+        run: python3 scripts/build_library_site.py && python3 scripts/library_qa/check_static.py && git checkout -- . && git clean -fdq library
+      - name: Game puzzles stay at least 14 days ahead
+        id: game_ahead
+        continue-on-error: true
         run: |
           python3 - <<'PY'
           import re, datetime, sys
@@ -26,5 +40,54 @@ jobs:
           last = datetime.date(2026, 11, 12) + datetime.timedelta(days=n - 1)
           left = (last - datetime.date.today()).days
           print(f"{n} puzzles, last new one on {last}, {left} days left")
-          sys.exit(1 if left < 7 else 0)
+          sys.exit(1 if left < 14 else 0)
           PY
+      - name: Browser tests (layout at 6 widths, light and dark, game, interactions, problems, books, AI search)
+        id: browser
+        continue-on-error: true
+        run: |
+          pip install -q playwright==1.48.0
+          test -x /usr/bin/google-chrome || python3 -m playwright install --with-deps chromium
+          bash scripts/library_qa/run_all.sh
+      - name: Live pages return 200 (every /library/ URL in the sitemap)
+        id: live
+        continue-on-error: true
+        run: |
+          [ "${{ github.event_name }}" = "push" ] && sleep 120
+          python3 - <<'PY'
+          import re, sys, urllib.request
+          urls = [u for u in re.findall(r"<loc>([^<]+)</loc>", open("sitemap.xml").read()) if "/library/" in u]
+          bad = []
+          for u in urls:
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "useful-library-qa"}), timeout=30)
+                  if r.status != 200: bad.append(f"{u} {r.status}")
+              except Exception as e:
+                  bad.append(f"{u} {e}")
+          print(f"{len(urls)} URLs checked, {len(bad)} bad")
+          for b in bad: print("BAD", b)
+          sys.exit(1 if bad else 0)
+          PY
+      - name: Save result to the qa-status branch for the Claude task
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, datetime
+          steps = {"static": "${{ steps.static.outcome }}", "builder": "${{ steps.builder.outcome }}",
+                   "game_14_days_ahead": "${{ steps.game_ahead.outcome }}", "browser_tests": "${{ steps.browser.outcome }}",
+                   "live_200": "${{ steps.live.outcome }}"}
+          failed = [k for k, v in steps.items() if v != "success"]
+          json.dump({"at": datetime.datetime.utcnow().isoformat() + "Z", "sha": "${{ github.sha }}", "ok": not failed,
+                     "failed": failed, "steps": steps,
+                     "run": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"},
+                    open("/tmp/library.json", "w"), indent=1)
+          print(open("/tmp/library.json").read())
+          PY
+          git config user.name "useful-archive-bot"
+          git config user.email "actions@users.noreply.github.com"
+          cd /tmp && rm -rf qs && mkdir qs && cd qs && git init -q && git checkout -q -b qa-status
+          cp /tmp/library.json . && git add library.json && git commit -qm "Library QA status"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" qa-status
+      - name: Fail the run if any check failed (GitHub emails the owner)
+        if: steps.static.outcome != 'success' || steps.builder.outcome != 'success' || steps.game_ahead.outcome != 'success' || steps.browser.outcome != 'success' || steps.live.outcome != 'success'
+        run: exit 1

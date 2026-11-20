@@ -10,6 +10,17 @@ from data files. Never hand-edit files under `library/` that the builder writes.
 - `library/img/covers/<slug>.webp`: covers, 600px wide, sharp. Source: `https://m.media-amazon.com/images/P/<ISBN-10>.01._SCRMZZZZZZ_.jpg`
   (full size), resized to 600px wide WebP quality 84. Look at every new cover before using it. Wrong edition or blurry = do not ship.
 
+## Start of every run: read the free QA result first (since 20 Nov 2026)
+The GitHub workflow `.github/workflows/library-checks.yml` runs every check for free (static checks, builder, game 14+ days
+ahead, Playwright browser tests at 6 widths, live 200 checks) after every push and daily at 2:11 AM IST. It saves its result
+to the `qa-status` branch. Read it with `git fetch -q --depth=1 origin qa-status && git show FETCH_HEAD:library.json`.
+- `ok: true`: do no maintenance. Go straight to the daily job.
+- `ok: false`: fix only the steps in `failed` (the run link has the log; reproduce locally with the matching script), then
+  continue with the daily job. Do not run checks that passed.
+- Branch missing: carry on with the daily job.
+Never run `run_all.sh`, `site_wiring.py`, `seo_pass.py` or live URL checks yourself unless you are fixing a failed step:
+GitHub runs them (seo.yml runs wiring and SEO on every push).
+
 ## Daily job: 3 new pages a day
 1. Read `scripts/library_problems.py` and `scripts/library_books.py`. Pick the next problem from the `problems` list in the
    builder that has no page yet (status SOON), or a new real problem readers search for in habits, focus, money or mindset.
@@ -29,12 +40,12 @@ from data files. Never hand-edit files under `library/` that the builder writes.
 6. Build: `python3 scripts/build_library_site.py`, then render share images:
    start `python3 -m http.server 8765` in the repo root, run `python3 scripts/render_library_og.py`, quantize the PNGs
    (see the end of this file), rebuild.
-7. Wiring: `python3 scripts/site_wiring.py && python3 scripts/seo_pass.py`.
-8. QA: `bash scripts/library_qa/run_all.sh` must exit 0. Look at 1 new problem page and 1 new book page screenshot on a
-   390px phone width. Fix anything broken before pushing.
+7. Wiring and SEO: skip. The seo.yml workflow runs them on GitHub after the push.
+8. QA before pushing: `python3 scripts/library_qa/check_static.py` must pass. Look at 1 new problem page screenshot on a 390px
+   phone width. Fix anything broken. The full browser tests run on GitHub after the push.
 9. Commit as `Claude <noreply@anthropic.com>`, then `git fetch origin main && git rebase origin/main && git push origin HEAD:main`.
    GitHub Pages deploys; the SEO workflow pings IndexNow; sitemap and llms.txt are updated by the builder.
-10. Verify each new URL returns 200 on theusefulmedia.com after about 90 seconds.
+10. Live checks: skip. The library-checks workflow checks every /library/ URL after the push.
 11. Only if something failed after trying to fix it: email Raja what failed and why. Otherwise stay silent.
 
 ## When anything is updated

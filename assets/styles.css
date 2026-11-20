@@ -113,7 +113,7 @@ a { color: inherit; }
 .nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--purple); }
 
 @media (max-width: 640px) {
-  .brand-name { display: none; }
+  .brand-name { font-size: 15px; letter-spacing: -.01em; white-space: nowrap; }
   .nav { gap: 1.1rem; }
   .nav a { font-size: 0.9rem; }
 }
@@ -1650,3 +1650,5 @@ a.qitem:hover { opacity: 1; }
   .hin-from { font-size: .64rem; }
   .hin-all { display: none; }
 }
+
+@media (max-width: 359px) { .brand-name { display: none; } }

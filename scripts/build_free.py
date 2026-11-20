@@ -16,13 +16,13 @@ DATA = os.path.join("free", "free.json")
 PREVIEW = "--preview" in sys.argv
 
 SHOP = {
-    "iPhone-setup-guide": ("The Ultimate iPhone Setup Guide", "The settings, apps and hidden features most iPhone owners never find.", "iphone-setup-guide"),
-    "siri-prompts": ("100 Siri AI Prompts", "The Siri prompts you will use again and again, sorted by what you're doing.", "siri-prompts"),
-    "mac-setup-guide": ("The Mac Setup Guide", "Go from unboxing to a Mac set up exactly how you want it in one weekend.", "mac-setup-guide"),
-    "iphone-power-user-fix": ("The iPhone Power User Fix Book", "45 fixes for the annoying things stock iOS apps do, organised by app.", "iphone-power-user-fix"),
-    "apple-bundle": ("The Ultimate Apple Productivity Bundle", "4 of the most popular Apple guides, together in one bundle.", "apple-bundle"),
-    "cowork-mastery-guide": ("Cowork Mastery", "Set up Claude Cowork on your Mac so it does the work instead of waiting for prompts.", "cowork-mastery-guide"),
-    "exmyz": ("The Daily Shift Wallpaper System", "36 iPhone wallpapers that change on their own with the time of day.", "exmyz"),
+    "iPhone-setup-guide": ("The Ultimate iPhone Setup Guide", "The settings, apps and hidden features most iPhone owners never find.", "iphone-setup-guide", "$29"),
+    "siri-prompts": ("100 Siri AI Prompts", "The Siri prompts you will use again and again, sorted by what you're doing.", "siri-prompts", "$19"),
+    "mac-setup-guide": ("The Mac Setup Guide", "Go from unboxing to a Mac set up exactly how you want it in one weekend.", "mac-setup-guide", "$39"),
+    "iphone-power-user-fix": ("The iPhone Power User Fix Book", "45 fixes for the annoying things stock iOS apps do, organised by app.", "iphone-power-user-fix", "$19"),
+    "apple-bundle": ("The Ultimate Apple Productivity Bundle", "4 of the most popular Apple guides, together in one bundle.", "apple-bundle", "$49"),
+    "cowork-mastery-guide": ("Cowork Mastery", "Set up Claude Cowork on your Mac so it does the work instead of waiting for prompts.", "cowork-mastery-guide", "$59"),
+    "exmyz": ("The Daily Shift Wallpaper System", "36 iPhone wallpapers that change on their own with the time of day.", "exmyz", "$7.99"),
 }
 TAGS = {"iphone": "iPhone", "mac": "Mac", "ipad": "iPad", "watch": "Apple Watch", "siri": "Siri AI", "ai": "AI", "notes": "Notes",
         "ios27": "iOS 27", "macos27": "macOS 27", "apps": "Apps", "money": "Save money", "travel": "Travel"}
@@ -135,12 +135,16 @@ def page(p, items):
     inside = "".join(f'<li style="--n:{i}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg><span>{esc(x)}</span></li>'
                      for i, x in enumerate(p["inside"]))
     up = SHOP.get(p.get("upsell"))
-    upsell = ""
+    upsell = done_up = ""
     if up:
         upsell = (f'<a class="upsell" href="https://theusefultech.gumroad.com/l/{p["upsell"]}?utm_source=free&utm_medium=freebie&utm_campaign={p["slug"]}">'
                   f'<span class="upsell-cover"><img src="/assets/products/{up[2]}.webp" alt="" loading="lazy"></span>'
                   f'<span class="upsell-copy"><span class="kicker">From the shop</span><span class="upsell-name">{esc(up[0])}</span>'
-                  f'<span class="upsell-line">{esc(up[1])}</span><span class="upsell-cta">Take a look{ARROW}</span></span></a>')
+                  f'<span class="upsell-line">{esc(up[1])}</span><span class="upsell-cta">Get it for {up[3]}{ARROW}</span></span></a>')
+        done_up = (f'<a class="done-up" href="https://theusefultech.gumroad.com/l/{p["upsell"]}?wanted=true&amp;utm_source=free&amp;utm_medium=after-download&amp;utm_campaign={p["slug"]}" target="_blank" rel="noopener">'
+                   f'<img src="/assets/products/{up[2]}.webp" alt="" width="56" height="56" loading="lazy">'
+                   f'<span><span class="done-up-k">Want to go further?</span><span class="done-up-n">{esc(up[0])}</span></span>'
+                   f'<span class="done-up-p">{up[3]}</span></a>')
     same = [q for q in items if q["slug"] != p["slug"] and set(q["tags"]) & set(p["tags"])]
     rest = [q for q in items if q["slug"] != p["slug"] and q not in same]
     related = (same + rest)[:3]
@@ -180,6 +184,7 @@ def page(p, items):
       <p class="done-name">{esc(p["name"])}</p>
       {dl_link}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a>
       <p class="fine">Your welcome email from The Useful Tech is on its way too.</p>
+      {done_up}
     </div>
   </div>
 </section>
@@ -213,7 +218,8 @@ def index(items):
         f'<button class="chip-f" type="button" data-f="{t}" aria-pressed="false">{TAGS[t]}</button>' for t in order)
     total = sum(p["downloads"] for p in items)
     return head("Free downloads from The Useful Tech", "Free guides, checklists and cheat sheets for your iPhone, iPad and Mac.",
-                f"{SITE}/free/", og_img(items[0]['slug'])) + f'''<script src="/free/free.js" defer></script>
+                f"{SITE}/free/", og_img(items[0]['slug'])) + f'''<script src="/tech/tech.js" defer></script>
+<script src="/free/free.js" defer></script>
 </head>
 <body class="fr">
 {HEADER}<main id="main">
@@ -225,6 +231,22 @@ def index(items):
 </section>
 <section class="wrap">
   <ul class="fgrid fgrid--all">{"".join(card(p) for p in items)}</ul>
+</section>
+<section class="wrap fr-nl" aria-labelledby="nl-h">
+  <div class="fr-nl-art" aria-hidden="true" data-visual><span></span><span></span><span></span></div>
+  <div class="fr-nl-copy">
+    <h2 id="nl-h">Get the next free guide first</h2>
+    <p>New guides go out in The Useful Tech newsletter. 3 short emails a week, free.</p>
+    <div class="signup">
+      <form class="signup-form" data-signup data-campaign="free-hub" novalidate>
+        <label class="visually-hidden" for="email-hub">Email address</label>
+        <input id="email-hub" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Get the newsletter</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+    </div>
+  </div>
 </section>
 </main>
 {FOOTER}</body>

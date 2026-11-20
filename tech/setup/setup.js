@@ -2,7 +2,8 @@
 // The newsletter links here with ?s={{subscriber_id}}; the Worker checks it with Beehiiv.
 (function () {
   var API = "https://useful-signup.raja-822.workers.dev";
-  var sid = new URLSearchParams(location.search).get("s") || "";
+  var sid = (new URLSearchParams(location.search).get("s") || "").trim().toLowerCase();
+  if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(sid)) sid = "sub_" + sid; // bare id from the merge tag
   var form = document.querySelector("[data-form]");
   var tiles = Array.prototype.slice.call(document.querySelectorAll(".su-tile"));
   var countEl = document.querySelector("[data-picked]");

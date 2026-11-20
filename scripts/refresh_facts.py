@@ -73,7 +73,9 @@ def read_reach(facts):
         v, first = int(r.get("visitors") or 0), r.get("visitorsSince")
         if v >= 100:
             facts["siteVisitors"] = f"{v:,}"
-            if not first or (dt.date.today() - dt.date.fromisoformat(first)).days >= 29:
+            if not first:
+                pass  # keep the old label rather than guess the period
+            elif (dt.date.today() - dt.date.fromisoformat(first)).days >= 29:
                 facts["siteVisitorsLabel"] = "site visitors in the last 30 days"
             else:
                 d = dt.date.fromisoformat(first)

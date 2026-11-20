@@ -732,11 +732,11 @@ write(f'{R}/books/index.html',booksp)
 
 # Ideas hub
 id_h,id_ld=crumbs([("Ideas",None)])
-ideas_by_area="".join(f'<section class="hub-sec" id="{k}"><h2>{html.escape(AREA_META[k][0])}</h2><div class="grid">'+"".join(idea_card(it) for it in IDEAS if it["area"]==k)+'</div></section>' for k in AREA_META if any(it["area"]==k for it in IDEAS))
+ideas_by_area="".join(f'<section class="hub-sec" id="{k}"><div style="display:flex;align-items:center;gap:14px"><span class="art-box" style="width:64px;height:64px;border-radius:18px;flex:none" aria-hidden="true">{A.scene(k).replace('<svg class="art"','<svg class="art" width="56" height="56"')}</span><h2>{html.escape(AREA_META[k][0])}</h2></div><div class="grid">'+"".join(idea_card(it) for it in IDEAS if it["area"]==k)+'</div></section>' for k in AREA_META if any(it["area"]==k for it in IDEAS))
 ideasp=head("Ideas: 1 idea from a book, 2 minutes to try | The Useful Library","Single ideas from the best nonfiction books, each with 1 thing to try today, sorted by habits, focus, money and mindset.","/library/ideas/",[id_ld])+'</head>\n<body>\n'+nav("idea")+f'''
 <main id="main" class="wrap">
 {id_h}
-<section style="display:flex;flex-direction:column;gap:12px;padding-top:4px"><p class="mono rise">Ideas</p><h1 class="rise d1">1 idea, 2 minutes to try</h1><p class="lede rise d2">The single most useful ideas from nonfiction books. Each one comes with something you can do today.</p><div class="rise d2">{byline()}</div></section>
+<section class="row" style="align-items:center;gap:32px;padding-top:4px"><div class="grow-main" style="display:flex;flex-direction:column;gap:12px"><p class="mono rise">Ideas</p><h1 class="rise d1">1 idea, 2 minutes to try</h1><p class="lede rise d2">The single most useful ideas from nonfiction books. Each one comes with something you can do today.</p><div class="rise d2">{byline()}</div></div><span class="tile in" style="background:none;box-shadow:none;padding:0"><span class="art-box" style="width:190px;height:190px;border-radius:32px">{A.scene("read").replace('<svg class="art"','<svg class="art" width="170" height="170"')}</span></span></section>
 {toc([(k,AREA_META[k][0].split(" and ")[0]) for k in AREA_META if any(it["area"]==k for it in IDEAS)])}
 {ideas_by_area}
 {SIGNUP.replace("CAMP","ideas")}

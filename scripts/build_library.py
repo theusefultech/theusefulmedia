@@ -319,7 +319,7 @@ HEAD = """<!doctype html>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/><rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/><rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/><rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg><span class="brand-name">The Useful Tech</span></a>
+    <a class="brand" href="/tech/" aria-label="The Useful Tech newsletter"><img class="mark" src="/logo.svg" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:7px"><span class="brand-name">The Useful Tech</span></a>
     <div class="header-end">
       <a class="is-head-link" href="/tech/library/">Library</a>
       <a class="is-head-cta" href="/tech/#join" data-subscribe data-source="issue">Subscribe free</a>

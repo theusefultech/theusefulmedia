@@ -28,10 +28,7 @@ TAGS = {"iphone": "iPhone", "mac": "Mac", "ipad": "iPad", "watch": "Apple Watch"
         "ios27": "iOS 27", "macos27": "macOS 27", "apps": "Apps", "money": "Save money", "travel": "Travel"}
 
 ARROW = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>'
-MARK = ('<svg class="mark" viewBox="0 0 30 19.5" aria-hidden="true"><rect x="0" y="0" width="9" height="9" rx="1.6"/>'
-        '<rect x="10.5" y="0" width="9" height="9" rx="1.6"/><rect x="21" y="0" width="9" height="9" rx="1.6"/>'
-        '<rect x="0" y="10.5" width="9" height="9" rx="1.6"/><rect x="10.5" y="10.5" width="9" height="9" rx="1.6"/>'
-        '<rect x="21" y="10.5" width="9" height="9" rx="1.6"/></svg>')
+MARK = ('<img class="mark" src="/logo.svg" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:7px">')
 
 
 def esc(s):

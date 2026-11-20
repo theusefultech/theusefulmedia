@@ -110,7 +110,8 @@ async function handleSetup(body, env, cors) {
   if (!sub || sub.status !== "active") return json(fail("sid"), 200, cors);
 
   if (body.action === "setup_get") {
-    const f = (sub.custom_fields || []).find((c) => c.name === SETUP_FIELD);
+    // Beehiiv reads the field back under its display name ("Apple setup").
+    const f = (sub.custom_fields || []).find((c) => c.name === SETUP_FIELD || c.name === "Apple setup");
     const items = f && f.value ? String(f.value).split(",").filter((x) => SETUP_ITEMS.includes(x)) : [];
     return json({ ok: true, items }, 200, cors);
   }

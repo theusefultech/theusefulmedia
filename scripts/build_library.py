@@ -306,7 +306,7 @@ HEAD = """<!doctype html>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/tech/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/tech/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 <link rel="stylesheet" href="/tech/tech.css">

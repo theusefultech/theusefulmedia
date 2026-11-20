@@ -2,12 +2,6 @@
 /contact/
 /library/privacy/
 /privacy/
-/studio/explainer-videos-with-claude-code/
-/studio/launch-video-for-your-app/
-/studio/vs-claude-motion/
-/studio/vs-hyperframes/
-/studio/vs-lemo-opuscar/
-/studio/vs-remotion/
 /terms/
 /wristkeeper/privacy/
 /wristkeeper/support/

@@ -1,7 +1,1 @@
 # Visual rule backlog (19 Nov 2026): pages with no visual yet. Fix a page, then delete its line. New pages never go here.
-/contact/
-/library/privacy/
-/privacy/
-/terms/
-/wristkeeper/privacy/
-/wristkeeper/support/

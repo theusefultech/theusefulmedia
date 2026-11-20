@@ -887,6 +887,8 @@ a { color: inherit; }
 .badge--bestseller { background: var(--ink); color: var(--paper); }
 .badge--new { background: var(--purple); color: var(--paper); }
 .badge--limited { background: var(--lilac); color: var(--ink); border: 1px solid var(--ink); }
+.feature-alt { margin: 0.8rem 0 0; color: var(--graphite); font-size: 0.95rem; }
+.feature-alt a { color: var(--purple); }
 @media (max-width: 860px) { .feature { grid-template-columns: 1fr; } .feature-stack { height: 220px; } }
 
 /* Toolbar */

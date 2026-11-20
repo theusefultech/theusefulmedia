@@ -1,6 +1,6 @@
 name: Library bookshelves
 # Daily: pulls book recommendations from the YouTube transcript engine (D1) and builds the Library's
-# "Books {person} recommends" pages and the most-recommended ranking. Approved by Raja 13 Nov 2026 ("A").
+# "Books {person} recommends" pages, the most-recommended ranking, and the topic lists (M12, 20 Nov 2026). Approved by Raja 13 Nov 2026 ("A").
 on:
   schedule:
     - cron: "41 17 * * *"   # 23:11 in Chennai, after the nightly extraction
@@ -18,9 +18,14 @@ jobs:
         run: python3 scripts/library_recs_pull.py
       - name: Build bookshelf pages
         run: python3 scripts/library_recs.py
+      - name: Wiring and SEO pass (keeps hit.js, breadcrumbs and image alt text)
+        run: |
+          pip install -q pillow
+          python3 scripts/site_wiring.py
+          python3 scripts/seo_pass.py
       - name: Save
         run: |
           git config user.name "useful-library-bot"
           git config user.email "bot@theusefulmedia.com"
-          for f in library/data/recs.json library/people library/recommended sitemap.xml; do if [ -e "$f" ]; then git add "$f"; fi; done
+          for f in library/data/recs.json library/people library/recommended library/habits library/focus library/money library/mindset sitemap.xml; do if [ -e "$f" ]; then git add "$f"; fi; done
           git diff --cached --quiet || (git commit -m "Library bookshelves: daily update" && (git push || (git pull --rebase && git push)))

@@ -84,6 +84,122 @@ def book_card(b, extra=""):
     buy = f'<a class="btn btn-green" href="#" data-buy="{e((b["title"] + " " + by).strip())}">Get the book</a>'
     return f'<div class="card bcard" style="display:flex;gap:14px;align-items:flex-start;padding:16px">{cover}<span style="display:flex;flex-direction:column;gap:6px;min-width:0">{f"<span class=mono>{e(by)}</span>" if by else ""}<b class="serif" style="font-size:20px">{e(b["title"])}</b>{extra}<span style="display:flex;gap:8px;flex-wrap:wrap">{buy}{link}</span></span></div>'
 
+# 20 Nov 2026 (master plan M12): "Most recommended {topic} books, by N people" lists, counted from the same
+# bookshelf data. Curated so fiction never lands in a topic. Each entry: title, author, other spellings seen in the data.
+TOPICS = {
+  "habits": ("habit", "Habits and discipline", [
+    ("Atomic Habits", "James Clear"), ("The Power of Habit", "Charles Duhigg"), ("Tiny Habits", "BJ Fogg"),
+    ("Breaking the Habit of Being Yourself", "Joe Dispenza"), ("The Miracle Morning", "Hal Elrod", "Miracle Morning"),
+    ("The 7 Habits of Highly Effective People", "Stephen Covey", "The Seven Habits of Highly Effective People"),
+    ("Grit", "Angela Duckworth"), ("Can't Hurt Me", "David Goggins"), ("The War of Art", "Steven Pressfield"),
+    ("Dopamine Nation", "Anna Lembke"), ("The Willpower Instinct", "Kelly McGonigal"), ("The Craving Mind", "Judson Brewer"),
+    ("Mastery", "Robert Greene")]),
+  "focus": ("productivity", "Focus and productivity", [
+    ("Deep Work", "Cal Newport"), ("Slow Productivity", "Cal Newport"), ("Getting Things Done", "David Allen"),
+    ("Essentialism", "Greg McKeown"), ("Flow", "Mihaly Csikszentmihalyi"), ("Feel Good Productivity", "Ali Abdaal"),
+    ("The Shallows", "Nicholas Carr"), ("It Doesn't Have to Be Crazy at Work", "Jason Fried"),
+    ("The Effective Executive", "Peter Drucker"), ("The 80/20 Principle", "Richard Koch"),
+    ("The Organized Mind", "Daniel Levitin"), ("Rest", "Alex Soojung-Kim Pang"), ("The Anxious Generation", "Jonathan Haidt"),
+    ("The ONE Thing", "Gary Keller"), ("Indistractable", "Nir Eyal"), ("Make Time", "Jake Knapp"),
+    ("The 4-Hour Workweek", "Tim Ferriss", "The 4-Hour Work Week", "The Four Hour Workweek"),
+    ("Four Thousand Weeks", "Oliver Burkeman"), ("Digital Minimalism", "Cal Newport")]),
+  "money": ("money", "Money", [
+    ("The Psychology of Money", "Morgan Housel"), ("Rich Dad Poor Dad", "Robert Kiyosaki"),
+    ("Rich Dad's Cashflow Quadrant", "Robert Kiyosaki"), ("Die With Zero", "Bill Perkins"),
+    ("Think and Grow Rich", "Napoleon Hill"), ("The Millionaire Fastlane", "MJ DeMarco", "The Millionaire Fast Lane"),
+    ("Same as Ever", "Morgan Housel"), ("Money: A Story of Humanity", "David McWilliams"),
+    ("The Bitcoin Standard", "Saifedean Ammous"), ("Million Dollar Weekend", "Noah Kagan"),
+    ("Fooled by Randomness", "Nassim Nicholas Taleb", "Fooled"), ("I Will Teach You to Be Rich", "Ramit Sethi"),
+    ("Your Money or Your Life", "Vicki Robin"), ("The Millionaire Next Door", "Thomas J. Stanley"),
+    ("The Total Money Makeover", "Dave Ramsey"), ("The Little Book of Common Sense Investing", "John C. Bogle"),
+    ("Broke Millennial", "Erin Lowry"), ("Happy Sexy Millionaire", "Steven Bartlett")]),
+  "mindset": ("mindset", "Mindset", [
+    ("Mindset", "Carol Dweck"), ("Man's Search for Meaning", "Viktor Frankl"),
+    ("Meditations", "Marcus Aurelius", "The Meditations", "Meditations (Gregory Hays translation)"),
+    ("The Daily Stoic", "Ryan Holiday"), ("The Obstacle Is the Way", "Ryan Holiday"),
+    ("The Courage to Be Disliked", "Ichiro Kishimi"),
+    ("The Subtle Art of Not Giving a F*ck", "Mark Manson", "The Subtle Art of Not Giving a F***"),
+    ("The Mountain Is You", "Brianna Wiest"), ("How to Be a Stoic", "Massimo Pigliucci"),
+    ("Thinking, Fast and Slow", "Daniel Kahneman"), ("Thinking in Bets", "Annie Duke"), ("The Chimp Paradox", "Steve Peters"),
+    ("The Laws of Human Nature", "Robert Greene"), ("The 48 Laws of Power", "Robert Greene"),
+    ("Don't Believe Everything You Think", "Joseph Nguyen"), ("The Magic of Thinking Big", "David J. Schwartz"),
+    ("The Power of Positive Thinking", "Norman Vincent Peale"), ("A New Earth", "Eckhart Tolle"),
+    ("The Surrender Experiment", "Michael A. Singer"), ("Stumbling on Happiness", "Daniel Gilbert"),
+    ("Think Again", "Adam Grant"), ("The Upside of Stress", "Kelly McGonigal"),
+    ("The Enchiridion", "Epictetus", "The Enchiridion (The Handbook)"), ("Superforecasting", "Philip Tetlock"),
+    ("From Strength to Strength", "Arthur C. Brooks", "Strength to Strength")]),
+  "health": ("health", "Health", [
+    ("Outlive", "Peter Attia"), ("Why We Sleep", "Matthew Walker"), ("The Obesity Code", "Jason Fung"),
+    ("Breath", "James Nestor"), ("The 4-Hour Body", "Tim Ferriss"), ("Healing Back Pain", "John E. Sarno"),
+    ("Back Mechanic", "Stuart McGill"), ("The Great Nerve", "Kevin J. Tracey"), ("Good Energy", "Casey Means")]),
+  "business": ("business", "Business", [
+    ("Zero to One", "Peter Thiel"), ("The Lean Startup", "Eric Ries"), ("$100M Offers", "Alex Hormozi"),
+    ("The Innovator's Dilemma", "Clayton Christensen"), ("Traction", "Gino Wickman"), ("The Goal", "Eliyahu Goldratt"),
+    ("The Everything Store", "Brad Stone"), ("Steve Jobs", "Walter Isaacson"), ("Never Split the Difference", "Chris Voss"),
+    ("Influence", "Robert Cialdini"), ("Scorecard Marketing", "Daniel Priestley"), ("Ready, Fire, Aim", "Michael Masterson"),
+    ("How to Fail at Almost Everything and Still Win Big", "Scott Adams"), ("The Practice", "Seth Godin"),
+    ("Million Dollar Weekend", "Noah Kagan"), ("The 4-Hour Workweek", "Tim Ferriss", "The 4-Hour Work Week", "The Four Hour Workweek")]),
+  "relationships": ("relationship", "Relationships", [
+    ("Attached", "Amir Levine"), ("Secure", "Amir Levine"), ("How to Win Friends and Influence People", "Dale Carnegie"),
+    ("The Seven Principles for Making Marriage Work", "John Gottman"), ("Crucial Conversations", "Kerry Patterson"),
+    ("Never Split the Difference", "Chris Voss"), ("Set Boundaries, Find Peace", "Nedra Glover Tawwab"),
+    ("All About Love", "bell hooks"), ("The Science of Happily Ever After", "Ty Tashiro"),
+    ("Lost Connections", "Johann Hari"), ("How to Not Die Alone", "Logan Ury")]),
+}
+HUBS = ("habits", "focus", "money", "mindset")
+MIN_TOPIC = 5
+
+def topic_lists(D, by_slug):
+    """Per topic: ranked [{title, author, people:[slugs], note}] counting only people with a bookshelf page."""
+    seen = {}
+    for p in by_slug.values():
+        for b in p["books"]:
+            seen.setdefault(norm(b["title"]), []).append((p["slug"], b.get("note") or ""))
+    out = {}
+    for k, (noun, label, items) in TOPICS.items():
+        rows = []
+        for it in items:
+            t, a, alts = it[0], it[1], it[2:]
+            hits = [h for n in {norm(x) for x in (t,) + alts} for h in seen.get(n, [])]
+            ppl = list(dict.fromkeys(s for s, _ in hits))
+            if ppl:
+                rows.append({"title": t, "author": a, "people": ppl, "note": next((n for _, n in hits if n), "")})
+        rows.sort(key=lambda r: (-len(r["people"]), r["title"]))
+        if len(rows) >= MIN_TOPIC:
+            out[k] = rows
+    return out
+
+def topic_title(noun, nb, np):
+    t = f"The {nb} most-recommended {noun} books, by {np} people"
+    return t + " | The Useful Library" if len(t) <= 40 else t
+
+def topic_chips(lists, here=""):
+    if not lists: return ""
+    return ('<nav aria-label="Lists by topic" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span class="mono">Lists by topic</span>'
+            + "".join(f'<a class="tag{" green" if k == here else ""}" href="/library/recommended/{k}/"{" aria-current=page" if k == here else ""}>{e(TOPICS[k][1])}</a>' for k in lists) + "</nav>")
+
+def hub_block(k, rows, np):
+    top = "".join(f'<div class="card" style="display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 16px;flex-wrap:wrap"><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span class="mono">#{i + 1} · named by {len(r["people"])}</span><b class="serif" style="font-size:18px">{e(r["title"])}</b><small style="color:var(--soft)">{e(r["author"])}</small></span><a class="btn btn-green" href="#" data-buy="{e(r["title"] + " " + r["author"])}">Get the book</a></div>' for i, r in enumerate(rows[:3]))
+    return (f'<!--toplist--><section class="hub-sec" id="most-recommended"><h2>Most recommended by {np} people</h2>'
+            f'<p class="lede" style="font-size:16px">The {TOPICS[k][0]} books founders, scientists and authors name most on video.</p>'
+            f'<div style="display:grid;gap:10px">{top}</div><p><a class="btn btn-line" href="/library/recommended/{k}/">See all {len(rows)} books</a></p></section><!--/toplist-->')
+
+def inject_hubs(lists, people_n):
+    changed = []
+    for k in HUBS:
+        f = os.path.join(LIB, k, "index.html")
+        if not os.path.exists(f): continue
+        h0 = open(f).read()
+        h = re.sub(r"<!--toplist-->.*?<!--/toplist-->", "", h0, flags=re.S)
+        h = h.replace('<a href="#most-recommended">Most recommended</a>', "")
+        if k in lists:
+            rows = lists[k]; np = len({s for r in rows for s in r["people"]})
+            block = hub_block(k, rows, np)
+            h = h.replace('<section class="hub-sec" id="books">', block + '<section class="hub-sec" id="books">', 1) if 'id="books"' in h else h.replace("</main>", block + "</main>", 1)
+            h = h.replace('<a href="#books">Books</a></nav>', '<a href="#books">Books</a><a href="#most-recommended">Most recommended</a></nav>', 1)
+        if h != h0: open(f, "w").write(h); changed.append(k)
+    return changed
+
 def main():
     if not os.path.exists(DATA):
         print("no recs.json yet"); return
@@ -115,11 +231,35 @@ def main():
         cards = "".join(book_card(r, f'<small class="mono">#{i + 1}</small><small style="color:var(--soft)">Recommended by {len([x for x in r["people"] if x in by_slug])} people: ' + ", ".join(f'<a href="/library/people/{x}/">{e(by_slug[x]["name"])}</a>' for x in r["people"] if x in by_slug) + "</small>") for i, r in enumerate(rank))
         write("/library/recommended/", shell("/library/recommended/", f"The most-recommended nonfiction books ({upd[:4]}) | The Useful Library", f"The {len(rank)} nonfiction books most often recommended by {len(people)} founders, scientists and authors, counted by how many different people named them.",
               crumbs_html([("Library", "/library/"), ("Bookshelves", "/library/people/"), ("Most recommended", "/library/recommended/")]) + hero("Ranking", "The most-recommended nonfiction books", f"Counted by how many of the {len(people)} people we follow named each book. Updated every month.", upd, shelf([r["title"] for r in rank][:12])) + f'<section class="hub-sec"><div style="display:grid;gap:12px">{cards}</div></section>'))
+    lists = topic_lists(D, by_slug) if rank_link else {}
+    for k, rows in lists.items():
+        noun, label, _ = TOPICS[k]; path = f"/library/recommended/{k}/"
+        np = len({s for r in rows for s in r["people"]}); top = rows[0]
+        cards = "".join(book_card({"title": r["title"], "author": r["author"]}, f'<small class="mono">#{i + 1} · named by {len(r["people"])}</small>' + (f'<small style="color:var(--soft)">{e(r["note"])}</small>' if r["note"] else "") + '<small style="color:var(--soft)">Recommended by: ' + ", ".join(f'<a href="/library/people/{x}/">{e(by_slug[x]["name"])}</a>' for x in r["people"]) + "</small>") for i, r in enumerate(rows))
+        short = f'#1 is {e(top["title"])} by {e(top["author"])}, named by {len(top["people"])} of the {np} people.' + (f' Next: {e(rows[1]["title"])} ({len(rows[1]["people"])}) and {e(rows[2]["title"])} ({len(rows[2]["people"])}).' if len(rows) > 2 else "")
+        faq = [(f"What is the most recommended {noun} book?", f'{top["title"]} by {top["author"]}. {len(top["people"])} of the {np} people on our bookshelves named it on video.'),
+               ("How is this list made?", f"We read what founders, scientists and authors say in their videos and podcasts, list every nonfiction book they recommend, and count how many different people named each one. Nobody pays to be on it. It updates every night.")]
+        faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+        main_html = (crumbs_html([("Library", "/library/"), ("Most recommended", "/library/recommended/"), (label, path)])
+            + hero("Ranking", f"The most-recommended {noun} books", f"{len(rows)} {noun} books named by {np} founders, scientists and authors on video, ranked by how many of them named each one.", upd, shelf([r["title"] for r in rows][:12]))
+            + f'<div class="card" style="padding:16px 18px;border-left:4px solid var(--green)"><span class="mono">In short</span><p style="margin:6px 0 0">{short}</p></div>'
+            + topic_chips(lists, k)
+            + f'<section class="hub-sec"><div style="display:grid;gap:12px">{cards}</div></section>'
+            + '<section class="hub-sec"><h2>Questions</h2>' + "".join(f'<details class="card" style="padding:14px 16px"><summary><b>{e(q)}</b></summary><p style="margin-top:8px;color:var(--soft)">{e(a)}</p></details>' for q, a in faq) + "</section>"
+            + f'<script type="application/ld+json">{json.dumps(faq_ld)}</script>')
+        write(path, shell(path, topic_title(noun, len(rows), np), f"The {len(rows)} {noun} books most often recommended by {np} founders, scientists and authors, ranked by how many named each one. #1: {top['title']}.", main_html))
+    hubs = inject_hubs(lists, len(people))
+    if lists:
+        for f in ("/library/recommended/", "/library/people/"):
+            fp = os.path.join(ROOT, f.strip("/"), "index.html"); h0 = open(fp).read()
+            h = re.sub(r"<!--topics-->.*?<!--/topics-->", "", h0, flags=re.S)
+            h = h.replace('<section class="hub-sec">', "<!--topics-->" + topic_chips(lists) + "<!--/topics-->" + '<section class="hub-sec">', 1)
+            if h != h0: open(fp, "w").write(h)
     sm = os.path.join(ROOT, "sitemap.xml"); s = open(sm).read(); add = ""
     for path in written:
         if f"<loc>{BASE}{path}</loc>" not in s: add += f"  <url><loc>{BASE}{path}</loc><lastmod>{upd}</lastmod></url>\n"
     if add: open(sm, "w").write(s.replace("</urlset>", add + "</urlset>"))
-    print(len(people), "bookshelves,", "ranking" if rank_link else "no ranking yet", "| sitemap +", add.count("<url>"))
+    print(len(people), "bookshelves,", "ranking" if rank_link else "no ranking yet", "| topic lists:", ", ".join(f"{k} {len(v)}" for k, v in lists.items()) or "none", "| hubs:", ",".join(hubs) or "none", "| sitemap +", add.count("<url>"))
 
 if __name__ == "__main__":
     main()

@@ -165,7 +165,7 @@ html.dk .ys .solid .shadow{background:radial-gradient(closest-side,rgba(0,0,0,.8
 .ys.ys-pu.yon{display:flex}
 .ys.ys-pu .ytag{position:absolute;top:20px;left:22px;font-family:var(--hand);font-size:18px;color:rgba(255,255,255,.6)}
 .ys.ys-pu .ctrl{position:absolute;top:16px;right:16px;display:flex;gap:8px}
-.ys.ys-pu .ctrl button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;font-size:13px}
+.ys.ys-pu .ctrl button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;font-size:13px;min-height:44px;min-width:44px}
 .ys .yscene{position:relative;width:520px;height:300px;perspective:1300px}
 .ys .ytilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(52deg) translateY(30px)}
 .ys .spread{position:absolute;left:0;top:40px;width:520px;height:250px;transform-style:preserve-3d}
@@ -269,7 +269,7 @@ html.dk .ys .ys-btn.ghost{background:rgba(255,255,255,.1)}
 .ys-twist{display:inline-flex;align-items:center;gap:6px;margin-top:10px;min-height:40px;padding:8px 14px;border-radius:999px;border:1px dashed currentColor;background:none;color:inherit;font:inherit;font-size:14px;cursor:pointer;opacity:.85}
 .ys-twist:before{content:"?";font-family:"Kalam",cursive;font-weight:700;font-size:17px;line-height:1}
 .ys-twist[aria-pressed=true]{border-style:solid;opacity:1;cursor:default}
-.ys-flower{display:inline-block;vertical-align:middle;margin-left:10px;width:34px;height:34px;padding:5px;border:0;background:none;cursor:pointer;opacity:.6;transition:opacity .2s,transform .4s}
+.ys-flower{display:inline-block;vertical-align:middle;margin-left:5px;width:44px;height:44px;padding:10px;border:0;background:none;cursor:pointer;opacity:.6;transition:opacity .2s,transform .4s}
 .ys-flower:hover{opacity:1;transform:rotate(-8deg)}.ys-flower.got{transform:scale(1.6) rotate(-20deg);opacity:0}
 /* page pieces added for the live site */
 .ys .yhead h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.2;letter-spacing:-.01em;margin:6px 0 8px}

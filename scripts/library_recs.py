@@ -263,3 +263,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # 24 Nov 2026 (visual check): Library visual pass after the recommendation sections change
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import library_visuals; library_visuals.run()

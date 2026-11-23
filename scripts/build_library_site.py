@@ -390,7 +390,7 @@ book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic H
 <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px"><h2>Read only these chapters</h2>
 <div class="legend"><span><i style="background:var(--green)"></i>Read</span><span><i style="background:var(--brass)"></i>Skim</span><span><i style="background:var(--line2)"></i>Skip</span></div></div>
 <p style="font-size:15px;color:var(--muted)">Tap any chapter. Read {reads}.</p>
-<div class="cells">{cells}</div>
+<div class="cells" data-visual>{cells}</div>
 <div class="chap-panel" data-chap-panel aria-live="polite"><span class="verdict" data-v style="background:var(--green);color:#fff">READ</span>
 <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:6px"><p class="serif" data-t style="font-size:26px;line-height:1.15">Chapter 13: {ch[12][1]}</p><p data-w style="color:var(--ink2)">{ch[12][2]}</p></div></div>
 <script type="application/json" id="chapters">{json.dumps(ch)}</script>
@@ -843,7 +843,7 @@ def book_page(B):
     if sm:
         nskim=len([u for u in units if u[0]=="SKIM"]); full=sm[1]/40; part=full*(nread+0.3*nskim)/len(units)
         r=lambda x: max(0.5,round(x*2)/2); fmt=lambda x: (str(int(x)) if x==int(x) else str(x))
-        summary_block=f'''<section class="sum card reveal" id="summary"><div class="sum-main"><p class="mono">The book in 60 seconds</p><p class="sum-t">{html.escape(sm[0])}</p></div><div class="sum-time"><p class="mono">Your time</p><div class="tbar"><i style="width:{round(part/full*100)}%"></i></div><p><b>About {fmt(r(part))} hours</b> to read the parts that matter, instead of about {fmt(r(full))} hours for the whole book.</p><p class="fine">Based on about {sm[1]} pages at 40 pages an hour, with skimmed parts counted at a third.</p></div></section>'''
+        summary_block=f'''<section class="sum card reveal" id="summary"><div class="sum-main"><p class="mono">The book in 60 seconds</p><p class="sum-t">{html.escape(sm[0])}</p></div><div class="sum-time" data-visual><p class="mono">Your time</p><div class="tbar"><i style="width:{round(part/full*100)}%"></i></div><p><b>About {fmt(r(part))} hours</b> to read the parts that matter, instead of about {fmt(r(full))} hours for the whole book.</p><p class="fine">Based on about {sm[1]} pages at 40 pages an hour, with skimmed parts counted at a third.</p></div></section>'''
     else: summary_block=""
     tk=TAKES.get(B["slug"])
     if not tk: raise SystemExit(f'Missing Raja take for {B["slug"]}: add it to scripts/library_takes.py (see RUNBOOK)')
@@ -881,7 +881,7 @@ def book_page(B):
 <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px"><h2>Read only these {unit}</h2>
 <div class="legend"><span><i style="background:var(--green)"></i>Read</span><span><i style="background:var(--brass)"></i>Skim</span><span><i style="background:var(--line2)"></i>Skip</span></div></div>
 <p style="font-size:15px;color:var(--muted)">Tap any {B["unit"].lower()}. Read: {html.escape(reads)}.</p>
-<div class="cells">{cells}</div>
+<div class="cells" data-visual>{cells}</div>
 <div class="chap-panel" data-chap-panel aria-live="polite"><span class="verdict" data-v style="background:var(--green);color:#fff">READ</span>
 <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:6px"><p class="serif" data-t style="font-size:26px;line-height:1.15">{html.escape(units[first_read][1])}</p><p data-w style="color:var(--ink2)">{html.escape(units[first_read][2])}</p></div></div>
 <script type="application/json" id="chapters" data-raw="1">{json.dumps([list(u) for u in units])}</script>
@@ -1013,3 +1013,6 @@ for P in PROBLEMS:
     if f"/library/problems/{P['slug']}/" not in _l: _new+=f"- [{P['problem']}: 3 fixes]({BASE}/library/problems/{P['slug']}/): {P['desc']}\n"
 if _new and "- [Books](https://theusefulmedia.com/library/books/)" in _l: open(_lt,"w").write(_l.replace("- [Books](https://theusefulmedia.com/library/books/)",_new+"- [Books](https://theusefulmedia.com/library/books/)",1))
 print("sitemap +",_add.count("<url>"),"| llms +",_new.count("\n"))
+
+# 24 Nov 2026 (visual check): Library visual pass after every build
+import library_visuals; library_visuals.run()

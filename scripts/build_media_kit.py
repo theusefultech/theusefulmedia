@@ -13,7 +13,7 @@ FONT = lambda n: base64.b64encode((ROOT / "assets/fonts" / n).read_bytes()).deco
 img = lambda p: "data:image/jpeg;base64," + base64.b64encode(p.read_bytes()).decode()
 pct = lambda s: s.rstrip("%")
 day = dt.date.fromisoformat(F["updated"]).strftime("%-d %b %Y")
-MARK = '<img src="/logo.svg" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:7px">"
+MARK = '<img src="data:image/svg+xml;base64,' + base64.b64encode((ROOT / "logo.svg").read_bytes()).decode() + '" alt="" style="width:28px;height:28px;border-radius:7px">'
 
 stats = [
     (F["followers"], "Medium followers"),

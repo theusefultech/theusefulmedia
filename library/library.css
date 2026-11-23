@@ -728,7 +728,7 @@ html.dk .hub-art{background:#222D27}
  .irow[data-hrow]:focus-visible{outline:2px solid var(--green);outline-offset:2px}
  .irow[data-hrow].is-dragging{scroll-snap-type:none;cursor:grabbing}.irow[data-hrow].is-dragging *{pointer-events:none}
  .hrow-nav{display:flex;align-items:center;gap:8px;margin-top:10px}
- .hrow-nav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);background:var(--card,#fff);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+ .hrow-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:var(--card,#fff);color:var(--ink);display:grid;place-items:center;cursor:pointer}
  .hrow-nav button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
  .hrow-nav button:disabled{opacity:.35}
  .hrow-dots{display:flex;gap:5px;margin-left:6px}.hrow-dots i{width:6px;height:6px;border-radius:50%;background:var(--line2)}.hrow-dots i.on{background:var(--green)}

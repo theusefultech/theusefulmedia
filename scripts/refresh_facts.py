@@ -63,6 +63,7 @@ def read_medium():
 
 REACH_URL = "https://theusefulmedia.com/apps/api/reach"
 SUBS_URL = "https://useful-signup.raja-822.workers.dev/?count=tech"
+REACH_BOOKED = []  # filled by read_reach
 CLICKS_MIN = 100  # the clicks tile stays hidden until it shows a number worth showing
 
 
@@ -91,6 +92,9 @@ def read_reach(facts):
                 facts["appClicksLabel"] = f"clicks sent to apps since {d.day} {d.strftime('%b')}"
         else:
             facts.pop("appClicks", None); facts.pop("appClicksLabel", None)
+        b = r.get("booked")
+        if isinstance(b, list):  # 23 Nov 2026 (Raja, "ok stats A"): booked sponsor dates from HQ, via the Worker
+            REACH_BOOKED.extend(d for d in b if isinstance(d, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", d))
         print("reach:", r)
     except Exception as e:
         print("reach not read, keeping old numbers:", e, file=sys.stderr)
@@ -170,7 +174,7 @@ def main():
     slots = json.loads(SLOTS.read_text())
     today = dt.date.today().isoformat()
     extra = [d.strip() for d in (args.book or "").split(",") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d.strip())]
-    keep = sorted(set(d for d in slots.get("booked", []) + extra if d >= today))
+    keep = sorted(set(d for d in slots.get("booked", []) + extra + REACH_BOOKED if d >= today))
     if keep != slots.get("booked"):
         slots["booked"] = keep
         changed = True

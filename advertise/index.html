@@ -628,6 +628,39 @@ p { margin: 0; }
 }
 #results .dock-wrap { margin-bottom: 28px; }
 .inbox-h { margin: 36px 0 14px; font-size: 22px; letter-spacing: -.02em; }
+
+/* 23 Nov 2026: short page. Prices, proof and 1 book button on the first screen. */
+.hero h1 { font-size: clamp(34px, 5.4vw, 64px); }
+.proof { display: flex; align-items: center; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.proof .stack { min-width: 200px; } .proof p { color: var(--ink-soft); font-size: 15px; flex: 1 1 200px; }
+.prices { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 8px; }
+.prices a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); color: inherit; text-decoration: none; border: 2px solid transparent; transition: border-color .2s, transform .2s; }
+.prices a:hover, .prices a:focus-visible { border-color: var(--purple); transform: translateY(-1px); }
+.prices span { display: grid; gap: 2px; min-width: 0; } .prices b { font: 600 16px var(--display); }
+.prices small { color: var(--ink-soft); font-size: 13px; line-height: 1.35; }
+.prices em { font: 700 17px var(--display); font-style: normal; color: var(--purple-ink); white-space: nowrap; }
+.quote-note { margin-top: 8px; font-size: 13px; color: var(--ink-soft); }
+.hero-cta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
+.hero-nums { font-size: 14px; color: var(--ink-soft); }
+.big-n { display: grid; place-items: center; height: 100%; font: 700 44px var(--display); color: var(--purple-ink); line-height: 1; }
+.big-n span { font-size: 14px; font-weight: 500; color: var(--ink-soft); }
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; gap: 0; padding-top: 8px; }
+  .hero > div { display: block; } .hero h1 { order: 0; font-size: 34px; }
+  .hero .stage { display: none; }
+  .has-app .hero .stage { display: block; padding-top: 8px; }
+  #results .cats { display: none; }
+  #results .dock { max-height: 132px; overflow: hidden; }
+  #results .dock-wrap { gap: 14px; }
+  .estimate:not(:has(#campaign:not([hidden]))) { display: none; }
+  .wrap { row-gap: 48px; }
+  #results .head .sub, #faq .head .sub { display: none; }
+  .offer .mini, .offer p { display: none; }
+  .track { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .track .step p { display: none; }
+  .close .slot, .close > div > p { display: none; }
+  .close { padding-block: 22px; }
+}
 </style>
 <script src="/assets/hrow.js" defer></script>
 </head>
@@ -662,20 +695,19 @@ p { margin: 0; }
   <header class="hero">
     <div>
       <h1>Put your app in front of <span class="hl">78,000 Apple users</span> who pay for apps</h1>
-      <p class="sub">Readers come to The Useful Tech to decide what to install next. Your app gets a post written from real use, in a voice they already trust, with your download link one tap away.</p>
-      <form class="finder" id="finder" autocomplete="off">
-        <label for="findApp">See your app at #1</label>
-        <div class="find-row">
-          <input id="findApp" type="text" inputmode="search" placeholder="App name or App Store link" enterkeyhint="go">
-          <button class="btn primary" type="submit" id="findBtn">Show me <svg class="arrow"><use href="#i-arrow"/></svg></button>
-        </div>
-        <p class="find-msg" id="findMsg" aria-live="polite">Pulls your real icon, rating and price from the App Store.</p>
-        <div class="book-cta" id="bookCta" hidden><a class="btn primary" href="#build" id="bookBtn">Book this spot for <span id="bookName">your app</span> <svg class="arrow"><use href="#i-arrow"/></svg></a></div>
-        <p class="alt-link">Or <a href="#build">pick a placement</a> or <a href="#results">see what sponsors got</a>.</p>
-      </form>
-      <div class="trust">
+      <div class="proof" data-visual>
         <div class="stack" id="heroStack"></div>
         <p><b data-fact="sponsors">29</b> apps paid for a spot since September, from indie Mac tools to MacPaw.</p>
+      </div>
+      <ul class="prices" aria-label="Prices">
+        <li><a href="#build" data-pick="top spot in a roundup"><span><b>Top spot in a roundup</b><small>Your app at #1, own section, newsletter feature</small></span><em>From $200</em></a></li>
+        <li><a href="#build" data-pick="dedicated review"><span><b>Dedicated review</b><small>A full post about your app, plus newsletter, X and LinkedIn</small></span><em>From $500</em></a></li>
+        <li><a href="/apps/developers/book/?utm_source=advertise-hero"><span><b>Monthly spot on The Useful Apps</b><small>Pin, Spotlight or sponsor bar, cancel anytime</small></span><em>From $15/mo</em></a></li>
+      </ul>
+      <p class="quote-note">Bigger brands and multi-post plans get a quote by email.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#build">Book a spot <svg class="arrow"><use href="#i-arrow"/></svg></a>
+        <span class="hero-nums"><b data-fact="followers">78,753</b> followers · <b data-fact="readRatio">50.2%</b> read to the end</span>
       </div>
     </div>
     <div class="stage" id="stage" data-visual>
@@ -693,23 +725,6 @@ p { margin: 0; }
     </div>
   </header>
 
-  <section class="live" id="live" aria-labelledby="live-h">
-    <div class="live-top">
-      <h2 id="live-h">The numbers today</h2>
-      <p class="src"><i aria-hidden="true"></i>Updated every morning, last on <span data-fact="updated">23 Nov 2026</span></p>
-    </div>
-    <div class="tiles" data-visual>
-      <div class="tile card"><span class="ti" aria-hidden="true"><svg><use href="#i-pen"/></svg></span><b data-fact="followers">78,753</b><span><a href="https://mymedium.info/@theusefultech/">Medium followers</a></span></div>
-      <div class="tile card"><span class="ti" aria-hidden="true"><svg><use href="#i-mail"/></svg></span><b data-fact="newsletterSubs">1,392</b><span>newsletter subscribers</span></div>
-      <div class="tile card" data-need="siteVisitors"><span class="ti" aria-hidden="true"><svg><use href="#i-eye"/></svg></span><b data-fact="siteVisitors">1,241</b><span data-fact="siteVisitorsLabel">site visitors since 5 Nov</span></div>
-      <div class="tile card" data-need="appClicks" hidden><span class="ti" aria-hidden="true"><svg><use href="#i-rocket"/></svg></span><b data-fact="appClicks">0</b><span data-fact="appClicksLabel">clicks sent to apps</span></div>
-    </div>
-    <div class="live-foot">
-      <p><b>MacPaw booked twice:</b> a $2,000 Eney campaign, then a CleanMyMac spot. <a class="res" href="#results">See every sponsor</a></p>
-      <a class="btn ghost" href="/apps/developers/book/?utm_source=advertise-live">See open months <svg class="arrow"><use href="#i-arrow"/></svg></a>
-    </div>
-  </section>
-
   <section id="results">
     <div class="head">
       <h2>Apps keep booking, and the posts stay up for good</h2>
@@ -723,18 +738,16 @@ p { margin: 0; }
 
     <div class="results" data-hrow role="region" aria-label="Results for sponsors">
       <article class="result card">
-        <div class="ill" aria-hidden="true" data-visual>
-          <svg class="clock" viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle class="fg" cx="50" cy="50" r="45"/><text x="50" y="57" text-anchor="middle">Free</text></svg>
-        </div>
-        <b>Free to read, for good</b>
-        <p>Sponsored posts sit outside the Medium paywall, so anyone can read them, and they never come down.</p>
-        <small>Every sponsored post</small>
-      </article>
-      <article class="result card">
         <div class="ill" aria-hidden="true" data-visual><div class="repeat" id="craftStack"></div></div>
         <b>MacPaw booked twice</b>
         <p>A $2,000 Eney campaign in October, then a CleanMyMac spot in the Black Friday deals post.</p>
         <small>Repeat sponsor</small>
+      </article>
+      <article class="result card">
+        <div class="ill" aria-hidden="true" data-visual><div class="big-n"><b data-fact="topPostViews">156K</b><span>views</span></div></div>
+        <b>One post keeps selling</b>
+        <p>Sponsored posts stay up for good. My top app roundups have each pulled in 54,000 to 156,000 views.</p>
+        <small>Top roundup</small>
       </article>
     </div>
     <p class="live-link">Recent sponsors include Excire, Mic Drop, Bike and App Cleaner &amp; Uninstaller. <a href="https://theusefultech.com/6-mac-apps-that-fix-everything-annoying-about-the-dock-9e264511a45e?sk=880ad77b8e8a379d1ee35df4a05ef453" target="_blank" rel="noopener">Read a live sponsored post</a></p>
@@ -745,106 +758,10 @@ p { margin: 0; }
     </div>
   </section>
 
-  <section>
-    <div class="head">
-      <h2>Big enough to move downloads, focused enough to convert</h2>
-      <p class="sub">Every number below is public or straight from my dashboards, so you can check it before you spend a dollar.</p>
-    </div>
-    <div class="bento">
-      <div class="tile card t-big">
-        <span class="k">Medium followers</span>
-        <div class="crowd" id="crowd" aria-hidden="true"></div>
-        <div>
-          <div class="num" data-fact="followers">78,753</div>
-          <p style="margin-top:10px">people follow The Useful Tech, the most followed Apple blog on Medium.</p>
-        </div>
-      </div>
-      <div class="tile card t-wide">
-        <div class="split"><span class="k">Total views</span><span class="ic"><svg><use href="#i-eye"/></svg></span></div>
-        <div><div class="num" data-fact="views">3.40M</div><p>views across <span data-fact="posts">483</span> posts, and counting</p></div>
-      </div>
-      <div class="tile card">
-        <span class="k">Read ratio</span>
-        <svg class="ring" viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="34"/><circle class="fg" cx="40" cy="40" r="34" style="stroke-dasharray:107.5 214"/></svg>
-        <div><div class="num" data-fact="readRatio">50.2%</div><p>read to the very end</p></div>
-      </div>
-      <div class="tile card">
-        <span class="ic"><svg><use href="#i-mail"/></svg></span>
-        <div><div class="num" data-fact="reads">1.7M</div><p>reads, people who finished a post</p></div>
-      </div>
-      <div class="tile card t-wide">
-        <span class="k">The Useful Tech newsletter, <span data-fact="newsletterSubs">1,392</span> subscribers, 3 issues a week</span>
-        <div class="duo">
-          <div class="split" style="justify-content:flex-start"><svg class="ring" viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="34"/><circle class="fg" cx="40" cy="40" r="34" style="stroke-dasharray:117.5 214"/></svg><div><div class="num" data-fact="openRate">55%</div><p>open rate</p></div></div>
-          <div class="split" style="justify-content:flex-start"><svg class="ring mint" viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="34"/><circle class="fg" cx="40" cy="40" r="34" style="stroke-dasharray:18.4 214"/></svg><div><div class="num" data-fact="clickRate">2%</div><p>click rate</p></div></div>
-        </div>
-      </div>
-      <div class="tile card t-wide geo" data-visual>
-        <span class="k">Where readers are and what they read on</span>
-        <div class="bars" aria-hidden="true">
-          <div class="bar-r"><span>United States</span><i style="--w:53%"></i><b data-fact="usShare">53%</b></div>
-          <div class="bar-r"><span>Mac</span><i style="--w:46%"></i><b data-fact="macShare">46%</b></div>
-          <div class="bar-r"><span>iPhone</span><i style="--w:43%"></i><b data-fact="iphoneShare">43%</b></div>
-        </div>
-        <p><b data-fact="appleShare">89%</b> read on a Mac or iPhone. Then come the UK, Australia, India and Canada.</p>
-      </div>
-      <div class="tile card t-wide">
-        <span class="k">Your app's page</span>
-        <div><div class="num">For good</div><p>Sponsored posts never come down, and Google keeps sending readers to them for years.</p></div>
-      </div>
-    </div>
-    <p class="source">Sources: <a href="https://mymedium.info/@theusefultech/">mymedium.info/@theusefultech</a> and Beehiiv, <span data-fact="updated">23 Nov 2026</span>. Countries and devices from newsletter readers over the last 3 months.</p>
-  </section>
-
-  <section>
-    <div class="head">
-      <h2>One post keeps selling long after launch day</h2>
-      <p class="sub">Sponsored posts stay live for good. My top app roundups have each pulled in 54,000 to 156,000 views, with readers finishing them start to end.</p>
-    </div>
-    <div class="stories" id="stories" data-hrow role="region" aria-label="Sponsored roundups"></div>
-  </section>
-
-  <section>
-    <div class="head">
-      <h2>Meet the reader your app is looking for</h2>
-    </div>
-    <div class="aud">
-      <div class="persona card" data-visual>
-        <div class="who">
-          <div class="face" aria-hidden="true">
-            <svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="16" r="9" fill="var(--purple)"/><path d="M6 42c2-10 9-15 16-15s14 5 16 15" fill="var(--purple)"/><rect x="13" y="13" width="18" height="6" rx="3" fill="var(--ink)" opacity=".85"/></svg>
-          </div>
-          <div><h3>The Useful Tech reader</h3><p>Follows the blog for picks they can't find anywhere else</p></div>
-        </div>
-        <div class="traits">
-          <div class="trait"><span class="ti"><svg><use href="#i-laptop"/></svg></span>Works on a Mac every day</div>
-          <div class="trait"><span class="ti"><svg><use href="#i-phone"/></svg></span>Lives on an iPhone</div>
-          <div class="trait"><span class="ti"><svg><use href="#i-bag"/></svg></span>Pays for apps that earn a spot</div>
-          <div class="trait"><span class="ti"><svg><use href="#i-spark"/></svg></span>Tries new AI tools early</div>
-        </div>
-      </div>
-      <div class="topics card">
-        <h3>What they come to read</h3>
-        <div class="cloud">
-          <span class="tp l"><em>⌘</em>Mac utilities</span>
-          <span class="tp m"><em>✦</em>AI tools</span>
-          <span class="tp l"><em>▢</em>iPhone apps</span>
-          <span class="tp s"><em>✎</em>Notes and writing</span>
-          <span class="tp m"><em>◎</em>Focus and habits</span>
-          <span class="tp s"><em>◐</em>Photo and camera</span>
-          <span class="tp m"><em>⚡</em>Productivity</span>
-          <span class="tp s"><em>⌚</em>Apple Watch</span>
-          <span class="tp s"><em>⇣</em>Menu bar apps</span>
-        </div>
-        <p class="note">Your app lands next to the topics they already search for.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="build">
     <div class="head">
       <h2>Pick a placement, pick a day, book it</h2>
-      <p class="sub">Every price is on the page. Pay when you book and the draft starts the same week. Bigger brands and multi-post plans get a quote by email.</p>
+      <p class="sub">Pay when you book. The draft starts the same week.</p>
     </div>
     <div class="offers" role="group" aria-label="Placements" data-hrow>
       <button type="button" class="offer" data-name="top spot in a roundup" aria-pressed="true">
@@ -902,14 +819,9 @@ p { margin: 0; }
           <span class="status" id="status" aria-live="polite"></span>
         </div>
         <p class="bill-in">Paying from India? Use Email me instead and I'll send UPI details in rupees.</p>
-        <p class="bill-in">Made for Mac and iPhone apps a regular person installs for themselves, not VPN, security, password manager, crypto or smart home apps.</p>
+        <p class="bill-in">Made for Mac and iPhone apps a regular person installs for themselves, not VPN, security, password manager or crypto apps.</p>
         <pre id="msgText" hidden></pre>
       </div>
-    </div>
-    <div class="mspot">
-      <div><h3>Smaller budget? Book a monthly spot on The Useful Apps</h3><p>Keep your app in front of people choosing their next Mac or iPhone app. Live availability, pay monthly, cancel anytime.</p>
-        <ul><li><i aria-hidden="true"></i>Category pin <b>$15/mo</b></li><li><i aria-hidden="true"></i>Spotlight <b>$79/mo</b></li><li><i aria-hidden="true"></i>Sponsor bar <b>$125/mo</b></li></ul></div>
-      <a class="btn ghost" href="/apps/developers/book/?utm_source=advertise">See open months</a>
     </div>
   </section>
 
@@ -917,7 +829,7 @@ p { margin: 0; }
     <div class="head">
       <h2>From first email to live post in as little as a week</h2>
     </div>
-    <div class="track">
+    <div class="track" data-visual>
       <svg class="path" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="5" x2="100" y2="5" vector-effect="non-scaling-stroke"/></svg>
       <div class="step"><div class="node"><svg><use href="#i-key"/></svg></div><span class="when">Day 1</span><h3>Book and pay</h3><p>Pay on this page, then send your link and a license. That starts the clock.</p></div>
       <div class="step"><div class="node"><svg><use href="#i-pen"/></svg></div><span class="when">Within 5 days</span><h3>Get the draft</h3><p>My voice, my screenshots, built around why your app is worth installing.</p></div>
@@ -932,13 +844,13 @@ p { margin: 0; }
       <p class="sub">Answered here, so you can decide without waiting on my reply.</p>
     </div>
     <div class="faq">
-      <details><summary>What does it cost?</summary><p>The top spot in a roundup is from $200 and a dedicated review from $500. Both include a newsletter feature. Full campaigns get a quote. The price you see when you book is the price you pay.</p></details>
+      <details><summary>What does it cost?</summary><p>The top spot in a roundup is from $200 and a dedicated review from $500. Both include a newsletter feature. Full campaigns and bigger brands get a quote. The price you see when you book is the price you pay.</p></details>
       <details><summary>How many views does a sponsored roundup get?</summary><p>Every post is different, so I don't promise a number. The Useful Tech has <span data-fact="followers">78,753</span> followers, <span data-fact="views">3.40M</span> views and a <span data-fact="readRatio">50.2%</span> read ratio, and my biggest app roundup has <span data-fact="topPostViews">156K</span> views. Posts stay up for good, so Google keeps sending readers long after launch. All of it is public on <a href="https://mymedium.info/@theusefultech/">my stats page</a>.</p></details>
-      <details><summary>Can I see stats for individual posts?</summary><p>No. Per-post numbers include other sponsors' clicks and sales, so I keep them private for everyone, the same way I'll keep yours. You get my public stats page, live sample posts, and your own tracked link, which shows every click and sale the post sends you.</p></details>
       <details><summary>How do I see clicks and sales?</summary><p>Medium doesn't show writers clicks on outbound links, so every sponsor gets their own tracked link. Send me a UTM or App Store campaign link and every click, install and sale shows up in your own analytics.</p></details>
-      <details><summary>Where are your readers, and what do they read on?</summary><p><span data-fact="usShare">53%</span> are in the United States, followed by the UK, Australia, India and Canada. <span data-fact="appleShare">89%</span> read on a Mac or iPhone.</p></details>
       <details><summary>Is the post free to read?</summary><p>Sponsored posts are member-only, like the rest of the blog, so Medium keeps recommending them to its paying readers. If you want yours free for everyone, say so when you book and it will be.</p></details>
-      <details class="faq-more"><summary>7 more questions</summary><div class="faq-in">
+      <details class="faq-more"><summary>9 more questions</summary><div class="faq-in">
+      <details><summary>Where are your readers, and what do they read on?</summary><p><span data-fact="usShare">53%</span> are in the United States, followed by the UK, Australia, India and Canada. <span data-fact="appleShare">89%</span> read on a Mac or iPhone.</p></details>
+      <details><summary>Can I see stats for individual posts?</summary><p>No. Per-post numbers include other sponsors' clicks and sales, so I keep them private for everyone, the same way I'll keep yours. You get my public stats page, live sample posts, and your own tracked link, which shows every click and sale the post sends you.</p></details>
       <details><summary>What's included, and can I add extras?</summary><p>Every spot includes your own section, your link and a newsletter mention, and you approve the draft. Every placement is fixed as listed. Guarantees, content plans and multi-post deals come as a campaign package, so ask for one if you want more.</p></details>
       <details><summary>Is the post marked as sponsored?</summary><p>Yes. Every sponsored post says so at the top, as Medium requires, and the newsletter feature is marked too. Readers trust the picks because the label is honest.</p></details>
       <details><summary>Does the post stay up?</summary><p>For good. Sponsored posts never come down, and your link keeps working in every one.</p></details>
@@ -996,6 +908,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
 
   /* Crowd of followers: 108 dots, ~4 lit */
   var crowd = document.getElementById('crowd'), dots = '';
+  if (crowd) {
   for (var i = 0; i < 108; i++) dots += '<i' + ([7, 23, 41, 58, 66, 80, 95].indexOf(i) > -1 ? ' class="on"' : '') + '></i>';
   crowd.innerHTML = dots;
   var cells = crowd.children;
@@ -1004,6 +917,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
     var a = cells[Math.floor(Math.random() * cells.length)];
     a.classList.toggle('on');
   }, 260);
+  }
 
   /* Stories */
   var posts = [
@@ -1012,7 +926,8 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
     { t: '12 macOS Apps So Good, You Will Wonder How They Are Free', v: 64140, r: 36934, h: 320 },
     { t: '9 New Must-Have macOS Productivity Apps for Daily Usage', v: 63848, r: 34757, h: 150 }
   ];
-  document.getElementById('stories').innerHTML = posts.map(function (p) {
+  var storiesEl = document.getElementById('stories');
+  if (storiesEl) storiesEl.innerHTML = posts.map(function (p) {
     var pct = Math.round(p.r / p.v * 100);
     return '<article class="story card" data-visual><div class="cover" style="--h:' + p.h + '" aria-hidden="true"><i></i><i></i><i></i></div>' +
       '<div class="body"><h3>' + p.t + '</h3><div class="views">' + p.v.toLocaleString('en-US') + '<small>views</small></div>' +
@@ -1160,9 +1075,10 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
   }).catch(function () {});
 
   /* ---------- See your app at #1 ---------- */
-  var finder = $('finder'), input = $('findApp'), msgEl = $('findMsg');
+  var dummy = function (t) { return document.createElement(t); };
+  var finder = $('finder') || dummy('form'), input = $('findApp') || dummy('input'), msgEl = $('findMsg') || dummy('p');
   var row = $('youRow'), ic = $('youIc'), nameEl = $('youName'), meta = $('youMeta'), title = $('postTitle');
-  var stage = $('stage'), post = $('post'), bookCta = $('bookCta'), bookName = $('bookName');
+  var stage = $('stage'), post = $('post'), bookCta = $('bookCta') || dummy('div'), bookName = $('bookName') || dummy('span');
   var found = null;
   function jsonp(url) {
     return new Promise(function (res, rej) {
@@ -1246,7 +1162,10 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
     });
   }
   finder.addEventListener('submit', function (e) { e.preventDefault(); run(input.value); });
-  $('bookBtn').addEventListener('click', function () {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-pick]'), function (l) {
+    l.addEventListener('click', function () { var o = document.querySelector('.offer[data-name="' + l.getAttribute('data-pick') + '"]'); if (o) o.click(); });
+  });
+  ($('bookBtn') || dummy('a')).addEventListener('click', function () {
     var top = document.querySelector('.offer[data-name="top spot in a roundup"]'); if (top) top.click();
   });
 
@@ -1351,7 +1270,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
 
   /* ---------- Reader bars, sticky CTA ---------- */
   var geo = document.querySelector('.geo');
-  if ('IntersectionObserver' in window && !reduce) {
+  if (geo && 'IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { geo.classList.add('seen'); io.disconnect(); } }); }, { threshold: .3 });
     io.observe(geo);
   } else if (geo) geo.classList.add('seen');
@@ -1372,7 +1291,7 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
     var qs = new URLSearchParams(location.search);
     T.ref = (qs.get('ref') || '').replace(/[^\w-]/g, '').slice(0, 24);
     var qa = qs.get('app') || qs.get('id');
-    if (qa) { input.value = qa; run(qa); }
+    if (qa) { document.documentElement.classList.add('has-app'); input.value = qa; run(qa); }
     if (T.refresh) T.refresh();
   } catch (e) {}
 })();

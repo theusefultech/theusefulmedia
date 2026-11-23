@@ -373,7 +373,10 @@ def thumb(issue, size="card"):
     k = issue["format"]["key"]
     if issue["image"]:
         return f'<img src="{esc(issue["image"])}" alt="" loading="lazy" width="1200" height="630">'
-    return f'<span class="thumb-fallback f-{k}">{GLYPH[k]}</span>'
+    # 24 Nov 2026 (visual check): the made cover (scripts/make_issue_covers.py) before the plain glyph
+    if os.path.exists(os.path.join(OUT, issue["slug"], "og.jpg")):
+        return f'<img src="/tech/library/{esc(issue["slug"])}/og.jpg" alt="" loading="lazy" width="1200" height="630">'
+    return f'<span class="thumb-fallback f-{k}" data-visual>{GLYPH[k]}</span>'
 
 
 def label(issue):
@@ -433,6 +436,7 @@ def build_archive(issues):
   <div class="ar-grid" data-grid>
 {cards}
   </div>
+  <p class="ar-more"><button class="ar-more-b" type="button" data-more hidden>Show all {count} issues</button></p>
   <p class="ar-empty" data-empty hidden>Nothing in the library matches that search.</p>
 </section>
 <script src="/tech/library/library.js" defer></script>
@@ -647,6 +651,9 @@ def main():
     write_forwards(issues)
     build_tech_page(issues)
     print(f"Built {len(issues)} library pages")
+    # 24 Nov 2026 (visual check): app cards, number and topic tiles, shorter paragraphs on every issue page
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import issue_visuals; issue_visuals.run()
 
 
 if __name__ == "__main__":

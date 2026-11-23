@@ -1652,3 +1652,5 @@ a.qitem:hover { opacity: 1; }
 }
 
 @media (max-width: 359px) { .brand-name { display: none; } }
+/* 24 Nov 2026 (visual check): on phones the featured product cover comes first, so the first screen has a picture */
+@media (max-width: 860px) { .feature .feature-stack { order: -1; height: 190px; } }

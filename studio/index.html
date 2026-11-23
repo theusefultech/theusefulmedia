@@ -843,5 +843,6 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
 <script>(function(){var d=document.querySelector("[data-tfold]");if(d&&matchMedia("(max-width:760px)").matches)d.open=false;
 document.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){["grid","gridT"].forEach(function(id){var r=document.getElementById(id);if(r){r.scrollLeft=0;r.dispatchEvent(new Event("scroll"))}})})})})();</script>
 <script src="/tech/tech.js" defer></script>
+<script>/* 24 Nov 2026 (visual check): on phones the 10-row table starts folded, tap to open */if(matchMedia("(max-width: 760px)").matches)document.querySelectorAll("details[data-tfold]").forEach(function(d){d.open=false});</script>
 </body>
 </html>

@@ -621,3 +621,10 @@ section { padding: clamp(44px, 6vw, 76px) clamp(16px, 5vw, 48px); max-width: 118
 @media (max-width: 760px) { .snd { margin-left: auto; } .top .btn-small { margin-left: 0; } }
 .act:active, .chips button:active, .types-row button:active { transform: scale(.95); }
 .btn:not(.btn-ghost):hover { box-shadow: 0 10px 24px -12px rgba(47,107,79,.7); }
+.sk-ic{display:block;width:96px;height:96px;margin:0 auto 18px;border-radius:22px}
+/* doc_visuals.py (24 Nov 2026, visual check) */
+.dv-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.dv-head .dv-icon{width:88px;height:88px;border-radius:20px;flex:none}
+.dv-shot{margin:28px auto;display:flex;justify-content:center}
+.dv-shot img{width:min(56%,230px);height:auto;border-radius:22px}
+.dv-ch img{width:min(46%,180px);border-radius:28px}

@@ -634,3 +634,9 @@ a.store-badge[href]:focus-visible { outline: 2px solid var(--accent); outline-of
 @media (min-width: 720px) { .press-shots { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
 @media (min-width: 1000px) { .press-shots { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 .doc-hero a.store-badge { color: var(--paper); text-decoration: none; }
+/* doc_visuals.py (24 Nov 2026, visual check): app icon by the title, App Store screenshots between sections */
+.dv-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.dv-head .dv-icon{width:88px;height:88px;border-radius:20px;box-shadow:0 8px 20px -10px rgba(0,0,0,.45);flex:none}
+@media (min-width:700px){.dv-head .dv-icon{width:88px;height:88px;border-radius:20px}}
+.dv-shot{margin:28px auto;display:flex;justify-content:center}
+.dv-shot img{width:min(56%,230px);height:auto;border-radius:22px;box-shadow:0 18px 40px -22px rgba(0,0,0,.55)}

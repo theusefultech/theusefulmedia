@@ -52,16 +52,6 @@ export default {
     // 20 Nov 2026 (M06): GET ?count=tech gives the newsletter's active subscriber count, read nightly by
     // scripts/refresh_facts.py for the Advertise page. A total only, cached 6 hours.
     if (request.method === "GET" && new URL(request.url).searchParams.has("count")) return subscriberCount(new URL(request.url).searchParams.get("count"), env, ctx);
-    if (request.method === "GET" && new URL(request.url).searchParams.get("fy") === "polltest") {
-      // Temporary: which poll response endpoint exists (status codes and key names only, no reader data).
-      const pub = LISTS.tech.publication, id = "poll_6eb245a0-e573-404a-b58f-7a58f7317de7";
-      const auth = { Authorization: `Bearer ${env.BEEHIIV_API_KEY}` };
-      const out = {};
-      for (const u of [`polls/${id}/responses`, `polls/${id}?expand[]=poll_responses`, `polls/${id}`]) {
-        try { const r = await fetch(`https://api.beehiiv.com/v2/publications/${pub}/${u}`, { headers: auth }); let k = null; try { const j = await r.json(); k = j && j.data ? (Array.isArray(j.data) ? ["array", j.data[0] ? Object.keys(j.data[0]) : []] : Object.keys(j.data)) : Object.keys(j || {}); } catch {} out[u] = [r.status, k]; } catch (e) { out[u] = String(e); }
-      }
-      return json(out, 200, cors);
-    }
     if (request.method === "GET" && new URL(request.url).searchParams.get("fy") === "tick") {
       // Manual nudge of the matcher (same work as 1 cron minute). Returns the run state or the error.
       try { await fyTick(env); return json(JSON.parse((await env.FY.get("fy:run", { cacheTtl: 30 })) || "null"), 200, cors); }
@@ -344,6 +334,49 @@ async function subscriberCount(which, env, ctx) {
 // ---------------------------------------------------------------------------
 const FY_START_UTC_HOUR = 11;
 const FY_BATCH = 38; // 1 list call + up to 38 writes + 6 retries stays under 50 subrequests
+// 1-tap polls in issues feed the same profile. Choice labels map to field values.
+const FY_POLLS = {
+  tech: [
+    { id: "poll_6eb245a0-e573-404a-b58f-7a58f7317de7", field: "user_type", map: { "Casual": "casual", "Power user": "power", "Creator": "creator", "Student": "student", "Work pro": "pro", "Developer": "dev" } },
+    { id: "poll_4b0d35a8-8c29-4d5b-b6e9-8acc85e87643", field: "wants", map: { "New apps": "apps", "Hidden features": "hidden", "Shortcuts and automation": "shortcuts", "Deals": "deals", "How Apple stuff works": "howitworks", "Free alternatives": "free" } },
+    { id: "poll_bac7e081-e810-4c0e-937e-0a6f1a3db21d", field: "apple_setup", map: { "iPhone": "iphone", "Mac": "mac", "iPad": "ipad", "Apple Watch": "watch" } },
+  ],
+  life: [
+    { id: "poll_98ff021e-25cd-4a10-b47d-7feb6824be9c", field: "life_area", map: { "Habits": "habits", "Focus": "focus", "Money": "money", "Mindset": "mindset" } },
+  ],
+};
+
+async function fyPollAnswers(env, which) {
+  const pub = LISTS[which].publication;
+  const auth = { Authorization: `Bearer ${env.BEEHIIV_API_KEY}` };
+  const out = {};
+  for (const poll of FY_POLLS[which]) {
+    let labels = {};
+    try {
+      const pr = await fetch(`https://api.beehiiv.com/v2/publications/${pub}/polls/${poll.id}`, { headers: auth });
+      if (pr.ok) for (const c of ((await pr.json()).data || {}).poll_choices || []) labels[c.id] = c.label;
+    } catch {}
+    for (let page = 1; page <= 10; page++) {
+      let rows = [];
+      try {
+        const r = await fetch(`https://api.beehiiv.com/v2/publications/${pub}/polls/${poll.id}/responses?limit=100&page=${page}`, { headers: auth });
+        if (!r.ok) break;
+        rows = (await r.json()).data || [];
+      } catch { break; }
+      for (const row of rows) {
+        const sid = row.subscription_id || row.subscriber_id || (row.subscription && row.subscription.id) || (row.subscriber && row.subscriber.id);
+        let label = row.poll_choice_label || row.choice_label || row.label || (row.poll_choice && row.poll_choice.label) || labels[row.poll_choice_id] || labels[row.choice_id] || "";
+        label = String(label).split(":")[0].trim();
+        const val = poll.map[label];
+        if (!sid || !val) continue;
+        (out[sid] = out[sid] || {})[poll.field] = val;
+      }
+      if (rows.length < 100) break;
+    }
+  }
+  return out;
+}
+
 const FY_POOLS = {
   tech: "https://theusefulmedia.com/tech/setup/pool.json",
   life: "https://theusefulmedia.com/library/profile/pool.json",
@@ -403,6 +436,7 @@ async function fyBatch(env, which, state) {
   const auth = { Authorization: `Bearer ${env.BEEHIIV_API_KEY}` };
   const pool = JSON.parse((await env.FY.get(`fy:pool:${which}`)) || "{}");
   const prof = PROFILES[which];
+  const polls = JSON.parse((await env.FY.get(`fy:polls:${which}`)) || "{}");
   const url = `https://api.beehiiv.com/v2/publications/${pub}/subscriptions?status=active&limit=${FY_BATCH}&page=${state.page}&expand[]=custom_fields`;
   const res = await fetch(url, { headers: auth });
   if (!res.ok) { state.errors = (state.errors || 0) + 1; return state.errors > 5; }
@@ -410,12 +444,20 @@ async function fyBatch(env, which, state) {
   const subs = data.data || [];
   const slot = fyDaySlot(new Date());
   let retries = 0;
+  if (state.ans) state.ans[state.page] = 0; // a re-run page (stale KV read) must not count twice
   for (const sub of subs) {
     const profile = readProfile(sub, prof);
+    const fromPoll = {};
+    for (const [f, v] of Object.entries(polls[sub.id] || {})) {
+      const def = prof.fields[f];
+      if (!def) continue;
+      if (def.multi) { if (!profile[f].includes(v)) { profile[f] = def.values.filter((x) => profile[f].includes(x) || x === v); fromPoll[f] = profile[f].join(","); } }
+      else if (!profile[f]) { profile[f] = v; fromPoll[f] = v; }
+    }
     const has = Object.values(profile).some((v) => (Array.isArray(v) ? v.length : v));
     let want;
     if (has) {
-      state.answered++;
+      state.ans = state.ans || {}; state.ans[state.page] = (state.ans[state.page] || 0) + 1;
       const ranked = fyRank(pool, profile, which);
       const item = ranked.length ? ranked[slot % ranked.length] : null;
       want = item ? fyFields(item) : fyProgress(which, state.prevCount, pool.target || 300);
@@ -424,7 +466,8 @@ async function fyBatch(env, which, state) {
     }
     const cf = sub.custom_fields || [];
     const cur = (n) => { const f = cf.find((c) => c.name === n || c.name === n.replace("fy_", "FY ")); return f && f.value != null ? String(f.value) : ""; };
-    if (Object.keys(want).every((k) => cur(k) === want[k])) continue;
+    Object.assign(want, fromPoll); // poll answers become saved profile fields
+    if (Object.keys(want).every((k) => k in fromPoll ? false : cur(k) === want[k])) continue;
     const doPut = () => fetch(`https://api.beehiiv.com/v2/publications/${pub}/subscriptions/${sub.id}`, {
       method: "PUT",
       headers: { ...auth, "Content-Type": "application/json" },
@@ -453,6 +496,7 @@ async function fyTick(env) {
         const p = await fetch(`${FY_POOLS[w]}?t=${Date.now()}`);
         if (p.ok) await env.FY.put(`fy:pool:${w}`, JSON.stringify(await p.json()));
       } catch {}
+      try { await env.FY.put(`fy:polls:${w}`, JSON.stringify(await fyPollAnswers(env, w))); } catch {}
       const prevCount = Number((await env.FY.get(`fy:count:${w}`)) || 0);
       run.lists[w] = { page: 1, seen: 0, answered: 0, written: 0, prevCount };
     }
@@ -464,6 +508,7 @@ async function fyTick(env) {
   const state = run.lists[which];
   const finished = await fyBatch(env, which, state);
   if (finished) {
+    state.answered = Object.values(state.ans || {}).reduce((a, b) => a + b, 0);
     await env.FY.put(`fy:count:${which}`, String(state.answered));
     run.i++;
     if (run.i >= run.order.length) { run.done = true; run.finishedAt = new Date().toISOString(); }

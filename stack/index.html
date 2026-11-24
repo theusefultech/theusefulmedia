@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&display=swap">
-<link rel="stylesheet" href="/stack/stack.css?v=2">
+<link rel="stylesheet" href="/stack/stack.css?v=3">
 <script>document.documentElement.classList.add("js")</script>
 <script src="/stack/stack.js?v=2" defer></script>
 <script src="/tech/tech.js" defer></script>
@@ -328,7 +328,7 @@
     <p class="eyebrow">How the app works</p>
     <h2>Ask. Stack. Put the phone away.</h2>
   </div>
-  <div class="how-grid">
+  <div class="how-grid ts-row" data-hrow aria-label="How it works">
     <article class="how-card">
       <div class="how-art art-ask" data-visual aria-hidden="true">
         <div class="bubble me">I'm bored</div>
@@ -413,7 +413,7 @@
     <p class="eyebrow">2 ways to run a stack</p>
     <h2>Phone away, or phone filming. Never in your hand.</h2>
   </div>
-  <div class="mode-grid">
+  <div class="mode-grid ts-row" data-hrow aria-label="2 ways to run a stack">
     <article class="mode">
       <div class="mode-art away" data-visual aria-hidden="true"><div class="room"><span class="door"></span><span class="ph-down"></span></div><span class="you"><img src="/stack/i/yoga.webp" alt="Away  daily" width="96" height="96" decoding="async"></span></div>
       <h3>Away <span class="tag">daily</span></h3>
@@ -433,7 +433,7 @@
     <p class="eyebrow">Built on research about habits and phones</p>
     <h2>Why it works</h2>
   </div>
-  <div class="sci-grid">
+  <div class="sci-grid ts-row" data-hrow aria-label="The science">
     <article class="sci">
       <p class="big"><span data-count-to="91">91</span>%</p>
       <p>of 467 people improved on at least 1 measure of mood, wellbeing or attention after 2 weeks without mobile internet.</p>
@@ -582,5 +582,6 @@
 
 <div class="tip" role="tooltip" hidden></div>
 <div class="toast" role="status" aria-live="polite" hidden></div>
+<script src="/assets/hrow.js" defer></script>
 </body>
 </html>

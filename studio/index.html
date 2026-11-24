@@ -18,7 +18,18 @@
 <meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* 24 Nov 2026 (visual check, Raja "A"): phone folds on the Studio home */
+.req-fold > summary, .steps-fold > summary, .inc-fold > summary, .picks-fold > summary { display: none; }
+@media (max-width: 760px) {
+  .req-fold > summary, .steps-fold > summary, .inc-fold > summary, .picks-fold > summary { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 16px; margin: 12px 0; border-radius: 12px; border: 1px solid rgba(127,127,127,.3); font: 600 15px/1.3 inherit; cursor: pointer; list-style: none; }
+  .req-fold > summary::-webkit-details-marker, .steps-fold > summary::-webkit-details-marker, .inc-fold > summary::-webkit-details-marker, .picks-fold > summary::-webkit-details-marker { display: none; }
+  .req-fold > summary::after, .steps-fold > summary::after, .inc-fold > summary::after, .picks-fold > summary::after { content: "+"; font-size: 20px; opacity: .6; }
+  .req-fold[open] > summary::after, .steps-fold[open] > summary::after, .inc-fold[open] > summary::after, .picks-fold[open] > summary::after { content: "−"; }
+  .inc-fold > summary { min-height: 44px; margin: 8px 0; }
+  .qa-more { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; margin-top: 12px; border-radius: 12px; border: 1px solid rgba(127,127,127,.35); background: transparent; color: inherit; font: 600 15px/1.3 inherit; cursor: pointer; }
+}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
@@ -554,7 +565,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
       </table>
       </div>
       </details>
-      <div class="vs-picks" data-hrow aria-label="Where each one wins">
+      <details class="picks-fold" data-pfold open><summary>Where free options win, and where Useful Studio wins</summary><div class="vs-picks" data-hrow aria-label="Where each one wins">
         <div><h3>Where the free options win</h3><ul>
           <li>lemo-opuscar has 59 styles to my 12, and it costs $0. For cinematic, art-directed shorts, start there.</li>
           <li>The prompt repos show what Opus 5.5 can do. They are free and worth reading.</li>
@@ -567,8 +578,8 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
           <li>Pro only: App Store previews at every required size, and blog posts into narrated videos.</li>
           <li>Someone to email when setup breaks.</li>
         </ul></div>
-      </div>
-      <p class="vs-bottom">Make 1 video and like tinkering? Use lemo-opuscar. Make a video every month and want them to look like one company made them? Buy Studio. The price rises to $99 after the next 20 licences.</p>
+      </div></details>
+<p class="vs-bottom">Make 1 video and like tinkering? Use lemo-opuscar. Make a video every month and want them to look like one company made them? Buy Studio. The price rises to $99 after the next 20 licences.</p>
       <p class="vs-links"><a href="/studio/vs-lemo-opuscar/">Studio vs lemo-opuscar</a><a href="/studio/vs-remotion/">vs Remotion</a><a href="/studio/vs-hyperframes/">vs HyperFrames</a><a href="/studio/vs-claude-motion/">vs Claude Motion</a></p>
       <p class="vs-src">Sources: <a href="https://github.com/lemomo-ai/lemo-opuscar" rel="noopener">lemo-opuscar</a> · <a href="https://github.com/yihui-dev/awesome-opus5-5-videos" rel="noopener">awesome-opus5-5-videos</a> · <a href="https://github.com/athemeroy/awesome-claude-5-5-videos" rel="noopener">awesome-claude-5-5-videos</a>. Star counts are rounded. Last updated 22 Oct 2026.</p>
     </div>
@@ -588,14 +599,14 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
           <h3>Useful Studio</h3>
           <div class="tstrip"><img class="th" src="media/thumbs/launch-plotwren.webp" alt="Launch film frame" width="480" height="270" loading="lazy" decoding="async"><img class="th" src="media/thumbs/reel-leafkin.webp" alt="Reel frame" width="480" height="270" loading="lazy" decoding="async"><img class="th" src="media/thumbs/explainer-kettlewise.webp" alt="Explainer frame" width="480" height="270" loading="lazy" decoding="async"></div>
           <div class="amt"><b>$79</b><s>$199</s><span>one time</span></div>
-          <ul>
+          <details class="inc-fold" data-pfold open><summary>What's included</summary><ul>
             <li>8 commands: launch films, reels, explainers, b-roll and more, 15 to 90 seconds each</li>
             <li>20 templates and 12 styles</li>
             <li>5 music moods, or your own track cut to the beat</li>
             <li>Voiceover that runs on your Mac</li>
             <li>Unlimited videos for you and your own business</li>
             <li>3 Macs, 12 months of updates</li>
-          </ul>
+          </ul></details>
           <a class="btn buy" href="https://theusefultech.gumroad.com/l/useful-studio?wanted=true">Get Useful Studio</a>
           <p class="final">20 licences left at $79, then $99. Runs on your own Claude plan, no subscription. All sales are final.</p>
         </div>
@@ -603,14 +614,14 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
           <h3>Useful Studio Pro</h3>
           <div class="tstrip two"><img class="th" src="media/thumbs/appstore-plotwren.webp" alt="App Store preview frame" width="480" height="270" loading="lazy" decoding="async"><img class="th" src="media/thumbs/blog-leafkin.webp" alt="Blog video frame" width="480" height="270" loading="lazy" decoding="async"></div>
           <div class="amt"><b>$349</b><span>one time</span></div>
-          <ul>
+          <details class="inc-fold" data-pfold open><summary>What's included</summary><ul>
             <li>Everything in Useful Studio</li>
             <li class="plus">/studio-appstore: App Store and Google Play previews</li>
             <li class="plus">/studio-blog: blog posts into narrated videos</li>
             <li class="plus">Client license: make videos for paying clients</li>
             <li class="plus">Private Discord with other Pro owners</li>
             <li class="plus">New Pro commands during your 12 months of updates</li>
-          </ul>
+          </ul></details>
           <a class="btn buy" href="https://theusefultech.gumroad.com/l/useful-studio-pro?wanted=true">Get Studio Pro</a>
           <p class="final">All sales are final.</p>
         </div>
@@ -618,14 +629,14 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
           <h3>Template Pack</h3>
           <div class="tstrip"><span class="th g g-tpl wide" data-visual aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
           <div class="amt"><b>$49</b><span>one time</span></div>
-          <ul>
+          <details class="inc-fold" data-pfold open><summary>What's included</summary><ul>
             <li>10 animated templates that play in any browser</li>
             <li>No Claude Code needed</li>
             <li>A settings panel for your name, colours, fonts and words</li>
             <li>3 looks and 3 sizes each</li>
             <li>Export an MP4 in Chrome, or record it with QuickTime</li>
             <li>For your own and client videos</li>
-          </ul>
+          </ul></details>
           <a class="btn ghost" href="https://theusefultech.gumroad.com/l/useful-studio-templates?wanted=true">Get the Template Pack</a>
           <p class="final">All sales are final.</p>
         </div>
@@ -647,19 +658,19 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
           <p><em>&gt;</em> /studio-setup</p><p class="ok">✓ Installed. No admin password.</p>
           <p><em>&gt;</em> /studio-brand</p><p class="ok">✓ Logo, colours, fonts and tone saved.</p>
           <p><em>&gt;</em> /studio-launch</p><p class="ok">✓ 16:9 and 9:16 MP4s saved to Movies</p></div>
-        <ol class="steps" data-hrow aria-label="From purchase to first video">
+        <details class="steps-fold" data-pfold open><summary>The 4 setup steps</summary><ol class="steps" data-hrow aria-label="From purchase to first video">
           <li><h3>Buy on Gumroad</h3><p>You get your license key and the install guide. 1 key works on up to 3 of your Macs.</p></li>
           <li><h3>Run <code>/studio-setup</code></h3><p>Type it in Claude Code. It installs everything. No admin password.</p></li>
           <li><h3>Run <code>/studio-brand</code></h3><p>Save your logo, colours, fonts and tone once.</p></li>
           <li><h3>Run <code>/studio-launch</code></h3><p>Answer a few plain questions. Your MP4s land in your Movies folder.</p></li>
-        </ol>
+        </ol></details>
       </div>
-      <dl class="req req2">
+      <details class="req-fold" data-pfold open><summary>What you need to run it</summary><dl class="req req2">
         <div><dt>Computer</dt><dd>A Mac with macOS 14 or later. Apple silicon or Intel.</dd></div>
         <div><dt>Claude</dt><dd>Claude Code with a paid Claude plan: Pro, Max, Team or Enterprise.</dd></div>
         <div><dt>Space</dt><dd>About 1 GB for the tools, plus room for your videos.</dd></div>
         <div><dt>Skills</dt><dd>None. The install guide tells you exactly what to type.</dd></div>
-      </dl>
+      </dl></details>
       <div class="qa">
         <details><summary>Do I need to know how to code or edit video?</summary><p>No. You type a command like /studio-launch and answer a few questions in plain words. Setup takes about 5 minutes and the guide shows every step.</p></details>
         <details><summary>Does it cost anything per video?</summary><p>No. There is no API key, no subscription and no watermark. Making a video uses some of your Claude plan's usage, like any other Claude Code task.</p></details>
@@ -844,5 +855,6 @@ table.cmp{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;lin
 document.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){["grid","gridT"].forEach(function(id){var r=document.getElementById(id);if(r){r.scrollLeft=0;r.dispatchEvent(new Event("scroll"))}})})})})();</script>
 <script src="/tech/tech.js" defer></script>
 <script>/* 24 Nov 2026 (visual check): on phones the 10-row table starts folded, tap to open */if(matchMedia("(max-width: 760px)").matches)document.querySelectorAll("details[data-tfold]").forEach(function(d){d.open=false});</script>
+<script>/* 24 Nov 2026 (visual check, Raja "A"): on phones the requirements and setup steps start folded and the FAQ shows 5 questions, then More questions */if(matchMedia("(max-width: 760px)").matches){document.querySelectorAll("details[data-pfold]").forEach(function(d){d.open=false});var q=document.querySelector(".faq .qa"),k=q?[].slice.call(q.children):[];if(k.length>7){k.slice(5).forEach(function(c){c.hidden=true});var b=document.createElement("button");b.type="button";b.className="qa-more";b.textContent=(k.length-5)+" more questions";b.onclick=function(){k.forEach(function(c){c.hidden=false});b.remove();k[5].querySelector("summary").focus()};q.after(b)}}</script>
 </body>
 </html>

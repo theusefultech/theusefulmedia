@@ -628,3 +628,16 @@ section { padding: clamp(44px, 6vw, 76px) clamp(16px, 5vw, 48px); max-width: 118
 .dv-shot{margin:28px auto;display:flex;justify-content:center}
 .dv-shot img{width:min(56%,230px);height:auto;border-radius:22px}
 .dv-ch img{width:min(46%,180px);border-radius:28px}
+/* 24 Nov 2026 (visual check, Raja "A"): on phones How it works, the 2 modes and the science sit in swipe rows (swipe, buttons, drag, arrow keys via /assets/hrow.js) */
+.hrow-nav{display:none}
+@media (max-width:640px){
+ .ts-row[data-hrow]{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:84%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;margin-inline:-20px;padding:4px 20px 8px;scroll-padding-inline:20px;gap:12px}
+ .ts-row[data-hrow]::-webkit-scrollbar{display:none}.ts-row[data-hrow]>*{scroll-snap-align:start;min-width:0}
+ .ts-row[data-hrow]:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+ .ts-row[data-hrow].is-dragging{scroll-snap-type:none;cursor:grabbing}.ts-row[data-hrow].is-dragging *{pointer-events:none}
+ .hrow-nav{display:flex;align-items:center;gap:8px;margin-top:10px}
+ .hrow-nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(127,127,127,.35);background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer}
+ .hrow-nav button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+ .hrow-nav button:disabled{opacity:.35}
+ .hrow-dots{display:flex;gap:5px;margin-left:6px}.hrow-dots i{width:6px;height:6px;border-radius:50%;background:rgba(127,127,127,.4)}.hrow-dots i.on{background:currentColor}
+}

@@ -53,16 +53,17 @@
     "The Useful Gaming": "theusefulgaming"
   },
   "focus": {
-    "what": "Wristkeeper launch",
-    "until": "2026-11-19",
-    "url": "https://apps.apple.com/app/wristkeeper-watch-collection/id6819904928",
-    "bio": "New: Wristkeeper, my iPhone app for watch collectors",
+    "what": "Black Friday Mac and iPhone app deals",
+    "until": "2026-12-02",
+    "url": "https://theusefulmedia.com/apps/deals/",
+    "bio": "Every Black Friday Mac and iPhone app deal, checked daily",
+    "from": "2026-11-20",
     "next": {
-      "what": "Black Friday Mac and iPhone app deals",
-      "from": "2026-11-20",
-      "until": "2026-12-02",
-      "url": "https://theusefulmedia.com/apps/deals/",
-      "bio": "Every Black Friday Mac and iPhone app deal, checked daily"
+      "what": "Tinystack waitlist",
+      "from": "2026-12-03",
+      "until": "2026-12-27",
+      "url": "https://theusefulmedia.com/stack/",
+      "bio": "Tinystack: trade brain rot for a brain stack. Join the waitlist"
     }
   },
   "lifeFollowers": "12,692",

@@ -54,7 +54,7 @@ def main():
                 d = dt.date(y, MON[m.group(3)[:3].lower()], int(m.group(2)))
             except ValueError:
                 continue
-            if d < TODAY:
+            if d < TODAY and "Watch at" not in m.group(0):  # video moment stamps are a record
                 out["pastDates"].append({"page": rel, "text": m.group(0)[:80]})
         for name, needle in F.get("retired", {}).items():
             own = needle.startswith("/") and rel.startswith(needle)

@@ -288,7 +288,7 @@
     stage.className = "wr-stage s-" + s.k; stage.innerHTML = '<div class="wr-sl">' + s.h + "</div>";
     $$("span", bars).forEach(function (b, k) { b.className = k < at ? "done" : k === at ? "now" : ""; var bi = $("i", b); bi.style.animationDuration = DUR + "ms"; });
     $$("[data-count]", stage).forEach(countUp);
-    foot.innerHTML = s.sum ? (SHARED ? '<a class="btn btn-green pill" href="' + PAGE + '">Make my ' + YEAR + " in books</a>" : '<button type="button" class="btn btn-green pill" data-sv="story">Save for Stories</button><button type="button" class="btn btn-line-light pill" data-sv="post">Save as post</button><button type="button" class="btn btn-line-light pill" data-sv="share">Share</button><button type="button" class="btn btn-line-light pill" data-sv="link">Copy my link</button>')
+    foot.innerHTML = s.sum ? (SHARED ? '<a class="btn btn-green pill" href="' + PAGE + '">Make my ' + YEAR + " in books</a>" : '<button type="button" class="btn btn-green pill" data-sv="story">Save for Stories</button><button type="button" class="btn btn-line-light pill" data-sv="post">Save as post</button>' + (navigator.share && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? '<button type="button" class="btn btn-line-light pill" data-sv="share">Share</button>' : '<button type="button" class="btn btn-line-light pill" data-sv="x" title="Saves a wide image, then opens X with your post written">Post on X</button><button type="button" class="btn btn-line-light pill" data-sv="threads" title="Saves a wide image, then opens Threads with your post written">Post on Threads</button>') + '<button type="button" class="btn btn-line-light pill" data-sv="link">Copy my link</button>')
       : '<span class="wr-hint">Tap to go on</span>';
     $$("[data-sv]", foot).forEach(function (b) { b.addEventListener("click", function (e) { e.stopPropagation(); act(b.dataset.sv, b); }); });
     clearTimeout(timer); paused = false; stage.classList.remove("paused");
@@ -375,7 +375,59 @@
     function rr(c, a, b, w, h, r) { c.beginPath(); c.moveTo(a + r, b); c.arcTo(a + w, b, a + w, b + h, r); c.arcTo(a + w, b + h, a, b + h, r); c.arcTo(a, b + h, a, b, r); c.arcTo(a, b, a + w, b, r); c.closePath(); }
     function wrapT(c, t, a, b, w, lh, max) { var words = String(t).split(" "), line = "", n = 0; for (var i = 0; i < words.length; i++) { var tst = line ? line + " " + words[i] : words[i]; if (c.measureText(tst).width > w && line) { if (++n >= max) { c.fillText(line + "…", a, b); return; } c.fillText(line, a, b); b += lh; line = words[i]; } else line = tst; } c.fillText(line, a, b); }
   }
+  /* 24 Nov 2026 (Raja, item 19 "A"): a wide 1200x675 card, the size X and Threads show in full in the feed */
+  function drawWide() {
+    var st = ST, W = 1200, H = 675, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+    var x = cv.getContext("2d"), grid = st.bs.slice(0, 6);
+    return (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () { return Promise.all(grid.map(function (b) { return loadImg(coverUrl(b, "L")); })); }).then(function (ims) {
+      x.fillStyle = "#1C2B24"; x.fillRect(0, 0, W, H);
+      var g = x.createRadialGradient(W * .9, 0, 40, W * .9, 0, W); g.addColorStop(0, "rgba(184,145,58,.35)"); g.addColorStop(1, "rgba(184,145,58,0)"); x.fillStyle = g; x.fillRect(0, 0, W, H);
+      x.strokeStyle = "rgba(238,240,236,.07)"; x.lineWidth = 2; for (var yy = 0; yy < H; yy += 40) { x.beginPath(); x.moveTo(0, yy); x.lineTo(W, yy); x.stroke(); }
+      var pad = 64;
+      x.fillStyle = "#B8913A"; x.font = "500 24px 'IBM Plex Mono', monospace"; x.fillText(((st.name ? st.name + "'s " : "My ") + YEAR + " in books").toUpperCase(), pad, 92);
+      x.fillStyle = "#EEF0EC"; x.font = "400 104px 'DM Serif Display', Georgia, serif"; x.fillText(st.n + (st.n === 1 ? " book" : " books"), pad, 206);
+      x.font = "600 30px Manrope, sans-serif"; x.fillStyle = "#CFD8D2"; x.fillText(st.P.toLocaleString("en-US") + " pages · " + st.type[0], pad, 258);
+      var facts = []; if (st.boty) facts.push(["Book of the year", st.boty.t]); if (st.areas.length) facts.push(["Top shelf", AREA[st.areas[0].k]]);
+      var fy = 340; facts.slice(0, 2).forEach(function (f) {
+        x.fillStyle = "#9FB0A6"; x.font = "500 20px 'IBM Plex Mono', monospace"; x.fillText(f[0].toUpperCase(), pad, fy);
+        x.fillStyle = "#EEF0EC"; x.font = "400 36px 'DM Serif Display', Georgia, serif"; wrapW(x, f[1], pad, fy + 44, 520, 40, 1); fy += 104;
+      });
+      // covers: 3 x 2 on the right
+      var cols = 3, gap = 16, cw = 150, ch = cw * 1.5, gx = W - pad - (cols * cw + (cols - 1) * gap), gy = (H - 2 * ch - gap) / 2 - 16;
+      grid.forEach(function (b, i) {
+        var cx = gx + (i % cols) * (cw + gap), cy = gy + Math.floor(i / cols) * (ch + gap), im = ims[i];
+        x.save(); x.shadowColor = "rgba(0,0,0,.45)"; x.shadowBlur = 20; x.shadowOffsetY = 8; rr(x, cx, cy, cw, ch, 8); x.fillStyle = "hsl(" + hue(b.t) + ",32%,34%)"; x.fill(); x.restore();
+        x.save(); rr(x, cx, cy, cw, ch, 8); x.clip();
+        if (im) { try { x.drawImage(im, cx, cy, cw, ch); } catch (e) { im = null; } }
+        if (!im) { x.fillStyle = "#EEF0EC"; x.font = "400 22px 'DM Serif Display', Georgia, serif"; wrapW(x, b.t, cx + 12, cy + 36, cw - 24, 26, 5); }
+        x.restore();
+      });
+      var mk = "Make yours: theusefulmedia.com/library/wrapped"; x.font = "700 24px Manrope, sans-serif"; var mw = x.measureText(mk).width + 64;
+      x.fillStyle = "#B8913A"; rr(x, pad, H - 108, mw, 60, 30); x.fill();
+      x.fillStyle = "#1C2B24"; x.textAlign = "center"; x.fillText(mk, pad + mw / 2, H - 70); x.textAlign = "left";
+      return cv;
+    });
+    function rr(c, a, b, w, h, r) { c.beginPath(); c.moveTo(a + r, b); c.arcTo(a + w, b, a + w, b + h, r); c.arcTo(a + w, b + h, a, b + h, r); c.arcTo(a, b + h, a, b, r); c.arcTo(a, b, a + w, b, r); c.closePath(); }
+    function wrapW(c, t, a, b, w, lh, max) { var words = String(t).split(" "), line = "", n = 0; for (var i = 0; i < words.length; i++) { var tst = line ? line + " " + words[i] : words[i]; if (c.measureText(tst).width > w && line) { if (++n >= max) { while (c.measureText(line + "…").width > w && line.length) line = line.slice(0, -1); c.fillText(line + "…", a, b); return; } c.fillText(line, a, b); line = words[i]; b += lh; } else line = tst; } if (line) c.fillText(line, a, b); }
+  }
   function act(k, btn) {
+    if (k === "x" || k === "threads") {
+      var o2 = btn.textContent; btn.textContent = "Making it…"; btn.disabled = true;
+      // open the window now (inside the click) so pop-up blockers allow it, then fill it once the card is saved
+      var win = window.open("about:blank", "_blank");
+      drawWide().then(function (cv) {
+        btn.textContent = o2; btn.disabled = false;
+        cv.toBlob(function (blob) {
+          var a = document.createElement("a"); a.download = "my-" + YEAR + "-in-books-wide.png"; a.href = URL.createObjectURL(blob); document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+          shareLink().then(function (u) {
+            var t = "My " + YEAR + " in books: " + ST.n + " books, " + ST.P.toLocaleString("en-US") + " pages. I'm " + ST.type[0] + ". Make yours:";
+            var dest = k === "x" ? "https://x.com/intent/post?text=" + encodeURIComponent(t) + "&url=" + encodeURIComponent(u) : "https://www.threads.net/intent/post?text=" + encodeURIComponent(t + " " + u);
+            if (win) win.location.href = dest; else window.open(dest, "_blank", "noopener");
+          });
+        }, "image/png");
+      }).catch(function () { btn.textContent = o2; btn.disabled = false; if (win) win.close(); });
+      return;
+    }
     if (k === "link") { shareLink().then(function (u) { copy(u, btn); }); return; }
     var kind = k === "post" ? "post" : "story", old = btn.textContent; btn.textContent = "Making it…"; btn.disabled = true;
     draw(kind).then(function (cv) {

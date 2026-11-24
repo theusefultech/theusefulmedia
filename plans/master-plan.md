@@ -48,7 +48,7 @@ Last updated: 20 Nov 2026, 16:45 IST
 | 27 | M27 | RESEARCH 10, AUDIT | Fewer, deeper pages | Raja OKs a 30-day pause on new page types; Collections folded into best-of guides, Switches into alternatives, with redirects | todo | Decision needs his OK. |
 | 28 | M28 | AUDIT setups build, devs | Internal links for orphan tools | /apps/setups/build/ linked from every Setups page; name checker linked from Submit; app-pricing linked from more pages | todo | Small. |
 | 29 | M29 | RESEARCH page by page | Setups changelog | "What changed" list with dates on Setups pages; MacStories added as a Setups entry | todo | |
-| 30 | M30 | AUDIT game | Share card after each Mystery Book game | Share card shows after every game | todo | |
+| 30 | M30 | AUDIT game | Share card after each Mystery Book game | Share card shows after every game | done | 24 Nov (item 19 A): 1080x1350 result card drawn in the browser (never shows the book), phone share sheet with the image, computer panel with Save image, X, Threads and Copy text. Wrapped also got a 1200x675 card with Post on X and Post on Threads. |
 | 31 | M31 | AUDIT badges | Badges page fix | 1 h1 on /apps/badges/ | todo | 2 h1 headings today. |
 | 32 | M32 | AUDIT wristkeeper | App Store button above the fold | Wristkeeper page shows the App Store button on the first screen | todo | Check first, may be there. |
 | 33 | M33 | AUDIT media kit, sponsor | Sponsor links tidy | Pitch templates link /advertise/ directly (no /sponsor/ hop); media kit PDF numbers match /advertise/ | todo | Pitch template change: tell him. |

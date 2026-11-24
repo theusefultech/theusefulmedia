@@ -171,13 +171,89 @@
   }
   input.addEventListener("input", renderOpts);
   input.addEventListener("keydown", function (e) { if (e.key === "Enter") { var f = opts.querySelector(".opt:not([disabled])"); if (f) f.click(); } });
-  $("[data-share]").addEventListener("click", function () {
+  /* 24 Nov 2026 (Raja, item 19 "A"): the result as a picture. Drawn here on a canvas (no server, no cost), never shows the
+     book, so it can't spoil today's puzzle. Phone: the share sheet with the image. Computer: a panel with the card,
+     Save image, X, Threads and Copy text (X and Threads can't take an image from a link, so those save it first). */
+  var SITE_G = "theusefulmedia.com/library/game/";
+  function shareText() {
     var sq = grid().map(function (k) { return k === "win" ? "🟩" : (k === "miss" ? "🟨" : "⬜"); }).join("");
-    var text = "Mystery Book No. " + no + "  " + (s.won ? (s.wrong.length + 1) : "X") + "/6\n" + sq + "\ntheusefulmedia.com/library/game/";
-    var btn = this;
-    function ok() { btn.textContent = "Copied. Paste it anywhere"; }
-    if (navigator.share && /Mobi|Android|iPhone/i.test(navigator.userAgent)) { navigator.share({ text: text }).catch(function () {}); return; }
-    if (navigator.clipboard) navigator.clipboard.writeText(text).then(ok, ok); else ok();
+    return "Mystery Book No. " + no + "  " + (s.won ? (s.wrong.length + 1) : "X") + "/6\n" + sq + "\n" + (s.won ? "Can you get it in fewer clues?" : "This one beat me. Can you get it?");
+  }
+  function cardStats() {
+    var gs = window.LibStamps ? window.LibStamps.games() : [], pl = gs.filter(function (g) { return g.won || g.lost; }).length, wn = gs.filter(function (g) { return g.won; }).length;
+    return { st: streak(), pl: pl, pct: pl ? Math.round(wn / pl * 100) : 0 };
+  }
+  function drawCard() {
+    var W = 1080, H = 1350, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+    var x = cv.getContext("2d"), F = ["400 40px 'DM Serif Display'", "500 30px 'IBM Plex Mono'", "700 34px Manrope", "600 30px Manrope"];
+    var ready = document.fonts && document.fonts.load ? Promise.all(F.map(function (f) { return document.fonts.load(f).catch(function () {}); })) : Promise.resolve();
+    return ready.then(function () {
+      var c = cardStats(), pad = 90, used = s.won ? s.wrong.length + 1 : 0;
+      x.fillStyle = "#1C2B24"; x.fillRect(0, 0, W, H);
+      var g = x.createRadialGradient(W * .85, 0, 40, W * .85, 0, W * 1.1); g.addColorStop(0, "rgba(184,145,58,.38)"); g.addColorStop(1, "rgba(184,145,58,0)"); x.fillStyle = g; x.fillRect(0, 0, W, H);
+      x.strokeStyle = "rgba(238,240,236,.06)"; x.lineWidth = 2; for (var yy = 0; yy < H; yy += 48) { x.beginPath(); x.moveTo(0, yy); x.lineTo(W, yy); x.stroke(); }
+      x.fillStyle = "#B8913A"; x.font = "500 32px 'IBM Plex Mono', monospace"; x.fillText("MYSTERY BOOK  No. " + no, pad, 150);
+      // the hidden book: a closed cover with a question mark, never the real one
+      var bx = W - pad - 230, by = 96, bw = 230, bh = 330;
+      x.save(); x.translate(bx + bw / 2, by + bh / 2); x.rotate(0.06); x.translate(-bw / 2, -bh / 2);
+      x.shadowColor = "rgba(0,0,0,.5)"; x.shadowBlur = 40; x.shadowOffsetY = 18; rr(x, 0, 0, bw, bh, 14); x.fillStyle = "#2E4A3D"; x.fill(); x.shadowColor = "transparent";
+      x.fillStyle = "rgba(0,0,0,.25)"; x.fillRect(16, 0, 10, bh);
+      x.strokeStyle = "#B8913A"; x.lineWidth = 3; rr(x, 40, 26, bw - 62, bh - 52, 8); x.stroke();
+      x.fillStyle = "#EEF0EC"; x.font = "400 190px 'DM Serif Display', Georgia, serif"; x.textAlign = "center"; x.fillText("?", bw / 2 + 10, bh / 2 + 66); x.restore(); x.textAlign = "left";
+      x.fillStyle = "#EEF0EC"; x.font = "400 132px 'DM Serif Display', Georgia, serif";
+      x.fillText(s.won ? "Solved" : "Stumped", pad, 330);
+      x.fillStyle = "#CFD8D2"; x.font = "600 44px Manrope, sans-serif";
+      x.fillText(s.won ? "in " + used + (used === 1 ? " clue" : " clues") + " of 6" : "after all 6 clues", pad, 404);
+      // the 6 clue tiles
+      var tw = (W - pad * 2 - 5 * 22) / 6, ty = 520;
+      grid().forEach(function (k, i) {
+        var tx = pad + i * (tw + 22);
+        rr(x, tx, ty, tw, tw, 22); x.fillStyle = k === "win" ? "#4E8A6C" : (k === "miss" ? "#B8913A" : "#2A3B33"); x.fill();
+        x.fillStyle = k === "none" ? "#55685E" : "#FFFFFF"; x.font = "700 44px Manrope, sans-serif"; x.textAlign = "center"; x.fillText(String(i + 1), tx + tw / 2, ty + tw / 2 + 16); x.textAlign = "left";
+      });
+      x.fillStyle = "#9FB0A6"; x.font = "500 24px 'IBM Plex Mono', monospace"; x.fillText("EACH TILE IS 1 CLUE.  GREEN = SOLVED", pad, ty + tw + 56);
+      // stats
+      var sy = ty + tw + 150, cols = [["STREAK", c.st + (c.st === 1 ? " day" : " days")], ["PLAYED", String(c.pl)], ["WIN RATE", c.pct + "%"]], cw = (W - pad * 2) / 3;
+      cols.forEach(function (k, i) {
+        x.fillStyle = "#9FB0A6"; x.font = "500 26px 'IBM Plex Mono', monospace"; x.fillText(k[0], pad + i * cw, sy);
+        x.fillStyle = "#EEF0EC"; x.font = "400 64px 'DM Serif Display', Georgia, serif"; x.fillText(k[1], pad + i * cw, sy + 76);
+      });
+      x.fillStyle = "#EEF0EC"; x.font = "400 54px 'DM Serif Display', Georgia, serif";
+      x.fillText(s.won ? "Can you get it in fewer clues?" : "Think you can get it?", pad, H - 250);
+      x.fillStyle = "#B8913A"; rr(x, pad, H - 170, W - pad * 2, 92, 46); x.fill();
+      x.fillStyle = "#1C2B24"; x.font = "700 34px Manrope, sans-serif"; x.textAlign = "center"; x.fillText("Play free: " + SITE_G.replace(/\/$/, ""), W / 2, H - 112); x.textAlign = "left";
+      return cv;
+    });
+    function rr(c, a, b, w, h, r) { c.beginPath(); c.moveTo(a + r, b); c.arcTo(a + w, b, a + w, b + h, r); c.arcTo(a + w, b + h, a, b + h, r); c.arcTo(a, b + h, a, b, r); c.arcTo(a, b, a + w, b, r); c.closePath(); }
+  }
+  function blobOf(cv) { return new Promise(function (res) { cv.toBlob(res, "image/png"); }); }
+  function saveBlob(b) { var a = document.createElement("a"); a.download = "mystery-book-" + no + ".png"; a.href = URL.createObjectURL(b); document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000); }
+  var URLG = "https://" + SITE_G + "?utm_source=share";
+  $("[data-share]").addEventListener("click", function () {
+    var btn = this, old = btn.textContent; btn.textContent = "Making your card…"; btn.disabled = true;
+    drawCard().then(blobOf).then(function (blob) {
+      btn.textContent = old; btn.disabled = false;
+      var file = blob && window.File ? new File([blob], "mystery-book-" + no + ".png", { type: "image/png" }) : null;
+      var data = { text: shareText() + "\n" + URLG };
+      if (file && navigator.canShare && navigator.canShare({ files: [file] }) && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) { navigator.share(Object.assign({ files: [file] }, data)).catch(function () {}); return; }
+      // computer: show the card with its buttons under the result
+      var box = root.querySelector("[data-share-box]");
+      if (!box) { box = document.createElement("div"); box.setAttribute("data-share-box", ""); box.className = "card"; box.style.cssText = "padding:16px;display:grid;gap:12px;grid-template-columns:minmax(0,150px) minmax(0,1fr);align-items:center"; btn.parentNode.parentNode.insertBefore(box, btn.parentNode.nextSibling); }
+      var u = URL.createObjectURL(blob);
+      box.innerHTML = '<img src="' + u + '" alt="Your Mystery Book result card" width="150" height="188" style="width:100%;height:auto;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.25)">'
+        + '<div style="display:grid;gap:8px"><p style="font-size:14px;color:var(--muted);margin:0">Your card is ready. X and Threads save it first, then open with your post written. Add the image there.</p>'
+        + '<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn btn-green" data-sx="save">Save image</button><button type="button" class="btn btn-line" data-sx="x">Post on X</button><button type="button" class="btn btn-line" data-sx="th">Post on Threads</button><button type="button" class="btn btn-line" data-sx="copy">Copy text</button></div></div>';
+      box.querySelectorAll("[data-sx]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var k = b.getAttribute("data-sx"), t = shareText();
+          if (k === "save") { saveBlob(blob); return; }
+          if (k === "copy") { var ok = function () { b.textContent = "Copied"; }; if (navigator.clipboard) navigator.clipboard.writeText(t + "\n" + URLG).then(ok, ok); else ok(); return; }
+          saveBlob(blob);
+          var w = k === "x" ? "https://x.com/intent/post?text=" + encodeURIComponent(t) + "&url=" + encodeURIComponent(URLG) : "https://www.threads.net/intent/post?text=" + encodeURIComponent(t + "\n" + URLG);
+          window.open(w, "_blank", "noopener");
+        });
+      });
+    }).catch(function () { btn.textContent = old; btn.disabled = false; });
   });
 
   var sb = document.querySelector("[data-sound]");

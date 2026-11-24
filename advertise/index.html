@@ -764,17 +764,17 @@ p { margin: 0; }
       <p class="sub">Pay when you book. The draft starts the same week.</p>
     </div>
     <div class="offers" role="group" aria-label="Placements" data-hrow>
-      <button type="button" class="offer" data-name="top spot in a roundup" aria-pressed="true">
+      <button type="button" class="offer" data-name="top spot in a roundup" data-offer="med-top" aria-pressed="true">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true" data-visual><div class="r top"><i></i><s></s></div><div class="r"><i></i><s></s></div><div class="r"><i></i><s></s></div></div>
         <div class="txt"><span class="tag">Most booked</span><h3>Top spot in a roundup</h3><b class="price">From $200</b><p>Your app at #1 with its own section and a newsletter feature.</p></div>
       </button>
-      <button type="button" class="offer" data-name="dedicated review" aria-pressed="false">
+      <button type="button" class="offer" data-name="dedicated review" data-offer="med-review" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true" data-visual><div class="art"><div class="hero-i"></div><s></s><s></s><s></s></div></div>
         <div class="txt"><span class="tag">Most depth</span><h3>Dedicated review</h3><b class="price">From $500</b><p>A full post about your app only, a newsletter feature and posts on X and LinkedIn.</p></div>
       </button>
-      <button type="button" class="offer" data-name="full campaign" aria-pressed="false">
+      <button type="button" class="offer" data-name="full campaign" data-offer="med-campaign" aria-pressed="false">
         <span class="check"><svg><use href="#i-check"/></svg></span>
         <div class="mini" aria-hidden="true" data-visual><div class="layers"><i></i><i></i><i></i></div></div>
         <div class="txt"><span class="tag">Most reach</span><h3>Full campaign</h3><b class="price">Custom quote</b><p>2 dedicated posts, a dedicated newsletter issue, plus Instagram, X and LinkedIn posts.</p></div>
@@ -984,6 +984,8 @@ var ICONS = {"sponsors": [{"n": "MacPaw", "d": "Mac AI assistant Eney", "i": "/s
   function syncMail() {
     var href = mailto(); mailA.href = href;
     var link = PAY[chosen];
+    // 24 Nov 2026 (Daily growth report phase 2): a tap on Book or Pay counts as a checkout tap for this placement (apps/hit.js)
+    payBtn.setAttribute('data-buy', { 'top spot in a roundup': 'med-top', 'dedicated review': 'med-review', 'full campaign': 'med-campaign' }[chosen] || 'med-other');
     if (link && PRICE[chosen]) { payBtn.href = link; payBtn.target = '_blank'; payBtn.rel = 'noopener'; }
     else { payBtn.href = href; payBtn.removeAttribute('target'); payBtn.removeAttribute('rel'); }
   }

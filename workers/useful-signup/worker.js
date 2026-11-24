@@ -43,6 +43,7 @@ const TYPO_DOMAINS = {
 const EMAIL_RE = /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$/;
 
 export default {
+  async scheduled(event, env, ctx) { ctx.waitUntil(fyTick(env)); },
   async fetch(request, env, ctx) {
     const origin = request.headers.get("Origin") || "";
     const cors = corsHeaders(origin);
@@ -51,6 +52,7 @@ export default {
     // 20 Nov 2026 (M06): GET ?count=tech gives the newsletter's active subscriber count, read nightly by
     // scripts/refresh_facts.py for the Advertise page. A total only, cached 6 hours.
     if (request.method === "GET" && new URL(request.url).searchParams.has("count")) return subscriberCount(new URL(request.url).searchParams.get("count"), env, ctx);
+    if (request.method === "GET" && new URL(request.url).searchParams.get("fy") === "status") return json(env.FY ? JSON.parse((await env.FY.get("fy:run")) || "null") : null, 200, cors);
     if (request.method !== "POST") return json({ ok: false, code: "method" }, 405, cors);
     if (!ALLOWED_ORIGINS.includes(origin)) return json({ ok: false, code: "origin" }, 403, cors);
 
@@ -93,12 +95,34 @@ export default {
   },
 };
 
-// Read or save a Tech subscriber's Apple setup. The page gets the subscriber id
-// from the newsletter link (Beehiiv merge tag {{subscriber_id}}), never an email.
+// Read or save a reader's profile. The page gets the subscriber id from the
+// newsletter link (Beehiiv merge tag {{api_subscription_id}}), never an email.
+// 24 Nov 2026: generalised from the Apple setup form. Tech saves devices and
+// services, user type and wants; Life saves life area, reading goal and pace.
+// Every value is whitelisted here, so the page can never write anything else.
+const PROFILES = {
+  tech: {
+    fields: {
+      apple_setup: { label: "Apple setup", multi: true, values: SETUP_ITEMS },
+      user_type: { label: "User type", multi: false, values: ["casual", "power", "creator", "student", "pro", "dev"] },
+      wants: { label: "Wants", multi: true, values: ["apps", "hidden", "shortcuts", "deals", "howitworks", "free"] },
+    },
+  },
+  life: {
+    fields: {
+      life_area: { label: "Life area", multi: false, values: ["habits", "focus", "money", "mindset"] },
+      reading_goal: { label: "Reading goal", multi: false, values: ["more", "apply", "choose", "finish"] },
+      pace: { label: "Pace", multi: false, values: ["slow", "steady", "fast"] },
+    },
+  },
+};
+
 async function handleSetup(body, env, cors) {
   const sid = String(body.sid || "");
   if (!SUB_ID_RE.test(sid)) return json(fail("sid"), 200, cors);
-  const base = `https://api.beehiiv.com/v2/publications/${LISTS.tech.publication}/subscriptions/${sid}`;
+  const which = body.list === "life" ? "life" : "tech";
+  const prof = PROFILES[which];
+  const base = `https://api.beehiiv.com/v2/publications/${LISTS[which].publication}/subscriptions/${sid}`;
   const auth = { Authorization: `Bearer ${env.BEEHIIV_API_KEY}` };
 
   let sub;
@@ -112,26 +136,55 @@ async function handleSetup(body, env, cors) {
   }
   if (!sub || sub.status !== "active") return json(fail("sid"), 200, cors);
 
+  const current = readProfile(sub, prof);
   if (body.action === "setup_get") {
-    // Beehiiv reads the field back under its display name ("Apple setup").
-    const f = (sub.custom_fields || []).find((c) => c.name === SETUP_FIELD || c.name === "Apple setup");
-    const items = f && f.value ? String(f.value).split(",").filter((x) => SETUP_ITEMS.includes(x)) : [];
-    return json({ ok: true, items }, 200, cors);
+    // Old Tech pages only know "items" (the Apple setup list).
+    return json({ ok: true, items: current.apple_setup || [], profile: current }, 200, cors);
   }
 
-  const raw = Array.isArray(body.items) ? body.items : [];
-  const items = SETUP_ITEMS.filter((x) => raw.includes(x)); // whitelist, fixed order, no duplicates
+  // Old page sends { items }, new pages send { profile: { field: value(s) } }.
+  const incoming = body.profile && typeof body.profile === "object" ? body.profile : { apple_setup: body.items };
+  const out = [];
+  const saved = {};
+  for (const [name, def] of Object.entries(prof.fields)) {
+    if (!(name in incoming)) continue;
+    let raw = incoming[name];
+    if (def.multi) {
+      raw = Array.isArray(raw) ? raw : [];
+      const vals = def.values.filter((x) => raw.includes(x)); // whitelist, fixed order, no duplicates
+      saved[name] = vals;
+      out.push({ name, value: vals.join(",") });
+    } else {
+      const v = def.values.includes(raw) ? raw : "";
+      saved[name] = v;
+      out.push({ name, value: v });
+    }
+  }
+  if (!out.length) return json(fail("empty"), 200, cors);
   try {
     const res = await fetch(base, {
       method: "PUT",
       headers: { ...auth, "Content-Type": "application/json" },
-      body: JSON.stringify({ custom_fields: [{ name: SETUP_FIELD, value: items.join(",") }] }),
+      body: JSON.stringify({ custom_fields: out }),
     });
     if (!res.ok) return json(fail("server"), 502, cors);
   } catch {
     return json(fail("server"), 502, cors);
   }
-  return json({ ok: true, items }, 200, cors);
+  const profile = { ...current, ...saved };
+  return json({ ok: true, items: profile.apple_setup || [], profile }, 200, cors);
+}
+
+// Beehiiv reads custom fields back under their display name ("Apple setup").
+function readProfile(sub, prof) {
+  const out = {};
+  const cf = sub.custom_fields || [];
+  for (const [name, def] of Object.entries(prof.fields)) {
+    const f = cf.find((c) => c.name === name || c.name === def.label);
+    const v = f && f.value != null ? String(f.value) : "";
+    out[name] = def.multi ? v.split(",").filter((x) => def.values.includes(x)) : (def.values.includes(v) ? v : "");
+  }
+  return out;
 }
 
 function fail(code, extra = {}) { return { ok: false, code, ...extra }; }
@@ -261,4 +314,141 @@ async function subscriberCount(which, env, ctx) {
   const out = new Response(JSON.stringify({ ok: typeof n === "number", subscribers: typeof n === "number" ? n : null }), { headers: { "content-type": "application/json", "cache-control": "public, max-age=21600" } });
   if (typeof n === "number") ctx.waitUntil(caches.default.put(ck, out.clone()));
   return out;
+}
+
+// ---------------------------------------------------------------------------
+// "For your setup" matcher (24 Nov 2026). Free, no Claude usage per reader.
+// Beehiiv Lite has no dynamic content, so each issue shows a card built from
+// merge tags {{fy_title}}, {{fy_text}}, {{fy_cta}}, {{fy_tags}}. Once a day,
+// from 11:00 UTC (before the 14:00 Life and 17:00 Tech sends), this cron walks
+// every active reader in batches of 40 (Cloudflare free plan: 50 subrequests
+// per run), picks their best item from that week's pool and writes the 4
+// fields. Readers with no answers get the "tell us your setup" progress card.
+// Pools: /tech/setup/pool.json and /library/profile/pool.json (written weekly).
+// State lives in KV (binding FY) under "fy:*".
+// ---------------------------------------------------------------------------
+const FY_START_UTC_HOUR = 11;
+const FY_BATCH = 40;
+const FY_POOLS = {
+  tech: "https://theusefulmedia.com/tech/setup/pool.json",
+  life: "https://theusefulmedia.com/library/profile/pool.json",
+};
+
+function fyDaySlot(d) {
+  // Issue days: Mon (0), Wed (1), Fri (2). Other days reuse the nearest slot.
+  return [0, 0, 0, 1, 2, 2, 0][d.getUTCDay()];
+}
+
+function fyRank(pool, profile, which) {
+  const owned = which === "tech" ? profile.apple_setup || [] : [];
+  const type = which === "tech" ? profile.user_type : profile.life_area;
+  const wants = which === "tech" ? profile.wants || [] : [profile.reading_goal, profile.pace].filter(Boolean);
+  const scored = [];
+  for (const it of pool.items || []) {
+    const need = it.devices || [];
+    if (need.length && owned.length && !need.some((x) => owned.includes(x))) continue; // never a tip for gear they own none of (no devices ticked = no filter)
+    if (it.paces && it.paces.length && profile.pace && !it.paces.includes(profile.pace)) continue;
+    let s = 1 + (it.weight || 0);
+    if (need.length) s += 1;
+    if ((it.types || []).includes(type)) s += 3;
+    if ((it.wants || []).some((w) => wants.includes(w))) s += 2;
+    scored.push({ it, s });
+  }
+  scored.sort((a, b) => b.s - a.s || String(a.it.id).localeCompare(String(b.it.id)));
+  return scored.map((x) => x.it);
+}
+
+function fyProgress(which, count, target, sid) {
+  const n = count >= 20 ? `${count} of ${target} readers have told us. ` : "";
+  if (which === "tech") return {
+    fy_tags: "Built for your setup",
+    fy_title: "Tell us your Apple setup in 20 seconds",
+    fy_text: `Tap the devices you own and the kind of user you are. Your issues then skip tips for gear you don't have. ${n}At ${target}, every issue starts fitting your setup.`,
+    fy_cta: "Tick my setup",
+  };
+  return {
+    fy_tags: "Your reading",
+    fy_title: "Tell us what you want books to fix",
+    fy_text: `Pick 1 part of life, your reading goal and your pace. Each issue then ends with your next read. ${n}It takes 15 seconds.`,
+    fy_cta: "Set my reading profile",
+  };
+}
+
+function fyFields(item) {
+  return {
+    fy_tags: (item.tags || []).join(" · "),
+    fy_title: item.title,
+    fy_text: item.text,
+    fy_cta: "See all your picks this week",
+  };
+}
+
+async function fyBatch(env, which, state) {
+  const pub = LISTS[which].publication;
+  const auth = { Authorization: `Bearer ${env.BEEHIIV_API_KEY}` };
+  const pool = JSON.parse((await env.FY.get(`fy:pool:${which}`)) || "{}");
+  const prof = PROFILES[which];
+  const url = `https://api.beehiiv.com/v2/publications/${pub}/subscriptions?status=active&limit=${FY_BATCH}&page=${state.page}&expand[]=custom_fields`;
+  const res = await fetch(url, { headers: auth });
+  if (!res.ok) { state.errors = (state.errors || 0) + 1; return state.errors > 5; }
+  const data = await res.json();
+  const subs = data.data || [];
+  const slot = fyDaySlot(new Date());
+  for (const sub of subs) {
+    const profile = readProfile(sub, prof);
+    const has = Object.values(profile).some((v) => (Array.isArray(v) ? v.length : v));
+    let want;
+    if (has) {
+      state.answered++;
+      const ranked = fyRank(pool, profile, which);
+      const item = ranked.length ? ranked[slot % ranked.length] : null;
+      want = item ? fyFields(item) : fyProgress(which, state.prevCount, pool.target || 300);
+    } else {
+      want = fyProgress(which, state.prevCount, pool.target || (which === "tech" ? 300 : 100));
+    }
+    const cf = sub.custom_fields || [];
+    const cur = (n) => { const f = cf.find((c) => c.name === n || c.name === n.replace("fy_", "FY ")); return f && f.value != null ? String(f.value) : ""; };
+    if (Object.keys(want).every((k) => cur(k) === want[k])) continue;
+    const put = await fetch(`https://api.beehiiv.com/v2/publications/${pub}/subscriptions/${sub.id}`, {
+      method: "PUT",
+      headers: { ...auth, "Content-Type": "application/json" },
+      body: JSON.stringify({ custom_fields: Object.entries(want).map(([name, value]) => ({ name, value })) }),
+    });
+    if (put.ok) state.written++; else state.failed = (state.failed || 0) + 1;
+  }
+  state.seen += subs.length;
+  state.page++;
+  return subs.length < FY_BATCH; // true when this list is finished
+}
+
+async function fyTick(env) {
+  if (!env.FY) return;
+  const now = new Date();
+  const today = now.toISOString().slice(0, 10);
+  let run = JSON.parse((await env.FY.get("fy:run")) || "null");
+  if (!run || (run.day !== today && run.done)) {
+    if (now.getUTCHours() < FY_START_UTC_HOUR) return;
+    if (run && run.day === today) return;
+    run = { day: today, order: ["life", "tech"], i: 0, done: false, lists: {} };
+    for (const w of run.order) {
+      try {
+        const p = await fetch(`${FY_POOLS[w]}?t=${Date.now()}`);
+        if (p.ok) await env.FY.put(`fy:pool:${w}`, JSON.stringify(await p.json()));
+      } catch {}
+      const prevCount = Number((await env.FY.get(`fy:count:${w}`)) || 0);
+      run.lists[w] = { page: 1, seen: 0, answered: 0, written: 0, prevCount };
+    }
+    await env.FY.put("fy:run", JSON.stringify(run));
+    return;
+  }
+  if (run.done) return;
+  const which = run.order[run.i];
+  const state = run.lists[which];
+  const finished = await fyBatch(env, which, state);
+  if (finished) {
+    await env.FY.put(`fy:count:${which}`, String(state.answered));
+    run.i++;
+    if (run.i >= run.order.length) { run.done = true; run.finishedAt = new Date().toISOString(); }
+  }
+  await env.FY.put("fy:run", JSON.stringify(run));
 }

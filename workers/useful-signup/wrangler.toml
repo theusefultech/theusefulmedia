@@ -3,3 +3,11 @@ main = "worker.js"
 compatibility_date = "2026-10-01"
 workers_dev = true
 # Secrets BEEHIIV_API_KEY and TURNSTILE_SECRET live in Cloudflare and survive deploys.
+
+# 24 Nov 2026: "For your setup" matcher. Reuses the Library's KV namespace with an "fy:" prefix.
+[[kv_namespaces]]
+binding = "FY"
+id = "96c536e08e4b42648a051d03e4c67f4d"
+
+[triggers]
+crons = ["* * * * *"]

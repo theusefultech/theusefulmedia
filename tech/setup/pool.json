@@ -1,0 +1,293 @@
+{
+ "week": "2026-11-30",
+ "target": 300,
+ "note": "Weekly pool for the For your setup card. devices: reader must own 1 of these (empty = everyone). types: user_type bonus. wants: wants bonus. Written each Monday.",
+ "items": [
+  {
+   "id": "t01",
+   "devices": [
+    "mac"
+   ],
+   "types": [
+    "power",
+    "pro"
+   ],
+   "wants": [
+    "shortcuts"
+   ],
+   "tags": [
+    "Mac",
+    "Shortcuts"
+   ],
+   "title": "Give any Shortcut its own keyboard shortcut on Mac",
+   "text": "Open the Shortcuts app, double-click a shortcut, click the info (i) button, then Add Keyboard Shortcut. Your most-used automation is now 2 keys away from any app."
+  },
+  {
+   "id": "t02",
+   "devices": [
+    "iphone"
+   ],
+   "types": [
+    "power",
+    "casual"
+   ],
+   "wants": [
+    "hidden",
+    "shortcuts"
+   ],
+   "tags": [
+    "iPhone",
+    "Hidden feature"
+   ],
+   "title": "Tap the back of your iPhone to run anything",
+   "text": "Settings > Accessibility > Touch > Back Tap. Set Double Tap to a screenshot, the flashlight or any Shortcut. It works through most cases."
+  },
+  {
+   "id": "t03",
+   "devices": [
+    "iphone"
+   ],
+   "types": [
+    "student",
+    "pro"
+   ],
+   "wants": [
+    "hidden",
+    "free"
+   ],
+   "tags": [
+    "iPhone",
+    "Free"
+   ],
+   "title": "Turn paper into a clean PDF without a scanner app",
+   "text": "Open a note in Notes, tap the paperclip, then Scan Documents. The iPhone finds the page edges, flattens the shot and saves a PDF inside the note."
+  },
+  {
+   "id": "t04",
+   "devices": [
+    "iphone"
+   ],
+   "types": [
+    "casual",
+    "student"
+   ],
+   "wants": [
+    "hidden"
+   ],
+   "tags": [
+    "iPhone",
+    "Typing"
+   ],
+   "title": "Hold the space bar to move your cursor",
+   "text": "Press and hold the space bar on the iPhone keyboard. The keys go blank and the whole keyboard becomes a trackpad, so you can drop the cursor exactly where you want."
+  },
+  {
+   "id": "t05",
+   "devices": [
+    "mac"
+   ],
+   "types": [
+    "casual",
+    "pro"
+   ],
+   "wants": [
+    "hidden",
+    "howitworks"
+   ],
+   "tags": [
+    "Mac",
+    "Hidden feature"
+   ],
+   "title": "Option-click the Wi-Fi icon for the details Apple hides",
+   "text": "Hold Option and click Wi-Fi in the menu bar. You get your IP address, signal strength and the channel you're on, which tells you fast whether slow internet is your router or your Mac."
+  },
+  {
+   "id": "t06",
+   "devices": [
+    "watch"
+   ],
+   "types": [],
+   "wants": [
+    "hidden"
+   ],
+   "tags": [
+    "Apple Watch"
+   ],
+   "title": "Find your iPhone from your wrist, even in the dark",
+   "text": "Open Control Center on your Watch and tap the Ping iPhone button. Touch and hold it instead and your iPhone flashes its light too."
+  },
+  {
+   "id": "t07",
+   "devices": [
+    "airpods"
+   ],
+   "types": [
+    "casual",
+    "student"
+   ],
+   "wants": [
+    "hidden"
+   ],
+   "tags": [
+    "AirPods"
+   ],
+   "title": "Share 1 movie with 2 pairs of AirPods",
+   "text": "Connect your AirPods, open Control Center, tap the AirPlay icon on the music player, then Share Audio. Bring the second pair close and both of you hear the same thing."
+  },
+  {
+   "id": "t08",
+   "devices": [
+    "ipad"
+   ],
+   "types": [
+    "student",
+    "creator"
+   ],
+   "wants": [
+    "hidden"
+   ],
+   "tags": [
+    "iPad",
+    "Notes"
+   ],
+   "title": "Swipe from the corner for an instant Quick Note",
+   "text": "On iPad, swipe up from the bottom-right corner with your finger or Apple Pencil. A Quick Note opens over any app, and it links back to the page or app you were in."
+  },
+  {
+   "id": "t09",
+   "devices": [
+    "appletv",
+    "homepod"
+   ],
+   "types": [
+    "casual"
+   ],
+   "wants": [
+    "hidden"
+   ],
+   "tags": [
+    "Apple TV",
+    "Home"
+   ],
+   "title": "Lost the Apple TV remote? Your iPhone is one",
+   "text": "Open Control Center and tap the remote icon. If it isn't there, add Apple TV Remote in Control Center settings. It also gives you a real keyboard for search."
+  },
+  {
+   "id": "t10",
+   "devices": [],
+   "types": [
+    "student",
+    "casual"
+   ],
+   "wants": [
+    "deals",
+    "apps"
+   ],
+   "weight": 1,
+   "tags": [
+    "Deals",
+    "Cyber Monday"
+   ],
+   "title": "The Mac and iPhone app deals still running",
+   "text": "Every app deal on our list is checked by hand and sorted by device, so you only see deals for gear you own.",
+   "url": "https://theusefulmedia.com/apps/deals/",
+   "cta": "See the deals"
+  },
+  {
+   "id": "t11",
+   "devices": [
+    "mac"
+   ],
+   "types": [
+    "creator",
+    "pro"
+   ],
+   "wants": [
+    "hidden"
+   ],
+   "tags": [
+    "Mac",
+    "Screen recording"
+   ],
+   "title": "Record your Mac screen without any app",
+   "text": "Press Shift, Command and 5. You get buttons to record the whole screen or just a box, plus Options to add your mic and a 5-second timer."
+  },
+  {
+   "id": "t12",
+   "devices": [
+    "iphone"
+   ],
+   "types": [
+    "power"
+   ],
+   "wants": [
+    "shortcuts"
+   ],
+   "tags": [
+    "iPhone",
+    "Automation"
+   ],
+   "title": "Make your iPhone do something every time you plug it in",
+   "text": "Shortcuts > Automation > New Automation > Charger. Pick Is Connected, set it to Run Immediately, and add any action: Low Power Mode off, a playlist, a Focus."
+  },
+  {
+   "id": "t13",
+   "devices": [
+    "mac"
+   ],
+   "types": [
+    "creator",
+    "casual",
+    "student"
+   ],
+   "wants": [
+    "free",
+    "hidden"
+   ],
+   "tags": [
+    "Mac",
+    "Free"
+   ],
+   "title": "Remove a photo's background in 2 clicks on Mac",
+   "text": "In Finder, right-click an image, then Quick Actions > Remove Background. You get a new copy with a clear background. No app, no upload."
+  },
+  {
+   "id": "t14",
+   "devices": [
+    "mac"
+   ],
+   "types": [
+    "pro",
+    "power"
+   ],
+   "wants": [
+    "hidden"
+   ],
+   "tags": [
+    "Mac",
+    "Windows"
+   ],
+   "title": "Command and the key above Tab flips between windows",
+   "text": "Command-Tab jumps between apps. Command and ` (the key above Tab on most keyboards) jumps between windows of the same app, like 2 Safari windows."
+  },
+  {
+   "id": "t15",
+   "devices": [
+    "mac"
+   ],
+   "types": [
+    "dev"
+   ],
+   "wants": [
+    "howitworks",
+    "hidden"
+   ],
+   "tags": [
+    "Mac",
+    "Terminal"
+   ],
+   "title": "Keep your Mac awake for 1 long task",
+   "text": "Type caffeinate in Terminal and your Mac won't sleep until you press Control-C. Use caffeinate -i followed by your command and it stays awake only while that command runs."
+  }
+ ]
+}

@@ -1,0 +1,208 @@
+{
+ "week": "2026-11-30",
+ "target": 100,
+ "note": "Weekly pool for the Useful Life For your reading card. types: life_area. wants: reading_goal or pace. paces: hard filter.",
+ "items": [
+  {
+   "id": "l01",
+   "types": [
+    "habits"
+   ],
+   "wants": [
+    "apply",
+    "finish"
+   ],
+   "paces": [
+    "slow",
+    "steady"
+   ],
+   "tags": [
+    "Habits",
+    "Your next read"
+   ],
+   "title": "Your next read: Tiny Habits by BJ Fogg",
+   "text": "Built for people who want to use what they read. Each chapter ends with a small exercise, so read 1 a week and do it before moving on."
+  },
+  {
+   "id": "l02",
+   "types": [
+    "habits"
+   ],
+   "wants": [
+    "more",
+    "choose"
+   ],
+   "paces": [
+    "steady",
+    "fast"
+   ],
+   "tags": [
+    "Habits",
+    "Your next read"
+   ],
+   "title": "Your next read: The Power of Habit by Charles Duhigg",
+   "text": "The book that made the habit loop famous: cue, routine, reward. Story-driven and fast to read, so it suits a quick pace."
+  },
+  {
+   "id": "l03",
+   "types": [
+    "focus"
+   ],
+   "wants": [
+    "apply",
+    "more"
+   ],
+   "paces": [
+    "steady",
+    "fast"
+   ],
+   "tags": [
+    "Focus",
+    "Your next read"
+   ],
+   "title": "Your next read: Deep Work by Cal Newport",
+   "text": "Part 2 is the useful half: 4 rules for protecting focused hours. Read part 1 quickly, then slow down for the rules."
+  },
+  {
+   "id": "l04",
+   "types": [
+    "focus"
+   ],
+   "wants": [
+    "choose",
+    "finish"
+   ],
+   "paces": [
+    "slow",
+    "steady"
+   ],
+   "tags": [
+    "Focus",
+    "Your next read"
+   ],
+   "title": "Your next read: Four Thousand Weeks by Oliver Burkeman",
+   "text": "A calm book about time instead of another productivity system. Short chapters that each stand alone, so it works even at 1 chapter a week."
+  },
+  {
+   "id": "l05",
+   "types": [
+    "money"
+   ],
+   "wants": [
+    "apply",
+    "choose",
+    "finish"
+   ],
+   "paces": [
+    "slow",
+    "steady",
+    "fast"
+   ],
+   "weight": 1,
+   "tags": [
+    "Money",
+    "Your next read"
+   ],
+   "title": "Your next read: The Psychology of Money by Morgan Housel",
+   "text": "Short chapters, 1 idea each, no spreadsheets. Easy to finish at any pace, and the compounding chapter is the one to reread."
+  },
+  {
+   "id": "l06",
+   "types": [
+    "money"
+   ],
+   "wants": [
+    "apply",
+    "more"
+   ],
+   "paces": [
+    "steady",
+    "fast"
+   ],
+   "tags": [
+    "Money",
+    "Your next read"
+   ],
+   "title": "Your next read: I Will Teach You to Be Rich by Ramit Sethi",
+   "text": "A step-by-step money setup: accounts, automatic savings, spending on what you love. Read it with your banking app open."
+  },
+  {
+   "id": "l07",
+   "types": [
+    "money"
+   ],
+   "wants": [
+    "more",
+    "choose"
+   ],
+   "paces": [
+    "fast"
+   ],
+   "tags": [
+    "Money",
+    "Your next read"
+   ],
+   "title": "Your next read: The Simple Path to Wealth by JL Collins",
+   "text": "Started as letters to his daughter about investing. Plain, opinionated and quick for a fast reader."
+  },
+  {
+   "id": "l08",
+   "types": [
+    "mindset"
+   ],
+   "wants": [
+    "finish",
+    "apply"
+   ],
+   "paces": [
+    "slow"
+   ],
+   "tags": [
+    "Mindset",
+    "Your next read"
+   ],
+   "title": "Your next read: Man's Search for Meaning by Viktor Frankl",
+   "text": "Short enough to finish in a few sittings, and one of the most reread nonfiction books there is. Start here if you read slowly."
+  },
+  {
+   "id": "l09",
+   "types": [
+    "mindset"
+   ],
+   "wants": [
+    "apply",
+    "more"
+   ],
+   "paces": [
+    "steady",
+    "fast"
+   ],
+   "tags": [
+    "Mindset",
+    "Your next read"
+   ],
+   "title": "Your next read: The Obstacle Is the Way by Ryan Holiday",
+   "text": "Stoic ideas through short stories of people who turned problems into progress. Each chapter is a few pages, perfect for a daily read."
+  },
+  {
+   "id": "l10",
+   "types": [
+    "mindset"
+   ],
+   "wants": [
+    "choose",
+    "more"
+   ],
+   "paces": [
+    "steady",
+    "fast"
+   ],
+   "tags": [
+    "Mindset",
+    "Your next read"
+   ],
+   "title": "Your next read: Mindset by Carol Dweck",
+   "text": "The fixed vs growth mindset book. The first 3 chapters carry the idea, and the rest shows it in work, sport and parenting."
+  }
+ ]
+}

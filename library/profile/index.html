@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Your reading profile: The Useful Life</title>
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/tech/tech.css">
+<link rel="stylesheet" href="/tech/setup/setup.css">
+<script src="/assets/site.js" defer></script>
+<script src="/assets/profile.js?v=1" defer></script>
+<script src="/apps/hit.js" defer></script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body class="nl su lp">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="The Useful Media Co home"><img class="mark" src="/logo.svg" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:7px"><span class="brand-name">The Useful Media Co</span></a>
+    <div class="header-end">
+      <nav class="nav" aria-label="Main"><a href="/tech/">Newsletter</a><a href="/library/" aria-current="page">Library</a><a href="/free/">Free</a><a href="/products/">Guides</a><a href="/our-apps/">Our apps</a><a href="/apps/">Discover</a><a href="/advertise/">Advertise</a><a href="/about/">About</a><script src="/assets/menu.js?v=1"></script></nav>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device" data-cursor="Theme">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="su-hero wrap" aria-labelledby="su-title">
+  <p class="su-kicker">The Useful Life</p>
+  <h1 id="su-title">Tell us what you want books to fix</h1>
+  <p class="su-sub">3 quick picks: 1 part of life, your reading goal and your pace. Every issue then ends with your next read, sized to how fast you read. 15 seconds, and you can change it any time.</p>
+</section>
+<section class="fy-tips wrap" data-tips hidden aria-labelledby="fy-title">
+  <h2 id="fy-title">Your next reads</h2>
+  <p class="fy-sub">Picked for your answers from this week's list. Each issue shows 1 of these. New ones every Monday.</p>
+  <ol class="fy-list" data-tips-list></ol>
+</section>
+<section class="su-board wrap" data-visual data-profile="life" data-pool="/library/profile/pool.json" aria-label="Your reading profile">
+  <div class="su-state" data-state="nolink" hidden>
+    <p><strong>This page works from the link in your newsletter.</strong> Open any issue of The Useful Life and tap "Set my reading profile".</p>
+    <p>Not subscribed yet? <a href="/library/">Get The Useful Life free</a>.</p>
+  </div>
+  <div class="su-state su-bad" data-state="badlink" hidden><p>That link didn't work. Open the newest issue and tap "Set my reading profile" again.</p></div>
+  <form class="su-form" data-form hidden>
+    <fieldset data-single><legend>Which part of life do you want books to fix next? <span class="su-hint">pick 1</span></legend><div class="su-grid">
+<button type="button" class="su-tile" data-f="life_area" data-k="habits" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V9M9.5 18V6M15 18v-4M20.5 18V11"/></svg><span>Habits</span><small>Build 1 that sticks</small><i class="su-tick" aria-hidden="true"></i></button>
+<button type="button" class="su-tile" data-f="life_area" data-k="focus" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></svg><span>Focus</span><small>Less scrolling, deeper work</small><i class="su-tick" aria-hidden="true"></i></button>
+<button type="button" class="su-tile" data-f="life_area" data-k="money" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="18" height="11" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg><span>Money</span><small>Save, spend, invest better</small><i class="su-tick" aria-hidden="true"></i></button>
+<button type="button" class="su-tile" data-f="life_area" data-k="mindset" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21h6M10 17.5h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/></svg><span>Mindset</span><small>Calmer, braver, clearer</small><i class="su-tick" aria-hidden="true"></i></button>
+    </div></fieldset>
+    <fieldset data-single><legend>Your reading goal <span class="su-hint">pick 1</span></legend><div class="su-grid">
+<button type="button" class="su-tile" data-f="reading_goal" data-k="more" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h6a2 2 0 0 1 2 2V20a2 2 0 0 0-2-2H4zM20 5.5h-6a2 2 0 0 0-2 2V20a2 2 0 0 1 2-2h6z"/></svg><span>Read more books</span><i class="su-tick" aria-hidden="true"></i></button>
+<button type="button" class="su-tile" data-f="reading_goal" data-k="apply" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Use what I read</span><i class="su-tick" aria-hidden="true"></i></button>
+<button type="button" class="su-tile" data-f="reading_goal" data-k="choose" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><span>Pick better books</span><i class="su-tick" aria-hidden="true"></i></button>
+<button type="button" class="su-tile" data-f="reading_goal" data-k="finish" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg><span>Finish the books I start</span><i class="su-tick" aria-hidden="true"></i></button>
+    </div></fieldset>
+    <fieldset data-single><legend>How fast do you read? <span class="su-hint">pick 1</span></legend><div class="su-grid su-grid-3">
+<button type="button" class="su-tile" data-f="pace" data-k="slow" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l2.5 1.5"/></svg><span>Under 1 a month</span><i class="su-tick" aria-hidden="true"></i></button>
+<button type="button" class="su-tile" data-f="pace" data-k="steady" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3.5 2"/><path d="M8 4.5L6 2.8"/></svg><span>1 to 2 a month</span><i class="su-tick" aria-hidden="true"></i></button>
+<button type="button" class="su-tile" data-f="pace" data-k="fast" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></svg><span>3 or more a month</span><i class="su-tick" aria-hidden="true"></i></button>
+    </div></fieldset>
+    <div class="su-bar">
+      <p class="su-count" data-picked aria-live="polite">0 picked</p>
+      <button type="button" class="su-clear" data-clear>Clear all</button>
+      <button type="submit" class="su-save" data-save>Save and see my next reads</button>
+    </div>
+    <p class="su-msg" data-msg aria-live="polite"></p>
+  </form>
+  <p class="su-fine">Only your answers are saved, next to your subscription. No email address goes through this page.</p>
+</section>
+</main>
+
+<footer class="site-footer sf2">
+  <div class="wrap">
+    <div class="sf2-top">
+      <div class="sf2-brand">
+        <a class="sf2-logo" href="/"><img class="mark" src="/logo.svg" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:7px"><span>The Useful Media Co</span></a>
+        <p>Raja's 1-person company in Chennai: the #1 Apple blog on Medium, The Useful Life, the apps I make and the guides I sell.</p>
+        <div class="nl-band sf2-nl">
+          <div class="signup">
+            <form class="signup-form" data-signup data-campaign="footer" novalidate>
+              <label class="visually-hidden" for="email-footer">Email address</label>
+              <input id="email-footer" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+              <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button type="submit"><span class="btn-label">Get the newsletter</span></button>
+            </form>
+            <div class="signup-msg" aria-live="polite"></div>
+            <p class="nl-fine">The Useful Tech, 3 short emails a week. Free.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sf2-cols">
+        <div><h3>Read</h3><ul><li><a href="https://theusefultech.com" target="_blank" rel="noopener">The Useful Tech</a></li><li><a href="https://medium.com/the-useful-life" target="_blank" rel="noopener">The Useful Life</a></li><li><a href="/tech/">Newsletter</a></li><li><a href="/tech/library/">Past issues</a></li><li><a href="/library/">The Useful Library</a></li></ul></div>
+        <div><h3>Discover</h3><ul><li><a href="/apps/">The Useful Apps</a></li><li><a href="/apps/deals/">Black Friday deals</a></li><li><a href="/apps/best/">Best app for each job</a></li><li><a href="/free/">Free guides</a></li></ul></div>
+        <div><h3>Made by me</h3><ul><li><a href="/wristkeeper/">Wristkeeper</a></li><li><a href="https://textlore.app/" target="_blank" rel="noopener">Textlore for Mac</a></li><li><a href="/products/">Guides</a></li><li><a href="/studio/">Useful Studio</a></li><li><a href="/stack/">Tinystack (waitlist)</a></li></ul></div>
+        <div><h3>Company</h3><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/wristkeeper/privacy/">Wristkeeper privacy</a></li></ul></div>
+      </div>
+    </div>
+    <div class="sf2-base">
+      <span>&copy; <span data-year>2026</span> The Useful Media Co. Chennai, India. <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span>
+      <p class="mail-line"><a class="mail" href="mailto:raja@theusefultech.com">raja@theusefultech.com</a><button class="copy" type="button" data-copy="raja@theusefultech.com"><span class="copy-label">Copy email</span></button></p>
+      <div class="sf2-social">
+        <a href="https://www.instagram.com/theusefultech/" target="_blank" rel="noopener" aria-label="The Useful Tech on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@theusefultech9850" target="_blank" rel="noopener" aria-label="The Useful Tech on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://x.com/UsefulCreator_" target="_blank" rel="noopener" aria-label="Raja on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L4.9 21H1.8l7.3-8.3L1.4 3h6.4l4.4 5.9zM16.4 19.2h1.7L7.1 4.7H5.3z" fill="currentColor"/></svg></a>
+        <a href="https://theusefultech.com" target="_blank" rel="noopener" aria-label="The Useful Tech on Medium"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="7" cy="12" rx="5" ry="5.6" fill="currentColor"/><ellipse cx="15.6" cy="12" rx="2.5" ry="5.3" fill="currentColor"/><ellipse cx="20.6" cy="12" rx="1" ry="4.7" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="progress" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,6 +1,69 @@
 {
- "updated": "2026-11-22",
+ "updated": "2026-11-24",
  "people": [
+  {
+   "slug": "my-first-million",
+   "name": "My First Million",
+   "channels": [
+    "My First Million"
+   ],
+   "books": [
+    {
+     "title": "How to Win Friends and Influence People",
+     "author": "",
+     "note": "Dale Carnegie classic on people skills, linked in show notes",
+     "video": "pod-ff6181706940",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-24"
+    },
+    {
+     "title": "Cues",
+     "author": "",
+     "note": "Vanessa Van Edwards' book on reading social cues, linked in show notes",
+     "video": "pod-ff6181706940",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-24"
+    },
+    {
+     "title": "Conversation",
+     "author": "",
+     "note": "Vanessa Van Edwards' book on conversation skills, linked in show notes",
+     "video": "pod-ff6181706940",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-24"
+    },
+    {
+     "title": "Dying to Live: Near-Death Experiences",
+     "author": "",
+     "note": "Susan Blackmore book on near-death experiences, linked in show notes",
+     "video": "pod-4bc0b759b71b",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-15"
+    },
+    {
+     "title": "The Escape Artist",
+     "author": "",
+     "note": "Jonathan Freedland book about the man who broke out of Auschwitz",
+     "video": "pod-4bc0b759b71b",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-15"
+    },
+    {
+     "title": "Man's Search for Meaning",
+     "author": "",
+     "note": "Viktor Frankl book linked in show notes",
+     "video": "pod-4bc0b759b71b",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-15"
+    }
+   ]
+  },
   {
    "slug": "bernie-sanders",
    "name": "Bernie Sanders",
@@ -6489,42 +6552,6 @@
    ]
   },
   {
-   "slug": "my-first-million",
-   "name": "My First Million",
-   "channels": [
-    "My First Million"
-   ],
-   "books": [
-    {
-     "title": "Dying to Live: Near-Death Experiences",
-     "author": "",
-     "note": "Susan Blackmore book on near-death experiences, linked in show notes",
-     "video": "pod-4bc0b759b71b",
-     "url": "https://feeds.megaphone.fm/HS2300184645",
-     "ts": 0,
-     "date": "2026-11-15"
-    },
-    {
-     "title": "The Escape Artist",
-     "author": "",
-     "note": "Jonathan Freedland book about the man who broke out of Auschwitz",
-     "video": "pod-4bc0b759b71b",
-     "url": "https://feeds.megaphone.fm/HS2300184645",
-     "ts": 0,
-     "date": "2026-11-15"
-    },
-    {
-     "title": "Man's Search for Meaning",
-     "author": "",
-     "note": "Viktor Frankl book linked in show notes",
-     "video": "pod-4bc0b759b71b",
-     "url": "https://feeds.megaphone.fm/HS2300184645",
-     "ts": 0,
-     "date": "2026-11-15"
-    }
-   ]
-  },
-  {
    "slug": "sean",
    "name": "Sean",
    "channels": [],
@@ -6542,6 +6569,30 @@
   }
  ],
  "ranking": [
+  {
+   "title": "How to Win Friends and Influence People",
+   "author": "",
+   "people": [
+    "my-first-million",
+    "tim-olukanni",
+    "ali-abdaal",
+    "mark-manson"
+   ]
+  },
+  {
+   "title": "Cues",
+   "author": "",
+   "people": [
+    "my-first-million"
+   ]
+  },
+  {
+   "title": "Conversation",
+   "author": "",
+   "people": [
+    "my-first-million"
+   ]
+  },
   {
    "title": "It's OK to Be Angry About Capitalism",
    "author": "",
@@ -7411,15 +7462,6 @@
    "author": "",
    "people": [
     "tim-olukanni"
-   ]
-  },
-  {
-   "title": "How to Win Friends and Influence People",
-   "author": "",
-   "people": [
-    "tim-olukanni",
-    "ali-abdaal",
-    "mark-manson"
    ]
   },
   {

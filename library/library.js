@@ -985,3 +985,40 @@
   var s = document.querySelector("[data-ch-strip]");
   if (s && now < END && !document.body.hasAttribute("data-challenge-sales") && !document.body.hasAttribute("data-challenge-tracker")) s.hidden = false;
 })();
+// 24 Nov 2026 (Raja, item 20 "A"): 1 Featured slot on every book and problem page, above Quick answers.
+// House ad for the Reading Challenge for now. To sell it to a reading app later, set SLOT.sponsor to
+// { name, line, url, img, cta } and it shows the same card labelled "Sponsored" (rel=sponsored), nothing else changes.
+(function () {
+  var p = location.pathname;
+  if (!/^\/library\/(books|problems)\/[a-z0-9-]+\/?$/.test(p)) return;
+  var SLOT = { sponsor: null };
+  var faq = document.querySelector("#faq"); if (!faq || document.querySelector("[data-slot]")) return;
+  var now = Date.now(), OPEN = Date.parse("2026-11-30T18:30:00Z"), END = Date.parse("2026-12-31T18:30:00Z"), open = now >= OPEN || /[?&]open=1/.test(location.search);
+  var e = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var here = (p.match(/\/books\/([a-z0-9-]+)/) || [])[1] || "";
+  var all = ["atomic-habits", "deep-work", "the-psychology-of-money", "tiny-habits", "four-thousand-weeks", "meditations", "the-power-of-habit", "indistractable"];
+  var covers = all.filter(function (c) { return c !== here; }).slice(0, 3);
+  var c, label;
+  if (SLOT.sponsor) { c = SLOT.sponsor; label = "Sponsored"; }
+  else {
+    label = "From The Useful Library";
+    c = { name: "The Useful Reading Challenge 2027", url: "/library/challenge/?utm_source=slot&utm_content=" + encodeURIComponent(p.split("/")[2]),
+      line: open ? (now < END ? "12 books in 2027, 1 idea tested each month, with a tracker that keeps you going. $29 until 31 Dec, then $39." : "12 books in 2027, 1 idea tested each month, with a tracker that keeps you going.")
+        : "12 books in 2027, 1 idea tested each month, with a tracker that keeps you going. Opens 1 Dec at the early-bird price.",
+      cta: open ? (now < END ? "Join for $29" : "Join the challenge") : "Get on the early-bird list" };
+  }
+  var art = SLOT.sponsor ? '<img src="' + e(c.img) + '" alt="" width="96" height="96" style="width:96px;height:96px;border-radius:22px">'
+    : '<span class="slot-st" aria-hidden="true">' + covers.map(function (k, i) { return '<img src="/library/img/covers/' + k + '.webp?v=2" alt="" width="70" height="106" loading="lazy" style="--i:' + i + '">'; }).join("") + "</span>";
+  var box = document.createElement("section");
+  box.className = "card slot"; box.setAttribute("data-slot", SLOT.sponsor ? "sponsor" : "house"); box.setAttribute("data-visual", "");
+  box.innerHTML = art + '<div class="slot-t"><p class="mono slot-k">' + label + '</p><h2>' + e(c.name) + '</h2><p>' + e(c.line) + '</p><a class="btn btn-brass" href="' + e(c.url) + '"' + (SLOT.sponsor ? ' rel="sponsored noopener" target="_blank"' : "") + ' data-campaign="slot">' + e(c.cta) + "</a></div>";
+  faq.parentNode.insertBefore(box, faq);
+  if (!document.querySelector("style[data-slot-css]")) {
+    var st = document.createElement("style"); st.setAttribute("data-slot-css", "");
+    st.textContent = ".slot{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;border-radius:28px;background:linear-gradient(135deg,color-mix(in srgb,var(--brass,#B8913A) 14%,var(--card)),var(--card) 60%)}"
+      + ".slot h2{font-size:28px;margin:4px 0 8px}.slot p{margin:0 0 14px}.slot-k{color:var(--brass,#B8913A);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0}"
+      + ".slot-st{position:relative;display:block;width:150px;height:120px}.slot-st img{position:absolute;top:0;left:calc(var(--i)*38px);width:70px;height:106px;border-radius:6px;object-fit:cover;box-shadow:0 10px 22px rgba(0,0,0,.28);transform:rotate(calc((var(--i) - 1)*7deg))}"
+      + "@media (max-width:620px){.slot{grid-template-columns:1fr;gap:16px;padding:22px}.slot h2{font-size:24px}}";
+    document.head.appendChild(st);
+  }
+})();

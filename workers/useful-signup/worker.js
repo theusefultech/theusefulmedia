@@ -52,6 +52,16 @@ export default {
     // 20 Nov 2026 (M06): GET ?count=tech gives the newsletter's active subscriber count, read nightly by
     // scripts/refresh_facts.py for the Advertise page. A total only, cached 6 hours.
     if (request.method === "GET" && new URL(request.url).searchParams.has("count")) return subscriberCount(new URL(request.url).searchParams.get("count"), env, ctx);
+    if (request.method === "GET" && new URL(request.url).searchParams.get("fy") === "polltest") {
+      // Temporary: which poll response endpoint exists (status codes and key names only, no reader data).
+      const pub = LISTS.tech.publication, id = "poll_6eb245a0-e573-404a-b58f-7a58f7317de7";
+      const auth = { Authorization: `Bearer ${env.BEEHIIV_API_KEY}` };
+      const out = {};
+      for (const u of [`polls/${id}/responses`, `polls/${id}?expand[]=poll_responses`, `polls/${id}`]) {
+        try { const r = await fetch(`https://api.beehiiv.com/v2/publications/${pub}/${u}`, { headers: auth }); let k = null; try { const j = await r.json(); k = j && j.data ? (Array.isArray(j.data) ? ["array", j.data[0] ? Object.keys(j.data[0]) : []] : Object.keys(j.data)) : Object.keys(j || {}); } catch {} out[u] = [r.status, k]; } catch (e) { out[u] = String(e); }
+      }
+      return json(out, 200, cors);
+    }
     if (request.method === "GET" && new URL(request.url).searchParams.get("fy") === "tick") {
       // Manual nudge of the matcher (same work as 1 cron minute). Returns the run state or the error.
       try { await fyTick(env); return json(JSON.parse((await env.FY.get("fy:run", { cacheTtl: 30 })) || "null"), 200, cors); }

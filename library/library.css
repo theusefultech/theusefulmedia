@@ -736,3 +736,14 @@ html.dk .hub-art{background:#222D27}
  .chm-covers img{width:64px!important;height:96px!important}
 }
 .lv-more{display:flex;margin:18px auto 0}
+
+/* 24 Nov 2026: "ways to get it" tiles on book pages */
+.ways{display:flex;flex-direction:column;gap:14px}
+.ways-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.way{display:grid;grid-template-columns:44px 1fr;column-gap:14px;row-gap:10px;align-items:start;padding:18px 20px;border-radius:24px;text-decoration:none;color:inherit;transition:transform .25s var(--ease)}
+.way:hover,.way:focus-visible{transform:translateY(-3px)}
+.way svg{width:44px;height:44px}
+.way-t{display:flex;flex-direction:column;gap:4px}.way-t b{font-family:"DM Serif Display",serif;font-weight:400;font-size:24px;line-height:1.1}.way-t small{font-size:15px;color:var(--soft);line-height:1.4}
+.way-c{grid-column:2;font-weight:700;color:var(--green)}
+.way-t b{font-size:22px}
+@media (prefers-reduced-motion:reduce){.way{transition:none}.way:hover{transform:none}}

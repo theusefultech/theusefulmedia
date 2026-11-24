@@ -208,6 +208,8 @@ var FALLBACK_URL = "https://newsletter.theusefultech.com/subscribe";
             form.dispatchEvent(new CustomEvent("signup:done", { bubbles: true, detail: { email: email, existing: !!res.existing } }));
             return;
           }
+          // 24 Nov 2026 (Raja, Daily growth report): signups on /tech/ count too (hit.js beacons survive the redirect)
+          form.dispatchEvent(new CustomEvent("signup:done", { bubbles: true, detail: { email: email, existing: !!res.existing } }));
           setTimeout(function () { location.href = next || "/tech/welcome/"; }, 450);
           return;
         }

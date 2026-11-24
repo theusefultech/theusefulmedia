@@ -83,6 +83,20 @@
   "tags": [
    "iphone",
    "ios27"
+  ],
+  "faq": [
+   [
+    "Which iOS 27 settings should I change first?",
+    "The checklist stars the 5 worth doing first, such as the Liquid Glass slider, a separate alarm volume and how long Siri keeps your conversations."
+   ],
+   [
+    "How long does Siri keep my conversations in iOS 27?",
+    "Forever by default. Go to Settings, Siri, Keep Conversations and pick 1 Year or 30 Days."
+   ],
+   [
+    "Can I make my alarm louder than my ringer?",
+    "Yes. In Settings, Sounds and Haptics, Alarms and Timers, turn off Match Ringtone Volume and a separate slider appears."
+   ]
   ]
  },
  {
@@ -229,6 +243,20 @@
   "thumb": "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/product_variant_asset/asset/76baa458-1924-4ec2-8a01-439e76ad9937/dfbhj.png",
   "tags": [
    "ipad"
+  ],
+  "faq": [
+   [
+    "How do I copy and paste on an iPad without menus?",
+    "Select the text, then pinch in with 3 fingers to copy and pinch out with 3 fingers to paste. Double tap with 3 fingers to undo."
+   ],
+   [
+    "How do I turn the iPad keyboard into a trackpad?",
+    "Rest 2 fingers on the on-screen keyboard. The whole keyboard becomes a trackpad for the cursor."
+   ],
+   [
+    "What are the 2 settings worth changing?",
+    "Notes, Access Notes from Lock Screen, Resume Last Note, so every Pencil tap lands in 1 running note. And Face ID and Passcode, Control Center off, so a thief cannot kill tracking from the lock screen."
+   ]
   ]
  },
  {

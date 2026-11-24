@@ -191,7 +191,7 @@
           <img data-shot="2" src="/wristkeeper/assets/v2/phone/cost-660.webp" width="660" height="1434" alt="Pick, Wristkeeper app screen" loading="lazy">
         </div>
       </div>
-      <ol class="steps">
+      <ol class="steps" data-hrow aria-label="How it works">
         <li class="step" data-step="0">
           <span class="num">1</span>
           <h3>Pick</h3>
@@ -272,7 +272,7 @@
     <p class="eyebrow">Everything else in the box</p>
     <h2 id="feat-title" class="display reveal">Small app. <em>Deep collection.</em></h2>
     <div class="feat-shots" data-visual><img src="/wristkeeper/assets/shots/05-weather-480.webp" alt="Wristkeeper screen: weather-smart pick" width="480" height="1040" loading="lazy"><img src="/wristkeeper/assets/shots/07-dial-icons-480.webp" alt="Wristkeeper screen: dial icons" width="480" height="1040" loading="lazy"><img src="/wristkeeper/assets/shots/08-private-480.webp" alt="Wristkeeper screen: private by design" width="480" height="1040" loading="lazy"></div>
-    <ul class="feat-grid">
+    <ul class="feat-grid" data-hrow aria-label="Everything else in the box">
       <li class="tilt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18H7Z"/><path d="M9 21l1-2M13 21l1-2"/></svg><h3>Weather-smart picks</h3><p>Rain means a diver on a bracelet, not your leather strap.</p></li>
       <li class="tilt"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5h6v2"/></svg><h3>Occasions</h3><p>Work, Dinner, Gym or Travel: a pick that fits the plan.</p></li>
       <li class="tilt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg><h3>Collection value</h3><p>What the box is worth, newest piece, most worn.</p></li>
@@ -317,7 +317,7 @@
     <img class="wk-ic" src="/wristkeeper/assets/icon-180.webp" alt="" width="96" height="96" loading="lazy" data-visual>
     <p class="eyebrow">Pricing</p>
     <h2 id="price-title" class="display reveal">Free for 3 watches. <em>Your whole box with Pro.</em></h2>
-    <div class="plans">
+    <div class="plans" data-hrow aria-label="Plans">
       <div class="plan">
         <h3>Free</h3>
         <p class="amt">$0</p>
@@ -404,5 +404,7 @@
 <p data-tum-apps style="margin:10px 0 0;font-size:14px">More from The Useful Media Co: <a href="/apps/">The Useful Apps</a>, Mac and iPhone apps worth paying for and where they cost least, with guides to the <a href="/apps/collections/new-mac/">first apps for a new Mac</a> and the <a href="/apps/best/">best app for each job</a>.</p>
 </div>
 </footer>
+<script src="/assets/hrow.js" defer></script>
+<script>/* 24 Nov 2026 (visual check): on phones the FAQ shows 4 questions, then More questions */if(matchMedia("(max-width: 760px)").matches){var q=document.querySelector(".faq .faq-list"),k=q?[].slice.call(q.children):[];if(k.length>5){k.slice(4).forEach(function(c){c.hidden=true});var b=document.createElement("button");b.type="button";b.className="faq-more";b.textContent=(k.length-4)+" more questions";b.onclick=function(){k.forEach(function(c){c.hidden=false});b.remove();var s=k[4].querySelector("summary");if(s)s.focus()};q.after(b)}}</script>
 </body>
 </html>

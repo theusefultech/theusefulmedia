@@ -221,6 +221,8 @@ problems=[
  {"text":"I can't break a bad habit","area":"HABITS","keys":"bad habit habits break quit stop phone scrolling snacking junk food smoking craving cravings urge temptation relapse slip willpower self-control","url":"/library/problems/cant-break-bad-habit/"},
  {"text":"I can't switch off after work","area":"FOCUS","keys":"switch off unwind relax evening night after work stop thinking about work work life balance tired rest email slack weekend detach disconnect","url":"/library/problems/cant-switch-off/"},
  {"text":"I live paycheck to paycheck","area":"MONEY","keys":"paycheck to paycheck payday salary broke run out of money end of month no savings emergency fund save saving savings lifestyle creep raise budget","url":"/library/problems/paycheck-to-paycheck/"},
+ {"text":"I don't know where my money goes","area":"MONEY","keys":"where does my money go track tracking spending expenses budget budgeting no idea leak wasting","url":"/library/problems/where-does-my-money-go/"},
+ {"text":"I scroll my phone for hours","area":"HABITS","keys":"scroll scrolling doomscroll phone screen time social media tiktok instagram reels addicted checking","url":"/library/problems/scrolling-my-phone-for-hours/"},
 ]
 catalog=[{"slug":"atomic-habits","t":"Atomic Habits","a":"habits"},{"slug":"the-power-of-habit","t":"The Power of Habit","a":"habits"},{"slug":"mindset","t":"Mindset","a":"mindset"},
  {"slug":"deep-work","t":"Deep Work","a":"focus"},{"slug":"essentialism","t":"Essentialism","a":"focus"},{"slug":"indistractable","t":"Indistractable","a":"focus"},{"slug":"the-7-habits-of-highly-effective-people","t":"The 7 Habits of Highly Effective People","a":"habits"},

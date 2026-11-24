@@ -409,13 +409,13 @@ function fyRank(pool, profile, which) {
 function fyProgress(which, count, target, sid) {
   const n = count >= 20 ? `${count} of ${target} readers have told us. ` : "";
   if (which === "tech") return {
-    fy_tags: "Built for your setup",
+    fy_tags: "20 seconds",
     fy_title: "Tell us your Apple setup in 20 seconds",
     fy_text: `Tap the devices you own and the kind of user you are. Your issues then skip tips for gear you don't have. ${n}At ${target}, every issue starts fitting your setup.`,
     fy_cta: "Tick my setup",
   };
   return {
-    fy_tags: "Your reading",
+    fy_tags: "15 seconds",
     fy_title: "Tell us what you want books to fix",
     fy_text: `Pick 1 part of life, your reading goal and your pace. Each issue then ends with your next read. ${n}It takes 15 seconds.`,
     fy_cta: "Set my reading profile",

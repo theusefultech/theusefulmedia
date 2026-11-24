@@ -333,7 +333,7 @@ async function subscriberCount(which, env, ctx) {
 // State lives in KV (binding FY) under "fy:*".
 // ---------------------------------------------------------------------------
 const FY_START_UTC_HOUR = 11;
-const FY_BATCH = 40;
+const FY_BATCH = 38; // 1 list call + up to 38 writes + 6 retries stays under 50 subrequests
 const FY_POOLS = {
   tech: "https://theusefulmedia.com/tech/setup/pool.json",
   life: "https://theusefulmedia.com/library/profile/pool.json",
@@ -399,6 +399,7 @@ async function fyBatch(env, which, state) {
   const data = await res.json();
   const subs = data.data || [];
   const slot = fyDaySlot(new Date());
+  let retries = 0;
   for (const sub of subs) {
     const profile = readProfile(sub, prof);
     const has = Object.values(profile).some((v) => (Array.isArray(v) ? v.length : v));
@@ -414,12 +415,14 @@ async function fyBatch(env, which, state) {
     const cf = sub.custom_fields || [];
     const cur = (n) => { const f = cf.find((c) => c.name === n || c.name === n.replace("fy_", "FY ")); return f && f.value != null ? String(f.value) : ""; };
     if (Object.keys(want).every((k) => cur(k) === want[k])) continue;
-    const put = await fetch(`https://api.beehiiv.com/v2/publications/${pub}/subscriptions/${sub.id}`, {
+    const doPut = () => fetch(`https://api.beehiiv.com/v2/publications/${pub}/subscriptions/${sub.id}`, {
       method: "PUT",
       headers: { ...auth, "Content-Type": "application/json" },
       body: JSON.stringify({ custom_fields: Object.entries(want).map(([name, value]) => ({ name, value })) }),
     });
-    if (put.ok) state.written++; else state.failed = (state.failed || 0) + 1;
+    let put = await doPut();
+    if (!put.ok && retries < 6) { retries++; await new Promise((r) => setTimeout(r, 1500)); put = await doPut(); }
+    if (put.ok) state.written++; else { state.failed = (state.failed || 0) + 1; state.lastFail = put.status; }
   }
   state.seen += subs.length;
   state.page++;

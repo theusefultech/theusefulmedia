@@ -191,6 +191,24 @@ def page(p, items):
   <ul class="ticks">{inside}</ul>
 </section>
 {faq}
+<section class="wrap fr-deals" aria-labelledby="deals-h" data-sec="free-deals">
+  <div class="fd-art" data-visual aria-hidden="true"><svg viewBox="0 0 96 96"><rect x="8" y="8" width="80" height="80" rx="22" fill="#D4F75C"/><path d="M30 66 66 30" stroke="#0C0B12" stroke-width="7" stroke-linecap="round"/><circle cx="34" cy="34" r="8" fill="none" stroke="#0C0B12" stroke-width="6"/><circle cx="62" cy="62" r="8" fill="none" stroke="#0C0B12" stroke-width="6"/></svg></div>
+  <div class="fd-copy">
+    <p class="kicker">Deals alert</p>
+    <h2 id="deals-h">Get the best Mac and iPhone app deals by email</h2>
+    <p class="fd-sub">Price drops and free unlocks from The Useful Apps, checked daily.</p>
+    <div class="signup">
+      <form class="signup-form" data-signup data-next="stay" data-source="free-{p["slug"]}" data-campaign="deals-alert" novalidate>
+        <label class="visually-hidden" for="email-deals">Email address</label>
+        <input id="email-deals" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit"><span class="btn-label">Send me the deals</span></button>
+      </form>
+      <div class="signup-msg" aria-live="polite"></div>
+    </div>
+    <a class="fd-link" href="/apps/deals/?utm_source=free&amp;utm_medium=deals-alert&amp;utm_campaign={p["slug"]}">See today's deals{ARROW}</a>
+  </div>
+</section>
 {f'<section class="wrap fr-up">{upsell}</section>' if upsell else ""}
 
 <section class="fr-more wrap" aria-labelledby="more-h">

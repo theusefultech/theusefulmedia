@@ -167,3 +167,16 @@
 .fr-nl-art span:nth-child(1) { rotate: -12deg; translate: -78% -50%; }
 .fr-nl-art span:nth-child(3) { rotate: 12deg; translate: -22% -50%; }
 @media (max-width: 640px) { .fr-nl { grid-template-columns: 1fr; } .fr-nl-art { height: 130px; } }
+
+/* 24 Nov 2026 (item 13): deals alert signup on every freebie page */
+.fr-deals { display: grid; grid-template-columns: 96px 1fr; gap: 1.25rem; align-items: start; margin-top: clamp(2rem, 5vw, 3.5rem); padding: clamp(1.1rem, 3vw, 1.75rem); border: 1px solid var(--rule); border-radius: var(--radius-lg); background: var(--paper); }
+.fr-deals .fd-art svg { width: 96px; height: 96px; display: block; }
+.fr-deals h2 { font-size: var(--step-1); line-height: 1.2; margin: .2rem 0 .35rem; }
+.fr-deals .fd-sub { margin: 0 0 .8rem; color: var(--graphite); }
+.fr-deals .signup-form { display: flex; gap: 6px; padding: 6px; max-width: 30rem; background: #fff; border: 1px solid rgba(23,23,43,.22); border-radius: 16px; }
+.fr-deals .signup-form input[type="email"] { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 16px; color: #17172B; padding: .6rem .7rem; }
+.fr-deals .signup-form input:focus { outline: none; }
+.fr-deals .signup-form button { flex: none; border: 0; border-radius: 11px; cursor: pointer; background: #6A47F5; color: #fff; font: inherit; font-weight: 600; min-height: 44px; padding: 0 1rem; }
+.fr-deals .fd-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: .7rem; font-weight: 600; color: var(--ink); }
+.fr-deals .fd-link svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+@media (max-width: 600px) { .fr-deals { grid-template-columns: 1fr; gap: .6rem; } .fr-deals .fd-art svg { width: 56px; height: 56px; } }

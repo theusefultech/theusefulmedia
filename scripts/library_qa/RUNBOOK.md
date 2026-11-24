@@ -25,6 +25,14 @@ GitHub runs them (seo.yml runs wiring and SEO on every push).
 1. Read `scripts/library_problems.py` and `scripts/library_books.py`. Pick the next problem from the `problems` list in the
    builder that has no page yet (status SOON), or a new real problem readers search for in habits, focus, money or mindset.
    Rotate areas so no area gets 2 days in a row.
+   IDEA BANK FIRST (Raja, 24 Nov 2026: "the idea bank's ideas should also be used for making pages ... The Useful Library,
+   wherever relevant"): before picking, read the Daily Brief ideas in Cloudflare D1 2d537ca2-0fc2-4c23-ad31-e36e24df8e9a
+   (SELECT id, title, why FROM brief_ideas WHERE day >= date('now','-30 days') AND (page IS NULL OR page = '')) and the
+   HQ idea bank (collection "ideas", lane "content", status new). If 1 is about a reading, habits, focus, money or mindset
+   problem a nonfiction book answers (e.g. phone habits, doomscrolling, forgetting what you read), make it the day's
+   problem page, as long as it also fits the Google-demand rule in the task prompt. Then mark it used:
+   UPDATE brief_ideas SET page = '/library/...' WHERE id = ... (or the HQ idea's usedIn with platform "library").
+   Never force an Apple or app idea onto the Library.
 2. Write 1 problem page entry (3 fixes from 3 books) and a book page entry for each of its books that has no page yet,
    until the day's total reaches 3 new pages. Add the problem to the builder's `problems` list with its url if it isn't there.
 3. Quality bar, every line:

@@ -52,6 +52,11 @@ export default {
     // 20 Nov 2026 (M06): GET ?count=tech gives the newsletter's active subscriber count, read nightly by
     // scripts/refresh_facts.py for the Advertise page. A total only, cached 6 hours.
     if (request.method === "GET" && new URL(request.url).searchParams.has("count")) return subscriberCount(new URL(request.url).searchParams.get("count"), env, ctx);
+    if (request.method === "GET" && new URL(request.url).searchParams.get("fy") === "tick") {
+      // Manual nudge of the matcher (same work as 1 cron minute). Returns the run state or the error.
+      try { await fyTick(env); return json(JSON.parse((await env.FY.get("fy:run", { cacheTtl: 30 })) || "null"), 200, cors); }
+      catch (e) { return json({ error: String(e && e.stack || e) }, 500, cors); }
+    }
     if (request.method === "GET" && new URL(request.url).searchParams.get("fy") === "status") return json(env.FY ? JSON.parse((await env.FY.get("fy:run")) || "null") : null, 200, cors);
     if (request.method !== "POST") return json({ ok: false, code: "method" }, 405, cors);
     if (!ALLOWED_ORIGINS.includes(origin)) return json({ ok: false, code: "origin" }, 403, cors);

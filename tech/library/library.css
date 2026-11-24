@@ -163,3 +163,12 @@
 .ar-more-b { min-height: 44px; padding: 0 1.3rem; border: 0; border-radius: 12px; background: var(--ink); color: var(--paper); font: 500 0.95rem var(--sans); cursor: pointer; }
 .ar-more-b:hover { background: #2A2A45; }
 .ar-more-b:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+
+/* 24 Nov 2026 (layout check): on phones the header held logo, search, menu, "Subscribe free" and the theme button, so the
+   button squeezed onto 2 lines and the theme button sat off-screen (page slid sideways 63px). The Subscribe button stays on
+   1 line and, on narrow phones, the theme button steps aside (the site already follows the device's light or dark setting). */
+.is-head-cta { white-space: nowrap; flex-shrink: 0; }
+@media (max-width: 560px) { .is-head-cta { padding: 0 0.75rem; font-size: 0.85rem; margin-right: 0.25rem; } }
+@media (max-width: 480px) { .site-header:has(.is-head-cta) .theme-toggle { display: none; } }
+@media (max-width: 400px) { .site-header:has(.is-head-cta) .brand-name { display: none; } }
+@media (max-width: 430px) { .is-head-cta .cta-x { display: none; } }

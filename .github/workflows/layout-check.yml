@@ -1,0 +1,27 @@
+# 24 Nov 2026 (Raja: "you should have automatic checks before or after every new change or deploy").
+# Free, rules only, no Claude usage, about 2 minutes. Opens every page at phone (390px) and laptop (1280px) width and
+# fails when anything sticks out of its card, a page scrolls sideways, or a shortened blurb shows a half-cut line.
+# On a failure it files 1 alert email (Watchdog /api/alert) and GitHub marks the run red. Same script as The Useful Apps
+# (theusefultech/useful-apps scripts/layout_check.py); keep the 2 copies the same.
+name: Layout check
+on:
+  push:
+    branches: [main]
+    paths: ["**.html", "**.css", "**.js", "scripts/layout_check.py"]
+  workflow_dispatch:
+concurrency: { group: layout-check, cancel-in-progress: true }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/ms-playwright, key: playwright-1.49.1-chromium }
+      - run: pip install -q playwright==1.49.1 && python -m playwright install --with-deps chromium
+      - name: Every page, phone and laptop width
+        env:
+          UPLOAD_KEY: ${{ secrets.UPLOAD_KEY }}
+        run: python3 scripts/layout_check.py --dir . --all --alert

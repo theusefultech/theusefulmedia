@@ -649,6 +649,8 @@
     // 14 Nov 2026: readers outside India get Raja's Amazon.com Associates tag too (theusefultech-20); before, US links carried no tag.
     var us = a.getAttribute("href") && a.getAttribute("href") !== "#" ? a.getAttribute("href") : "https://www.amazon.com/s?k=" + q + "&i=stripbooks";
     if (/^https:\/\/(www\.)?amazon\.com\//.test(us) && !/[?&]tag=/.test(us)) us += (us.indexOf("?") < 0 ? "?" : "&") + "tag=theusefultech-20";
+    // 24 Nov 2026: audiobook tile. US readers go to the Audible free trial page ($5 Associates bounty per trial), India to Audible titles on Amazon.in.
+    if (a.getAttribute("data-fmt") === "audio") { a.href = inIndia ? "https://www.amazon.in/s?k=" + q + "&i=audible&tag=theusefultech-21" : "https://www.amazon.com/hz/audible/mlp?tag=theusefultech-20"; a.setAttribute("rel", "sponsored noopener"); a.setAttribute("target", "_blank"); return; }
     a.href = inIndia ? "https://www.amazon.in/s?k=" + q + "&i=stripbooks&tag=theusefultech-21" : us;
     a.setAttribute("rel", "sponsored noopener"); a.setAttribute("target", "_blank");
   };

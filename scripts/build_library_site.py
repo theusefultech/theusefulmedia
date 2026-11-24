@@ -10,6 +10,20 @@ from library_summaries import SUMMARIES
 from library_takes import TAKES
 R=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'library')
 BASE='https://theusefulmedia.com'
+BLINKIST=""  # Blinkist affiliate link (Impact). Empty = summary tile hidden.
+WAYS_ICO={"book":'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="7" width="26" height="34" rx="3" fill="var(--accent)"/><path d="M35 9h4v32h-4" fill="var(--line2)"/><path d="M15 16h14M15 21h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>',
+ "audio":'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 28a14 14 0 0 1 28 0" fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/><rect x="7" y="27" width="9" height="13" rx="3.5" fill="var(--accent)"/><rect x="32" y="27" width="9" height="13" rx="3.5" fill="var(--accent)"/><path d="M21 31v6M24 28v12M27 32v4" stroke="var(--brass)" stroke-width="2.4" stroke-linecap="round"/></svg>',
+ "sum":'<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="7" fill="var(--brass)"/><path d="M26 13l-8 13h7l-3 10 9-14h-7z" fill="#fff"/></svg>'}
+def ways_html(t,by,nread,unit,hours=None):
+    """24 Nov 2026 (Raja "A"): ways to get the book, after the verdicts. Book via Amazon (data-buy), audiobook via the
+    Audible free trial ($5 Associates bounty per US trial; data-fmt="audio" in library.js), summary only once BLINKIST is set."""
+    q=html.escape(t+" "+by.split(" and ")[0])
+    w=[("book","Paperback or Kindle",f"Read the {nread} {unit.lower()} that matter"+(f". About {hours} hours." if hours else "."),"Get the book",f'href="#" data-buy="{q}"'),
+       ("audio","Audiobook",f"Listen to the {nread} that matter on your commute. Free with a 30-day Audible trial.","Listen free",f'href="#" data-buy="{q}" data-fmt="audio"')]
+    if BLINKIST: w.append(("sum","15-minute summary","The key ideas first, then decide if the full book is worth it.","Read the summary",f'href="{html.escape(BLINKIST)}" rel="sponsored noopener" target="_blank"'))
+    cards="".join(f'<a class="way card" {a} data-way="{k}">{WAYS_ICO[k]}<span class="way-t"><b>{tt}</b><small>{d}</small></span><span class="way-c">{c} <span aria-hidden="true">&rarr;</span></span></a>' for k,tt,d,c,a in w)
+    return f'<section class="ways reveal" id="ways" data-visual><div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px"><h2 style="font-size:32px">{len(w)} ways to get it</h2><p class="mono">Pick how you read</p></div><div class="ways-row">{cards}</div><p style="font-size:13px;color:var(--muted)">Some links are affiliate links. They never change a verdict.</p></section>'
+
 def cov(slug):
     f=os.path.join(R,'img','covers',slug+'.webp')
     v=hashlib.md5(open(f,'rb').read()).hexdigest()[:8] if os.path.exists(f) else '0'
@@ -398,6 +412,7 @@ book=head("Atomic Habits: which chapters to read (and which to skip)",f"Atomic H
 
 <a class="plug lift reveal" href="https://theusefultech.gumroad.com/l/read-to-transform?utm_source=theusefulmedia.com&utm_medium=library&utm_campaign=book-atomic-habits" rel="noopener"><span class="plug-art">{A.scene("read").replace('<svg class="art"','<svg class="art" width="96" height="96"')}</span><span style="display:flex;flex-direction:column;gap:4px;flex:1 1 240px"><span class="mono">From The Useful Life</span><span class="serif" style="font-size:24px;line-height:1.15">Read to Transform</span><span style="font-size:15px;color:var(--soft)">Pick 1 book, turn 1 idea into a 30-day pact, and change 1 real habit. A journal built for exactly what this page is about.</span></span><span class="go" style="font-weight:800;color:var(--green)">See the journal</span></a>
 {faq([(q,a.format(reads=reads)) for q,a in BQ])}
+{ways_html("Atomic Habits","James Clear",len([c for c in ch if c[0]==R_]),"chapters")}
 <section id="ideas" style="display:flex;flex-direction:column;gap:18px"><h2>4 ideas from this book</h2><div class="grid">{icards}</div></section>
 
 <section class="row">
@@ -886,6 +901,7 @@ def book_page(B):
 <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:6px"><p class="serif" data-t style="font-size:26px;line-height:1.15">{html.escape(units[first_read][1])}</p><p data-w style="color:var(--ink2)">{html.escape(units[first_read][2])}</p></div></div>
 <script type="application/json" id="chapters" data-raw="1">{json.dumps([list(u) for u in units])}</script>
 </section>
+{ways_html(B["t"],B["by"],nread,unit,fmt(r(part)))}
 <section id="ideas" style="display:flex;flex-direction:column;gap:18px"><h2>4 ideas from this book</h2><div class="grid">{ideasH}</div></section>
 {note_block}
 <section class="row" id="fit">

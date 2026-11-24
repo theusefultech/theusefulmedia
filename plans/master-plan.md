@@ -54,7 +54,7 @@ Last updated: 20 Nov 2026, 16:45 IST
 | 33 | M33 | AUDIT media kit, sponsor | Sponsor links tidy | Pitch templates link /advertise/ directly (no /sponsor/ hop); media kit PDF numbers match /advertise/ | todo | Pitch template change: tell him. |
 | 34 | M34 | AUDIT home | Homepage in Medium author bio | theusefulmedia.com in every Medium author bio | todo | |
 | 35 | M35 | AUDIT about | About page desk redesign | Redesign after his questionnaire | waiting on Raja | Questionnaire not answered yet. |
-| 36 | M37 | NEW | Remove upsells from the Reading Challenge checkout | A $29 buyer sees 2 upsell pop-ups (Useful Studio Pro $349, then the Craft template) before paying; turn them off for this product or swap in 1 matching offer (Read to Transform journal) | todo | Found in the 19 Nov test buy. Checkout setting change on Gumroad, small. |
+| 36 | M37 | NEW | Remove upsells from the Reading Challenge checkout | A $29 buyer sees 2 upsell pop-ups (Useful Studio Pro $349, then the Craft template) before paying; turn them off for this product or swap in 1 matching offer (Read to Transform journal) | done | Found in the 19 Nov test buy. 24 Nov (Raja "B"): the Reading Challenge was removed from the Content Production System and 2026 Life Planner upsells, and 1 new upsell "Read to Transform from Reading Challenge" (full price, no discount) now applies to the challenge only. |
 | 37 | M36 | NEW | Gumroad ping signing | Optional: Gumroad signs pings and the Worker checks them | todo | Left off on purpose until a real booking arrives. Lowest priority. |
 
 ## Done

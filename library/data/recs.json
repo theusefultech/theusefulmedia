@@ -1,6 +1,530 @@
 {
- "updated": "2026-11-24",
+ "updated": "2026-11-25",
  "people": [
+  {
+   "slug": "kritika",
+   "name": "Kritika",
+   "channels": [
+    "Kitaabi Cabins"
+   ],
+   "books": [
+    {
+     "title": "The Argumentative Indian",
+     "author": "",
+     "note": "Amartya Sen on Indian identity and tradition of argument",
+     "video": "wTAJ084LLLU",
+     "url": null,
+     "ts": 443,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "An Era of Darkness",
+     "author": "",
+     "note": "Shashi Tharoor's documented critique of British rule in India",
+     "video": "wTAJ084LLLU",
+     "url": null,
+     "ts": 358,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Prisoners of Geography",
+     "author": "",
+     "note": "interesting read on geography, includes maps",
+     "video": "wTAJ084LLLU",
+     "url": null,
+     "ts": 329,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Silk Roads",
+     "author": "",
+     "note": "further reading after Guns, Germs and Steel",
+     "video": "wTAJ084LLLU",
+     "url": null,
+     "ts": 325,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Guns, Germs and Steel",
+     "author": "",
+     "note": "Jared Diamond; geography and disease shaped societies, but not fully reliable",
+     "video": "wTAJ084LLLU",
+     "url": null,
+     "ts": 228,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Homo Deus",
+     "author": "",
+     "note": "Harari follow-up on what will happen to mankind",
+     "video": "wTAJ084LLLU",
+     "url": null,
+     "ts": 220,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Sapiens",
+     "author": "",
+     "note": "Harari's book on human history, cognitive and agricultural revolutions",
+     "video": "wTAJ084LLLU",
+     "url": null,
+     "ts": 23,
+     "date": "2026-11-25"
+    }
+   ]
+  },
+  {
+   "slug": "clark-kegley",
+   "name": "Clark Kegley",
+   "channels": [
+    "Clark Kegley"
+   ],
+   "books": [
+    {
+     "title": "The Laws of Human Nature",
+     "author": "",
+     "note": "Book on why humans repeat the same mistakes collectively; title partly inferred",
+     "video": "wmRnm-36Mz8",
+     "url": null,
+     "ts": 679,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "No Bad Parts",
+     "author": "",
+     "note": "Book on inner parts, inner critic and people-pleaser within you",
+     "video": "wmRnm-36Mz8",
+     "url": null,
+     "ts": 1251,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Radical Acceptance",
+     "author": "",
+     "note": "Tara Brach's book on the trance of unworthiness",
+     "video": "wmRnm-36Mz8",
+     "url": null,
+     "ts": 1106,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "The Fountainhead",
+     "author": "",
+     "note": "Ayn Rand novel on authenticity versus people-pleasing; for creatives",
+     "video": "wmRnm-36Mz8",
+     "url": null,
+     "ts": 995,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Crime and Punishment",
+     "author": "",
+     "note": "Dostoyevsky novel on guilt and conscience; first section starts slowly",
+     "video": "wmRnm-36Mz8",
+     "url": null,
+     "ts": 773,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Steve Jobs",
+     "author": "",
+     "note": "Walter Isaacson biography on obsessive perfectionism and attention to hidden details",
+     "video": "wmRnm-36Mz8",
+     "url": null,
+     "ts": 249,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Dopamine Nation",
+     "author": "",
+     "note": "Anna Lembke's book on breaking phone, food and addiction habits; suggests 30-day dopamine fast",
+     "video": "wmRnm-36Mz8",
+     "url": null,
+     "ts": 55,
+     "date": "2026-11-25"
+    }
+   ]
+  },
+  {
+   "slug": "steven-bartlett",
+   "name": "Steven Bartlett",
+   "channels": [
+    "The Diary Of A CEO with Steven Bartlett",
+    "@TheDiaryOfACEO"
+   ],
+   "books": [
+    {
+     "title": "The Big Short",
+     "author": "",
+     "note": "Michael Lewis book that told Steve Eisman's 2008 subprime collapse story",
+     "video": "pod-e224a68aab01",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 286,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Capitalism and Its Critics",
+     "author": "",
+     "note": "John Cassidy's book; called really good, opening chart blew his mind",
+     "video": "pod-e224a68aab01",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 5023,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Fight Oligarchy",
+     "author": "",
+     "note": "Host references Bernie Sanders' book while asking about his views",
+     "video": "eocM1C3HfQg",
+     "url": null,
+     "ts": 3754,
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Conversations: How to Connect with Anyone and Make Every Interaction Count",
+     "author": "",
+     "note": "Host calls Vanessa Van Edwards' book brilliant, well timed given AI, and urges viewers to buy it",
+     "video": "q2cg1gEYWJQ",
+     "url": null,
+     "ts": 8759,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Bible",
+     "author": "",
+     "note": "Has read about half; plans a podcast series covering every book of it",
+     "video": "UQ3O04Wtqa4",
+     "url": null,
+     "ts": 4705,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Richard Dawkins books",
+     "author": "",
+     "note": "Read them during his new atheist phase around age 18-19",
+     "video": "UQ3O04Wtqa4",
+     "url": null,
+     "ts": 4453,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Bombing to Win: Air Power and Coercion in War",
+     "author": "",
+     "note": "Robert Pape's book on air power and coercion, raised when discussing Iran bombing models",
+     "video": "a1mI-ozLyYM",
+     "url": null,
+     "ts": 888,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Our Own Worst Enemies: America in the Age of Violent Populism",
+     "author": "",
+     "note": "Robert Pape's evidence-based book on violent populism; called the definitive book on the subject",
+     "video": "a1mI-ozLyYM",
+     "url": null,
+     "ts": 4931,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Brain Defenders",
+     "author": "",
+     "note": "Dr. Perlmutter's most recent book, praised by the host",
+     "video": "FRoQOzZRcpw",
+     "url": null,
+     "ts": 6810,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "eckhart-tolle",
+   "name": "Eckhart Tolle",
+   "channels": [
+    "Huberman Lab"
+   ],
+   "books": [
+    {
+     "title": "Malcolm Gladwell mastery book (Outliers)",
+     "author": "",
+     "note": "Recalls book on hours of practice needed for mastery",
+     "video": "pod-b6d2865321ef",
+     "url": "https://www.hubermanlab.com/episode/access-the-power-of-now-to-experience-life-more-fully-eckhart-tolle",
+     "ts": 3225,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Being and Time",
+     "author": "",
+     "note": "Heidegger's existentialist book on the problem of being, cited as an example",
+     "video": "pod-b6d2865321ef",
+     "url": "https://www.hubermanlab.com/episode/access-the-power-of-now-to-experience-life-more-fully-eckhart-tolle",
+     "ts": 757,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Being and Nothingness",
+     "author": "",
+     "note": "Sartre's huge book on the problem of being, cited as an example",
+     "video": "pod-b6d2865321ef",
+     "url": "https://www.hubermanlab.com/episode/access-the-power-of-now-to-experience-life-more-fully-eckhart-tolle",
+     "ts": 752,
+     "date": "2026-11-25"
+    }
+   ]
+  },
+  {
+   "slug": "david-sinclair",
+   "name": "David Sinclair",
+   "channels": [
+    "The Diary Of A CEO with Steven Bartlett"
+   ],
+   "books": [
+    {
+     "title": "Lifespan: Why We Age and Why We Don't Have To",
+     "author": "",
+     "note": "Sinclair's NYT bestseller on ageing and longevity, named in the show notes",
+     "video": "pod-1bdab430f63b",
+     "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
+     "ts": 0,
+     "date": "2026-11-25"
+    }
+   ]
+  },
+  {
+   "slug": "tim-ferriss",
+   "name": "Tim Ferriss",
+   "channels": [
+    "The Tim Ferriss Show",
+    "@timferriss"
+   ],
+   "books": [
+    {
+     "title": "Awareness",
+     "author": "",
+     "note": "Anthony DeMello; Tim rereads it every year, at least once, probably twice",
+     "video": "pod-0ba0271d95e7",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1368,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Losing My Virginity",
+     "author": "",
+     "note": "Richard Branson's adventure-filled memoir; Tim read it long ago",
+     "video": "pod-0ba0271d95e7",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1207,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "The Effective Executive",
+     "author": "",
+     "note": "Peter Drucker book; effectiveness is doing the right things, efficiency is doing things right",
+     "video": "pod-0ba0271d95e7",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1159,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Moonwalking with Einstein",
+     "author": "",
+     "note": "Book about memory; author has a learning app startup, MindMax",
+     "video": "YxbEVUH_4w8",
+     "url": null,
+     "ts": 4880,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Hard Times",
+     "author": "",
+     "note": "Studs Terkel's illustrated oral history of the Great Depression; vignettes and profiles",
+     "video": "YxbEVUH_4w8",
+     "url": null,
+     "ts": 4848,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Don Quixote",
+     "author": "",
+     "note": "Cervantes wrote it in prison; cited as a story of a great book from boredom",
+     "video": "YxbEVUH_4w8",
+     "url": null,
+     "ts": 4431,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Why We Sleep",
+     "author": "",
+     "note": "Matthew Walker's book; he also ran the Berkeley Sleep Lab",
+     "video": "YxbEVUH_4w8",
+     "url": null,
+     "ts": 3271,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Exploring the World of Lucid Dreaming",
+     "author": "",
+     "note": "Stephen LaBerge book; read at start of high school, sparked his lucid dreaming interest",
+     "video": "YxbEVUH_4w8",
+     "url": null,
+     "ts": 2501,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Happy Body",
+     "author": "",
+     "note": "book and program by a couple in their 60s, introduced by Naval",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 4063,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Fierce Intimacy",
+     "author": "",
+     "note": "suggested for relationships and communication",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 4005,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "On Grief and Grieving",
+     "author": "",
+     "note": "K\u00fcbler-Ross and Kessler; helped friends after losing parents or spouses",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 3870,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Back Mechanic",
+     "author": "",
+     "note": "Stuart McGill's back book, calls it great",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 3552,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Healing Back Pain",
+     "author": "",
+     "note": "John Sarno; friends credit it with fixing back pain, he has caveats",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 3135,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Great Nerve",
+     "author": "",
+     "note": "Dr. Kevin Tracey; on improving vagal tone",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 2551,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Surrender Experiment",
+     "author": "",
+     "note": "Michael Singer; Kevin Rose recommended it, a counter-example to over-engineering life",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 2035,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Crucial Conversations",
+     "author": "",
+     "note": "read to sharpen communication skills with people you care about",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 925,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Atomic Habits",
+     "author": "",
+     "note": "James Clear; starting with small actions to break overthinking and inaction",
+     "video": "SH5b_drlotY",
+     "url": null,
+     "ts": 594,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 4-Hour Body",
+     "author": "",
+     "note": "Says almost nothing in it needs revising; still stable and predictive",
+     "video": "5qP0hT4blKQ",
+     "url": null,
+     "ts": 8,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "I Ching",
+     "author": "",
+     "note": "Teases a future live casting of it, calling it a weird book",
+     "video": "pod-b3fdddcf5e6c",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1710,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Book of Revelation",
+     "author": "",
+     "note": "Chapter 13, verse 18 is the source of the number of the beast, 666",
+     "video": "pod-b3fdddcf5e6c",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1440,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 15 Commitments of Conscious Leadership",
+     "author": "",
+     "note": "Used by tech startups; applies to relationships too",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 4083,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Conscious Loving",
+     "author": "",
+     "note": "By Gay and Katie Hendricks; relationships and conscious leadership",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 4078,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Outlive",
+     "author": "",
+     "note": "Peter Attia's book; describes heart disease risk factors",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 3217,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 4-Hour Chef",
+     "author": "",
+     "note": "Meta-learning section (about 80 pages) is the most important part",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1484,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 80/20 Principle",
+     "author": "",
+     "note": "By Richard Koch; evergreen topic for the AI era",
+     "video": "pod-55b9aab11c69",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 1127,
+     "date": "2026-11-17"
+    }
+   ]
+  },
   {
    "slug": "my-first-million",
    "name": "My First Million",
@@ -88,78 +612,6 @@
      "url": "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn",
      "ts": 3760,
      "date": "2026-11-20"
-    }
-   ]
-  },
-  {
-   "slug": "steven-bartlett",
-   "name": "Steven Bartlett",
-   "channels": [
-    "@TheDiaryOfACEO"
-   ],
-   "books": [
-    {
-     "title": "Fight Oligarchy",
-     "author": "",
-     "note": "Host references Bernie Sanders' book while asking about his views",
-     "video": "eocM1C3HfQg",
-     "url": null,
-     "ts": 3754,
-     "date": "2026-11-20"
-    },
-    {
-     "title": "Conversations: How to Connect with Anyone and Make Every Interaction Count",
-     "author": "",
-     "note": "Host calls Vanessa Van Edwards' book brilliant, well timed given AI, and urges viewers to buy it",
-     "video": "q2cg1gEYWJQ",
-     "url": null,
-     "ts": 8759,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Bible",
-     "author": "",
-     "note": "Has read about half; plans a podcast series covering every book of it",
-     "video": "UQ3O04Wtqa4",
-     "url": null,
-     "ts": 4705,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Richard Dawkins books",
-     "author": "",
-     "note": "Read them during his new atheist phase around age 18-19",
-     "video": "UQ3O04Wtqa4",
-     "url": null,
-     "ts": 4453,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Bombing to Win: Air Power and Coercion in War",
-     "author": "",
-     "note": "Robert Pape's book on air power and coercion, raised when discussing Iran bombing models",
-     "video": "a1mI-ozLyYM",
-     "url": null,
-     "ts": 888,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Our Own Worst Enemies: America in the Age of Violent Populism",
-     "author": "",
-     "note": "Robert Pape's evidence-based book on violent populism; called the definitive book on the subject",
-     "video": "a1mI-ozLyYM",
-     "url": null,
-     "ts": 4931,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Brain Defenders",
-     "author": "",
-     "note": "Dr. Perlmutter's most recent book, praised by the host",
-     "video": "FRoQOzZRcpw",
-     "url": null,
-     "ts": 6810,
-     "date": "2026-11-17"
     }
    ]
   },
@@ -5792,232 +6244,6 @@
    ]
   },
   {
-   "slug": "tim-ferriss",
-   "name": "Tim Ferriss",
-   "channels": [
-    "@timferriss",
-    "The Tim Ferriss Show"
-   ],
-   "books": [
-    {
-     "title": "Moonwalking with Einstein",
-     "author": "",
-     "note": "Book about memory; author has a learning app startup, MindMax",
-     "video": "YxbEVUH_4w8",
-     "url": null,
-     "ts": 4880,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Hard Times",
-     "author": "",
-     "note": "Studs Terkel's illustrated oral history of the Great Depression; vignettes and profiles",
-     "video": "YxbEVUH_4w8",
-     "url": null,
-     "ts": 4848,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Don Quixote",
-     "author": "",
-     "note": "Cervantes wrote it in prison; cited as a story of a great book from boredom",
-     "video": "YxbEVUH_4w8",
-     "url": null,
-     "ts": 4431,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Why We Sleep",
-     "author": "",
-     "note": "Matthew Walker's book; he also ran the Berkeley Sleep Lab",
-     "video": "YxbEVUH_4w8",
-     "url": null,
-     "ts": 3271,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Exploring the World of Lucid Dreaming",
-     "author": "",
-     "note": "Stephen LaBerge book; read at start of high school, sparked his lucid dreaming interest",
-     "video": "YxbEVUH_4w8",
-     "url": null,
-     "ts": 2501,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Happy Body",
-     "author": "",
-     "note": "book and program by a couple in their 60s, introduced by Naval",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 4063,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Fierce Intimacy",
-     "author": "",
-     "note": "suggested for relationships and communication",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 4005,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "On Grief and Grieving",
-     "author": "",
-     "note": "K\u00fcbler-Ross and Kessler; helped friends after losing parents or spouses",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 3870,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Back Mechanic",
-     "author": "",
-     "note": "Stuart McGill's back book, calls it great",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 3552,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Healing Back Pain",
-     "author": "",
-     "note": "John Sarno; friends credit it with fixing back pain, he has caveats",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 3135,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Great Nerve",
-     "author": "",
-     "note": "Dr. Kevin Tracey; on improving vagal tone",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 2551,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Surrender Experiment",
-     "author": "",
-     "note": "Michael Singer; Kevin Rose recommended it, a counter-example to over-engineering life",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 2035,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Crucial Conversations",
-     "author": "",
-     "note": "read to sharpen communication skills with people you care about",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 925,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Atomic Habits",
-     "author": "",
-     "note": "James Clear; starting with small actions to break overthinking and inaction",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 594,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Effective Executive",
-     "author": "",
-     "note": "Peter Drucker book of old principles; pairs with definition and elimination fundamentals",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 332,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The 4-Hour Body",
-     "author": "",
-     "note": "Says almost nothing in it needs revising; still stable and predictive",
-     "video": "5qP0hT4blKQ",
-     "url": null,
-     "ts": 8,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "I Ching",
-     "author": "",
-     "note": "Teases a future live casting of it, calling it a weird book",
-     "video": "pod-b3fdddcf5e6c",
-     "url": "https://rss.art19.com/tim-ferriss-show",
-     "ts": 1710,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Book of Revelation",
-     "author": "",
-     "note": "Chapter 13, verse 18 is the source of the number of the beast, 666",
-     "video": "pod-b3fdddcf5e6c",
-     "url": "https://rss.art19.com/tim-ferriss-show",
-     "ts": 1440,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Awareness",
-     "author": "",
-     "note": "By Anthony de Mello; gifted 100+ times, read 15-20 times",
-     "video": "pod-55b9aab11c69",
-     "url": "https://rss.art19.com/tim-ferriss-show",
-     "ts": 4231,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The 15 Commitments of Conscious Leadership",
-     "author": "",
-     "note": "Used by tech startups; applies to relationships too",
-     "video": "pod-55b9aab11c69",
-     "url": "https://rss.art19.com/tim-ferriss-show",
-     "ts": 4083,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Conscious Loving",
-     "author": "",
-     "note": "By Gay and Katie Hendricks; relationships and conscious leadership",
-     "video": "pod-55b9aab11c69",
-     "url": "https://rss.art19.com/tim-ferriss-show",
-     "ts": 4078,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Outlive",
-     "author": "",
-     "note": "Peter Attia's book; describes heart disease risk factors",
-     "video": "pod-55b9aab11c69",
-     "url": "https://rss.art19.com/tim-ferriss-show",
-     "ts": 3217,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The 4-Hour Chef",
-     "author": "",
-     "note": "Meta-learning section (about 80 pages) is the most important part",
-     "video": "pod-55b9aab11c69",
-     "url": "https://rss.art19.com/tim-ferriss-show",
-     "ts": 1484,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The 80/20 Principle",
-     "author": "",
-     "note": "By Richard Koch; evergreen topic for the AI era",
-     "video": "pod-55b9aab11c69",
-     "url": "https://rss.art19.com/tim-ferriss-show",
-     "ts": 1127,
-     "date": "2026-11-17"
-    }
-   ]
-  },
-  {
    "slug": "arthur-brooks",
    "name": "Arthur Brooks",
    "channels": [
@@ -6569,6 +6795,175 @@
   }
  ],
  "ranking": [
+  {
+   "title": "The Argumentative Indian",
+   "author": "",
+   "people": [
+    "kritika"
+   ]
+  },
+  {
+   "title": "An Era of Darkness",
+   "author": "",
+   "people": [
+    "kritika"
+   ]
+  },
+  {
+   "title": "Prisoners of Geography",
+   "author": "",
+   "people": [
+    "kritika"
+   ]
+  },
+  {
+   "title": "Silk Roads",
+   "author": "",
+   "people": [
+    "kritika"
+   ]
+  },
+  {
+   "title": "Guns, Germs and Steel",
+   "author": "",
+   "people": [
+    "kritika",
+    "bjorn"
+   ]
+  },
+  {
+   "title": "Homo Deus",
+   "author": "",
+   "people": [
+    "kritika"
+   ]
+  },
+  {
+   "title": "Sapiens",
+   "author": "",
+   "people": [
+    "kritika",
+    "sarah-freshly"
+   ]
+  },
+  {
+   "title": "The Laws of Human Nature",
+   "author": "",
+   "people": [
+    "clark-kegley",
+    "bj-rn",
+    "andrew-huberman"
+   ]
+  },
+  {
+   "title": "No Bad Parts",
+   "author": "",
+   "people": [
+    "clark-kegley"
+   ]
+  },
+  {
+   "title": "Radical Acceptance",
+   "author": "",
+   "people": [
+    "clark-kegley"
+   ]
+  },
+  {
+   "title": "The Fountainhead",
+   "author": "",
+   "people": [
+    "clark-kegley"
+   ]
+  },
+  {
+   "title": "Crime and Punishment",
+   "author": "",
+   "people": [
+    "clark-kegley",
+    "chantal"
+   ]
+  },
+  {
+   "title": "Steve Jobs",
+   "author": "",
+   "people": [
+    "clark-kegley",
+    "ali-abdaal"
+   ]
+  },
+  {
+   "title": "Dopamine Nation",
+   "author": "",
+   "people": [
+    "clark-kegley",
+    "mark-manson",
+    "dr-anna-lembke"
+   ]
+  },
+  {
+   "title": "The Big Short",
+   "author": "",
+   "people": [
+    "steven-bartlett"
+   ]
+  },
+  {
+   "title": "Capitalism and Its Critics",
+   "author": "",
+   "people": [
+    "steven-bartlett"
+   ]
+  },
+  {
+   "title": "Malcolm Gladwell mastery book (Outliers)",
+   "author": "",
+   "people": [
+    "eckhart-tolle"
+   ]
+  },
+  {
+   "title": "Being and Time",
+   "author": "",
+   "people": [
+    "eckhart-tolle"
+   ]
+  },
+  {
+   "title": "Being and Nothingness",
+   "author": "",
+   "people": [
+    "eckhart-tolle"
+   ]
+  },
+  {
+   "title": "Lifespan: Why We Age and Why We Don't Have To",
+   "author": "",
+   "people": [
+    "david-sinclair"
+   ]
+  },
+  {
+   "title": "Awareness",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Losing My Virginity",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "The Effective Executive",
+   "author": "",
+   "people": [
+    "tim-ferriss"
+   ]
+  },
   {
    "title": "How to Win Friends and Influence People",
    "author": "",
@@ -7737,13 +8132,6 @@
    ]
   },
   {
-   "title": "Crime and Punishment",
-   "author": "",
-   "people": [
-    "chantal"
-   ]
-  },
-  {
    "title": "Pride and Prejudice",
    "author": "",
    "people": [
@@ -8370,13 +8758,6 @@
    ]
   },
   {
-   "title": "Guns, Germs and Steel",
-   "author": "",
-   "people": [
-    "bjorn"
-   ]
-  },
-  {
    "title": "The Third Chimpanzee",
    "author": "",
    "people": [
@@ -8537,13 +8918,6 @@
    "people": [
     "ali-abdaal",
     "tim-ferriss"
-   ]
-  },
-  {
-   "title": "Steve Jobs",
-   "author": "Walter Isaacson",
-   "people": [
-    "ali-abdaal"
    ]
   },
   {
@@ -8983,13 +9357,6 @@
    ]
   },
   {
-   "title": "Sapiens",
-   "author": "",
-   "people": [
-    "sarah-freshly"
-   ]
-  },
-  {
    "title": "Nicholas Cole online writing book",
    "author": "",
    "people": [
@@ -9134,14 +9501,6 @@
    "author": "",
    "people": [
     "bj-rn"
-   ]
-  },
-  {
-   "title": "The Laws of Human Nature",
-   "author": "",
-   "people": [
-    "bj-rn",
-    "andrew-huberman"
    ]
   },
   {
@@ -9839,14 +10198,6 @@
    ]
   },
   {
-   "title": "Dopamine Nation",
-   "author": "",
-   "people": [
-    "mark-manson",
-    "dr-anna-lembke"
-   ]
-  },
-  {
    "title": "The Innovator's Dilemma",
    "author": "",
    "people": [
@@ -10269,13 +10620,6 @@
    ]
   },
   {
-   "title": "The Effective Executive",
-   "author": "",
-   "people": [
-    "tim-ferriss"
-   ]
-  },
-  {
    "title": "From Strength to Strength",
    "author": "",
    "people": [
@@ -10503,13 +10847,6 @@
   },
   {
    "title": "Book of Revelation",
-   "author": "",
-   "people": [
-    "tim-ferriss"
-   ]
-  },
-  {
-   "title": "Awareness",
    "author": "",
    "people": [
     "tim-ferriss"

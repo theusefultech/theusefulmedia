@@ -62,6 +62,20 @@
 .cmp{width:100%;border-collapse:collapse;font-size:15px;margin-top:6px}
 .cmp td{padding:9px 0;border-bottom:1px solid var(--tk-line)}
 .cmp td:last-child{text-align:right;font-family:var(--mono);white-space:nowrap;padding-left:12px}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid var(--tk-line)}
+.proof b{display:block;font-size:26px;letter-spacing:-.01em;line-height:1}
+.proof span{display:block;font-size:12.5px;line-height:1.35;color:var(--graphite);margin-top:6px}
+.proof a{color:inherit}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px;counter-reset:st}
+.st{background:var(--ghost,#F1EFF7);border-radius:18px;padding:18px}
+.st i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#17172B;color:#fff;font-style:normal;font-family:var(--mono);font-size:13px;margin-bottom:12px}
+.st b{display:block;font-size:16px;margin-bottom:6px}
+.st p{margin:0;font-size:14px;line-height:1.45;color:var(--graphite)}
+.look{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+.look figure{margin:0}
+.look img{width:100%;display:block;border-radius:14px;box-shadow:0 10px 30px rgb(23 23 43 / .14);border:1px solid var(--tk-line)}
+.look figcaption{font-size:14px;color:var(--graphite);margin-top:10px;line-height:1.4}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.look{grid-template-columns:1fr}.look img{max-height:440px;object-fit:cover;object-position:top}.proof b{font-size:22px}}
 /* inside */
 .covers{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:24px}
 .cv{text-decoration:none;color:inherit}
@@ -79,7 +93,7 @@
 .roles th{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;text-align:left;color:var(--graphite);padding:8px 10px 8px 0;border-bottom:2px solid currentColor}
 .roles td{padding:12px 10px 12px 0;border-bottom:1px solid var(--tk-line);vertical-align:top}
 .roles td:first-child{font-weight:600;white-space:nowrap}
-.free{display:grid;grid-template-columns:160px 1fr;gap:28px;align-items:center;background:var(--ghost);border-radius:24px;padding:26px}
+.free{display:grid;grid-template-columns:160px 1fr;gap:28px;align-items:center;background:var(--ghost,#F1EFF7);border-radius:24px;padding:26px}
 .free img{width:100%;border-radius:12px;display:block}
 .free a.lnk{font-weight:600;color:var(--purple-ink)}
 .faq details{border-bottom:1px solid var(--tk-line);padding:16px 0}
@@ -160,6 +174,11 @@
   <p class="pp" data-pp>About $30 per person a year</p>
   <a class="tk-cta" data-buy href="#">Get the Team Kit</a>
   <p class="tk-note">Founding price for the first 10 teams. More than 50 people? Email <a href="mailto:raja@theusefultech.com?subject=Team%20Kit%20for%2050%2B%20people">raja@theusefultech.com</a> for a quote.</p>
+  <div class="proof" aria-label="Track record">
+   <div><b>775</b><span>orders on my Gumroad since December 2025</span></div>
+   <div><b>54</b><span>people bought Cowork Mastery, the main guide in this kit</span></div>
+   <div><b><a href="https://medium.com/@theusefultech">78K</a></b><span>readers follow The Useful Tech on Medium</span></div>
+  </div>
  </div>
 </section>
 
@@ -172,6 +191,26 @@
   <a class="cv" href="https://theusefultech.gumroad.com/l/claude-prompt-vault"><div class="im"><img width="640" height="360" src="/assets/products/claude-prompt-vault.webp" alt="Claude Prompt Vault cover" loading="lazy"></div><div class="nm">Prompt Vault</div><div class="ln">150 prompts for files, PDFs and documents</div></a>
   <a class="cv" href="https://theusefultech.gumroad.com/l/claude-code-playbook"><div class="im"><img width="640" height="360" src="/assets/products/claude-code-playbook.webp" alt="Claude Code Playbook for Non-Developers cover" loading="lazy"></div><div class="nm">Claude Code Playbook</div><div class="ln">Internal tools and dashboards without code</div></a>
   <div class="cv"><div class="plan-art" aria-hidden="true"><b>Team Rollout Plan</b><div class="dots"><i></i><i></i><i></i><i></i><i></i></div></div><div class="nm">Rollout Plan</div><div class="ln">Day by day, plus a shared Project setup</div></div>
+ </div>
+</section>
+
+<section class="wrap">
+ <p class="kick">After you pay</p>
+ <h2>Your team starts the same day.</h2>
+ <div class="steps" data-visual>
+  <div class="st"><i>1</i><b>Pay by card or invoice</b><p>Card checkout takes a minute. Finance teams can ask for a PayPal invoice with the company name on it.</p></div>
+  <div class="st"><i>2</i><b>Get 1 download link</b><p>The person who pays gets every file by email straight away: 4 guides, the rollout plan and the Friday automation.</p></div>
+  <div class="st"><i>3</i><b>Share it inside the company</b><p>Put the files in your shared drive or a shared Claude Project. Everyone on the plan reads from there.</p></div>
+  <div class="st"><i>4</i><b>Start the plan on Monday</b><p>Day 1 takes the team lead about 30 minutes. By Friday each person has 1 automation running.</p></div>
+ </div>
+</section>
+
+<section class="wrap">
+ <p class="kick">Look inside</p>
+ <h2>2 pages from the kit, as your team gets them.</h2>
+ <div class="look">
+  <figure><img src="/team/team-look-rollout.webp" alt="Page 1 of the Team Rollout Plan: a 5 day plan and a role table" loading="lazy" width="720" height="931"><figcaption>The Team Rollout Plan, page 1: what each day looks like and the first automation for every role.</figcaption></figure>
+  <figure><img src="/team/team-look-friday.webp" alt="Page 2 of The Friday Client Update: the prompt to paste into Claude Cowork" loading="lazy" width="720" height="931"><figcaption>The Friday Client Update, page 2: the exact prompt your account managers paste into Claude Cowork.</figcaption></figure>
  </div>
 </section>
 
@@ -203,6 +242,9 @@
 <section class="wrap faq">
  <p class="kick">Questions</p>
  <details><summary>Who counts as a person on the plan?</summary><p>Anyone at your company who uses the kit. Up to 5, 15 or 50 people depending on the plan. Share the files inside your company only.</p></details>
+ <details><summary>How do 15 people get the files when 1 person pays?</summary><p>The person who pays gets 1 download link with every file. Share the files on your company drive or in a shared Claude Project, and everyone on the plan uses them from there.</p></details>
+ <details><summary>What arrives right after we pay?</summary><p>An email with the 4 guides, the Team Rollout Plan and The Friday Client Update as PDFs. Updates arrive the same way while the plan is active.</p></details>
+ <details><summary>Can the invoice show our company name and VAT ID?</summary><p>Yes. Email raja@theusefultech.com with the legal name, address and VAT ID, and the PayPal invoice carries them.</p></details>
  <details><summary>Can we pay by invoice?</summary><p>Yes. Email raja@theusefultech.com with your company name and team size, and you get a PayPal invoice your finance team can pay by card or PayPal.</p></details>
  <details><summary>What happens when Claude changes?</summary><p>The guides get updated as Claude adds features. Your team gets each update for as long as the plan is active.</p></details>
  <details><summary>Do we need Claude Team?</summary><p>No. The kit works on Pro, Max or Team accounts. Team makes the shared Project in the rollout plan easier, and on Team your chats are not used for training by default.</p></details>

@@ -1,6 +1,188 @@
 {
- "updated": "2026-11-25",
+ "updated": "2026-11-26",
  "people": [
+  {
+   "slug": "sam-parr",
+   "name": "Sam Parr",
+   "channels": [
+    "My First Million"
+   ],
+   "books": [
+    {
+     "title": "Profit First",
+     "author": "",
+     "note": "Mike Michalowicz book on putting profit aside first; linked in show notes",
+     "video": "pod-cb88e8e461fa",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-26"
+    },
+    {
+     "title": "The 4-Hour Workweek",
+     "author": "",
+     "note": "Tim Ferriss book, read around age 20; linked in show notes",
+     "video": "pod-cb88e8e461fa",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 2070,
+     "date": "2026-11-26"
+    },
+    {
+     "title": "The 100-Year Life",
+     "author": "",
+     "note": "Linked in show notes; episode segment on living a 100-year life",
+     "video": "pod-cb88e8e461fa",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-26"
+    }
+   ]
+  },
+  {
+   "slug": "robert-greene",
+   "name": "Robert Greene",
+   "channels": [
+    "Robert Greene",
+    "@hubermanlab",
+    "My First Million"
+   ],
+   "books": [
+    {
+     "title": "Journey to Ixtlan",
+     "author": "",
+     "note": "Castaneda book; he is drawing on it a little for The Law of the Sublime",
+     "video": "OTvm5LfhDzg",
+     "url": null,
+     "ts": 267,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "The Teachings of Don Juan",
+     "author": "",
+     "note": "Carlos Castaneda's 1960s series; he read it as a teen and still loves it",
+     "video": "OTvm5LfhDzg",
+     "url": null,
+     "ts": 262,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "History of the Peloponnesian War",
+     "author": "",
+     "note": "Thucydides' account of ancient Greece; a modern-feeling narrator, big influence on him",
+     "video": "OTvm5LfhDzg",
+     "url": null,
+     "ts": 233,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Dersu Uzala",
+     "author": "",
+     "note": "Book and film about a Siberian indigenous hunter and a Russian geographer.",
+     "video": "y-fRFiTrrg4",
+     "url": null,
+     "ts": 7522,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Book of Matthew",
+     "author": "",
+     "note": "He reread it after seeing a film adaptation and found its ideas beautiful.",
+     "video": "y-fRFiTrrg4",
+     "url": null,
+     "ts": 6914,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Speak, Memory",
+     "author": "",
+     "note": "Nabokov's attempt to recreate the felt experience of his childhood through memory.",
+     "video": "y-fRFiTrrg4",
+     "url": null,
+     "ts": 2222,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Law of the Sublime",
+     "author": "",
+     "note": "Robert Greene's new book, the topic of the episode",
+     "video": "pod-4bc0b759b71b",
+     "url": "https://feeds.megaphone.fm/HS2300184645",
+     "ts": 0,
+     "date": "2026-11-15"
+    }
+   ]
+  },
+  {
+   "slug": "shelly-swearingen",
+   "name": "Shelly Swearingen",
+   "channels": [
+    "Shelly Swearingen"
+   ],
+   "books": [
+    {
+     "title": "John of John",
+     "author": "",
+     "note": "Already read it and loved it",
+     "video": "AWR1oRXTDyk",
+     "url": null,
+     "ts": 516,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "London Falling",
+     "author": "",
+     "note": "Sounds good; she considered requesting it from her library",
+     "video": "AWR1oRXTDyk",
+     "url": null,
+     "ts": 1224,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Super Nintendo book",
+     "author": "",
+     "note": "A video game book her library had; she requested it",
+     "video": "AWR1oRXTDyk",
+     "url": null,
+     "ts": 1214,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Lantern Pass",
+     "author": "",
+     "note": "Wanted it but her library doesn't have it; added to Bookshop.org cart",
+     "video": "AWR1oRXTDyk",
+     "url": null,
+     "ts": 327,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Field Notes from an Extinction",
+     "author": "",
+     "note": "Handpicked from the nonfiction list as sounding among the best",
+     "video": "AWR1oRXTDyk",
+     "url": null,
+     "ts": 797,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Major Taylor",
+     "author": "Frederick Noland",
+     "note": "Graphic novel memoir about a Black cyclist facing racism in the 1900s; she'd buy it",
+     "video": "AWR1oRXTDyk",
+     "url": null,
+     "ts": 1464,
+     "date": "2026-11-25"
+    },
+    {
+     "title": "Off Season",
+     "author": "",
+     "note": "One of her two top picks from the NYPL list; she would buy it",
+     "video": "AWR1oRXTDyk",
+     "url": null,
+     "ts": 1464,
+     "date": "2026-11-25"
+    }
+   ]
+  },
   {
    "slug": "kritika",
    "name": "Kritika",
@@ -6379,52 +6561,6 @@
    ]
   },
   {
-   "slug": "robert-greene",
-   "name": "Robert Greene",
-   "channels": [
-    "@hubermanlab",
-    "My First Million"
-   ],
-   "books": [
-    {
-     "title": "Dersu Uzala",
-     "author": "",
-     "note": "Book and film about a Siberian indigenous hunter and a Russian geographer.",
-     "video": "y-fRFiTrrg4",
-     "url": null,
-     "ts": 7522,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Book of Matthew",
-     "author": "",
-     "note": "He reread it after seeing a film adaptation and found its ideas beautiful.",
-     "video": "y-fRFiTrrg4",
-     "url": null,
-     "ts": 6914,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Speak, Memory",
-     "author": "",
-     "note": "Nabokov's attempt to recreate the felt experience of his childhood through memory.",
-     "video": "y-fRFiTrrg4",
-     "url": null,
-     "ts": 2222,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Law of the Sublime",
-     "author": "",
-     "note": "Robert Greene's new book, the topic of the episode",
-     "video": "pod-4bc0b759b71b",
-     "url": "https://feeds.megaphone.fm/HS2300184645",
-     "ts": 0,
-     "date": "2026-11-15"
-    }
-   ]
-  },
-  {
    "slug": "the-diary-of-a-ceo",
    "name": "The Diary of a CEO",
    "channels": [
@@ -6795,6 +6931,97 @@
   }
  ],
  "ranking": [
+  {
+   "title": "Profit First",
+   "author": "",
+   "people": [
+    "sam-parr"
+   ]
+  },
+  {
+   "title": "The 4-Hour Workweek",
+   "author": "",
+   "people": [
+    "sam-parr"
+   ]
+  },
+  {
+   "title": "The 100-Year Life",
+   "author": "",
+   "people": [
+    "sam-parr"
+   ]
+  },
+  {
+   "title": "Journey to Ixtlan",
+   "author": "",
+   "people": [
+    "robert-greene"
+   ]
+  },
+  {
+   "title": "The Teachings of Don Juan",
+   "author": "",
+   "people": [
+    "robert-greene"
+   ]
+  },
+  {
+   "title": "History of the Peloponnesian War",
+   "author": "",
+   "people": [
+    "robert-greene"
+   ]
+  },
+  {
+   "title": "John of John",
+   "author": "",
+   "people": [
+    "shelly-swearingen"
+   ]
+  },
+  {
+   "title": "London Falling",
+   "author": "",
+   "people": [
+    "shelly-swearingen"
+   ]
+  },
+  {
+   "title": "Super Nintendo book",
+   "author": "",
+   "people": [
+    "shelly-swearingen"
+   ]
+  },
+  {
+   "title": "Lantern Pass",
+   "author": "",
+   "people": [
+    "shelly-swearingen"
+   ]
+  },
+  {
+   "title": "Field Notes from an Extinction",
+   "author": "",
+   "people": [
+    "shelly-swearingen"
+   ]
+  },
+  {
+   "title": "Major Taylor",
+   "author": "Frederick Noland",
+   "people": [
+    "shelly-swearingen"
+   ]
+  },
+  {
+   "title": "Off Season",
+   "author": "",
+   "people": [
+    "shelly-swearingen"
+   ]
+  },
   {
    "title": "The Argumentative Indian",
    "author": "",

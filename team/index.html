@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claude at Work: Team Kit for teams of 5 to 50</title>
+<meta name="description" content="Get your whole team using Claude in 5 working days: a rollout plan, 4 Claude guides and a shared Project setup, licensed for your team. From $149 a year for 5 people.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://theusefulmedia.com/team/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Useful Media Co">
+<meta property="og:title" content="Claude at Work: Team Kit">
+<meta property="og:description" content="Your whole team on Claude in 5 working days. From $149 a year for 5 people.">
+<meta property="og:url" content="https://theusefulmedia.com/team/">
+<meta property="og:image" content="https://theusefulmedia.com/team/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/site.js" defer></script>
+<script src="/apps/hit.js" defer></script>
+<style>
+.tk{--tk-line:var(--rule,#E6E3EF)}
+.tk section{padding-block:56px}
+.tk .kick{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-ink,#5638E6);margin:0 0 12px}
+.tk h1{font-size:clamp(36px,6vw,64px);line-height:1.02;letter-spacing:-.02em;margin:0 0 16px;max-width:14ch}
+.tk h2{font-size:clamp(26px,3.6vw,36px);line-height:1.1;margin:0 0 10px;letter-spacing:-.01em}
+.tk .sub{font-size:19px;line-height:1.5;color:var(--graphite,#5A5A73);max-width:56ch;margin:0 0 24px}
+.tk-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-top:40px!important}
+.tk-cta{display:inline-flex;align-items:center;gap:8px;background:var(--purple-btn,#7C5CFC);color:#fff;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:14px;font-size:17px}
+.tk-cta:hover{filter:brightness(1.08)}
+.tk-note{font-family:var(--mono);font-size:12.5px;color:var(--graphite,#5A5A73);margin-top:12px}
+/* week board */
+.wk{background:var(--ink,#17172B);color:#FAFAF8;border-radius:24px;padding:22px;box-shadow:0 20px 50px rgb(23 23 43 / .18)}
+.wk-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:#ABAAC4;margin-bottom:14px}
+.wk-row{display:grid;grid-template-columns:96px repeat(5,1fr);gap:6px;align-items:center;margin-bottom:6px}
+.wk-row .who{font-size:13px;color:#D9D7E8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wk-h{font-family:var(--mono);font-size:11px;color:#8a88a8;text-align:center}
+.wk .tkc{height:30px;max-height:30px;border-radius:8px;background:#26263f;align-self:center}
+.wk .tkc.on{background:#7C5CFC}
+.wk .tkc.done{background:#12B886}
+.wk-key{display:flex;gap:16px;font-size:12px;color:#ABAAC4;margin-top:12px}
+.wk-key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.wk-row .tkc{display:block;transform-origin:left;animation:fill .4s ease both;animation-delay:calc(var(--i)*90ms + 200ms)}
+@keyframes fill{from{opacity:0;transform:scaleX(.6)}}
+@media (prefers-reduced-motion:reduce){.wk-row .tkc{animation:none;opacity:1;transform:none}}
+/* seats */
+.seats{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start}
+.seg{display:flex;background:var(--ghost,#F1EFF7);border-radius:16px;padding:5px;gap:4px;margin:18px 0 22px}
+.seg button{flex:1;border:0;background:transparent;font:inherit;font-weight:600;font-size:16px;padding:12px 8px;border-radius:12px;cursor:pointer;color:inherit}
+.seg button[aria-pressed="true"]{background:var(--paper,#fff);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
+.quote{border:1px solid var(--tk-line);border-radius:22px;padding:26px;background:var(--paper)}
+.quote .big{font-size:56px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.quote .big small{font-size:18px;font-weight:500;color:var(--graphite)}
+.quote .pp{font-family:var(--mono);font-size:13px;color:var(--graphite);margin:8px 0 18px}
+.people{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 20px;min-height:24px}
+.people span{width:18px;height:18px;border-radius:50%;background:#7C5CFC;opacity:.9}
+.people span:nth-child(3n){background:#12B886}
+.people span:nth-child(4n){background:#B8A7FF}
+.cmp{width:100%;border-collapse:collapse;font-size:15px;margin-top:6px}
+.cmp td{padding:9px 0;border-bottom:1px solid var(--tk-line)}
+.cmp td:last-child{text-align:right;font-family:var(--mono);white-space:nowrap;padding-left:12px}
+/* inside */
+.covers{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:24px}
+.cv{text-decoration:none;color:inherit}
+.cv .im{aspect-ratio:16/10;background:#0f0f1c;border-radius:16px;overflow:hidden;background:var(--ghost);box-shadow:0 6px 20px rgb(23 23 43 / .1)}
+.cv img{width:100%;height:100%;object-fit:contain;display:block}
+.cv .nm{font-weight:600;font-size:15px;margin-top:10px;line-height:1.25}
+.cv .ln{font-size:13.5px;color:var(--graphite);margin-top:4px;line-height:1.4}
+.plan-art{aspect-ratio:16/10;border-radius:16px;background:#17172B;color:#FAFAF8;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.plan-art b{font-size:15px;line-height:1.15}
+.plan-art .dots{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.plan-art .dots i{height:22px;border-radius:5px;background:#7C5CFC}
+.plan-art .dots i:nth-child(n+4){background:#12B886}
+/* roles */
+.roles{width:100%;border-collapse:collapse;margin-top:18px;font-size:15.5px}
+.roles th{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;text-align:left;color:var(--graphite);padding:8px 10px 8px 0;border-bottom:2px solid currentColor}
+.roles td{padding:12px 10px 12px 0;border-bottom:1px solid var(--tk-line);vertical-align:top}
+.roles td:first-child{font-weight:600;white-space:nowrap}
+.free{display:grid;grid-template-columns:160px 1fr;gap:28px;align-items:center;background:var(--ghost);border-radius:24px;padding:26px}
+.free img{width:100%;border-radius:12px;display:block}
+.free a.lnk{font-weight:600;color:var(--purple-ink)}
+.faq details{border-bottom:1px solid var(--tk-line);padding:16px 0}
+.faq summary{font-weight:600;font-size:17px;cursor:pointer}
+.faq p{color:var(--graphite);line-height:1.55;margin:10px 0 0;max-width:62ch}
+.close{text-align:center}
+.close .sub{margin:0 auto 22px}
+@media (max-width:860px){
+ .tk-hero,.seats{grid-template-columns:1fr;gap:28px}
+ .covers{grid-template-columns:repeat(2,1fr)}
+ .free{grid-template-columns:1fr}
+ .free img{max-width:180px}
+ .roles td:first-child{white-space:normal}
+ .tk section{padding-block:40px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="The Useful Media Co home"><img class="mark" src="/logo.svg" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:7px"><span class="brand-name">The Useful Media Co</span></a>
+    <div class="header-end">
+      <nav class="nav" aria-label="Main"><a href="/tech/">Newsletter</a><a href="/library/">Library</a><a href="/free/">Free</a><a href="/products/">Guides</a><a href="/our-apps/">Our apps</a><a href="/apps/">Discover</a><a href="/advertise/">Advertise</a><a href="/about/">About</a><script src="/assets/menu.js?v=1"></script></nav>
+      <button class="theme-toggle" type="button" data-mode="system" aria-label="Colour theme: match your device">
+        <svg class="t-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path class="half" d="M12 4a8 8 0 0 1 0 16z"/></svg>
+        <svg class="t-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g class="rays"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg>
+        <svg class="t-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="tk">
+<section class="wrap tk-hero">
+ <div>
+  <p class="kick">Claude at Work · Team Kit</p>
+  <h1>Your whole team on Claude in 5 working days.</h1>
+  <p class="sub">A rollout plan, 4 Claude guides and a shared Project setup, licensed for your team. Built for agencies and small companies of 5 to 50 people who already pay for Claude seats.</p>
+  <a class="tk-cta" href="#seats">Pick your team size</a>
+  <p class="tk-note">From $149 a year for 5 people. Invoice on request.</p>
+ </div>
+ <div class="wk" data-visual aria-label="A 5 day rollout board: each person on the team gets 1 automation running by Friday">
+  <div class="wk-top"><span>ROLLOUT · WEEK 1</span><span>5 people</span></div>
+  <div class="wk-row"><span></span><span class="wk-h">MON</span><span class="wk-h">TUE</span><span class="wk-h">WED</span><span class="wk-h">THU</span><span class="wk-h">FRI</span></div>
+  <div class="wk-row"><span class="who">Founder</span><span class="tkc on" style="--i:0"></span><span class="tkc on" style="--i:1"></span><span class="tkc on" style="--i:2"></span><span class="tkc done" style="--i:3"></span><span class="tkc done" style="--i:4"></span></div>
+  <div class="wk-row"><span class="who">Account mgr</span><span class="tkc" style="--i:5"></span><span class="tkc on" style="--i:6"></span><span class="tkc on" style="--i:7"></span><span class="tkc done" style="--i:8"></span><span class="tkc done" style="--i:9"></span></div>
+  <div class="wk-row"><span class="who">Writer</span><span class="tkc" style="--i:10"></span><span class="tkc on" style="--i:11"></span><span class="tkc on" style="--i:12"></span><span class="tkc on" style="--i:13"></span><span class="tkc done" style="--i:14"></span></div>
+  <div class="wk-row"><span class="who">Designer</span><span class="tkc" style="--i:15"></span><span class="tkc on" style="--i:16"></span><span class="tkc on" style="--i:17"></span><span class="tkc done" style="--i:18"></span><span class="tkc done" style="--i:19"></span></div>
+  <div class="wk-row"><span class="who">Operations</span><span class="tkc" style="--i:20"></span><span class="tkc on" style="--i:21"></span><span class="tkc on" style="--i:22"></span><span class="tkc on" style="--i:23"></span><span class="tkc done" style="--i:24"></span></div>
+  <div class="wk-key"><span><i style="background:#7C5CFC"></i>Setting up</span><span><i style="background:#12B886"></i>Automation running</span></div>
+ </div>
+</section>
+
+<section class="wrap seats" id="seats">
+ <div>
+  <p class="kick">Team size</p>
+  <h2>1 yearly price for the whole team.</h2>
+  <p class="sub">Every person on the plan gets every guide, the rollout plan and every update for as long as the plan is active. Bought one by one, the 4 guides cost $152 per person.</p>
+  <table class="cmp" aria-label="What a team pays">
+   <tr><td>Claude Team, 5 standard seats, billed yearly</td><td>$1,200 / yr</td></tr>
+   <tr><td>The 4 guides bought separately for 5 people</td><td>$760</td></tr>
+   <tr><td>Team Kit for 5 people</td><td>$149 / yr</td></tr>
+  </table>
+  <p class="tk-note">Claude Team price from <a href="https://support.claude.com/en/articles/9266767">Anthropic's Team plan page</a>, Nov 2026.</p>
+ </div>
+ <div class="quote" data-visual>
+  <div class="seg" role="group" aria-label="Team size">
+   <button type="button" data-tier="team" aria-pressed="true">Up to 5</button>
+   <button type="button" data-tier="studio" aria-pressed="false">Up to 15</button>
+   <button type="button" data-tier="company" aria-pressed="false">Up to 50</button>
+  </div>
+  <div class="people" aria-hidden="true"></div>
+  <div class="big"><span data-price>$149</span> <small>/ year</small></div>
+  <p class="pp" data-pp>About $30 per person a year</p>
+  <a class="tk-cta" data-buy href="#">Get the Team Kit</a>
+  <p class="tk-note">Founding price for the first 10 teams. More than 50 people? Email <a href="mailto:raja@theusefultech.com?subject=Team%20Kit%20for%2050%2B%20people">raja@theusefultech.com</a> for a quote.</p>
+ </div>
+</section>
+
+<section class="wrap">
+ <p class="kick">What your team gets</p>
+ <h2>4 guides, 1 plan, 1 free automation to start with.</h2>
+ <div class="covers">
+  <a class="cv" href="https://theusefultech.gumroad.com/l/cowork-mastery-guide"><div class="im"><img src="/assets/products/cowork-mastery-guide.webp" alt="Cowork Mastery cover" loading="lazy"></div><div class="nm">Cowork Mastery</div><div class="ln">Claude Cowork running work on a schedule</div></a>
+  <a class="cv" href="https://theusefultech.gumroad.com/l/claude-loop-vault"><div class="im"><img src="/assets/products/claude-loop-vault.webp" alt="Claude Code Loop Vault cover" loading="lazy"></div><div class="nm">Loop Vault</div><div class="ln">20 tested recurring automations</div></a>
+  <a class="cv" href="https://theusefultech.gumroad.com/l/claude-prompt-vault"><div class="im"><img src="/assets/products/claude-prompt-vault.webp" alt="Claude Prompt Vault cover" loading="lazy"></div><div class="nm">Prompt Vault</div><div class="ln">150 prompts for files, PDFs and documents</div></a>
+  <a class="cv" href="https://theusefultech.gumroad.com/l/claude-code-playbook"><div class="im"><img src="/assets/products/claude-code-playbook.webp" alt="Claude Code Playbook for Non-Developers cover" loading="lazy"></div><div class="nm">Claude Code Playbook</div><div class="ln">Internal tools and dashboards without code</div></a>
+  <div class="cv"><div class="plan-art" aria-hidden="true"><b>Team Rollout Plan</b><div class="dots"><i></i><i></i><i></i><i></i><i></i></div></div><div class="nm">Rollout Plan</div><div class="ln">Day by day, plus a shared Project setup</div></div>
+ </div>
+</section>
+
+<section class="wrap">
+ <p class="kick">Day 3 of the plan</p>
+ <h2>Every role starts with 1 automation on its own work.</h2>
+ <table class="roles">
+  <tr><th>Role</th><th>First automation</th></tr>
+  <tr><td>Founder or owner</td><td>Morning inbox brief: what needs a reply today, sorted by client</td></tr>
+  <tr><td>Account manager</td><td>Friday client update drafted from the week's emails and files</td></tr>
+  <tr><td>Writer or strategist</td><td>Long brief to a 1-page summary with open questions for the client</td></tr>
+  <tr><td>Designer</td><td>Feedback threads to 1 numbered change list per file</td></tr>
+  <tr><td>Operations</td><td>Receipts and invoices sorted, renamed and logged to a sheet</td></tr>
+ </table>
+</section>
+
+<section class="wrap">
+ <div class="free">
+  <img src="/free/img/the-friday-client-update.webp" alt="The Friday Client Update cover" loading="lazy">
+  <div>
+   <p class="kick">Try 1 first, free</p>
+   <h2>The Friday Client Update</h2>
+   <p class="sub" style="margin-bottom:12px">Claude drafts 1 update per client every Friday at 3 PM from the week's emails and files. Your account managers check and send.</p>
+   <a class="lnk" href="/free/the-friday-client-update/?utm_source=team&amp;utm_medium=page">Get the free automation</a>
+  </div>
+ </div>
+</section>
+
+<section class="wrap faq">
+ <p class="kick">Questions</p>
+ <details><summary>Who counts as a person on the plan?</summary><p>Anyone at your company who uses the kit. Up to 5, 15 or 50 people depending on the plan. Share the files inside your company only.</p></details>
+ <details><summary>Can we pay by invoice?</summary><p>Yes. Email raja@theusefultech.com with your company name and team size, and you get a PayPal invoice your finance team can pay by card or PayPal.</p></details>
+ <details><summary>What happens when Claude changes?</summary><p>The guides get updated as Claude adds features. Your team gets each update for as long as the plan is active.</p></details>
+ <details><summary>Do we need Claude Team?</summary><p>No. The kit works on Pro, Max or Team accounts. Team makes the shared Project in the rollout plan easier, and on Team your chats are not used for training by default.</p></details>
+ <details><summary>Can we stop the plan?</summary><p>Yes. Turn off renewal anytime from your Gumroad receipt. Your team keeps the files you already downloaded.</p></details>
+</section>
+
+<section class="wrap close">
+ <h2>Pick a size and start Monday.</h2>
+ <p class="sub">By Friday each person has 1 automation running on real work.</p>
+ <a class="tk-cta" href="#seats">See team prices</a>
+</section>
+</main>
+<footer class="fr-foot wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px 0 48px;font-size:14px;color:var(--graphite)">
+  <span>Made by Raja at <a href="/tech/">The Useful Tech</a>, the #1 Apple blog on Medium.</span>
+  <a href="/">theusefulmedia.com</a>
+</footer>
+<script>
+(function(){
+ var T={team:{p:149,n:5,url:"https://theusefultech.gumroad.com/l/claude-team-kit?wanted=true&utm_source=team-page&option=YywLeHvuds_T9xxROVE33g%3D%3D"},studio:{p:349,n:15,url:"https://theusefultech.gumroad.com/l/claude-team-kit?wanted=true&utm_source=team-page&option=SFkfz15izSIDEnDhpj5iJQ%3D%3D"},company:{p:799,n:50,url:"https://theusefultech.gumroad.com/l/claude-team-kit?wanted=true&utm_source=team-page&option=tv7M7H4BITH2M_2uMPoRPw%3D%3D"}};
+ var bs=document.querySelectorAll('.seg button'),pr=document.querySelector('[data-price]'),pp=document.querySelector('[data-pp]'),buy=document.querySelector('[data-buy]'),pe=document.querySelector('.people');
+ function set(k){var t=T[k];bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.tier===k)});pr.textContent='$'+t.p;pp.textContent='About $'+Math.round(t.p/t.n)+' per person a year';buy.href=t.url;var h='';for(var i=0;i<t.n;i++)h+='<span></span>';pe.innerHTML=h;}
+ bs.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.tier)})});
+ var seg=document.querySelector('.seg');seg.addEventListener('keydown',function(e){var a=[].indexOf.call(bs,document.activeElement);if(a<0)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=(a+(e.key==='ArrowRight'?1:bs.length-1))%bs.length;bs[n].focus();set(bs[n].dataset.tier);e.preventDefault();}});
+ set('team');
+})();
+</script>
+</body>
+</html>

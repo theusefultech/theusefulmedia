@@ -223,6 +223,9 @@ problems=[
  {"text":"I live paycheck to paycheck","area":"MONEY","keys":"paycheck to paycheck payday salary broke run out of money end of month no savings emergency fund save saving savings lifestyle creep raise budget","url":"/library/problems/paycheck-to-paycheck/"},
  {"text":"I don't know where my money goes","area":"MONEY","keys":"where does my money go track tracking spending expenses budget budgeting no idea leak wasting","url":"/library/problems/where-does-my-money-go/"},
  {"text":"I scroll my phone for hours","area":"HABITS","keys":"scroll scrolling doomscroll phone screen time social media tiktok instagram reels addicted checking","url":"/library/problems/scrolling-my-phone-for-hours/"},
+ {"text":"I impulse buy","area":"MONEY","keys":"impulse buy buying shopping online shopping add to cart regret sale deals spend spending wasteful","url":"/library/problems/impulse-buying/"},
+ {"text":"I can't stick to a daily routine","area":"HABITS","keys":"routine daily routine morning routine evening routine schedule consistent consistency stick forget discipline structure","url":"/library/problems/cant-stick-to-a-routine/"},
+ {"text":"I feel behind on money","area":"MONEY","keys":"behind on money financially behind late start savings compare comparison net worth never enough catch up money anxiety","url":"/library/problems/i-feel-behind-on-money/"},
 ]
 catalog=[{"slug":"atomic-habits","t":"Atomic Habits","a":"habits"},{"slug":"the-power-of-habit","t":"The Power of Habit","a":"habits"},{"slug":"mindset","t":"Mindset","a":"mindset"},
  {"slug":"deep-work","t":"Deep Work","a":"focus"},{"slug":"essentialism","t":"Essentialism","a":"focus"},{"slug":"indistractable","t":"Indistractable","a":"focus"},{"slug":"the-7-habits-of-highly-effective-people","t":"The 7 Habits of Highly Effective People","a":"habits"},

@@ -585,5 +585,42 @@
     "Ollama, LM Studio, Shortcuts, Hammerspoon and Osaurus are free. Raycast, Alfred, Superwhisper and MacWhisper have free tiers, and Floxtop is free for 100 files a month."
    ]
   ]
+ },
+ {
+  "slug": "the-friday-client-update",
+  "name": "The Friday Client Update",
+  "title": "A Claude automation that drafts every client update by Friday at 3 PM.",
+  "sub": "Claude reads the week's client emails and files, then writes 1 short update per client for you to check and send.",
+  "inside": [
+   "The full Cowork prompt, ready to paste",
+   "A 5 step setup that takes about 10 minutes",
+   "An example draft with Done, In progress and From you",
+   "4 one-line changes for Slack updates, hours, a summary first or your own tone",
+   "A [CHECK] rule so Claude flags any line a person should confirm"
+  ],
+  "file": "The-Friday-Client-Update.pdf",
+  "kind": "PDF",
+  "size": 57808,
+  "downloads": 0,
+  "cta": "Send me the automation",
+  "upsell": "cowork-mastery-guide",
+  "tags": [
+   "mac",
+   "ai"
+  ],
+  "faq": [
+   [
+    "Does Claude send the emails?",
+    "No. Claude puts every draft in 1 document, client by client. A person checks each one and sends it."
+   ],
+   [
+    "What do I need to run it?",
+    "The Claude desktop app with Cowork on a paid plan, plus the Gmail or Outlook connector. Google Drive or SharePoint is optional for client files."
+   ],
+   [
+    "Can my whole team use it?",
+    "Yes. Each account manager runs it on their own clients. The Claude at Work Team Kit adds a rollout plan and 4 guides for teams of 5 to 50."
+   ]
+  ]
  }
 ]

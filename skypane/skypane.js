@@ -35,7 +35,7 @@
   }
 
   // ---------- lazy videos: load near the screen, play only while visible ----------
-  var vids = $$("video.lazy");
+  var vids = $$("video.lazy").filter(function (v) { return !v.closest("[hidden]"); });
   var load = function (v) { if (!v.src && v.getAttribute("data-src")) { v.src = v.getAttribute("data-src"); } };
   if ("IntersectionObserver" in w && !light) {
     var near = new IntersectionObserver(function (es) {
@@ -102,7 +102,7 @@
 
   // ---------- before / after (shown once job 105's stills exist) ----------
   var baSec = $("[data-ba-section]");
-  if (baSec) {
+  if (baSec && baSec.getAttribute("data-ba-ready") === "yes") {
     var probe = new Image();
     probe.onload = function () { baSec.hidden = false; };
     probe.src = wide ? "/skypane/m/after-16x9.jpg" : "/skypane/m/after-9x16.jpg";

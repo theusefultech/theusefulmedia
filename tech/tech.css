@@ -64,7 +64,7 @@
 }
 .signup-form button:hover { background: #5B3BD6; }
 .signup-form button:active { transform: scale(0.97); }
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .signup-form { flex-direction: column; }
   .signup-form button { padding: 0.85rem 1rem; }
 }
@@ -216,6 +216,7 @@
   letter-spacing: -0.035em; font-weight: 500;
 }
 .nl-cta .signup { position: relative; width: 100%; margin-inline: auto; }
+.nl-cta > * { max-width: 100%; min-width: 0; }
 .nl-cta .signup-form { border-color: transparent; }
 .nl-cta-note { position: relative; margin: 1rem 0 0; font-size: 0.9rem; color: rgba(242, 241, 248, 0.66); }
 :root[data-theme="dark"] .nl-cta { background: #111113; box-shadow: inset 0 0 0 1px rgba(242, 241, 248, 0.08); }
@@ -250,7 +251,7 @@
   transform: rotate(-45deg) translateY(-2px);
 }
 @keyframes tut-spin { to { transform: rotate(360deg); } }
-@media (max-width: 420px) { .signup-form button { min-width: 0; } }
+@media (max-width: 480px) { .signup-form button { min-width: 0; } }
 
 .signup-msg { font-size: 0.92rem; line-height: 1.45; }
 .signup-msg:empty { display: none; }

@@ -23,13 +23,19 @@ if rows is None or (not rows and prev and prev.get("people")):
     age = (datetime.date.today() - datetime.date.fromisoformat(prev["updated"])).days if prev else None
     print(f"feed unavailable or empty ({err}); keeping last good data, age {age} days")
     sys.exit(1 if (age is None and rows is None) or (age is not None and age >= 3) else 0)
-slug = lambda s: re.sub(r"[^a-z0-9]+", "-", str(s).lower()).strip("-")[:60]
+import unicodedata
+# 27 Nov 2026 (Raja): fold accents so "Björn" and "Bjorn" share 1 page and "Léa" becomes "lea", never "bj-rn" or "l-a".
+slug = lambda s: re.sub(r"[^a-z0-9]+", "-", unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().lower()).strip("-")[:60]
+# Junk names from the transcript engine (numeric channel ids, "NA", placeholder hosts) never get a bookshelf.
+JUNK = {"na", "n-a", "guest", "unknown", "unknown-host", "host"}
+junk = lambda n: (not slug(n)) or slug(n) in JUNK or slug(n).replace("-", "").isdigit()
 people, rank = {}, {}
 for r in rows:
     name = (r["person"] or r["channel"] or "").strip()
-    if not name: continue
+    if not name or junk(name): continue
     p = people.setdefault(slug(name), {"slug": slug(name), "name": name, "channels": [], "books": [], "_seen": set()})
-    if r["channel"] and r["channel"] not in p["channels"]: p["channels"].append(r["channel"])
+    if not name.isascii() and p["name"].isascii(): p["name"] = name  # keep the accented spelling
+    if r["channel"] and not slug(r["channel"]).replace("-", "").isdigit() and r["channel"] not in p["channels"]: p["channels"].append(r["channel"])
     if r["ekey"] in p["_seen"]: continue
     p["_seen"].add(r["ekey"])
     title, author = r["entity"], ""

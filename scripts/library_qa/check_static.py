@@ -11,6 +11,7 @@ def exists(url):
     return os.path.exists(p) or os.path.exists(os.path.join(p, "index.html"))
 for f in glob.glob(os.path.join(ROOT, "library", "**", "index.html"), recursive=True):
     rel = os.path.relpath(f, ROOT); s = open(f, encoding="utf-8").read()
+    if 'http-equiv="refresh"' in s[:3000]: continue  # moved-page redirect stub (e.g. /people/bj-rn/ -> /people/bjorn/)
     if len(re.findall(r"<h1[\s>]", s)) != 1: bad.append(f"{rel}: needs exactly 1 h1")
     if 'rel="canonical"' not in s: bad.append(f"{rel}: no canonical")
     for m in re.findall(r'<script type="application/(?:ld\+)?json"[^>]*>(.*?)</script>', s, re.S):

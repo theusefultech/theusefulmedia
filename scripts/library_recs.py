@@ -34,7 +34,9 @@ def shell(path, title, desc, main):
     crumbs = [("Library", "/library/"), ("Bookshelves", "/library/people/")] + ([] if path == "/library/people/" else [(title.split(" | ")[0], path)])
     ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": BASE + u} for i, (n, u) in enumerate(crumbs)]}
     h = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda m: f'<script type="application/ld+json">{json.dumps(ld)}</script>', h, count=1, flags=re.S)
-    h = re.sub(r'<main id="main" class="wrap">.*?</main>', lambda m: f'<main id="main" class="wrap">{main}</main>', h, count=1, flags=re.S)
+    # Match <main> with any attributes (library_visuals adds data-lv="1"); a miss once left every shelf showing /library/books/.
+    h, n = re.subn(r'<main\b[^>]*\bid="main"[^>]*>.*?</main>', lambda m: f'<main id="main" class="wrap">{main}</main>', h, count=1, flags=re.S)
+    if not n: raise SystemExit("library_recs: <main> not found in the /library/books/ template")
     return h
 
 
@@ -200,10 +202,39 @@ def inject_hubs(lists, people_n):
         if h != h0: open(f, "w").write(h); changed.append(k)
     return changed
 
+import unicodedata
+_slug = lambda s: re.sub(r"[^a-z0-9]+", "-", unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().lower()).strip("-")[:60]
+_JUNK = {"na", "n-a", "guest", "unknown", "unknown-host", "host"}
+def clean(D):
+    """27 Nov 2026 (Raja): drop junk shelves (numeric ids, "NA"), fold accents in slugs and merge duplicates
+    (Björn + Bjorn), so pages like /people/na/, /people/1052/ and /people/bj-rn/ never come back."""
+    out, remap = {}, {}
+    for p in D.get("people", []):
+        s = _slug(p["name"])
+        if not s or s in _JUNK or s.replace("-", "").isdigit(): remap[p["slug"]] = None; continue
+        remap[p["slug"]] = s
+        q = out.setdefault(s, {**p, "slug": s, "books": [], "channels": []})
+        if not p["name"].isascii(): q["name"] = p["name"]
+        q["channels"] += [c for c in p.get("channels") or [] if c not in q["channels"] and not _slug(c).replace("-", "").isdigit()]
+        seen = {norm(b["title"]) for b in q["books"]}
+        q["books"] += [b for b in p["books"] if norm(b["title"]) not in seen]
+    rank = []
+    for r in D.get("ranking", []):
+        ps = list(dict.fromkeys(remap.get(x, x) for x in r["people"] if remap.get(x, x)))
+        if ps: rank.append({**r, "people": ps})
+    return {**D, "people": list(out.values()), "ranking": rank}
+
+def where(p):
+    """Where they said it, never the person's own name ("recommended on Jack Edwards")."""
+    ch = [c for c in (p.get("channels") or []) if _slug(c) != _slug(p["name"]) and not c.startswith("@" + _slug(p["name"]).replace("-", ""))]
+    if ch: return ", ".join(ch)
+    return "podcasts" if any(b.get("url") for b in p["books"]) else "YouTube"
+
 def main():
     if not os.path.exists(DATA):
         print("no recs.json yet"); return
     D = json.load(open(DATA))
+    D = clean(D)
     people = [p for p in D.get("people", []) if len(p["books"]) >= MIN_BOOKS]
     people.sort(key=lambda p: (-len(p["books"]), p["name"]))
     by_slug = {p["slug"]: p for p in people}
@@ -219,12 +250,12 @@ def main():
     for p in people:
         path = f"/library/people/{p['slug']}/"
         cards = "".join(book_card(b, f'<small style="color:var(--soft)">{e(b.get("note") or "")}</small><small class="mono"><a href="{e(b["url"]) if b.get("url") else yt(b["video"], b["ts"])}" rel="nofollow noopener" target="_blank">{("Listen to the episode" if not b["ts"] else "Listen from " + mmss(b["ts"])) if b.get("url") else "Watch at " + mmss(b["ts"])}</a> · {nice(b["date"])}</small>') for b in p["books"])
-        main_html = crumbs_html([("Library", "/library/"), ("Bookshelves", "/library/people/"), (p["name"], path)]) + hero("Bookshelf", f"Books {p['name']} recommends", f"{len(p['books'])} nonfiction books {e(p['name'])} has recommended on {e(', '.join([c for c in (p.get('channels') or []) if not str(c).strip().isdigit()] or ['video']))}, each linked to the moment they said it.", p["books"][0]["date"], shelf([b["title"] for b in p["books"]])) + f'<section class="hub-sec"><div class="grid" style="display:grid;gap:12px">{cards}</div></section><p class="lede" style="font-size:15px;color:var(--soft)">How this page is made: we read what guests and hosts say in their videos and list the books they recommend, with a link to the exact moment. Nothing here is paid for.</p>'
+        main_html = crumbs_html([("Library", "/library/"), ("Bookshelves", "/library/people/"), (p["name"], path)]) + hero("Bookshelf", f"Books {p['name']} recommends", f"{len(p['books'])} books {e(p['name'])} has recommended on {e(where(p))}, each linked to the exact moment they named it.", p["books"][0]["date"], shelf([b["title"] for b in p["books"]])) + f'<section class="hub-sec"><div class="grid" style="display:grid;gap:12px">{cards}</div></section><p class="lede" style="font-size:15px;color:var(--soft)">How this page is made: we read what guests and hosts say in their videos and list the books they recommend, with a link to the exact moment. Nothing here is paid for.</p>'
         write(path, shell(path, f"Books {p['name']} recommends | The Useful Library", f"Every book {p['name']} has recommended on video, {len(p['books'])} so far, each linked to the exact moment.", main_html))
     rows = "".join(f'<a class="card lift" style="display:flex;justify-content:space-between;gap:12px;padding:14px 16px" href="/library/people/{p["slug"]}/"><b class="serif" style="font-size:20px">{e(p["name"])}</b><span class="mono">{len(p["books"])} books</span></a>' for p in people)
     rank = [r for r in D.get("ranking", []) if len([x for x in r["people"] if x in by_slug]) >= 2]
     rank_link = '<p><a class="btn btn-green" href="/library/recommended/">The most-recommended books</a></p>' if len(people) >= MIN_PEOPLE and rank else ""
-    write("/library/people/", shell("/library/people/", "Bookshelves: the books famous people recommend | The Useful Library", f"{len(people)} founders, scientists and authors and the nonfiction books they recommend, each linked to the moment they said it.",
+    write("/library/people/", shell("/library/people/", "Bookshelves: the books famous people recommend | The Useful Library", f"{len(people)} founders, scientists and authors and the books they recommend, each linked to the moment they said it.",
           crumbs_html([("Library", "/library/"), ("Bookshelves", "/library/people/")]) + hero("Bookshelves", "The books they recommend", "Founders, scientists and authors on the books that changed how they work and live, taken from what they said on video.", upd, shelf([r["title"] for r in D.get("ranking", [])][:12] or [b["title"] for q in people for b in q["books"]][:12])) + rank_link + f'<section class="hub-sec"><div style="display:grid;gap:10px">{rows}</div></section>'))
     if rank_link:
         rank = sorted(rank, key=lambda r: (-len([x for x in r["people"] if x in by_slug]), r["title"]))[:50]

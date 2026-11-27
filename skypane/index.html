@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skypane: real weather on your Mac's windows</title>
+<meta name="description" content="Skypane puts live snow and rain on your Mac's windows, Dock and menu bar, over 3 photoreal worlds that follow your real sky. Mac only. Launches Thu 10 Dec. Join the waitlist for $5 on 8 Dec.">
+<link rel="canonical" href="https://theusefulmedia.com/skypane/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Skypane by The Useful Media Co">
+<meta property="og:title" content="Skypane: your Mac, snowed in">
+<meta property="og:description" content="Live snow and rain on your Mac's windows, Dock and menu bar. Mac only. Launches 10 Dec. Waitlist price $5.">
+<meta property="og:url" content="https://theusefulmedia.com/skypane/">
+<meta property="og:image" content="https://theusefulmedia.com/skypane/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://theusefulmedia.com/skypane/og.jpg">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/skypane/m/hero-916.webp" as="image" media="(max-width: 760px)">
+<link rel="preload" href="/skypane/m/hero-169.webp" as="image" media="(min-width: 761px)">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/skypane/skypane.css?v=1">
+<script src="/skypane/skypane.js?v=1" defer></script>
+<script src="/tech/tech.js" defer></script>
+<script src="/apps/hit.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Skypane","operatingSystem":"macOS 14 or later","applicationCategory":"DesktopEnhancementApplication","description":"Live weather on your Mac: snow and rain settle on your windows, Dock and menu bar over 3 photoreal worlds that follow your real sky.","offers":[{"@type":"Offer","name":"1 Mac","price":"7","priceCurrency":"USD"},{"@type":"Offer","name":"Up to 5 Macs","price":"12","priceCurrency":"USD"}],"publisher":{"@type":"Organization","name":"The Useful Media Co","url":"https://theusefulmedia.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://theusefulmedia.com/"},{"@type":"ListItem","position":2,"name":"Skypane","item":"https://theusefulmedia.com/skypane/"}]}</script>
+</head>
+<body>
+<canvas class="snow" data-snow aria-hidden="true"></canvas>
+
+<a class="strip" href="#join" data-strip>
+  <span>Waitlist price: <b>$5</b> on Tue 8 Dec</span>
+  <span class="strip-clock" data-countdown="2026-12-08T00:00:00" aria-label="Time left until 8 December">&nbsp;</span>
+</a>
+
+<header class="top">
+  <a class="logo" href="/skypane/" aria-label="Skypane">
+    <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="2.5" y="5.5" width="23" height="17" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 9.5c3-2 6 1 9-.5s6-2 11 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Skypane</span>
+  </a>
+  <span class="top-meta">Mac only · 10 Dec</span>
+</header>
+
+<main id="main">
+
+<!-- 1 Hero -->
+<section class="hero" data-visual>
+  <div class="hero-media" data-hero>
+    <picture>
+      <source media="(min-width: 761px)" srcset="/skypane/m/hero-169.webp">
+      <img class="poster" src="/skypane/m/hero-916.webp" alt="A Mac desktop at dusk: a snowy log cabin, a snowman, and a drift of snow on top of a Trip plan window." width="720" height="1280" fetchpriority="high">
+    </picture>
+    <video class="hero-video" data-hero-video muted loop playsinline preload="none" aria-hidden="true"
+      data-src-phone="/skypane/m/hero-916.mp4" data-src-wide="/skypane/m/hero-169.mp4"></video>
+    <span class="tag-real">Recorded on a real Mac</span>
+    <span class="hint" data-hint>Double-tap for a snowglobe</span>
+  </div>
+  <div class="hero-copy">
+    <p class="chip" data-sky-chip><span class="dot" aria-hidden="true"></span><span data-sky-text>Your sky, right now</span></p>
+    <h1><span>Your Mac, snowed in.</span> <span class="dim">Snow piles on every window.</span></h1>
+    <div class="signup glass" data-ledge>
+      <form class="signup-form" data-signup data-list="tech" data-source="skypane" data-medium="hero" data-campaign="skypane-waitlist" data-next="stay" novalidate>
+        <label class="sr" for="email-hero">Email address</label>
+        <input id="email-hero" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-white" type="submit" data-ledge><span class="btn-label">Save my spot</span></button>
+      </form>
+      <div class="ts-slot"></div>
+      <div class="signup-msg" aria-live="polite"></div>
+    </div>
+    <p class="lead">Skypane puts real weather on your windows, Dock and menu bar. Drag a window and its drift breaks off.</p>
+    <p class="fine">$5 on 8 Dec instead of $7. Join from your phone and the Mac link lands in your inbox, plus 6 free iPhone wallpapers right away.</p>
+  </div>
+</section>
+
+<!-- 2 Your sky -->
+<section class="sky wrap" id="sky">
+  <div class="sky-copy">
+    <h2><span>Snow outside your window.</span> <span class="dim">Snow on your Mac's windows.</span></h2>
+    <p>Skypane checks the weather where you are every 15 minutes. Rain slants with the real wind. Your sunset lights the scene.</p>
+    <div class="chips" role="tablist" aria-label="Try a sky">
+      <button type="button" role="tab" class="c" data-world="cabin" aria-selected="true">Oslo · snow</button>
+      <button type="button" role="tab" class="c" data-world="lake" aria-selected="false">Seattle · rain</button>
+      <button type="button" role="tab" class="c" data-world="kyoto" aria-selected="false">Kyoto · sakura</button>
+      <button type="button" role="tab" class="c c-me" data-world="me" aria-selected="false" hidden>Your city</button>
+    </div>
+    <p class="sky-now" data-sky-now aria-live="polite"></p>
+  </div>
+  <figure class="frame" data-visual>
+    <video class="lazy" data-sky-video muted loop playsinline preload="none" poster="/skypane/m/world-sunset.webp" data-src="/skypane/m/world-sunset.mp4" aria-label="Alpine Cabin world with snow"></video>
+    <figcaption class="tag-real">Recorded on a real Mac</figcaption>
+  </figure>
+</section>
+
+<!-- 3 Feature beats -->
+<section class="beats wrap" aria-label="What Skypane does">
+  <article class="beat">
+    <figure class="frame"><video class="lazy" muted loop playsinline preload="none" poster="/skypane/m/fx-drag.webp" data-src="/skypane/m/fx-drag.mp4" aria-label="A window is dragged and its snow drift breaks off"></video><figcaption class="tag-real">Recorded on a real Mac</figcaption></figure>
+    <div><p class="num">01</p><h2><span>Fling a window.</span> <span class="dim">The drift breaks off.</span></h2><p>Snow builds on top of every window you leave open. Move one and the drift slides off and falls.</p></div>
+  </article>
+  <article class="beat">
+    <figure class="frame"><video class="lazy" muted loop playsinline preload="none" poster="/skypane/m/fx-dock.webp" data-src="/skypane/m/fx-dock.mp4" aria-label="A snowy window is minimized and its snow pours into the Dock"></video><figcaption class="tag-real">Recorded on a real Mac</figcaption></figure>
+    <div><p class="num">02</p><h2><span>Minimize a snowy window.</span> <span class="dim">The snow pours into your Dock.</span></h2><p>The Dock collects its own drift through the day.</p></div>
+  </article>
+  <article class="beat">
+    <figure class="frame"><video class="lazy" muted loop playsinline preload="none" poster="/skypane/m/fx-icicles.webp" data-src="/skypane/m/fx-icicles.mp4" aria-label="Icicles grow along the menu bar and one snaps off"></video><figcaption class="tag-real">Recorded on a real Mac</figcaption></figure>
+    <div><p class="num">03</p><h2><span>Icicles grow off your menu bar.</span> <span class="dim">Flick one and it snaps.</span></h2><p>They grow longer on cold days and drip when it warms up.</p></div>
+  </article>
+  <article class="beat" data-pending="rain" hidden>
+    <figure class="frame"><video class="lazy" muted loop playsinline preload="none" poster="/skypane/m/fx-rain.webp" data-src="/skypane/m/fx-rain.mp4" aria-label="Rain beads gather on windows and run down"></video><figcaption class="tag-real">Recorded on a real Mac</figcaption></figure>
+    <div><p class="num">04</p><h2><span>Rain on your screen.</span> <span class="dim">Beads gather, then run down the glass.</span></h2><p>Only when it rains where you are, or when you pick rain.</p></div>
+  </article>
+  <article class="beat" data-pending="shake" hidden>
+    <figure class="frame"><video class="lazy" muted loop playsinline preload="none" poster="/skypane/m/fx-shake.webp" data-src="/skypane/m/fx-shake.mp4" aria-label="The cursor is shaken and the whole screen swirls like a snowglobe"></video><figcaption class="tag-real">Recorded on a real Mac</figcaption></figure>
+    <div><p class="num">05</p><h2><span>Shake your cursor.</span> <span class="dim">Your screen turns into a snowglobe.</span></h2><p>Try it here first: double-tap the video at the top of this page.</p></div>
+  </article>
+</section>
+
+<!-- 4 Before and after -->
+<section class="ba wrap" data-ba-section hidden>
+  <h2><span>Same desk.</span> <span class="dim">Different weather.</span></h2>
+  <div class="ba-box" data-ba data-visual>
+    <picture><source media="(min-width: 761px)" srcset="/skypane/m/after-16x9.jpg"><img src="/skypane/m/after-9x16.jpg" alt="The same Mac desktop with Skypane on: a snowy cabin and snow on the windows." loading="lazy" width="1080" height="1920"></picture>
+    <div class="ba-before" data-ba-before><picture><source media="(min-width: 761px)" srcset="/skypane/m/before-16x9.jpg"><img src="/skypane/m/before-9x16.jpg" alt="A plain Mac desktop with the default wallpaper." loading="lazy" width="1080" height="1920"></picture></div>
+    <span class="ba-l">Before</span><span class="ba-r">With Skypane</span>
+    <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after" data-ba-range>
+    <span class="ba-handle" data-ba-handle aria-hidden="true"></span>
+  </div>
+</section>
+
+<!-- 5 Worlds -->
+<section class="worlds wrap">
+  <h2><span>3 places to work from.</span> <span class="dim">Each one keeps your local time.</span></h2>
+  <p class="sub">Golden hour at your real sunset. Lights come on at dusk. Swipe to see all 3.</p>
+  <div class="row" data-row>
+    <figure class="world"><video class="lazy" muted loop playsinline preload="none" poster="/skypane/m/world-sunset.webp" data-src="/skypane/m/world-sunset.mp4" aria-label="Alpine Cabin"></video><figcaption><b>Alpine Cabin</b><span>Smoke from the chimney, a snowman you can build</span></figcaption></figure>
+    <figure class="world"><video class="lazy" muted loop playsinline preload="none" poster="/skypane/m/world-lake.webp" data-src="/skypane/m/world-lake.mp4" aria-label="Lake Village"></video><figcaption><b>Lake Village</b><span>Your windows reflect in the water</span></figcaption></figure>
+    <figure class="world"><video class="lazy" muted loop playsinline preload="none" poster="/skypane/m/world-kyoto.webp" data-src="/skypane/m/world-kyoto.mp4" aria-label="Kyoto Rooftops"></video><figcaption><b>Kyoto Rooftops</b><span>Petals pile up along the bottom of your screen</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- 6 Light on your Mac -->
+<section class="light wrap">
+  <h2><span>Light on your Mac.</span> <span class="dim">Numbers from a real Mac mini.</span></h2>
+  <div class="tiles">
+    <div class="tile" data-ledge><b>3.7%</b><span>CPU with snow falling, measured on an M4 Mac mini with a 5K display</span></div>
+    <div class="tile" data-ledge><b>0</b><span>permissions for the weather and effects. It reads where your windows are, never what's in them</span></div>
+    <div class="tile" data-ledge><b>Clicks</b><span>go straight through the snow to whatever is under it</span></div>
+    <div class="tile" data-ledge><b>Notarized</b><span>by Apple. No account, no tracking</span></div>
+  </div>
+</section>
+
+<!-- 7 Price -->
+<section class="price wrap" id="price">
+  <h2><span>Pay once. Keep it.</span> <span class="dim">Every world and every update included.</span></h2>
+  <div class="cards">
+    <div class="card card-main" data-ledge>
+      <p class="card-k">1 Mac</p>
+      <p class="card-p"><s>$7</s> <b>$5</b></p>
+      <p class="card-n">Waitlist price on Tue 8 Dec</p>
+    </div>
+    <div class="card" data-ledge>
+      <p class="card-k">Up to 5 Macs</p>
+      <p class="card-p"><b>$12</b></p>
+      <p class="card-n">For your home and work Macs, or the family</p>
+    </div>
+  </div>
+  <p class="anchor">Christmas price until 25 Dec, then $9 and $15. No subscription.</p>
+  <ol class="steps">
+    <li><b>Join the list</b><span>The 6 wallpapers come right away.</span></li>
+    <li><b>Tue 8 Dec</b><span>Your $5 link arrives by email.</span></li>
+    <li><b>On your Mac</b><span>Open the email, download, pick a world.</span></li>
+  </ol>
+  <p class="free">The free download has snow and rain behind your windows and a tour of every effect. A key unlocks the rest.</p>
+</section>
+
+<!-- 8 Maker -->
+<section class="maker wrap">
+  <p>Made by Raja, who writes <a href="https://medium.com/@theusefultech">The Useful Tech</a>, the #1 Apple blog on Medium, for <a href="https://medium.com/@theusefultech">78K Medium followers</a>. Every clip on this page is a screen recording of Skypane running on his Mac mini.</p>
+</section>
+
+<!-- 9 FAQ -->
+<section class="faq wrap" id="faq">
+  <h2><span>Questions.</span> <span class="dim">Short answers.</span></h2>
+  <details><summary>Which Macs does it run on?</summary><p>macOS 14 Sonoma or later, on Apple silicon and Intel Macs.</p></details>
+  <details><summary>Will it slow my Mac down?</summary><p>On an M4 Mac mini with a 5K display it uses 3.7% CPU while snowing and about 285 MB of memory.</p></details>
+  <details><summary>Do my clicks still work?</summary><p>Yes. Every click goes through the snow to the window or icon under it.</p></details>
+  <details><summary>Does it work with 2 displays?</summary><p>Yes. It works on every display, every Space and in Stage Manager.</p></details>
+  <details><summary>Can I pause it?</summary><p>Click the Skypane icon in the menu bar. Pause, change the weather or turn Real Sky off from there.</p></details>
+  <details><summary>What does it need access to?</summary><p>Nothing for the weather and effects. It only needs to know where your windows are, and macOS shares that without a permission prompt.</p></details>
+  <details><summary>Can I try it before I pay?</summary><p>Yes. The free download has snow and rain behind your windows and a tour of every effect. A key unlocks the 3 worlds and the rest.</p></details>
+  <details><summary>Refunds?</summary><p>All sales are final, with 1 exception: if Skypane won't run on your Mac within 3 days of buying and we can't fix it, you get your money back.</p></details>
+</section>
+
+<!-- 10 Last call -->
+<section class="last" id="join" data-visual>
+  <video class="lazy last-video" muted loop playsinline preload="none" poster="/skypane/m/snowman.webp" data-src="/skypane/m/snowman.mp4" aria-hidden="true"></video>
+  <div class="last-inner wrap">
+    <h2><span>Your windows are waiting for snow.</span></h2>
+    <div class="signup glass" data-ledge>
+      <form class="signup-form" data-signup data-list="tech" data-source="skypane" data-medium="footer" data-campaign="skypane-waitlist" data-next="stay" novalidate>
+        <label class="sr" for="email-last">Email address</label>
+        <input id="email-last" type="email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@email.com" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-white" type="submit"><span class="btn-label">Save my spot</span></button>
+      </form>
+      <div class="ts-slot"></div>
+      <div class="signup-msg" aria-live="polite"></div>
+    </div>
+    <p class="fine">You'll also get The Useful Tech newsletter: 3 short emails a week on Mac and iPhone apps. Unsubscribe in 1 click.</p>
+  </div>
+  <canvas class="pile" data-pile aria-hidden="true"></canvas>
+</section>
+
+<!-- Wallpapers, shown after signup -->
+<div class="gift" data-gift hidden>
+  <div class="gift-box" role="dialog" aria-modal="true" aria-labelledby="gift-title">
+    <button class="gift-x" type="button" data-gift-close aria-label="Close">×</button>
+    <h2 id="gift-title"><span>You're on the list.</span> <span class="dim">Here are your wallpapers.</span></h2>
+    <p>Your $5 link arrives on Tue 8 Dec. Tap a wallpaper, then press and hold it to save it to Photos.</p>
+    <div class="walls">
+      <a href="/skypane/w/alpine-day.jpg" download><img src="/skypane/w/alpine-day-t.webp" alt="Alpine Cabin, golden hour" loading="lazy" width="180" height="390"></a>
+      <a href="/skypane/w/alpine-night.jpg" download><img src="/skypane/w/alpine-night-t.webp" alt="Alpine Cabin, night" loading="lazy" width="180" height="390"></a>
+      <a href="/skypane/w/lake-day.jpg" download><img src="/skypane/w/lake-day-t.webp" alt="Lake Village, golden hour" loading="lazy" width="180" height="390"></a>
+      <a href="/skypane/w/lake-night.jpg" download><img src="/skypane/w/lake-night-t.webp" alt="Lake Village, night" loading="lazy" width="180" height="390"></a>
+      <a href="/skypane/w/kyoto-day.jpg" download><img src="/skypane/w/kyoto-day-t.webp" alt="Kyoto Rooftops, golden hour" loading="lazy" width="180" height="390"></a>
+      <a href="/skypane/w/kyoto-night.jpg" download><img src="/skypane/w/kyoto-night-t.webp" alt="Kyoto Rooftops, night" loading="lazy" width="180" height="390"></a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<div class="bar" data-bar aria-hidden="true">
+  <p><b>Skypane</b><span>$5 on 8 Dec · Mac</span></p>
+  <a class="btn btn-white btn-sm" href="#join" tabindex="-1" data-ledge>Save my spot</a>
+</div>
+
+<footer class="foot wrap">
+  <p>Skypane is made by <a href="/">The Useful Media Co</a>. <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/contact/">Contact</a></p>
+  <p data-tum-nl>Free: <a href="/tech/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=skypane" data-subscribe>The Useful Tech newsletter</a>, the Mac and iPhone apps and settings worth your time, Monday, Wednesday and Friday.</p>
+</footer>
+</body>
+</html>

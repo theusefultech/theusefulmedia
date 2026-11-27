@@ -16,7 +16,7 @@ import datetime as dt, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-F = json.loads((ROOT / "sponsor" / "facts.json").read_text())
+F = json.loads((ROOT / "work-with-me" / "facts.json").read_text())
 TODAY = dt.date.today()
 SKIP = {".git", ".github", "scripts", "assets", "node_modules", "fonts", "icons"}
 ARCHIVE = ("/tech/library/",)  # past newsletter issues are a record, not live claims

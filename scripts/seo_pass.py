@@ -23,7 +23,7 @@ SKIP_DIRS = {".git", ".github", "scripts", "assets", "node_modules"}
 LABELS = {
     "free": "Free downloads", "tech": "The Useful Tech newsletter", "library": "Library",
     "studio": "Useful Studio", "wristkeeper": "Wristkeeper", "rosewood": "Rosewood Music Box",
-    "sponsor": "Sponsor", "about": "About", "contact": "Contact", "products": "Products",
+    "sponsor": "Sponsor", "work-with-me": "Work with me", "about": "About", "contact": "Contact", "products": "Products",
     "privacy": "Privacy policy", "support": "Support", "terms": "Terms of use",
     "press": "Press kit", "credits": "Credits", "links": "Links",
 }

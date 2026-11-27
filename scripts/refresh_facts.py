@@ -25,8 +25,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-FACTS = ROOT / "sponsor" / "facts.json"
-SLOTS = ROOT / "sponsor" / "slots.json"
+FACTS = ROOT / "work-with-me" / "facts.json"
+SLOTS = ROOT / "work-with-me" / "slots.json"
 STATS_URL = "https://mymedium.info/@theusefultech/"
 PAGES = ["index.html", "about/index.html", "work-with-me/index.html", "studio/index.html",
          "products/index.html", "network/index.html", "tech/index.html", "llms.txt"]

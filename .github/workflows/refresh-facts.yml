@@ -1,6 +1,6 @@
 name: Refresh site numbers
 
-# Daily: pulls The Useful Tech's public Medium stats, writes sponsor/facts.json and
+# Daily: pulls The Useful Tech's public Medium stats, writes work-with-me/facts.json and
 # rewrites every follower, post and view count typed into the site. Drops past booked dates.
 on:
   schedule:

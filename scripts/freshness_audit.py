@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Weekly freshness audit for theusefulmedia.com (Raja approved 13 Nov 2026, "ok go").
 
-Reads sponsor/facts.json (the single source for numbers, app statuses, active brands, retired
+Reads work-with-me/facts.json (the single source for numbers, app statuses, active brands, retired
 things and this week's focus) and scans every public page for:
   1. Dates that have passed but are still written as future ("out 17 Nov", "coming", "soon", "beta").
   2. Retired things still linked or named outside their own folder (facts.retired).
@@ -16,7 +16,7 @@ import datetime as dt, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-F = json.loads((ROOT / "sponsor" / "facts.json").read_text())
+F = json.loads((ROOT / "work-with-me" / "facts.json").read_text())
 TODAY = dt.date.today()
 SKIP = {".git", ".github", "scripts", "assets", "node_modules", "fonts", "icons"}
 ARCHIVE = ("/tech/library/",)  # past newsletter issues are a record, not live claims

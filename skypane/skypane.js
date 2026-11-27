@@ -176,8 +176,8 @@
     if (pileCv) { pileCv.width = pileCv.offsetWidth * dpr; pileCv.height = pileCv.offsetHeight * dpr; pctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
   };
   size(); w.addEventListener("resize", size);
-  var N = wide ? 110 : 60;
-  var mk = function (y) { return { x: Math.random() * W, y: y == null ? Math.random() * H : y, r: .8 + Math.random() * 2, vy: .35 + Math.random() * .7, ph: Math.random() * 6.28, vx: 0, burst: 0 }; };
+  var N = wide ? 36 : 16;
+  var mk = function (y) { return { x: Math.random() * W, y: y == null ? Math.random() * H : y, r: .6 + Math.random() * 1.2, vy: .25 + Math.random() * .45, ph: Math.random() * 6.28, vx: 0, burst: 0 }; };
   for (var i = 0; i < N; i++) flakes.push(mk());
 
   $$("[data-ledge]").forEach(function (el) {
@@ -235,7 +235,7 @@
         if (f.x > r.left + 6 && f.x < r.right - 6) {
           var k = Math.floor((f.x - r.left) / BIN), top = r.top - (L.bins[k] || 0);
           if (f.y >= top && f.y - f.vy * dt * 1.5 < top + 2) {
-            if ((L.bins[k] || 0) < MAXP) { L.bins[k] = (L.bins[k] || 0) + f.r * .55; hit = true; }
+            if ((L.bins[k] || 0) < MAXP) { L.bins[k] = (L.bins[k] || 0) + f.r * 1.1; hit = true; }
             break;
           }
         }
@@ -245,7 +245,7 @@
         if (f.tmp) flakes.splice(i, 1); else { var n2 = mk(-6); flakes[i] = n2; }
         continue;
       }
-      ctx.globalAlpha = .45 + f.r * .2;
+      ctx.globalAlpha = f.burst ? .45 + f.r * .2 : .22 + f.r * .16;
       ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.283); ctx.fill();
     }
     // piles on ledges

@@ -273,7 +273,7 @@ def main():
         faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
         main_html = (crumbs_html([("Library", "/library/"), ("Most recommended", "/library/recommended/"), (label, path)])
             + hero("Ranking", f"The most-recommended {noun} books", f"{len(rows)} {noun} books named by {np} founders, scientists and authors on video, ranked by how many of them named each one.", upd, shelf([r["title"] for r in rows][:12]))
-            + f'<div class="card" style="padding:16px 18px;border-left:4px solid var(--green)"><span class="mono">In short</span><p style="margin:6px 0 0">{short}</p></div>'
+            + f'<div class="card" style="padding:16px 18px"><span class="mono">The short answer</span><p style="margin:6px 0 0">{short}</p></div>'
             + topic_chips(lists, k)
             + f'<section class="hub-sec"><div style="display:grid;gap:12px">{cards}</div></section>'
             + '<section class="hub-sec"><h2>Questions</h2>' + "".join(f'<details class="card" style="padding:14px 16px"><summary><b>{e(q)}</b></summary><p style="margin-top:8px;color:var(--soft)">{e(a)}</p></details>' for q, a in faq) + "</section>"

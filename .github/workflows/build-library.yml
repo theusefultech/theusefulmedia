@@ -40,6 +40,7 @@ jobs:
           fi
       - run: python3 scripts/build_links.py
       - run: python3 scripts/build_sitemap.py
+      - run: python3 scripts/deslop.py  # 27 Nov 2026: slop ban, no semicolons or filler in built pages
       - name: Commit changes
         run: |
           git config user.name "useful-archive-bot"

@@ -121,7 +121,7 @@ main = f'''<main id="main" class="wrap">
 <div class="p27-plan" data-p27-out hidden><h2 style="font-size:28px">2. Your first 3 books</h2><p style="color:var(--soft);margin-top:4px" data-p27-sum></p>
 {plan_html}
 <div class="p27-acts"><button type="button" class="btn btn-line pill" data-p27-save>Save my plan</button><a class="btn btn-line pill" data-p27-cal href="#">Add January's book to my calendar</a></div>
-<p class="p27-rh" data-p27-rh hidden>Want an app to keep the goal going? <a href="https://theusefulmedia.com/apps/rabbit-holes/apps-for-your-2027-goals/?utm_source=plan2027">Apps for your 2027 goals</a></p>
+<p class="p27-rh" data-p27-rh hidden>Want an app to keep the goal going? <a href="https://theusefulmedia.com/apps/new-year/?utm_source=plan2027">Apps for your 2027 goals</a></p>
 </div></section>
 
 <section class="dark" style="margin-top:22px;padding:26px;border-radius:24px" aria-label="The Useful Reading Challenge 2027">

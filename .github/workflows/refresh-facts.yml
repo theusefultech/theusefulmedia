@@ -28,6 +28,7 @@ jobs:
           python-version: "3.12"
       - run: python3 scripts/refresh_facts.py
       - run: python3 scripts/home_fresh.py || true
+      - run: python3 scripts/deslop.py  # 27 Nov 2026: slop ban, no semicolons or filler in built pages
       - name: Commit changes
         run: |
           if [ -n "$(git status --porcelain)" ]; then

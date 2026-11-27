@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("tumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bid Desk: federal bid radar and bid packages for facility-service firms · The Useful Media Co</title>
+<meta name="description" content="A free radar of federal janitorial, landscaping, HVAC and facility contracts whose current term ends within 180 days in your state, plus live bids. A full bid package is $349.">
+<link rel="canonical" href="https://theusefulmedia.com/bids/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Useful Media Co">
+<meta property="og:title" content="Bid Desk: your state's federal bid radar">
+<meta property="og:description" content="Every live federal bid in 8 facility trades, and every contract whose current term ends within 180 days, with the holder and the dollar value. Free.">
+<meta property="og:url" content="https://theusefulmedia.com/bids/">
+<meta property="og:image" content="https://theusefulmedia.com/assets/og.png?v=3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/apps/hit.js" defer></script>
+<style>
+:root{--bd-hi:#E2D9FF;--bd-card:#fff;--bd-soft:rgba(23,23,43,.045)}
+:root[data-theme="dark"]{--bd-hi:rgba(143,116,255,.26);--bd-card:#0c0c0e;--bd-soft:rgba(242,242,244,.06)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bd-hi:rgba(143,116,255,.26);--bd-card:#0c0c0e;--bd-soft:rgba(242,242,244,.06)}}
+body{background:var(--paper);color:var(--ink)}
+.bd{font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+.bd *{box-sizing:border-box}
+.bd-wrap{max-width:1120px;margin:0 auto;padding:0 var(--gutter)}
+.bd-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+.bd-brand{display:flex;align-items:center;gap:.55rem;color:inherit;text-decoration:none;font-weight:600;font-size:.98rem;min-height:40px}
+.bd-brand img{width:26px;height:26px;border-radius:7px}
+.bd-mini{font:500 .74rem/1 var(--mono);color:var(--graphite);letter-spacing:.02em;white-space:nowrap}
+.bd :focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+.bd-btn{appearance:none;border:0;cursor:pointer;font:600 .98rem/1.1 var(--sans);border-radius:999px;padding:.95rem 1.3rem;min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;text-align:center;transition:transform .18s cubic-bezier(.2,1.6,.4,1),box-shadow .2s;-webkit-tap-highlight-color:transparent}
+.bd-btn:active{transform:scale(.96)}
+.bd-ink{background:var(--ink);color:var(--paper);box-shadow:0 6px 0 -2px var(--purple)}
+.bd-ink:hover{transform:translateY(-2px);box-shadow:0 8px 0 -2px var(--purple)}
+.bd-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--rule-strong)}
+.bd-line:hover{transform:translateY(-2px)}
+.bd-btn svg{width:18px;height:18px;flex:none}
+
+/* hero */
+.bd-hero{display:grid;grid-template-columns:minmax(0,1fr);gap:1.4rem;padding:.4rem 0 2rem;align-items:center}
+@media(min-width:900px){.bd-hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:3rem;padding:1.6rem 0 3rem}}
+.bd-eye{display:flex;align-items:center;gap:.5rem;font:500 .74rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--purple-ink);margin:0}
+.bd-eye i{width:7px;height:7px;border-radius:50%;background:var(--purple);animation:bdPulse 1.8s infinite;flex:none}
+@keyframes bdPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,92,252,.55)}60%{box-shadow:0 0 0 7px rgba(124,92,252,0)}}
+.bd-h1{font-size:clamp(1.5rem,5.2vw,2.25rem);line-height:1.1;letter-spacing:-.022em;margin:.8rem 0 .7rem;font-weight:600;text-wrap:balance}
+.bd-h1 b{font-weight:600;color:var(--purple-ink)}
+.bd-lead{font-size:1.04rem;line-height:1.5;color:var(--graphite);margin:0 0 1.1rem;max-width:36rem}
+.bd-pick{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:0 0 .9rem}
+.bd-sel{position:relative;flex:1 1 15rem;max-width:22rem}
+.bd-sel select{appearance:none;-webkit-appearance:none;width:100%;min-height:52px;border:1.5px solid var(--rule-strong);border-radius:16px;background:var(--bd-card);color:var(--ink);font:600 1.02rem var(--sans);padding:.7rem 2.6rem .7rem 1rem;cursor:pointer}
+.bd-sel svg{position:absolute;right:.9rem;top:50%;width:18px;height:18px;margin-top:-9px;pointer-events:none}
+.bd-sts{display:flex;flex-wrap:wrap;gap:.45rem}
+.bd-st{appearance:none;cursor:pointer;min-width:52px;min-height:44px;border-radius:14px;border:1.5px solid var(--rule);background:transparent;color:var(--ink);font:600 .92rem var(--mono);padding:0 .7rem;transition:transform .15s,background .15s}
+.bd-st[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.bd-st:active{transform:scale(.94)}
+.bd-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin:1.1rem 0 0;padding:0;list-style:none;max-width:30rem}
+.bd-nums li{background:var(--bd-soft);border-radius:16px;padding:.8rem .8rem .75rem}
+.bd-nums b{display:block;font:600 clamp(1.35rem,5.6vw,1.9rem)/1 var(--mono);letter-spacing:-.04em}
+.bd-nums span{display:block;font-size:.8rem;line-height:1.25;color:var(--graphite);margin-top:.4rem}
+.bd-src{font:.74rem/1.5 var(--mono);color:var(--graphite);margin:.9rem 0 0}
+.bd-src a{color:inherit}
+
+/* scope */
+.bd-stage{position:relative;max-width:460px;width:100%;margin:0 auto}
+.bd-stage svg{width:100%;height:auto;display:block;overflow:visible}
+.bd-stage text{font-family:var(--mono)}
+.bd-w{fill:transparent;cursor:pointer;transition:fill .2s}
+.bd-w:hover{fill:var(--bd-soft)}
+.bd-w.on{fill:var(--bd-hi)}
+.bd-blip{fill:var(--purple);opacity:.62;transition:opacity .25s}
+.bd-blip.off{opacity:.14}
+.bd-mine{fill:none;stroke:var(--ink);stroke-width:2}
+.bd-bid{fill:var(--ink)}
+.bd-ring2{fill:none;stroke:var(--ink);stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:bdPing 2.2s ease-out infinite}
+@keyframes bdPing{from{transform:scale(.6);opacity:.9}to{transform:scale(2.4);opacity:0}}
+.bd-tile{cursor:pointer}
+.bd-tile rect{transition:transform .15s;transform-box:fill-box;transform-origin:center}
+.bd-tile:hover rect{transform:scale(1.1)}
+.bd-key{display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem 1.1rem;font-size:.8rem;color:var(--graphite);margin:.7rem 0 0;padding:0;list-style:none}
+.bd-key li{display:flex;align-items:center;gap:.4rem}
+.bd-key svg{width:14px;height:14px;flex:none}
+@media(prefers-reduced-motion:reduce){.bd-ring2,.bd-eye i{animation:none}}
+
+/* trade filter */
+.bd-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
+.bd-chip{appearance:none;cursor:pointer;min-height:40px;border-radius:12px;border:1.5px solid var(--rule);background:transparent;color:var(--ink);font:500 .86rem var(--sans);padding:.35rem .7rem;display:inline-flex;align-items:center;gap:.4rem;transition:background .15s,border-color .15s,transform .15s}
+.bd-chip b{font:600 .76rem var(--mono);color:var(--graphite)}
+.bd-chip[aria-pressed="true"]{background:var(--bd-hi);border-color:var(--purple)}
+.bd-chip[aria-pressed="true"] b{color:var(--ink)}
+.bd-chip:active{transform:scale(.95)}
+
+/* sections */
+.bd-sec{padding:2.2rem 0 0}
+@media(min-width:900px){.bd-sec{padding:3.2rem 0 0}}
+.bd-h2{font-size:clamp(1.3rem,4.4vw,1.75rem);line-height:1.14;letter-spacing:-.02em;font-weight:600;margin:0 0 .45rem;text-wrap:balance}
+.bd-sub{color:var(--graphite);font-size:.98rem;line-height:1.5;margin:0 0 1.1rem;max-width:44rem}
+.bd-sub a{color:var(--purple-ink);font-weight:600}
+.bd-bar{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;justify-content:space-between;margin:0 0 .9rem}
+
+/* live bids */
+.bd-bids{display:grid;gap:.8rem;margin:0;padding:0;list-style:none}
+@media(min-width:900px){.bd-bids{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bd-bidc{display:grid;grid-template-columns:64px minmax(0,1fr);gap:.9rem;background:var(--bd-card);border:1.5px solid var(--rule-strong);border-radius:22px;padding:1rem}
+.bd-cal{align-self:start;border-radius:14px;overflow:hidden;text-align:center;background:var(--ink);color:var(--paper)}
+.bd-cal i{display:block;font:600 .68rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:.42rem 0 .3rem;font-style:normal;opacity:.8}
+.bd-cal b{display:block;font:600 1.7rem/1 var(--mono);letter-spacing:-.04em;padding:0 0 .5rem}
+.bd-left{font:600 .78rem/1.2 var(--mono);color:var(--purple-ink);margin:0 0 .3rem}
+.bd-bidc h3{font-size:1.04rem;line-height:1.25;font-weight:600;margin:0 0 .35rem;overflow-wrap:anywhere}
+.bd-meta{font-size:.86rem;line-height:1.4;color:var(--graphite);margin:0;overflow-wrap:anywhere}
+.bd-meta code{font:500 .8rem var(--mono);color:var(--ink)}
+.bd-act{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem .9rem;align-items:center}
+.bd-act .bd-btn{padding:.75rem 1.05rem;font-size:.92rem;min-height:44px}
+.bd-act a.bd-nlink{font-size:.9rem;font-weight:600;color:var(--purple-ink);min-height:44px;display:inline-flex;align-items:center}
+.bd-fine{grid-column:1/-1;font-size:.8rem;color:var(--graphite);margin:-.2rem 0 0}
+.bd-bidc.muted{border-color:var(--rule)}
+.bd-bidc.muted .bd-cal{background:var(--bd-soft);color:var(--ink)}
+.bd-none{background:var(--bd-soft);border-radius:22px;padding:1.1rem 1.2rem;display:flex;flex-wrap:wrap;gap:.9rem 1.4rem;align-items:center;justify-content:space-between}
+.bd-none p{margin:0;font-size:.98rem;line-height:1.45;max-width:36rem}
+
+/* terms ledger */
+.bd-seg{display:inline-flex;background:var(--bd-soft);border-radius:12px;padding:3px}
+.bd-seg button{appearance:none;border:0;cursor:pointer;background:transparent;color:var(--graphite);font:600 .82rem var(--sans);min-height:40px;padding:0 .8rem;border-radius:10px}
+.bd-seg button[aria-pressed="true"]{background:var(--bd-card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.bd-rows{margin:.9rem 0 0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.bd-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:.8rem;align-items:start;padding:.85rem .2rem;border-bottom:1px solid var(--rule);color:inherit;text-decoration:none;transition:background .15s}
+a.bd-row:hover{background:var(--bd-soft)}
+.bd-when b{display:block;font:600 .9rem/1.2 var(--mono);letter-spacing:-.02em}
+.bd-when i{display:block;font:.74rem/1.3 var(--mono);color:var(--graphite);font-style:normal;margin-top:.15rem}
+.bd-what b{display:block;font-size:.98rem;line-height:1.25;font-weight:600;overflow-wrap:anywhere}
+.bd-what i{display:block;font-size:.82rem;line-height:1.35;color:var(--purple-ink);font-style:normal;margin-top:.15rem}
+.bd-what em{display:block;font-size:.84rem;line-height:1.4;color:var(--graphite);font-style:normal;margin-top:.2rem;overflow-wrap:anywhere}
+.bd-amt{font:600 .98rem/1.2 var(--mono);letter-spacing:-.03em;text-align:right;white-space:nowrap}
+.bd-row.mine .bd-what i{color:var(--ink);font-weight:600}
+.bd-more{margin:1rem 0 0}
+
+/* sample package */
+.bd-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin:0 0 1rem;padding:0;list-style:none}
+@media(min-width:900px){.bd-facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.bd-facts li{background:var(--bd-soft);border-radius:14px;padding:.7rem .8rem}
+.bd-facts span{display:block;font:500 .68rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+.bd-facts b{display:block;font-size:.92rem;line-height:1.3;font-weight:600;margin-top:.3rem}
+.bd-pkg{display:grid;gap:.8rem}
+@media(min-width:900px){.bd-pkg{grid-template-columns:250px minmax(0,1fr);gap:1.2rem;align-items:start}}
+.bd-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}
+@media(min-width:900px){.bd-tabs{grid-template-columns:minmax(0,1fr);position:sticky;top:1rem}}
+.bd-tab{appearance:none;cursor:pointer;text-align:left;min-height:52px;border-radius:14px;border:1.5px solid var(--rule);background:transparent;color:var(--ink);font:600 .88rem/1.2 var(--sans);padding:.5rem .7rem;display:flex;align-items:center;gap:.55rem;transition:background .15s,border-color .15s,transform .15s}
+.bd-tab svg{width:20px;height:20px;flex:none;color:var(--purple-ink)}
+.bd-tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.bd-tab[aria-selected="true"] svg{color:var(--paper)}
+.bd-tab:active{transform:scale(.97)}
+.bd-doc{background:var(--bd-card);border:1.5px solid var(--rule-strong);border-radius:22px;padding:1.1rem 1rem 1.2rem;box-shadow:6px 6px 0 var(--bd-hi);min-width:0}
+@media(min-width:900px){.bd-doc{padding:1.6rem 1.7rem 1.8rem}}
+.bd-doc h3{font-size:1.12rem;line-height:1.2;font-weight:600;margin:0 0 .3rem}
+.bd-doc h4{font:600 .78rem/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--purple-ink);margin:1.2rem 0 .4rem}
+.bd-doc p{font-size:.95rem;line-height:1.55;margin:0 0 .6rem}
+.bd-doc p.bd-note{color:var(--graphite);font-size:.88rem}
+.bd-doc ul,.bd-doc ol{margin:0 0 .6rem;padding-left:1.15rem;font-size:.95rem;line-height:1.5}
+.bd-doc li{margin:0 0 .35rem}
+.bd-doc mark{background:var(--bd-hi);color:inherit;border-radius:5px;padding:.05em .25em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.bd-ref{font:500 .74rem var(--mono);color:var(--graphite);white-space:nowrap}
+.bd-chk{margin:.4rem 0 0;padding:0;list-style:none!important;padding-left:0!important}
+.bd-chk li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:.55rem;padding:.6rem 0;border-bottom:1px solid var(--rule);margin:0}
+.bd-chk li>svg{width:20px;height:20px;color:var(--sx-ok,#1F9D63);margin-top:.1rem}
+.bd-chk b{display:block;font-size:.93rem;line-height:1.35;font-weight:600}
+.bd-chk span{display:block;font:.76rem/1.45 var(--mono);color:var(--graphite);margin-top:.2rem}
+.bd-rest summary{cursor:pointer;font-weight:600;font-size:.92rem;color:var(--purple-ink);min-height:44px;display:flex;align-items:center;list-style:none}
+.bd-rest summary::-webkit-details-marker{display:none}
+.bd-rest summary::after{content:"+";font:500 1.2rem var(--mono);margin-left:.5rem}
+.bd-rest[open] summary::after{content:"";}
+.bd-tbl{width:100%;border-collapse:collapse;font-size:.86rem;margin:.3rem 0 .7rem}
+.bd-tbl th{font:500 .66rem var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--graphite);text-align:left;padding:.35rem .3rem;border-bottom:1.5px solid var(--rule-strong)}
+.bd-tbl td{padding:.5rem .3rem;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.3}
+.bd-tbl td:first-child,.bd-tbl th:first-child{padding-left:0}
+.bd-tbl .n{font-family:var(--mono);text-align:right;white-space:nowrap}
+.bd-tbl .blank{font-family:var(--mono);text-align:right;color:var(--graphite);white-space:nowrap}
+.bd-tbl .blank i{display:inline-block;width:2.6rem;border-bottom:1.5px dashed var(--purple);height:.9em;vertical-align:baseline}
+.bd-form1449{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:.5rem 0 .8rem;font:.66rem/1.25 var(--mono)}
+.bd-form1449 div{border:1px solid var(--rule-strong);border-radius:6px;padding:.4rem .4rem .45rem;min-height:54px;min-width:0;overflow-wrap:anywhere}
+.bd-form1449 div b{display:block;font-weight:600;margin-bottom:.2rem}
+.bd-form1449 .f{background:var(--bd-hi)}
+.bd-form1449 .y{border-style:dashed;border-color:var(--purple)}
+.bd-form1449 .w2{grid-column:span 2}
+.bd-flag{background:var(--bd-soft);border-radius:14px;padding:.8rem .9rem;margin:.8rem 0 0}
+.bd-flag p{margin:0 0 .35rem;font-size:.9rem}
+.bd-flag p:last-child{margin:0}
+
+/* how and price */
+.bd-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:0 0 1.2rem;padding:0;list-style:none}
+@media(min-width:900px){.bd-steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.bd-steps li{background:var(--bd-soft);border-radius:18px;padding:.9rem .85rem 1rem}
+.bd-steps svg{width:34px;height:34px;color:var(--purple-ink);margin:0 0 .55rem}
+.bd-steps b{display:block;font-size:.98rem;line-height:1.2;font-weight:600}
+.bd-steps span{display:block;font-size:.84rem;line-height:1.4;color:var(--graphite);margin-top:.3rem}
+.bd-price{display:grid;gap:1.1rem;background:var(--ink);color:var(--paper);border-radius:26px;padding:1.4rem 1.2rem}
+@media(min-width:900px){.bd-price{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2.4rem;padding:2rem 2.2rem;align-items:center}}
+.bd-price .big{font:600 clamp(3rem,13vw,4.6rem)/.9 var(--mono);letter-spacing:-.06em;margin:0}
+.bd-price .per{font-size:1rem;margin:.6rem 0 0;opacity:.82;line-height:1.4}
+.bd-price ul{margin:0;padding:0;list-style:none;display:grid;gap:.6rem}
+.bd-price li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:.6rem;font-size:.96rem;line-height:1.4}
+.bd-price li svg{width:20px;height:20px;color:#B9A8FF;margin-top:.1rem}
+.bd-price .mo{grid-column:1/-1;border-top:1px solid rgba(250,250,248,.2);padding-top:1rem;margin:0;font-size:.92rem;line-height:1.5;opacity:.9}
+:root[data-theme="dark"] .bd-price{background:#0f0f12;color:#F2F2F4;box-shadow:inset 0 0 0 1px rgba(242,241,248,.12)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .bd-price{background:#0f0f12;color:#F2F2F4;box-shadow:inset 0 0 0 1px rgba(242,241,248,.12)}}
+.bd-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.2rem 0 0}
+
+/* form */
+.bd-form{display:grid;gap:.9rem;max-width:760px}
+.bd-prog{position:sticky;top:.5rem;z-index:3;display:flex;align-items:center;gap:.7rem;background:var(--bd-card);border:1.5px solid var(--rule-strong);border-radius:999px;padding:.4rem .9rem .4rem .45rem;width:max-content;max-width:100%;font:600 .86rem var(--sans)}
+.bd-prog svg{width:34px;height:34px;transform:rotate(-90deg);flex:none}
+.bd-prog circle{fill:none;stroke-width:4}
+.bd-prog .t{stroke:var(--rule)}
+.bd-prog .v{stroke:var(--purple);stroke-linecap:round;transition:stroke-dashoffset .4s cubic-bezier(.2,1.2,.4,1)}
+.bd-q{background:var(--bd-card);border:1.5px solid var(--rule);border-radius:20px;padding:.95rem 1rem 1rem;transition:border-color .2s}
+.bd-q:focus-within{border-color:var(--purple)}
+.bd-q.done{border-color:var(--rule-strong)}
+.bd-q label,.bd-q legend{display:flex;gap:.6rem;align-items:baseline;font-size:.98rem;line-height:1.35;font-weight:600;padding:0;margin:0 0 .6rem}
+.bd-q label u,.bd-q legend u{font:600 .76rem var(--mono);color:var(--purple-ink);text-decoration:none;flex:none;min-width:1.4rem}
+.bd-q fieldset{border:0;margin:0;padding:0;min-width:0}
+.bd-q textarea,.bd-q input[type=text]{width:100%;border:1.5px solid var(--rule);border-radius:12px;background:var(--paper);color:var(--ink);font:500 1rem/1.45 var(--sans);padding:.7rem .8rem;min-height:48px;outline:none}
+.bd-q textarea{min-height:88px;resize:vertical}
+.bd-q textarea:focus,.bd-q input[type=text]:focus{border-color:var(--purple);box-shadow:0 0 0 4px var(--bd-hi)}
+.bd-3{display:grid;gap:.5rem}
+@media(min-width:640px){.bd-3{grid-template-columns:2fr 1fr 1fr}}
+.bd-opts{display:flex;flex-wrap:wrap;gap:.45rem}
+.bd-opts label{margin:0;font-weight:500;font-size:.92rem;min-height:44px;align-items:center;border:1.5px solid var(--rule);border-radius:12px;padding:0 .8rem;cursor:pointer;gap:.45rem}
+.bd-opts input{accent-color:var(--purple);width:18px;height:18px;margin:0}
+.bd-opts label:has(input:checked){background:var(--bd-hi);border-color:var(--purple)}
+.bd-send{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.bd-hint{font-size:.86rem;color:var(--graphite);margin:0;line-height:1.45}
+.bd-toast{position:fixed;left:50%;bottom:1.2rem;transform:translate(-50%,calc(100% + 3rem));visibility:hidden;background:var(--ink);color:var(--paper);font:600 .9rem/1.35 var(--sans);border-radius:16px;padding:.8rem 1.1rem;max-width:min(92vw,26rem);text-align:center;z-index:20;transition:transform .35s cubic-bezier(.2,1.4,.4,1),visibility 0s .35s;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
+.bd-toast.on{transform:translate(-50%,0);visibility:visible;transition:transform .35s cubic-bezier(.2,1.4,.4,1)}
+
+/* faq + foot */
+.bd-faq{max-width:760px;border-top:1px solid var(--rule)}
+.bd-faq details{border-bottom:1px solid var(--rule)}
+.bd-faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:1rem;line-height:1.35;padding:.95rem 2rem .95rem 0;position:relative;min-height:48px}
+.bd-faq summary::-webkit-details-marker{display:none}
+.bd-faq summary::after{content:"+";position:absolute;right:.2rem;top:.75rem;font:500 1.3rem var(--mono);color:var(--purple-ink);transition:transform .2s}
+.bd-faq details[open] summary::after{transform:rotate(45deg)}
+.bd-faq p{margin:0 0 1rem;color:var(--graphite);font-size:.96rem;line-height:1.55;max-width:42rem}
+.bd-faq a{color:var(--purple-ink);font-weight:600}
+.bd-foot{margin-top:3rem;padding:1.6rem 0 4rem;border-top:1px solid var(--rule);font-size:.84rem;color:var(--graphite);display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:center}
+.bd-foot a{color:inherit;min-height:40px;display:inline-flex;align-items:center}
+.bd-foot p{flex-basis:100%;margin:.3rem 0 0;line-height:1.5}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="bd"><div class="bd-wrap">
+<header class="bd-top">
+  <a class="bd-brand" href="/" aria-label="The Useful Media Co home"><img src="/logo.svg" alt="" width="26" height="26">The Useful Media Co</a>
+  <span class="bd-mini">Bid Desk</span>
+</header>
+<main>
+
+<section class="bd-hero" aria-labelledby="h1">
+  <div>
+    <p class="bd-eye"><i></i><span id="eye">Free federal bid radar</span></p>
+    <h1 class="bd-h1" id="h1">See which federal facility contracts in your state end soon, and who holds them.</h1>
+    <p class="bd-lead" id="lead">Pick your state. You get every live bid in 8 facility trades, plus every contract whose current term ends within 180 days, with the holder and the dollar value. It costs nothing.</p>
+    <div class="bd-pick">
+      <div class="bd-sts" id="sts" hidden></div>
+      <div class="bd-sel"><label class="skip" for="st">State</label>
+        <select id="st" aria-label="Choose a state"><option value="">Choose your state</option></select>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </div>
+    <ul class="bd-nums" id="nums" aria-live="polite">
+      <li><b id="n1">76</b><span id="l1">live bids</span></li>
+      <li><b id="n2">7,030</b><span id="l2">terms ending</span></li>
+      <li><b id="n3">$146K</b><span id="l3">median value</span></li>
+    </ul>
+    <p class="bd-src" id="src">Sources: SAM.gov contract opportunities and USAspending.gov awards.</p>
+  </div>
+  <div>
+    <div class="bd-stage" id="stage" data-visual aria-live="polite"></div>
+    <ul class="bd-key" id="key"></ul>
+  </div>
+</section>
+
+<div id="radar" hidden>
+<section class="bd-sec" aria-labelledby="tradeT" style="padding-top:0">
+  <h2 class="skip" id="tradeT">Trades</h2>
+  <ul class="bd-chips" id="chips"></ul>
+</section>
+
+<section class="bd-sec" id="live" aria-labelledby="liveT">
+  <h2 class="bd-h2" id="liveT">Out for bid now</h2>
+  <p class="bd-sub" id="liveS"></p>
+  <div id="liveB"></div>
+</section>
+
+<section class="bd-sec" id="terms" aria-labelledby="termsT">
+  <div class="bd-bar">
+    <h2 class="bd-h2" id="termsT" style="margin:0">Current terms ending within 180 days</h2>
+    <div class="bd-seg" role="group" aria-label="Sort contracts"><button type="button" data-sort="date" aria-pressed="true">Ending soonest</button><button type="button" data-sort="amt" aria-pressed="false">Biggest first</button></div>
+  </div>
+  <p class="bd-sub" id="termsS"></p>
+  <ul class="bd-rows" id="rows"></ul>
+  <div class="bd-more"><button class="bd-btn bd-line" type="button" id="more" hidden></button></div>
+</section>
+</div>
+<noscript><p class="bd-sub">The radar needs JavaScript. The sample package, the price and the 10 questions below work without it.</p></noscript>
+
+<section class="bd-sec" id="sample" aria-labelledby="sampleT">
+  <h2 class="bd-h2" id="sampleT">A full package, written from a real bid</h2>
+  <p class="bd-sub">Solicitation 12444327Q0002 is a real Forest Service request for janitorial quotes in Vermont, due January 4, 2027. The firm, Sample Cleaning Co., is invented so the package has answers in it. <mark style="background:var(--bd-hi);border-radius:5px;padding:.05em .3em;color:inherit">Text marked like this</mark> came from its 10 answers. Everything else comes from the solicitation. <a href="https://sam.gov/workspace/contract/opp/ea22f69427304631826237d4ed1e65eb/view" rel="noopener">Read the notice on SAM.gov</a></p>
+  <ul class="bd-facts">
+    <li><span>Agency</span><b>USDA Forest Service, Green Mountain National Forest</b></li>
+    <li><span>The work</span><b>3 buildings in Manchester Center and Mount Tabor, VT</b></li>
+    <li><span>Term</span><b>1 base year and 4 option years from January 15, 2027</b></li>
+    <li><span>Set-aside</span><b>Total small business, NAICS 561720</b></li>
+  </ul>
+  <div class="bd-pkg">
+    <div class="bd-tabs" role="tablist" aria-label="Parts of the package">
+      <button class="bd-tab" role="tab" id="t1" aria-controls="p1" aria-selected="true" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l2 2 4-4"/><rect x="4" y="4" width="16" height="16" rx="3"/></svg>1. Compliance checklist</button>
+      <button class="bd-tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7M9 8h3"/></svg>2. Technical write-up</button>
+      <button class="bd-tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.4l6-.8z"/></svg>3. Past performance</button>
+      <button class="bd-tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M10 9v12M4 15h16"/></svg>4. Forms</button>
+      <button class="bd-tab" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M17 7.5C16.3 5.9 14.5 5 12 5 9.2 5 7.5 6.3 7.5 8.3c0 4.700 9.5 2.3 9.5 7 0 2.2-2 3.700-5 3.700-2.600 0-4.5-1-5.2-2.800"/></svg>5. Pricing worksheet</button>
+      <button class="bd-tab" role="tab" id="t6" aria-controls="p6" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg>6. Submission steps</button>
+    </div>
+    <div class="bd-doc">
+
+      <div role="tabpanel" id="p1" aria-labelledby="t1">
+        <h3>Compliance checklist</h3>
+        <p class="bd-note">Every submission instruction in the solicitation, where it is written, and where this package answers it. 17 lines. The 9 that decide whether the quote gets read come first.</p>
+        <ul class="bd-chk">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Quote emailed to the contracting officer and in the inbox by Monday, January 4, 2027, 1:00 pm ET</b><span>General Notes, page 1 → Part 6, step 5</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>2 separate attachments, Technical Proposal and Price Quote, in Word, Excel or PDF</b><span>General Notes, page 1 → Part 6, step 4</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>SAM.gov registration active for NAICS 561720 on the day you submit and on the day of award</b><span>General Notes, page 1 and FAR 52.204-7 → Part 6, step 3</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>A price on every line: 10 line items in each of 5 years, 50 in all</b><span>Schedule of Items, pages 2 to 8 → Part 5</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>A written Quality Control Plan inside the technical proposal. It becomes part of the contract</b><span>FAR 52.212-2(a)(i)c and SOW 160 → Part 2, section 1.3</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Any SOW requirement you cannot meet, explained in detail</b><span>FAR 52.212-2(a)(i)b → Part 2, section 1.2</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Resumes for the Site Manager / Supervisor and the assigned cleaners, plus equipment and materials lists</b><span>FAR 52.212-2(a)(ii)a to c → Part 2, section 2 and the Attachment 10 forms</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>A Subcontractor Retention and Workforce Stability Plan covering pay, retention, supervision and backup labor</b><span>FAR 52.212-2(a)(iii)a to d → Part 2, section 3</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Similar projects from the last 3 years, and prices held firm for 90 days after the due date</b><span>FAR 52.212-2(a)(iv) and the 52.212-1 addendum, page 18 → Part 3 and the Price Quote cover line</span></div></li>
+        </ul>
+        <details class="bd-rest"><summary>Show the other 8 lines</summary><ul class="bd-chk">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>The offeror's ability to meet the schedule in the Statement of Work</b><span>FAR 52.212-2(a)(i)a → Part 2, section 1.1</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>A methodology and a proposed schedule of work</b><span>FAR 52.212-2(a)(ii) → Part 2, section 2</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>A materials list with biobased products marked</b><span>Attachment 6 and FAR 52.223-2 → Attachment 10 materials form</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Key personnel who can pass a federal background investigation</b><span>Qualification Requirements, page 18 and SOW 140 → Part 2, section 2.1</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Past performance sheets and a signed consent letter for any subcontractor doing 20% or more</b><span>FAR 52.212-2(a)(iv)a and Attachment 11 → Part 4</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>SF 1449 blocks 12, 17, 23, 24 and 30 completed</b><span>SF 1449, page 1 → Part 4</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Balanced pricing. The notes say unreasonably high, unrealistically low or unbalanced prices eliminate a quote</b><span>General Notes, page 1 → Part 5</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><div><b>Questions in by December 18, 1:00 pm ET, with the solicitation name and number in the subject line</b><span>52.212-1 addendum, page 18 → Part 6, step 2</span></div></li>
+        </ul></details>
+        <h4>3 things that get this quote thrown out</h4>
+        <ol>
+          <li>A blank price line. The General Notes say offerors who leave required information empty are unresponsive and out of the running.</li>
+          <li>An email that lands after 1:00 pm ET on January 4. The notes warn that large attachments slow delivery and put confirming receipt on the offeror.</li>
+          <li>A SAM.gov profile that is not active, or not registered for NAICS 561720.</li>
+        </ol>
+        <div class="bd-flag">
+          <p><b>2 things I flagged in the documents</b></p>
+          <p>Page 17 calls the subcontractor consent form "Attachment 13". The posting has 11 attachments and the form is Attachment 11.</p>
+          <p>The Attachment 10 questionnaire still carries an older solicitation number, 12444323Q0011. Both go on the question list for the contracting officer, due December 18, 1:00 pm ET.</p>
+        </div>
+      </div>
+
+      <div role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <h3>Technical proposal</h3>
+        <p class="bd-note">Written in the order FAR 52.212-2 lists the evaluation factors, so each numbered heading matches a factor the evaluators score. Shortened to fit this page.</p>
+        <h4>1. Technical approach</h4>
+        <p><b>1.1 Schedule.</b> Sample Cleaning Co. cleans the Manchester Ranger District Office on <mark>Tuesdays and Fridays</mark> between 4:00 and 10:00 pm, and the Mt. Tabor Administrative Building on <mark>Wednesdays</mark> between 10:00 am and 4:00 pm <span class="bd-ref">SOW 200.10</span>. From May 1 through October 31 the Mt. Tabor Quarters gets 3 visits a week: standard cleans on <mark>Mondays and Thursdays</mark> and the intensive kitchen and restroom clean on <mark>Wednesdays</mark> <span class="bd-ref">SOW 222.0</span>. Monthly tasks ride with the first visit of each month <span class="bd-ref">220.2</span>. Semi-annual work is booked for the last 2 weeks of April and October, with carpet dates agreed with the COR 2 weeks ahead <span class="bd-ref">220.3, 220.32</span>.</p>
+        <p><b>1.2 Requirements we cannot meet.</b> None. 1 item waits on the COR: the Visitor Center floor is slate, and any stone-safe product needs COR approval before use <span class="bd-ref">220.16</span>. We send the safety data sheet for <mark>our pH-neutral stone cleaner</mark> in week 1.</p>
+        <p><b>1.3 Quality Control Plan.</b> <mark>The site supervisor</mark> checks every visit against the Attachment 8 checklist and signs it before leaving <span class="bd-ref">SOW 262</span>. Restrooms carry a 100% quality level in Attachment 7, so they get 2 checks: the cleaner, then the supervisor. A deficiency the COR reports is <mark>answered the same business day</mark> and corrected on the next visit, or within 10 business days for semi-annual work <span class="bd-ref">SOW 263</span>. <mark>Each Friday the supervisor reads the week's checklists for repeat misses and retrains on site.</mark></p>
+        <h4>2. Project methodology</h4>
+        <p><b>2.1 Personnel.</b> Site Manager / Supervisor: <mark>9 years running janitorial crews, 4 of them at a county courthouse</mark>. Assigned personnel: <mark>2 cleaners, each with the firm more than 3 years</mark>. All 3 complete the background check forms at award and work business hours until cleared <span class="bd-ref">SOW 140</span>.</p>
+        <p><b>2.2 Equipment and 2.3 Materials.</b> Listed on the Attachment 10 forms, with each biobased product marked against the Attachment 6 categories.</p>
+        <h4>3. Subcontractor retention and workforce stability plan</h4>
+        <p><b>a. Pay.</b> Wage determination 2015-4139, revision 35, sets janitors at $19.35 an hour plus $5.92 in health and welfare. <mark>We pay $21.50.</mark> The SOW itself reports 2.1 to 2.7% unemployment around Manchester and rents of $1,700 to $3,200 a month <span class="bd-ref">SOW 110</span>.</p>
+        <p><b>b. Retention.</b> <mark>A $250 bonus at 6 and 12 months for cleaners with no unplanned absences.</mark></p>
+        <p><b>c. Supervision.</b> <mark>1 supervisor to 2 cleaners, on site every week.</mark></p>
+        <p><b>d. Backup labor.</b> <mark>2 trained on-call cleaners who live within 20 miles</mark> cover a call-out the same day. <mark>No work is subcontracted</mark>, so no partner reaches the 20% line that triggers a consent letter.</p>
+      </div>
+
+      <div role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <h3>Past performance</h3>
+        <p class="bd-note">The solicitation asks for projects from the last 3 years that match this one in scope, size and complexity. It rates each firm Acceptable, Neutral or Unacceptable. A firm with no record is rated Neutral.</p>
+        <table class="bd-tbl">
+          <thead><tr><th>Client and work</th><th>Dates</th><th class="n">Value</th></tr></thead>
+          <tbody>
+            <tr><td><mark>County courthouse, 14,000 sq ft, cleaned 5 nights a week</mark></td><td><mark>2023 to now</mark></td><td class="n"><mark>$86,000 a year</mark></td></tr>
+            <tr><td><mark>Medical office, 6,200 sq ft, 3 visits a week with floor care twice a year</mark></td><td><mark>2022 to 2025</mark></td><td class="n"><mark>$41,000 a year</mark></td></tr>
+            <tr><td><mark>State park visitor center and bunkhouse, seasonal, May to October</mark></td><td><mark>2024 and 2025</mark></td><td class="n"><mark>$19,500 a season</mark></td></tr>
+          </tbody>
+        </table>
+        <p>Each job gets a paragraph tying it to this one. The bunkhouse job maps to the Mt. Tabor Quarters: seasonal, shared kitchen, 3 visits a week. The courthouse maps to the after-hours work at the ranger office, where cleaners enter with access codes and need a background check.</p>
+        <p class="bd-note">The same 3 jobs, with a contact name and phone for each, go on the Past Performance and Experience form in Attachment 10.</p>
+      </div>
+
+      <div role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+        <h3>Forms</h3>
+        <p class="bd-note">Filled as far as the 10 answers allow. Every blank you must fill yourself is marked with a dashed outline.</p>
+        <h4>SF 1449, page 1</h4>
+        <div class="bd-form1449" data-visual>
+          <div class="y"><b>12</b>Discount terms</div>
+          <div class="f w2"><b>17a</b>Sample Cleaning Co., address, phone, UEI</div>
+          <div class="y"><b>23</b>Unit price</div>
+          <div class="y"><b>24</b>Amount</div>
+          <div class="f"><b>30b</b>Name and title of signer</div>
+          <div class="y"><b>30a</b>Your signature</div>
+          <div class="y"><b>30c</b>Date signed</div>
+        </div>
+        <h4>Attachment 10, technical evaluation forms</h4>
+        <ul>
+          <li>Experience and past performance questionnaire, items 1 to 6: filled.</li>
+          <li>Personnel form, equipment form and materials form: filled.</li>
+          <li>Sustainable acquisition form: filled, with products matched to the Attachment 6 categories.</li>
+        </ul>
+        <h4>Attachment 11, consent letter</h4>
+        <p>Left out. It applies only to a subcontractor or teaming partner doing 20% or more of the work.</p>
+      </div>
+
+      <div role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+        <h3>Pricing worksheet</h3>
+        <p class="bd-note">The solicitation's own line items and quantities, ready for your numbers. I never suggest your price.</p>
+        <table class="bd-tbl">
+          <thead><tr><th>Line</th><th>Base year service</th><th class="n">Qty</th><th class="n">Unit price</th></tr></thead>
+          <tbody>
+            <tr><td class="n">0001</td><td>Ranger office, twice weekly</td><td class="n">104</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0002</td><td>Ranger office, monthly</td><td class="n">12</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0003</td><td>Ranger office, semi-annual</td><td class="n">2</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0004</td><td>Mt. Tabor admin, weekly</td><td class="n">52</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0005</td><td>Mt. Tabor admin, semi-annual</td><td class="n">2</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0006</td><td>Quarters, twice weekly, May to Oct</td><td class="n">52</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0007</td><td>Quarters, third weekly intensive</td><td class="n">26</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0008</td><td>Quarters, monthly, May to Oct</td><td class="n">6</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0009</td><td>Quarters, semi-annual</td><td class="n">2</td><td class="blank">$<i></i></td></tr>
+            <tr><td class="n">0010</td><td>Quarters, annual</td><td class="n">1</td><td class="blank">$<i></i></td></tr>
+          </tbody>
+        </table>
+        <p>The same 10 lines repeat for option years 1 to 4, 50 lines in all, with a total for each year and each building.</p>
+        <div class="bd-flag">
+          <p><b>What the current contract paid.</b> Germrip LLC holds the Forest Service order for regular janitorial services at the Manchester Ranger District: $104,288 since February 2023, with its term ending January 14, 2027, the day before this one starts. <a href="https://www.usaspending.gov/award/CONT_AWD_12444323P0019_12C2_-NONE-_-NONE-" rel="noopener" style="color:var(--purple-ink);font-weight:600">See it on USAspending</a></p>
+          <p><b>How price is scored.</b> Base year plus all 4 options, plus 6 more months at the option year 4 rates. Technical factors together count for significantly more than price.</p>
+        </div>
+      </div>
+
+      <div role="tabpanel" id="p6" aria-labelledby="t6" hidden>
+        <h3>Submission steps</h3>
+        <ol>
+          <li><b>December 8, 1:00 pm ET.</b> Site visit at 2538 Depot Street, Manchester Center. Bidders are urged and expected to go. The notes say failing to inspect is no ground for a claim after award.</li>
+          <li><b>December 18, 1:00 pm ET.</b> Last moment for questions, by email, with the solicitation name and number in the subject line.</li>
+          <li><b>Before you send.</b> Open SAM.gov and confirm your registration reads Active and lists NAICS 561720.</li>
+          <li><b>Save 2 files.</b> Technical Proposal and Price Quote, each as a PDF, Word or Excel file. The package names them with the solicitation number and your firm name.</li>
+          <li><b>January 4, 2027, before 1:00 pm ET.</b> Email both files to the contracting officer named in the notice. Send it that morning at the latest.</li>
+          <li><b>Confirm receipt.</b> Ask for a reply saying the quote arrived. The solicitation makes that the offeror's job.</li>
+        </ol>
+        <p class="bd-note">I check the notice every day until it closes. An amendment that changes the response reaches you the same day, with the package updated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bd-sec" id="price" aria-labelledby="priceT">
+  <h2 class="bd-h2" id="priceT">You read the package before you pay for it</h2>
+  <p class="bd-sub">4 steps from a bid on your radar to a quote in the contracting officer's inbox.</p>
+  <ol class="bd-steps">
+    <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="9" width="30" height="22" rx="5"/><path d="m6 12 14 10 14-10"/></svg><b>Say yes to a bid</b><span>1 firm per bid. The first yes gets it.</span></li>
+    <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="5" width="24" height="30" rx="5"/><path d="M14 14h12M14 20h12M14 26h7"/></svg><b>Answer 10 questions</b><span>About 10 minutes: past jobs, crew, equipment, insurance.</span></li>
+    <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="21" r="13"/><path d="M20 13v8l5 4M15 4h10"/></svg><b>Package in 48 hours</b><span>All 6 parts, written from the solicitation and your answers.</span></li>
+    <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M35 5 17 23M35 5 24 35l-7-12-12-7z"/></svg><b>Price it and submit it</b><span>Your numbers, your SAM.gov account. I watch for amendments until it closes.</span></li>
+  </ol>
+  <div class="bd-price">
+    <div>
+      <p class="big">$349</p>
+      <p class="per">per package. The median contract on this radar is worth <span id="med">$145,911</span>.</p>
+    </div>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>The invoice comes only after you read the package and tell me you are submitting it.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>1 firm per bid. Once you take a bid, no other firm gets a package for it.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>A flat fee. Nothing is tied to winning, and no package promises a win.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg><span>You set your prices and submit the bid yourself. I never ask for your SAM.gov login.</span></li>
+    </ul>
+    <p class="mo">Bidding 2 or more times a month? $499 a month covers the Friday radar and 2 packages. Extra packages are $299. Cancel any month.</p>
+  </div>
+  <div class="bd-cta">
+    <a class="bd-btn bd-ink" id="ctaRadar" href="mailto:raja@usefulmediaco.com?subject=radar">Send me my state's radar every Friday, free</a>
+    <a class="bd-btn bd-line" href="#form">See the 10 questions</a>
+  </div>
+</section>
+
+<section class="bd-sec" id="form" aria-labelledby="formT">
+  <h2 class="bd-h2" id="formT">The 10 questions</h2>
+  <p class="bd-sub">This is the whole form. Your answers save on this device as you type. Send them when you are done, or reply to my email with the answers instead.</p>
+  <form class="bd-form" id="f" novalidate>
+    <div class="bd-prog" aria-live="polite"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="t" cx="20" cy="20" r="16"/><circle class="v" id="ring" cx="20" cy="20" r="16" stroke-dasharray="100.5" stroke-dashoffset="100.5"/></svg><span id="prog">0 of 10 answered</span></div>
+    <div class="bd-q"><label for="qb"><u>Bid</u>Solicitation number this is for</label><input type="text" id="qb" name="bid" autocomplete="off" placeholder="For example 12444327Q0002"></div>
+    <div class="bd-q" data-q="1"><fieldset><legend><u>1</u>Legal business name, UEI and CAGE code</legend><div class="bd-3"><input type="text" name="q1a" aria-label="Legal business name" placeholder="Legal business name" autocomplete="organization"><input type="text" name="q1b" aria-label="UEI" placeholder="UEI" autocomplete="off"><input type="text" name="q1c" aria-label="CAGE code" placeholder="CAGE" autocomplete="off"></div></fieldset></div>
+    <div class="bd-q" data-q="2"><fieldset><legend><u>2</u>Small business statuses you hold</legend><div class="bd-opts"><label><input type="checkbox" name="q2" value="8(a)">8(a)</label><label><input type="checkbox" name="q2" value="HUBZone">HUBZone</label><label><input type="checkbox" name="q2" value="SDVOSB">SDVOSB</label><label><input type="checkbox" name="q2" value="WOSB">WOSB</label><label><input type="checkbox" name="q2" value="None">None</label></div></fieldset></div>
+    <div class="bd-q" data-q="3"><label for="q3"><u>3</u>3 past jobs closest to this one: client, what you did, dollar value, dates, and a contact who will confirm</label><textarea id="q3" name="q3" rows="5"></textarea></div>
+    <div class="bd-q" data-q="4"><label for="q4"><u>4</u>Who will manage this contract, and their years of experience</label><textarea id="q4" name="q4" rows="2"></textarea></div>
+    <div class="bd-q" data-q="5"><label for="q5"><u>5</u>Crew size, and whether you would hire or subcontract for this job</label><textarea id="q5" name="q5" rows="2"></textarea></div>
+    <div class="bd-q" data-q="6"><label for="q6"><u>6</u>Equipment and vehicles you own that this job needs</label><textarea id="q6" name="q6" rows="3"></textarea></div>
+    <div class="bd-q" data-q="7"><label for="q7"><u>7</u>Insurance you carry (general liability, workers' comp, auto) and the limits</label><textarea id="q7" name="q7" rows="2"></textarea></div>
+    <div class="bd-q" data-q="8"><label for="q8"><u>8</u>Anything in the solicitation you cannot meet today</label><textarea id="q8" name="q8" rows="2"></textarea></div>
+    <div class="bd-q" data-q="9"><label for="q9"><u>9</u>Your quality check: how you inspect work and fix complaints</label><textarea id="q9" name="q9" rows="3"></textarea></div>
+    <div class="bd-q" data-q="10"><label for="q10"><u>10</u>Who signs the bid: name, title, email, phone</label><textarea id="q10" name="q10" rows="2"></textarea></div>
+    <div class="bd-send">
+      <button class="bd-btn bd-ink" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg>Email my answers</button>
+      <button class="bd-btn bd-line" type="button" id="copy">Copy my answers</button>
+    </div>
+    <p class="bd-hint">Email my answers opens a message to raja@usefulmediaco.com with everything filled in. Nothing is sent until you press send in your own mail app.</p>
+  </form>
+</section>
+
+<section class="bd-sec" aria-labelledby="faqT">
+  <h2 class="bd-h2" id="faqT">Questions contractors ask</h2>
+  <div class="bd-faq">
+    <details><summary>Where does the radar come from?</summary><p>2 public federal sources. Live bids come from <a href="https://sam.gov/" rel="noopener">SAM.gov</a>'s file of active contract opportunities. Contract holders, values and end dates come from <a href="https://www.usaspending.gov/" rel="noopener">USAspending.gov</a> award records. <span id="made">The radar was last refreshed on November 27, 2026.</span></p></details>
+    <details><summary>Does an ending term mean a new bid is coming?</summary><p>Sometimes. Agencies extend many contracts through option years, and some work stops. The radar shows the date the current term ends and nothing more, so you know which offices to watch and who holds the work today.</p></details>
+    <details><summary>What if I read the package and decide not to bid?</summary><p>Then there is no invoice. Tell me what made it a no, and that is the end of it.</p></details>
+    <details><summary>Will you tell me what to charge?</summary><p>No. The pricing worksheet lists the solicitation's line items and shows what the current contract paid when public records have it. The number is yours.</p></details>
+    <details><summary>Which trades does the radar cover?</summary><p>8 for now: janitorial (NAICS 561720), landscaping (561730), facilities support (561210), waste collection (562111), security systems (561621), pest control (561710), plumbing and HVAC (238220) and machinery repair (811310).</p></details>
+  </div>
+</section>
+
+</main>
+<footer class="bd-foot"><span>© 2026 The Useful Media Co</span><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:raja@usefulmediaco.com">raja@usefulmediaco.com</a><p>Bid Desk is run by Raja at The Useful Media Co. It is a private service and is not part of SAM.gov, USAspending.gov or any government agency.</p></footer>
+</div></div>
+<div class="bd-toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var TR=[["561720","Janitorial"],["561730","Landscaping"],["561210","Facilities support"],["562111","Waste collection"],["561621","Security systems"],["561710","Pest control"],["238220","Plumbing and HVAC"],["811310","Machinery repair"]];
+var BEZ=["JANITORIAL","LANDSCAPING","FACILITIES","WASTE","SECURITY","PEST","HVAC + PLUMBING","REPAIR"];
+var SN={AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"Washington, DC",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico",GU:"Guam",VI:"U.S. Virgin Islands",AS:"American Samoa",MP:"Northern Mariana Islands",MH:"Marshall Islands",AE:"Armed Forces Europe",AP:"Armed Forces Pacific"};
+var GRID={AK:[0,0],ME:[10,0],WI:[5,1],VT:[9,1],NH:[10,1],WA:[0,2],ID:[1,2],MT:[2,2],ND:[3,2],MN:[4,2],IL:[5,2],MI:[6,2],NY:[8,2],MA:[9,2],OR:[0,3],NV:[1,3],WY:[2,3],SD:[3,3],IA:[4,3],IN:[5,3],OH:[6,3],PA:[7,3],NJ:[8,3],CT:[9,3],RI:[10,3],CA:[0,4],UT:[1,4],CO:[2,4],NE:[3,4],MO:[4,4],KY:[5,4],WV:[6,4],VA:[7,4],MD:[8,4],DE:[9,4],AZ:[1,5],NM:[2,5],KS:[3,5],AR:[4,5],TN:[5,5],NC:[6,5],SC:[7,5],DC:[8,5],OK:[3,6],LA:[4,6],MS:[5,6],AL:[6,6],GA:[7,6],HI:[0,7],TX:[3,7],FL:[8,7],PR:[10,7]};
+var NEED={SDVOSBC:["sdvosb"],SDVOSBS:["sdvosb"],"8A":["8a"],"8AN":["8a"],WOSB:["wosb"],WOSBSS:["wosb"],EDWOSB:["wosb"],EDWOSBSS:["wosb"],VSA:["vosb","sdvosb"],VSS:["vosb","sdvosb"],HZC:["hubzone"],HZS:["hubzone"]};
+var MAIL="raja@usefulmediaco.com", MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], MONL=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var NOW=new Date();NOW.setHours(0,0,0,0);
+var $=function(i){return document.getElementById(i)};
+var q=new URLSearchParams(location.search), slug=(q.get("firm")||"").toLowerCase();
+if(!/^[a-z0-9-]{3,90}$/.test(slug))slug="";
+var S={idx:null,firm:null,st:"",data:null,tr:{},sort:"date",all:false};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function D(s){var p=String(s).split("-");return new Date(+p[0],p[1]-1,+p[2])}
+function days(s){return Math.round((D(s)-NOW)/864e5)}
+function fd(s,long){var d=D(s);return (long?MONL:MON)[d.getMonth()]+" "+d.getDate()+(d.getFullYear()!==NOW.getFullYear()||long?", "+d.getFullYear():"")}
+function money(n){return n>=1e9?"$"+(n/1e9).toFixed(1)+"B":n>=1e6?"$"+(n/1e6).toFixed(n>=1e7?0:1)+"M":n>=1e3?"$"+Math.round(n/1e3)+"K":"$"+n}
+function full(n){return "$"+Math.round(n).toLocaleString("en-US")}
+function num(n){return Number(n).toLocaleString("en-US")}
+function left(d){return d===0?"closes today":d===1?"1 day left":d+" days left"}
+function get(u){return fetch(u,{credentials:"omit"}).then(function(r){if(!r.ok)throw new Error(u);return r.json()})}
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=(h*16777619)>>>0}return h/4294967295}
+function trOn(i){var k=Object.keys(S.tr);return !k.length||S.tr[i]}
+function trList(){var k=Object.keys(S.tr).map(Number).sort();return k.length?k:[0,1,2,3,4,5,6,7]}
+function trWords(){var k=Object.keys(S.tr);if(!k.length)return "all 8 trades";return trList().map(function(i){return TR[i][1].toLowerCase()}).join(", ")}
+function mailto(sub,body){return "mailto:"+MAIL+"?subject="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body)}
+function toast(t){var e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("on")},4200)}
+
+/* ---------- data views ---------- */
+function terms(){
+  var out=[],c=S.data?S.data.c:[];
+  for(var i=0;i<c.length;i++){var d=days(c[i][5]);if(d>=0&&d<=180&&trOn(c[i][0]))out.push({r:c[i],d:d})}
+  out.sort(S.sort==="amt"?function(a,b){return b.r[3]-a.r[3]||a.d-b.d}:function(a,b){return a.d-b.d||b.r[3]-a.r[3]});
+  return out;
+}
+function bids(){
+  var out=[],l=S.data?S.data.live:[];
+  for(var i=0;i<l.length;i++){var d=days(l[i].due),ki=-1;for(var j=0;j<8;j++)if(TR[j][0]===l[i].k)ki=j;
+    if(d>=0&&ki>=0&&trOn(ki)){var need=NEED[l[i].sac],ok=true;if(S.firm&&need){ok=false;for(var n=0;n<need.length;n++)if((S.firm.has||[]).indexOf(need[n])>=0)ok=true}
+      out.push({b:l[i],d:d,k:ki,ok:ok})}}
+  out.sort(function(a,b){return (b.ok-a.ok)||a.d-b.d});
+  return out;
+}
+function median(a){if(!a.length)return 0;var s=a.map(function(x){return x.r[3]}).sort(function(x,y){return x-y});return s[Math.floor(s.length/2)]}
+
+/* ---------- US tile map ---------- */
+function drawMap(){
+  var st=S.idx.states,vals=[],k;for(k in GRID)if(st[k])vals.push(st[k].n);vals.sort(function(a,b){return a-b});
+  function step(n){var i=0;while(i<vals.length&&vals[i]<=n)i++;return Math.min(4,Math.floor(i/vals.length*5))}
+  var op=[.14,.3,.5,.72,.95],h='<svg viewBox="0 0 352 256" role="img" aria-label="Map of US states shaded by how many federal facility contract terms end within 180 days">';
+  for(k in GRID){var g=GRID[k],x=g[0]*32+1.5,y=g[1]*32+1.5,d=st[k]||{n:0,l:0},s=step(d.n);
+    h+='<g class="bd-tile" data-st="'+k+'"><title>'+esc(SN[k])+": "+d.n+" terms ending, "+d.l+' live bids</title><rect x="'+x+'" y="'+y+'" width="29" height="29" rx="7" fill="var(--purple)" fill-opacity="'+op[s]+'"/><text x="'+(x+14.5)+'" y="'+(y+18.6)+'" text-anchor="middle" font-size="10.5" font-weight="600" fill="'+(s>=3?"#fff":"var(--ink)")+'">'+k+"</text>"+(d.l?'<path d="M'+(x+23.6)+" "+(y+1.6)+"l3.6 3.6-3.6 3.6-3.6-3.6z"+'" fill="'+(s>=3?"#fff":"var(--ink)")+'"/>':"")+"</g>"}
+  $("stage").innerHTML=h+"</svg>";
+  $("key").innerHTML='<li><svg viewBox="0 0 14 14" aria-hidden="true"><rect x="1" y="1" width="12" height="12" rx="3" fill="var(--purple)"/></svg>Darker means more terms ending</li><li><svg viewBox="0 0 14 14" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" transform="rotate(45 7 7)" fill="var(--ink)"/></svg>A bid is open now</li>';
+}
+
+/* ---------- radar scope ---------- */
+var C=170,RI=144;
+function pol(r,a){a=(a-90)*Math.PI/180;return [(C+r*Math.cos(a)).toFixed(1),(C+r*Math.sin(a)).toFixed(1)]}
+function rad(d){return 16+Math.max(0,Math.min(180,d))/180*128}
+function drawScope(T,B){
+  var h='<svg viewBox="0 0 340 340" role="img" aria-label="Radar for '+esc(SN[S.st])+": "+T.length+" contract terms ending within 180 days and "+B.length+' live bids. Tap a trade to filter."><circle cx="170" cy="170" r="166" fill="var(--bd-soft)"/><circle cx="170" cy="170" r="144" fill="var(--paper)" stroke="var(--rule)"/>',i,p,p2;
+  for(i=0;i<8;i++){var a0=i*45,a1=a0+45;p=pol(RI,a0);p2=pol(RI,a1);
+    h+='<path class="bd-w'+(S.tr[i]?" on":"")+'" data-k="'+i+'" d="M170 170L'+p[0]+" "+p[1]+"A144 144 0 0 1 "+p2[0]+" "+p2[1]+'Z"><title>'+TR[i][1]+"</title></path>";
+    var flip=i>=2&&i<=5,rr=flip?160.5:151.5,s=pol(rr,flip?a1-2:a0+2),e=pol(rr,flip?a0+2:a1-2);
+    h+='<path id="bz'+i+'" d="M'+s[0]+" "+s[1]+"A"+rr+" "+rr+" 0 0 "+(flip?0:1)+" "+e[0]+" "+e[1]+'" fill="none"/><text font-size="8.6" font-weight="600" letter-spacing="1.1" fill="'+(S.tr[i]?"var(--ink)":"var(--graphite)")+'" pointer-events="none"><textPath href="#bz'+i+'" startOffset="50%" text-anchor="middle">'+BEZ[i]+"</textPath></text>"}
+  [30,90].forEach(function(d){h+='<circle cx="170" cy="170" r="'+rad(d).toFixed(1)+'" fill="none" stroke="var(--rule)" stroke-dasharray="2 4" pointer-events="none"/>'});
+  for(i=0;i<8;i++){p=pol(16,i*45);p2=pol(RI,i*45);h+='<line x1="'+p[0]+'" y1="'+p[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'" stroke="var(--rule)" pointer-events="none"/>'}
+  h+='<g pointer-events="none">';
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches){p=pol(RI,0);p2=pol(RI,26);h+='<g><path d="M170 170L'+p2[0]+" "+p2[1]+"A144 144 0 0 0 "+p[0]+" "+p[1]+'Z" fill="var(--purple)" fill-opacity=".09"/><line x1="170" y1="170" x2="'+p2[0]+'" y2="'+p2[1]+'" stroke="var(--purple)" stroke-width="1.4" stroke-opacity=".55"/><animateTransform attributeName="transform" type="rotate" from="0 170 170" to="360 170 170" dur="9s" repeatCount="indefinite"/></g>'}
+  var A=S.data?S.data.c:[];
+  for(i=0;i<A.length;i++){var c=A[i],dd=days(c[5]);if(dd<0||dd>180)continue;var a=c[0]*45+5+hash(c[7])*35;p=pol(rad(dd),a);var sz=(2.2+Math.min(6.5,Math.sqrt(c[3])/170)).toFixed(1);
+    h+=S.firm&&c[2]===S.firm.u?'<circle class="bd-mine" cx="'+p[0]+'" cy="'+p[1]+'" r="'+sz+'"/>':'<circle class="bd-blip'+(trOn(c[0])?"":" off")+'" cx="'+p[0]+'" cy="'+p[1]+'" r="'+sz+'"/>'}
+  for(i=0;i<B.length;i++){p=pol(rad(B[i].d),B[i].k*45+8+hash(B[i].b.id)*29);
+    h+='<circle class="bd-ring2" cx="'+p[0]+'" cy="'+p[1]+'" r="6"/><rect class="bd-bid" x="'+(p[0]-4.5)+'" y="'+(p[1]-4.5)+'" width="9" height="9" transform="rotate(45 '+p[0]+" "+p[1]+')"/>'}
+  [30,90,180].forEach(function(d){var y=170-rad(d)+11;h+='<text x="173" y="'+y.toFixed(1)+'" font-size="8.4" fill="var(--graphite)" stroke="var(--paper)" stroke-width="3" paint-order="stroke">'+d+" days</text>"});
+  h+='<circle cx="170" cy="170" r="16" fill="var(--paper)" stroke="var(--rule)"/><circle cx="170" cy="170" r="3.2" fill="var(--ink)"/></g></svg>';
+  $("stage").innerHTML=h;
+  $("key").innerHTML='<li><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="var(--purple)" opacity=".7"/></svg>A term ending. Bigger dot, bigger contract</li><li><svg viewBox="0 0 14 14" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" transform="rotate(45 7 7)" fill="var(--ink)"/></svg>Out for bid now</li><li>Center is today</li>';
+}
+
+/* ---------- render ---------- */
+function render(){
+  var T=terms(),B=bids(),name=SN[S.st]||S.st,f=S.firm,ok=B.filter(function(x){return x.ok});
+  $("radar").hidden=false;$("st").value=S.st;
+  document.querySelectorAll(".bd-st").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.st===S.st?"true":"false")});
+  var last=T.length?T.slice().sort(function(a,b){return b.d-a.d})[0].r[5]:"";
+  var own=f&&f.k.length===Object.keys(S.tr).length&&f.k.every(function(k){for(var i=0;i<8;i++)if(TR[i][0]===k)return !!S.tr[i];return false});
+  if(f)$("eye").textContent="Radar for "+f.n;
+  if(own){
+    $("h1").innerHTML=T.length?"<b>"+T.length+"</b> federal "+(T.length===1?"contract":"contracts")+" in your "+(f.k.length===1?"trade":"trades")+" "+(T.length===1?"reaches":"reach")+" the end of "+(T.length===1?"its":"their")+" current term in "+esc(name)+" by "+fd(last)+".":"No federal contract terms in these trades end in "+esc(name)+" within 180 days.";
+  }else{if(!f)$("eye").textContent=name+" bid radar";
+    $("h1").innerHTML=T.length?"<b>"+T.length+"</b> federal facility "+(T.length===1?"contract reaches":"contracts reach")+" the end of "+(T.length===1?"its":"their")+" current term in "+esc(name)+" by "+fd(last)+".":"No federal contract terms in these trades end in "+esc(name)+" within 180 days."}
+  $("lead").textContent=ok.length?(ok.length===1?"1 bid is open right now and closes "+fd(ok[0].b.due)+".":ok.length+" bids are open right now. The first closes "+fd(ok[0].b.due)+".")+" Below: every live bid, then who holds each contract, what it paid and the day its current term ends.":"Nothing in these trades is out for bid in "+name+" today. Most states have 0 to 3 open at a time. Below: who holds each contract, what it paid and the day its current term ends.";
+  $("n1").textContent=B.length;$("l1").textContent=B.length===1?"live bid":"live bids";
+  $("n2").textContent=num(T.length);$("l2").textContent="terms ending";
+  $("n3").textContent=T.length?money(median(T)):"$0";$("l3").textContent="median value";
+  drawScope(T,B);
+  var cnt=[0,0,0,0,0,0,0,0];(S.data.c||[]).forEach(function(c){var d=days(c[5]);if(d>=0&&d<=180)cnt[c[0]]++});
+  var none=!Object.keys(S.tr).length,ch='<li><button class="bd-chip" type="button" data-k="all" aria-pressed="'+none+'">All 8 trades</button></li>';
+  for(var i=0;i<8;i++)ch+='<li><button class="bd-chip" type="button" data-k="'+i+'" aria-pressed="'+!!S.tr[i]+'">'+TR[i][1]+" <b>"+cnt[i]+"</b></button></li>";
+  $("chips").innerHTML=ch;
+  /* live bids */
+  if(B.length){$("liveS").textContent="Open solicitations in "+name+", closing soonest first. Each one links to the full notice on SAM.gov.";
+    var h='<ul class="bd-bids">';B.forEach(function(x){var b=x.b,d=D(b.due);
+      var body="Yes, write the package for "+b.sol+" ("+b.t+"), due "+fd(b.due,1)+"."+(f?"\n\nFirm: "+f.n+", "+f.city+", "+f.st:"\n\nFirm name:\nCity and state:");
+      h+='<li class="bd-bidc'+(x.ok?"":" muted")+'"><div class="bd-cal" aria-hidden="true"><i>'+MON[d.getMonth()]+"</i><b>"+d.getDate()+'</b></div><div><p class="bd-left">Due '+fd(b.due)+" · "+left(x.d)+"</p><h3>"+esc(b.t)+'</h3><p class="bd-meta">'+esc(TR[x.k][1])+" · "+esc(b.ag)+(b.city?" · "+esc(b.city):"")+"<br><code>"+esc(b.sol)+"</code> · "+esc(b.sa)+"</p></div>"+
+        '<div class="bd-act">'+(x.ok?'<a class="bd-btn bd-ink" href="'+esc(mailto("Yes: package for "+b.sol,body))+'">Take this bid</a>':"")+'<a class="bd-nlink" href="'+esc(b.link)+'" rel="noopener">Read the notice on SAM.gov</a></div>'+
+        '<p class="bd-fine">'+(x.ok?"$349 for the full package. You pay only if you decide to submit it.":"This one is reserved for firms with a status your record does not show. Tell me if that is out of date.")+"</p></li>"});
+    $("liveB").innerHTML=h+"</ul>";
+  }else{$("liveS").textContent="";
+    $("liveB").innerHTML='<div class="bd-none"><p>No open solicitations in '+esc(trWords())+" in "+esc(name)+" today. When one posts, it shows up here and in the Friday radar.</p>"+'<a class="bd-btn bd-ink" href="'+esc(radarMail())+'">Send me this radar every Friday, free</a></div>'}
+  /* terms */
+  $("termsS").textContent=T.length?num(T.length)+" in "+name+". Agencies extend some contracts through option years, so read each date as the day to start watching that office for a new solicitation.":"Try All 8 trades, or another state.";
+  var lim=S.all?T.length:Math.min(T.length,10),r="";
+  for(i=0;i<lim;i++){var c=T[i].r,mine=f&&c[2]===f.u;
+    r+='<li><a class="bd-row'+(mine?" mine":"")+'" href="https://www.usaspending.gov/award/'+encodeURIComponent(c[7])+'" rel="noopener"><span class="bd-when"><b>'+fd(c[5])+"</b><i>"+(T[i].d===0?"today":T[i].d+(T[i].d===1?" day":" days"))+'</i></span><span class="bd-what"><b>'+esc(c[1])+"</b><i>"+(mine?"Yours, term ends "+fd(c[5]):esc(TR[c[0]][1])+" · "+esc(c[4]))+"</i>"+(c[6]?"<em>"+esc(c[6])+"</em>":"")+'</span><span class="bd-amt" title="'+full(c[3])+'">'+money(c[3])+"</span></a></li>"}
+  $("rows").innerHTML=r;
+  var m=$("more");m.hidden=T.length<=10||S.all;m.textContent="Show all "+num(T.length)+" contracts";
+  $("ctaRadar").href=radarMail();$("ctaRadar").textContent="Send me the "+name+" radar every Friday, free";
+}
+function radarMail(){return mailto("radar","Send me the "+(SN[S.st]||"")+" radar every Friday.\n\nTrades: "+trWords()+(S.firm?"\nFirm: "+S.firm.n+", "+S.firm.city+", "+S.firm.st:"\nFirm name:"))}
+function loadState(st,keep){
+  if(!st||!S.idx.states[st])return;
+  S.st=st;S.all=false;
+  if(!keep&&!S.firm)S.tr={};
+  get("/bids/d/s/"+st+".json").then(function(d){if(S.st!==st)return;S.data=d;render();
+    if(!S.firm){try{history.replaceState(null,"","?state="+st+location.hash)}catch(e){}}
+  }).catch(function(){toast("That state did not load. Check your connection and try again.")});
+}
+
+/* ---------- events ---------- */
+$("st").addEventListener("change",function(){loadState(this.value)});
+$("stage").addEventListener("click",function(e){
+  var t=e.target.closest?e.target.closest("[data-st],[data-k]"):null;if(!t)return;
+  if(t.dataset.st){loadState(t.dataset.st);return}
+  toggle(+t.dataset.k);
+});
+function toggle(i){if(S.tr[i])delete S.tr[i];else S.tr[i]=1;if(Object.keys(S.tr).length===8)S.tr={};S.all=false;render()}
+$("chips").addEventListener("click",function(e){var b=e.target.closest(".bd-chip");if(!b)return;if(b.dataset.k==="all"){S.tr={};S.all=false;render()}else toggle(+b.dataset.k)});
+$("sts").addEventListener("click",function(e){var b=e.target.closest(".bd-st");if(b)loadState(b.dataset.st,true)});
+document.querySelector(".bd-seg").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;S.sort=b.dataset.sort;S.all=false;
+  this.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});render()});
+$("more").addEventListener("click",function(){S.all=true;render()});
+
+/* sample tabs */
+var tabs=[].slice.call(document.querySelectorAll(".bd-tab"));
+function show(t){tabs.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",on?"true":"false");x.tabIndex=on?0:-1;$(x.getAttribute("aria-controls")).hidden=!on})}
+tabs.forEach(function(t,i){t.addEventListener("click",function(){show(t)});
+  t.addEventListener("keydown",function(e){var n=e.key==="ArrowRight"||e.key==="ArrowDown"?1:e.key==="ArrowLeft"||e.key==="ArrowUp"?-1:0;if(!n)return;var x=tabs[(i+n+tabs.length)%tabs.length];x.focus();show(x);e.preventDefault()})});
+
+/* ---------- 10 questions ---------- */
+var F=$("f"),KEY="bd-form-v1";
+function vals(){var o={};[].forEach.call(F.elements,function(el){if(!el.name)return;if(el.type==="checkbox"){if(el.checked)(o[el.name]=o[el.name]||[]).push(el.value)}else o[el.name]=el.value.trim()});return o}
+function progress(){var v=vals(),n=0,done=[!!(v.q1a||v.q1b||v.q1c),!!(v.q2&&v.q2.length)];for(var i=3;i<=10;i++)done.push(!!v["q"+i]);
+  done.forEach(function(d,i){if(d)n++;var el=F.querySelector('[data-q="'+(i+1)+'"]');if(el)el.classList.toggle("done",d)});
+  $("prog").textContent=n+" of 10 answered";$("ring").setAttribute("stroke-dashoffset",(100.5*(1-n/10)).toFixed(1));return n}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(vals()))}catch(e){}}
+function restore(){var o=null;try{o=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){}if(!o)return;
+  [].forEach.call(F.elements,function(el){if(!el.name||!(el.name in o))return;if(el.type==="checkbox")el.checked=o[el.name].indexOf(el.value)>=0;else el.value=o[el.name]})}
+function text(){var v=vals(),L=["Bid: "+(v.bid||""),"","1. Legal business name: "+(v.q1a||"")+"\n   UEI: "+(v.q1b||"")+"\n   CAGE: "+(v.q1c||""),"2. Small business statuses: "+((v.q2||[]).join(", ")||"")],
+  Q=["","","","3 past jobs closest to this one","Who manages this contract","Crew size, hire or subcontract","Equipment and vehicles","Insurance and limits","Anything we cannot meet today","Quality check","Who signs the bid"];
+  for(var i=3;i<=10;i++)L.push(i+". "+Q[i]+":\n"+(v["q"+i]||""));return L.join("\n\n")}
+function copy(t){if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(t);
+  return new Promise(function(res,rej){var a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();try{document.execCommand("copy")?res():rej()}catch(e){rej(e)}a.remove()})}
+F.addEventListener("input",function(){progress();save()});
+F.addEventListener("change",function(e){if(e.target.name==="q2"){var none=F.querySelector('[name=q2][value="None"]');if(e.target===none&&none.checked)F.querySelectorAll("[name=q2]").forEach(function(x){if(x!==none)x.checked=false});else if(e.target.checked)none.checked=false}progress();save()});
+F.addEventListener("submit",function(e){e.preventDefault();var n=progress(),v=vals(),t=text();
+  if(!n){toast("Answer at least 1 question first.");return}
+  var sub="Bid form: "+(v.q1a||"my firm")+(v.bid?" · "+v.bid:""),u=mailto(sub,t);
+  if(u.length>1800){copy(t).then(function(){toast("Answers copied. Paste them into the email that just opened.")},function(){toast("Your email is open. Use Copy my answers, then paste.")});u=mailto(sub,"My answers are on my clipboard. Pasting them below.\n\n")}
+  location.href=u});
+$("copy").addEventListener("click",function(){copy(text()).then(function(){toast("Copied. Paste it into a reply to my email.")},function(){toast("Copy did not work on this browser. Use Email my answers.")})});
+restore();
+var bidP=q.get("bid")||"";if(/^[A-Za-z0-9-]{4,40}$/.test(bidP)&&!F.elements.bid.value)F.elements.bid.value=bidP;
+progress();
+
+/* ---------- boot ---------- */
+get("/bids/d/index.json").then(function(idx){
+  S.idx=idx;var o="",ks=Object.keys(idx.states).sort(function(a,b){return (SN[a]||a).localeCompare(SN[b]||b)});
+  ks.forEach(function(k){o+='<option value="'+k+'">'+esc(SN[k]||k)+" ("+idx.states[k].n+")</option>"});
+  $("st").insertAdjacentHTML("beforeend",o);
+  $("n1").textContent=idx.live;$("n2").textContent=num(idx.terms);$("n3").textContent=money(idx.med);$("med").textContent=full(idx.med);
+  if(idx.made){$("src").innerHTML='Sources: <a href="https://sam.gov/" rel="noopener">SAM.gov</a> contract opportunities and <a href="https://www.usaspending.gov/" rel="noopener">USAspending.gov</a> awards. Refreshed '+fd(idx.made,1)+".";$("made").textContent="The radar was last refreshed on "+fd(idx.made,1)+"."}
+  drawMap();
+  var ps=(q.get("state")||"").toUpperCase();
+  if(slug)return get("/bids/d/f/"+slug+".json").then(function(f){
+    S.firm=f;f.k.forEach(function(k){for(var i=0;i<8;i++)if(TR[i][0]===k)S.tr[i]=1});
+    if(f.sts.length>1){var h="";f.sts.forEach(function(s){h+='<button class="bd-st" type="button" data-st="'+s+'" aria-pressed="false" title="'+esc(SN[s]||s)+'">'+s+"</button>"});$("sts").innerHTML=h;$("sts").hidden=false}
+    if(!F.elements.q1a.value){F.elements.q1a.value=f.n;progress()}
+    loadState(f.sts.indexOf(ps)>=0?ps:(f.sts[0]||f.st),true);
+  }).catch(function(){if(idx.states[ps])loadState(ps)});
+  if(idx.states[ps])loadState(ps);
+}).catch(function(){$("stage").innerHTML='<p class="bd-sub" style="text-align:center;padding:2rem 0">The radar did not load. Refresh the page to try again.</p>'});
+})();
+</script>
+</body>
+</html>

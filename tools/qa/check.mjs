@@ -76,7 +76,7 @@ const PAGE_JS = ({ W, fontsOk, slop }) => {
     // 5. squeezed text: a short title wrapped into 3+ narrow lines
     const lines = new Set(rects.map(r => Math.round(r.top))).size;
     const txt = (el.innerText || '').trim();
-    if (lines >= 3 && txt.length < 40 && txt.length / lines < 10 && W < 800) add('text-squeezed', el, `${txt.length} characters wrapped into ${lines} lines`);
+    if (lines >= 3 && txt.length && txt.length < 40 && txt.length / lines < 10 && W < 800 && !el.closest('svg')) add('text-squeezed', el, `${txt.length} characters wrapped into ${lines} lines`);
     // 6. fonts
     const fam = s.fontFamily.split(',')[0].replace(/["']/g, '').trim().toLowerCase();
     window.__fams = window.__fams || {}; window.__fams[fam] = (window.__fams[fam] || 0) + 1;

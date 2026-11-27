@@ -18,7 +18,7 @@
 .tum-sheet b { font-size: 17px; font-weight: 600; }
 .tum-sheet small { font-size: 13px; color: var(--ink-soft, #5A5A73); }
 @media (max-width: 1080px) { .tum-nav { display: none; } .tum-mb { display: inline-grid; } }
-@media (max-width: 420px) { .tum-cta { display: none; } }
+@media (max-width: 500px) { .tum-cta { display: none; } }
 .tum-f { margin-top: 64px; border-top: 1px solid var(--line, #E6E3EF); background: var(--paper, #FAFAF8); font-family: var(--display, system-ui); color: var(--ink, #17172B); }
 .tum-f-in { max-width: 1180px; margin: 0 auto; padding: 48px clamp(16px, 4vw, 32px) 28px; }
 .tum-f-top { display: grid; grid-template-columns: 1.2fr 2fr; gap: 40px; }

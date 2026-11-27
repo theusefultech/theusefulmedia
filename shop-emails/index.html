@@ -269,10 +269,13 @@ body{background:var(--paper);color:var(--ink)}
 .sx-drow em{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sx-dfoot{display:flex;justify-content:space-between;align-items:center;font:500 10.5px var(--mono);color:#6b6b7b;margin-top:9px;padding-top:9px;border-top:1px dashed #dcd8e8}
 .sx-dfoot i{font-style:normal;color:#E0475B;font-weight:600}
-.sx-seal{position:absolute;right:-10px;bottom:-34px;width:112px;height:112px;z-index:3;filter:drop-shadow(0 10px 16px rgba(23,23,43,.28))}
-.sx-seal .ring{transform-origin:56px 56px;animation:sxRot 22s linear infinite}
-@keyframes sxRot{to{transform:rotate(360deg)}}
-@media(max-width:640px){.sx-stack{padding-bottom:64px}.sx-seal{width:88px;height:88px;right:-2px;bottom:-4px}}
+.sx-sticker{position:absolute;right:-8px;bottom:6px;z-index:3;display:flex;align-items:center;gap:.6rem;background:#17172B;color:#fff;border-radius:18px;padding:.7rem .95rem .7rem .7rem;transform:rotate(-4deg);box-shadow:0 14px 28px -14px rgba(23,23,43,.6);animation:sxBob 4s ease-in-out infinite}
+.sx-sticker i{width:34px;height:34px;border-radius:50%;background:#7C5CFC;display:grid;place-items:center;flex:none}
+.sx-sticker i svg{width:18px;height:18px}
+.sx-sticker b{display:block;font:600 .92rem/1.2 var(--sans)}
+.sx-sticker small{display:block;font:400 .74rem/1.3 var(--sans);opacity:.75}
+@keyframes sxBob{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-4deg) translateY(-4px)}}
+@media(max-width:640px){.sx-stack{padding-bottom:58px;padding-right:12px}.sx-sticker{right:10px;bottom:0;transform:rotate(-3deg)}}
 .sx-pk{font:600 .74rem var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--purple-ink);margin:0 0 .5rem}
 .sx-buy .sx-price{display:flex;align-items:flex-end;gap:.7rem;margin:.2rem 0 .3rem}
 .sx-buy .sx-price strong{font:600 clamp(3.2rem,12vw,4.6rem)/.9 var(--sans);letter-spacing:-.04em}
@@ -292,7 +295,23 @@ body{background:var(--paper);color:var(--ink)}
 .sx-trust svg{width:15px;height:15px;flex:none;color:var(--ink)}
 
 /* FAQ */
-.sx-faq{display:grid;gap:.55rem;max-width:760px}
+.sx-faqwrap{display:grid;gap:1.6rem}
+@media(min-width:900px){.sx-faqwrap{grid-template-columns:.8fr 1.2fr;gap:3.5rem;align-items:start}.sx-faqside{position:sticky;top:2rem}}
+.sx-faqside .sx-sub{margin-bottom:1.2rem}
+.sx-ask{display:grid;grid-template-columns:56px 1fr;gap:.9rem;align-items:center;border-radius:22px;background:var(--lilac);padding:1rem}
+[data-theme="dark"] .sx-ask{background:#16131F}
+.sx-ask svg{width:56px;height:56px}
+.sx-ask b{display:block;font-size:.98rem;margin-bottom:.15rem}
+.sx-ask span{display:block;font-size:.88rem;color:var(--graphite);line-height:1.4}
+.sx-ask a{display:inline-flex;align-items:center;gap:.3rem;margin-top:.45rem;color:var(--purple-ink);font-weight:600;font-size:.9rem;text-decoration:none}
+.sx-ask a svg{width:14px;height:14px;transition:transform .2s}.sx-ask a:hover svg{transform:translateX(3px)}
+.sx-faq{display:grid;gap:.55rem}
+.sx-faq summary span{display:flex;align-items:center;gap:.75rem}
+.sx-faq summary em{font-style:normal;width:34px;height:34px;border-radius:10px;background:var(--lilac);display:grid;place-items:center;flex:none;color:var(--purple-ink)}
+.sx-faq summary em svg{width:18px;height:18px}
+.sx-faq details{transition:box-shadow .25s,border-color .25s}
+.sx-faq details[open]{border-color:var(--purple);box-shadow:0 10px 24px -18px rgba(106,71,245,.7)}
+.sx-faq details p{padding-left:calc(1.1rem + 34px + .75rem)!important}
 .sx-faq details{border:1.5px solid var(--rule-strong);border-radius:var(--radius-md);background:var(--paper);overflow:hidden}
 .sx-faq summary{list-style:none;cursor:pointer;padding:1rem 1.1rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .sx-faq summary::-webkit-details-marker{display:none}
@@ -450,7 +469,7 @@ body{background:var(--paper);color:var(--ink)}
           <div id="docRows"></div>
           <div class="sx-dfoot"><span><span id="docCut">Last order day Tue 15 Dec</span> · <i>USPS 17 Dec</i></span></div>
         </div>
-        <svg class="sx-seal" viewBox="0 0 112 112"><defs><path id="sealPath" d="M56 56m-40 0a40 40 0 1 1 80 0a40 40 0 1 1-80 0"/></defs><circle cx="56" cy="56" r="54" fill="#17172B"/><circle cx="56" cy="56" r="47" fill="none" stroke="rgba(255,255,255,.25)" stroke-dasharray="2 4"/><g class="ring"><text font-family="var(--mono)" font-size="9.6" font-weight="600" letter-spacing="2.2" fill="#fff"><textPath href="#sealPath">SEND NONE · FULL REFUND · SEND NONE · FULL REFUND ·</textPath></text></g><circle cx="56" cy="56" r="21" fill="#7C5CFC"/><path d="M47 56l6 6 12-13" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="sx-sticker"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></i><span><b>Send none? Full refund.</b><small>Your $249 back, no questions.</small></span></div>
       </div>
       <div>
         <p class="sx-pk">Your December email pack</p>
@@ -473,15 +492,21 @@ body{background:var(--paper);color:var(--ink)}
 
 <section class="sx-sec sx-reveal" aria-labelledby="faqT">
   <div class="sx-wrap">
-    <h2 class="sx-h2" id="faqT">Questions shop owners ask.</h2>
+    <div class="sx-faqwrap">
+    <div class="sx-faqside">
+      <h2 class="sx-h2" id="faqT">Questions shop owners ask.</h2>
+      <p class="sx-sub">The short answers. Anything else, ask me directly.</p>
+      <div class="sx-ask"><svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="16" fill="var(--ink)"/><path d="M14 20h28v18H22l-8 6z" fill="var(--paper)"/><circle cx="22" cy="29" r="2.2" fill="var(--purple)"/><circle cx="28" cy="29" r="2.2" fill="var(--purple)"/><circle cx="34" cy="29" r="2.2" fill="var(--purple)"/></svg><div><b>Not sure it fits your shop?</b><span>Send your link and a question. You get a straight answer, not a sales pitch.</span><a href="mailto:raja@theusefultech.com?subject=Question%20about%20the%20December%20email%20pack">Email Raja<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+    </div>
     <div class="sx-faq">
-      <details><summary>Will it sound like my shop?<i></i></summary><p>Yes. Each email is written from your own product pages, prices and the way your shop already describes itself. Nothing goes in that your shop doesn't say. If 1 line feels off, your free round of changes fixes it the same day.</p></details>
-      <details><summary>Is it written with AI?<i></i></summary><p>AI helps with the first draft. Then every product name, price and date is checked against your live shop before the pack reaches you. Any line your shop's own pages don't back up gets cut.</p></details>
-      <details><summary>What do you need from me?<i></i></summary><p>Your shop's link, which PayPal asks for at checkout. If you know how many days you need to pack an order, add that too. Planning an after-Christmas sale? Mention the discount and it goes into that email. Without it, that email is written without a discount.</p></details>
-      <details><summary>Which email tools does it work with?<i></i></summary><p>Any tool you can paste text into: Shopify Email, Klaviyo, Mailchimp, Omnisend and the rest. The emails are plain copy blocks with the products and buttons marked, so they drop into your usual template.</p></details>
-      <details><summary>My shop ships from Canada or the UK.<i></i></summary><p>Tell me your carrier at checkout and your shipping deadline email uses its holiday cutoff in place of the USPS date.</p></details>
-      <details><summary>How does the refund work?<i></i></summary><p>Send none of the 6 emails and reply to your pack email. The full $249 goes back to you through PayPal.</p></details>
-      <details><summary>I got an email from you about this.<i></i></summary><p>Then your gift guide email is already written. Reply "yes" to that email and I'll send a $249 PayPal invoice for the full pack, or pay here and it comes within 24 hours.</p></details>
+      <details><summary><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v10H8l-4 4z"/><path d="M8 10h8M8 13h5"/></svg></em>Will it sound like my shop?</span><i></i></summary><p>Yes. Each email is written from your own product pages, prices and the way your shop already describes itself. Nothing goes in that your shop doesn't say. If 1 line feels off, your free round of changes fixes it the same day.</p></details>
+      <details><summary><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"/><path d="M18 15l.8 1.7 1.7.8-1.7.8L18 20l-.8-1.7-1.7-.8 1.7-.8z"/></svg></em>Is it written with AI?</span><i></i></summary><p>AI helps with the first draft. Then every product name, price and date is checked against your live shop before the pack reaches you. Any line your shop's own pages don't back up gets cut.</p></details>
+      <details><summary><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16l-1.4 10.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8z"/><path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"/></svg></em>What do you need from me?</span><i></i></summary><p>Your shop's link, which PayPal asks for at checkout. If you know how many days you need to pack an order, add that too. Planning an after-Christmas sale? Mention the discount and it goes into that email. Without it, that email is written without a discount.</p></details>
+      <details><summary><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 8l9 6 9-6"/></svg></em>Which email tools does it work with?</span><i></i></summary><p>Any tool you can paste text into: Shopify Email, Klaviyo, Mailchimp, Omnisend and the rest. The emails are plain copy blocks with the products and buttons marked, so they drop into your usual template.</p></details>
+      <details><summary><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></em>My shop ships from Canada or the UK.</span><i></i></summary><p>Tell me your carrier at checkout and your shipping deadline email uses its holiday cutoff in place of the USPS date.</p></details>
+      <details><summary><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg></em>How does the refund work?</span><i></i></summary><p>Send none of the 6 emails and reply to your pack email. The full $249 goes back to you through PayPal.</p></details>
+      <details><summary><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/><circle cx="19" cy="6" r="3" fill="currentColor" stroke="none"/></svg></em>I got an email from you about this.</span><i></i></summary><p>Then your gift guide email is already written. Reply "yes" to that email and I'll send a $249 PayPal invoice for the full pack, or pay here and it comes within 24 hours.</p></details>
+    </div>
     </div>
   </div>
 </section>

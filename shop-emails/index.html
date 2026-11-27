@@ -149,26 +149,52 @@ body{background:var(--paper);color:var(--ink)}
 .sx-sub{color:var(--graphite);font-size:1rem;line-height:1.5;margin:0 0 1.6rem;max-width:38rem}
 
 /* COUNTDOWN + MAP */
-.sx-clock{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;background:var(--ink);color:var(--paper);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;margin:0 0 1.4rem}
-.sx-clock .sx-digits{display:flex;gap:.35rem}
-.sx-clock .sx-digits div{background:rgba(255,255,255,.1);border-radius:12px;min-width:52px;padding:.5rem .35rem;text-align:center}
-[data-theme="dark"] .sx-clock .sx-digits div{background:rgba(0,0,0,.08)}
-.sx-clock b{display:block;font:600 1.45rem/1 var(--mono);font-variant-numeric:tabular-nums}
-.sx-clock small{font:500 .64rem/1 var(--mono);opacity:.65;text-transform:uppercase;letter-spacing:.06em}
-.sx-clock p{margin:0;font-size:.95rem;line-height:1.4}
-.sx-clock p strong{color:#B9A8FF}
-[data-theme="dark"] .sx-clock p strong{color:#5A3BE0}
-@media(max-width:560px){.sx-clock{grid-template-columns:1fr}.sx-clock .sx-digits div{flex:1}}
-.sx-map{border:1.5px solid var(--rule-strong);border-radius:var(--radius-lg);padding:1rem .8rem .6rem;background:var(--paper)}
-.sx-map svg{display:block;width:100%;height:auto;overflow:visible}
-.sx-map text{font-family:var(--sans);fill:var(--ink)}
-.sx-map .mono{font-family:var(--mono)}
-.sx-map .m{cursor:pointer}
-.sx-map .m circle{transition:r .25s cubic-bezier(.2,1.6,.4,1)}
-.sx-map .m:hover circle{r:8}.sx-map .m.sel circle{r:8.4;fill:var(--purple)}.sx-map .m.sel text{fill:#fff}
-.sx-truck{transition:transform 1.6s cubic-bezier(.3,1,.4,1)}
-.sx-maptip{min-height:2.8rem;font-size:.92rem;line-height:1.4;padding:.55rem .4rem .3rem;color:var(--graphite)}
-.sx-maptip b{color:var(--ink)}
+.sx-cal{border:1.5px solid var(--rule-strong);border-radius:28px;background:var(--paper);overflow:hidden;box-shadow:0 24px 50px -36px rgba(23,23,43,.45)}
+.sx-calhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem;padding:1rem 1.15rem;border-bottom:1px solid var(--rule)}
+.sx-calhead h3{margin:0;font:600 1.12rem/1.2 var(--sans);letter-spacing:-.01em}
+.sx-calhead h3 small{display:block;font:500 .72rem var(--mono);color:var(--graphite);letter-spacing:.03em;margin-top:.2rem;text-transform:uppercase}
+.sx-cd{display:flex;align-items:center;gap:.3rem;background:var(--ink);color:var(--paper);border-radius:16px;padding:.35rem .4rem .35rem .8rem}
+.sx-cd span{font-size:.8rem;margin-right:.3rem;line-height:1.25}
+.sx-cd span strong{display:block;font-weight:600}
+.sx-cd b{font:600 .95rem/1 var(--mono);background:rgba(255,255,255,.13);border-radius:9px;padding:.4rem .42rem;min-width:2.5rem;text-align:center;font-variant-numeric:tabular-nums}
+.sx-cd b i{font:500 .58rem var(--mono);font-style:normal;opacity:.7;margin-left:1px}
+[data-theme="dark"] .sx-cd b{background:rgba(0,0,0,.09)}
+.sx-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;padding:.9rem .9rem .4rem}
+@media(min-width:700px){.sx-grid{gap:9px;padding:1.2rem 1.3rem .5rem}}
+.sx-dow{font:600 .64rem var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--graphite);text-align:center;padding:.1rem 0 .25rem}
+.sx-day{position:relative;min-height:52px;border-radius:13px;background:rgba(128,128,150,.07);padding:5px 6px;font:500 .72rem var(--mono);color:var(--graphite);border:0;text-align:left;display:flex;flex-direction:column;justify-content:space-between}
+@media(min-width:700px){.sx-day{min-height:86px;padding:8px 9px;font-size:.8rem;border-radius:16px}}
+.sx-day.out{background:transparent;opacity:.45}
+.sx-day.send{background:var(--ink);color:var(--paper);cursor:pointer;transition:transform .25s cubic-bezier(.2,1.6,.4,1),background .2s,box-shadow .25s}
+.sx-day.send:hover{transform:translateY(-3px);box-shadow:0 10px 20px -12px rgba(23,23,43,.6)}
+.sx-day.send.sel{background:var(--purple-btn);color:#fff;transform:translateY(-3px) scale(1.04);box-shadow:0 12px 24px -12px rgba(106,71,245,.8)}
+.sx-day .ic{width:20px;height:20px;align-self:center;margin:auto 0 0}
+@media(min-width:700px){.sx-day .ic{width:28px;height:28px;align-self:flex-start;margin:0}}
+.sx-day.send:hover .ic{animation:sxWig .6s ease}
+.sx-day .lb{display:none;font:600 .74rem/1.15 var(--sans);letter-spacing:-.005em}
+@media(min-width:700px){.sx-day .lb{display:block}}
+.sx-day.cut{background:transparent;border:1.5px dashed #E0475B;color:#E0475B}
+.sx-day.cut .ic{color:#E0475B}
+.sx-day.ob{box-shadow:inset 0 0 0 2px var(--purple)}
+.sx-day.ob .lb{color:var(--purple-ink)}
+.sx-day.now::after{content:"";position:absolute;right:7px;top:7px;width:7px;height:7px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 3px var(--lilac)}
+.sx-reveal .sx-day.send{opacity:0;transform:scale(.6)}
+.sx-reveal.in .sx-day.send{animation:sxPop .55s cubic-bezier(.2,1.5,.4,1) var(--d,0s) forwards}
+@keyframes sxPop{to{opacity:1;transform:none}}
+.sx-legend{display:flex;flex-wrap:wrap;gap:.4rem 1rem;padding:.3rem 1.15rem .9rem;font-size:.78rem;color:var(--graphite)}
+.sx-legend i{display:inline-block;width:11px;height:11px;border-radius:4px;margin-right:.35rem;vertical-align:-1px}
+.sx-info{display:grid;grid-template-columns:52px 1fr;gap:.9rem;align-items:start;margin:0 .9rem .9rem;padding:1rem;border-radius:20px;background:var(--lilac)}
+[data-theme="dark"] .sx-info{background:#16131F}
+.sx-info .bub{width:52px;height:52px;border-radius:16px;background:var(--ink);color:var(--paper);display:grid;place-items:center}
+.sx-info .bub svg{width:28px;height:28px}
+.sx-info b{display:block;font-size:1rem;margin-bottom:.15rem}
+.sx-info p{margin:0;color:var(--graphite);font-size:.92rem;line-height:1.45}
+.sx-info q{display:block;margin-top:.5rem;font:500 .88rem/1.4 var(--sans);color:var(--ink);quotes:none}
+.sx-info q::before{content:"Subject: ";color:var(--graphite);font-weight:400}
+.sx-info button{appearance:none;border:0;background:none;color:var(--purple-ink);font:600 .88rem var(--sans);padding:.5rem 0 0;cursor:pointer;display:inline-flex;align-items:center;gap:.3rem}
+.sx-info button svg{width:14px;height:14px;transition:transform .2s}
+.sx-info button:hover svg{transform:translateX(3px)}
+.sx-info.swap{animation:sxIn .35s cubic-bezier(.2,1.3,.4,1)}
 
 /* RECEIPT */
 .sx-rgrid{display:grid;gap:1.6rem;align-items:start}
@@ -225,22 +251,45 @@ body{background:var(--paper);color:var(--ink)}
 [data-theme="dark"] .sx-steps li{background:#16131F}
 
 /* BUY */
-.sx-buy{display:grid;gap:1.4rem;background:var(--ink);color:var(--paper);border-radius:var(--radius-lg);padding:1.6rem 1.4rem;position:relative;overflow:hidden}
-@media(min-width:860px){.sx-buy{grid-template-columns:1.1fr .9fr;padding:2.4rem;align-items:center}}
-.sx-buy .sx-price{font:600 clamp(3rem,12vw,4.4rem)/1 var(--sans);letter-spacing:-.03em}
-.sx-buy .sx-price small{font:500 1rem var(--mono);opacity:.65;letter-spacing:0;margin-left:.3rem}
-.sx-buy ul{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.55rem}
-.sx-buy li{display:flex;gap:.55rem;align-items:flex-start;font-size:.95rem;line-height:1.4}
-.sx-buy li svg{width:18px;height:18px;flex:none;margin-top:2px;color:#B9A8FF}
-[data-theme="dark"] .sx-buy li svg{color:#5A3BE0}
-.sx-buy .sx-btn{width:100%;font-size:1.08rem;padding:1.1rem}
-.sx-buy .sx-btn-pay{background:#FFC439;color:#111;box-shadow:0 8px 0 -3px #c99a1e}
-.sx-buy .sx-btn-pay:hover{transform:translateY(-2px)}
-.sx-paynote{font-size:.82rem;opacity:.7;text-align:center;margin:.6rem 0 0;line-height:1.45}
-.sx-cards{display:flex;gap:.35rem;justify-content:center;margin-top:.55rem}
-.sx-cards span{font:700 .62rem/1 var(--mono);border:1px solid var(--on-ink-muted);border-radius:4px;padding:.3rem .35rem;opacity:.75}
-.sx-buy h2{padding-right:3.2rem}
-.sx-ribbon{position:absolute;right:-52px;top:16px;transform:rotate(35deg);background:var(--purple);color:#fff;font:600 .7rem var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:.35rem 3.2rem}
+.sx-buy{display:grid;gap:2.2rem;align-items:center;border-radius:32px;padding:1.6rem 1.2rem 1.8rem;background:radial-gradient(120% 90% at 0% 0%,var(--lilac),transparent 60%),var(--paper);border:1.5px solid var(--rule-strong)}
+@media(min-width:900px){.sx-buy{grid-template-columns:1.05fr .95fr;gap:3.5rem;padding:3rem 3rem 3rem 2.4rem}}
+.sx-stack{position:relative;max-width:420px;margin:0 auto;width:100%;padding:10px 18px 44px 0}
+.sx-sheet{position:relative;background:#fff;color:#1b1b22;border-radius:18px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 24px 40px -24px rgba(23,23,43,.45);padding:16px 16px 14px}
+.sx-sheet.back{position:absolute;inset:22px 0 18px 26px;transform:rotate(4.5deg);background:#EFEAFF;box-shadow:0 18px 30px -24px rgba(23,23,43,.5)}
+.sx-sheet.mid{position:absolute;inset:14px 6px 22px 14px;transform:rotate(2deg);background:#F7F5FF}
+.sx-sheet.front{transform:rotate(-1.2deg);transition:transform .5s cubic-bezier(.2,1.4,.4,1)}
+.sx-stack:hover .sx-sheet.front{transform:rotate(0) translateY(-4px)}
+.sx-dtop{display:flex;align-items:center;gap:9px;padding-bottom:11px;border-bottom:1px solid #eceaf2;margin-bottom:9px}
+.sx-dtop svg{width:26px;height:26px;flex:none}
+.sx-dtop b{display:block;font:600 13.5px/1.2 var(--sans)}
+.sx-dtop small{display:block;font:400 11px var(--mono);color:#6b6b7b;margin-top:2px}
+.sx-drow{display:grid;grid-template-columns:50px 1fr;gap:10px;align-items:center;padding:6px 4px;border-radius:9px;font:500 12.5px/1.3 var(--sans)}
+.sx-drow:nth-child(odd){background:#f8f7fc}
+.sx-drow span{font:600 10.5px/1.1 var(--mono);color:#6545E0;text-align:center;background:#ECE7FF;border-radius:7px;padding:5px 2px}
+.sx-drow em{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sx-dfoot{display:flex;justify-content:space-between;align-items:center;font:500 10.5px var(--mono);color:#6b6b7b;margin-top:9px;padding-top:9px;border-top:1px dashed #dcd8e8}
+.sx-dfoot i{font-style:normal;color:#E0475B;font-weight:600}
+.sx-seal{position:absolute;right:-10px;bottom:-34px;width:112px;height:112px;z-index:3;filter:drop-shadow(0 10px 16px rgba(23,23,43,.28))}
+.sx-seal .ring{transform-origin:56px 56px;animation:sxRot 22s linear infinite}
+@keyframes sxRot{to{transform:rotate(360deg)}}
+@media(max-width:640px){.sx-stack{padding-bottom:64px}.sx-seal{width:88px;height:88px;right:-2px;bottom:-4px}}
+.sx-pk{font:600 .74rem var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--purple-ink);margin:0 0 .5rem}
+.sx-buy .sx-price{display:flex;align-items:flex-end;gap:.7rem;margin:.2rem 0 .3rem}
+.sx-buy .sx-price strong{font:600 clamp(3.2rem,12vw,4.6rem)/.9 var(--sans);letter-spacing:-.04em}
+.sx-buy .sx-price span{font-size:.86rem;line-height:1.3;color:var(--graphite);padding-bottom:.35rem}
+.sx-buy .sx-price span b{color:var(--ink);display:block}
+.sx-perks{list-style:none;padding:0;margin:1.2rem 0 1.4rem;display:grid;gap:.7rem}
+.sx-perks li{display:grid;grid-template-columns:36px 1fr;gap:.75rem;align-items:center;font-size:.95rem;line-height:1.35}
+.sx-perks li i{width:36px;height:36px;border-radius:11px;background:var(--paper);border:1.5px solid var(--rule-strong);display:grid;place-items:center;color:var(--purple-ink)}
+.sx-perks li i svg{width:19px;height:19px}
+.sx-perks small{display:block;color:var(--graphite);font-size:.82rem}
+.sx-paybtn{width:100%;font-size:1.06rem;padding:1.15rem 1.2rem;background:var(--ink);color:var(--paper);box-shadow:0 7px 0 -1px var(--purple),0 18px 30px -16px rgba(106,71,245,.7);position:relative;overflow:hidden}
+.sx-paybtn:hover{transform:translateY(-2px);box-shadow:0 9px 0 -1px var(--purple),0 22px 34px -16px rgba(106,71,245,.8)}
+.sx-paybtn::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);animation:sxShine 4.5s ease-in-out infinite}
+@keyframes sxShine{0%,70%{left:-60%}100%{left:130%}}
+.sx-trust{display:grid;gap:.45rem;margin-top:1rem;font-size:.82rem;color:var(--graphite)}
+.sx-trust div{display:flex;gap:.5rem;align-items:center}
+.sx-trust svg{width:15px;height:15px;flex:none;color:var(--ink)}
 
 /* FAQ */
 .sx-faq{display:grid;gap:.55rem;max-width:760px}
@@ -332,14 +381,15 @@ body{background:var(--paper);color:var(--ink)}
 <section class="sx-sec sx-reveal" aria-labelledby="mapT">
   <div class="sx-wrap">
     <h2 class="sx-h2" id="mapT">Your December, mapped to the day.</h2>
-    <p class="sx-sub">6 emails, each on the day it earns most. The shipping deadline email is worked out from the USPS cutoff of Thu 17 Dec minus your packing time.</p>
-    <div class="sx-clock" id="clock" aria-live="polite">
-      <div class="sx-digits"><div><b id="cD">0</b><small>days</small></div><div><b id="cH">0</b><small>hrs</small></div><div><b id="cM">0</b><small>min</small></div></div>
-      <p id="clockMsg">Order by <strong>Tue 1 Dec</strong> to send your gift guide on Thu 3 Dec.</p>
-    </div>
-    <div class="sx-map" data-visual>
-      <svg id="mapSvg" viewBox="0 44 360 104" role="img" aria-label="December timeline with the 6 send dates and the USPS cutoff"></svg>
-      <div class="sx-maptip" id="mapTip">Tap a numbered dot to see what goes out that day.</div>
+    <p class="sx-sub">Each email lands on the day it does most. Tap a day to see what goes out.</p>
+    <div class="sx-cal" data-visual>
+      <div class="sx-calhead">
+        <h3 id="calTitle">December 2026<small id="calSub">Your 6 send days</small></h3>
+        <div class="sx-cd" id="clock" aria-live="polite"><span id="clockMsg">Order by <strong>Tue 1 Dec</strong></span><b id="cD">0</b><b id="cH">0</b><b id="cM">0</b></div>
+      </div>
+      <div class="sx-grid" id="calGrid" role="grid" aria-label="December 2026 send calendar"></div>
+      <div class="sx-legend"><span><i style="background:var(--ink)"></i>Email sends</span><span><i style="box-shadow:inset 0 0 0 2px var(--purple)"></i>Last day to order</span><span><i style="border:1.5px dashed #E0475B"></i>USPS cutoff</span></div>
+      <div class="sx-info" id="calInfo" aria-live="polite"></div>
     </div>
   </div>
 </section>
@@ -393,20 +443,29 @@ body{background:var(--paper);color:var(--ink)}
 <section class="sx-sec sx-reveal" id="buy" aria-labelledby="buyT">
   <div class="sx-wrap">
     <div class="sx-buy">
-      <span class="sx-ribbon" aria-hidden="true">Dec 2026</span>
-      <div>
-        <h2 class="sx-h2" id="buyT" style="color:inherit;margin-bottom:.8rem">Your December email pack</h2>
-        <div class="sx-price">$249<small>USD, once</small></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>6 emails from your products, prices and packing time</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>In your inbox within 24 hours, as a Google Doc</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Send none of them? Full refund</li>
-        </ul>
+      <div class="sx-stack" data-visual aria-hidden="true">
+        <div class="sx-sheet back"></div><div class="sx-sheet mid"></div>
+        <div class="sx-sheet front">
+          <div class="sx-dtop"><svg viewBox="0 0 26 26"><rect x="3" y="1" width="20" height="24" rx="4" fill="#7C5CFC"/><path d="M8 9h10M8 13h10M8 17h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><div><b id="docTitle">Your shop · December emails</b><small>Google Doc · 6 emails</small></div></div>
+          <div id="docRows"></div>
+          <div class="sx-dfoot"><span><span id="docCut">Last order day Tue 15 Dec</span> · <i>USPS 17 Dec</i></span></div>
+        </div>
+        <svg class="sx-seal" viewBox="0 0 112 112"><defs><path id="sealPath" d="M56 56m-40 0a40 40 0 1 1 80 0a40 40 0 1 1-80 0"/></defs><circle cx="56" cy="56" r="54" fill="#17172B"/><circle cx="56" cy="56" r="47" fill="none" stroke="rgba(255,255,255,.25)" stroke-dasharray="2 4"/><g class="ring"><text font-family="var(--mono)" font-size="9.6" font-weight="600" letter-spacing="2.2" fill="#fff"><textPath href="#sealPath">SEND NONE · FULL REFUND · SEND NONE · FULL REFUND ·</textPath></text></g><circle cx="56" cy="56" r="21" fill="#7C5CFC"/><path d="M47 56l6 6 12-13" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div>
-        <a class="sx-btn sx-btn-pay js-pay" id="payBtn" href="#" rel="noopener">Pay $249 and get my pack</a>
-        <div class="sx-cards" aria-label="Accepted"><span>PAYPAL</span><span>VISA</span><span>MASTERCARD</span><span>AMEX</span></div>
-        <p class="sx-paynote" id="payNote">Card works without a PayPal account. Orders close Mon 14 Dec.</p>
+        <p class="sx-pk">Your December email pack</p>
+        <h2 class="sx-h2" id="buyT">6 emails, ready to paste and schedule.</h2>
+        <div class="sx-price"><strong>$249</strong><span><b>1 payment</b>about $41 an email</span></div>
+        <ul class="sx-perks">
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></i><div>Built from your products and packing time<small>Every name and price checked against your live shop</small></div></li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></i><div>In your inbox within 24 hours<small>As a Google Doc, with 1 round of changes the same day</small></div></li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg></i><div>Send none of them? Full refund<small>Reply to your pack email and the $249 goes back</small></div></li>
+        </ul>
+        <a class="sx-btn sx-paybtn js-pay" id="payBtn" href="#" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2.5"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>Pay $249 with PayPal or card</a>
+        <div class="sx-trust">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Secure checkout by PayPal. No PayPal account needed.</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16"/></svg><span id="payNote">Orders close Mon 14 Dec.</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -606,12 +665,12 @@ inbox.addEventListener("click",function(ev){var r=ev.target.closest(".sx-row");i
 mail.addEventListener("click",function(ev){var b=ev.target.closest(".sx-swap");if(!b)return;var ei=+b.dataset.e,s=+b.dataset.s;if(swap(ei,s)){var y=mail.scrollTop;EMAILS=build();openMail(ei);mail.scrollTop=y;var nb=mail.querySelector('.sx-swap[data-s="'+s+'"]');if(nb){nb.classList.add("spin")}renderInbox(false)}});
 function renderJump(){var j=$("jump");j.innerHTML=EMAILS.map(function(e,i){return '<button type="button" data-i="'+i+'" aria-pressed="false">'+e.date.getUTCDate()+' Dec · '+e.kind+'</button>'}).join("");}
 $("jump").addEventListener("click",function(ev){var b=ev.target.closest("button");if(b){stopDemo();openMail(+b.dataset.i)}});
-$("packDays").addEventListener("change",function(){pack=+this.value;EMAILS=build();renderInbox(false);renderJump();if(cur>-1)openMail(cur);drawMap();tick()});
+$("packDays").addEventListener("change",function(){pack=+this.value;EMAILS=build();renderInbox(false);renderJump();if(cur>-1)openMail(cur);renderCal();renderDoc();tick()});
 
 /* ---------- demo loop with example shop ---------- */
 var demoT=null,demoOn=true;
 function stopDemo(){demoOn=false;clearTimeout(demoT)}
-function useShop(s,animate){S=s;tierCut=null;pickInitial();EMAILS=build();closeMail();renderJump();$("packRow").hidden=!!s.example;drawMap();drawReceipt();if(!s.example&&!s.us)showErr("<b>"+esc(s.name)+"</b> ships from outside the US. The preview uses US dates. At checkout, tell me your carrier and your pack uses its Christmas cutoff.");return renderInbox(animate)}
+function useShop(s,animate){S=s;tierCut=null;pickInitial();EMAILS=build();closeMail();renderJump();$("packRow").hidden=!!s.example;renderCal();renderDoc();drawReceipt();if(!s.example&&!s.us)showErr("<b>"+esc(s.name)+"</b> ships from outside the US. The preview uses US dates. At checkout, tell me your carrier and your pack uses its Christmas cutoff.");return renderInbox(animate)}
 function startDemo(){useShop(EX,!reduce).then(function(){if(!demoOn)return;demoT=setTimeout(function(){if(demoOn){openMail(1);demoT=setTimeout(function(){if(demoOn)closeMail()},3800)}},1600)})}
 
 /* ---------- form ---------- */
@@ -648,38 +707,52 @@ function target(){
   return {t:CLOSE,ob:D(11,14),send:dates[5],i:5}}
 function tick(){
   var tg=target();
-  if(!tg){$("clockMsg").innerHTML="Orders for December 2026 are closed. See you next year.";["cD","cH","cM"].forEach(function(id){$(id).textContent="0"});[].forEach.call(document.querySelectorAll(".js-pay"),function(a){a.setAttribute("aria-disabled","true");a.style.pointerEvents="none";a.style.opacity=".5"});return}
+  if(!tg){$("clockMsg").innerHTML="<strong>Orders are closed</strong>for December 2026";["cD","cH","cM"].forEach(function(id){$(id).textContent="0"});[].forEach.call(document.querySelectorAll(".js-pay"),function(a){a.setAttribute("aria-disabled","true");a.style.pointerEvents="none";a.style.opacity=".5"});return}
   var ms=tg.t-Date.now(),d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4);
-  $("cD").textContent=d;$("cH").textContent=h;$("cM").textContent=m;
+  $("cD").innerHTML=d+"<i>d</i>";$("cH").innerHTML=h+"<i>h</i>";$("cM").innerHTML=m+"<i>m</i>";
   var all=tg.i===0;
-  $("clockMsg").innerHTML="Order by <strong>"+fmt(tg.ob)+"</strong> to send "+(all?"all 6 emails, starting with your gift guide on "+fmt(tg.send):"your "+KINDS[tg.i].toLowerCase()+" email on "+fmt(tg.send)+(tg.i<5?" and every one after it":""))+".";
+  $("clockMsg").innerHTML=(all?"Order for all 6 by":"Order for the "+KINDS[tg.i].toLowerCase()+" on")+"<strong>"+fmt(tg.ob)+"</strong>";
   $("stickyMsg").textContent="Order by "+fmt(tg.ob)+" for "+(all?"all 6":"the "+KINDS[tg.i].toLowerCase()+" email")}
 setInterval(tick,30000);
 
-/* ---------- map ---------- */
-var NS="http://www.w3.org/2000/svg";
-function drawMap(){
-  var svg=$("mapSvg");if(!svg)return;
-  var x0=18,x1=342,start=D(10,27),days=35;function X(d){return x0+(d-start)/864e5*(x1-x0)/days}
-  var dates=EMAILS.length?EMAILS.map(function(e){return e.date}):sendDates(pack);
-  var today=new Date();today=D(today.getUTCMonth(),today.getUTCDate());if(today<start)today=start;if(today>D(11,31))today=D(11,31);
-  var h='<line x1="'+x0+'" y1="92" x2="'+x1+'" y2="92" stroke="var(--rule-strong)" stroke-width="2" stroke-linecap="round"/>';
-  h+='<line x1="'+x0+'" y1="92" x2="'+X(today)+'" y2="92" stroke="var(--purple)" stroke-width="4" stroke-linecap="round"/>';
-  [D(11,1),D(11,7),D(11,14),D(11,21),D(11,28)].forEach(function(d){h+='<line x1="'+X(d)+'" y1="88" x2="'+X(d)+'" y2="96" stroke="var(--rule-strong)"/><text class="mono" x="'+X(d)+'" y="112" font-size="8.5" text-anchor="middle" opacity=".6">'+d.getUTCDate()+' Dec</text>'});
-  var ux=X(USPS);
-  h+='<g><line x1="'+ux+'" y1="92" x2="'+ux+'" y2="128" stroke="#E0475B" stroke-width="1.5" stroke-dasharray="2 2"/><path d="M'+ux+' 128v-12l13 4-13 4" fill="#E0475B"/><text x="'+(ux+3)+'" y="140" font-size="9.5" font-weight="600" fill="#E0475B" text-anchor="middle">USPS cutoff 17 Dec</text></g>';
-  dates.forEach(function(d,i){var x=X(d);
-    h+='<g class="m" data-i="'+i+'" tabindex="0" role="button" aria-label="'+KINDS[i]+' on '+fmt(d)+'"><circle cx="'+x+'" cy="92" r="6.6" fill="var(--paper)" stroke="var(--purple)" stroke-width="2.2"/><text class="mono" x="'+x+'" y="95" font-size="8" font-weight="700" text-anchor="middle" fill="var(--purple-ink)" style="pointer-events:none">'+(i+1)+'</text></g>'});
-  h+='<g class="sx-truck" id="truck" style="transform:translate('+(X(today)-14)+'px,62px)"><rect x="0" y="6" width="17" height="13" rx="2" fill="var(--ink)"/><path d="M17 9h6l4 5v5H17z" fill="var(--ink)"/><rect x="19" y="10.5" width="4" height="3" rx=".6" fill="var(--paper)"/><circle cx="6" cy="20" r="3" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/><circle cx="22" cy="20" r="3" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/><rect x="3" y="9" width="8" height="5" rx="1" fill="var(--purple)"/></g><text class="mono" x="'+X(today)+'" y="58" font-size="7" text-anchor="middle" fill="var(--purple-ink)" font-weight="600">TODAY</text>';
-  svg.innerHTML=h;
-  setTimeout(function(){if(EMAILS.length)selMark(mapPick())},0);
-  if(!reduce&&!drawMap.done){var tr=$("truck");tr.style.transform="translate("+(x0-30)+"px,62px)";drawMap.pend=function(){tr.style.transform="translate("+(X(today)-14)+"px,62px)"};}
-}
-$("mapSvg").addEventListener("click",function(ev){var g=ev.target.closest(".m");if(g)selMark(+g.dataset.i)});
-$("mapSvg").addEventListener("keydown",function(ev){if((ev.key==="Enter"||ev.key===" ")&&ev.target.closest(".m")){ev.preventDefault();selMark(+ev.target.closest(".m").dataset.i)}});
-function mapPick(){var now=Date.now();for(var i=0;i<EMAILS.length;i++)if(EMAILS[i].date.getTime()+864e5>now)return i;return 5}
-var TIPS=["Gift guide: 3 picks at 3 prices, sent while people are still making lists.","Shipping deadline: the last day to order for Christmas, worked out from your packing time.","Gift card: for everyone who missed shipping. Sells right up to the 24th. No gift cards? It shows your smallest pieces.","Thank you: a short note with no sale in it. Keeps people opening January emails.","After-Christmas sale: your discount, or new arrivals if you don't run one.","New Year: 1 product for a fresh start, while gift money is still in pockets."];
-function selMark(i){[].forEach.call(document.querySelectorAll("#mapSvg .m"),function(g){g.classList.toggle("sel",+g.dataset.i===i)});var e=EMAILS[i];$("mapTip").innerHTML="<b>"+(i+1)+". "+KINDS[i]+", "+fmt(e.date)+".</b> "+esc(TIPS[i].replace(/^[^:]+: /,""))}
+/* ---------- calendar + doc ---------- */
+var ICO={"0": "<path d=\"M4 11h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z\"/><path d=\"M3 7h18v4H3zM12 7v14\"/><path d=\"M12 7C10 3 6 3.5 7 6c.5 1.2 3 1 5 1zm0 0c2-4 6-3.5 5-1-.5 1.2-3 1-5 1z\"/>", "1": "<path d=\"M2 6h11v10H2zM13 9h4l3 3.5V16h-7\"/><circle cx=\"6\" cy=\"17.5\" r=\"2\"/><circle cx=\"16.5\" cy=\"17.5\" r=\"2\"/>", "2": "<rect x=\"3\" y=\"6\" width=\"18\" height=\"13\" rx=\"2.5\"/><path d=\"M3 10h18M7 15h4\"/>", "3": "<path d=\"M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z\"/>", "4": "<path d=\"M3 12V4h8l10 10-8 8z\"/><circle cx=\"7.5\" cy=\"8.5\" r=\"1.5\"/>", "5": "<path d=\"M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6\"/>", "cut": "<path d=\"M5 21V4M5 4h11l-2 4 2 4H5\"/>"};
+function ico(k,cls){return '<svg class="'+(cls||"ic")+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+ICO[k]+'</svg>'}
+var TIPS=["3 picks at 3 prices, sent while people are still making their lists.","The last day to order for Christmas delivery, worked out from your packing time and the USPS cutoff.","For everyone who missed shipping. Shops without gift cards get their smallest pieces instead.","A short note with no sale in it. It keeps people opening your January emails.","Your discount, or new arrivals if you don't run a sale.","1 product for a fresh start, while gift money is still in pockets."];
+var calSel=-1;
+function renderCal(){
+  var g=$("calGrid");if(!g)return;
+  var dates=EMAILS.length?EMAILS.map(function(e){return e.date}):sendDates(pack),ob=orderBy(pack),byDay={};
+  dates.forEach(function(d,i){byDay[d.getUTCDate()]=i});
+  var now=new Date(),nowD=(now.getUTCFullYear()===Y&&now.getUTCMonth()===11)?now.getUTCDate():-1;
+  var h=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(function(d){return '<div class="sx-dow">'+d+'</div>'}).join("");
+  var lead=(D(11,1).getUTCDay()+6)%7;
+  for(var k=lead;k>0;k--)h+='<div class="sx-day out">'+(31-k)+'</div>';
+  var n=0;
+  for(var day=1;day<=31;day++){
+    var i=byDay[day],cls="sx-day",inner='<span>'+day+'</span>';
+    if(day===nowD)cls+=" now";
+    if(i!=null){cls+=" send";inner+=ico(i)+'<span class="lb">'+esc(KINDS[i])+'</span>';h+='<button type="button" class="'+cls+'" data-i="'+i+'" style="--d:'+(n++*0.08)+'s" aria-label="'+esc(KINDS[i])+' email, '+fmt(dates[i])+'">'+inner+'</button>';continue}
+    if(day===17){h+='<div class="'+cls+' cut">'+inner+ico("cut")+'<span class="lb">USPS cutoff</span></div>';continue}
+    if(day===ob.getUTCDate()){h+='<div class="'+cls+' ob">'+inner+'<span class="lb">Last order day</span></div>';continue}
+    h+='<div class="'+cls+'">'+inner+'</div>'}
+  var tail=(7-(lead+31)%7)%7;for(k=1;k<=tail;k++)h+='<div class="sx-day out">'+k+'</div>';
+  g.innerHTML=h;
+  $("calSub").textContent=S&&!S.example?"Send days for "+S.name:"Your 6 send days";
+  calPick(calSel>-1?calSel:nextIdx())}
+function nextIdx(){var now=Date.now();for(var i=0;i<6;i++){var d=EMAILS[i]?EMAILS[i].date:sendDates(pack)[i];if(d.getTime()+864e5>now)return i}return 5}
+function calPick(i){
+  calSel=i;[].forEach.call(document.querySelectorAll("#calGrid .send"),function(b){b.classList.toggle("sel",+b.dataset.i===i);b.setAttribute("aria-pressed",+b.dataset.i===i?"true":"false")});
+  var e=EMAILS[i],box=$("calInfo");if(!e)return;
+  box.classList.remove("swap");void box.offsetWidth;box.classList.add("swap");
+  box.innerHTML='<div class="bub">'+ico(i,"")+'</div><div><b>'+fmt(e.date)+' · '+esc(e.kind)+'</b><p>'+esc(TIPS[i])+'</p><q>'+esc(e.s)+'</q><button type="button" id="calOpen">See this email in the phone<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>';
+  $("calOpen").onclick=function(){stopDemo();openMail(i);$("screen").scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"})}}
+$("calGrid").addEventListener("click",function(ev){var b=ev.target.closest(".send");if(b)calPick(+b.dataset.i)});
+function renderDoc(){
+  if(!$("docRows"))return;
+  $("docTitle").textContent=(S&&!S.example?S.name:"Your shop")+" · December emails";
+  $("docRows").innerHTML=EMAILS.map(function(e){return '<div class="sx-drow"><span>'+e.date.getUTCDate()+' DEC</span><em>'+esc(e.s)+'</em></div>'}).join("");
+  $("docCut").textContent="Last order day "+fmt(orderBy(pack))}
 
 /* ---------- receipt ---------- */
 var subs=$("subs"),aov=$("aov"),rc=$("receipt"),RPR=0.10;
@@ -714,8 +787,7 @@ if("IntersectionObserver" in window){
   new IntersectionObserver(function(es){heroOut=!es[0].isIntersecting;updateSticky()},{threshold:0}).observe(document.querySelector(".sx-hero"));
   new IntersectionObserver(function(es){buyIn=es[0].isIntersecting;updateSticky()},{threshold:.2}).observe($("buy"));
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);
-    if(e.target.contains(rc)){setTimeout(function(){rc.classList.add("printed")},250)}
-    if(e.target.contains($("mapSvg"))&&drawMap.pend){setTimeout(drawMap.pend,300);drawMap.done=true}}})},{threshold:.18});
+    if(e.target.contains(rc)){setTimeout(function(){rc.classList.add("printed")},250)}}})},{threshold:.18});
   document.querySelectorAll(".sx-reveal").forEach(function(el){io.observe(el)})
 }else{document.querySelectorAll(".sx-reveal").forEach(function(el){el.classList.add("in")});rc.classList.add("printed")}
 if(!reduce){var sn=$("snow"),sh="";for(var i=0;i<14;i++){sh+='<i style="left:'+(Math.random()*100)+'%;animation-duration:'+(7+Math.random()*7)+'s;animation-delay:-'+(Math.random()*12)+'s;transform:scale('+(0.5+Math.random())+')"></i>'}sn.innerHTML=sh}

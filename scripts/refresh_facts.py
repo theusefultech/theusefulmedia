@@ -107,6 +107,19 @@ def read_reach(facts):
         print("newsletter count not read, keeping old number:", e, file=sys.stderr)
 
 
+APPS_URL = "https://theusefulmedia.com/apps/data/search.json"
+
+
+def read_apps(facts):
+    """27 Nov 2026 (Raja "A"): 1 app number site-wide, the apps listed in The Useful Apps directory right now."""
+    try:
+        n = len(json.loads(fetch(APPS_URL)).get("apps", []))
+        if 100 <= n <= 5000:
+            facts["appsListed"] = f"{n:,}"
+    except Exception as e:
+        print("app count not read, keeping the old one:", e, file=sys.stderr)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--newsletter", help="Beehiiv The Useful Tech active subscribers, e.g. 1,340")
@@ -115,6 +128,7 @@ def main():
     facts = json.loads(FACTS.read_text())
     old = dict(facts)
     read_reach(facts)
+    read_apps(facts)
     if args.newsletter:
         n = num(args.newsletter)
         if 500 <= n <= 100000:
@@ -151,6 +165,9 @@ def main():
         # every <x data-fact="key">value</x>
         s = re.sub(r'(data-fact="(\w+)">)([^<]*)(<)',
                    lambda mm: mm.group(1) + (mm.group(3) if mm.group(2) == "updated" else facts.get(mm.group(2), mm.group(3))) + mm.group(4), s)
+        # count-up numbers tied to a fact: data-count="510" data-fact-n="appsListed">510<
+        s = re.sub(r'data-count="\d+" data-fact-n="(\w+)">[^<]*<',
+                   lambda mm: (f'data-count="{num(facts[mm.group(1)])}" data-fact-n="{mm.group(1)}">{facts[mm.group(1)]}<' if facts.get(mm.group(1)) else mm.group(0)), s)
         # tiles that wait for a number (data-need="key") are hidden until facts.json has it
         s = re.sub(r'(<[a-z]+ [^>]*data-need="(\w+)")( hidden)?', lambda mm: mm.group(1) + ("" if facts.get(mm.group(2)) else " hidden"), s)
         if s != s0:  # numbers moved, so the "as of" date moves too

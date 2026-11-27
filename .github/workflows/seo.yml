@@ -37,6 +37,8 @@ jobs:
         run: python3 scripts/site_wiring.py
       - name: Structured data, alt text, WebP and image sizes
         run: python3 scripts/seo_pass.py
+      - name: Slop ban pass (27 Nov 2026, no semicolons or filler)
+        run: python3 scripts/deslop.py
       - name: Commit SEO fixes
         run: |
           git config user.name "useful-archive-bot"

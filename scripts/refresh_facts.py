@@ -3,11 +3,11 @@
 
 1. Reads The Useful Tech's public Medium stats from mymedium.info/@theusefultech
    (followers, total articles, total views, read ratio) and writes them to
-   sponsor/facts.json. If the page can't be read, the old numbers stay.
+   work-with-me/facts.json. If the page can't be read, the old numbers stay.
 2. Rewrites every place those numbers are typed into the site (homepage, about,
    sponsor, studio, llms.txt and any data-fact span), so nothing is left stale.
    facts.json is the single source: change a number there and every page follows.
-3. Drops booked sponsor dates that are already in the past from sponsor/slots.json.
+3. Drops booked sponsor dates that are already in the past from work-with-me/slots.json.
 
 Run by .github/workflows/refresh-facts.yml once a day. Safe to run any time.
 
@@ -28,7 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FACTS = ROOT / "sponsor" / "facts.json"
 SLOTS = ROOT / "sponsor" / "slots.json"
 STATS_URL = "https://mymedium.info/@theusefultech/"
-PAGES = ["index.html", "about/index.html", "advertise/index.html", "studio/index.html",
+PAGES = ["index.html", "about/index.html", "work-with-me/index.html", "studio/index.html",
          "products/index.html", "network/index.html", "tech/index.html", "llms.txt"]
 
 

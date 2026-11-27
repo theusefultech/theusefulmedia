@@ -1,4 +1,4 @@
-"""Build sponsor/media-kit.pdf from sponsor/facts.json (14 Nov 2026).
+"""Build work-with-me/media-kit.pdf from work-with-me/facts.json (14 Nov 2026).
 
 Every number comes from facts.json, which refresh_facts.py keeps current, so the kit never goes stale.
 Run: python3 scripts/build_media_kit.py   (needs playwright with chromium)
@@ -7,8 +7,8 @@ import base64, json, pathlib, datetime as dt
 from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-F = json.loads((ROOT / "sponsor/facts.json").read_text())
-ICONS = sorted((ROOT / "sponsor/icons").glob("*.jpg"))
+F = json.loads((ROOT / "work-with-me/facts.json").read_text())
+ICONS = sorted((ROOT / "work-with-me/icons").glob("*.jpg"))
 FONT = lambda n: base64.b64encode((ROOT / "assets/fonts" / n).read_bytes()).decode()
 img = lambda p: "data:image/jpeg;base64," + base64.b64encode(p.read_bytes()).decode()
 pct = lambda s: s.rstrip("%")
@@ -64,20 +64,20 @@ h2{{font-size:24px;letter-spacing:-.02em;margin:0 0 14px;font-weight:600}}h3{{fo
 <p class="lede">The Useful Tech is a Medium publication and newsletter about Mac and iPhone apps. Readers come to decide what to install next. Every sponsored post is written from real use: I install your app and use it before I write a word. Sponsored posts are free to read and stay up for good.</p>
 <div class="stats">{"".join(f'<div><b>{v}</b><span>{l}</span></div>' for v, l in stats)}</div>
 <h3>Apps I have worked with</h3><div class="icons">{"".join(f'<img src="{img(p)}">' for p in ICONS)}</div>
-<div class="foot"><a style="color:inherit;text-decoration:none" href="https://theusefulmedia.com/advertise/">theusefulmedia.com/advertise · book a spot</a><span>Numbers as of {day}</span></div></section>
+<div class="foot"><a style="color:inherit;text-decoration:none" href="https://theusefulmedia.com/work-with-me/">theusefulmedia.com/advertise · book a spot</a><span>Numbers as of {day}</span></div></section>
 <section class="pg"><h2>Who reads</h2>
 {"".join(f'<div class="bar"><p>{l} · {v}</p><i style="--w:{pct(v)}%"></i></div>' for l, v in bars)}
 <p class="note">{F["appleShare"]} of newsletter readers are on Apple devices (Beehiiv, last 3 months)</p>
 <h2>Placements</h2>{"".join(f'<div class="pl"><b>{a}<em>{PRICES[a]}</em></b><span>{b}</span></div>' for a, b in place)}
 <h2 style="margin-top:22px">See a live sponsored post</h2>{"".join(f'<a class="ex" href="{u}"><b>{n}</b><span>{t}</span><i>Read it</i></a>' for n, t, u in EXAMPLES)}
-<div class="how"><h2>How it works</h2><p>Book and pay, then send your link and a code. The draft arrives within 5 days, and you approve every line before it goes live. Every link carries your tracking tags. PayPal invoice outside India, UPI or bank transfer in rupees inside India. Book and pay online at <a style="color:#fff" href="https://theusefulmedia.com/advertise/#build">theusefulmedia.com/advertise</a>.</p>
-<p class="m"><a style="color:#fff;text-decoration:none" href="mailto:raja@theusefultech.com">raja@theusefultech.com</a> · <a style="color:#fff;text-decoration:none" href="https://theusefulmedia.com/advertise/">theusefulmedia.com/advertise</a></p></div>
+<div class="how"><h2>How it works</h2><p>Book and pay, then send your link and a code. The draft arrives within 5 days, and you approve every line before it goes live. Every link carries your tracking tags. PayPal invoice outside India, UPI or bank transfer in rupees inside India. Book and pay online at <a style="color:#fff" href="https://theusefulmedia.com/work-with-me/#build">theusefulmedia.com/advertise</a>.</p>
+<p class="m"><a style="color:#fff;text-decoration:none" href="mailto:raja@theusefultech.com">raja@theusefultech.com</a> · <a style="color:#fff;text-decoration:none" href="https://theusefulmedia.com/work-with-me/">theusefulmedia.com/advertise</a></p></div>
 <div class="foot"><span>The Useful Tech by Raja</span><span>Page 2</span></div></section>
 </body></html>"""
 
 with sync_playwright() as p:
     b = p.chromium.launch(); pg = b.new_page()
     pg.set_content(HTML, wait_until="load"); pg.wait_for_timeout(300)
-    pg.pdf(path=str(ROOT / "sponsor/media-kit.pdf"), format="A4", print_background=True)
+    pg.pdf(path=str(ROOT / "work-with-me/media-kit.pdf"), format="A4", print_background=True)
     b.close()
 print("media kit built", day)

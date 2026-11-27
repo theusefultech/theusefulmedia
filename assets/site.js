@@ -670,7 +670,7 @@
     mb.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>';
     hEnd.appendChild(mb);
     var sheet = doc.createElement("div"); sheet.id = "phone-menu"; sheet.className = "phone-menu"; sheet.hidden = true;
-    var hints = { "/tech/": "3 emails a week", "/library/": "Nonfiction worth reading", "/free/": "Free guides and cheat sheets", "/products/": "Guides and templates", "/our-apps/": "Wristkeeper and Textlore", "/apps/": "The Useful Apps", "/advertise/": "Reach Apple users", "/about/": "Who runs this" };
+    var hints = { "/tech/": "3 emails a week", "/library/": "Nonfiction worth reading", "/free/": "Free guides and cheat sheets", "/products/": "Guides and templates", "/our-apps/": "Wristkeeper and Textlore", "/apps/": "The Useful Apps", "/work-with-me/": "Reach Apple users", "/about/": "Who runs this" };
     sheet.innerHTML = '<nav aria-label="Menu">' + $$("a", mainNav).map(function (a) {
       var h = a.getAttribute("href"), cur = a.getAttribute("aria-current") ? ' aria-current="page"' : "";
       return '<a href="' + h + '"' + cur + '><b>' + a.textContent + '</b><small>' + (hints[h] || "") + '</small></a>';

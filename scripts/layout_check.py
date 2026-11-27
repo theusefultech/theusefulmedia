@@ -26,6 +26,7 @@ SETTLE = "*,*::before,*::after{animation:none!important;transition:none!importan
 JS = r"""() => {
  const out = [], seen = new Set(), W = document.documentElement.clientWidth;
  const css = e => getComputedStyle(e);
+ const deco = e => !!e.closest('[aria-hidden="true"],[data-visual],svg');
  /* drawn mockups tilted or scaled on purpose (e.g. a rotated phone) can't be measured with screen boxes; skip them */
  const tilted = e => { for (let p = e; p && p != document.body; p = p.parentElement) { const t = css(p).transform;
    if (t && t != 'none') { const m = t.match(/matrix\(([^)]+)\)/); if (!m) return true; const v = m[1].split(',').map(Number);
@@ -93,6 +94,7 @@ JS = r"""() => {
 COVER_JS = r"""() => {
  const out = [], W = document.documentElement.clientWidth;
  const css = e => getComputedStyle(e);
+ const deco = e => !!e.closest('[aria-hidden="true"],[data-visual],svg');
  /* drawn mockups tilted or scaled on purpose (e.g. a rotated phone) can't be measured with screen boxes; skip them */
  const tilted = e => { for (let p = e; p && p != document.body; p = p.parentElement) { const t = css(p).transform;
    if (t && t != 'none') { const m = t.match(/matrix\(([^)]+)\)/); if (!m) return true; const v = m[1].split(',').map(Number);
@@ -103,7 +105,6 @@ COVER_JS = r"""() => {
    const t = (e.innerText || e.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ').slice(0, 40); return t ? s + ' "' + t + '"' : s; };
  const scroller = e => { const s = css(e); return /(auto|scroll)/.test(s.overflowX) && e.scrollWidth > e.clientWidth + 1; };
  // 4. (27 Nov 2026, the hero-card-over-headline and tour-tip bugs) text hidden under another element that paints something
- const deco = e => !!e.closest('[aria-hidden="true"],[data-visual],svg');
  const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.trim().length > 2 ? 1 : 2 });
  const hidUnder = new Set(); let nCov = 0;
  for (let n; (n = tw.nextNode()) && nCov < 4;) {

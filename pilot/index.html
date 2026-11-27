@@ -349,20 +349,22 @@ body{background:var(--paper);color:var(--ink)}
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Free 30-day outbound pilot for MSPs · The Useful Media Co", "description": "Done-for-you cold email for MSPs and IT companies. We find the businesses near you that need IT help, write to them and book meetings on your calendar. The first 30 days are free.", "url": "https://theusefulmedia.com/pilot/", "inLanguage": "en", "publisher": {"@type": "Organization", "name": "The Useful Media Co", "url": "https://theusefulmedia.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://theusefulmedia.com/"}, {"@type": "ListItem", "position": 2, "name": "Free 30-day outbound pilot for MSPs", "item": "https://theusefulmedia.com/pilot/"}]}</script>
 <style>
-.pp-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1.5px solid var(--ink);border-radius:20px;overflow:hidden;margin:0 0 2.4rem}
-.pp-strip>div{background:var(--paper);padding:1.1rem 1.2rem}
-.pp-strip b{display:block;font-size:clamp(1.5rem,4vw,2.1rem);letter-spacing:-.02em;line-height:1.05}
-.pp-strip span{font-size:.9rem;color:var(--graphite)}
-@media(min-width:760px){.pp-strip{grid-template-columns:repeat(4,1fr)}}
+.pp-ic{width:22px;height:22px;flex:none}
+.pp-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin:0 0 2.6rem}
+.pp-strip>div{border:1.5px solid var(--rule-strong);border-radius:20px;padding:1.1rem 1.2rem;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:.8rem;align-items:center;background:var(--paper)}
+.pp-strip .pp-ic{grid-row:1/3;width:44px;height:44px;padding:10px;border-radius:14px;background:var(--lilac);color:var(--purple-ink)}
+.pp-strip b{font-size:clamp(1.4rem,3.6vw,1.9rem);letter-spacing:-.02em;line-height:1.1}
+.pp-strip span{font-size:.86rem;line-height:1.3;color:var(--graphite)}
+@media(min-width:900px){.pp-strip{grid-template-columns:repeat(4,1fr)}}
 .pp-bento{display:grid;gap:1rem;grid-template-columns:1fr}
 @media(min-width:760px){.pp-bento{grid-template-columns:1fr 1fr}.pp-wide{grid-column:1/-1}}
 @media(min-width:1040px){.pp-bento{grid-template-columns:repeat(3,1fr)}.pp-wide{grid-column:span 2}}
 .pp-tile{border:1.5px solid var(--rule-strong);border-radius:22px;background:var(--paper);padding:1.2rem;display:flex;flex-direction:column;gap:1rem}
-.pp-tile h3{margin:0 0 .3rem;font-size:1.08rem;line-height:1.25}
-.pp-tile p{margin:0;color:var(--graphite);font-size:.94rem;line-height:1.5}
+.pp-tile h3{margin:0 0 .2rem;font-size:1.08rem;line-height:1.25}
+.pp-tile p{margin:0;color:var(--graphite);font-size:.92rem;line-height:1.45}
 .pp-tt{display:flex;gap:.8rem;align-items:flex-start}
 .pp-n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:600 .85rem var(--mono)}
-.pp-cap{font-size:.8rem!important;opacity:.75;margin-top:auto!important}
+.pp-cap{font-size:.78rem!important;opacity:.7;margin-top:auto!important}
 .pp-table{border:1px solid var(--rule);border-radius:14px;overflow:hidden;font-size:.88rem}
 .pp-tr{display:grid;grid-template-columns:1.5fr .5fr 1.4fr 1fr;gap:.6rem;padding:.65rem .9rem;border-top:1px solid var(--rule);align-items:center}
 .pp-tr:first-child{border-top:0}
@@ -371,95 +373,115 @@ body{background:var(--paper);color:var(--ink)}
 .pp-tr i{font-style:normal}
 @media(max-width:560px){.pp-tr{grid-template-columns:1.4fr 1fr}.pp-tr>span:nth-child(2),.pp-tr>span:nth-child(3){display:none}}
 .pp-thread{display:flex;flex-direction:column;gap:.5rem;font-size:.86rem;line-height:1.4}
-.pp-msg{padding:.65rem .8rem;border-radius:14px;max-width:92%}
-.pp-msg b{display:block;font-size:.72rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem;opacity:.75}
+.pp-msg{padding:.6rem .8rem;border-radius:14px;max-width:90%}
+.pp-msg b{display:block;font-size:.68rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.15rem;opacity:.75}
 .pp-msg.them{background:rgba(0,0,0,.05);align-self:flex-start}
 .pp-msg.us{background:var(--purple);color:#fff;align-self:flex-end}
 .pp-cal{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;font-size:.74rem}
 .pp-cd{font:600 .7rem var(--mono);text-transform:uppercase;color:var(--graphite);text-align:center;padding-bottom:2px}
-.pp-cal>div:not(.pp-cd){min-height:46px;border-radius:8px;background:rgba(0,0,0,.035)}
+.pp-cal>div:not(.pp-cd){min-height:50px;border-radius:8px;background:rgba(0,0,0,.035)}
 .pp-cal>div.pp-ev{background:var(--purple);color:#fff;padding:.35rem;font-weight:600;line-height:1.2}
 .pp-cal>div.pp-ev.alt{background:var(--ink);color:var(--paper)}
 .pp-chart .pp-bars{display:flex;align-items:flex-end;gap:10px;height:110px;padding:0 4px;border-bottom:1.5px solid var(--ink)}
-.pp-bars i{flex:1;height:calc(var(--h)*1%);background:linear-gradient(var(--purple),var(--purple));border-radius:8px 8px 0 0;transform-origin:bottom;transition:transform .9s cubic-bezier(.3,1,.4,1)}
+.pp-bars i{flex:1;height:calc(var(--h)*1%);background:var(--purple);border-radius:8px 8px 0 0;transform-origin:bottom;transition:transform .9s cubic-bezier(.3,1,.4,1)}
 .sx-reveal:not(.in) .pp-bars i{transform:scaleY(0)}
 .pp-lbls{display:flex;gap:10px;padding:4px 4px 0}.pp-lbls span{flex:1;text-align:center;font:500 .72rem var(--mono);color:var(--graphite)}
 .pp-dom{display:flex;flex-direction:column;gap:.45rem;font:500 .85rem var(--mono)}
-.pp-dom>div{display:flex;align-items:center;gap:.55rem;border:1px solid var(--rule);border-radius:12px;padding:.6rem .75rem;flex-wrap:wrap}
+.pp-dom>div{display:flex;align-items:center;gap:.55rem;border:1px solid var(--rule);border-radius:12px;padding:.6rem .75rem}
 .pp-dom small{margin-left:auto;font-family:var(--sans);color:var(--graphite);font-size:.78rem}
-.pp-dom .main{border-style:dashed;opacity:.8}
-.pp-dot{width:9px;height:9px;border-radius:50%;background:var(--sx-ok)}.pp-dot.off{background:var(--graphite)}
+.pp-dom .main{border-style:dashed;opacity:.75}
+.pp-dot{width:9px;height:9px;border-radius:50%;background:var(--sx-ok);flex:none}.pp-dot.off{background:var(--graphite)}
 .pp-two{display:grid;gap:2rem;grid-template-columns:1fr;align-items:start}
 @media(min-width:900px){.pp-two{grid-template-columns:1fr 1fr;gap:3rem}}
-.pp-two .pl-card{max-width:none}
+.pp-two .pl-card{max-width:none}.pp-mid{align-items:center}.pp-why{gap:1.2rem;align-items:stretch}
+.pp-big{display:flex;align-items:center;gap:1rem;margin:0 0 1.2rem;padding:1rem 1.2rem;border-radius:18px;background:rgba(224,71,91,.09)}
+.pp-big b{font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:-.03em;color:var(--sx-warn);white-space:nowrap;line-height:1}
+.pp-big span{font-size:.88rem;line-height:1.35;color:var(--graphite)}
 .pp-mail{border:1.5px solid var(--ink);border-radius:22px;background:var(--paper);box-shadow:8px 8px 0 var(--ink);overflow:hidden}
 .pp-mbar{display:flex;align-items:center;gap:6px;padding:.7rem 1rem;border-bottom:1px solid var(--rule);background:var(--lilac)}
 .pp-mbar i{width:10px;height:10px;border-radius:50%;background:var(--rule-strong)}
 .pp-mbar span{margin-left:auto;font:500 .72rem var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--purple-ink)}
 .pp-mhead{padding:.8rem 1.2rem;border-bottom:1px solid var(--rule);font-size:.88rem;display:grid;gap:.3rem}
 .pp-mhead small{display:inline-block;width:62px;color:var(--graphite);font-size:.78rem}
-.pp-mbody{padding:1rem 1.2rem;font-size:.95rem;line-height:1.55}
+.pp-mbody{padding:1rem 1.2rem .4rem;font-size:.95rem;line-height:1.55}
 .pp-mbody p{margin:0 0 .7rem}
-.pp-mnote{margin:0 1.2rem 1.2rem;padding:.75rem .9rem;border-radius:12px;background:rgba(31,157,99,.1);font-size:.86rem;line-height:1.45}
-.pp-tl{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:1fr;counter-reset:t}
-@media(min-width:900px){.pp-tl{grid-template-columns:repeat(5,1fr);gap:.8rem;position:relative}.pp-tl:before{content:"";position:absolute;left:0;right:0;top:15px;height:2px;background:var(--rule-strong)}}
-.pp-tl li{position:relative;display:flex;flex-direction:column;gap:.35rem;padding:0 0 0 0}
-.pp-day{align-self:flex-start;position:relative;font:600 .74rem/1 var(--mono);text-transform:uppercase;letter-spacing:.04em;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:.55rem .7rem;margin-bottom:.3rem}
+.pp-tl{list-style:none;margin:0;padding:0;display:grid;gap:1.2rem;grid-template-columns:1fr;position:relative}
+.pp-tl:before{content:"";position:absolute;left:15px;top:10px;bottom:10px;width:2px;background:var(--rule-strong)}
+.pp-tl li{position:relative;display:grid;grid-template-columns:auto 1fr;column-gap:1rem;padding-left:42px}
+.pp-tl li:before{content:"";position:absolute;left:9px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.pp-tl .pp-day{grid-column:1/-1}
+@media(min-width:900px){.pp-tl{grid-template-columns:repeat(5,1fr);gap:1rem}.pp-tl:before{left:0;right:0;top:15px;bottom:auto;width:auto;height:2px}.pp-tl li{display:flex;flex-direction:column;padding-left:0}.pp-tl li:before{display:none}}
+.pp-day{justify-self:start;align-self:flex-start;position:relative;font:600 .74rem/1 var(--mono);text-transform:uppercase;letter-spacing:.04em;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:.55rem .7rem;margin-bottom:.5rem}
 .pp-day.pp-hot{background:var(--purple);border-color:var(--purple);color:#fff}
-.pp-tl b{font-size:1rem}
-.pp-tl p{margin:0;color:var(--graphite);font-size:.9rem;line-height:1.5}
-.pp-tl em{font-style:normal;font:500 .74rem var(--mono);color:var(--purple-ink);margin-top:auto;padding-top:.3rem}
+.pp-tl b{font-size:1.02rem;grid-column:1/-1}
+.pp-tl p{margin:.15rem 0 0;color:var(--graphite);font-size:.9rem;line-height:1.4;grid-column:1/-1}
 .pp-split{display:grid;gap:1rem;grid-template-columns:1fr}
-@media(min-width:760px){.pp-split{grid-template-columns:1.6fr 1fr}}
-.pp-col{border-radius:22px;padding:1.3rem 1.4rem}
-.pp-col h3{margin:0 0 .8rem;font-size:1.1rem}
-.pp-col ul{margin:0;padding:0;list-style:none;display:grid;gap:.55rem}
-.pp-col li{position:relative;padding-left:1.6rem;line-height:1.4}
-.pp-col li:before{content:"";position:absolute;left:0;top:.3em;width:14px;height:14px;border-radius:50%;background:var(--sx-ok)}
-.pp-col.us{background:var(--ink);color:var(--paper)}
-.pp-col.us ul{grid-template-columns:1fr}
-@media(min-width:900px){.pp-col.us ul{grid-template-columns:1fr 1fr;column-gap:1.4rem}}
-.pp-col.you{border:1.5px solid var(--rule-strong);display:flex;flex-direction:column}
-.pp-col.you li:before{background:var(--purple)}
-.pp-clock{display:flex;align-items:center;gap:.7rem;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.92rem}
-.pp-clock svg{width:42px;height:42px;flex:none}
-.pp-clock b{display:block}
-.pp-prices{display:grid;gap:1.4rem;grid-template-columns:1fr;margin-bottom:1.6rem}
+@media(min-width:900px){.pp-split{grid-template-columns:1.5fr 1fr}}
+.pp-col{border-radius:22px;padding:1.4rem}
+.pp-col h3{margin:0 0 1rem;font-size:1.1rem}
+.pp-col.us{background:var(--ink);color:var(--paper);display:flex;flex-direction:column}.pp-col.us .pp-dogrid{flex:1;grid-auto-rows:1fr}
+.pp-dogrid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+@media(min-width:600px){.pp-dogrid{grid-template-columns:repeat(4,1fr)}}
+.pp-do{display:flex;flex-direction:column;gap:.7rem;padding:1rem .9rem;border-radius:16px;background:rgba(255,255,255,.07);font-size:.9rem;font-weight:600;line-height:1.25}
+.pp-do .pp-ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--purple);color:#fff}
+.pp-col.you{border:1.5px solid var(--ink);display:flex;flex-direction:column;gap:.5rem}
+.pp-you{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.8rem;padding:.55rem 0;border-bottom:1px dashed var(--rule-strong);font-weight:600;font-size:.95rem}
+.pp-you i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--lilac);color:var(--purple-ink);display:grid;place-items:center;font:600 .8rem var(--mono)}
+.pp-you em{font-style:normal;font:600 .76rem var(--mono);color:var(--purple-ink);background:var(--lilac);border-radius:999px;padding:.35rem .6rem}
+.pp-tbar{margin-top:auto;padding-top:1rem}
+.pp-tbar-l{display:flex;justify-content:space-between;align-items:baseline;font-size:.85rem;color:var(--graphite);margin-bottom:.5rem}
+.pp-tbar-l b{font-size:1.5rem;color:var(--ink);letter-spacing:-.02em}
+.pp-tbar-t{display:flex;gap:3px;height:12px}
+.pp-tbar-t i{width:var(--w);background:var(--purple);border-radius:6px}.pp-tbar-t i.b{background:var(--purple-ink)}.pp-tbar-t i.c{background:var(--ink)}
+.pp-prices{display:grid;gap:1.2rem;grid-template-columns:1fr;margin-bottom:1.4rem}
 @media(min-width:860px){.pp-prices{grid-template-columns:repeat(3,1fr)}}
 .pp-plan{border:1.5px solid var(--rule-strong);border-radius:22px;padding:1.4rem;display:flex;flex-direction:column;gap:.6rem;background:var(--paper)}
 .pp-plan.hot{border-color:var(--ink);box-shadow:5px 5px 0 var(--purple)}
-.pp-plan h3{margin:0;font-size:1.15rem}
+.pp-plan h3{margin:0;font-size:1.1rem}
 .pp-badge{align-self:flex-start;font:600 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.05em;background:var(--purple);color:#fff;border-radius:999px;padding:.45rem .65rem}
 .pp-badge.soft{background:var(--lilac);color:var(--purple-ink)}
 .pp-amt b{font-size:2.6rem;letter-spacing:-.03em;line-height:1;display:block}
-.pp-amt span{color:var(--graphite);font-size:.9rem}
-.pp-plan ul{margin:.3rem 0 .6rem;padding:0;list-style:none;display:grid;gap:.45rem;font-size:.93rem}
-.pp-plan li{padding-left:1.4rem;position:relative}
-.pp-plan li:before{content:"";position:absolute;left:0;top:.35em;width:11px;height:6px;border-left:2px solid var(--sx-ok);border-bottom:2px solid var(--sx-ok);transform:rotate(-45deg)}
+.pp-amt span{color:var(--graphite);font-size:.88rem}
+.pp-plan ul{margin:.2rem 0 .6rem;padding:0;list-style:none;display:grid;gap:.45rem;font-size:.92rem}
+.pp-plan li{display:flex;align-items:center;gap:.5rem}
+.pp-plan li .pp-ic{width:18px;height:18px;color:var(--sx-ok)}
 .pp-plan .sx-btn{margin-top:auto}
 .pp-box{border:1.5px solid var(--rule-strong);border-radius:22px;padding:1.3rem 1.4rem}
-.pp-box h3{margin:0 0 .4rem;font-size:1.08rem}
-.pp-box p{line-height:1.5}
-.pp-cost{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-top:1px dashed var(--rule-strong);font-size:.93rem}
+.pp-box h3{margin:0 0 .8rem;font-size:1.05rem}
+.pp-own{display:grid;gap:.5rem;margin:0 0 1rem}.pp-own-r{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}.pp-own i{width:38px;height:38px;border-radius:11px;background:var(--lilac);color:var(--purple-ink);display:grid;place-items:center}.pp-own i.g{background:rgba(31,157,99,.12);color:var(--sx-ok)}.pp-own svg{width:20px;height:20px}.pp-own span{font-size:.85rem;color:var(--graphite);margin-left:.4rem}
+.pp-cost{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-top:1px dashed var(--rule-strong);font-size:.93rem}
 .pp-cost.tot{border-top:1.5px solid var(--ink);font-weight:600}
-.pp-why .pk-bar{grid-template-columns:150px 1fr 130px;font-size:.88rem}
-@media(max-width:560px){.pp-why .pk-bar{grid-template-columns:1fr;}.pp-why .pk-bar>div{order:3}}
-.pp-who{display:flex;gap:1.4rem;align-items:flex-start}
-.pp-proof{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;flex:none}.pp-proof div{border:1.5px solid var(--ink);border-radius:18px;padding:1rem 1.1rem;min-width:150px}.pp-proof b{display:block;font-size:2.4rem;letter-spacing:-.03em;line-height:1;color:var(--purple)}.pp-proof span{font-size:.85rem;color:var(--graphite)}
-@media(max-width:899px){.pp-who{flex-wrap:wrap}.pp-proof{width:100%}}
-.pp-who p{line-height:1.55;max-width:44rem}
-.pp-av{flex:none;width:72px;height:72px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:1.8rem;font-weight:600;box-shadow:5px 5px 0 var(--ink)}
-.pp-faq{display:grid;gap:.6rem;grid-template-columns:1fr;align-items:start}
-@media(min-width:860px){.pp-faq{grid-template-columns:1fr 1fr}}
-.pp-faq details{border:1.5px solid var(--rule-strong);border-radius:16px;padding:0 1.1rem;background:var(--paper)}
-.pp-faq details[open]{border-color:var(--ink)}
-.pp-faq summary{cursor:pointer;list-style:none;font-weight:600;padding:1rem 1.6rem 1rem 0;position:relative}
+.pp-roi{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:stretch;margin-bottom:1.1rem}.pp-roi .vs{align-self:center}
+.pp-roi>div:not(.vs){border-radius:16px;padding:.9rem 1rem;background:rgba(31,157,99,.1)}
+.pp-roi>div:last-child{background:var(--lilac)}
+.pp-note{margin:-.5rem 0 .9rem;font-size:.85rem;color:var(--graphite)}.pp-roi b{display:block;font-size:1.6rem;letter-spacing:-.02em}
+.pp-roi span{font-size:.8rem;line-height:1.3;color:var(--graphite)}
+.pp-roi .vs{font:600 .8rem var(--mono);color:var(--graphite)}
+.pp-why .pk-bar{grid-template-columns:80px 1fr 130px;font-size:.88rem}
+.pp-who{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between}
+.pp-whotxt{display:flex;gap:1.2rem;align-items:center}
+.pp-whotxt p{margin:0;color:var(--graphite);max-width:30rem}
+.pp-av{flex:none;width:64px;height:64px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:1.6rem;font-weight:600;box-shadow:4px 4px 0 var(--ink)}
+.pp-proof{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.pp-proof div{border:1.5px solid var(--ink);border-radius:18px;padding:1rem 1.2rem;min-width:150px}
+.pp-proof b{display:block;font-size:2.4rem;letter-spacing:-.03em;line-height:1;color:var(--purple)}
+.pp-proof span{font-size:.85rem;color:var(--graphite)}
+@media(max-width:600px){.pp-proof{width:100%}}
+.pp-faqgrid{display:grid;gap:2rem;grid-template-columns:1fr;align-items:start}@media(min-width:900px){.pp-faqgrid{grid-template-columns:1fr 320px;gap:3.5rem}.pp-ask{position:sticky;top:24px}}.pp-faqgrid .pp-faq{margin:0}.pp-ask{border:1.5px solid var(--ink);border-radius:22px;padding:1.5rem;display:flex;flex-direction:column;align-items:flex-start;gap:.5rem;box-shadow:6px 6px 0 var(--lilac)}.pp-ask .pp-av{width:52px;height:52px;font-size:1.3rem;margin-bottom:.4rem}.pp-ask b{font-size:1.1rem}.pp-ask p{margin:0 0 .6rem;color:var(--graphite);font-size:.92rem}
+.pp-faq{display:flex;flex-direction:column;border-top:1.5px solid var(--ink);margin:1rem 0 1.2rem}
+.pp-faq details{border-bottom:1px solid var(--rule-strong)}
+.pp-faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:1.02rem;padding:1.1rem 2.4rem 1.1rem 0;position:relative;outline:none}
 .pp-faq summary::-webkit-details-marker{display:none}
-.pp-faq summary:after{content:"+";position:absolute;right:0;top:.85rem;font-size:1.3rem;color:var(--purple)}
-.pp-faq details[open] summary:after{content:"−"}
-.pp-faq p{margin:0 0 1rem;color:var(--graphite);line-height:1.55}
+.pp-faq summary:focus-visible{color:var(--purple-ink);text-decoration:underline;text-underline-offset:4px}
+.pp-faq summary i{position:absolute;right:0;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:50%;background:var(--lilac)}
+.pp-faq summary i:before,.pp-faq summary i:after{content:"";position:absolute;left:8px;right:8px;top:12px;height:2px;background:var(--purple-ink);border-radius:2px;transition:transform .2s}
+.pp-faq summary i:after{transform:rotate(90deg)}
+.pp-faq details[open] summary i:after{transform:rotate(0)}
+.pp-faq p{margin:-.3rem 0 1.1rem;color:var(--graphite);font-size:.95rem;line-height:1.5;max-width:40rem}
+@media(max-width:600px){.pp-why .pk-bar{grid-template-columns:1fr auto}.pp-why .pk-bar>div{grid-column:1/-1;order:3}.pp-roi{grid-template-columns:1fr}.pp-roi .vs{display:none}.pp-big{flex-direction:column;align-items:flex-start;gap:.4rem}}
+.pp-cost b{white-space:nowrap}
 .pp-end{display:flex;flex-direction:column;gap:1.2rem;align-items:flex-start;background:var(--ink);color:var(--paper);border-radius:26px;padding:2rem}
-.pp-end .sx-h2{color:var(--paper)}.pp-end p{margin:0;opacity:.8;max-width:38rem;line-height:1.5}
+.pp-end .sx-h2{color:var(--paper)}.pp-end p{margin:0;opacity:.8;max-width:34rem;line-height:1.5}
 @media(min-width:860px){.pp-end{flex-direction:row;align-items:center;justify-content:space-between;padding:2.4rem 2.6rem}}
 </style>
 
@@ -478,7 +500,7 @@ body{background:var(--paper);color:var(--ink)}
   <div>
     <span class="sx-kick"><i></i>For MSPs and IT companies · 3 pilot spots</span>
     <h1 class="sx-h1" id="h1">We book your next 30 days of meetings. Free.</h1>
-    <p class="sx-lead">Done-for-you cold email for MSPs with 5 to 50 staff. We find the businesses near you that need better IT, write to them, answer every reply and put meetings on your calendar. You keep every meeting either way.</p>
+    <p class="sx-lead">Cold email done for you. We find local businesses that need better IT, write to them and book the meetings. For MSPs with 5 to 50 staff.</p>
     <div class="pk-ctas"><a class="sx-btn sx-btn-ink" href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot&amp;body=Company%3A%20%0AWebsite%3A%20%0AArea%20we%20serve%3A%20">Claim a pilot spot</a><a class="pk-link" href="#get">See what you get</a></div>
     <ul class="sx-chips" aria-label="The pilot at a glance">
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M17 7.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2 2.7 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg>$0 for 30 days</li>
@@ -501,22 +523,16 @@ body{background:var(--paper);color:var(--ink)}
 </div>
 
 <div class="sx-wrap">
-<div class="pp-strip" data-visual aria-label="The pilot in numbers">
-  <div><b>800 to 1,000</b><span>local businesses written to</span></div>
-  <div><b>3</b><span>emails each, written for your area</span></div>
-  <div><b>4 h</b><span>to answer every reply, 7 days a week</span></div>
-  <div><b>$0</b><span>for us during the 30 days</span></div>
-</div>
+<div class="pp-strip" data-visual aria-label="The pilot in numbers"><div><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14c2.8.2 4.5 2.3 4.5 5"/></svg><b>800+</b><span>businesses near you</span></div><div><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><b>3</b><span>emails to each</span></div><div><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><b>4 hrs</b><span>max reply time</span></div><div><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg><b>$0</b><span>our fee for 30 days</span></div></div>
 </div>
 
 <section class="sx-sec sx-reveal" id="get" aria-labelledby="getT">
   <div class="sx-wrap">
-    <h2 class="sx-h2" id="getT">What you get in the 30 days.</h2>
-    <p class="sx-sub">Everything a full-time sales hire would do for new business, done for you. Here is each piece, as you would see it.</p>
+    <h2 class="sx-h2" id="getT">What you get.</h2>
+    <p class="sx-sub">Each piece, as you'll see it.</p>
     <div class="pp-bento">
-
       <article class="pp-tile pp-wide">
-        <div class="pp-tt"><span class="pp-n">1</span><div><h3>A list of businesses near you that need better IT</h3><p>Law, accounting, dental, medical and insurance firms in your area and size range. Each row has the decision-maker, a checked email and 1 real problem we found in public records.</p></div></div>
+        <div class="pp-tt"><span class="pp-n">1</span><div><h3>A list of businesses near you</h3><p>Decision-maker, checked email and 1 real problem for each.</p></div></div>
         <div class="pp-table" role="table" aria-label="Example lead list">
           <div class="pp-tr pp-th" role="row"><span role="columnheader">Business</span><span role="columnheader">Staff</span><span role="columnheader">Contact</span><span role="columnheader">Found</span></div>
           <div class="pp-tr" role="row"><span role="cell"><b>Harper &amp; Lane Law</b><small>Law firm</small></span><span role="cell">12</span><span role="cell">Dana Harper, Partner</span><span role="cell"><i class="pl-pill bad">No DMARC</i></span></div>
@@ -524,89 +540,80 @@ body{background:var(--paper);color:var(--ink)}
           <div class="pp-tr" role="row"><span role="cell"><b>Northside Dental</b><small>3 locations</small></span><span role="cell">26</span><span role="cell">Priya Nair, Office manager</span><span role="cell"><i class="pl-pill warn">DMARC off</i></span></div>
           <div class="pp-tr" role="row"><span role="cell"><b>Brightwater Insurance</b><small>Insurance</small></span><span role="cell">15</span><span role="cell">Mark Ellis, Principal</span><span role="cell"><i class="pl-pill bad">No SPF</i></span></div>
         </div>
-        <p class="pp-cap">Example rows. Your list is built for your area and checked the day it is used.</p>
+        <p class="pp-cap">Example rows.</p>
       </article>
-
       <article class="pp-tile">
-        <div class="pp-tt"><span class="pp-n">2</span><div><h3>Every reply answered within 4 hours</h3><p>In your voice, on weekends too. Interested people get your booking link. "Not now" gets a polite close and a note for later.</p></div></div>
+        <div class="pp-tt"><span class="pp-n">2</span><div><h3>Every reply answered</h3><p>Within 4 hours, in your voice.</p></div></div>
         <div class="pp-thread" aria-label="Example reply thread">
-          <div class="pp-msg them"><b>Tom Kessler</b>Who are you and how did you find this?</div>
-          <div class="pp-msg us"><b>You (sent for you)</b>Hi Tom, Mike from Northgate IT. We look after 14 firms in Columbus and checked yours in public DNS. Want the 1 record that fixes it? Or grab 15 minutes here.</div>
+          <div class="pp-msg them"><b>Tom Kessler</b>Who are you?</div>
+          <div class="pp-msg us"><b>You, sent for you</b>Mike from Northgate IT. We look after 14 firms in Columbus. Grab 15 minutes here?</div>
           <div class="pp-msg them"><b>Tom Kessler</b>Thursday works.</div>
         </div>
       </article>
-
       <article class="pp-tile">
-        <div class="pp-tt"><span class="pp-n">3</span><div><h3>Meetings land on your calendar</h3><p>Booked through your own scheduling link, with notes on who they are and what they asked.</p></div></div>
+        <div class="pp-tt"><span class="pp-n">3</span><div><h3>Meetings on your calendar</h3><p>With notes on each one.</p></div></div>
         <div class="pp-cal" aria-label="Example calendar week">
           <div class="pp-cd">Mon</div><div class="pp-cd">Tue</div><div class="pp-cd">Wed</div><div class="pp-cd">Thu</div><div class="pp-cd">Fri</div>
-          <div></div><div class="pp-ev" style="--r:2">10:00 Harper &amp; Lane</div><div></div><div class="pp-ev" style="--r:3">11:00 Kessler CPA</div><div></div>
-          <div></div><div></div><div class="pp-ev alt" style="--r:4">2:30 Northside Dental</div><div></div><div></div>
+          <div></div><div class="pp-ev">10:00 Harper &amp; Lane</div><div></div><div class="pp-ev">11:00 Kessler CPA</div><div></div>
+          <div></div><div></div><div class="pp-ev alt">2:30 Northside Dental</div><div></div><div></div>
         </div>
       </article>
-
       <article class="pp-tile">
-        <div class="pp-tt"><span class="pp-n">4</span><div><h3>A Friday update and a full report</h3><p>Sends, replies and meetings every week. Before the 30 days end, the report lists every meeting, so you decide on real numbers.</p></div></div>
+        <div class="pp-tt"><span class="pp-n">4</span><div><h3>A report every Friday</h3><p>Sends, replies and meetings.</p></div></div>
         <div class="pp-chart" aria-label="Example weekly report chart">
           <div class="pp-bars"><i style="--h:30"></i><i style="--h:62"></i><i style="--h:88"></i><i style="--h:100"></i></div>
           <div class="pp-lbls"><span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span></div>
-          <p class="pp-cap">Example shape: sends ramp up as the inboxes warm.</p>
         </div>
       </article>
-
       <article class="pp-tile">
-        <div class="pp-tt"><span class="pp-n">5</span><div><h3>A sending setup you own</h3><p>New domains that look like yours and a few Google inboxes, on your card and in your name. Keep them whatever you decide.</p></div></div>
+        <div class="pp-tt"><span class="pp-n">5</span><div><h3>A sending setup you own</h3><p>Look-alike domains. Your main one is never used.</p></div></div>
         <div class="pp-dom" aria-label="Example sending domains">
           <div><span class="pp-dot"></span>getnorthgateit.com<small>3 inboxes</small></div>
           <div><span class="pp-dot"></span>northgate-it.com<small>3 inboxes</small></div>
-          <div class="main"><span class="pp-dot off"></span>northgateit.com<small>Your main domain. Never used.</small></div>
+          <div class="main"><span class="pp-dot off"></span>northgateit.com<small>Untouched</small></div>
         </div>
       </article>
-
     </div>
   </div>
 </section>
 
 <section class="sx-sec sx-reveal" aria-labelledby="hookT">
-  <div class="sx-wrap pp-two">
+  <div class="sx-wrap pp-two pp-mid">
     <div>
-      <h2 class="sx-h2" id="hookT">Every email opens with a real problem, not a sales line.</h2>
-      <p class="sx-sub">Before writing to a business, we check its email security in public DNS. A firm with no DMARC record can be spoofed today: anyone can send an email that looks like it came from them. In our checks across 14 US cities, 21 to 34 of every 40 small professional firms had no DMARC or had it switched off.</p>
-      <div class="pl-card" data-visual>
-        <div class="pl-head"><b>10 firms near you, checked this morning</b><small>What a pilot list looks like. Example names.</small></div>
-        <div class="pl-firm"><div><b>Harper &amp; Lane Law</b><small>Law firm</small></div><span class="pl-pill bad">No DMARC</span></div><div class="pl-firm"><div><b>Kessler CPA</b><small>Accounting</small></div><span class="pl-pill bad">No DMARC</span></div><div class="pl-firm"><div><b>Northside Dental Group</b><small>Dental</small></div><span class="pl-pill warn">DMARC set to none</span></div><div class="pl-firm"><div><b>Ridgeview Family Medicine</b><small>Medical</small></div><span class="pl-pill ok">Protected</span></div>
-        <p class="pk-muted" style="margin:.8rem 0 0">+ 6 more in the full list, each with the decision-maker's name.</p>
+      <h2 class="sx-h2" id="hookT">Every email opens with a real problem.</h2>
+      <p class="sx-sub">We check each firm's email security first. Most small firms can be spoofed today.</p>
+      <div class="pp-big" data-visual><b>Up to 34 of 40</b><span>small firms per city had no DMARC protection in our checks across 14 US cities</span></div>
+      <div class="pl-card">
+        <div class="pl-head"><b>Firms near you, checked this morning</b><small>Example names.</small></div>
+        <div class="pl-firm"><div><b>Harper &amp; Lane Law</b><small>Law firm</small></div><span class="pl-pill bad">No DMARC</span></div><div class="pl-firm"><div><b>Kessler CPA</b><small>Accounting</small></div><span class="pl-pill bad">No DMARC</span></div><div class="pl-firm"><div><b>Northside Dental Group</b><small>Dental</small></div><span class="pl-pill warn">DMARC set to none</span></div>
       </div>
     </div>
     <div class="pp-mail" data-visual aria-label="Example first email">
       <div class="pp-mbar"><i></i><i></i><i></i><span>Email 1 of 3 · example</span></div>
       <div class="pp-mhead">
-        <div><small>From</small>Mike Reyes &lt;mike@getnorthgateit.com&gt;</div>
+        <div><small>From</small>Mike Reyes, Northgate IT</div>
         <div><small>To</small>Dana Harper</div>
         <div><small>Subject</small><b>harperlane.com can be spoofed</b></div>
       </div>
       <div class="pp-mbody">
         <p>Hi Dana,</p>
-        <p>I checked harperlane.com this morning. It has no DMARC record, so anyone can send an email that looks like it came from your firm, to your clients, asking them to wire a retainer.</p>
-        <p>The fix is 1 DNS record and about 20 minutes. We look after IT for 14 law and accounting firms around Columbus.</p>
-        <p>Want me to send you the exact record to add? No charge.</p>
+        <p>harperlane.com has no DMARC record. Anyone can email your clients as your firm and ask them to wire a retainer.</p>
+        <p>The fix is 1 DNS record. Want me to send it? No charge.</p>
         <p>Mike Reyes<br>Northgate IT</p>
       </div>
-      <div class="pp-mnote"><b>Why it works:</b> it names their domain, a risk their clients face and a free fix. The meeting comes from the follow-up questions.</div>
     </div>
   </div>
 </section>
 
 <section class="sx-sec sx-reveal" id="how" aria-labelledby="howT">
   <div class="sx-wrap">
-    <h2 class="sx-h2" id="howT">How the pilot runs, day by day.</h2>
-    <p class="sx-sub">About 30 minutes of your time before the first send. After that, you only take the calls.</p>
+    <h2 class="sx-h2" id="howT">From yes to meetings.</h2>
     <ol class="pp-tl" data-visual>
-      <li><span class="pp-day">Day 1</span><b>You answer 8 questions</b><p>Services, best client type, area, contract size, 2 wins, booking link, who takes calls, anything off-limits.</p><em>10 min of your time</em></li>
-      <li><span class="pp-day">Day 2</span><b>You buy the sending setup</b><p>2 domains and 6 Google inboxes from a 1-page checklist. You connect them with a Google sign-in link. We never see a password.</p><em>15 min of your time</em></li>
-      <li><span class="pp-day">Days 2 to 15</span><b>We warm up and build</b><p>The inboxes warm for 2 weeks. We build your list and write the 3 emails. You approve them once before anything goes out.</p><em>5 min of your time</em></li>
-      <li><span class="pp-day pp-hot">Days 16 to 45</span><b>30 days of sending</b><p>The free 30 days start with the first real send. We send, answer replies and book meetings. You get a Friday update.</p><em>Your calls only</em></li>
-      <li><span class="pp-day">Day 40</span><b>Report and your decision</b><p>Every send, reply and meeting listed. Keep going or stop. Stopping costs nothing.</p><em>5 min to read</em></li>
+      <li><span class="pp-day">Day 1</span><b>8 questions</b><p>Services, area, ideal client.</p></li>
+      <li><span class="pp-day">Day 2</span><b>Your setup</b><p>Domains and inboxes, from our checklist.</p></li>
+      <li><span class="pp-day">Days 2 to 15</span><b>Warm-up</b><p>We build your list and emails.</p></li>
+      <li><span class="pp-day pp-hot">Days 16 to 45</span><b>30 free days</b><p>We send, reply and book.</p></li>
+      <li><span class="pp-day">Day 40</span><b>You decide</b><p>Keep going or stop.</p></li>
     </ol>
   </div>
 </section>
@@ -615,53 +622,30 @@ body{background:var(--paper);color:var(--ink)}
   <div class="sx-wrap">
     <h2 class="sx-h2" id="splitT">Who does what.</h2>
     <div class="pp-split" data-visual>
-      <div class="pp-col us"><h3>We do</h3><ul><li>Find and check every business on the list</li><li>Find the decision-maker and verify the email</li><li>Run the DMARC and SPF check on each firm</li><li>Write the 3 emails for your area and services</li><li>Warm the inboxes and manage sending limits</li><li>Answer every reply within 4 hours</li><li>Book meetings and send you notes on each one</li><li>Friday updates and the full report</li></ul></div>
-      <div class="pp-col you"><h3>You do</h3><ul><li>Answer 8 questions</li><li>Buy 2 domains and 6 inboxes on your card</li><li>Approve the 3 emails once</li><li>Show up to the calls and close</li></ul><div class="pp-clock"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 24V12a12 12 0 0 1 6 1.6z" fill="var(--purple)"/><path d="M24 13v11l7 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span><b>About 30 minutes</b> before the first send</span></div></div>
+      <div class="pp-col us"><h3>We do</h3><div class="pp-dogrid"><div class="pp-do"><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><span>Find businesses</span></div><div class="pp-do"><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2.3"/><path d="M5.5 16.5c.6-1.6 2-2.4 3.5-2.4s2.9.8 3.5 2.4M15 10h3.5M15 13.5h3.5"/></svg><span>Find decision-makers</span></div><div class="pp-do"><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.8 7.5 9 4.3-1.2 7.5-4.5 7.5-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg><span>Check email security</span></div><div class="pp-do"><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg><span>Write the emails</span></div><div class="pp-do"><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-4 0-6.5-2.6-6.5-6 0-3.8 3.3-5.5 4-9 2.8 1.6 3.6 4 3.6 5.6 1-.5 1.7-1.6 1.9-2.9 1.9 1.6 3.5 3.8 3.5 6.3 0 3.4-2.5 6-6.5 6z"/></svg><span>Warm the inboxes</span></div><div class="pp-do"><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg><span>Answer every reply</span></div><div class="pp-do"><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></svg><span>Book meetings</span></div><div class="pp-do"><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></svg><span>Send weekly reports</span></div></div></div>
+      <div class="pp-col you"><h3>You do</h3><div class="pp-you"><i>1</i><span>Answer 8 questions</span><em>10 min</em></div><div class="pp-you"><i>2</i><span>Buy domains and inboxes</span><em>15 min</em></div><div class="pp-you"><i>3</i><span>Approve 3 emails</span><em>5 min</em></div><div class="pp-you"><i>4</i><span>Take the calls</span><em>Yours</em></div><div class="pp-tbar"><div class="pp-tbar-l"><span>Your time before the first send</span><b>30 min</b></div><div class="pp-tbar-t"><i style="--w:33%"></i><i style="--w:50%" class="b"></i><i style="--w:17%" class="c"></i></div></div></div>
     </div>
   </div>
 </section>
 
 <section class="sx-sec sx-reveal" id="buy" aria-labelledby="buyT">
   <div class="sx-wrap">
-    <h2 class="sx-h2" id="buyT">What it costs, now and later.</h2>
-    <p class="sx-sub">The first 30 days of sending cost you nothing from us. After that, you keep going only if the meetings are worth it.</p>
-    <div class="pp-prices" data-visual>
-      <div class="pp-plan hot">
-        <span class="pp-badge">3 spots</span>
-        <h3>Pilot</h3>
-        <div class="pp-amt"><b>$0</b><span>for 30 days of sending</span></div>
-        <ul><li>Everything in "What you get"</li><li>Friday updates and the full report</li><li>No contract, no card on file with us</li></ul>
-        <a class="sx-btn sx-btn-ink" href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot&amp;body=Company%3A%20%0AWebsite%3A%20%0AArea%20we%20serve%3A%20">Claim a pilot spot</a>
-      </div>
-      <div class="pp-plan">
-        <span class="pp-badge soft">Pilot clients only</span>
-        <h3>Keep going</h3>
-        <div class="pp-amt"><b>$1,200</b><span>a month, locked for 6 months</span></div>
-        <ul><li>The same service, every month</li><li>New list each month, same area</li><li>Stop any month with 30 days' notice</li></ul>
-      </div>
-      <div class="pp-plan">
-        <span class="pp-badge soft">After the pilot spots fill</span>
-        <h3>Standard</h3>
-        <div class="pp-amt"><b>$1,500</b><span>a month</span></div>
-        <ul><li>The same service, every month</li><li>Starts with a paid first month</li><li>Stop any month with 30 days' notice</li></ul>
-      </div>
-    </div>
-
+    <h2 class="sx-h2" id="buyT">What it costs.</h2>
+    <p class="sx-sub">Free for 30 days. After that, only if the meetings are worth it.</p>
+    <div class="pp-prices" data-visual><div class="pp-plan hot"><span class="pp-badge ">3 spots</span><h3>Pilot</h3><div class="pp-amt"><b>$0</b><span>for 30 days of sending</span></div><ul><li><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Everything on this page</li><li><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>No contract, no card</li></ul><a class="sx-btn sx-btn-ink" href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot&amp;body=Company%3A%20%0AWebsite%3A%20%0AArea%20we%20serve%3A%20">Claim a pilot spot</a></div><div class="pp-plan "><span class="pp-badge soft">Pilot clients</span><h3>Keep going</h3><div class="pp-amt"><b>$1,200</b><span>a month, locked 6 months</span></div><ul><li><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Fresh list every month</li><li><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Stop with 30 days' notice</li></ul></div><div class="pp-plan "><span class="pp-badge soft">Everyone else</span><h3>Standard</h3><div class="pp-amt"><b>$1,500</b><span>a month</span></div><ul><li><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Fresh list every month</li><li><svg class="pp-ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Stop with 30 days' notice</li></ul></div></div>
     <div class="pp-two pp-why">
       <div class="pp-box">
-        <h3>Your sending setup, about $53 a month</h3>
-        <p class="pk-muted">Paid to Google and your domain registrar, in your name. Yours to keep.</p>
-        <div class="pp-cost"><span>6 Google Workspace inboxes at $8.40</span><b>$50.40</b></div>
-        <div class="pp-cost"><span>2 domains at about $12 a year</span><b>$2</b></div>
-        <div class="pp-cost tot"><span>Each month</span><b>about $53</b></div>
+        <h3>Your sending setup</h3>
+        <div class="pp-own" aria-hidden="true"><div class="pp-own-r"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></i></div><div class="pp-own-r"><i class="g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></i><i class="g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></i><span>In your name. Yours to keep.</span></div></div><div class="pp-cost"><span>6 Google inboxes</span><b>$50.40</b></div>
+        <div class="pp-cost"><span>2 domains</span><b>$2</b></div>
+        <div class="pp-cost tot"><span>A month, paid to Google and your registrar</span><b>about $53</b></div>
       </div>
       <div class="pp-box">
-        <h3>Why $1,500 is easy to earn back</h3>
-        <p>MSPs charge $125 to $200 per user a month for managed IT. 1 new client with 15 staff is $1,875 to $3,000 a month, every month they stay.</p>
+        <h3>1 new client covers it</h3><p class="pp-note">MSPs charge $125 to $200 per user a month.</p>
+        <div class="pp-roi"><div><b>$1,875+</b><span>from 1 new client with 15 staff</span></div><div class="vs">vs</div><div><b>$1,500</b><span>for this</span></div></div>
         <div class="pk-cmp">
-          <div class="pk-bar"><span>Cold email agency</span><div><i style="--w:100%"></i></div><b>$2,500 to $10,000</b></div>
-          <div class="pk-bar me"><span>This, after the pilot</span><div><i style="--w:15%"></i></div><b>$1,500</b></div>
-          <div class="pk-bar me"><span>The pilot</span><div><i style="--w:1%"></i></div><b>$0</b></div>
+          <div class="pk-bar"><span>Agencies</span><div><i style="--w:100%"></i></div><b>$2,500 to $10,000</b></div>
+          <div class="pk-bar me"><span>This</span><div><i style="--w:15%"></i></div><b>$1,500</b></div>
         </div>
       </div>
     </div>
@@ -670,47 +654,27 @@ body{background:var(--paper);color:var(--ink)}
 
 <section class="sx-sec sx-reveal" aria-labelledby="whoT">
   <div class="sx-wrap pp-who">
-    <div class="pp-av" aria-hidden="true">R</div>
-    <div>
-      <h2 class="sx-h2" id="whoT">Who runs your pilot.</h2>
-      <p>I'm Raja, and I run The Useful Media Co. I write and send cold email for my own businesses every day. In October my system sent 440 cold emails and closed 24 paid deals. The pilot runs on that same system, pointed at businesses near you.</p>
-      <p class="pk-muted">I take 3 pilots at a time so every reply gets answered fast. Email me any question at <a href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot%20question">raja@theusefulmedia.com</a>. Audio calls on request.</p>
+    <div class="pp-whotxt">
+      <div class="pp-av" aria-hidden="true">R</div>
+      <div><h2 class="sx-h2" id="whoT">Run by Raja.</h2><p>Your pilot runs on the same system I use for my own business.</p></div>
     </div>
-    <div class="pp-proof" data-visual><div><b>440</b><span>cold emails sent in October</span></div><div><b>24</b><span>paid deals closed from them</span></div></div>
+    <div class="pp-proof" data-visual><div><b>440</b><span>cold emails in October</span></div><div><b>24</b><span>paid deals from them</span></div></div>
   </div>
 </section>
 
 <section class="sx-sec sx-reveal" aria-labelledby="faqT">
-  <div class="sx-wrap">
-    <h2 class="sx-h2" id="faqT">Questions MSP owners ask.</h2>
-    <p class="sx-sub">Anything else, ask me at <a href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot%20question">raja@theusefulmedia.com</a>.</p>
-    <div class="pp-faq">
-      <details><summary>Why is the pilot free?</summary><p>Because you've never heard of me. 30 days of real meetings proves more than anything I could write here. If the meetings come, you'll want to keep going. If they don't, you owe nothing.</p></details>
-      <details><summary>Do I pay you anything during the pilot?</summary><p>You pay for your own sending setup, about $53 a month, and you keep it. That's it. No card on file with us, no contract, no setup fee.</p></details>
-      <details><summary>How many meetings will I get?</summary><p>I won't promise a number I can't see yet. It depends on your area, your services and how fast you follow up. You'll see every send, reply and meeting each Friday, and the full count in the report before you decide anything.</p></details>
-      <details><summary>What counts as a meeting?</summary><p>A decision-maker at a business in your size range and area who agreed to a call about IT and booked it on your calendar. People who only asked a question go in the report as replies, not meetings.</p></details>
-      <details><summary>Will this hurt my main domain?</summary><p>No. Nothing is sent from your company domain. The new domains look like yours and send visitors to your site, so a bad day never touches your real email.</p></details>
-      <details><summary>Do you need my passwords?</summary><p>No. You buy the domains and inboxes yourself and connect them to the sending tool with a Google sign-in link. We never see or store a password.</p></details>
-      <details><summary>Can I approve the emails first?</summary><p>Yes. You see all 3 emails before anything goes out, and you can change any line. You can also tell us anything you never want said.</p></details>
-      <details><summary>Who writes the emails and replies?</summary><p>I do, with AI tools for research and drafts. Every email and every reply is checked before it goes out. Each one uses facts about that business, so none of them read like a template.</p></details>
-      <details><summary>Will you contact my current clients?</summary><p>No. Send us your client list and any business you never want contacted. We remove them before the first send.</p></details>
-      <details><summary>Will you work with another MSP in my area?</summary><p>Not during your pilot or while you keep going. 1 MSP per area, so you never compete with your own outreach.</p></details>
-      <details><summary>Is cold email legal?</summary><p>In the US, emailing businesses is allowed under CAN-SPAM when the email is honest, says who it's from, includes a postal address and lets people opt out. Every email does all 3, and opt-outs are removed the same day.</p></details>
-      <details><summary>Who owns the list and the replies?</summary><p>You do. The list, every reply and every meeting are yours to keep, whether you continue or stop.</p></details>
-      <details><summary>What happens after 30 days?</summary><p>You get the report and decide. Keep going at $1,200 a month, locked for 6 months, or stop with no bill. If you stop, you keep the domains, inboxes, list and meetings.</p></details>
-      <details><summary>How do I start?</summary><p>Email <a href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot&amp;body=Company%3A%20%0AWebsite%3A%20%0AArea%20we%20serve%3A%20">raja@theusefulmedia.com</a> with your company name, website and the area you serve. You'll get the 8 questions within a day.</p></details>
-    </div>
+  <div class="sx-wrap pp-faqwrap">
+    <h2 class="sx-h2" id="faqT">Questions.</h2>
+    <div class="pp-faqgrid"><div class="pp-faq"><details><summary>Why is it free?<i aria-hidden="true"></i></summary><p>You've never heard of me. 30 days of real meetings proves more than this page can.</p></details><details><summary>Do I pay you anything during the pilot?<i aria-hidden="true"></i></summary><p>No. You only pay Google and your domain registrar for your own sending setup, about $53 a month.</p></details><details><summary>How many meetings will I get?<i aria-hidden="true"></i></summary><p>I won't promise a number I can't see yet. You'll see every send, reply and meeting each Friday.</p></details><details><summary>Will this hurt my main domain?<i aria-hidden="true"></i></summary><p>No. Nothing is sent from it. You get new look-alike domains that send visitors to your site.</p></details><details><summary>Do you need my passwords?<i aria-hidden="true"></i></summary><p>No. You connect your inboxes with a Google sign-in link. We never see a password.</p></details><details><summary>Will you email my current clients?<i aria-hidden="true"></i></summary><p>No. Send us your client list and we remove them before the first send.</p></details><details><summary>Will you work with another MSP in my area?<i aria-hidden="true"></i></summary><p>No. 1 MSP per area, during the pilot and after.</p></details><details><summary>Is cold email legal?<i aria-hidden="true"></i></summary><p>Yes, for business email in the US under CAN-SPAM. Every email says who it's from, has a postal address and an easy opt-out.</p></details><details><summary>What happens after 30 days?<i aria-hidden="true"></i></summary><p>You decide. Keep going at $1,200 a month, locked for 6 months, or stop with no bill. You keep the domains, list and meetings.</p></details></div>
+    <aside class="pp-ask" data-visual><div class="pp-av" aria-hidden="true">R</div><b>Ask me anything</b><p>Every email gets a reply within a day.</p><a class="sx-btn sx-btn-ink" href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot%20question">Email a question</a></aside></div>
   </div>
 </section>
 
 <section class="sx-sec sx-reveal" aria-labelledby="endT">
   <div class="sx-wrap">
     <div class="pp-end" data-visual>
-      <div>
-        <h2 class="sx-h2" id="endT">Claim 1 of 3 pilot spots.</h2>
-        <p>Send your company name, website and the area you serve. You'll get the 8 questions within a day, and your first emails go out about 2 weeks later.</p>
-      </div>
-      <a class="sx-btn sx-btn-pur" href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot&amp;body=Company%3A%20%0AWebsite%3A%20%0AArea%20we%20serve%3A%20">Email raja@theusefulmedia.com</a>
+      <div><h2 class="sx-h2" id="endT">Claim 1 of 3 pilot spots.</h2><p>Send your company, website and area. You'll get the 8 questions within a day.</p></div>
+      <a class="sx-btn sx-btn-pur" href="mailto:raja@theusefulmedia.com?subject=MSP%20pilot&amp;body=Company%3A%20%0AWebsite%3A%20%0AArea%20we%20serve%3A%20">Email Raja</a>
     </div>
   </div>
 </section>

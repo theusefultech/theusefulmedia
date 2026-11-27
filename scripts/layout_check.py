@@ -6,7 +6,8 @@ Free, rules only, no Claude usage. Opens built pages in headless Chrome at phone
 and fails when:
   - the page scrolls sideways (something wider than the screen), or
   - a pill, tag, label, button or line of text sticks out past the edge of the card or box it sits in, or
-  - a shortened blurb ("...") shows a half-cut extra line under it.
+  - a shortened blurb ("...") shows a half-cut extra line under it, or
+  - text is hidden under another element (27 Nov 2026), or a short heading or label is squeezed into 3+ narrow lines on a phone.
 Sideways scroll rows (carousels) are allowed to hold more than fits; only what pokes out of a card inside them counts.
 
 Before deploy:  layout_check.py --dir dist          (serves the built site locally; deploy stops on a failure)
@@ -78,7 +79,52 @@ JS = r"""() => {
    const lh = parseFloat(c.lineHeight) || parseFloat(c.fontSize) * 1.2, hgt = e.offsetHeight - parseFloat(c.paddingTop) - parseFloat(c.paddingBottom);
    if (hgt > n * lh + 3 && e.scrollHeight > hgt + 3) { out.push({kind: 'text cut mid-line', px: Math.round(hgt - n * lh), el: label(e)}); break; }
  }
+ // 5. a short heading or label squeezed into 3+ narrow lines on a phone
+ if (W < 800) for (const e of document.querySelectorAll('main h2, main h3, main th, main dt, main label, main b, main strong')) {
+   if (!shown(e) || tilted(e) || deco(e) || e.querySelector('input,select,textarea') || e.closest('.visually-hidden,[class*=sr-only]')) continue; const t = (e.innerText || '').trim(); if (t.length < 6 || t.length > 40) continue;
+   const tops = new Set(), w2 = document.createTreeWalker(e, NodeFilter.SHOW_TEXT); for (let tn; (tn = w2.nextNode());) { if (!tn.textContent.trim()) continue; const rg = document.createRange(); rg.selectNodeContents(tn); for (const r of rg.getClientRects()) if (r.width > 2 && r.height > 4) tops.add(Math.round(r.top + r.height / 2)); }
+   const lines = [...tops].sort((a, b) => a - b).filter((v, i, arr) => !i || v - arr[i - 1] > 6).length;
+   if (lines >= 3 && t.length / lines < 8) { out.push({kind: 'label squeezed', px: lines, el: label(e)}); break; }
+ }
  return out.slice(0, 8);
+}"""
+
+
+COVER_JS = r"""() => {
+ const out = [], W = document.documentElement.clientWidth;
+ const css = e => getComputedStyle(e);
+ /* drawn mockups tilted or scaled on purpose (e.g. a rotated phone) can't be measured with screen boxes; skip them */
+ const tilted = e => { for (let p = e; p && p != document.body; p = p.parentElement) { const t = css(p).transform;
+   if (t && t != 'none') { const m = t.match(/matrix\(([^)]+)\)/); if (!m) return true; const v = m[1].split(',').map(Number);
+     if (Math.abs(v[1]) > 0.001 || Math.abs(v[0] - 1) > 0.001 || Math.abs(v[3] - 1) > 0.001) return true; } } return false; };
+ const shown = e => { const s = css(e); if (s.display == 'none' || s.visibility == 'hidden' || +s.opacity === 0) return false;
+   const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+ const label = e => { let s = e.tagName.toLowerCase(); if (e.className && typeof e.className == 'string') s += '.' + e.className.trim().split(/\s+/).slice(0, 2).join('.');
+   const t = (e.innerText || e.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ').slice(0, 40); return t ? s + ' "' + t + '"' : s; };
+ const scroller = e => { const s = css(e); return /(auto|scroll)/.test(s.overflowX) && e.scrollWidth > e.clientWidth + 1; };
+ // 4. (27 Nov 2026, the hero-card-over-headline and tour-tip bugs) text hidden under another element that paints something
+ const deco = e => !!e.closest('[aria-hidden="true"],[data-visual],svg');
+ const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.trim().length > 2 ? 1 : 2 });
+ const hidUnder = new Set(); let nCov = 0;
+ for (let n; (n = tw.nextNode()) && nCov < 4;) {
+   const el = n.parentElement; if (!el || ['SCRIPT', 'STYLE', 'OPTION', 'NOSCRIPT'].includes(el.tagName) || !shown(el) || tilted(el) || deco(el) || hidUnder.has(el)) continue;
+   if (!(el.innerText || '').trim()) continue;  // text the browser does not draw (inside a closed or hidden block)
+   { let faded = false; for (let p = el; p && p != document.body; p = p.parentElement) if (+css(p).opacity < 0.05 || css(p).visibility == 'hidden') { faded = true; break; } if (faded) continue; }
+   { const dd = el.closest('details:not([open])'); if (dd && !el.closest('summary')) continue; const er = el.getBoundingClientRect(); if (er.width <= 2 || er.height <= 2 || /rect\(0/.test(css(el).clip) || css(el).clipPath.includes('inset(50%')) continue; }
+   let fixedUp = false; for (let p = el; p && p != document.body; p = p.parentElement) { const ps = css(p).position; if (ps == 'fixed' || ps == 'sticky') { fixedUp = true; break; } if (scroller(p)) { fixedUp = true; break; } } if (fixedUp) continue;
+   // only the lines that are drawn: drop lines cut away by a "..." clamp or an overflow-hidden box
+   let cl = -1e9, ct = -1e9, cr = 1e9, cb = 1e9;
+   for (let p = el; p && p != document.body; p = p.parentElement) { const ps = css(p); if (/(hidden|clip|auto|scroll)/.test(ps.overflow + ps.overflowX + ps.overflowY) || parseInt(ps.webkitLineClamp)) { const q = p.getBoundingClientRect(); cl = Math.max(cl, q.left); ct = Math.max(ct, q.top); cr = Math.min(cr, q.right); cb = Math.min(cb, q.bottom); } }
+   const rg = document.createRange(); rg.selectNodeContents(n); const rs = [...rg.getClientRects()].filter(r => r.width > 3 && r.height > 5 && r.top + r.height / 2 > ct && r.top + r.height / 2 < cb && r.left < cr && r.right > cl).slice(0, 4); if (!rs.length) continue;
+   let tot = 0, cov = 0, by = null;
+   for (const r of rs) for (const fx of [0.2, 0.5, 0.8]) { const x = r.left + r.width * fx, y = r.top + r.height / 2; if (x < 0 || x > W || y < 0 || y > innerHeight) continue; tot++;
+     const t = document.elementFromPoint(x, y); if (!t || t === el || el.contains(t) || t.contains(el) || t.closest('.tour-tip,.tour-ring,[role=dialog],dialog,.toast') || +css(t).opacity < 0.05 || tilted(t) || (t.closest('svg') && (t.closest('[aria-hidden="true"],[data-visual]') || t.closest('svg').getAttribute('aria-hidden') == 'true'))) continue;
+     let paints = false; for (let q = t; q && !q.contains(el); q = q.parentElement) { const qs = css(q); if ((qs.backgroundColor && !/rgba\(.*, 0\)$|transparent/.test(qs.backgroundColor)) || qs.backgroundImage != 'none' || ['IMG', 'CANVAS', 'VIDEO', 'svg'].includes(q.tagName)) { paints = true; break; } }
+     let fixedT = false; for (let q = t; q && q != document.body; q = q.parentElement) { const qp = css(q).position; if (qp == 'fixed' || qp == 'sticky') { fixedT = true; break; } }
+     if (paints && !fixedT) { cov++; by = t; } }
+   if (tot && cov / tot >= 0.34) { hidUnder.add(el); nCov++; out.push({kind: 'text hidden under another element', px: Math.round(100 * cov / tot), el: label(el), box: label(by)}); }
+ }
+ return out;
 }"""
 
 
@@ -170,7 +216,15 @@ async def run(base, urls, conc=4):
                                 await pg.goto(base + u, wait_until="domcontentloaded", timeout=45000)
                                 await pg.evaluate("Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 3000))])")
                                 await pg.add_style_tag(content=SETTLE); await pg.wait_for_timeout(400)
-                                return await pg.evaluate(JS)
+                                # 27 Nov 2026: the whole page in 1 tall viewport, so the "hidden under" check sees every line
+                                found = await pg.evaluate(JS)
+                                # 27 Nov 2026: "hidden under" is checked screen by screen down the page (a tall window would stretch vh sections)
+                                full, seen_el = await pg.evaluate("Math.min(document.documentElement.scrollHeight, 15000)"), set()
+                                for y in range(0, full, h - 100):
+                                    await pg.evaluate(f"window.scrollTo(0, {y})"); await pg.wait_for_timeout(60)
+                                    for c in await pg.evaluate(COVER_JS):
+                                        if c["el"] not in seen_el and len(seen_el) < 4: seen_el.add(c["el"]); found.append(c)
+                                return found[:10]
                             for f in await asyncio.wait_for(one(), 60): fails.append({"page": u, "width": w, **f})  # never hang on 1 page
                             break
                         except Exception as e:

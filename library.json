@@ -1,0 +1,16 @@
+{
+ "at": "2026-11-28T03:06:36.749735Z",
+ "sha": "78e8ad2d033b95631d5b379333be7b7ab59731a4",
+ "ok": false,
+ "failed": [
+  "browser_tests"
+ ],
+ "steps": {
+  "static": "success",
+  "builder": "success",
+  "game_14_days_ahead": "success",
+  "browser_tests": "failure",
+  "live_200": "success"
+ },
+ "run": "https://github.com/theusefultech/theusefulmedia/actions/runs/46100441514"
+}

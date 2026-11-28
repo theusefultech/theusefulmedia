@@ -1,14 +1,33 @@
 {
- "updated": "2026-11-27",
+ "updated": "2026-11-28",
  "people": [
   {
    "slug": "tim-ferriss",
    "name": "Tim Ferriss",
    "channels": [
     "@timferriss",
+    "@hubermanlab",
     "The Tim Ferriss Show"
    ],
    "books": [
+    {
+     "title": "Atomic Habits",
+     "author": "",
+     "note": "Notes its 25-30 million copies sold and praises author James Clear",
+     "video": "fA0LY_YRmas",
+     "url": null,
+     "ts": 99,
+     "date": "2026-11-27"
+    },
+    {
+     "title": "The 4-Hour Body",
+     "author": "",
+     "note": "Ferriss's book of self-experimentation protocols, built on his workout records since age 16",
+     "video": "KVDs3-zuTyo",
+     "url": null,
+     "ts": 453,
+     "date": "2026-11-27"
+    },
     {
      "title": "Hard Times",
      "author": "",
@@ -154,24 +173,6 @@
      "date": "2026-11-17"
     },
     {
-     "title": "Atomic Habits",
-     "author": "",
-     "note": "James Clear; starting with small actions to break overthinking and inaction",
-     "video": "SH5b_drlotY",
-     "url": null,
-     "ts": 594,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The 4-Hour Body",
-     "author": "",
-     "note": "Says almost nothing in it needs revising; still stable and predictive",
-     "video": "5qP0hT4blKQ",
-     "url": null,
-     "ts": 8,
-     "date": "2026-11-17"
-    },
-    {
      "title": "I Ching",
      "author": "",
      "note": "Teases a future live casting of it, calling it a weird book",
@@ -232,6 +233,143 @@
      "video": "pod-55b9aab11c69",
      "url": "https://rss.art19.com/tim-ferriss-show",
      "ts": 1127,
+     "date": "2026-11-17"
+    }
+   ]
+  },
+  {
+   "slug": "henry-shukman",
+   "name": "Henry Shukman",
+   "channels": [
+    "@timferriss",
+    "The Tim Ferriss Show"
+   ],
+   "books": [
+    {
+     "title": "Night Sky with Exit Wounds",
+     "author": "",
+     "note": "Poetry book that brought him back into poetry",
+     "video": "6kCJcDu01K8",
+     "url": null,
+     "ts": 4122,
+     "date": "2026-11-27"
+    },
+    {
+     "title": "A Shropshire Lad",
+     "author": "",
+     "note": "Housman's 1896 poetry collection, one of the best-selling poetry books; called it masterful",
+     "video": "6kCJcDu01K8",
+     "url": null,
+     "ts": 2752,
+     "date": "2026-11-27"
+    },
+    {
+     "title": "Mornings in Mexico",
+     "author": "",
+     "note": "Lawrence's book that evokes place powerfully; inspired his own first book at 19",
+     "video": "6kCJcDu01K8",
+     "url": null,
+     "ts": 173,
+     "date": "2026-11-27"
+    },
+    {
+     "title": "Lady Chatterley's Lover",
+     "author": "",
+     "note": "D.H. Lawrence novel, banned in 1929; Lawrence's life of wandering appealed to him",
+     "video": "6kCJcDu01K8",
+     "url": null,
+     "ts": 124,
+     "date": "2026-11-27"
+    },
+    {
+     "title": "Consolations II",
+     "author": "",
+     "note": "David Whyte book discussed late in the episode",
+     "video": "pod-2506e81a9af6",
+     "url": "https://rss.art19.com/tim-ferriss-show",
+     "ts": 0,
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "slug": "andrew-huberman",
+   "name": "Andrew Huberman",
+   "channels": [
+    "Huberman Lab",
+    "@hubermanlab"
+   ],
+   "books": [
+    {
+     "title": "The 4-Hour Body",
+     "author": "",
+     "note": "Says its protocols were useful when published and still are",
+     "video": "pod-46cba2d1d1cf",
+     "url": "https://www.hubermanlab.com/episode/essentials-how-to-learn-better-and-create-your-best-future-tim-ferriss",
+     "ts": 61,
+     "date": "2026-11-27"
+    },
+    {
+     "title": "A World Appears",
+     "author": "",
+     "note": "Michael Pollan's new book; calls it fantastic and the one to read",
+     "video": "Gk2ArbsrZwE",
+     "url": null,
+     "ts": 3093,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Art of Seduction",
+     "author": "",
+     "note": "Named in the intro as one of Greene's books.",
+     "video": "y-fRFiTrrg4",
+     "url": null,
+     "ts": 80,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Laws of Human Nature",
+     "author": "",
+     "note": "Named in the intro as one of Greene's books.",
+     "video": "y-fRFiTrrg4",
+     "url": null,
+     "ts": 80,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The 48 Laws of Power",
+     "author": "",
+     "note": "Named in the intro as one of Greene's books.",
+     "video": "y-fRFiTrrg4",
+     "url": null,
+     "ts": 80,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Law of the Sublime",
+     "author": "",
+     "note": "Robert Greene's new book on experiencing life and accessing the sublime; Huberman hadn't read it yet.",
+     "video": "y-fRFiTrrg4",
+     "url": null,
+     "ts": 191,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Mastery",
+     "author": "",
+     "note": "One of his all-time favorites; he has recommended it to students and friends for years.",
+     "video": "y-fRFiTrrg4",
+     "url": null,
+     "ts": 90,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "How to Hero",
+     "author": "",
+     "note": "Ross Edgley's new book on strength, resilience and purpose; Huberman is excited to read it",
+     "video": "NlVu0P1RdHs",
+     "url": null,
+     "ts": 167,
      "date": "2026-11-17"
     }
    ]
@@ -1547,114 +1685,6 @@
    ]
   },
   {
-   "slug": "na",
-   "name": "NA",
-   "channels": [
-    "NA"
-   ],
-   "books": [
-    {
-     "title": "The American Way of Death",
-     "author": "",
-     "note": "Jessica Mitford's book that changed the funeral system",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 1649,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Fun Home",
-     "author": "",
-     "note": "Graphic memoir she really liked, compared with Do Admit",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 1520,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Death of an Ordinary Man",
-     "author": "",
-     "note": "Sarah Perry; her favourite non-fiction of 2026 so far, about dying and caring, should be required reading",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 1730,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Do Admit: The Mitford Sisters and Me",
-     "author": "",
-     "note": "Mimi Pond graphic memoir about the Mitford sisters; her number two non-fiction pick",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 1337,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Memorial Days",
-     "author": "",
-     "note": "Geraldine Brooks; memoir about grief and death after her husband died suddenly",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 1099,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Mother Mary Comes to Me",
-     "author": "",
-     "note": "Arundhati Roy; memoir of her difficult relationship with her mother, favourite on the Women's Prize list",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 921,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Lise Doucette's hotel book (Afghanistan)",
-     "author": "",
-     "note": "Winner of Women's Prize for Nonfiction 2026; gripping, set in a hotel in Afghanistan",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 739,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Eche Tamul Karan book",
-     "author": "",
-     "note": "Women's Prize for Nonfiction shortlist; hopeful, about strangers forming found family, heartily recommended",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 549,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "The Argonauts",
-     "author": "",
-     "note": "Maggie Nelson; mind-expanding, thought-provoking, one of her favourite non-fiction books",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 224,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Kate Moss's Feminist History for Every Day of the Year",
-     "author": "",
-     "note": "Daily entry on a feminist figure; read each morning, halfway through, humorous and engaging",
-     "video": "SWyKULgAjnI",
-     "url": null,
-     "ts": 75,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Neon Ghosts",
-     "author": "",
-     "note": "Book he just finished reading",
-     "video": "Q_j6xAzqpnM",
-     "url": null,
-     "ts": 533,
-     "date": "2026-11-18"
-    }
-   ]
-  },
-  {
    "slug": "aun-abdi",
    "name": "Aun Abdi",
    "channels": [
@@ -2654,7 +2684,7 @@
    ]
   },
   {
-   "slug": "l-a-crumpton",
+   "slug": "lea-crumpton",
    "name": "L\u00e9a Crumpton",
    "channels": [
     "L\u00e9a Crumpton"
@@ -3167,38 +3197,9 @@
    ]
   },
   {
-   "slug": "40909",
-   "name": "40909",
-   "channels": [
-    "40909"
-   ],
-   "books": [
-    {
-     "title": "Pride and Prejudice",
-     "author": "",
-     "note": "Example of a book that teaches about love and empathy through its four sisters",
-     "video": "pP8Gebq2t0k",
-     "url": null,
-     "ts": 509,
-     "date": "2026-11-18"
-    },
-    {
-     "title": "Tintin",
-     "author": "",
-     "note": "Childhood comics that took him to the moon and Tibet",
-     "video": "pP8Gebq2t0k",
-     "url": null,
-     "ts": 273,
-     "date": "2026-11-18"
-    }
-   ]
-  },
-  {
    "slug": "harry-hamlin",
    "name": "Harry Hamlin",
-   "channels": [
-    "4276"
-   ],
+   "channels": [],
    "books": [
     {
      "title": "The Secret",
@@ -3342,204 +3343,6 @@
      "video": "w_M--XH0dRs",
      "url": null,
      "ts": 149,
-     "date": "2026-11-17"
-    }
-   ]
-  },
-  {
-   "slug": "1052",
-   "name": "1052",
-   "channels": [
-    "1052"
-   ],
-   "books": [
-    {
-     "title": "The Wealth of Nations",
-     "author": "",
-     "note": "Adam Smith; just finished, to be covered in an upcoming video",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 1031,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Wall Dancers",
-     "author": "",
-     "note": "About China, government control versus internet freedom; listening as audiobook",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 914,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "How to Fail at Almost Everything and Still Win Big",
-     "author": "",
-     "note": "Systems and habits approach to success; first personal-development pick",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 889,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Grid",
-     "author": "",
-     "note": "Look at electrical grid infrastructure and its politics; friend's recommendation",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 802,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Code: The Hidden Language of Computer Hardware and Software",
-     "author": "",
-     "note": "Explains how computers work from first principles; a friend recommended it",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 749,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Singularity Is Near",
-     "author": "",
-     "note": "Kurzweil's 2005 book; currently reading, strong prediction record",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 677,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Money: A Story of Humanity",
-     "author": "",
-     "note": "Cultural history of money, psychological as well as economic",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 625,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Beginning of Infinity",
-     "author": "",
-     "note": "Deutsch book that made his top three of the year",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 583,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Fabric of Reality",
-     "author": "",
-     "note": "David Deutsch's mind-bending book; already started, strong opening",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 577,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Confessions of an Economic Hit Man",
-     "author": "",
-     "note": "Insider narrative on financial influence over developing nations; from a podcast tip",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 504,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Geopolitical Alpha",
-     "author": "",
-     "note": "Framework for global politics; cited in US-China rivalry discussions",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 448,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "I, Robot",
-     "author": "",
-     "note": "Asimov short stories; just finished, relevant to the alignment problem",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 387,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Confessions of an English Opium-Eater",
-     "author": "",
-     "note": "Memoir of addiction and altered states; origin of recommendation forgotten",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 362,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Zero to One",
-     "author": "",
-     "note": "Progress comes from radically new ideas; likes reading contrarians",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 326,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Human Action",
-     "author": "",
-     "note": "Ludwig von Mises's thick book on economics and human behavior",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 299,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Ordeal of Change",
-     "author": "",
-     "note": "Eric Hoffer on why humans fear change; calls Hoffer's work five out of five",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 246,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Scale",
-     "author": "",
-     "note": "Universal laws of growth in cities, companies, organisms; long on his list, daunting",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 181,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Democracy: The God That Failed",
-     "author": "",
-     "note": "Provocative critique of democracy; on reading list",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 143,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Theory of Games and Economic Behavior",
-     "author": "",
-     "note": "Founding book of modern game theory; planned read",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 127,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Game Theory",
-     "author": "Roger McCain",
-     "note": "Accessible intro to strategic decisions in conflict and cooperation",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 63,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Fahrenheit 451",
-     "author": "",
-     "note": "Dystopian classic on censorship and distraction; on 2026 reading list",
-     "video": "o05aNOE90xQ",
-     "url": null,
-     "ts": 30,
      "date": "2026-11-17"
     }
    ]
@@ -3699,7 +3502,7 @@
   },
   {
    "slug": "bjorn",
-   "name": "Bjorn",
+   "name": "Bj\u00f6rn",
    "channels": [
     "BookLab by Bjorn"
    ],
@@ -3894,6 +3697,168 @@
      "date": "2026-11-17"
     },
     {
+     "title": "You Are Not Dead Yet",
+     "author": "",
+     "note": "Currently reading; David Feridio on grief and loss",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 1227,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Shallows",
+     "author": "",
+     "note": "Book on how the internet rewires our brain",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 96,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Flow",
+     "author": "",
+     "note": "Csikszentmihalyi on optimal experience",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 693,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Lost Connections",
+     "author": "",
+     "note": "Johann Hari; rated five out of five, linked to attachment ideas",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 686,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Deep Work",
+     "author": "",
+     "note": "Cal Newport; on protecting attention",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 203,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Rush",
+     "author": "",
+     "note": "Nathaniel Philbrick history of the California Gold Rush",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 1084,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Blockers: Rebels in the Deep State",
+     "author": "",
+     "note": "Michael Lewis narrative nonfiction; out Oct 6",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 984,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Sleeping Beauties",
+     "author": "",
+     "note": "David Burn; his pick of the month; why good ideas go dormant",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 893,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Daily Stoic",
+     "author": "",
+     "note": "Ryan Holiday's 10th anniversary updated edition",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 841,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Drinking: A Love Story",
+     "author": "",
+     "note": "Caroline Knapp memoir about high-functioning alcoholic; hidden gem he read years ago",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 805,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Will and Attention",
+     "author": "",
+     "note": "Megan O'Giblin memoir arguing attention beats willpower",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 716,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Vibe",
+     "author": "",
+     "note": "Adam Grant on connection; giving him a second chance after a bad review",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 601,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Beginning of Infinity",
+     "author": "",
+     "note": "David Deutsch; on great books list, changed how he thinks about explanations",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 560,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Why We Ask Why",
+     "author": "",
+     "note": "Science of explanation; a book that lingers",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 475,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Human Again in the Age of AI",
+     "author": "",
+     "note": "Read last week; on working with AI without outsourcing your thinking",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 445,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The AGI Chronicles",
+     "author": "",
+     "note": "Kevin Rose on the race to superintelligence, from 150+ insider interviews",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 217,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "You Don't Need a Smartphone",
+     "author": "",
+     "note": "August Lamb's practical guide to ditching the smartphone; he likes small experiments",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 122,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The New Dark Ages",
+     "author": "",
+     "note": "James Marriott on the collapse of reading and the post-literate society; out Oct 6",
+     "video": "qG4UUAOHYFU",
+     "url": null,
+     "ts": 30,
+     "date": "2026-11-17"
+    },
+    {
      "title": "Steve Jobs in Exile",
      "author": "",
      "note": "Jeffrey Cain's biography of Jobs's years away from Apple; he can't put it down",
@@ -3990,6 +3955,186 @@
      "video": "USKApa-iH70",
      "url": null,
      "ts": 40,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Science of Scaling",
+     "author": "",
+     "note": "Calls it a top book of the year; review is up",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 1060,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "You're Not Dead Yet",
+     "author": "",
+     "note": "Currently reading; on grief and loss after a father died on 9/11",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 1039,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Thinking, Fast and Slow",
+     "author": "",
+     "note": "Kahneman; compared to How To Be Less Stupid",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 395,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Grid",
+     "author": "",
+     "note": "Gretchen Bakke on the US energy grid; his previous read",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 318,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "A Brief History of Time",
+     "author": "",
+     "note": "Hawking classic; he has read it twice, though it is not easy",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 486,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Code",
+     "author": "",
+     "note": "Charles Petzold on how computer hardware works; made hard topics feel understandable",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 555,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Determined",
+     "author": "",
+     "note": "Robert Sapolsky; says it is almost even better than Behave",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 676,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Behave",
+     "author": "",
+     "note": "Robert Sapolsky book on the brain, recommended heavily",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 676,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Sovereign Individual",
+     "author": "",
+     "note": "Reviewed on channel; calls it mind-boggling",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 176,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Bitcoin Standard",
+     "author": "",
+     "note": "Reviewed on channel; pairs with The Everything Code",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 169,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Laws of Human Nature",
+     "author": "",
+     "note": "Robert Greene book; one of his all-time top five",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 101,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Art of Organizing Thoughts",
+     "author": "",
+     "note": "Shigehiko Toyama's 1983 book, first English translation, on slow thinking",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 906,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Embargo",
+     "author": "",
+     "note": "Philip Del Vese Broughton; he calls it the most timely book on the list",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 799,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Radical Surrender",
+     "author": "",
+     "note": "Anna Lembke on a surrendered life as the antidote to anxiety; Nov 10",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 707,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Circuit Breakers",
+     "author": "",
+     "note": "Anna Chambers on how neuroscientists manipulate memories, with implants and lasers",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 617,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Big Math",
+     "author": "",
+     "note": "Strogatz and Townsend introduce linear algebra to non-technical readers; he wants to read it",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 517,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "Hawking",
+     "author": "",
+     "note": "Graham Farmelo's biography of Stephen Hawking, with newly used notes and diaries",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 412,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Telephone: A New History",
+     "author": "",
+     "note": "James Gleick on how the telephone ushered in the information age; Nov 10",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 272,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Everything Code",
+     "author": "",
+     "note": "Raoul Pal's book on the broken economic system, out Nov 3; on his November reading list",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 124,
+     "date": "2026-11-17"
+    },
+    {
+     "title": "The Art of the Sublime",
+     "author": "",
+     "note": "Robert Greene's new book on awe, out Nov 10; his pick of the month",
+     "video": "AutuCt7O7ns",
+     "url": null,
+     "ts": 1001,
      "date": "2026-11-17"
     }
    ]
@@ -4382,358 +4527,6 @@
    ]
   },
   {
-   "slug": "bj-rn",
-   "name": "Bj\u00f6rn",
-   "channels": [
-    "1339",
-    "BookLab by Bjorn"
-   ],
-   "books": [
-    {
-     "title": "You Are Not Dead Yet",
-     "author": "",
-     "note": "Currently reading; David Feridio on grief and loss",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 1227,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Shallows",
-     "author": "",
-     "note": "Book on how the internet rewires our brain",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 96,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Flow",
-     "author": "",
-     "note": "Csikszentmihalyi on optimal experience",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 693,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Lost Connections",
-     "author": "",
-     "note": "Johann Hari; rated five out of five, linked to attachment ideas",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 686,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Deep Work",
-     "author": "",
-     "note": "Cal Newport; on protecting attention",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 203,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Rush",
-     "author": "",
-     "note": "Nathaniel Philbrick history of the California Gold Rush",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 1084,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Blockers: Rebels in the Deep State",
-     "author": "",
-     "note": "Michael Lewis narrative nonfiction; out Oct 6",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 984,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Sleeping Beauties",
-     "author": "",
-     "note": "David Burn; his pick of the month; why good ideas go dormant",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 893,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Daily Stoic",
-     "author": "",
-     "note": "Ryan Holiday's 10th anniversary updated edition",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 841,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Drinking: A Love Story",
-     "author": "",
-     "note": "Caroline Knapp memoir about high-functioning alcoholic; hidden gem he read years ago",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 805,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Will and Attention",
-     "author": "",
-     "note": "Megan O'Giblin memoir arguing attention beats willpower",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 716,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Vibe",
-     "author": "",
-     "note": "Adam Grant on connection; giving him a second chance after a bad review",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 601,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Beginning of Infinity",
-     "author": "",
-     "note": "David Deutsch; on great books list, changed how he thinks about explanations",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 560,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Why We Ask Why",
-     "author": "",
-     "note": "Science of explanation; a book that lingers",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 475,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Human Again in the Age of AI",
-     "author": "",
-     "note": "Read last week; on working with AI without outsourcing your thinking",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 445,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The AGI Chronicles",
-     "author": "",
-     "note": "Kevin Rose on the race to superintelligence, from 150+ insider interviews",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 217,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "You Don't Need a Smartphone",
-     "author": "",
-     "note": "August Lamb's practical guide to ditching the smartphone; he likes small experiments",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 122,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The New Dark Ages",
-     "author": "",
-     "note": "James Marriott on the collapse of reading and the post-literate society; out Oct 6",
-     "video": "qG4UUAOHYFU",
-     "url": null,
-     "ts": 30,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Science of Scaling",
-     "author": "",
-     "note": "Calls it a top book of the year; review is up",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 1060,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "You're Not Dead Yet",
-     "author": "",
-     "note": "Currently reading; on grief and loss after a father died on 9/11",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 1039,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Thinking, Fast and Slow",
-     "author": "",
-     "note": "Kahneman; compared to How To Be Less Stupid",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 395,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Grid",
-     "author": "",
-     "note": "Gretchen Bakke on the US energy grid; his previous read",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 318,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "A Brief History of Time",
-     "author": "",
-     "note": "Hawking classic; he has read it twice, though it is not easy",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 486,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Code",
-     "author": "",
-     "note": "Charles Petzold on how computer hardware works; made hard topics feel understandable",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 555,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Determined",
-     "author": "",
-     "note": "Robert Sapolsky; says it is almost even better than Behave",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 676,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Behave",
-     "author": "",
-     "note": "Robert Sapolsky book on the brain, recommended heavily",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 676,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Sovereign Individual",
-     "author": "",
-     "note": "Reviewed on channel; calls it mind-boggling",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 176,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Bitcoin Standard",
-     "author": "",
-     "note": "Reviewed on channel; pairs with The Everything Code",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 169,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Laws of Human Nature",
-     "author": "",
-     "note": "Robert Greene book; one of his all-time top five",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 101,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Art of Organizing Thoughts",
-     "author": "",
-     "note": "Shigehiko Toyama's 1983 book, first English translation, on slow thinking",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 906,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Embargo",
-     "author": "",
-     "note": "Philip Del Vese Broughton; he calls it the most timely book on the list",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 799,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Radical Surrender",
-     "author": "",
-     "note": "Anna Lembke on a surrendered life as the antidote to anxiety; Nov 10",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 707,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Circuit Breakers",
-     "author": "",
-     "note": "Anna Chambers on how neuroscientists manipulate memories, with implants and lasers",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 617,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Big Math",
-     "author": "",
-     "note": "Strogatz and Townsend introduce linear algebra to non-technical readers; he wants to read it",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 517,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Hawking",
-     "author": "",
-     "note": "Graham Farmelo's biography of Stephen Hawking, with newly used notes and diaries",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 412,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Telephone: A New History",
-     "author": "",
-     "note": "James Gleick on how the telephone ushered in the information age; Nov 10",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 272,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Everything Code",
-     "author": "",
-     "note": "Raoul Pal's book on the broken economic system, out Nov 3; on his November reading list",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 124,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Art of the Sublime",
-     "author": "",
-     "note": "Robert Greene's new book on awe, out Nov 10; his pick of the month",
-     "video": "AutuCt7O7ns",
-     "url": null,
-     "ts": 1001,
-     "date": "2026-11-17"
-    }
-   ]
-  },
-  {
    "slug": "aleks",
    "name": "Aleks",
    "channels": [
@@ -4844,9 +4637,7 @@
   {
    "slug": "patton-oswalt",
    "name": "Patton Oswalt",
-   "channels": [
-    "4274"
-   ],
+   "channels": [],
    "books": [
     {
      "title": "The Hunger Games",
@@ -5168,9 +4959,7 @@
   {
    "slug": "chris-collins",
    "name": "Chris Collins",
-   "channels": [
-    "8765"
-   ],
+   "channels": [],
    "books": [
     {
      "title": "The Floating Mountains",
@@ -5186,9 +4975,7 @@
   {
    "slug": "joe-rohde",
    "name": "Joe Rohde",
-   "channels": [
-    "8765"
-   ],
+   "channels": [],
    "books": [
     {
      "title": "Creativity",
@@ -5438,9 +5225,7 @@
   {
    "slug": "ryan-holiday",
    "name": "Ryan Holiday",
-   "channels": [
-    "483615"
-   ],
+   "channels": [],
    "books": [
     {
      "title": "Meditations (Gregory Hays translation)",
@@ -6480,79 +6265,7 @@
    ]
   },
   {
-   "slug": "andrew-huberman",
-   "name": "Andrew Huberman",
-   "channels": [
-    "@hubermanlab"
-   ],
-   "books": [
-    {
-     "title": "A World Appears",
-     "author": "",
-     "note": "Michael Pollan's new book; calls it fantastic and the one to read",
-     "video": "Gk2ArbsrZwE",
-     "url": null,
-     "ts": 3093,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Art of Seduction",
-     "author": "",
-     "note": "Named in the intro as one of Greene's books.",
-     "video": "y-fRFiTrrg4",
-     "url": null,
-     "ts": 80,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Laws of Human Nature",
-     "author": "",
-     "note": "Named in the intro as one of Greene's books.",
-     "video": "y-fRFiTrrg4",
-     "url": null,
-     "ts": 80,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The 48 Laws of Power",
-     "author": "",
-     "note": "Named in the intro as one of Greene's books.",
-     "video": "y-fRFiTrrg4",
-     "url": null,
-     "ts": 80,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "The Law of the Sublime",
-     "author": "",
-     "note": "Robert Greene's new book on experiencing life and accessing the sublime; Huberman hadn't read it yet.",
-     "video": "y-fRFiTrrg4",
-     "url": null,
-     "ts": 191,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "Mastery",
-     "author": "",
-     "note": "One of his all-time favorites; he has recommended it to students and friends for years.",
-     "video": "y-fRFiTrrg4",
-     "url": null,
-     "ts": 90,
-     "date": "2026-11-17"
-    },
-    {
-     "title": "How to Hero",
-     "author": "",
-     "note": "Ross Edgley's new book on strength, resilience and purpose; Huberman is excited to read it",
-     "video": "NlVu0P1RdHs",
-     "url": null,
-     "ts": 167,
-     "date": "2026-11-17"
-    }
-   ]
-  },
-  {
-   "slug": "jacques-p-pin",
+   "slug": "jacques-pepin",
    "name": "Jacques P\u00e9pin",
    "channels": [
     "@timferriss"
@@ -6646,24 +6359,6 @@
      "video": "OhOmLqR5nN4",
      "url": null,
      "ts": 2149,
-     "date": "2026-11-17"
-    }
-   ]
-  },
-  {
-   "slug": "guest",
-   "name": "Guest",
-   "channels": [
-    "@TheDiaryOfACEO"
-   ],
-   "books": [
-    {
-     "title": "AI as a positive and negative factor in global risk",
-     "author": "",
-     "note": "Essay by Eliezer Yudkowsky the guest read; shaped his thinking on AI risk",
-     "video": "qDzg-xvkeXw",
-     "url": null,
-     "ts": 186,
      "date": "2026-11-17"
     }
    ]
@@ -6914,24 +6609,6 @@
    ]
   },
   {
-   "slug": "unknown-host",
-   "name": "Unknown host",
-   "channels": [
-    "@MyFirstMillionPod"
-   ],
-   "books": [
-    {
-     "title": "DARE",
-     "author": "",
-     "note": "Host read it about a month ago; book titled DARE",
-     "video": "c7HzTX9CZic",
-     "url": null,
-     "ts": 2045,
-     "date": "2026-11-15"
-    }
-   ]
-  },
-  {
    "slug": "sean",
    "name": "Sean",
    "channels": [],
@@ -6949,6 +6626,63 @@
   }
  ],
  "ranking": [
+  {
+   "title": "Atomic Habits",
+   "author": "",
+   "people": [
+    "tim-ferriss",
+    "tam-kaur",
+    "iman-gadzhi",
+    "unjaded-jade",
+    "mark-manson",
+    "sandeep-swadia",
+    "ali-abdaal",
+    "mihika"
+   ]
+  },
+  {
+   "title": "Night Sky with Exit Wounds",
+   "author": "",
+   "people": [
+    "henry-shukman"
+   ]
+  },
+  {
+   "title": "A Shropshire Lad",
+   "author": "",
+   "people": [
+    "henry-shukman"
+   ]
+  },
+  {
+   "title": "Mornings in Mexico",
+   "author": "",
+   "people": [
+    "henry-shukman"
+   ]
+  },
+  {
+   "title": "Lady Chatterley's Lover",
+   "author": "",
+   "people": [
+    "henry-shukman"
+   ]
+  },
+  {
+   "title": "The 4-Hour Body",
+   "author": "",
+   "people": [
+    "andrew-huberman",
+    "tim-ferriss"
+   ]
+  },
+  {
+   "title": "Consolations II",
+   "author": "",
+   "people": [
+    "henry-shukman"
+   ]
+  },
   {
    "title": "Hard Times",
    "author": "",
@@ -7110,7 +6844,7 @@
    "author": "",
    "people": [
     "clark-kegley",
-    "bj-rn",
+    "bjorn",
     "andrew-huberman"
    ]
   },
@@ -7329,20 +7063,6 @@
    ]
   },
   {
-   "title": "Atomic Habits",
-   "author": "",
-   "people": [
-    "tam-kaur",
-    "iman-gadzhi",
-    "unjaded-jade",
-    "mark-manson",
-    "sandeep-swadia",
-    "ali-abdaal",
-    "mihika",
-    "tim-ferriss"
-   ]
-  },
-  {
    "title": "Why Men Love Bitches",
    "author": "",
    "people": [
@@ -7390,7 +7110,7 @@
    "author": "",
    "people": [
     "tam-kaur",
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
@@ -7494,83 +7214,12 @@
    ]
   },
   {
-   "title": "The American Way of Death",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
-   "title": "Fun Home",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
-   "title": "Death of an Ordinary Man",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
-   "title": "Do Admit: The Mitford Sisters and Me",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
-   "title": "Memorial Days",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
-   "title": "Mother Mary Comes to Me",
-   "author": "",
-   "people": [
-    "na",
-    "jack-edwards"
-   ]
-  },
-  {
-   "title": "Lise Doucette's hotel book (Afghanistan)",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
-   "title": "Eche Tamul Karan book",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
-   "title": "The Argonauts",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
-   "title": "Kate Moss's Feminist History for Every Day of the Year",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
    "title": "Thinking, Fast and Slow",
    "author": "",
    "people": [
     "aun-abdi",
     "kevan-shah",
-    "bj-rn",
+    "bjorn",
     "mark-manson",
     "sandeep-swadia",
     "jay-shetty"
@@ -8107,7 +7756,7 @@
    "author": "",
    "people": [
     "tim-olukanni",
-    "bj-rn",
+    "bjorn",
     "mark-manson"
    ]
   },
@@ -8273,63 +7922,63 @@
    "title": "Rumi selected poems",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
    "title": "Near to the Wild Heart",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
    "title": "\u00c1gua Viva",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
    "title": "If Not, Winter: Fragments of Sappho",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
    "title": "Les Fleurs du mal",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
    "title": "Poems from the Book of Hours",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
    "title": "Letters to a Young Poet",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
    "title": "Wuthering Heights",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
    "title": "Jane Eyre",
    "author": "",
    "people": [
-    "l-a-crumpton",
+    "lea-crumpton",
     "caitlyn"
    ]
   },
@@ -8337,7 +7986,7 @@
    "title": "Romeo and Juliet",
    "author": "",
    "people": [
-    "l-a-crumpton"
+    "lea-crumpton"
    ]
   },
   {
@@ -8394,8 +8043,7 @@
    "title": "Pride and Prejudice",
    "author": "",
    "people": [
-    "chantal",
-    "40909"
+    "chantal"
    ]
   },
   {
@@ -8606,13 +8254,6 @@
    ]
   },
   {
-   "title": "Tintin",
-   "author": "",
-   "people": [
-    "40909"
-   ]
-  },
-  {
    "title": "The Secret",
    "author": "",
    "people": [
@@ -8642,13 +8283,6 @@
    ]
   },
   {
-   "title": "Neon Ghosts",
-   "author": "",
-   "people": [
-    "na"
-   ]
-  },
-  {
    "title": "Rejection",
    "author": "Tony Tulathimutte",
    "people": [
@@ -8657,6 +8291,13 @@
   },
   {
    "title": "The God of Small Things",
+   "author": "",
+   "people": [
+    "jack-edwards"
+   ]
+  },
+  {
+   "title": "Mother Mary Comes to Me",
    "author": "",
    "people": [
     "jack-edwards"
@@ -8702,157 +8343,6 @@
    "author": "",
    "people": [
     "josh-johnson"
-   ]
-  },
-  {
-   "title": "The Wealth of Nations",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "The Wall Dancers",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "How to Fail at Almost Everything and Still Win Big",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "The Grid",
-   "author": "",
-   "people": [
-    "1052",
-    "bj-rn"
-   ]
-  },
-  {
-   "title": "Code: The Hidden Language of Computer Hardware and Software",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "The Singularity Is Near",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Money: A Story of Humanity",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "The Beginning of Infinity",
-   "author": "",
-   "people": [
-    "1052",
-    "bj-rn"
-   ]
-  },
-  {
-   "title": "The Fabric of Reality",
-   "author": "",
-   "people": [
-    "1052",
-    "bjorn"
-   ]
-  },
-  {
-   "title": "Confessions of an Economic Hit Man",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Geopolitical Alpha",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "I, Robot",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Confessions of an English Opium-Eater",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Zero to One",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Human Action",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "The Ordeal of Change",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Scale",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Democracy: The God That Failed",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "The Theory of Games and Economic Behavior",
-   "author": "",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Game Theory",
-   "author": "Roger McCain",
-   "people": [
-    "1052"
-   ]
-  },
-  {
-   "title": "Fahrenheit 451",
-   "author": "",
-   "people": [
-    "1052",
-    "bjorn"
    ]
   },
   {
@@ -9025,6 +8515,20 @@
   },
   {
    "title": "Prophets, Coaches and Kings: Do Leaders Matter",
+   "author": "",
+   "people": [
+    "bjorn"
+   ]
+  },
+  {
+   "title": "Fahrenheit 451",
+   "author": "",
+   "people": [
+    "bjorn"
+   ]
+  },
+  {
+   "title": "The Fabric of Reality",
    "author": "",
    "people": [
     "bjorn"
@@ -9387,21 +8891,21 @@
    "title": "You Are Not Dead Yet",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The Shallows",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Flow",
    "author": "",
    "people": [
-    "bj-rn",
+    "bjorn",
     "jay-shetty"
    ]
   },
@@ -9409,84 +8913,91 @@
    "title": "Lost Connections",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The Rush",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Blockers: Rebels in the Deep State",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Sleeping Beauties",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Drinking: A Love Story",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Will and Attention",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Vibe",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
+   ]
+  },
+  {
+   "title": "The Beginning of Infinity",
+   "author": "",
+   "people": [
+    "bjorn"
    ]
   },
   {
    "title": "Why We Ask Why",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Human Again in the Age of AI",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The AGI Chronicles",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "You Don't Need a Smartphone",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The New Dark Ages",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
@@ -9710,77 +9221,84 @@
    "title": "The Science of Scaling",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "You're Not Dead Yet",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
+   ]
+  },
+  {
+   "title": "The Grid",
+   "author": "",
+   "people": [
+    "bjorn"
    ]
   },
   {
    "title": "A Brief History of Time",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Code",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Determined",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Behave",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The Sovereign Individual",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The Bitcoin Standard",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The Art of Organizing Thoughts",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Embargo",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Radical Surrender",
    "author": "",
    "people": [
-    "bj-rn",
+    "bjorn",
     "dr-anna-lembke"
    ]
   },
@@ -9788,42 +9306,42 @@
    "title": "Circuit Breakers",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Big Math",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "Hawking",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The Telephone: A New History",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The Everything Code",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
    "title": "The Art of the Sublime",
    "author": "",
    "people": [
-    "bj-rn"
+    "bjorn"
    ]
   },
   {
@@ -10903,21 +10421,14 @@
    "title": "Book of Menus",
    "author": "",
    "people": [
-    "jacques-p-pin"
+    "jacques-pepin"
    ]
   },
   {
    "title": "Book with Julia Child (revised edition)",
    "author": "",
    "people": [
-    "jacques-p-pin"
-   ]
-  },
-  {
-   "title": "The 4-Hour Body",
-   "author": "",
-   "people": [
-    "tim-ferriss"
+    "jacques-pepin"
    ]
   },
   {
@@ -11017,13 +10528,6 @@
    "author": "",
    "people": [
     "andrew-huberman"
-   ]
-  },
-  {
-   "title": "AI as a positive and negative factor in global risk",
-   "author": "",
-   "people": [
-    "guest"
    ]
   },
   {
@@ -11172,13 +10676,6 @@
    "author": "",
    "people": [
     "alex-hormozi"
-   ]
-  },
-  {
-   "title": "DARE",
-   "author": "",
-   "people": [
-    "unknown-host"
    ]
   },
   {
